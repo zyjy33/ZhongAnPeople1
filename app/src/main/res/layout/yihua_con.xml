@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:id="@+id/lay_t"
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/demo7"
+        android:orientation="horizontal" >
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/lay_d"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/lay_t"
+        android:gravity="center"
+        android:orientation="horizontal" >
+
+      <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+       >
+
+        <ToggleButton
+            android:id="@+id/tongxunlu_tog"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/coin_cash_add_selector"
+            android:textOff=""
+            android:textOn="" />
+    </RelativeLayout>
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentBottom="true"
+        android:layout_below="@+id/lay_d" >
+
+        <ListView
+            android:id="@+id/list_view"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:cacheColorHint="#00000000"
+            android:scrollbars="none" />
+
+        <com.zams.www.MyLetterListView
+            android:id="@+id/MyLetterListView01"
+            android:layout_width="30dip"
+            android:layout_height="fill_parent"
+            android:layout_alignParentRight="true"
+            android:background="#40000000" />
+    </RelativeLayout>
+
+</RelativeLayout>

@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <LinearLayout
+            android:id="@+id/lay_t"
+            android:layout_width="match_parent"
+            android:layout_height="65dp"
+            android:layout_alignParentTop="true"
+            android:background="@drawable/demo7"
+            android:orientation="horizontal" >
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/lay_b"
+            android:layout_below="@+id/lay_t" >
+
+            <ListView
+                android:id="@+id/yihua_list"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/no_color"
+                android:cacheColorHint="@color/no_color" >
+                
+            </ListView>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/lay_b"
+            android:layout_width="match_parent"
+            android:layout_height="225dp"
+            android:layout_alignParentBottom="true"
+            android:orientation="vertical" >
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@android:color/background_dark" >
+
+                <EditText
+                    android:id="@+id/yihua_phone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginBottom="4dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginTop="4dp"
+                    android:layout_toLeftOf="@+id/keyboard_delete"
+                    android:background="@drawable/keyboard_edit"
+                    android:enabled="false"
+                    android:hint="请输入拨打号码"
+                    android:paddingLeft="5dp"
+                    android:singleLine="true"
+                    android:textColor="@color/white" />
+
+                <Button
+                    android:id="@+id/keyboard_delete"
+                    android:layout_width="30dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginBottom="15dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginTop="15dp"
+                    android:background="@drawable/keyboard_delete" />
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1" >
+
+                <Button
+                    android:id="@+id/k1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/keyboard_1_select" />
+
+                <Button
+                    android:id="@+id/k2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/keyboard_2_select" />
+
+                <Button
+                    android:id="@+id/k3"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/keyboard_3_select" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1" >
+
+                <Button
+                    android:id="@+id/k4"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/keyboard_4_select" />
+
+                <Button
+                    android:id="@+id/k5"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/keyboard_5_select" />
+
+                <Button
+                    android:id="@+id/k6"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/keyboard_6_select" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1" >
+
+                <Button
+                    android:id="@+id/k7"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/keyboard_7_select" />
+
+                <Button
+                    android:id="@+id/k8"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/keyboard_8_select" />
+
+                <Button
+                    android:id="@+id/k9"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/keyboard_9_select" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1" >
+
+                <Button
+                    android:id="@+id/kx"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/keyboard_x_select" />
+
+                <Button
+                    android:id="@+id/k0"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/keyboard_0_select" />
+
+                <Button
+                    android:id="@+id/kh"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/keyboard_h_select" />
+            </LinearLayout>
+        </LinearLayout>
+    </RelativeLayout>
+
+</LinearLayout>

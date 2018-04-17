@@ -1,0 +1,355 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/logindialog_space"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+
+    <ScrollView
+        android:id="@+id/login_scrollview"
+        android:layout_width="428dp"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:paddingLeft="14.0dip"
+        android:paddingRight="14.0dip"
+        android:paddingTop="14.0dip"
+        android:scrollbars="none" >
+
+        <FrameLayout
+            android:id="@+id/logindialog_view_switcher"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content" >
+
+            <LinearLayout
+                android:id="@+id/load1"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:orientation="vertical"
+                android:paddingBottom="20.0dip"
+                android:paddingTop="30.0dip" >
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="8.0dip"
+                        android:layout_marginTop="10.0dip"
+                        android:ems="6"
+                        android:text="用戶名:"
+                        android:textColor="#ff000000"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/load_name"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="8.0dip"
+                        android:layout_marginRight="8.0dip"
+                        android:layout_marginTop="10.0dip"
+                        android:maxLines="1"
+                        android:selectAllOnFocus="true"
+                        android:singleLine="true"
+                        android:textColor="@android:color/background_dark"
+                        android:textSize="16sp" />
+                </LinearLayout>
+
+                <ImageView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="2.0dip"
+                    android:layout_marginRight="2.0dip"
+                    android:layout_marginTop="5.0dip"
+                    android:scaleType="fitXY" />
+
+                <LinearLayout
+                    android:id="@+id/login_uly"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="8.0dip"
+                        android:layout_marginTop="10.0dip"
+                        android:ems="6"
+                        android:text="可用通券:"
+                        android:textColor="#ff000000"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/load_account"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="8.0dip"
+                        android:layout_marginRight="8.0dip"
+                        android:layout_marginTop="10.0dip"
+                        android:maxLines="1"
+                        android:selectAllOnFocus="true"
+                        android:singleLine="true"
+                        android:textColor="@android:color/background_dark"
+                        android:textSize="16sp" />
+                </LinearLayout>
+
+                <ImageView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="2.0dip"
+                    android:layout_marginRight="2.0dip"
+                    android:layout_marginTop="5.0dip"
+                    android:scaleType="fitXY" />
+
+                <LinearLayout
+                    android:id="@+id/login_uly"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="8.0dip"
+                        android:layout_marginTop="10.0dip"
+                        android:ems="6"
+                        android:text="可用购物通券:"
+                        android:textColor="#ff000000"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/load_shop_pay"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="8.0dip"
+                        android:layout_marginRight="8.0dip"
+                        android:layout_marginTop="10.0dip"
+                        android:maxLines="1"
+                        android:selectAllOnFocus="true"
+                        android:singleLine="true"
+                        android:textColor="@android:color/background_dark"
+                        android:textSize="16sp" />
+                </LinearLayout>
+
+                <ImageView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="2.0dip"
+                    android:layout_marginRight="2.0dip"
+                    android:layout_marginTop="5.0dip"
+                    android:scaleType="fitXY" />
+
+                <LinearLayout
+                    android:id="@+id/login_uly"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="8.0dip"
+                        android:layout_marginTop="10.0dip"
+                        android:ems="6"
+                        android:text="通券支付:"
+                        android:textColor="#ff000000"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/load_pay"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="8.0dip"
+                        android:layout_marginRight="8.0dip"
+                        android:layout_marginTop="10.0dip"
+                        android:maxLines="1"
+                        android:selectAllOnFocus="true"
+                        android:singleLine="true"
+                        android:textColor="@android:color/background_dark"
+                        android:textSize="16sp" />
+                </LinearLayout>
+
+                <ImageView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="2.0dip"
+                    android:layout_marginRight="2.0dip"
+                    android:layout_marginTop="5.0dip"
+                    android:scaleType="fitXY" />
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="7.0dip"
+                    android:layout_weight="1" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="8.0dip"
+                        android:ems="4"
+                        android:text="支付密码:"
+                        android:textColor="#ff000000"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <EditText
+                        android:id="@+id/pay_password"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="8.0dip"
+                        android:layout_marginRight="8.0dip"
+                        android:background="@null"
+                        android:hint="请输入支付密码"
+                        android:maxLines="1"
+                        android:password="true"
+                        android:selectAllOnFocus="true"
+                        android:singleLine="true"
+                        android:textSize="16sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15.0dip" >
+
+                    <Button
+                        android:id="@+id/shop_pay"
+                        android:layout_width="fill_parent"
+                        android:layout_height="45dip"
+                        android:gravity="center"
+                        android:text="支付"
+                        android:textSize="20sp" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <RelativeLayout
+                android:id="@+id/load2"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:paddingBottom="20.0dip"
+                android:paddingTop="30.0dip"
+                android:visibility="gone" >
+
+                <TableLayout
+                    android:id="@+id/login_user_table"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginLeft="15.0dip"
+                    android:layout_marginRight="15.0dip"
+                    android:layout_marginTop="10.0dip"
+                    android:orientation="vertical" >
+
+                    <LinearLayout
+                        android:id="@+id/login_uly"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1" >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="8.0dip"
+                            android:layout_marginTop="10.0dip"
+                            android:ems="4"
+                            android:text="账号"
+                            android:textColor="#ff000000"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+
+                        <EditText
+                            android:id="@+id/login_account"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="8.0dip"
+                            android:layout_marginRight="8.0dip"
+                            android:layout_marginTop="10.0dip"
+                            android:background="@null"
+                            android:hint="请输入恒誉号"
+                            android:maxLines="1"
+                            android:selectAllOnFocus="true"
+                            android:singleLine="true"
+                            android:textSize="16sp" />
+                    </LinearLayout>
+
+                    <ImageView
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="2.0dip"
+                        android:layout_marginRight="2.0dip"
+                        android:layout_marginTop="5.0dip"
+                        android:scaleType="fitXY" />
+
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="7.0dip"
+                        android:layout_weight="1" >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="8.0dip"
+                            android:ems="4"
+                            android:text="密码"
+                            android:textColor="#ff000000"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+
+                        <EditText
+                            android:id="@+id/login_password"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="8.0dip"
+                            android:layout_marginRight="8.0dip"
+                            android:background="@null"
+                            android:hint="请输入登陆密码"
+                            android:maxLines="1"
+                            android:password="true"
+                            android:selectAllOnFocus="true"
+                            android:singleLine="true"
+                            android:textSize="16sp" />
+                    </LinearLayout>
+                </TableLayout>
+
+                <TableLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@+id/login_user_table"
+                    android:layout_alignRight="@+id/login_user_table"
+                    android:layout_below="@+id/login_user_table"
+                    android:orientation="vertical"
+                    android:stretchColumns="0,2" >
+
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5.0dip" >
+
+                        <Button
+                            android:id="@+id/login_btn_login"
+                            android:layout_width="fill_parent"
+                            android:layout_height="45dip"
+                            android:gravity="center"
+                            android:text="登录"
+                            android:textSize="20sp" />
+                    </LinearLayout>
+                </TableLayout>
+            </RelativeLayout>
+        </FrameLayout>
+    </ScrollView>
+
+    <Button
+        android:id="@+id/login_close_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/login_scrollview"
+        android:layout_alignTop="@+id/login_scrollview" />
+
+</RelativeLayout>

@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f0f0f0"
+    android:orientation="vertical" >
+
+    
+     <RelativeLayout
+         android:id="@+id/rl_title"
+         android:layout_width="match_parent"
+         android:layout_height="45dp"
+         android:layout_alignParentTop="true"
+         android:layout_gravity="center_horizontal"
+         android:background="@color/ybs" >
+
+         <TextView
+             android:id="@+id/textView1"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_centerHorizontal="true"
+             android:layout_centerVertical="true"
+             android:text="扫一扫签到"
+             android:textSize="18dip" />
+
+
+         <ImageView
+             android:id="@+id/iv_fanhui"
+             android:layout_width="wrap_content"
+             android:layout_height="20dp"
+             android:layout_alignParentLeft="true"
+             android:layout_centerVertical="true"
+             android:layout_marginLeft="10dp"
+             android:src="@drawable/fanhuijian"
+             android:textSize="18dip" />
+
+     </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/gray" />
+
+<LinearLayout
+        android:id="@+id/ll_zhifu_buju"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:background="@color/white"
+        android:orientation="vertical" >
+
+<Button
+        android:id="@+id/btn_holdr"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/btn_red_3_5_bg"
+        android:text="扫一扫"
+        android:textColor="#FFFFFF"
+        android:textSize="16dp" />
+<Button
+        android:id="@+id/btn_holdr1"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/btn_red_3_5_bg"
+        android:text="服务卡扫一扫"
+        android:textColor="#FFFFFF"
+        android:textSize="16dp" />
+<Button
+        android:id="@+id/btn_holdr2"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="30dp"
+        android:background="@drawable/btn_red_3_5_bg"
+        android:text="手动输入"
+        android:textColor="#FFFFFF"
+        android:textSize="16dp" />
+    </LinearLayout>
+</LinearLayout>

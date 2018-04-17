@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:id="@+id/layout_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/layout_bottom"
+        android:orientation="vertical" >
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/layout_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:gravity="center_vertical" >
+
+        <LinearLayout
+            android:id="@+id/layout1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:orientation="horizontal" >
+
+            <RadioGroup
+                android:id="@+id/yihua_bottom"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:orientation="horizontal" >
+                <RadioButton
+                    android:id="@+id/yb0"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/yihua_b1"
+                    android:button="@null" />
+ 
+                <RadioButton
+                    android:id="@+id/yb1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/yihua_b2"
+                    android:button="@null" />
+                <RadioButton
+                    android:id="@+id/yb2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/yihua_b3"
+                    android:button="@null" />
+                <RadioButton
+                    android:id="@+id/yb3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/yihua_b4"
+                    android:button="@null" />
+            </RadioGroup>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layout2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+                  android:visibility="gone"
+            >
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:layout_weight="104" >
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/yihua_b1"
+                    android:button="@null" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="220" >
+
+                <Button
+                    android:id="@+id/call_send"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/yihua_b_send" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                 android:gravity="center"
+                android:layout_height="match_parent"
+                android:layout_weight="104" >
+
+                <RadioButton
+                    android:id="@+id/call_coste"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/yihua_b3"
+                    android:button="@null" />
+            </LinearLayout>
+        </LinearLayout>
+    </FrameLayout>
+
+</RelativeLayout>

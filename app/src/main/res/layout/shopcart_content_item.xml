@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="@color/white"
+        android:orientation="horizontal" >
+
+        <LinearLayout
+            android:id="@+id/shop_check_layout"
+            android:layout_width="40dp"
+            android:layout_height="match_parent"
+            android:gravity="center" >
+
+            <CheckBox
+                android:id="@+id/shopcart_item_check"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/checkbox_select"
+                android:button="@null" />
+            
+            <TextView 
+                android:id="@+id/shopcart_item_status"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_margin="10dp"
+            android:layout_weight="1"
+            android:orientation="horizontal" >
+
+            <LinearLayout
+                android:layout_width="100dp"
+                android:layout_height="match_parent"
+                android:gravity="center" >
+
+                <ImageView
+                    android:id="@+id/shopcart_item_ico"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:scaleType="fitXY" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical" >
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="2" >
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentLeft="true"
+                        android:layout_toLeftOf="@+id/shopcart_price_layout"
+                        android:layout_weight="1" >
+
+                        <TextView
+                            android:id="@+id/shopcart_item_text"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:ellipsize="end"
+                            android:lines="2"
+                            android:textColor="@color/black" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/shopcart_price_layout"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginLeft="6dp"
+                        android:layout_marginRight="2dp"
+                        android:orientation="vertical" >
+
+                        <TextView
+                            android:id="@+id/shopcart_item_market"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="right|center_vertical"
+                            android:layout_weight="1"
+                            android:gravity="center_vertical"
+                            android:text="￥125"
+                            android:textColor="@color/black" />
+
+                        <TextView
+                            android:id="@+id/shopcart_item_price"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="right|center_vertical"
+                            android:layout_weight="1"
+                            android:gravity="center_vertical"
+                            android:text="￥125"
+                            android:textColor="@color/black" />
+                    </LinearLayout>
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1" >
+
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" >
+
+                        <RelativeLayout
+                            android:id="@+id/view0"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:visibility="gone" >
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:orientation="horizontal"
+                                android:paddingBottom="4dp"
+                                android:paddingLeft="7dp"
+                                android:paddingRight="7dp"
+                                android:paddingTop="4dp" >
+
+                                <TextView
+                                    android:id="@+id/shopcart_item_del"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="match_parent" />
+
+                                <EditText
+                                    android:id="@+id/shopcart_item_num"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="match_parent"
+                                    android:layout_marginLeft="2dp"
+                                    android:layout_marginRight="2dp"
+                                    android:background="@color/no_color"
+                                    android:ems="2"
+                                    android:enabled="false"
+                                    android:gravity="center"
+                                    android:textColor="@color/black" />
+
+                                <TextView
+                                    android:id="@+id/shopcart_item_add"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="match_parent" />
+                            </LinearLayout>
+
+                            <ImageView
+                                android:id="@+id/shopcart_item_clear"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentBottom="true"
+                                android:layout_alignParentRight="true" />
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:id="@+id/view1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" >
+
+                            <LinearLayout
+                                android:id="@+id/shopcart_item_cag"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal" >
+                            </LinearLayout>
+
+                            <TextView
+                                android:id="@+id/shopcart_item_num_tip"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:text="X1" />
+                        </RelativeLayout>
+                    </FrameLayout>
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

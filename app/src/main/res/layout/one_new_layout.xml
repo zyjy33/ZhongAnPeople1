@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    
+ <RelativeLayout
+        android:id="@+id/rl_title"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_alignParentTop="true"
+        android:layout_gravity="center"
+        android:background="@drawable/title" >
+        <TextView
+            android:id="@+id/tv1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:text="最新揭晓"
+            android:textColor="@android:color/white"
+            android:textSize="18dip" />
+    </RelativeLayout>
+    <ListView 
+        android:id="@+id/one_new"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/no_color"
+        android:cacheColorHint="@color/no_color"></ListView>
+</LinearLayout>

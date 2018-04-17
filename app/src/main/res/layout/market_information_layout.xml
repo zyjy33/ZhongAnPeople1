@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:id="@+id/market_content"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:id="@+id/sep_content"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:background="@color/white" >
+
+                <com.lglottery.www.widget.PagerScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:overScrollMode="ifContentScrolls" >
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical" >
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:background="@color/list_diver" />
+
+                        <FrameLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" >
+
+                            <LinearLayout
+                                android:id="@+id/images_layout"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content" >
+
+                                <com.lglottery.www.widget.MyPosterView
+                                    android:id="@+id/market_information_images"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent" >
+                                </com.lglottery.www.widget.MyPosterView>
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="80dp"
+                                android:orientation="horizontal" >
+
+                                <HorizontalScrollView
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_marginBottom="20dp"
+                                    android:layout_marginLeft="20dp"
+                                    android:layout_weight="1" >
+
+                                    <LinearLayout
+                                        android:id="@+id/old_one"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="20dp"
+                                        android:background="@color/ban_louming"
+                                        android:orientation="horizontal"
+                                        android:padding="4dp" >
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="第1期" />
+                                    </LinearLayout>
+                                </HorizontalScrollView>
+
+                                <Button
+                                    android:id="@+id/enter_shop"
+                                    android:layout_width="40dp"
+                                    android:layout_height="40dp"
+                                    android:layout_gravity="right|top"
+                                    android:layout_marginRight="20dp"
+                                    android:layout_marginTop="10dp"
+                                    android:background="@drawable/enter_shop" />
+                            </LinearLayout>
+                        </FrameLayout>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:background="@color/list_diver" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="165dp" >
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_marginLeft="20dp"
+                                android:layout_marginRight="40dp"
+                                android:layout_weight="1"
+                                android:orientation="vertical" >
+
+                                <TextView
+                                    android:id="@+id/market_information_title"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:lines="2"
+                                    android:paddingTop="15dp"
+                                    android:text="123"
+                                    android:textSize="16sp" />
+					 <TextView
+                                    android:id="@+id/market_information_tip"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:lines="2"
+                                    android:paddingTop="15dp"
+                                    android:text="123"
+                                    android:textColor="@color/red"
+                                    android:textSize="13sp" />
+                                <LinearLayout
+                                    android:id="@+id/ll_money"
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_margin="15dp"
+                                    android:orientation="horizontal" >
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="云聚价:"
+                                        android:textColor="#000000" />
+
+                                    <TextView
+                                        android:id="@+id/tv_ware_hengyu_money"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:textColor="#FF0000"
+                                        android:textSize="16dp" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="right|bottom"
+                                        android:layout_marginLeft="20dip"
+                                        android:text="市场价:"
+                                        android:textColor="#000000" />
+
+                                    <TextView
+                                        android:id="@+id/tv_ware_market_money"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:textColor="#666666" />
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:id="@+id/ll_money"
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="15dp"
+                                    android:layout_marginRight="15dp"
+                                    android:layout_marginTop="5dip"
+                                    android:layout_marginBottom="10dp"
+                                    android:orientation="horizontal"
+                                     >
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="聚红包:"
+                                        android:textColor="#000000" />
+
+                                    <TextView
+                                        android:id="@+id/tv_ware_market_jifen"
+                                        android:layout_width="80dp"
+                                        android:layout_height="wrap_content"
+                                        android:textColor="#FF0000"
+                                        android:textSize="16dp" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="right"
+                                        android:layout_marginLeft="40dip"
+                                        android:textColor="#000000" />
+
+                                    <TextView
+                                        android:layout_width="80dp"
+                                        android:layout_height="wrap_content"
+                                        android:textColor="#666666" />
+                                </LinearLayout>
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_marginBottom="8dp"
+                            android:background="@color/list_diver" />
+
+                        <include layout="@layout/market_information_content_bottom" />
+                    </LinearLayout>
+                </com.lglottery.www.widget.PagerScrollView>
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/list_diver" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/market_information_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@color/white"
+        android:orientation="horizontal" >
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:background="#54d5ff"
+            android:gravity="center" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="点评"
+                android:textColor="@color/white" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:background="#f674d6"
+            android:gravity="center" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="收藏"
+                android:textColor="@color/white" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/add_shop"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="3"
+            android:background="#fda42c"
+            android:gravity="center" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="加入购物车"
+                android:textColor="@color/white" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/order_shop_now"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="3"
+            android:background="#f26868"
+            android:gravity="center" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="立刻购买"
+                android:textColor="@color/white" />
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

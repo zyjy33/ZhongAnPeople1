@@ -1,0 +1,339 @@
+ <ScrollView
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/ScrollView01"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+    
+             >
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                >
+        
+        <ImageView
+            android:id="@+id/img_menu"
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            android:scaleType="fitXY"
+             />
+
+		 <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp" >
+
+                <LinearLayout
+                    android:id="@+id/index_item0"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="1dp"
+                    android:layout_weight="1"
+                    android:background="@android:color/white"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:paddingTop="5dp" >
+
+                    
+                    <TextView
+                          android:layout_width="fill_parent"
+                        android:gravity="center"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="抱歉，您还不是服务顾问"
+                         android:textSize="20sp"
+                        android:textColor="#EF8689"
+                         />
+                    <TextView
+                        android:layout_width="fill_parent"
+                        android:gravity="center"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="只有成为服务顾问，才能经销中安民生全网业务"
+                        android:textSize="14sp"
+                        android:textColor="@color/post_work_item" />
+                    
+                </LinearLayout>
+
+              
+
+                
+                  
+            </LinearLayout>
+		<LinearLayout 
+		    android:layout_width="match_parent"
+		    android:layout_height="match_parent"
+		    android:orientation="vertical"
+		    >
+                <Button
+            android:id="@+id/btn_login"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="15dp"
+            android:background="@drawable/bg_red_3_5_login"
+            android:text="升级为服务顾问"
+            android:textColor="#FFFFFF"
+            android:textSize="18dp" />
+                <Button
+            android:id="@+id/btn_chuangke"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="15dp"
+            android:background="@drawable/bg_red_3_5_login"
+            android:text="扫一扫升级服务顾问"
+            android:textColor="#FFFFFF"
+            android:textSize="18dp" />
+                <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:background="@color/white" >
+                    <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:orientation="horizontal"
+                android:background="@color/white" >
+                    <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_gravity="center"
+                    android:background="@color/zamsys" />
+                    </LinearLayout>
+                      <TextView
+                                  android:layout_width="wrap_content"
+                                  android:layout_height="30dp"
+                                  android:text="服务顾问造就服务顾问者梦想"
+                                  android:layout_marginLeft="5dp"
+                                  android:layout_marginRight="5dp"
+                                  android:gravity="center"
+                                  android:textColor="@color/zamsys"
+                                  android:textSize="15sp" />
+                      <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:orientation="horizontal"
+                android:background="@color/white" >
+                    <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_gravity="center"
+                    android:background="@color/zamsys" />
+                    </LinearLayout>
+                      </LinearLayout>
+                      <LinearLayout
+                android:id="@+id/img_btn_address"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@color/white" >
+
+                          <LinearLayout
+                              android:layout_width="0dp"
+                              android:layout_height="match_parent"
+                              android:layout_weight="1"
+                              android:layout_marginLeft="15dp"
+                              android:gravity="center_vertical" >
+
+                              <ImageView
+                                  android:layout_width="30dp"
+                                  android:layout_height="30dp"
+                                  android:layout_marginLeft="0dp"
+                                  android:src="@drawable/sq" />
+<LinearLayout
+                              android:layout_width="0dp"
+                              android:layout_height="match_parent"
+                              android:layout_weight="1"
+                              android:layout_marginLeft="10dp"
+                              android:orientation="vertical"
+                              android:gravity="center_vertical" >
+                              <TextView
+                                  android:layout_width="wrap_content"
+                                  android:layout_height="wrap_content"
+                                  android:text="社区创业"
+                                  android:textColor="@color/black"
+                                  android:textSize="14sp" />
+                              <TextView
+                                  android:layout_width="wrap_content"
+                                  android:layout_height="wrap_content"
+                                  android:text="绑定生活馆，终身服务社区客户；"
+                                  android:textColor="@color/post_work_item"
+                                  android:textSize="12sp" />
+                              </LinearLayout>
+                          </LinearLayout>
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@color/white" >
+
+                          <LinearLayout
+                              android:layout_width="0dp"
+                              android:layout_height="match_parent"
+                              android:layout_weight="1"
+                              android:layout_marginLeft="15dp"
+                              android:gravity="center_vertical" >
+
+                              <ImageView
+                                  android:layout_width="30dp"
+                                  android:layout_height="30dp"
+                                  android:layout_marginLeft="0dp"
+                                  android:src="@drawable/huiy" />
+<LinearLayout
+                              android:layout_width="0dp"
+                              android:layout_height="match_parent"
+                              android:layout_weight="1"
+                              android:layout_marginLeft="10dp"
+                              android:orientation="vertical"
+                              android:gravity="center_vertical" >
+                              <TextView
+                                  android:layout_width="wrap_content"
+                                  android:layout_height="wrap_content"
+                                  android:text="无会员费"
+                                  android:textColor="@color/black"
+                                  android:textSize="14sp" />
+                              <TextView
+                                  android:layout_width="wrap_content"
+                                  android:layout_height="wrap_content"
+                                  android:text="只需充值备货金，享受业务提成；"
+                                  android:textColor="@color/post_work_item"
+                                  android:textSize="12sp" />
+                              </LinearLayout>
+                          </LinearLayout>
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@color/white" >
+
+                          <LinearLayout
+                              android:layout_width="0dp"
+                              android:layout_height="match_parent"
+                              android:layout_weight="1"
+                              android:layout_marginLeft="15dp"
+                              android:gravity="center_vertical" >
+
+                              <ImageView
+                                  android:layout_width="30dp"
+                                  android:layout_height="30dp"
+                                  android:layout_marginLeft="0dp"
+                                  android:src="@drawable/kuc" />
+<LinearLayout
+                              android:layout_width="0dp"
+                              android:layout_height="match_parent"
+                              android:layout_weight="1"
+                              android:layout_marginLeft="10dp"
+                              android:orientation="vertical"
+                              android:gravity="center_vertical" >
+                              <TextView
+                                  android:layout_width="wrap_content"
+                                  android:layout_height="wrap_content"
+                                  android:text="备不备货"
+                                  android:textColor="@color/black"
+                                  android:textSize="14sp" />
+                              <TextView
+                                  android:layout_width="wrap_content"
+                                  android:layout_height="wrap_content"
+                                  android:text="自由选择。灵活你的业务场景；"
+                                  android:textColor="@color/post_work_item"
+                                  android:textSize="12sp" />
+                              </LinearLayout>
+                          </LinearLayout>
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@color/white" >
+
+                          <LinearLayout
+                              android:layout_width="0dp"
+                              android:layout_height="match_parent"
+                              android:layout_weight="1"
+                              android:layout_marginLeft="15dp"
+                              android:gravity="center_vertical" >
+
+                              <ImageView
+                                  android:layout_width="30dp"
+                                  android:layout_height="30dp"
+                                  android:layout_marginLeft="0dp"
+                                  android:src="@drawable/jial" />
+<LinearLayout
+                              android:layout_width="0dp"
+                              android:layout_height="match_parent"
+                              android:layout_weight="1"
+                              android:layout_marginLeft="10dp"
+                              android:orientation="vertical"
+                              android:gravity="center_vertical" >
+                              <TextView
+                                  android:layout_width="wrap_content"
+                                  android:layout_height="wrap_content"
+                                  android:text="一起加入"
+                                  android:textColor="@color/black"
+                                  android:textSize="14sp" />
+                              <TextView
+                                  android:layout_width="wrap_content"
+                                  android:layout_height="wrap_content"
+                                  android:text="推崇服务顾问加入，你有份；"
+                                  android:textColor="@color/post_work_item"
+                                  android:textSize="12sp" />
+                              </LinearLayout>
+                          </LinearLayout>
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginBottom="20dp"
+                android:background="@color/white" >
+
+                          <LinearLayout
+                              android:layout_width="0dp"
+                              android:layout_height="match_parent"
+                              android:layout_weight="1"
+                              android:layout_marginLeft="15dp"
+                              android:gravity="center_vertical" >
+
+                              <ImageView
+                                  android:layout_width="30dp"
+                                  android:layout_height="30dp"
+                                  android:layout_marginLeft="0dp"
+                                  android:src="@drawable/jl" />
+<LinearLayout
+                              android:layout_width="0dp"
+                              android:layout_height="match_parent"
+                              android:layout_weight="1"
+                              android:layout_marginLeft="10dp"
+                              android:orientation="vertical"
+                              android:gravity="center_vertical" >
+                              <TextView
+                                  android:layout_width="wrap_content"
+                                  android:layout_height="wrap_content"
+                                  android:text="业务累计"
+                                  android:textColor="@color/black"
+                                  android:textSize="14sp" />
+                              <TextView
+                                  android:layout_width="wrap_content"
+                                  android:layout_height="wrap_content"
+                                  android:text="做的业绩永远累计，提成节节高；"
+                                  android:textColor="@color/post_work_item"
+                                  android:textSize="12sp" />
+                              </LinearLayout>
+                          </LinearLayout>
+
+            </LinearLayout>
+		</LinearLayout>
+</LinearLayout>
+</ScrollView>

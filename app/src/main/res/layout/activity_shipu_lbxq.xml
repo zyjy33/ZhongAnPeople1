@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical" >
+    <RelativeLayout
+        android:background="@color/white"
+        android:layout_width="match_parent"
+        android:layout_height="60dp" >
+
+        <LinearLayout
+            android:id="@+id/ll_comeback_gaishan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:background="@color/white"
+            android:gravity="center" >
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/jiantou_001" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="返回"
+                android:textColor="#2B2B2B"
+                android:textSize="20dp" />
+        </LinearLayout>
+<TextView
+            android:id="@+id/ll_dingzhibiaoti"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:text="为您推荐"
+            android:textColor="#2B2B2B"
+            android:textSize="20dp" />
+    </RelativeLayout>
+ <LinearLayout
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    <LinearLayout
+        android:id="@+id/l_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white" >
+
+         <com.heathsafy.www.ui.MyScrollView  
+        android:id="@+id/scrollView"  
+        android:layout_width="fill_parent"  
+        android:layout_height="fill_parent" >   
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+        <LinearLayout 
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+         <RelativeLayout
+             android:id="@+id/rl_jiankangdingzhi1"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+              >
+
+             <ImageView
+                 android:id="@+id/iv_tupian"
+                 android:layout_width="match_parent"
+                 android:layout_height="160dp"
+                 android:scaleType="fitXY"
+                  />
+
+             <LinearLayout
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:layout_alignBottom="@+id/iv_tupian"
+                 android:layout_centerHorizontal="true"
+                 android:layout_marginBottom="10dp" >
+
+                 <TextView
+                     android:id="@+id/tv_title"
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:text="我要定制"
+                     android:textColor="#F7F7F7"
+                     android:textSize="20sp" />
+
+             </LinearLayout>
+<!--  
+             <LinearLayout
+                 android:id="@+id/ll_comeback_gaishan"
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:layout_alignParentLeft="true"
+                 android:layout_alignParentTop="true"
+                 android:layout_marginTop="14dp"
+                 android:gravity="center" >
+
+                 <ImageView
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:background="@drawable/jiantou_001" />
+
+                 <TextView
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:text="返回"
+                     android:background="@color/white"
+                     android:textColor="#2B2B2B"
+                     android:textSize="20dp" />
+             </LinearLayout>
+-->
+         </RelativeLayout>
+         <LinearLayout 
+                android:id="@+id/ll_renwu"
+                android:background="#F9683B"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:gravity="center_vertical">
+                <ImageView 
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    />
+                <TextView 
+                    android:layout_marginLeft="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_weight="1"
+                    android:textColor="@color/white"
+                    android:textSize="14dp"
+                    android:text="当前默认显示平和体质内容，点此定制:"/>
+                <ImageView 
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/list_arrow"/>
+            </LinearLayout>
+             <LinearLayout 
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone"
+            android:orientation="vertical">
+            <View
+            android:layout_width="wrap_content"
+            android:layout_height="15dp"
+            android:background="#EFEFF4" />
+         <TextView
+                     android:layout_width="fill_parent"
+                     android:layout_height="wrap_content"
+                     android:padding="15dp"
+                     android:text="菌菇海藻"
+                     android:textSize="15sp" />
+         <View
+            android:layout_width="wrap_content"
+            android:layout_height="15dp"
+            android:background="#EFEFF4" />
+         <TextView
+                     android:layout_width="fill_parent"
+                     android:layout_height="wrap_content"
+                     android:padding="15dp"
+                     android:text="绿叶和果实"
+                     android:textSize="15sp" />
+            <View
+            android:layout_width="wrap_content"
+            android:layout_height="15dp"
+            android:background="#EFEFF4" />
+         <TextView
+                     android:layout_width="fill_parent"
+                     android:layout_height="wrap_content"
+                     android:padding="15dp"
+                     android:text="根茎类"
+                     android:textSize="15sp" />
+         <View 
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#DDDDDD"/>
+         </LinearLayout>
+         
+         <!--
+          <ListView
+            android:id="@+id/main_content0_item1_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            />
+ -->  
+          <ListView
+            android:id="@+id/listview_01"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:descendantFocusability="blocksDescendants"
+            android:layout_marginBottom="0dp"
+            />
+        <com.heathsafy.www.widget.xlist.XListView 
+            android:id="@+id/main_content0_item1_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:dividerHeight="1dp"
+             >
+            </com.heathsafy.www.widget.xlist.XListView>
+        
+        </LinearLayout>
+        </LinearLayout>
+        </LinearLayout>
+        </com.heathsafy.www.ui.MyScrollView>
+        </LinearLayout>
+        </LinearLayout>
+</LinearLayout>

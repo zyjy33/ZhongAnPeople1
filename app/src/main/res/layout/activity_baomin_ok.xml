@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f0f0f0"
+    android:orientation="vertical" >
+
+    
+     <RelativeLayout
+         android:id="@+id/rl_title"
+         android:layout_width="match_parent"
+         android:layout_height="45dp"
+         android:layout_alignParentTop="true"
+         android:layout_gravity="center_horizontal"
+         android:background="@color/ybs" >
+
+         <TextView
+             android:id="@+id/textView1"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_centerHorizontal="true"
+             android:layout_centerVertical="true"
+             android:text="报名"
+             android:textSize="18dip" />
+
+
+         <ImageView
+             android:id="@+id/iv_fanhui"
+             android:layout_width="wrap_content"
+             android:layout_height="20dp"
+             android:layout_alignParentLeft="true"
+             android:layout_centerVertical="true"
+             android:layout_marginLeft="10dp"
+             android:src="@drawable/fanhuijian"
+             android:textSize="18dip" />
+
+     </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/gray" />
+
+<LinearLayout
+        android:id="@+id/ll_zhifu_buju"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:orientation="vertical" >
+
+<LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:background="@color/white" >
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginLeft="0dp"
+                                 android:gravity="center"
+                                android:orientation="horizontal" >
+
+
+                                    <ImageView
+                                        android:layout_width="30dp"
+                                        android:layout_height="30dp"
+                                        android:scaleType="fitXY"
+                                        android:src="@drawable/lglottery_main_selected" />
+
+                                <TextView
+                                     android:id="@+id/tv_activity_ent"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="fill_parent"
+                                    android:layout_marginLeft="10dp"
+                                    android:gravity="center"
+                                    android:text="报名成功"
+                                    android:textColor="@color/black"
+                                    android:textSize="16sp" />
+                            </LinearLayout>
+
+                        </LinearLayout>
+<LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+         android:layout_marginBottom="10dp"
+        android:orientation="horizontal" >
+
+        <ImageView
+            android:id="@+id/img_ware"
+            android:layout_width="90dp"
+            android:layout_height="80dp"
+            android:scaleType="fitXY"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="15dp"
+            android:layout_marginLeft="10dp" />
+
+        <LinearLayout
+            android:id="@+id/ll_wenzi"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:layout_marginLeft="10dip"
+            android:layout_marginRight="10dp"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/tv_ware_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:ellipsize="end"
+                android:lines="2"
+                android:text="地区："
+                android:textSize="15dip" />
+             <TextView
+                android:id="@+id/tv_time"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:gravity="center_vertical"
+                android:text="时间：2017-03-10 12:12:19:31"
+                android:textSize="14dip" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:paddingLeft="0dp"
+                android:paddingRight="0dp" >
+
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                     >
+
+                    <TextView
+                       android:id="@+id/tv_dizhi"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:text="地点："
+                    android:textSize="14dip"/>
+                </LinearLayout>
+            </RelativeLayout>
+
+        </LinearLayout>
+        
+    </LinearLayout>
+
+
+<Button
+        android:id="@+id/btn_holdr"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="30dp"
+        android:background="@drawable/btn_red_3_5_bg"
+        android:text="查看电子票"
+        android:textColor="#FFFFFF"
+        android:textSize="16dp" />
+<View
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="@color/list_diver" />
+    </LinearLayout>
+</LinearLayout>

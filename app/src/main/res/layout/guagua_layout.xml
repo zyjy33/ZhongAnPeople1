@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:id="@+id/rl_title"
+        android:layout_width="match_parent"
+        android:layout_height="45dip"
+        android:background="@drawable/gua_title"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/tv1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginLeft="10dp"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:text="刮啊刮"
+            android:textColor="@android:color/white"
+            android:textSize="19dip" />
+    </RelativeLayout>
+
+    
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/red"
+            android:orientation="vertical" >
+
+            <ImageView
+                android:id="@+id/tag1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="8dp"
+                 />
+
+            <ImageView
+                android:id="@+id/tag2"
+                android:layout_width="wrap_content"
+                android:layout_height="74dp"
+                android:layout_gravity="center_horizontal"
+                 />
+
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="200dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:background="@drawable/gua_ccontent" >
+
+                <LinearLayout
+                    android:id="@+id/gua_jiang"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="10dp"
+                    android:orientation="vertical" >
+                </LinearLayout>
+
+                <RelativeLayout
+                    android:id="@+id/index_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="10dp"
+                    android:background="@color/ff" >
+                  
+					<TextView 
+					    android:id="@+id/result"
+					    android:layout_width="wrap_content"
+					    android:layout_height="wrap_content"
+					    android:layout_marginBottom="15dp"
+					    android:textColor="@color/black"
+					    android:textSize="20sp"
+					    android:layout_centerHorizontal="true"
+					    android:layout_above="@+id/start"
+					    android:gravity="center"
+					    android:text="100聚币刮一次\n聚财挡不住啊！"/>
+                    <Button
+                        android:id="@+id/start"
+                        android:layout_width="150dp"
+                        android:layout_height="50dp"
+                        android:layout_alignParentBottom="true"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginBottom="10dp"
+                        android:textColor="@color/white"
+                        android:gravity="center"
+                        android:text="开始刮奖"
+                        android:textSize="18sp"
+                        android:background="@drawable/btn_add_shop_cart" />
+                </RelativeLayout>
+            </FrameLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="10dp"
+                android:text="活动规则:"
+                android:textColor="@color/ff"
+                android:textSize="17sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="5dp"
+                android:text="刮一次只需100聚币，聚币红包等你拿！红包当现金使用，可以在我们云商聚手机客户端使用。账户必须通过实名认证且设置支付密码，才能成功领取红包。"
+                android:textColor="@color/white" />
+            <Button
+                android:id="@+id/more_gua"
+                android:layout_width="80dp"
+                android:layout_height="35dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/more_gua" />
+        </LinearLayout>
+    
+
+</LinearLayout>

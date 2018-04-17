@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+     >
+<ImageView
+    android:id="@+id/iv_fanhui1"
+    android:layout_width="35dp"
+    android:layout_height="35dp"
+    android:layout_alignParentRight="true"
+    android:layout_alignParentTop="true"
+    android:layout_marginRight="28dp"
+    android:layout_marginTop="80dp"
+    android:src="@drawable/ylyhtc_sc" />
+
+<ImageView
+    android:id="@+id/iv_fanhui3"
+    android:layout_width="120dp"
+    android:layout_height="45dp"
+    android:layout_below="@+id/iv_fanhui2"
+    android:layout_centerHorizontal="true"
+    android:src="@drawable/tixing_haoyou" />
+
+<ImageView
+    android:id="@+id/iv_fanhui2"
+    android:layout_width="match_parent"
+    android:layout_height="300dp"
+    android:layout_below="@+id/iv_fanhui1"
+      android:src="@drawable/ylth_tc"
+    android:layout_centerHorizontal="true"
+    />
+
+<TextView
+    android:id="@+id/textView1"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_alignTop="@+id/iv_fanhui2"
+    android:layout_marginTop="136dp"
+    android:layout_marginRight="30dp"
+    android:layout_toLeftOf="@+id/iv_fanhui1"
+    android:text="将进0.00元"
+    android:textSize="13dip" />
+
+ </RelativeLayout>

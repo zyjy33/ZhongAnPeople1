@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+     <RelativeLayout
+         android:id="@+id/rl_title"
+         android:layout_width="match_parent"
+         android:layout_height="45dp"
+         android:layout_alignParentTop="true"
+         android:layout_gravity="center_horizontal"
+         android:background="@color/ybs" >
+
+         <TextView
+             android:id="@+id/textView1"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_centerHorizontal="true"
+             android:layout_centerVertical="true"
+             android:text="充值"
+             android:textSize="18dip" />
+
+
+         <ImageView
+             android:id="@+id/iv_fanhui"
+             android:layout_width="wrap_content"
+             android:layout_height="20dp"
+             android:layout_alignParentLeft="true"
+             android:layout_centerVertical="true"
+             android:layout_marginLeft="15dp"
+             android:src="@drawable/fanhuijian"
+             android:textSize="18dip" />
+
+     </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/gray" />
+    <LinearLayout 
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_height="match_parent"
+        android:background="@color/white">
+        <FrameLayout 
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+             <ImageView 
+            android:id="@+id/chongzhi_ico"
+            android:layout_width="match_parent"
+            android:scaleType="fitXY"
+            android:layout_height="wrap_content"
+            android:src="@drawable/chongzhi_bg"/>
+             <TextView 
+                 android:id="@+id/yuee"
+                 android:layout_width="wrap_content"
+                 android:layout_gravity="center"
+                 android:textColor="@color/white"
+                 android:textSize="18sp"
+                 android:layout_marginTop="20dp"
+                 android:layout_height="wrap_content"
+                 />
+             <TextView 
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:layout_gravity="bottom|center_horizontal"
+                 android:layout_marginBottom="20dp"
+                 android:textSize="20sp"
+                 android:textColor="@color/black"
+                 android:text="我的余额"/>
+        </FrameLayout>
+       
+        <Button 
+            android:id="@+id/chongzhi_submit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:gravity="center"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            android:text="余额充值"
+            android:textColor="@color/black"
+            android:background="@drawable/shape_bg_round_blue"/>
+         <Button 
+             android:id="@+id/chongzhi_t"
+            android:textColor="@color/black"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+             android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            android:text="提现"
+            android:gravity="center"
+            android:background="@drawable/shape_bg_round_grey"/>
+    </LinearLayout>
+</LinearLayout>

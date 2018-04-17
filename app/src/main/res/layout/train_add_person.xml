@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:id="@+id/rl_title"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_gravity="center"
+        android:background="@drawable/title" >
+
+        <TextView
+            android:id="@+id/tv1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:text="添加乘客"
+            android:textColor="@android:color/white"
+            android:textSize="18dip" />
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ems="4"
+                    android:text="姓名" />
+
+                <EditText
+                    android:id="@+id/v1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="姓名" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ems="4"
+                    android:text="联系电话" />
+
+                <EditText
+                    android:id="@+id/v2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="联系电话" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ems="4"
+                    android:text="票种" />
+
+                <RadioGroup
+                    android:id="@+id/v3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="10dp" >
+
+                    <RadioButton
+                        android:id="@+id/v31"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="成人票" />
+
+                    <RadioButton
+                        android:id="@+id/v32"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="儿童票" />
+
+                    <RadioButton
+                        android:id="@+id/v33"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="军残票" />
+                </RadioGroup>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ems="4"
+                    android:text="证件类型" />
+
+                <RadioGroup
+                    android:id="@+id/v4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="10dp" >
+
+                    <RadioButton
+                        android:id="@+id/v41"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="身份证" />
+
+                    <RadioButton
+                        android:id="@+id/v42"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="港澳通行证" />
+
+                    <RadioButton
+                        android:id="@+id/v43"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="台湾通行证" />
+
+                    <RadioButton
+                        android:id="@+id/v44"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="护照" />
+                </RadioGroup>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ems="4"
+                    android:text="证件号码" />
+
+                <EditText
+                    android:id="@+id/v5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="证件号码" />
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/submit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:text="提交" />
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

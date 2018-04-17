@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:id="@+id/rl_title"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_gravity="center"
+        android:background="@drawable/title" >
+
+        <TextView
+            android:id="@+id/tv1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:text="上海-北京"
+            android:textColor="@android:color/white"
+            android:textSize="18dip" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+       
+
+        <ImageView
+            android:id="@+id/img_01"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/list_div" />
+
+        <ListView
+            android:id="@+id/list_train"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/img_01"
+            android:layout_marginBottom="45dp" />
+
+        <LinearLayout
+            android:id="@+id/ll_paicha"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_alignParentBottom="true"
+            android:background="#666666"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:id="@+id/tv_shuaxuan"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="♨筛选"
+                android:textColor="#ffffff"
+                android:textSize="16dp" />
+
+            <TextView
+                android:id="@+id/tv_paixu"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="↑↓排序"
+                android:textColor="#ffffff"
+                android:textSize="16dp" />
+        </LinearLayout>
+    </RelativeLayout>
+
+</LinearLayout>

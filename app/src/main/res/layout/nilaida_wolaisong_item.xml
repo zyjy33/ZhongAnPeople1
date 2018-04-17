@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="200dp"
+    android:orientation="vertical" >
+
+    <LinearLayout
+         android:id="@+id/click"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:orientation="horizontal" >
+
+        <ImageView
+            android:id="@+id/tag"
+            android:layout_width="60dp"
+            android:layout_height="match_parent"
+            android:layout_margin="10dp"
+            android:background="@drawable/zams_qd"
+            android:scaleType="fitXY" />
+
+        <LinearLayout
+            android:id="@+id/ll_wenzi"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:layout_marginLeft="0dip"
+            android:layout_marginRight="10dp"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="0dp"
+                android:gravity="center_vertical"
+                android:text="去福利馆首页签到"
+                 android:textColor="@color/black"
+                android:textSize="16dip" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp" >
+
+                <TextView
+                    android:id="@+id/content"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="连续签到福利递增"
+                    android:textColor="@color/ban_louming"
+                    android:textSize="13dip" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tv_time"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="连续签到福利递增"
+                android:textColor="@color/ban_louming"
+                android:textSize="12dip" />
+        </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>

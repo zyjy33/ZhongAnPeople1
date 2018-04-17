@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/no_color"
+    android:orientation="vertical"
+    android:padding="0dp" >
+ <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+              android:paddingTop="20dp"
+            android:gravity="right"
+             >
+
+            <ImageView
+                android:id="@+id/iv_guanxi"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_marginRight="15dp"
+                 />
+            <!-- market_information_sep_closed -->
+        </RelativeLayout>
+<LinearLayout 
+    android:id="@+id/ll_zhifu_buju"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/no_color"
+    android:layout_marginBottom="50dp"
+    android:orientation="vertical"
+     >
+    <TextView
+        android:id="@+id/tv_dianhua1"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:background="@drawable/actionsheet_single_selector"
+        android:gravity="center"
+        android:layout_marginTop="10dp"
+        android:text="400-606-1201"
+        android:textColor="@color/black"
+        android:textSize="16sp" />
+    <TextView
+        android:id="@+id/tv_dianhua2"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+            android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:background="@drawable/actionsheet_single_selector"
+        android:gravity="center"
+        android:layout_marginTop="10dp"
+        android:text="010-62575060"
+        android:textColor="@color/black"
+        android:textSize="16sp" />
+    </LinearLayout>
+</LinearLayout>

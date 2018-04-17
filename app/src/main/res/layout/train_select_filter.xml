@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <LinearLayout
+        android:id="@+id/ll_01"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="1dp"
+        android:background="#333333"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/tv_01"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:gravity="center_vertical"
+            android:paddingLeft="15dp"
+            android:text="出发时间"
+            android:textColor="#CCCCCC"
+            android:textSize="16sp" />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginLeft="15dp"
+            android:button="@drawable/ck_login_select"
+            android:gravity="center_vertical"
+            android:paddingLeft="25dp"
+            android:text="早上(00:00 - 06:00)"
+            android:textColor="#ffffff" />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginLeft="15dp"
+            android:button="@drawable/ck_login_select"
+            android:gravity="center_vertical"
+            android:paddingLeft="25dp"
+            android:text="上午(06:00 - 12:00)"
+            android:textColor="#ffffff" />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginLeft="15dp"
+            android:button="@drawable/ck_login_select"
+            android:gravity="center_vertical"
+            android:paddingLeft="25dp"
+            android:text="下午(12:00 - 18:00)"
+            android:textColor="#ffffff" />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginLeft="15dp"
+            android:button="@drawable/ck_login_select"
+            android:gravity="center_vertical"
+            android:paddingLeft="25dp"
+            android:text="晚上(18:00 - 24:00)"
+            android:textColor="#ffffff" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginLeft="15dp"
+            android:gravity="center_vertical"
+            android:text="车次类型"
+            android:textColor="#CCCCCC"
+            android:textSize="16sp" />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginLeft="15dp"
+            android:button="@drawable/ck_login_select"
+            android:gravity="center_vertical"
+            android:paddingLeft="25dp"
+            android:text="高铁动车(G、D、C)"
+            android:textColor="#ffffff" />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="10dp"
+            android:button="@drawable/ck_login_select"
+            android:gravity="center_vertical"
+            android:paddingLeft="25dp"
+            android:text="普通(Z,K,T,L,数字开头)"
+            android:textColor="#ffffff" />
+    </LinearLayout>
+
+</RelativeLayout>

@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="spinnerdialog" parent="@android:style/Theme.Dialog">
+        <item name="android:windowFrame">@null</item>
+        <!-- 边框 -->
+        <item name="android:windowIsFloating">true</item>
+        <!-- 是否浮现在activity之上 -->
+        <item name="android:windowIsTranslucent">false</item>
+        <!-- 半透明 -->
+        <item name="android:windowNoTitle">true</item>
+        <!-- 无标题 -->
+        <item name="android:windowBackground">@color/semi_transparent_w</item>
+        <!-- 背景透明 -->
+        <item name="android:backgroundDimEnabled">false</item>
+        <!-- 模糊 -->
+    </style>
+     <style name="delete_pop_style" parent="@android:style/Theme.Dialog">
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:background">@color/no_color</item>
+        <item name="android:windowBackground">@color/no_color</item>
+        <item name="android:backgroundDimEnabled">true</item>
+        <item name="android:windowAnimationStyle">@style/delete_pop_anim</item>
+    </style>
+     <style name="delete_pop_anim" parent="@android:style/Animation.Dialog">
+        <item name="android:windowEnterAnimation">@anim/push_up_in</item>
+        <item name="android:windowExitAnimation">@anim/push_up_out</item>
+    </style>
+        <style name="market_category_radiobtn">
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:paddingTop">8dip</item>
+        <item name="android:background">@drawable/market_list_radio_btn</item>
+        <item name="android:textColor">@color/market_radiobtn_text</item>
+        <item name="android:button">@null</item>
+    </style>
+    <style name="HengYuShopTitleBackground">
+        <item name="android:background">#C31414</item>
+    </style>
+
+    <style name="test">
+        <item name="android:windowTitleSize">45dp</item>
+        <item name="android:windowTitleBackgroundStyle">@style/HengYuShopTitleBackground</item>
+    </style>
+
+    <style name="mydialog" parent="@android:style/Theme.Dialog">
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowBackground">@color/ban_louming</item>
+    </style>
+
+    <color name="ump_translucent_background">#80000000</color>
+
+    <style name="ump_translucent">
+        <item name="android:windowBackground">@color/ump_translucent_background</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowAnimationStyle">@android:style/Animation.Dialog</item>
+    </style>
+    <style name="main_bottom_btn">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:gravity">center</item>
+        <item name="android:button">@null</item>
+    </style>
+
+    <style name="main_item_text">
+        <item name="android:textColor">@color/main_item_text_color</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+    
+      <style name="popWindow_anim_style" parent="android:Animation">
+        <item name="android:windowEnterAnimation">@anim/pop_up_in</item>
+        <item name="android:windowExitAnimation">@anim/pop_down_out</item>
+    </style>
+    <style name="AnimBottom" parent="@android:style/Animation">
+        <item name="android:windowEnterAnimation">@anim/push_bottom_in</item>
+        <item name="android:windowExitAnimation">@anim/push_bottom_out</item>
+    </style>
+        <style name="DialogStyleBottom" parent="android:Theme.Dialog">
+        <item name="android:windowAnimationStyle">@style/AnimBottom</item>
+        <item name="android:windowFrame">@null</item>
+        <!-- 边框 -->
+        <item name="android:windowIsFloating">false</item>
+        <!-- 是否浮现在activity之上 -->
+        <item name="android:windowIsTranslucent">true</item>
+        <!-- 半透明 -->
+        <item name="android:windowNoTitle">true</item>
+        <!-- 无标题 -->
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <!-- 背景透明 -->
+        <item name="android:backgroundDimEnabled">true</item>
+        <!-- 模糊 -->
+    </style>
+     <!-- 自定义仿IOS的AlertDialog的样式 -->
+    <style name="AlertDialogStyle" parent="@android:style/Theme.Dialog">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowFrame">@null</item>
+        <item name="android:backgroundDimEnabled">true</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsTranslucent">true</item>
+    </style>
+         <style name="mycheckbox" parent="@android:style/Widget.CompoundButton.CheckBox">
+        <item name="android:button">@drawable/checkbox_selectors</item>
+        <item name="android:paddingLeft">10.0dip</item>
+        <item name="android:height">35.0dip</item>
+    </style>
+        <style name="popwindow_delete_btn_anim_style">
+        <item name="android:windowEnterAnimation">@anim/delete_btn_show</item>
+ <!-- 指定显示的动画xml -->
+        <item name="android:windowExitAnimation">@anim/delete_btn_hide</item>
+ <!-- 指定消失的动画xml -->
+
+    </style>
+         
+    
+</resources>

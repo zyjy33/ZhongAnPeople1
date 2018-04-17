@@ -1,0 +1,373 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+      
+    <com.lglottery.www.widget.PagerScrollView
+        android:id="@+id/home_main_scrool"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:overScrollMode="always" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+             android:background="@color/white"
+            android:orientation="vertical" >
+            
+		<LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+
+                <ImageView
+                    android:id="@+id/ling_tip"
+                    android:layout_width="match_parent"
+                    android:layout_height="180dp"
+                    android:scaleType="fitXY" />
+            </LinearLayout>
+            
+		 <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp" >
+
+                <LinearLayout
+                    android:id="@+id/index_item0"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="1dp"
+                    android:layout_weight="1"
+                    android:background="@android:color/white"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:paddingTop="5dp" >
+
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:background="@drawable/ylyh" />
+
+                    <TextView
+                        android:layout_width="fill_parent"
+                        android:gravity="center"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="本月消费养老金"
+                        android:textSize="12sp"
+                        android:textColor="@color/post_work_item" />
+                    
+                    <TextView
+                        android:id="@+id/tv_xfylj"
+                          android:layout_width="fill_parent"
+                        android:gravity="center"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text=""
+                         android:textSize="12sp"
+                        android:textColor="#EF8689"
+                         />
+                    
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/index_item1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@android:color/white"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:paddingTop="5dp" >
+
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:background="@drawable/ylyhye" />
+
+                    <TextView
+                          android:layout_width="fill_parent"
+                        android:gravity="center"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+                        android:layout_marginRight="1dp"
+                        android:layout_marginTop="8dp"
+                        android:text="养老银行余额"
+                         android:textSize="12sp"
+                         android:textColor="@color/post_work_item"
+                         />
+                    
+                   <TextView
+                        android:id="@+id/tv_ylyhye"
+                          android:layout_width="fill_parent"
+                        android:gravity="center"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text=""
+                         android:textSize="12sp"
+                        android:textColor="#FEAD71" />
+                </LinearLayout>
+
+              
+
+                <LinearLayout
+                    android:id="@+id/index_item2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@android:color/white"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:paddingTop="5dp" >
+
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:background="@drawable/syl" />
+
+                    <TextView
+                        android:layout_width="fill_parent"
+                        android:gravity="center"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="收益率"
+                        android:textSize="12sp"
+                        android:textColor="@color/post_work_item" />
+                    <TextView
+                         android:id="@+id/tv_snyly"
+                          android:layout_width="fill_parent"
+                        android:gravity="center"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="5.80%"
+                         android:textSize="12sp"
+                        android:textColor="#3EA3FF" />
+                </LinearLayout>
+                  
+            </LinearLayout>
+		<View
+                    android:layout_width="match_parent"
+                    android:layout_height="10dp"
+                    android:background="@color/dihuise" />
+		<LinearLayout 
+		    android:layout_width="match_parent"
+		    android:layout_height="match_parent"
+		    android:orientation="vertical"
+		    >
+                <Button
+            android:id="@+id/btn_login"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="15dp"
+            android:background="@drawable/bg_red_3_5_login"
+            android:text="养老银行，保障未来"
+            android:textColor="#FFFFFF"
+            android:textSize="18dp" />
+                <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:background="@color/white" >
+                    <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:orientation="horizontal"
+                android:background="@color/white" >
+                    <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_gravity="center"
+                    android:background="@color/juhongse" />
+                    </LinearLayout>
+                      <TextView
+                                  android:layout_width="wrap_content"
+                                  android:layout_height="30dp"
+                                  android:text="养老银行保障未来生活"
+                                  android:layout_marginLeft="5dp"
+                                  android:layout_marginRight="5dp"
+                                  android:gravity="center"
+                                  android:textColor="@color/juhongse"
+                                  android:textSize="15sp" />
+                      <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:orientation="horizontal"
+                android:background="@color/white" >
+                    <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_gravity="center"
+                    android:background="@color/juhongse" />
+                    </LinearLayout>
+                      </LinearLayout>
+                      <LinearLayout
+                android:id="@+id/img_btn_address"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@color/white" >
+
+                          <LinearLayout
+                              android:layout_width="0dp"
+                              android:layout_height="match_parent"
+                              android:layout_weight="1"
+                              android:layout_marginLeft="15dp"
+                              android:gravity="center_vertical" >
+
+                              <ImageView
+                                  android:layout_width="30dp"
+                                  android:layout_height="30dp"
+                                  android:layout_marginLeft="0dp"
+                                  android:src="@drawable/gbxfln" />
+<LinearLayout
+                              android:layout_width="0dp"
+                              android:layout_height="match_parent"
+                              android:layout_weight="1"
+                              android:layout_marginLeft="10dp"
+                              android:orientation="vertical"
+                              android:gravity="center_vertical" >
+                              <TextView
+                                  android:layout_width="wrap_content"
+                                  android:layout_height="wrap_content"
+                                  android:text="改变消费理念"
+                                  android:textColor="@color/black"
+                                  android:textSize="14sp" />
+                              <TextView
+                                  android:layout_width="wrap_content"
+                                  android:layout_height="wrap_content"
+                                  android:text="创导美国式的消费理念，一辈子都在享受生活；"
+                                  android:textColor="@color/post_work_item"
+                                  android:textSize="12sp" />
+                              </LinearLayout>
+                          </LinearLayout>
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@color/white" >
+
+                          <LinearLayout
+                              android:layout_width="0dp"
+                              android:layout_height="match_parent"
+                              android:layout_weight="1"
+                              android:layout_marginLeft="15dp"
+                              android:gravity="center_vertical" >
+
+                              <ImageView
+                                  android:layout_width="30dp"
+                                  android:layout_height="30dp"
+                                  android:layout_marginLeft="0dp"
+                                  android:src="@drawable/tgyzwn" />
+<LinearLayout
+                              android:layout_width="0dp"
+                              android:layout_height="match_parent"
+                              android:layout_weight="1"
+                              android:layout_marginLeft="10dp"
+                              android:orientation="vertical"
+                              android:gravity="center_vertical" >
+                              <TextView
+                                  android:layout_width="wrap_content"
+                                  android:layout_height="wrap_content"
+                                  android:text="提供优质晚年"
+                                  android:textColor="@color/black"
+                                  android:textSize="14sp" />
+                              <TextView
+                                  android:layout_width="wrap_content"
+                                  android:layout_height="wrap_content"
+                                  android:text="首创保险众筹再分配，为用户带来稳健收益；"
+                                  android:textColor="@color/post_work_item"
+                                  android:textSize="12sp" />
+                              </LinearLayout>
+                          </LinearLayout>
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@color/white" >
+
+                          <LinearLayout
+                              android:layout_width="0dp"
+                              android:layout_height="match_parent"
+                              android:layout_weight="1"
+                              android:layout_marginLeft="15dp"
+                              android:gravity="center_vertical" >
+
+                              <ImageView
+                                  android:layout_width="30dp"
+                                  android:layout_height="30dp"
+                                  android:layout_marginLeft="0dp"
+                                  android:src="@drawable/wqbz" />
+<LinearLayout
+                              android:layout_width="0dp"
+                              android:layout_height="match_parent"
+                              android:layout_weight="1"
+                              android:layout_marginLeft="10dp"
+                              android:orientation="vertical"
+                              android:gravity="center_vertical" >
+                              <TextView
+                                  android:layout_width="wrap_content"
+                                  android:layout_height="wrap_content"
+                                  android:text="完全保障"
+                                  android:textColor="@color/black"
+                                  android:textSize="14sp" />
+                              <TextView
+                                  android:layout_width="wrap_content"
+                                  android:layout_height="wrap_content"
+                                  android:text="由各大保险公司为你保驾护航；"
+                                  android:textColor="@color/post_work_item"
+                                  android:textSize="12sp" />
+                              </LinearLayout>
+                          </LinearLayout>
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@color/white" >
+
+                          <LinearLayout
+                              android:layout_width="0dp"
+                              android:layout_height="match_parent"
+                              android:layout_weight="1"
+                              android:layout_marginLeft="15dp"
+                              android:gravity="center_vertical" >
+
+                              <ImageView
+                                  android:layout_width="30dp"
+                                  android:layout_height="30dp"
+                                  android:layout_marginLeft="0dp"
+                                  android:src="@drawable/szsy" />
+<LinearLayout
+                              android:layout_width="0dp"
+                              android:layout_height="match_parent"
+                              android:layout_weight="1"
+                              android:layout_marginLeft="10dp"
+                              android:orientation="vertical"
+                              android:gravity="center_vertical" >
+                              <TextView
+                                  android:layout_width="wrap_content"
+                                  android:layout_height="wrap_content"
+                                  android:text="双重收益"
+                                  android:textColor="@color/black"
+                                  android:textSize="14sp" />
+                              <TextView
+                                  android:layout_width="wrap_content"
+                                  android:layout_height="wrap_content"
+                                  android:text="报低收益加额外高收益；"
+                                  android:textColor="@color/post_work_item"
+                                  android:textSize="12sp" />
+                              </LinearLayout>
+                          </LinearLayout>
+
+            </LinearLayout>
+		</LinearLayout>
+		</LinearLayout>
+		</com.lglottery.www.widget.PagerScrollView>
+</LinearLayout>

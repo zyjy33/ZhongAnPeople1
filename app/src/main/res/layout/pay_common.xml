@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    
+    <RelativeLayout
+            android:id="@+id/pay_click0"
+            android:layout_width="fill_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/tb_top" >
+
+            <ImageView
+                android:id="@+id/tag1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_margin="5dp"
+                android:src="@drawable/rb_unionpay_click" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_toLeftOf="@+id/imageView1"
+                android:layout_toRightOf="@+id/tag1"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:text="账户余额支付"
+                    android:textColor="#000000"
+                    android:textSize="11sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:text="支持余额支付，方便快捷"
+                    android:textColor="#000000"
+                    android:textSize="8sp" />
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/imageView1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="30dp"
+                android:src="@drawable/jiantou" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/pay_click1"
+            android:layout_width="fill_parent"
+            android:layout_height="40dp"
+            android:layout_marginBottom="-2dp"
+            android:background="@drawable/tb_mid" >
+
+            <ImageView
+                android:id="@+id/tag1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_margin="5dp"
+                android:src="@drawable/rb_unionpay_click" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_toLeftOf="@+id/imageView1"
+                android:layout_toRightOf="@+id/tag1"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:text="银行卡支付"
+                    android:textColor="#000000"
+                    android:textSize="11sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:text="支持储蓄卡信用卡，无需开通网银"
+                    android:textColor="#000000"
+                    android:textSize="8sp" />
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/imageView1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="30dp"
+                android:src="@drawable/jiantou" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/pay_click2"
+            android:layout_width="fill_parent"
+            android:layout_height="40dp"
+            android:background="@drawable/tb_mid" >
+
+            <ImageView
+                android:id="@+id/tag1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_margin="5dp"
+                android:src="@drawable/rb_alipay_click" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_toLeftOf="@+id/imageView1"
+                android:layout_toRightOf="@+id/tag1"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:text="支付宝支付"
+                    android:textColor="#000000"
+                    android:textSize="11sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:text="推荐有支付宝账号的用户使用"
+                    android:textColor="#000000"
+                    android:textSize="8sp" />
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/imageView1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="30dp"
+                android:src="@drawable/jiantou" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/pay_click3"
+            android:layout_width="fill_parent"
+            android:layout_height="40dp"
+            android:background="@drawable/tb_down" >
+
+            <ImageView
+                android:id="@+id/tag1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_margin="5dp"
+                android:src="@drawable/rb_unionpay_click" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_toLeftOf="@+id/imageView1"
+                android:layout_toRightOf="@+id/tag1"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:text="微信支付"
+                    android:textColor="#000000"
+                    android:textSize="11sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:text="推荐安装微信5.0及以上版本的使用"
+                    android:textColor="#000000"
+                    android:textSize="8sp" />
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/imageView1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="30dp"
+                android:src="@drawable/jiantou" />
+        </RelativeLayout>
+</LinearLayout>

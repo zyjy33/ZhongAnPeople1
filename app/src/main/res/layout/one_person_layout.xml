@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    
+<RelativeLayout
+        android:id="@+id/rl_title"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_gravity="center"
+        android:background="@drawable/title" >
+
+        <TextView
+            android:id="@+id/tv1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:text="我的聚购记录"
+            android:textColor="@android:color/white"
+            android:textSize="18dip" />
+    </RelativeLayout>
+     <RadioGroup
+            android:id="@+id/orders"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:orientation="horizontal" >
+
+            <RadioButton
+                android:id="@+id/order_item0"
+                style="@style/market_category_radiobtn"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="全部" />
+
+            <RadioButton
+                android:id="@+id/order_item1"
+                style="@style/market_category_radiobtn"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:drawableLeft="@drawable/tabhost_wight_jiange"
+                android:text="进行中" />
+			
+            <RadioButton
+                android:id="@+id/order_item2"
+                style="@style/market_category_radiobtn"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:drawableLeft="@drawable/tabhost_wight_jiange"
+                android:layout_weight="1"
+                android:text="已揭晓" />
+
+            
+        </RadioGroup>
+    <LinearLayout 
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_height="match_parent">
+        <ExpandableListView 
+            android:id="@+id/persons"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/no_color"
+            android:cacheColorHint="@color/no_color"
+            android:childDivider="@color/no_color"
+            android:divider="@drawable/line3"
+            android:dividerHeight="1dp"
+            android:groupIndicator="@null"
+            android:listSelector="@color/no_color"
+            android:scrollbars="none"/>
+    </LinearLayout>
+</LinearLayout>

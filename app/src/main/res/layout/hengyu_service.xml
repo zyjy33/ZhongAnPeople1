@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#e2e1e1"
+    android:orientation="vertical" >
+
+   <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="46dp"
+        android:background="@drawable/title"
+        android:focusable="true"
+        android:focusableInTouchMode="true" >
+
+        <ImageView
+           android:id="@+id/img_user"
+           android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="15dp"
+            android:src="@drawable/home_sao" />
+
+         <EditText
+            android:id="@+id/tv1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="3dp"
+            android:layout_marginBottom="3dp"
+            android:layout_toRightOf="@+id/img_user"
+            android:layout_toLeftOf="@+id/img_shared"
+            android:background="@drawable/shape_bg_title_white"
+            android:paddingLeft="5dp"
+            android:drawableLeft="@drawable/home_edit_tag"
+            android:textSize="12dip" />
+
+        <ImageView
+            android:id="@+id/img_shared"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"
+            android:src="@drawable/home_shared" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="8dp"
+        android:background="#ffffff" >
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical" >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginTop="10dp"
+                    android:orientation="horizontal" >
+
+                    <ImageButton
+                        android:id="@+id/img_micro_coal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="#0000"
+                        android:src="@drawable/service_micro_coal" />
+
+                    <ImageButton
+                        android:id="@+id/img_recharge"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="#0000"
+                        android:src="@drawable/service_recharge" />
+
+                    <ImageButton
+                        android:id="@+id/demo"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="#0000"
+                        android:src="@drawable/service_ic_tickets" />
+
+                    <ImageButton
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="#0000"
+                        android:src="@drawable/service_attractions_tickets" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginTop="10dp"
+                    android:orientation="horizontal" >
+
+                    <ImageButton
+                        android:id="@+id/img_wec"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="#0000"
+                        android:src="@drawable/service_hydropower" />
+
+                    <ImageButton
+                        android:id="@+id/img_lottery"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="#0000"
+                        android:src="@drawable/service_lottery" />
+
+                    <ImageButton
+                        android:id="@+id/img_train"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="#0000"
+                        android:src="@drawable/service_train_tickets" />
+
+                    <ImageButton
+                        android:id="@+id/img_airplane"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="#0000"
+                        android:src="@drawable/service_passenger_ticket" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginTop="10dp"
+                    android:orientation="horizontal" >
+
+                    <ImageButton
+                        android:id="@+id/img_jd"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="#0000"
+                        android:src="@drawable/service_tick_bg" />
+
+                    <ImageButton
+                        android:id="@+id/img_movie"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="#0000"
+                        android:src="@drawable/service_cinema_ticket" />
+
+                    <ImageButton
+                        android:id="@+id/img_hotel"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="#0000"
+                        android:src="@drawable/service_rummery" />
+
+                    <ImageButton
+                        android:id="@+id/img_tuan_three"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="#0000"
+                        android:src="@drawable/service_three_people" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginTop="10dp"
+                    android:orientation="horizontal" >
+
+                    <ImageButton
+                        android:id="@+id/img_collection"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="#0000"
+                        android:src="@drawable/service_collection" />
+
+                    <ImageButton
+                        android:id="@+id/img_wide"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="#0000"
+                        android:src="@drawable/service_city_supermarket" />
+
+                    <ImageButton
+                        android:id="@+id/img_city_wide"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="#0000"
+                        android:src="@drawable/service_city_wide1" />
+
+                    <ImageButton
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="#0000"
+                        android:src="@drawable/service_message_center" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginTop="10dp"
+                    android:orientation="horizontal" >
+
+                    <ImageButton
+                        android:id="@+id/img_ware_classify"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="#0000"
+                        android:src="@drawable/service_ware_classify" />
+
+                    <ImageButton
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="#0000"
+                        android:src="@drawable/service_gold_coin" />
+
+                    <ImageButton
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="#0000"
+                        android:src="@drawable/service_integral" />
+
+                    <ImageButton
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="#0000"
+                        android:src="@drawable/service_abroad1" />
+                </LinearLayout>
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+
+</LinearLayout>

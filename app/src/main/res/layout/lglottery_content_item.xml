@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <FrameLayout
+            android:id="@+id/lglottery_item_goods"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+
+            <ImageView
+                android:id="@+id/lglottery_main_image"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/no_image" />
+
+            <TextView
+                android:id="@+id/lglottery_main_text"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_gravity="bottom"
+                android:background="@color/ban_louming"
+                android:gravity="center_vertical"
+                android:paddingLeft="3dp"
+                android:paddingRight="3dp"
+                android:text="洗面奶"
+                android:textColor="@color/white"
+                android:textSize="20sp" />
+        </FrameLayout>
+
+        <LinearLayout
+            android:id="@+id/lglottery_item_cover"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/ban_louming"
+            android:gravity="center" >
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/lglottery_main_selected" />
+        </LinearLayout>
+    </FrameLayout>
+
+</LinearLayout>

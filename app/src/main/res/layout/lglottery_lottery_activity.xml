@@ -1,0 +1,315 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:id="@+id/lglottery_lottery_title"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/lglottery_title_bg" >
+
+        <TextView
+            android:id="@+id/lglottery_lg_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:textColor="@color/person_btn_text"
+            android:textSize="18sp" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/lottery_bg" >
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="52" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="620"
+            android:orientation="vertical" >
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="95" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="230"
+                android:orientation="vertical" >
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="40" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="190" >
+
+                    <LinearLayout
+                        android:id="@+id/lottery_layout1"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:orientation="vertical" >
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="120" >
+
+                            <View
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="40" />
+
+                            <FrameLayout
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="100" >
+
+                                <ImageView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent" />
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:background="@drawable/lglotteryperson_bg" >
+                                </LinearLayout>
+                            </FrameLayout>
+
+                            <View
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="40" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="70" >
+
+                            <TextView
+                                android:id="@+id/lottery_layout_view1"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:gravity="center"
+                                android:textColor="@color/person_btn_text"
+                                android:textSize="13sp" />
+                        </LinearLayout>
+                    </LinearLayout>
+                    <!-- 2 -->
+
+                    <LinearLayout
+                        android:id="@+id/lottery_layout2"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:orientation="vertical" >
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="120" >
+
+                            <View
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="40" />
+
+                            <FrameLayout
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="100" >
+
+                                <ImageView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent" />
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:background="@drawable/lglotteryperson_bg" >
+                                </LinearLayout>
+                            </FrameLayout>
+
+                            <View
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="40" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="70" >
+
+                            <TextView
+                                android:id="@+id/lottery_layout_view2"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:gravity="center"
+                                android:textColor="@color/person_btn_text"
+                                android:textSize="13sp" />
+                        </LinearLayout>
+                    </LinearLayout>
+                    <!-- 3 -->
+
+                    <LinearLayout
+                        android:id="@+id/lottery_layout3"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:orientation="vertical" >
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="120" >
+
+                            <View
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="40" />
+
+                            <FrameLayout
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="100" >
+
+                                <ImageView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent" />
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:background="@drawable/lglotteryperson_bg" >
+                                </LinearLayout>
+                            </FrameLayout>
+
+                            <View
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="40" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="70" >
+
+                            <TextView
+                                android:id="@+id/lottery_layout_view3"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:gravity="center"
+                                android:textColor="@color/person_btn_text"
+                                android:textSize="13sp" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/lglottery_lottery_content"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="338"
+                android:background="@drawable/lglottery_lolgttery_main" >
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1" >
+
+                    <com.lglottery.www.widget.WheelView
+                        android:id="@+id/lglottery_lottery_go1"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/no_color" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="2dp"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/lglottery_lottery_diver" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1" >
+
+                    <com.lglottery.www.widget.WheelView
+                        android:id="@+id/lglottery_lottery_go2"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/no_color" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="2dp"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/lglottery_lottery_diver" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1" >
+
+                    <com.lglottery.www.widget.WheelView
+                        android:id="@+id/lglottery_lottery_go3"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/no_color" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="468"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="35dp"
+                    android:layout_marginLeft="25dp"
+                    android:layout_marginRight="25dp"
+                    android:layout_marginTop="16dp"
+                    android:background="@drawable/lglottery_person_login" />
+
+                <Button
+                    android:id="@+id/lglottery_lottery_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginRight="50dp"
+                    android:layout_marginTop="70dp"
+                    android:background="@drawable/lglottery_person_btn"
+                    android:gravity="center"
+                    android:text="查看抽奖"
+                    android:textColor="@color/person_btn_text"
+                    android:textSize="25sp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="52" />
+    </LinearLayout>
+
+</LinearLayout>

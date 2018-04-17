@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+     <RelativeLayout
+        android:id="@+id/rl_title"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_alignParentTop="true"
+        android:layout_gravity="center"
+        android:background="@drawable/title" >
+        <TextView
+            android:id="@+id/tv1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:text="计算结果"
+            android:textColor="@android:color/white"
+            android:textSize="18dip" />
+    </RelativeLayout>
+    <LinearLayout 
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:background="@color/ff">
+        <TextView 
+            android:id="@+id/jiexiao"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:layout_marginTop="5dp"
+            />
+        <TextView 
+            android:id="@+id/jiexiaoj"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            />
+    </LinearLayout>
+    <LinearLayout  
+    android:layout_width="match_parent"
+    android:gravity="center_vertical"
+    android:layout_height="30dp"
+    android:padding="5dp"
+    android:orientation="horizontal" >
+    <TextView 
+        android:id="@+id/item0"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="聚购时间"
+        android:textSize="15sp"
+        android:layout_weight="2"/>
+  <TextView 
+        android:id="@+id/item1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="转换数据"
+        android:gravity="left"
+        android:textSize="15sp"
+        android:textColor="@color/ff"
+        android:layout_weight="1"/>
+    <TextView 
+        android:id="@+id/item2"
+        android:text="会员账号"
+        android:layout_width="0dp" 
+        android:textSize="15sp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"/>
+</LinearLayout>
+    <LinearLayout 
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <ListView 
+            android:id="@+id/listview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/no_color"
+            android:cacheColorHint="@color/no_color"></ListView>
+    </LinearLayout>
+</LinearLayout>

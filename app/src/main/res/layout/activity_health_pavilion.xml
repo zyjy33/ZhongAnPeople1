@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+     android:background="@color/baihuise"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:id="@+id/rl_title"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_alignParentTop="true"
+        android:layout_gravity="center_horizontal"
+        android:background="@color/ybs" >
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:text="健康馆"
+            android:textSize="18dip" />
+
+        <ImageView
+            android:id="@+id/iv_fanhui"
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:src="@drawable/fanhuijian"
+            android:textSize="18dip" />
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginBottom="0dp"
+        android:background="@color/gray" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_margin="0dp" >
+
+     <LinearLayout
+            android:id="@+id/index_item0"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@android:color/white"
+            android:gravity="center"
+            android:orientation="vertical" >
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="健康商城"
+                android:textColor="@color/black"
+                android:textSize="15sp" />
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/index_item1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@android:color/white"
+            android:gravity="center"
+            android:orientation="vertical" >
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="症状"
+                android:textColor="@color/black"
+                android:textSize="15sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/index_item2"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@android:color/white"
+            android:gravity="center"
+            android:orientation="vertical" >
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="日常调理"
+                android:textColor="@color/black"
+                android:textSize="15sp" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="2dp"
+        android:layout_marginTop="0dp"
+        android:orientation="horizontal" >
+
+        <ImageView
+            android:id="@+id/cursor1"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:background="@color/hongse" />
+
+        <ImageView
+            android:id="@+id/cursor2"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:background="@color/hongse"
+            android:visibility="invisible" />
+
+        <ImageView
+            android:id="@+id/cursor3"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:background="@color/hongse"
+            android:visibility="invisible" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginBottom="0dp"
+        android:background="@color/gray" />
+
+    <ScrollView
+        android:id="@+id/ss_buju"
+        android:layout_width="match_parent"
+          android:visibility="gone"
+        android:layout_height="wrap_content" >
+
+        <LinearLayout
+            android:id="@+id/ll_buju1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:background="@color/dihuise" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="15dp"
+                android:gravity="center"
+                android:text="时下热门"
+                android:textColor="@color/black"
+                android:textSize="15sp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:background="@color/gray" />
+
+            <com.hengyushop.demo.wec.MyGridView
+                android:id="@+id/gridview2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:horizontalSpacing="0.0dip"
+                android:listSelector="@null"
+                android:numColumns="4"
+                android:scrollbars="none"
+                android:stretchMode="columnWidth"
+                android:verticalSpacing="0.0dip" />
+
+            <ListView
+                android:id="@+id/new_list"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/no_color"
+                android:cacheColorHint="@color/no_color"
+                android:divider="@color/list_diver" />
+        </LinearLayout>
+    </ScrollView>
+    
+      <ListView
+            android:id="@+id/listview_01"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:divider="#00000000"
+            android:descendantFocusability="blocksDescendants"
+            android:layout_marginBottom="0dp"
+            />
+       <com.hengyushop.demo.wec.MyScrollView  
+        android:id="@+id/scrollView"  
+        android:visibility="gone"
+        android:layout_width="match_parent"  
+        android:layout_height="wrap_content" >   
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+            
+              <com.hengyushop.demo.wec.MyGridView
+        android:id="@+id/gridView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+         android:visibility="gone"
+        android:layout_marginBottom="5dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="5dp"
+        android:background="@color/huise_bj"
+        android:cacheColorHint="#00000000"
+        android:gravity="center"
+        android:horizontalSpacing="5dp"
+        android:listSelector="@android:color/transparent"
+        android:numColumns="2"
+        android:verticalSpacing="5dp" />
+        </LinearLayout>
+        </com.hengyushop.demo.wec.MyScrollView>
+
+</LinearLayout>

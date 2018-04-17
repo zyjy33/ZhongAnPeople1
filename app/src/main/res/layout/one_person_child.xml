@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+   
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/ump_sdk_loading_bg"
+    android:padding="15dp"
+    android:orientation="vertical" >
+    <LinearLayout 
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="本次商品您总共拥有"/>
+        <TextView 
+            android:id="@+id/count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/red"
+            android:text="1"/>
+        <TextView 
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="个聚购码"/>
+    </LinearLayout>
+    <View android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@drawable/line3"/>
+	<LinearLayout 
+	    android:id="@+id/person_child_layout"
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:orientation="vertical">
+	    
+	</LinearLayout>
+</LinearLayout>

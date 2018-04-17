@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/lottery_bg"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:id="@+id/lglottery_lottery_title"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/lglottery_title_bg" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="个人中心"
+            android:textColor="@color/person_btn_text"
+            android:textSize="18sp" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="200"
+        android:orientation="vertical" >
+        <include layout="@layout/lglottery_person_layout" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@drawable/lglottery_enter_diver" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="800" >
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="112" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="500" >
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical" >
+
+                    <Button
+                        android:id="@+id/lglottery_person_log"
+                        android:layout_width="match_parent"
+                        android:layout_height="57dp"
+                        android:layout_marginTop="17dp"
+                        android:background="@drawable/lglottery_person_btn"
+                        android:gravity="center"
+                        android:text="抽奖记录"
+                        android:textColor="@color/person_btn_text"
+                        android:textSize="23sp" />
+
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="57dp"
+                        android:layout_marginTop="17dp"
+                        android:background="@drawable/lglottery_person_btn"
+                        android:gravity="center"
+                        android:text="代金券使用清单"
+                        android:textColor="@color/person_btn_text"
+                        android:textSize="23sp" />
+
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="57dp"
+                        android:layout_marginTop="17dp"
+                        android:background="@drawable/lglottery_person_btn"
+                        android:gravity="center"
+                        android:text="现金使用清单"
+                        android:textColor="@color/person_btn_text"
+                        android:textSize="23sp" />
+
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="57dp"
+                        android:layout_marginTop="17dp"
+                        android:background="@drawable/lglottery_person_btn"
+                        android:gravity="center"
+                        android:text="金豆使用清单"
+                        android:textColor="@color/person_btn_text"
+                        android:textSize="23sp" />
+
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="57dp"
+                        android:layout_marginBottom="17dp"
+                        android:layout_marginTop="17dp"
+                        android:background="@drawable/lglottery_person_btn"
+                        android:gravity="center"
+                        android:text="收货地址管理"
+                        android:textColor="@color/person_btn_text"
+                        android:textSize="23sp" />
+                </LinearLayout>
+            </ScrollView>
+        </LinearLayout>
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="112" />
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,575 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:id="@+id/market_content"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:id="@+id/sep_content"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:background="@color/white" >
+
+                <com.lglottery.www.widget.PagerScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:overScrollMode="ifContentScrolls" >
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical" >
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:background="@color/list_diver" />
+
+                        <LinearLayout
+                            android:id="@+id/images_layout"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" >
+
+                            <FrameLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent" >
+
+                                <com.lglottery.www.widget.MyPosterView
+                                    android:id="@+id/market_information_images"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent" >
+                                </com.lglottery.www.widget.MyPosterView>
+
+                                <Button
+                                    android:id="@+id/enter_shop"
+                                    android:layout_width="40dp"
+                                    android:layout_height="40dp"
+                                    android:layout_gravity="right|top"
+                                    android:layout_marginRight="20dp"
+                                    android:layout_marginTop="10dp"
+                                    android:background="@drawable/enter_shop" />
+                            </FrameLayout>
+                        </LinearLayout>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:background="@color/list_diver" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" >
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginRight="10dp"
+                                android:layout_weight="1"
+                                android:orientation="vertical" >
+
+                                <TextView
+                                    android:id="@+id/market_information_title"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:lines="2"
+                                    android:paddingTop="15dp"
+                                    android:text=""
+                                    android:textSize="16sp" />
+
+                                <TextView
+                                    android:id="@+id/market_information_tip"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:visibility="gone"
+                                    android:lines="2"
+                                    android:paddingTop="10dp"
+                                    android:text=""
+                                    android:textColor="@color/red"
+                                    android:textSize="13sp" />
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginBottom="10dp"
+                                    android:layout_marginTop="10dp"
+                                    android:orientation="horizontal" >
+
+                                    <LinearLayout
+                                        android:id="@+id/ll_money"
+                                        android:layout_width="0dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginLeft="8dp"
+                                        android:layout_weight="1"
+                                        android:orientation="vertical" >
+
+                                        <LinearLayout
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                             android:layout_marginBottom="4dp"
+                                            android:orientation="horizontal" >
+
+                                            <TextView
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:ems="4"
+                                                android:gravity="right"
+                                                android:text="云聚价:"
+                                                android:textColor="#000000" />
+
+                                            <TextView
+                                                android:id="@+id/tv_ware_hengyu_money"
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:textColor="#FF0000"
+                                                android:textSize="16dp" />
+                                        </LinearLayout>
+
+                                        <LinearLayout
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:orientation="horizontal" >
+
+                                            <TextView
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:text="聚红包可抵:"
+                                                android:textColor="#000000" />
+
+                                            <TextView
+                                                android:id="@+id/tv_ware_market_jifen"
+                                                android:layout_width="80dp"
+                                                android:layout_height="wrap_content"
+                                                android:textColor="#FF0000"
+                                                android:textSize="16dp" />
+                                        </LinearLayout>
+                                    </LinearLayout>
+
+                                    <LinearLayout
+                                        android:id="@+id/ll_money_ju"
+                                        android:layout_width="0dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginLeft="8dip"
+                                        android:layout_weight="1"
+                                        android:orientation="vertical" >
+
+                                        <LinearLayout
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:gravity="left"
+                                            android:layout_marginBottom="8dp"
+                                            android:orientation="horizontal" >
+
+                                            <TextView
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:layout_gravity="right|bottom"
+                                                android:text="市场价:"
+                                                android:textColor="#000000" />
+
+                                            <TextView
+                                                android:id="@+id/tv_ware_market_money"
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:textColor="#666666" />
+                                        </LinearLayout>
+
+                                        <LinearLayout
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:gravity="left"
+                                            android:orientation="horizontal" >
+
+
+                                            <TextView
+                                                android:id="@+id/tv_integral"
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:textColor="#666666" />
+                                        </LinearLayout>
+                                    </LinearLayout>
+                                </LinearLayout>
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_marginBottom="8dp"
+                            android:background="@color/list_diver" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@color/white"
+                            android:orientation="vertical" >
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="50dp" >
+
+                                <LinearLayout
+                                    android:id="@+id/market_information_sep"
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:gravity="center_vertical" >
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginLeft="20dp"
+                                        android:text="选择:颜色/分类/套餐"
+                                        android:textSize="15sp" />
+                                </LinearLayout>
+
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_vertical"
+                                    android:layout_marginRight="10dp"
+                                    android:background="@drawable/market_information_arrow" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:id="@+id/ll_style"
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="15dip"
+                                android:layout_marginRight="15dip"
+                                android:gravity="center_vertical"
+                                android:orientation="vertical" >
+                            </LinearLayout>
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:layout_marginTop="8dp"
+                                android:background="@color/list_diver" />
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="50dp" >
+
+                                <LinearLayout
+                                    android:id="@+id/market_information_describe"
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:gravity="center_vertical" >
+
+                                    <ImageView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginLeft="10dp" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginLeft="10dp"
+                                        android:text="商品介绍"
+                                        android:textSize="15sp" />
+                                </LinearLayout>
+
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_vertical"
+                                    android:layout_marginRight="10dp"
+                                    android:background="@drawable/market_information_arrow" />
+                            </LinearLayout>
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:background="@color/list_diver" />
+
+                            <LinearLayout
+                                android:id="@+id/market_information_param"
+                                android:layout_width="match_parent"
+                                android:layout_height="50dp" >
+
+                                <LinearLayout
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:gravity="center_vertical" >
+
+                                    <ImageView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginLeft="10dp" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginLeft="10dp"
+                                        android:text="规格参数"
+                                        android:textSize="15sp" />
+                                </LinearLayout>
+
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_vertical"
+                                    android:layout_marginRight="10dp"
+                                    android:background="@drawable/market_information_arrow" />
+                            </LinearLayout>
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:background="@color/list_diver" />
+
+                            <LinearLayout
+                                android:id="@+id/market_information_appraise"
+                                android:layout_width="match_parent"
+                                android:layout_height="50dp" >
+
+                                <LinearLayout
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:gravity="center_vertical" >
+
+                                    <ImageView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginLeft="10dp" />
+
+                                    <TextView
+                                        android:id="@+id/market_information_count"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginLeft="10dp"
+                                        android:text="商品评价"
+                                        android:textSize="15sp" />
+                                </LinearLayout>
+
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_vertical"
+                                    android:layout_marginRight="10dp"
+                                    android:background="@drawable/market_information_arrow" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal" >
+
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="10dp"
+                                    android:background="@drawable/market_tag_bg"
+                                    android:gravity="center"
+                                    android:orientation="vertical" >
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="100%"
+                                        android:textColor="@color/red"
+                                        android:textSize="16sp" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="好评度"
+                                        android:textColor="@color/red"
+                                        android:textSize="16sp" />
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_marginLeft="10dp"
+                                    android:layout_weight="1"
+                                    android:orientation="vertical" >
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="0dp"
+                                        android:layout_weight="1"
+                                        android:gravity="bottom"
+                                        android:orientation="horizontal" >
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="好评(100%)"
+                                            android:textSize="14sp" />
+
+                                        <ProgressBar
+                                            android:id="@+id/market_information_tip0"
+                                            style="?android:attr/progressBarStyleHorizontal"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="8dp"
+                                            android:layout_marginBottom="4dp"
+                                            android:layout_marginLeft="10dp"
+                                            android:layout_marginRight="30dp"
+                                            android:indeterminateOnly="false"
+                                            android:max="10"
+                                            android:orientation="horizontal"
+                                            android:progress="6"
+                                            android:progressBarStyle="@android:style/Widget.ProgressBar.Horizontal"
+                                            android:secondaryProgress="6" />
+                                    </LinearLayout>
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="0dp"
+                                        android:layout_weight="1"
+                                        android:gravity="center_vertical"
+                                        android:orientation="horizontal" >
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="中评(0%)"
+                                            android:textSize="14sp" />
+
+                                        <ProgressBar
+                                            android:id="@+id/market_information_tip1"
+                                            style="?android:attr/progressBarStyleHorizontal"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="8dp"
+                                            android:layout_marginLeft="25dp"
+                                            android:layout_marginRight="30dp"
+                                            android:max="100"
+                                            android:progress="10" />
+                                    </LinearLayout>
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="0dp"
+                                        android:layout_weight="1"
+                                        android:gravity="top" >
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="差评(0%)"
+                                            android:textSize="14sp" />
+
+                                        <ProgressBar
+                                            android:id="@+id/market_information_tip2"
+                                            style="?android:attr/progressBarStyleHorizontal"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="8dp"
+                                            android:layout_marginLeft="25dp"
+                                            android:layout_marginRight="30dp"
+                                            android:layout_marginTop="4dp"
+                                            android:progress="50" />
+                                    </LinearLayout>
+                                </LinearLayout>
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:id="@+id/market_information_appriase"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical" >
+                            </LinearLayout>
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:background="@color/list_diver" />
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:layout_marginTop="8dp"
+                                android:background="@color/list_diver" />
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:layout_marginBottom="8dp"
+                                android:background="@color/list_diver" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </com.lglottery.www.widget.PagerScrollView>
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/list_diver" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/market_information_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@color/white"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/btn_dianping"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:background="#54d5ff"
+            android:gravity="center"
+            android:text="点评"
+            android:textColor="@color/white" >
+        </Button>
+
+        <Button
+            android:id="@+id/btn_collect"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:background="#f674d6"
+            android:gravity="center"
+            android:text="收藏"
+            android:textColor="@color/white" >
+        </Button>
+
+        <Button
+            android:id="@+id/btn_add_shop_cart"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="3"
+            android:background="#fda42c"
+            android:gravity="center"
+            android:text="加入购物车"
+            android:textColor="@color/white" >
+        </Button>
+
+        <LinearLayout
+            android:id="@+id/order_shop_now"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="3"
+            android:background="#f26868"
+            android:gravity="center" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="立刻购买"
+                android:textColor="@color/white" />
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

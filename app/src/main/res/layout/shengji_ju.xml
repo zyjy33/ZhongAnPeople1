@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+      <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:background="@drawable/title"
+        android:focusable="true"
+        android:focusableInTouchMode="true" >
+        
+          <TextView 
+              	android:layout_width="wrap_content"
+              	android:layout_height="wrap_content"
+              	android:layout_centerInParent="true"
+              	android:textColor="@color/white"
+              	android:textSize="18sp"
+              	android:text="VIP特权"/>
+        </RelativeLayout>
+		<LinearLayout 
+		    android:id="@+id/test"
+		    android:orientation="horizontal"
+		    android:layout_width="match_parent"
+		    android:layout_height="wrap_content"
+		    android:background="@drawable/vip_ico">
+		    
+		    
+		</LinearLayout>
+		<LinearLayout 
+		    android:layout_width="match_parent"
+		    android:layout_height="match_parent"
+		    android:orientation="horizontal">
+		    <ListView 
+		        android:id="@+id/vip_list"
+		        android:layout_width="match_parent"
+		        android:layout_height="match_parent"
+		        android:background="@color/no_color"
+		        android:divider="@android:color/darker_gray"
+		        android:dividerHeight="5dp"
+		        android:cacheColorHint="@color/no_color"></ListView>
+		</LinearLayout>
+</LinearLayout>

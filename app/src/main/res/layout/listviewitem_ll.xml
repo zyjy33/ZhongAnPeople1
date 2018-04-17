@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="horizontal" >
+
+    <LinearLayout
+        android:id="@+id/outpatient_check_hospital"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:orientation="horizontal" >
+
+        <LinearLayout
+            android:id="@+id/linear_layout_up"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:layout_margin="10.0dip"
+            android:gravity="center"
+            android:orientation="horizontal" >
+
+            <CheckBox
+                android:id="@+id/item_cb"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/checkbox_select"
+                android:button="@null"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginBottom="15dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginTop="15dp"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/tv_ware_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:maxLines="2"
+                android:textColor="#000000"
+                android:textSize="16dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:id="@+id/tv_1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="云聚价:"
+                    android:textColor="#000000" />
+
+                <TextView
+                    android:id="@+id/tv_color"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:textColor="#FF0000" />
+
+                <TextView
+                    android:id="@+id/tv_2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="35dp"
+                    android:text="市场价:"
+                    android:textColor="#000000" />
+
+                <TextView
+                    android:id="@+id/tv_size"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:textColor="#FF0000" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:id="@+id/tv_3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="数量:"
+                    android:textColor="#000000" />
+
+                <ImageButton
+                    android:id="@+id/img_btn_reduce"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:background="#0000"
+                    android:padding="0dp"
+                    android:src="@drawable/img_btn_reduce_select" />
+                <!--
+ <ImageButton
+                android:id="@+id/img_btn_reduce"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#0000"
+                android:padding="0dp"
+                android:src="@drawable/img_btn_reduce_select" />
+                -->
+
+                <EditText
+                    android:id="@+id/et_number"
+                    android:layout_width="40dip"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:background="@drawable/et_number"
+                    android:gravity="center"
+                    android:maxLength="4"
+                    android:numeric="integer"
+                    android:phoneNumber="true"
+                    android:singleLine="true"
+                    android:textColor="#000000" />
+
+                <ImageButton
+                    android:id="@+id/img_btn_add"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="#0000"
+                    android:padding="0dp"
+                    android:src="@drawable/img_btn_add_select" />
+                <!--
+            <ImageButton
+                android:id="@+id/img_btn_add"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#0000"
+                android:padding="0dp"
+                android:src="@drawable/img_btn_add_select" />
+                -->
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:background="@drawable/shape_bg_round_shopcart_item"
+                    android:orientation="horizontal"
+                    android:padding="3dp"
+                    android:visibility="gone" >
+
+                    <TextView
+                        android:id="@+id/market_information_seps_del"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_gravity="center_vertical"
+                        android:background="@drawable/shopcart_item_del" />
+
+                    <TextView
+                        android:id="@+id/market_information_seps_num"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="2dp"
+                        android:layout_marginRight="2dp"
+                        android:background="@color/no_color"
+                        android:ems="2"
+                        android:enabled="false"
+                        android:gravity="center"
+                        android:textColor="@color/main_item_text_color" />
+
+                    <TextView
+                        android:id="@+id/market_information_seps_add"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_gravity="center_vertical"
+                        android:background="@drawable/shopcart_item_add" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tv_money"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dip"
+                    android:textColor="#FF0000" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>

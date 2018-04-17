@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f0f0f0"
+    android:orientation="vertical" >
+
+     <RelativeLayout
+         android:id="@+id/rl_title"
+         android:layout_width="match_parent"
+         android:layout_height="45dp"
+         android:layout_alignParentTop="true"
+         android:layout_gravity="center_horizontal"
+         android:background="@color/ybs" >
+
+         <TextView
+             android:id="@+id/textView1"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_centerHorizontal="true"
+             android:layout_centerVertical="true"
+             android:text="分享"
+             android:textSize="18dip" />
+
+         <ImageView
+             android:id="@+id/iv_fanhui"
+             android:layout_width="wrap_content"
+             android:layout_height="20dp"
+             android:layout_alignParentLeft="true"
+             android:layout_centerVertical="true"
+             android:layout_marginLeft="10dp"
+             android:src="@drawable/fanhuijian"
+             android:textSize="18dip" />
+
+          <TextView
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_alignParentRight="true"
+              android:layout_alignTop="@+id/iv_fanhui"
+              android:layout_marginRight="17dp"
+              android:text="活动介绍"
+              android:textSize="16dip" />
+
+     </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/gray" />
+    
+    <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="#FFE0EB"
+                    android:orientation="vertical"
+                    >
+<TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="我要推广粉丝"
+                         android:layout_margin="15dp"
+                        android:textSize="14sp"
+                        android:textColor="@color/black" />
+  <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="0dp" >
+
+                <LinearLayout
+                       android:id="@+id/ll_jufen"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="1dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:paddingTop="5dp" >
+
+                    <ImageView
+                         android:id="@+id/iv_zhuti1"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                         />
+
+                    <TextView
+                        android:layout_width="fill_parent"
+                        android:gravity="center"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="我的粉丝"
+                        android:textSize="14sp"
+                        android:textColor="@color/black" />
+                    
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ll_mdmtg"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:paddingTop="5dp" >
+
+                    <ImageView
+                         android:id="@+id/iv_zhuti2"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        />
+
+                    <TextView
+                          android:layout_width="fill_parent"
+                        android:gravity="center"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+                        android:layout_marginRight="1dp"
+                        android:layout_marginTop="10dp"
+                        android:text="面对面推广"
+                         android:textSize="14sp"
+                         android:textColor="@color/black"
+                         />
+                    
+                   
+                </LinearLayout>
+
+</LinearLayout>
+<LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
+
+                <LinearLayout
+                    android:id="@+id/ll_fenxiang"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="1dp"
+                    android:layout_weight="1"
+                      android:layout_marginTop="25dp"
+                    android:layout_marginBottom="20dp"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:paddingTop="5dp" >
+
+                    <ImageView
+                         android:id="@+id/iv_zhuti3"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                         />
+
+                    <TextView
+                        android:layout_width="fill_parent"
+                        android:gravity="center"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="分享到社交平台"
+                        android:textSize="14sp"
+                        android:textColor="@color/black" />
+                    
+                </LinearLayout>
+
+                <LinearLayout
+                     android:id="@+id/ll_fzjf"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginTop="25dp"
+                    android:layout_marginBottom="20dp"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:paddingTop="5dp" >
+
+                    <ImageView
+                         android:id="@+id/iv_zhuti4"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                         />
+
+                    <TextView
+                          android:layout_width="fill_parent"
+                        android:gravity="center"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+                        android:layout_marginRight="1dp"
+                        android:layout_marginTop="10dp"
+                        android:text="发展粉丝的技巧"
+                         android:textSize="14sp"
+                         android:textColor="@color/black"
+                         />
+                    
+                   
+                </LinearLayout>
+
+</LinearLayout>
+</LinearLayout>
+    </LinearLayout>

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:padding="1dp"
+    android:background="@drawable/shape_bg_round_combo" >
+
+    <LinearLayout
+        android:id="@+id/tuan_test"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <!-- 团购信息的图片android:textColor="#ff1e1e1e" -->
+
+        <RelativeLayout
+            android:id="@+id/combo_title_area"
+            android:layout_width="match_parent"
+            android:layout_height="40dp" >
+
+            <TextView
+                android:id="@+id/combo_title_item"
+                android:layout_width="fill_parent"
+                android:layout_height="match_parent"
+                android:layout_alignParentLeft="true"
+                android:layout_marginTop="4.0dip"
+                android:layout_toLeftOf="@+id/title_right_area"
+                android:ellipsize="end"
+                android:gravity="center_vertical"
+                android:paddingLeft="8.0dip"
+                android:singleLine="true"
+                android:text="团购标题"
+                android:textColor="@color/black"
+                android:textSize="16.0dip"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:id="@+id/title_right_area"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="10dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:id="@+id/item_position"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="南头"
+                    android:textColor="@color/text_clo" />
+
+                <ImageView
+                    android:layout_width="1dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:background="@drawable/list_item_vertical_sep" />
+
+                <TextView
+                    android:id="@+id/item_district"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="539m"
+                    android:textColor="@color/text_clo" />
+            </LinearLayout>
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@drawable/line3" />
+
+        <LinearLayout
+            android:id="@+id/combo_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+        </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>

@@ -1,0 +1,136 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/myjufen"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:id="@+id/rl_title"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_alignParentTop="true"
+        android:layout_gravity="center_horizontal"
+        android:background="@color/ybs" >
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:text="我的粉丝"
+            android:textSize="18dip" />
+
+        <ImageView
+            android:id="@+id/iv_fanhui"
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:src="@drawable/fanhuijian"
+            android:textSize="18dip" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignTop="@+id/iv_fanhui"
+            android:layout_marginRight="17dp"
+            android:text="说明"
+            android:textSize="16dip" />
+    </RelativeLayout>
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginBottom="10dp"
+        android:background="@color/gray" />
+
+    <LinearLayout
+        android:id="@+id/img_btn_order"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/white" >
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center_vertical" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="我的粉丝团"
+                android:textColor="@color/black"
+                android:textSize="15sp" />
+        </LinearLayout>
+
+          <TextView
+            android:id="@+id/tv_geshu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:text="0个"
+            android:textColor="@color/ban_louming"
+            android:textSize="14sp" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/yjf" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginRight="10dp"
+            android:visibility="gone"
+            android:background="@drawable/list_arrow" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/gray" />
+
+	    <ListView 
+	        android:id="@+id/new_list"
+	        android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginTop="10dp"
+                android:layout_weight="1"
+	        >
+	    </ListView>
+   
+ 
+    <TextView
+        android:id="@+id/tv_fensi_geshu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="从粉丝团共获得福利总数:0分"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:textColor="@color/ziti_huise"
+        android:textSize="15sp" />
+   <Button
+                    android:id="@+id/btn_settle_accounts"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                     android:layout_marginTop="10dp"
+                      android:layout_marginBottom="10dp"
+                    android:background="@drawable/btn_red_3_5_bg"
+                    android:text="分享赚福利"
+                    android:textColor="#FFFFFF"
+                    android:textSize="18sp" />
+</LinearLayout>

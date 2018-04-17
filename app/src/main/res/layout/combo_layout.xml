@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/text_fro"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="54dp"
+        android:background="@color/title_bg"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="益号有约"
+            android:textColor="@color/title_tip"
+            android:textSize="18sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="38dp"
+        android:background="@color/click_bg"
+        android:orientation="horizontal" >
+
+        <RelativeLayout
+            android:id="@+id/spinner_item1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1" >
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_alignParentLeft="true"
+                android:layout_toLeftOf="@+id/s1" />
+
+            <View
+                android:id="@+id/s1"
+                android:layout_width="10dp"
+                android:layout_height="10dp"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentRight="true"
+                android:background="@drawable/combo_tip_r" />
+        </RelativeLayout>
+
+        <ImageView
+            android:layout_width="1dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:background="@drawable/list_item_vertical_sep" />
+
+        <RelativeLayout
+            android:id="@+id/spinner_item2"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1" >
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_alignParentLeft="true"
+                android:layout_toLeftOf="@+id/s2" />
+
+            <View
+                android:id="@+id/s2"
+                android:layout_width="10dp"
+                android:layout_height="10dp"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentRight="true"
+                android:background="@drawable/combo_tip_r" />
+        </RelativeLayout>
+
+        <ImageView
+            android:layout_width="1dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:background="@drawable/list_item_vertical_sep" />
+
+        <RelativeLayout
+            android:id="@+id/spinner_item3"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1" >
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_alignParentLeft="true"
+                android:layout_toLeftOf="@+id/s3" />
+
+            <View
+                android:id="@+id/s3"
+                android:layout_width="10dp"
+                android:layout_height="10dp"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentRight="true"
+                android:background="@drawable/combo_tip_r" />
+        </RelativeLayout>
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@drawable/line3" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp" >
+
+        <TextView
+            android:id="@+id/combo_top_add"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:text="广东省深圳市"
+            android:textSize="14sp" />
+    </LinearLayout>
+
+    <com.lglottery.www.widget.XListView
+        android:id="@+id/combo_list_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="6dp"
+        android:layout_marginRight="6dp"
+        android:background="@color/trasp"
+        android:cacheColorHint="@color/trasp"
+        android:dividerHeight="5dp" >
+    </com.lglottery.www.widget.XListView>
+
+</LinearLayout>

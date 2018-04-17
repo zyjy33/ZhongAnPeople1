@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:id="@+id/rl_title"
+        android:layout_width="match_parent"
+        android:layout_height="45dip"
+        android:background="@drawable/title"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/tv1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginLeft="10dp"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:text="签到"
+            android:textColor="@android:color/white"
+            android:textSize="19dip" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#5dbb87" >
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <LinearLayout
+                android:id="@+id/layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:background="@drawable/qiandao_bg" />
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp" >
+					<ScrollView 
+					    android:layout_width="match_parent"
+					    android:layout_height="wrap_content">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="150dp"
+                        android:layout_marginBottom="10dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:layout_marginTop="20dp"
+                        android:background="@drawable/shape_bg_round_jifen"
+                        android:orientation="vertical" >
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginRight="20dp"
+                            android:layout_marginTop="55dp"
+                            android:text="1.坚持每周天天签到，首日签到领1聚币，连续签到每日递增1聚币，连续一周后则保持签到8个聚币。" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginRight="20dp"
+                            android:text="2.中途如有漏签，则重新从首日领1聚币开始计算。" />
+                         <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginRight="20dp"
+                            android:text="3.VIP用户签到，则双倍递增聚币" />
+                    </LinearLayout>
+				</ScrollView>
+                    <View
+                        android:layout_width="100dp"
+                        android:layout_height="60dp"
+                        android:layout_marginLeft="20dp"
+                        android:background="@drawable/qiandao_i" />
+                </FrameLayout>
+
+                <TextView
+                    android:id="@+id/jifen_t"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginBottom="20dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <ImageView
+                    android:id="@+id/jifen_c"
+                    android:layout_width="100dp"
+                    android:layout_height="35dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginBottom="20dp" />
+              
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+
+</LinearLayout>

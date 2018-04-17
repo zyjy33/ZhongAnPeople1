@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:id="@+id/lglottery_main_title"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/lglottery_title_bg" >
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/lglottery_main_cancel" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="选择奖品"
+            android:textColor="@color/person_btn_text"
+            android:textSize="19sp" />
+
+        <Button
+            android:id="@+id/lglottery_main_ok"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/lglottery_main_sure" />
+    </RelativeLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentBottom="true"
+        android:layout_below="@+id/lglottery_main_title"
+        android:background="@color/lottery_bg" >
+
+        <GridView
+            android:id="@+id/lglottery_main_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_margin="20px"
+            android:background="@color/no_color"
+            android:cacheColorHint="@color/no_color"
+            android:horizontalSpacing="15px"
+            android:listSelector="@color/no_color"
+            android:numColumns="2"
+            android:verticalSpacing="15px" >
+        </GridView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+
+            <RadioGroup
+                android:id="@+id/lglottery_main_group"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:layout_marginBottom="15dp"
+                android:gravity="center"
+                android:orientation="horizontal" >
+
+                <RadioButton
+                    android:id="@+id/lglottery_main_a"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:background="@drawable/lglotterya_select"
+                    android:button="@null" />
+
+                <RadioButton
+                    android:id="@+id/lglottery_main_b"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:background="@drawable/lglotteryb_select"
+                    android:button="@null" />
+
+                <RadioButton
+                    android:id="@+id/lglottery_main_c"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:background="@drawable/lglotteryc_select"
+                    android:button="@null" />
+            </RadioGroup>
+        </LinearLayout>
+    </FrameLayout>
+
+</RelativeLayout>

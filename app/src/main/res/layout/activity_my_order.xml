@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f0f0f0"
+    android:orientation="vertical" >
+    <LinearLayout
+            android:id="@+id/no_data_no"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_marginTop="10dip"
+            android:orientation="vertical"
+            android:visibility="gone" >
+
+            <include layout="@layout/no_data" />
+        </LinearLayout>
+        
+<!--  
+<include layout="@layout/no_data" />
+    <com.carhairhair.view.PullToRefreshViews
+        android:id="@+id/main_pull_refresh_view"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical" >
+        
+        
+                <ListView
+            android:id="@+id/my_list"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+                    android:background="@color/baihuise"
+            android:divider="@null"
+            android:scrollbars="none" />
+        
+-->
+
+         <com.lglottery.www.widget.PullToRefreshView
+	    android:id="@+id/refresh"
+	    android:layout_width="match_parent"
+	      android:orientation="vertical"
+	    android:layout_height="match_parent">
+	    <ListView 
+	        android:id="@+id/new_list"
+	        android:layout_width="match_parent"
+	        android:layout_height="match_parent"
+	        android:background="@color/no_color"
+	        android:cacheColorHint="@color/no_color"
+	        android:divider="@color/list_diver"
+	        android:dividerHeight="1dp">
+	    </ListView>
+	    </com.lglottery.www.widget.PullToRefreshView>
+	    
+         
+        
+  <!--   </com.carhairhair.view.PullToRefreshViews> --> 
+
+</LinearLayout>

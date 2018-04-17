@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/lottery_bg"
+    android:orientation="horizontal" >
+
+    <View
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="56" />
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="600"
+        android:orientation="vertical" >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:text="1.此游戏需耗费:"
+            android:textColor="@color/white"
+            android:textSize="19sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp" >
+
+            <RadioGroup
+                android:id="@+id/lglottery_enter_rg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+
+                <RadioButton
+                    android:id="@+id/lglottery_enter_rb2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/lglottery_select"
+                    android:button="@null"
+                    android:gravity="center_vertical" />
+
+                
+            </RadioGroup>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="5dp"
+                android:orientation="vertical" >
+
+               
+
+                <TextView
+                    android:id="@+id/lglottery_enter_view2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:textColor="@color/person_btn_text"
+                    android:textSize="18sp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="40dp"
+            android:background="@drawable/lglottery_enter_diver" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:lineSpacingMultiplier="1.5"
+            android:text="2.选择你想抽中的奖品，ABC三类每类选2样奖品。"
+            android:textColor="@color/white"
+            android:textSize="19sp" />
+
+        <Button
+            android:id="@+id/lglottery_enter_go"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="25dp"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/lglottery_person_btn"
+            android:gravity="center"
+            android:text="去选择奖品"
+            android:textColor="@color/person_btn_text"
+            android:textSize="20sp" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="56" />
+
+</LinearLayout>

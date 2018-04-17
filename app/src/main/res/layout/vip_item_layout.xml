@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    <RelativeLayout
+        android:id="@+id/rl_title"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_gravity="center"
+        android:background="@drawable/title" >
+
+        <TextView
+            android:id="@+id/VIP特权"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:text="VIP特权与升级说明"
+            android:textColor="@android:color/white"
+            android:textSize="18dip" />
+    </RelativeLayout>
+	<TextView 
+	    	android:layout_width="match_parent"
+	    	android:layout_height="wrap_content"
+	    	android:text="VIP用户：指普通用户升级后，享受到商城平台更多优惠、并享受体验分享有一定利润的用户。
+促进升级的流程和策略：
+\n\t1、储购宝分享对普通用户的有利信息，包括VIP的优惠计划和优惠政策。
+\n\t2、具体可设置多个套餐或者活动：
+365套餐：
+\n\t（1）享有1元购。在活动商城享受1元钱买到100元—200元价值的产品。
+\n\t（2）可享受商城平台所以会员价。
+\n\t（3）注册成功赠送2000可用福利和36000待激活福利。可用福利随时可用商城消费和兑换。
+\n\t待激活福利的激活方式：
+\n\t经验指数：分享给友情用户购物可激活福利。（比例为1:1）。
+\n\t贡献指数：自己购物、商城消费可激活。（比例为1:10）。
+\n\t成长指数：买套餐、分享成功VIP、存储可激活。存储是按照1元=100福利计算。比如存储10万元就赠送待激活福利1000万福利。
+
+\n\t成长指数↑=贡献指数↑+经验指数↑
+	    	"/>
+</LinearLayout>

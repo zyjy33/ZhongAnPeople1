@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/fly_pop_1"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:paddingBottom="5dp"
+            android:paddingTop="5dp"
+            android:tag="1"
+            android:text="身份证"
+            android:textColor="@color/white"
+            android:textSize="17sp" />
+
+        <TextView
+            android:id="@+id/fly_pop_2"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:paddingBottom="5dp"
+            android:paddingTop="5dp"
+            android:tag="2"
+            android:text="护照"
+            android:textColor="@color/white"
+            android:textSize="17sp" />
+
+        <TextView
+            android:id="@+id/fly_pop_3"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:paddingBottom="5dp"
+            android:paddingTop="5dp"
+            android:tag="3"
+            android:text="军官证"
+            android:textColor="@color/white"
+            android:textSize="17sp" />
+
+        <TextView
+            android:id="@+id/fly_pop_4"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:paddingBottom="5dp"
+            android:paddingTop="5dp"
+            android:tag="4"
+            android:text="士兵证"
+            android:textColor="@color/white"
+            android:textSize="17sp" />
+
+        <TextView
+            android:id="@+id/fly_pop_5"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:paddingBottom="5dp"
+            android:paddingTop="5dp"
+            android:tag="5"
+            android:text="台胞证"
+            android:textColor="@color/white"
+            android:textSize="17sp" />
+
+        <TextView
+            android:id="@+id/fly_pop_6"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:paddingBottom="5dp"
+            android:paddingTop="5dp"
+            android:tag="6"
+            android:text="其他"
+            android:textColor="@color/white"
+            android:textSize="17sp" />
+    </LinearLayout>
+
+</LinearLayout>

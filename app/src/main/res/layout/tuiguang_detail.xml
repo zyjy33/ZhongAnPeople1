@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:id="@+id/rl_title"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_alignParentTop="true"
+        android:layout_gravity="center"
+        android:background="@drawable/title" >
+
+        <TextView
+            android:id="@+id/tv1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:text="推广分享"
+            android:textColor="@android:color/white"
+            android:textSize="18dip" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/down"
+        android:layout_below="@+id/rl_title"
+        android:orientation="vertical" >
+			<TextView 
+			    	android:id="@+id/title"
+			    	android:layout_width="match_parent"
+			    	android:layout_height="wrap_content"
+			    	android:textColor="@color/black"
+			    	android:layout_marginLeft="3dp"
+			    	android:layout_marginRight="3dp"
+			    	android:textSize="17sp"
+			    	 />
+				<TextView 
+			    	android:id="@+id/time"
+			    	android:layout_marginLeft="8dp"
+			    	android:layout_width="match_parent"
+			    	android:layout_height="wrap_content"
+			    	android:textSize="12sp"
+			    	 />
+        <WebView
+            android:id="@+id/content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/down"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="5dp" >
+
+        <Button
+            android:id="@+id/fenxiang"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/btn_select"
+            android:text="分享"
+            android:textColor="#FFFFFF"
+            android:textSize="20dp" />
+    </LinearLayout>
+
+</RelativeLayout>

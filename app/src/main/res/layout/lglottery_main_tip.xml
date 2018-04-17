@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/ban_louming"
+        android:orientation="horizontal" >
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="42" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="624"
+            android:orientation="vertical" >
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="194" />
+            <!-- android:background="@drawable/lglottery_pop_bg" -->
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="868" >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_margin="14dp"
+                    android:background="@drawable/lglottery_pop_bg" >
+
+                    <ScrollView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:padding="14dp" >
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical" >
+						
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="30dp"
+                                android:text="奖品需暂扣您50，抽奖结束后未抽中C类奖品的用户，系统将自动返还50。"
+                                android:textColor="@color/person_btn_text"
+                                android:textSize="15sp" />
+
+                            <Button
+                                android:layout_width="match_parent"
+                                android:layout_height="50dp"
+                                android:layout_marginLeft="20dp"
+                                android:layout_marginRight="20dp"
+                                android:layout_marginTop="30dp"
+                                android:background="@drawable/lglottery_person_btn"
+                                android:gravity="center"
+                                android:text="代金券50元"
+                                android:textColor="@color/person_btn_text"
+                                android:textSize="23sp" />
+
+                            <Button
+                                android:layout_width="match_parent"
+                                android:layout_height="50dp"
+                                android:layout_marginLeft="20dp"
+                                android:layout_marginRight="20dp"
+                                android:layout_marginTop="20dp"
+                                android:background="@drawable/lglottery_person_btn"
+                                android:gravity="center"
+                                android:text="现金券50元"
+                                android:textColor="@color/person_btn_text"
+                                android:textSize="23sp" />
+
+                            <Button
+                                android:layout_width="match_parent"
+                                android:layout_height="50dp"
+                                android:layout_marginLeft="20dp"
+                                android:layout_marginRight="20dp"
+                                android:layout_marginTop="20dp"
+                                android:background="@drawable/lglottery_person_btn"
+                                android:gravity="center"
+                                android:text="金豆50颗"
+                                android:textColor="@color/person_btn_text"
+                                android:textSize="23sp" />
+                        </LinearLayout>
+                    </ScrollView>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="top|right" >
+
+                    <Button
+                        android:id="@+id/lglottery_pop_closed"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/lglottery_pop_closed" />
+                </LinearLayout>
+            </FrameLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="194" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="42" />
+    </LinearLayout>
+
+</LinearLayout>

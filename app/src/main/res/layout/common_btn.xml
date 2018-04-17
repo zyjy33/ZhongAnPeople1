@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RadioButton xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/market_category_radiobtn"
+    android:layout_marginLeft="2dp"
+    android:layout_marginRight="4dp"
+       android:background="@drawable/xiabiao"
+   />
+
+   <!--style="@style/market_category_radiobtn"
+    android:background="@drawable/xiabiao" -->

@@ -1,0 +1,64 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/baihuise"
+    android:orientation="vertical" >
+ <RelativeLayout
+         android:id="@+id/rl_title"
+         android:layout_width="match_parent"
+         android:layout_height="45dp"
+         android:layout_alignParentTop="true"
+         android:layout_gravity="center_horizontal"
+         android:background="@color/ybs" >
+
+         <TextView
+             android:id="@+id/textView1"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_centerHorizontal="true"
+             android:layout_centerVertical="true"
+             android:text="聚团购"
+             android:textSize="18dip" />
+
+         <ImageView
+             android:id="@+id/iv_fanhui"
+             android:layout_width="wrap_content"
+             android:layout_height="20dp"
+             android:layout_alignParentLeft="true"
+             android:layout_centerVertical="true"
+             android:layout_marginLeft="10dp"
+             android:src="@drawable/fanhuijian"
+             android:textSize="18dip" />
+
+     </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/gray" />
+        
+    
+	    	<FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+	    	<com.lglottery.www.widget.PullToRefreshView
+	    android:id="@+id/refresh"
+	    android:layout_width="match_parent"
+	      android:orientation="vertical"
+	    android:layout_height="match_parent">
+	    <ListView 
+	        android:id="@+id/new_list"
+	        android:layout_width="match_parent"
+	        android:layout_height="match_parent"
+	        android:background="@color/no_color"
+	        android:cacheColorHint="@color/no_color"
+	        android:divider="@color/list_diver"
+	        android:dividerHeight="1dp">
+	    </ListView>
+	</com.lglottery.www.widget.PullToRefreshView>
+	    
+	</FrameLayout>
+	    
+            
+</LinearLayout>

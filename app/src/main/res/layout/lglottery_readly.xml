@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/lottery_bg"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:id="@+id/lglottery_lottery_title"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/lglottery_title_bg" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="支付押金"
+            android:textColor="@color/person_btn_text"
+            android:textSize="18sp" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="20dp" >
+
+        <TextView
+            android:id="@+id/lglottery_realdy_tip"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:lineSpacingMultiplier="1.5"
+            android:textColor="@color/white"
+            android:textSize="15sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/lglottery_realdy_tip"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="338"
+                android:orientation="vertical" >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1" >
+
+                    <RelativeLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="460"
+                        android:orientation="vertical" >
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp"
+                            android:layout_centerVertical="true"
+                            android:background="@drawable/lglottery_person_login"
+                            android:padding="4dp" >
+
+                            <TextView
+                                android:id="@+id/readly_jd"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_toLeftOf="@+id/readly_jd_btn"
+                                android:gravity="center_vertical"
+                                android:textColor="@color/person_btn_text" />
+
+                            <CheckBox
+                                android:id="@+id/readly_jd_btn"
+                                android:layout_width="32dp"
+                                android:layout_height="match_parent"
+                                android:layout_alignParentRight="true"
+                                android:background="@drawable/lglotterreadly_select"
+                                android:button="@null" />
+                        </RelativeLayout>
+                    </RelativeLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginTop="3dp"
+                    android:layout_weight="1" >
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="460" >
+
+                        <RelativeLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="460"
+                            android:orientation="vertical" >
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="40dp"
+                                android:layout_centerVertical="true"
+                                android:background="@drawable/lglottery_person_login"
+                                android:padding="4dp" >
+
+                                <TextView
+                                    android:id="@+id/readly_xjq"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_toLeftOf="@+id/readly_xjq_btn"
+                                    android:gravity="center_vertical"
+                                    android:textColor="@color/person_btn_text" />
+
+                                <CheckBox
+                                    android:id="@+id/readly_xjq_btn"
+                                    android:layout_width="32dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_alignParentRight="true"
+                                    android:background="@drawable/lglotterreadly_select"
+                                    android:button="@null" />
+                            </RelativeLayout>
+                        </RelativeLayout>
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="198" >
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="204" >
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:text="支付密码"
+                        android:textColor="@color/person_btn_text"
+                        android:textSize="16sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="460" >
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:layout_gravity="center_vertical"
+                        android:background="@drawable/lglottery_person_login" >
+
+                        <EditText
+                            android:id="@+id/readly_mm"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center_vertical"
+                            android:background="@color/no_color"
+                            android:password="true"
+                            android:textColor="@color/person_btn_text" />
+                    </RelativeLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="322"
+                android:paddingLeft="30dp"
+                android:paddingRight="30dp" >
+
+                <Button
+                    android:id="@+id/lottery_pay"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/lglottery_person_btn"
+                    android:gravity="center"
+                    android:text="确定"
+                    android:textColor="@color/person_btn_text"
+                    android:textSize="23sp" />
+            </LinearLayout>
+        </LinearLayout>
+    </RelativeLayout>
+
+</LinearLayout>

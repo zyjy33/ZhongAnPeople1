@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+     <RelativeLayout
+         android:id="@+id/rl_title"
+         android:layout_width="match_parent"
+         android:layout_height="45dp"
+         android:layout_alignParentTop="true"
+         android:layout_gravity="center_horizontal"
+         android:background="@color/ybs" >
+
+         <TextView
+             android:id="@+id/textView1"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_centerHorizontal="true"
+             android:layout_centerVertical="true"
+             android:text="商家标签"
+             android:textSize="18dip" />
+
+         <TextView
+             android:id="@+id/tv_queren"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_alignBaseline="@+id/textView1"
+             android:layout_alignBottom="@+id/textView1"
+             android:layout_alignParentRight="true"
+             android:layout_marginRight="15dp"
+             android:text="确定"
+             android:textSize="16dip" />
+
+         <ImageView
+             android:id="@+id/iv_fanhui"
+             android:layout_width="wrap_content"
+             android:layout_height="20dp"
+             android:layout_alignParentLeft="true"
+             android:layout_centerVertical="true"
+             android:layout_marginLeft="10dp"
+             android:src="@drawable/fanhuijian"
+             android:textSize="18dip" />
+
+     </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/gray" />
+    <TextView
+        android:id="@+id/tag_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/common_margin"
+        android:paddingRight="@dimen/common_margin"
+        android:paddingTop="16.0dip"
+        android:gravity="center"
+        android:text="标签 （选择1-3项）"
+        android:textColor="@color/color_shenhui"
+        android:textSize="16.0sp" />
+    <TextView
+        android:id="@+id/tag_shanchu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/common_margin"
+        android:paddingRight="@dimen/common_margin"
+        android:paddingTop="5dp"
+        android:layout_marginLeft="0dp"
+        android:text="点击标签可删除"
+        android:visibility="gone"
+        android:textColor="@color/hongse"
+        android:textSize="12sp" />
+    <com.niceapp.lib.tagview.widget.TagListView
+        xmlns:f="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/tagview1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:paddingBottom="@dimen/common_margin"
+        android:paddingLeft="@dimen/common_margin"
+        android:paddingRight="@dimen/common_margin"
+        android:paddingTop="0dip"
+        f:horizontalSpacing="@dimen/tag_horizontal_spacing"
+        f:orientation="horizontal"
+        f:verticalSpacing="@dimen/tag_vertical_spacing" />
+    
+     <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/color_shenhui" />
+            
+
+    <com.niceapp.lib.tagview.widget.TagListView
+        xmlns:f="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/tagview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:paddingBottom="@dimen/common_margin"
+        android:paddingLeft="@dimen/common_margin"
+        android:paddingRight="@dimen/common_margin"
+        android:paddingTop="10dip"
+        f:horizontalSpacing="@dimen/tag_horizontal_spacing"
+        f:orientation="horizontal"
+        f:verticalSpacing="@dimen/tag_vertical_spacing" />
+
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:gravity="center"
+        android:text="Button" />
+
+</LinearLayout>

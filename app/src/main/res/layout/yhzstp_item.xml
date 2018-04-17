@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:layout_margin="0.0dip"
+    android:background="@color/white" >
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="100dp"
+        android:orientation="vertical"
+        android:padding="10dp"
+        android:background="@color/white"
+         >
+
+        <ImageView
+            android:id="@+id/iv_item"
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent"
+            android:scaleType="fitXY"
+            android:background="@drawable/zuobian" 
+            />
+
+         <ImageView
+            android:id="@+id/iv_item1"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+             android:visibility="gone"
+            android:layout_centerHorizontal="true"
+            android:contentDescription="@string/app_name" />
+
+    </LinearLayout>
+    <LinearLayout
+                android:id="@+id/ll_shangping"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                 android:visibility="gone"
+                android:layout_marginBottom="10dp"
+                android:background="@color/white" >
+
+                <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:layout_marginLeft="0dp"
+                        android:layout_gravity="center_vertical"
+                         >
+                        <ImageView
+                            android:id="@+id/iv_biaoti1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="200dp"
+                            android:scaleType="fitXY"
+                            android:background="@drawable/zuobian" 
+                            />
+<!--  -->
+
+                    </LinearLayout>
+                     <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="6dp"
+                android:orientation="vertical"
+                 >
+                <ImageView
+                    android:id="@+id/iv_biaoti2"
+                        android:layout_width="100dp"
+                        android:layout_height="97dp"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/youbian" />
+               <ImageView
+                   android:id="@+id/iv_biaoti3"
+                        android:layout_width="100dp"
+                        android:layout_height="97dp"
+                        android:scaleType="fitXY"
+                        android:layout_marginTop="6dp"
+                        android:src="@drawable/youbian2" />
+                </LinearLayout>
+                
+            </LinearLayout>
+
+</RelativeLayout>

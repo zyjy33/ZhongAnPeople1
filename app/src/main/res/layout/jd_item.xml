@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="100dp"
+    android:orientation="horizontal" >
+
+    <ImageView
+        android:id="@+id/item0"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_margin="10dp"
+        android:scaleType="fitXY" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="10dp"
+        android:orientation="vertical" >
+
+        <TextView
+              android:id="@+id/item1"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="2"
+            android:text="地王观光"
+            android:singleLine="true"
+            android:textColor="@color/blcak"
+            android:textSize="17sp" />
+
+        <TextView
+              android:id="@+id/item2"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="3"
+            android:text="【深圳】"
+            android:ellipsize="end"
+            android:textColor="@color/grey" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="2"
+            android:orientation="horizontal" >
+
+            <TextView
+                  android:id="@+id/item3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="170"
+                android:textColor="@color/green"
+                android:textSize="17sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="元" />
+            <TextView 
+                  android:id="@+id/item4"
+                android:layout_marginLeft="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="180元"/>
+            <TextView 
+                  android:id="@+id/item5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="12km"
+                android:layout_marginLeft="10dp"
+                android:textSize="12sp"/>
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

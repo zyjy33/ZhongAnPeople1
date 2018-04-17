@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/post_blue"
+        android:paddingBottom="5dp"
+        android:paddingLeft="8dp"
+        android:paddingTop="5dp" >
+
+        <Button
+            android:id="@+id/post_jydt_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:background="@drawable/post_back" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_gravity="center"
+            android:text="创业就业培训"
+            android:textColor="@color/white"
+            android:textSize="25sp" />
+    </RelativeLayout>
+
+    <ListView
+        android:id="@+id/post_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/no_color"
+        android:cacheColorHint="@color/no_color" >
+    </ListView>
+
+</LinearLayout>

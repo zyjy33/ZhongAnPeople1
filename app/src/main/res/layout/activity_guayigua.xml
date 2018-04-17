@@ -1,0 +1,203 @@
+   <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+       android:id="@+id/ll_buju"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical" >
+
+        <!--
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ScrollView01"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:orientation="vertical" >
+        
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/dihuise" 
+    android:orientation="vertical" >
+    
+     android:background="@drawable/ysj_gyg"        -->
+
+        <LinearLayout
+            android:id="@+id/ll_buju_tp"
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            android:orientation="vertical" >
+
+            <RelativeLayout
+                android:id="@+id/rl_title"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_gravity="center_horizontal" >
+
+                <TextView
+                    android:id="@+id/textView1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:text="刮一刮"
+                    android:textColor="@color/white"
+                    android:textSize="18dip" />
+
+                <ImageView
+                    android:id="@+id/iv_fanhui"
+                    android:layout_width="wrap_content"
+                    android:layout_height="20dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="10dp"
+                    android:src="@drawable/fanhuijian"
+                    android:textSize="18dip" />
+            </RelativeLayout>
+            
+        </LinearLayout>
+
+ <FrameLayout
+     android:id="@+id/fl_buju"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                 android:layout_marginTop="15dp"
+                >
+    <LinearLayout
+                    android:id="@+id/gua_jiang2"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="10dp"
+                    android:visibility="gone"
+                    android:orientation="vertical" >
+                </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/gua_jiang"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="10dp"
+                    android:visibility="gone"
+                    android:orientation="vertical" >
+                </LinearLayout>
+                 <LinearLayout
+        android:id="@+id/guayigua_buju"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical" >
+<com.ctrip.openapi.java.utils.GuaGuaKa
+        android:layout_centerInParent="true"
+        android:layout_margin="14dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+</LinearLayout>
+<ListView
+                                        android:id="@+id/list_tuanjia"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                          android:visibility="gone"
+                                        android:background="@color/no_color"
+                                        android:cacheColorHint="@color/no_color"
+                                        android:divider="@color/list_diver"
+                                        android:dividerHeight="1dp" >
+                                    </ListView>
+                                    
+                <RelativeLayout
+                    android:id="@+id/index_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="10dp"
+                    android:background="@color/ff"
+                     >
+                  
+					<TextView 
+					    android:id="@+id/result"
+					    android:layout_width="wrap_content"
+					    android:layout_height="wrap_content"
+					    android:layout_marginBottom="35dp"
+					        android:textColor="@color/white"
+					    android:textSize="20sp"
+					    android:layout_centerHorizontal="true"
+					    android:layout_above="@+id/start"
+					    android:gravity="center"
+					    android:text="1福利刮一次\n幸运奖等你拿！"/>
+                    <Button
+                        android:id="@+id/start"
+                        android:layout_width="150dp"
+                        android:layout_height="35dp"
+                        android:layout_alignParentBottom="true"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginBottom="20dp"
+                        android:textColor="@color/white"
+                        android:gravity="center"
+                        android:text="开始刮奖"
+                        android:textSize="18sp"
+                        android:background="@drawable/btn_add_shop_cart" />
+                </RelativeLayout>
+            </FrameLayout>
+
+    <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="15dp"
+                android:text="活动规则:"
+                android:textColor="@color/ff"
+                android:textSize="17sp"
+                android:textStyle="bold" />
+    <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="10dp"
+                android:text="1.活动期间，每人只能参加一次"
+                android:textColor="@color/white"
+                android:textSize="17sp"
+                android:textStyle="bold" />
+<TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="10dp"
+                android:text="2.奖品限期30天内领取，否则无效"
+                android:textColor="@color/white"
+                android:textSize="17sp"
+                android:textStyle="bold" />
+<TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="10dp"
+                android:text="3.活动时间为2017年"
+                android:textColor="@color/white"
+                android:textSize="17sp"
+                android:textStyle="bold" />
+</LinearLayout>
+ <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical" >
+<Button
+                    android:id="@+id/more_gua"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="0dp"
+                    android:layout_marginBottom="10dp"
+                    android:background="@drawable/hdgz"
+                     />
+</LinearLayout>
+    </LinearLayout>

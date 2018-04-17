@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/test_layout"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/white"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:id="@+id/rl_title"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_gravity="center"
+        android:background="@color/yinbaise" >
+
+        <Button
+            android:layout_width="50dp"
+            android:layout_height="45dp"
+            android:background="@color/no_color"
+            android:gravity="center" />
+
+        <TextView
+            android:id="@+id/tv1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:text="待付款"
+            android:textColor="@color/black"
+            android:textSize="18dip" />
+    </RelativeLayout>
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1px"
+        android:background="#CFCFCF" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout1"
+        android:layout_width="fill_parent"
+        android:layout_height="40dp" >
+
+        <TextView
+            android:id="@+id/tab_1"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="全部"
+            android:textColor="@color/all_wenzi"
+            android:textSize="16dp" />
+
+        <TextView
+            android:id="@+id/tab_2"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:textColor="@color/all_wenzi"
+            android:textSize="16dp" />
+
+        <TextView
+            android:id="@+id/tab_3"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:textColor="@color/all_wenzi"
+            android:textSize="16dp" />
+
+        <TextView
+            android:id="@+id/tab_4"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:textColor="@color/all_wenzi"
+            android:textSize="16dp" />
+
+        <TextView
+            android:id="@+id/tab_5"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:textColor="@color/all_wenzi"
+            android:textSize="16dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="4dp"
+        android:orientation="horizontal" >
+          <ImageView
+            android:id="@+id/cursor"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:visibility="gone"
+            android:layout_weight="1"
+            android:background="@drawable/tupian"
+             />
+          
+         <ImageView
+            android:id="@+id/cursor1"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:visibility="invisible"
+            android:layout_weight="1"
+            android:background="@drawable/tupian"
+             />
+        
+          
+        <ImageView
+            android:id="@+id/cursor2"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:visibility="invisible"
+            android:layout_weight="1"
+            android:background="@drawable/tupian" />
+        
+        
+         <ImageView
+            android:id="@+id/cursor3"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:background="@drawable/tupian"
+             />
+
+          <ImageView
+            android:id="@+id/cursor4"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:visibility="invisible"
+            android:layout_weight="1"
+            android:background="@drawable/tupian"
+             />
+
+          <ImageView
+            android:id="@+id/cursor5"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:visibility="invisible"
+            android:layout_weight="1"
+            android:background="@drawable/tupian"
+             />
+    </LinearLayout>
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1px"
+        android:background="#CFCFCF" />
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/vPager"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_gravity="center"
+        android:layout_weight="1.0"
+        android:background="@color/baihuise"
+        android:flipInterval="30"
+        android:persistentDrawingCache="animation" />
+
+</LinearLayout>

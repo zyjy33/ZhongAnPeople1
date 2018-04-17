@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+     android:background="@color/baihuise"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:id="@+id/rl_title"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+         android:background="@color/white"
+        android:layout_alignParentTop="true"
+        android:layout_gravity="center_horizontal"
+         >
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:text="中安养老"
+            android:textSize="18dip" />
+
+        <ImageView
+            android:id="@+id/iv_fanhui"
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:src="@drawable/fanhuijian"
+            android:textSize="18dip" />
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/gray" />
+    
+      <com.hengyushop.demo.wec.MyScrollView  
+        android:id="@+id/scrollView"  
+        android:layout_width="match_parent"  
+        android:layout_height="wrap_content" >   
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+      <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                     android:background="@color/white"
+                     android:layout_marginTop="10dp"
+                    android:orientation="vertical" >
+              <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                     android:background="@color/white"
+                     android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:layout_marginTop="8dp"
+                    android:orientation="horizontal"
+                     >
+                      <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:background="@drawable/zayl_logn" />
+                       <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="健康馆"
+                            android:layout_marginTop="8dp"
+                            android:layout_marginLeft="5dp"
+                            android:textColor="@color/black"
+                            android:textSize="13sp" />
+                    </LinearLayout>
+     <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="120dp"
+                    android:layout_margin="10dp" 
+                    >
+
+                   <ImageView
+                           android:id="@+id/iv_biaoti1"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginRight="8dp"
+                        android:layout_weight="1"
+                            />
+                     <ImageView
+                            android:id="@+id/iv_biaoti2"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginRight="8dp"
+                        android:layout_weight="1"
+                             />
+                       <ImageView
+                            android:id="@+id/iv_biaoti3"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                            />
+
+
+                    
+                </LinearLayout>
+    </LinearLayout>
+    
+      <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                     android:background="@color/white"
+                     android:layout_marginTop="10dp"
+                    android:orientation="vertical" >
+     <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:layout_margin="10dp" 
+                    >
+
+                   <ImageView
+                       android:id="@+id/iv_biaoti4"
+                       android:layout_width="0dp"
+                       android:layout_height="match_parent"
+                       android:layout_weight="1"
+                       />
+                    
+                </LinearLayout>
+    </LinearLayout>
+    
+    
+       <ListView
+            android:id="@+id/listview_01"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@null"
+            android:divider="#00000000"
+            android:descendantFocusability="blocksDescendants"
+            android:layout_marginBottom="0dp"
+            />
+      </LinearLayout>
+            
+         </com.hengyushop.demo.wec.MyScrollView >  
+
+</LinearLayout>

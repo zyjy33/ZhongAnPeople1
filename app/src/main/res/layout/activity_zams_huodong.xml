@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/dihuise"
+    android:orientation="vertical" >
+<RelativeLayout
+         android:id="@+id/rl_title"
+         android:layout_width="match_parent"
+         android:layout_height="45dp"
+         android:layout_alignParentTop="true"
+         android:layout_gravity="center_horizontal"
+         android:background="@color/ybs" >
+
+         <TextView
+             android:id="@+id/textView1"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_centerHorizontal="true"
+             android:layout_centerVertical="true"
+             android:text="活动"
+             android:textSize="18dip" />
+
+         <ImageView
+             android:id="@+id/iv_fanhui"
+             android:layout_width="wrap_content"
+             android:layout_height="20dp"
+              android:visibility="gone"
+             android:layout_alignParentLeft="true"
+             android:layout_centerVertical="true"
+             android:layout_marginLeft="10dp"
+             android:src="@drawable/fanhuijian"
+             android:textSize="18dip" />
+
+     </RelativeLayout>
+     <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/gray" />
+                                 <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="0dp" >
+
+                
+ <LinearLayout
+                    android:id="@+id/index_item0"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@android:color/white"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:paddingTop="0dp" >
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:visibility="gone"
+                        android:background="@drawable/jujc" />
+
+                    <TextView
+                         android:id="@+id/tv_activity_1"
+                        android:layout_width="fill_parent"
+                        android:gravity="center"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+                          android:layout_marginBottom="10dp"
+                        android:layout_marginRight="1dp"
+                        android:layout_marginTop="10dp"
+                        android:text="报名活动"
+                        android:textColor="@color/juhongse"
+                        android:textSize="13dp"
+                         />
+                </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/index_item1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@android:color/white"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:paddingTop="0dp" >
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:visibility="gone"
+                        android:background="@drawable/jutg" />
+
+                    <TextView
+                        android:id="@+id/tv_activity_2"
+                          android:layout_width="fill_parent"
+                        android:gravity="center"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+                        android:layout_marginRight="1dp"
+                        android:layout_marginTop="10dp"
+                          android:layout_marginBottom="10dp"
+                        android:text="签到活动"
+                        android:textColor="@color/zams_zt_ys"
+                        android:textSize="13dp"
+                         />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/index_item2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@android:color/white"
+                    android:gravity="center"
+                    android:visibility="gone"
+                    android:orientation="vertical"
+                    android:paddingTop="0dp">
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:visibility="gone"
+                        android:background="@drawable/yust" />
+
+                    <TextView
+                        android:id="@+id/tv_activity_3"
+                        android:layout_width="fill_parent"
+                        android:gravity="center"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                          android:layout_marginBottom="10dp"
+                        android:text="赛事活动"
+                        android:textColor="@color/zams_zt_ys"
+                        android:textSize="13dp" />
+                </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/index_item3"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@android:color/white"
+                    android:gravity="center"
+                     android:visibility="gone"
+                    android:orientation="vertical"
+                    android:paddingTop="0dp" >
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:visibility="gone"
+                        android:background="@drawable/yyjb2" />
+
+                    <TextView
+                        android:id="@+id/tv_activity_4"
+                        android:layout_width="fill_parent"
+                        android:gravity="center"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                          android:layout_marginBottom="10dp"
+                        android:text="活动投票"
+                        android:textColor="@color/zams_zt_ys"
+                        android:textSize="13dp" />
+                </LinearLayout>
+                  
+            </LinearLayout>
+<View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/gray" />
+         <com.ctrip.openapi.java.utils.CustomScrollView
+            android:id="@+id/myScrollView1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:overScrollMode="always" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical" >
+                    
+                 <com.lglottery.www.widget.MyPosterView
+                        android:id="@+id/adv_pagerll"
+                        android:layout_width="fill_parent"
+                        android:layout_height="180dp" >
+                    </com.lglottery.www.widget.MyPosterView>
+                    
+                          <com.lglottery.www.widget.MyPosterView
+                        android:id="@+id/adv_pagerll_2"
+                         android:visibility="gone"
+                        android:layout_width="fill_parent"
+                        android:layout_height="180dp" >
+                    </com.lglottery.www.widget.MyPosterView>
+    
+     <ImageView
+        android:id="@+id/iv_zhuti_tp"
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:visibility="gone"
+        android:scaleType="fitXY"
+         />
+     <ImageView
+        android:id="@+id/iv_zhuti_tp_2"
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:visibility="gone"
+        android:scaleType="fitXY"
+         />
+    
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:background="@color/dihuise" />
+
+                 <ListView 
+	        android:id="@+id/new_list"
+	        android:layout_width="match_parent"
+	        android:layout_height="match_parent"
+	         android:divider="#00000000"
+	        android:layout_marginTop="10dp"
+	        android:layout_marginBottom="10dp"
+	        android:dividerHeight="1dp">
+	    </ListView>
+                </LinearLayout>
+              </com.ctrip.openapi.java.utils.CustomScrollView>
+
+</LinearLayout>

@@ -1,0 +1,62 @@
+ <ScrollView
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/ScrollView01"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/dihuise"
+             >
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+
+                <ImageView
+                    android:id="@+id/ling_tip"
+                    android:layout_width="match_parent"
+                    android:layout_height="180dp"
+                    android:scaleType="fitXY" />
+            </LinearLayout>
+            <com.hengyushop.demo.wec.MyGridView
+                        android:id="@+id/gridView"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginBottom="5dp"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="5dp"
+                        android:layout_marginTop="5dp"
+                        android:background="@color/huise_bj"
+                        android:cacheColorHint="#00000000"
+                        android:gravity="center"
+                        android:horizontalSpacing="5dp"
+                        android:listSelector="@android:color/transparent"
+                        android:numColumns="2"
+                        android:verticalSpacing="5dp" />
+<!-- 
+ <com.lglottery.www.widget.PullToRefreshView
+                    android:id="@+id/refresh"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:visibility="gone"
+                    android:orientation="vertical" >
+
+                </com.lglottery.www.widget.PullToRefreshView>
+ -->                
+	    
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:visibility="gone"
+                android:background="#CDCDCD" />
+
+            
+            
+
+</LinearLayout>
+</ScrollView>

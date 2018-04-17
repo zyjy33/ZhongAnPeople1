@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/ban_louming"
+        android:orientation="horizontal" >
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="42" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="624"
+            android:orientation="vertical" >
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="194" />
+            <!-- android:background="@drawable/lglottery_pop_bg" -->
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="868" >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_margin="14dp"
+                    android:background="@drawable/lglottery_pop_bg" >
+
+                    <ScrollView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" >
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent" >
+
+                            <View
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="34" />
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="460"
+                                android:orientation="vertical" >
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="20dp"
+                                    android:gravity="center"
+                                    android:text="规则说明"
+                                    android:textColor="@color/person_btn_text"
+                                    android:textSize="26sp"
+                                    android:textStyle="bold" />
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="25dp"
+                                    android:text="1.游戏需消耗掉少量代金券或福利"
+                                    android:textSize="14sp"
+                                    android:textColor="@color/person_btn_text" />
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="8dp"
+                                    android:text="2.抽奖需满足三人才能进行"
+                                    android:textSize="14sp"
+                                    android:textColor="@color/person_btn_text" />
+                            	  <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="8dp"
+                                    android:text="3.抽奖时会暂扣一部分金币，规则如下:"
+                                    android:textSize="14sp"
+                                    android:textColor="@color/person_btn_text" />
+                            	    <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="8dp"
+                                    android:text="选择AB类产品将暂扣20元代金券/现金券，抽奖结束后系统自动返还。"
+                                    android:textSize="14sp"
+                                    android:textColor="@color/person_btn_text" />
+                            	      <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="8dp"
+                                    android:text="选择C类产品将暂扣50元代金券/现金券，抽奖结束后，若没有获得C类产品，系统自动返还，反之将不返还50元代金券/现金券"
+                                    android:textSize="14sp"
+                                    android:layout_marginBottom="8dp"
+                                    android:textColor="@color/person_btn_text" />
+                            </LinearLayout>
+
+                            <View
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="34" />
+                        </LinearLayout>
+                    </ScrollView>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginRight="15dp"
+                    android:gravity="top|right" >
+
+                    <Button
+                        android:id="@+id/lglottery_pop_closed"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:background="@drawable/lglottery_pop_closed" />
+                </LinearLayout>
+            </FrameLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="194" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="42" />
+    </LinearLayout>
+
+</LinearLayout>

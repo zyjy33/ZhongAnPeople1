@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:id="@+id/but"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/post_blue"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:padding="15dp" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="深圳市"
+                android:textColor="@color/white"
+                android:textSize="22sp" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:background="@drawable/post_city_tip" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:drawableLeft="@drawable/post_info_tip" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="招聘信息" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="求职信息" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="就业培训" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/buts"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <LinearLayout
+                android:id="@+id/buts1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:padding="10dp" >
+
+                <Button
+                    android:id="@+id/post_btn1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/post_zpxx"
+                    android:gravity="top|center_horizontal"
+                    android:textColor="@color/white"
+                    android:textSize="17sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/buts2"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:padding="10dp" >
+
+                <Button
+                    android:id="@+id/post_btn2"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/post_qzxx"
+                    android:gravity="top|center_horizontal"
+                    android:textColor="@color/white"
+                    android:textSize="17sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/buts3"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:padding="10dp" >
+
+                <Button
+                    android:id="@+id/post_btn3"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/post_cypx"
+                    android:gravity="top|center_horizontal"
+                    android:textColor="@color/white"
+                    android:textSize="17sp" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:id="@+id/buts4"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_margin="10dp"
+                android:background="@drawable/j7"
+                android:orientation="horizontal" >
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="10dp"
+                        android:text="就业动态"
+                        android:textColor="@color/post_blue" />
+
+                    <Button
+                        android:id="@+id/jydt_more1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="10dp"
+                        android:text="更多" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="2dp"
+                        android:layout_alignParentBottom="true"
+                        android:background="@color/post_blue" />
+                </RelativeLayout>
+
+                <ListView
+                    android:id="@+id/post_list1"
+                    android:layout_width="match_parent"
+                     android:layout_height="88dp"
+                    android:layout_marginBottom="8dp"
+                    android:background="@color/no_color"
+                    android:cacheColorHint="@color/no_color" >
+                </ListView>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="10dp"
+                        android:text="就业政策"
+                        android:textColor="@color/post_blue" />
+
+                    <Button
+                        android:id="@+id/jydt_more2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="10dp"
+                        android:text="更多" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="2dp"
+                        android:layout_alignParentBottom="true"
+                        android:background="@color/post_blue" />
+                </RelativeLayout>
+
+                <ListView
+                    android:id="@+id/post_list2"
+                    android:layout_width="match_parent"
+                     android:layout_height="88dp"
+                    android:layout_marginBottom="8dp"
+                    android:background="@color/no_color"
+                    android:cacheColorHint="@color/no_color" >
+                </ListView>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="10dp"
+                        android:text="就业宝典"
+                        android:textColor="@color/post_blue" />
+
+                    <Button
+                        android:id="@+id/jydt_more3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="10dp"
+                        android:text="更多" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="2dp"
+                        android:layout_alignParentBottom="true"
+                        android:background="@color/post_blue" />
+                </RelativeLayout>
+
+                <ListView
+                    android:id="@+id/post_list3"
+                    android:layout_width="match_parent"
+                    android:layout_height="88dp"
+                    android:layout_marginBottom="8dp"
+                    android:background="@color/no_color"
+                    android:cacheColorHint="@color/no_color" >
+                </ListView>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

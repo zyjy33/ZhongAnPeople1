@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ll_item"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+       android:background="@color/dihuise"
+    android:orientation="vertical" >
+<!-- android:background="#FF0000"  -->
+
+       <LinearLayout
+            android:id="@+id/ll"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+               android:background="@color/white"
+            android:orientation="vertical"
+             >
+            
+             <ImageView
+                    android:id="@+id/img"
+                    android:layout_width="match_parent"
+                    android:layout_height="180dp"
+                    android:scaleType="fitXY"
+                    />
+            
+             <TextView
+        android:id="@+id/tv_titel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:layout_marginTop="0dp"
+        android:textColor="#000000"
+        android:text="[限量20份] 现货四川浦江黄心猕猴桃新鲜水果鸭嘴黄金奇异果15个装中果非红心，香甜可口" />
+             <!--   android:visibility="gone"  -->    
+              <LinearLayout
+            android:id="@+id/ll_jutuan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+               android:background="@color/white"
+            android:orientation="vertical"
+             >
+               <LinearLayout
+            android:id="@+id/ll"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+             android:layout_marginLeft="10dp"
+            android:orientation="horizontal"
+             >
+                 <ImageView
+        android:id="@+id/img"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_margin="0dp"
+        android:background="@drawable/renshu" />
+                 
+             <TextView
+        android:id="@+id/tv_tuan"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_marginTop="0dp"
+        android:gravity="center"
+        android:layout_marginLeft="5dp"
+        android:text="20人团" />
+             
+             </LinearLayout>
+             
+<LinearLayout
+                android:id="@+id/ll_anliu"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="@color/white" >
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="10dp"
+                    android:layout_weight="1"
+                     >
+
+                    <TextView
+                        android:id="@+id/tv_groupon_price"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="￥0.50"
+                        android:gravity="center"
+                        android:textColor="@color/chunhongse"
+                        android:textSize="18sp" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="(不中退款)"
+                        android:gravity="center"
+                        android:visibility="gone"
+                        android:textColor="@color/all_wenzi"
+                        android:textSize="13sp" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="20dp"
+                        android:text="单买价:"
+                        android:gravity="center"
+                        android:textColor="@color/all_wenzi"
+                        android:textSize="13sp" />
+                     <TextView
+                         android:id="@+id/tv_price"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="￥28.00"
+                        android:gravity="center"
+                        android:textColor="@color/all_wenzi"
+                        android:textSize="13sp" />
+                </LinearLayout>
+
+                
+                
+
+                <TextView
+                    android:id="@+id/tv_anniu"
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:layout_marginRight="10dp"
+                    android:paddingLeft="15dp"
+                    android:paddingRight="15dp"
+                    android:layout_gravity="center_vertical"
+                    android:background="@drawable/bg_ccc_3_5_bg_order"
+                    android:gravity="center"
+                    android:text="去抽奖"
+                    android:textColor="@color/white"
+                    android:textSize="14dp" />
+            </LinearLayout>
+            </LinearLayout>
+
+</LinearLayout>
+    
+</LinearLayout>
