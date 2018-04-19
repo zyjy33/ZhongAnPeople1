@@ -37,7 +37,7 @@ public class JuPreferentialActivity extends TabActivity {
 		View localView = getLayoutInflater().inflate(R.layout.tab_indicator,
 				null);
 		TextView localTextView = (TextView) localView.findViewById(R.id.title);
-		localTextView.setText("全部");
+		localTextView.setText("鍏ㄩ儴");
 		Intent localIntent = new Intent(JuPreferentialActivity.this,
 				QuanBuActivity.class);
 		localTabSpec.setIndicator(localView).setContent(localIntent);
@@ -49,7 +49,7 @@ public class JuPreferentialActivity extends TabActivity {
 		View localView = getLayoutInflater().inflate(R.layout.tab_indicator,
 				null);
 		TextView localTextView = (TextView) localView.findViewById(R.id.title);
-		localTextView.setText("美食");
+		localTextView.setText("缇庨");
 		TabHost.TabSpec localTabSpec2 = localTabSpec1.setIndicator(localView);
 		Intent localIntent = new Intent(JuPreferentialActivity.this,
 				QuanBuActivity.class);
@@ -62,7 +62,7 @@ public class JuPreferentialActivity extends TabActivity {
 		View localView = getLayoutInflater().inflate(R.layout.tab_indicator,
 				null);
 		TextView localTextView = (TextView) localView.findViewById(R.id.title);
-		localTextView.setText("社区");
+		localTextView.setText("绀惧尯");
 		TabHost.TabSpec localTabSpec2 = localTabSpec1.setIndicator(localView);
 		Intent localIntent = new Intent(JuPreferentialActivity.this,
 				QuanBuActivity.class);
@@ -76,7 +76,7 @@ public class JuPreferentialActivity extends TabActivity {
 		View localView = getLayoutInflater().inflate(R.layout.tab_indicator,
 				null);
 		TextView localTextView = (TextView) localView.findViewById(R.id.title);
-		localTextView.setText("酒店");
+		localTextView.setText("閰掑簵");
 		TabHost.TabSpec localTabSpec2 = localTabSpec1.setIndicator(localView);
 		Intent localIntent = new Intent(JuPreferentialActivity.this,
 				QuanBuActivity.class);
@@ -90,7 +90,7 @@ public class JuPreferentialActivity extends TabActivity {
 		View localView = getLayoutInflater().inflate(R.layout.tab_indicator,
 				null);
 		TextView localTextView = (TextView) localView.findViewById(R.id.title);
-		localTextView.setText("休闲娱乐");
+		localTextView.setText("浼戦棽濞变箰");
 		TabHost.TabSpec localTabSpec2 = localTabSpec1.setIndicator(localView);
 		Intent localIntent = new Intent(JuPreferentialActivity.this,
 				QuanBuActivity.class);

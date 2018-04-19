@@ -40,10 +40,10 @@ import com.tencent.mm.sdk.openapi.WXAPIFactory;
 import com.zams.www.R;
 
 /**
- * ÖĞ°²ÃñÉú
- * 
+ * ä¸­å®‰æ°‘ç”Ÿ
+ *
  * @author Administrator
- * 
+ *
  */
 public class MyOrderZFActivity extends BaseActivity implements OnClickListener {
 	String total_c;
@@ -100,7 +100,7 @@ public class MyOrderZFActivity extends BaseActivity implements OnClickListener {
 		// TODO Auto-generated method stub
 		super.onResume();
 
-		System.out.println("flag×´Ì¬==============" + flag);
+		System.out.println("flagçŠ¶æ€==============" + flag);
 		if (flag == true) {
 			// flag = false;
 			userloginqm();
@@ -119,48 +119,48 @@ public class MyOrderZFActivity extends BaseActivity implements OnClickListener {
 	public void onClick(View v) {
 		// TODO Auto-generated method stub
 		switch (v.getId()) {
-		case R.id.item0:
-			// Óà¶îÖ§¸¶
-			orderxq = getIntent().getStringExtra("5");
-			System.out.println("---------------xq-" + orderxq);
-			// order_type = getIntent().getStringExtra("order_type");
-			// System.out.println("order_type----------------"+order_type);
+			case R.id.item0:
+				// ä½™é¢æ”¯ä»˜
+				orderxq = getIntent().getStringExtra("5");
+				System.out.println("---------------xq-" + orderxq);
+				// order_type = getIntent().getStringExtra("order_type");
+				// System.out.println("order_type----------------"+order_type);
 
-			Intent intent = new Intent(MyOrderZFActivity.this,
-					TishiCarArchivesActivity.class);
-			// intent.putExtra("order_type",order_type);
-			intent.putExtra("order_no", recharge_no);
-			intent.putExtra("order_yue", "order_yue");
-			intent.putExtra("orderxq", orderxq);
-			intent.putExtra("img_url", getIntent().getStringExtra("img_url"));
-			intent.putExtra("hd_title", getIntent().getStringExtra("title"));
-			intent.putExtra("start_time",getIntent().getStringExtra("start_time"));
-			intent.putExtra("end_time", getIntent().getStringExtra("end_time"));
-			intent.putExtra("address", getIntent().getStringExtra("address"));
-			intent.putExtra("id", getIntent().getStringExtra("id"));
-			  intent.putExtra("real_name",getIntent().getStringExtra("real_name"));
-			  intent.putExtra("mobile",getIntent().getStringExtra("mobile"));
-			startActivity(intent);
-			finish();
-			// Toast.makeText(MyOrderZFActivity.this,
-			// "¹¦ÄÜÕıÔÚÍêÉÆ",Toast.LENGTH_SHORT).show();
-			break;
-		case R.id.item1:
-			break;
-		case R.id.item2:// Ö§¸¶±¦
-			// type = "3";
-			loadzhidu(recharge_no);
-			break;
-		case R.id.item3:// Î¢ĞÅ
-			// type = "5";
-			loadweixinzf2(recharge_no);
-			break;
-		case R.id.item4:
-			finish();
-			break;
+				Intent intent = new Intent(MyOrderZFActivity.this,
+						TishiCarArchivesActivity.class);
+				// intent.putExtra("order_type",order_type);
+				intent.putExtra("order_no", recharge_no);
+				intent.putExtra("order_yue", "order_yue");
+				intent.putExtra("orderxq", orderxq);
+				intent.putExtra("img_url", getIntent().getStringExtra("img_url"));
+				intent.putExtra("hd_title", getIntent().getStringExtra("title"));
+				intent.putExtra("start_time",getIntent().getStringExtra("start_time"));
+				intent.putExtra("end_time", getIntent().getStringExtra("end_time"));
+				intent.putExtra("address", getIntent().getStringExtra("address"));
+				intent.putExtra("id", getIntent().getStringExtra("id"));
+				intent.putExtra("real_name",getIntent().getStringExtra("real_name"));
+				intent.putExtra("mobile",getIntent().getStringExtra("mobile"));
+				startActivity(intent);
+				finish();
+				// Toast.makeText(MyOrderZFActivity.this,
+				// "åŠŸèƒ½æ­£åœ¨å®Œå–„",Toast.LENGTH_SHORT).show();
+				break;
+			case R.id.item1:
+				break;
+			case R.id.item2:// æ”¯ä»˜å®
+				// type = "3";
+				loadzhidu(recharge_no);
+				break;
+			case R.id.item3:// å¾®ä¿¡
+				// type = "5";
+				loadweixinzf2(recharge_no);
+				break;
+			case R.id.item4:
+				finish();
+				break;
 
-		default:
-			break;
+			default:
+				break;
 		}
 	}
 
@@ -168,14 +168,14 @@ public class MyOrderZFActivity extends BaseActivity implements OnClickListener {
 		// TODO Auto-generated method stub
 		try {
 			// recharge_no = recharge_no3;
-			System.out.println("¶©µ¥===================" + recharge_no);
-			System.out.println("¶©µ¥total_c===================" + total_c);
+			System.out.println("è®¢å•===================" + recharge_no);
+			System.out.println("è®¢å•total_c===================" + total_c);
 			AsyncHttp.get(RealmName.REALM_NAME_LL
-					+ "/add_order_signup?user_id=" + user_id + "&user_name="
-					+ user_name + "" + "&total_fee=" + total_c
-					+ "&out_trade_no=" + recharge_no + "&payment_type=alipay",
-			// add_order_signup?user_id=string&user_name=string&user_sign=string&buy_no=string&payment_id=string&is_invoice=string
-			// &invoice_title=string
+							+ "/add_order_signup?user_id=" + user_id + "&user_name="
+							+ user_name + "" + "&total_fee=" + total_c
+							+ "&out_trade_no=" + recharge_no + "&payment_type=alipay",
+					// add_order_signup?user_id=string&user_name=string&user_sign=string&buy_no=string&payment_id=string&is_invoice=string
+					// &invoice_title=string
 					new AsyncHttpResponseHandler() {
 						@Override
 						public void onSuccess(int arg0, String arg1) {
@@ -219,105 +219,105 @@ public class MyOrderZFActivity extends BaseActivity implements OnClickListener {
 		public void dispatchMessage(Message msg) {
 
 			switch (msg.what) {
-			case 0:
-				break;
-			case 1:
-				ali_pay();
-				break;
-			case 2:// Î¢ĞÅÖ§¸¶
-				try {
-					boolean isPaySupported = api.getWXAppSupportAPI() >= Build.PAY_SUPPORTED_SDK_INT;
-					// System.err.println("isPaySupported=============="+isPaySupported);
-					// Toast.makeText(MyOrderConfrimActivity.this, "»ñÈ¡¶©µ¥ÖĞ...",
-					// Toast.LENGTH_SHORT).show();
-					String zhou = String.valueOf(isPaySupported);
-					// Toast.makeText(MyOrderConfrimActivity.this, zhou,
-					// Toast.LENGTH_SHORT).show();
-					if (isPaySupported) {
-						try {
-							PayReq req = new PayReq();
-							req.appId = Constant.APP_ID;
-							req.partnerId = Constant.MCH_ID;
-							req.prepayId = prepayid;// 7
-							req.nonceStr = noncestr;// 3
-							req.timeStamp = timestamp;// -1
-							req.packageValue = package_;
-							req.sign = sign;// -3
-
-							// ÔÚÖ§¸¶Ö®Ç°£¬Èç¹ûÓ¦ÓÃÃ»ÓĞ×¢²áµ½Î¢ĞÅ£¬Ó¦¸ÃÏÈµ÷ÓÃIWXMsg.registerApp½«Ó¦ÓÃ×¢²áµ½Î¢ĞÅ
-							api.registerApp(Constant.APP_ID);
-							flag = api.sendReq(req);
-							System.out.println("Ö§¸¶" + flag);
-							// Toast.makeText(MyOrderConfrimActivity.this,
-							// "Ö§¸¶true", Toast.LENGTH_SHORT).show();
-						} catch (Exception e) {
-							// TODO: handle exception
-							e.printStackTrace();
-						}
-					} else {
-						// Toast.makeText(MyOrderConfrimActivity.this, "Ö§¸¶NO",
+				case 0:
+					break;
+				case 1:
+					ali_pay();
+					break;
+				case 2:// å¾®ä¿¡æ”¯ä»˜
+					try {
+						boolean isPaySupported = api.getWXAppSupportAPI() >= Build.PAY_SUPPORTED_SDK_INT;
+						// System.err.println("isPaySupported=============="+isPaySupported);
+						// Toast.makeText(MyOrderConfrimActivity.this, "è·å–è®¢å•ä¸­...",
 						// Toast.LENGTH_SHORT).show();
+						String zhou = String.valueOf(isPaySupported);
+						// Toast.makeText(MyOrderConfrimActivity.this, zhou,
+						// Toast.LENGTH_SHORT).show();
+						if (isPaySupported) {
+							try {
+								PayReq req = new PayReq();
+								req.appId = Constant.APP_ID;
+								req.partnerId = Constant.MCH_ID;
+								req.prepayId = prepayid;// 7
+								req.nonceStr = noncestr;// 3
+								req.timeStamp = timestamp;// -1
+								req.packageValue = package_;
+								req.sign = sign;// -3
+
+								// åœ¨æ”¯ä»˜ä¹‹å‰ï¼Œå¦‚æœåº”ç”¨æ²¡æœ‰æ³¨å†Œåˆ°å¾®ä¿¡ï¼Œåº”è¯¥å…ˆè°ƒç”¨IWXMsg.registerAppå°†åº”ç”¨æ³¨å†Œåˆ°å¾®ä¿¡
+								api.registerApp(Constant.APP_ID);
+								flag = api.sendReq(req);
+								System.out.println("æ”¯ä»˜" + flag);
+								// Toast.makeText(MyOrderConfrimActivity.this,
+								// "æ”¯ä»˜true", Toast.LENGTH_SHORT).show();
+							} catch (Exception e) {
+								// TODO: handle exception
+								e.printStackTrace();
+							}
+						} else {
+							// Toast.makeText(MyOrderConfrimActivity.this, "æ”¯ä»˜NO",
+							// Toast.LENGTH_SHORT).show();
+						}
+					} catch (Exception e) {
+						// TODO: handle exception
+						e.printStackTrace();
 					}
-				} catch (Exception e) {
-					// TODO: handle exception
-					e.printStackTrace();
-				}
 
-				break;
-			case 5:// Ö§¸¶±¦
-				PayResult payResult = new PayResult((String) msg.obj);
+					break;
+				case 5:// æ”¯ä»˜å®
+					PayResult payResult = new PayResult((String) msg.obj);
 
-				// Ö§¸¶±¦·µ»Ø´Ë´ÎÖ§¸¶½á¹û¼°¼ÓÇ©£¬½¨Òé¶ÔÖ§¸¶±¦Ç©ÃûĞÅÏ¢ÄÃÇ©Ô¼Ê±Ö§¸¶±¦Ìá¹©µÄ¹«Ô¿×öÑéÇ©
-				String resultInfo = payResult.getResult();
+					// æ”¯ä»˜å®è¿”å›æ­¤æ¬¡æ”¯ä»˜ç»“æœåŠåŠ ç­¾ï¼Œå»ºè®®å¯¹æ”¯ä»˜å®ç­¾åä¿¡æ¯æ‹¿ç­¾çº¦æ—¶æ”¯ä»˜å®æä¾›çš„å…¬é’¥åšéªŒç­¾
+					String resultInfo = payResult.getResult();
 
-				String resultStatus = payResult.getResultStatus();
-				System.out.println(resultInfo + "---" + resultStatus);
-				// ÅĞ¶ÏresultStatus Îª¡°9000¡±Ôò´ú±íÖ§¸¶³É¹¦£¬¾ßÌå×´Ì¬Âë´ú±íº¬Òå¿É²Î¿¼½Ó¿ÚÎÄµµ
-				if (TextUtils.equals(resultStatus, "9000")) {
-					Toast.makeText(MyOrderZFActivity.this, "Ö§¸¶³É¹¦",
-							Toast.LENGTH_SHORT).show();
-					userloginqm();
-					finish();
-					String xq = getIntent().getStringExtra("5");
-					System.out.println("---------------xq-" + xq);
-					// if (xq != null) {
-					// if (xq.equals("5")) {
-					// MyOrderXqActivity.handler.sendEmptyMessage(1);
-					// }
-					// }
-				} else {
-					// ÅĞ¶ÏresultStatus Îª·Ç¡°9000¡±Ôò´ú±í¿ÉÄÜÖ§¸¶Ê§°Ü
-					// ¡°8000¡±´ú±íÖ§¸¶½á¹ûÒòÎªÖ§¸¶ÇşµÀÔ­Òò»òÕßÏµÍ³Ô­Òò»¹ÔÚµÈ´ıÖ§¸¶½á¹ûÈ·ÈÏ£¬×îÖÕ½»Ò×ÊÇ·ñ³É¹¦ÒÔ·şÎñ¶ËÒì²½Í¨ÖªÎª×¼£¨Ğ¡¸ÅÂÊ×´Ì¬£©
-					if (TextUtils.equals(resultStatus, "8000")) {
-						Toast.makeText(MyOrderZFActivity.this, "Ö§¸¶½á¹ûÈ·ÈÏÖĞ",
+					String resultStatus = payResult.getResultStatus();
+					System.out.println(resultInfo + "---" + resultStatus);
+					// åˆ¤æ–­resultStatus ä¸ºâ€œ9000â€åˆ™ä»£è¡¨æ”¯ä»˜æˆåŠŸï¼Œå…·ä½“çŠ¶æ€ç ä»£è¡¨å«ä¹‰å¯å‚è€ƒæ¥å£æ–‡æ¡£
+					if (TextUtils.equals(resultStatus, "9000")) {
+						Toast.makeText(MyOrderZFActivity.this, "æ”¯ä»˜æˆåŠŸ",
 								Toast.LENGTH_SHORT).show();
+						userloginqm();
 						finish();
-
+						String xq = getIntent().getStringExtra("5");
+						System.out.println("---------------xq-" + xq);
+						// if (xq != null) {
+						// if (xq.equals("5")) {
+						// MyOrderXqActivity.handler.sendEmptyMessage(1);
+						// }
+						// }
 					} else {
-						// ÆäËûÖµ¾Í¿ÉÒÔÅĞ¶ÏÎªÖ§¸¶Ê§°Ü£¬°üÀ¨ÓÃ»§Ö÷¶¯È¡ÏûÖ§¸¶£¬»òÕßÏµÍ³·µ»ØµÄ´íÎó
-						Toast.makeText(MyOrderZFActivity.this, "Ö§¸¶Ê§°Ü",
-								Toast.LENGTH_SHORT).show();
-						finish();
+						// åˆ¤æ–­resultStatus ä¸ºéâ€œ9000â€åˆ™ä»£è¡¨å¯èƒ½æ”¯ä»˜å¤±è´¥
+						// â€œ8000â€ä»£è¡¨æ”¯ä»˜ç»“æœå› ä¸ºæ”¯ä»˜æ¸ é“åŸå› æˆ–è€…ç³»ç»ŸåŸå› è¿˜åœ¨ç­‰å¾…æ”¯ä»˜ç»“æœç¡®è®¤ï¼Œæœ€ç»ˆäº¤æ˜“æ˜¯å¦æˆåŠŸä»¥æœåŠ¡ç«¯å¼‚æ­¥é€šçŸ¥ä¸ºå‡†ï¼ˆå°æ¦‚ç‡çŠ¶æ€ï¼‰
+						if (TextUtils.equals(resultStatus, "8000")) {
+							Toast.makeText(MyOrderZFActivity.this, "æ”¯ä»˜ç»“æœç¡®è®¤ä¸­",
+									Toast.LENGTH_SHORT).show();
+							finish();
 
+						} else {
+							// å…¶ä»–å€¼å°±å¯ä»¥åˆ¤æ–­ä¸ºæ”¯ä»˜å¤±è´¥ï¼ŒåŒ…æ‹¬ç”¨æˆ·ä¸»åŠ¨å–æ¶ˆæ”¯ä»˜ï¼Œæˆ–è€…ç³»ç»Ÿè¿”å›çš„é”™è¯¯
+							Toast.makeText(MyOrderZFActivity.this, "æ”¯ä»˜å¤±è´¥",
+									Toast.LENGTH_SHORT).show();
+							finish();
+
+						}
 					}
-				}
-				break;
-			default:
-				break;
+					break;
+				default:
+					break;
 			}
 		}
 	};
 
 	/**
-	 * Ö§¸¶±¦
-	 * 
+	 * æ”¯ä»˜å®
+	 *
 	 * @param payment_id
 	 */
 	private void loadzhidu(String recharge_no) {
 		try {
 			// recharge_no = recharge_no3;
-			System.out.println("¶©µ¥===================" + recharge_no);
-			System.out.println("¶©µ¥total_c===================" + total_c);
+			System.out.println("è®¢å•===================" + recharge_no);
+			System.out.println("è®¢å•total_c===================" + total_c);
 			AsyncHttp.get(RealmName.REALM_NAME_LL + "/payment_sign?user_id="
 					+ user_id + "&user_name=" + user_name + "" + "&total_fee="
 					+ total_c + "&out_trade_no=" + recharge_no
@@ -357,68 +357,68 @@ public class MyOrderZFActivity extends BaseActivity implements OnClickListener {
 	}
 
 	/**
-	 * Î¢ĞÅÖ§¸¶
-	 * 
+	 * å¾®ä¿¡æ”¯ä»˜
+	 *
 	 * @param payment_id
 	 */
 	private void loadweixinzf2(String recharge_no) {
 		try {
 			// recharge_no = recharge_no2;
-			System.out.println("¶©µ¥===================" + recharge_no);
+			System.out.println("è®¢å•===================" + recharge_no);
 			String monney = String.valueOf(Double.parseDouble(total_c) * 100);
 			// BigDecimal b = new BigDecimal(monney);
 			// double monney_ll = b.setScale(1,
 			// BigDecimal.ROUND_HALF_UP).doubleValue();
 			// double monney_l = b.setScale(2,
 			// BigDecimal.ROUND_HALF_UP).doubleValue();
-			// System.out.println("¶©µ¥======monney_ll============="+monney_ll);
-			System.out.println("¶©µ¥======monney=============" + monney);
+			// System.out.println("è®¢å•======monney_ll============="+monney_ll);
+			System.out.println("è®¢å•======monney=============" + monney);
 			AsyncHttp.get(RealmName.REALM_NAME_LL + "/payment_sign?user_id="
-					+ user_id + "&user_name=" + user_name + "" + "&total_fee="
-					+ monney + "&out_trade_no=" + recharge_no
-					+ "&payment_type=weixin",
+							+ user_id + "&user_name=" + user_name + "" + "&total_fee="
+							+ monney + "&out_trade_no=" + recharge_no
+							+ "&payment_type=weixin",
 
-			new AsyncHttpResponseHandler() {
-				@Override
-				public void onSuccess(int arg0, String arg1) {
-					super.onSuccess(arg0, arg1);
-					try {
+					new AsyncHttpResponseHandler() {
+						@Override
+						public void onSuccess(int arg0, String arg1) {
+							super.onSuccess(arg0, arg1);
+							try {
 
-						JSONObject object = new JSONObject(arg1);
-						System.out
-								.println("weixin================================="
-										+ arg1);
-						String status = object.getString("status");
-						String info = object.getString("info");
-						if (status.equals("y")) {
-							JSONObject jsonObject = object
-									.getJSONObject("data");
-							partner_id = jsonObject.getString("mch_id");
-							prepayid = jsonObject.getString("prepay_id");
-							noncestr = jsonObject.getString("nonce_str");
-							timestamp = jsonObject.getString("timestamp");
-							package_ = "Sign=WXPay";
-							sign = jsonObject.getString("sign");
-							System.out
-									.println("weixin================================="
-											+ package_);
-							progress.CloseProgress();
-							handler.sendEmptyMessage(2);
-							// loadweixinzf3(recharge_no);
-							zhuangtai = true;
-							// finish();
-							ll_zhifu_buju.setVisibility(View.INVISIBLE);
-						} else {
-							progress.CloseProgress();
-							Toast.makeText(MyOrderZFActivity.this, info, 200)
-									.show();
+								JSONObject object = new JSONObject(arg1);
+								System.out
+										.println("weixin================================="
+												+ arg1);
+								String status = object.getString("status");
+								String info = object.getString("info");
+								if (status.equals("y")) {
+									JSONObject jsonObject = object
+											.getJSONObject("data");
+									partner_id = jsonObject.getString("mch_id");
+									prepayid = jsonObject.getString("prepay_id");
+									noncestr = jsonObject.getString("nonce_str");
+									timestamp = jsonObject.getString("timestamp");
+									package_ = "Sign=WXPay";
+									sign = jsonObject.getString("sign");
+									System.out
+											.println("weixin================================="
+													+ package_);
+									progress.CloseProgress();
+									handler.sendEmptyMessage(2);
+									// loadweixinzf3(recharge_no);
+									zhuangtai = true;
+									// finish();
+									ll_zhifu_buju.setVisibility(View.INVISIBLE);
+								} else {
+									progress.CloseProgress();
+									Toast.makeText(MyOrderZFActivity.this, info, 200)
+											.show();
+								}
+							} catch (JSONException e) {
+								e.printStackTrace();
+							}
 						}
-					} catch (JSONException e) {
-						e.printStackTrace();
-					}
-				}
 
-			}, null);
+					}, null);
 
 		} catch (Exception e) {
 			// TODO: handle exception
@@ -427,7 +427,7 @@ public class MyOrderZFActivity extends BaseActivity implements OnClickListener {
 	}
 
 	/**
-	 * »ñÈ¡µÇÂ¼Ç©Ãû
+	 * è·å–ç™»å½•ç­¾å
 	 */
 	private void userloginqm() {
 		try {
@@ -465,8 +465,8 @@ public class MyOrderZFActivity extends BaseActivity implements OnClickListener {
 	}
 
 	/**
-	 * È·ÈÏ¸¶¿î ¸üĞÂ¶©µ¥
-	 * 
+	 * ç¡®è®¤ä»˜æ¬¾ æ›´æ–°è®¢å•
+	 *
 	 * @param login_sign
 	 * @param payment_id
 	 */
@@ -478,119 +478,119 @@ public class MyOrderZFActivity extends BaseActivity implements OnClickListener {
 			System.out.println("login_sign================================="
 					+ login_sign);
 			AsyncHttp.get(RealmName.REALM_NAME_LL
-					+ "/update_order_payment?user_id=" + user_id
-					+ "&user_name=" + user_name + "" + "&trade_no="
-					+ recharge_noll + "&sign=" + login_sign + "",
+							+ "/update_order_payment?user_id=" + user_id
+							+ "&user_name=" + user_name + "" + "&trade_no="
+							+ recharge_noll + "&sign=" + login_sign + "",
 
-			new AsyncHttpResponseHandler() {
-				@Override
-				public void onSuccess(int arg0, String arg1) {
-					super.onSuccess(arg0, arg1);
-					try {
-						JSONObject object = new JSONObject(arg1);
-						System.out
-								.println("¸üĞÂ¶©µ¥================================="
-										+ arg1);
-						String status = object.getString("status");
-						String info = object.getString("info");
-						if (status.equals("y")) {
-							progress.CloseProgress();
-							// JSONObject jsonObject =
-							// object.getJSONObject("data");
-							// JSONArray jay =
-							// jsonObject.getJSONArray("orders");
-							// for (int j = 0; j < jay.length(); j++){
-							// JSONObject objc= jay.getJSONObject(j);
-							// // UserAddressData data = new UserAddressData();
-							// // data.accept_name =
-							// objc.getString("accept_name");
-							// // data.province = objc.getString("province");
-							// // data.city = objc.getString("city");
-							// // data.area = objc.getString("area");
-							// // data.user_mobile = objc.getString("mobile");
-							// // data.user_address = objc.getString("address");
-							// // data.order_no = objc.getString("order_no");
-							// // data.add_time = objc.getString("add_time");
-							// accept_name = objc.getString("accept_name");
-							// province = objc.getString("province");
-							// city = objc.getString("city");
-							// area = objc.getString("area");
-							// user_mobile = objc.getString("mobile");
-							// user_address = objc.getString("address");
-							// recharge_no = objc.getString("order_no");
-							// datetime = objc.getString("add_time");
-							// sell_price = objc.getString("payable_amount");
-							// JSONArray jsonArray =
-							// objc.getJSONArray("order_goods");
-							// for (int i = 0; i < jsonArray.length(); i++) {
-							// JSONObject json = jsonArray.getJSONObject(i);
-							// article_id = json.getString("article_id");
-							// // sell_price = json.getString("sell_price");
-							// give_pension = json.getString("give_pension");
-							// }
-							// }
+					new AsyncHttpResponseHandler() {
+						@Override
+						public void onSuccess(int arg0, String arg1) {
+							super.onSuccess(arg0, arg1);
+							try {
+								JSONObject object = new JSONObject(arg1);
+								System.out
+										.println("æ›´æ–°è®¢å•================================="
+												+ arg1);
+								String status = object.getString("status");
+								String info = object.getString("info");
+								if (status.equals("y")) {
+									progress.CloseProgress();
+									// JSONObject jsonObject =
+									// object.getJSONObject("data");
+									// JSONArray jay =
+									// jsonObject.getJSONArray("orders");
+									// for (int j = 0; j < jay.length(); j++){
+									// JSONObject objc= jay.getJSONObject(j);
+									// // UserAddressData data = new UserAddressData();
+									// // data.accept_name =
+									// objc.getString("accept_name");
+									// // data.province = objc.getString("province");
+									// // data.city = objc.getString("city");
+									// // data.area = objc.getString("area");
+									// // data.user_mobile = objc.getString("mobile");
+									// // data.user_address = objc.getString("address");
+									// // data.order_no = objc.getString("order_no");
+									// // data.add_time = objc.getString("add_time");
+									// accept_name = objc.getString("accept_name");
+									// province = objc.getString("province");
+									// city = objc.getString("city");
+									// area = objc.getString("area");
+									// user_mobile = objc.getString("mobile");
+									// user_address = objc.getString("address");
+									// recharge_no = objc.getString("order_no");
+									// datetime = objc.getString("add_time");
+									// sell_price = objc.getString("payable_amount");
+									// JSONArray jsonArray =
+									// objc.getJSONArray("order_goods");
+									// for (int i = 0; i < jsonArray.length(); i++) {
+									// JSONObject json = jsonArray.getJSONObject(i);
+									// article_id = json.getString("article_id");
+									// // sell_price = json.getString("sell_price");
+									// give_pension = json.getString("give_pension");
+									// }
+									// }
 
-							// System.out.println("datetime================================="+datetime);
-							// System.out.println("give_pension================================="+give_pension);
+									// System.out.println("datetime================================="+datetime);
+									// System.out.println("give_pension================================="+give_pension);
 
-							// order_type =
-							// getIntent().getStringExtra("order_type");
-							// order_type = "1";//Ö§¸¶×´Ì¬
-							// System.out.println("order_type==============1==================="+order_type);
-							
+									// order_type =
+									// getIntent().getStringExtra("order_type");
+									// order_type = "1";//æ”¯ä»˜çŠ¶æ€
+									// System.out.println("order_type==============1==================="+order_type);
+
 //							Toast.makeText(MyOrderZFActivity.this, info, 200).show();
 
-							// »î¶¯Ö§¸¶³É¹¦²»ÏÔÊ¾ÏêÇé
-							if (BaoMinTiShiActivity.huodong_zf_type.equals("1")) {
-								BaoMinTiShiActivity.huodong_zf_type = "0";
-								// huodong_type = "1";//»î¶¯Ö§¸¶³É¹¦Ö®ºóÉèÖÃ²»ÄÜ¼ÌĞø±¨Ãû
-								Intent intent = new Intent(MyOrderZFActivity.this,BaoMinOKActivity.class);
-								intent.putExtra("img_url", getIntent()
-										.getStringExtra("img_url"));
-								intent.putExtra("hd_title", getIntent()
-										.getStringExtra("title"));
-								intent.putExtra("start_time", getIntent()
-										.getStringExtra("start_time"));
-								intent.putExtra("end_time", getIntent()
-										.getStringExtra("end_time"));
-								intent.putExtra("address", getIntent()
-										.getStringExtra("address"));
-								intent.putExtra("trade_no", getIntent()
-										.getStringExtra("order_no"));
-								intent.putExtra("id", getIntent().getStringExtra("id"));
-								  intent.putExtra("real_name",getIntent().getStringExtra("real_name"));
-								  intent.putExtra("mobile",getIntent().getStringExtra("mobile"));
-								startActivity(intent);
-								finish();
-							} else {
-								// Intent intent = new Intent(MyOrderZFActivity.this,ZhiFuOKActivity.class);
-								// startActivity(intent);
-								finish();
+									// æ´»åŠ¨æ”¯ä»˜æˆåŠŸä¸æ˜¾ç¤ºè¯¦æƒ…
+									if (BaoMinTiShiActivity.huodong_zf_type.equals("1")) {
+										BaoMinTiShiActivity.huodong_zf_type = "0";
+										// huodong_type = "1";//æ´»åŠ¨æ”¯ä»˜æˆåŠŸä¹‹åè®¾ç½®ä¸èƒ½ç»§ç»­æŠ¥å
+										Intent intent = new Intent(MyOrderZFActivity.this,BaoMinOKActivity.class);
+										intent.putExtra("img_url", getIntent()
+												.getStringExtra("img_url"));
+										intent.putExtra("hd_title", getIntent()
+												.getStringExtra("title"));
+										intent.putExtra("start_time", getIntent()
+												.getStringExtra("start_time"));
+										intent.putExtra("end_time", getIntent()
+												.getStringExtra("end_time"));
+										intent.putExtra("address", getIntent()
+												.getStringExtra("address"));
+										intent.putExtra("trade_no", getIntent()
+												.getStringExtra("order_no"));
+										intent.putExtra("id", getIntent().getStringExtra("id"));
+										intent.putExtra("real_name",getIntent().getStringExtra("real_name"));
+										intent.putExtra("mobile",getIntent().getStringExtra("mobile"));
+										startActivity(intent);
+										finish();
+									} else {
+										// Intent intent = new Intent(MyOrderZFActivity.this,ZhiFuOKActivity.class);
+										// startActivity(intent);
+										finish();
+									}
+								} else {
+									progress.CloseProgress();
+									finish();
+									Toast.makeText(MyOrderZFActivity.this, info, 200).show();
+								}
+							} catch (JSONException e) {
+								e.printStackTrace();
 							}
-						} else {
-							progress.CloseProgress();
-							finish();
-							Toast.makeText(MyOrderZFActivity.this, info, 200).show();
 						}
-					} catch (JSONException e) {
-						e.printStackTrace();
-					}
-				}
 
-				@Override
-				public void onFailure(Throwable arg0, String arg1) {
-					// TODO Auto-generated method stub
-					super.onFailure(arg0, arg1);
-					System.out.println("Ö§¸¶Òì³£================================="
-							+ arg0);
-					System.out.println("Ö§¸¶Òì³£================================="
-							+ arg1);
-					// Toast.makeText(MyOrderZFActivity.this, "Ö§¸¶Òì³£",
-					// 200).show();
-					finish();
-				}
+						@Override
+						public void onFailure(Throwable arg0, String arg1) {
+							// TODO Auto-generated method stub
+							super.onFailure(arg0, arg1);
+							System.out.println("æ”¯ä»˜å¼‚å¸¸================================="
+									+ arg0);
+							System.out.println("æ”¯ä»˜å¼‚å¸¸================================="
+									+ arg1);
+							// Toast.makeText(MyOrderZFActivity.this, "æ”¯ä»˜å¼‚å¸¸",
+							// 200).show();
+							finish();
+						}
 
-			}, null);
+					}, null);
 
 		} catch (Exception e) {
 			// TODO: handle exception
@@ -602,18 +602,18 @@ public class MyOrderZFActivity extends BaseActivity implements OnClickListener {
 		try {
 
 			//
-			String orderInfo = getOrderInfo("ÖĞ°²ÃñÉúÉÌÆ·", "ÉÌÆ·ÃèÊö", recharge_no);
+			String orderInfo = getOrderInfo("ä¸­å®‰æ°‘ç”Ÿå•†å“", "å•†å“æè¿°", recharge_no);
 
-			// ¶Ô¶©µ¥×öRSA Ç©Ãû
+			// å¯¹è®¢å•åšRSA ç­¾å
 			String sign = sign(orderInfo);
 			try {
-				// ½öĞè¶Ôsign ×öURL±àÂë
+				// ä»…éœ€å¯¹sign åšURLç¼–ç 
 				sign = URLEncoder.encode(sign, "UTF-8");
 			} catch (UnsupportedEncodingException e) {
 				e.printStackTrace();
 			}
 
-			// ÍêÕûµÄ·ûºÏÖ§¸¶±¦²ÎÊı¹æ·¶µÄ¶©µ¥ĞÅÏ¢
+			// å®Œæ•´çš„ç¬¦åˆæ”¯ä»˜å®å‚æ•°è§„èŒƒçš„è®¢å•ä¿¡æ¯
 			final String payInfo = orderInfo + "&sign=\"" + sign + "\"&"
 					+ getSignType();
 
@@ -621,9 +621,9 @@ public class MyOrderZFActivity extends BaseActivity implements OnClickListener {
 
 				@Override
 				public void run() {
-					// ¹¹ÔìPayTask ¶ÔÏó
+					// æ„é€ PayTask å¯¹è±¡
 					PayTask alipay = new PayTask(MyOrderZFActivity.this);
-					// µ÷ÓÃÖ§¸¶½Ó¿Ú£¬»ñÈ¡Ö§¸¶½á¹û
+					// è°ƒç”¨æ”¯ä»˜æ¥å£ï¼Œè·å–æ”¯ä»˜ç»“æœ
 					String result = alipay.pay(payInfo);
 					Message msg = new Message();
 					msg.what = 5;
@@ -632,7 +632,7 @@ public class MyOrderZFActivity extends BaseActivity implements OnClickListener {
 				}
 			};
 
-			// ±ØĞëÒì²½µ÷ÓÃ
+			// å¿…é¡»å¼‚æ­¥è°ƒç”¨
 			Thread payThread = new Thread(payRunnable);
 			payThread.start();
 
@@ -644,76 +644,76 @@ public class MyOrderZFActivity extends BaseActivity implements OnClickListener {
 	}
 
 	/**
-	 * sign the order info. ¶Ô¶©µ¥ĞÅÏ¢½øĞĞÇ©Ãû
-	 * 
+	 * sign the order info. å¯¹è®¢å•ä¿¡æ¯è¿›è¡Œç­¾å
+	 *
 	 * @param content
-	 *            ´ıÇ©Ãû¶©µ¥ĞÅÏ¢
+	 *            å¾…ç­¾åè®¢å•ä¿¡æ¯
 	 */
 	public String sign(String content) {
 		return SignUtils.sign(content, Common.RSA_PRIVATE);
 	}
 
 	/**
-	 * get the sign type we use. »ñÈ¡Ç©Ãû·½Ê½
-	 * 
+	 * get the sign type we use. è·å–ç­¾åæ–¹å¼
+	 *
 	 */
 	public String getSignType() {
 		return "sign_type=\"RSA\"";
 	}
 
 	/**
-	 * create the order info. ´´½¨¶©µ¥ĞÅÏ¢
-	 * 
+	 * create the order info. åˆ›å»ºè®¢å•ä¿¡æ¯
+	 *
 	 */
 	public String getOrderInfo(String subject, String body, String dingdan) {
-		// Ç©Ô¼ºÏ×÷ÕßÉí·İID
+		// ç­¾çº¦åˆä½œè€…èº«ä»½ID
 		String orderInfo = "partner=" + "\"" + Common.PARTNER + "\"";
 
-		// Ç©Ô¼Âô¼ÒÖ§¸¶±¦ÕËºÅ
+		// ç­¾çº¦å–å®¶æ”¯ä»˜å®è´¦å·
 		orderInfo += "&seller_id=" + "\"" + Common.SELLER + "\"";
 
-		// ÉÌ»§ÍøÕ¾Î¨Ò»¶©µ¥ºÅ
+		// å•†æˆ·ç½‘ç«™å”¯ä¸€è®¢å•å·
 		orderInfo += "&out_trade_no=" + "\"" + dingdan + "\"";
 
-		// ÉÌÆ·Ãû³Æ
+		// å•†å“åç§°
 		orderInfo += "&subject=" + "\"" + subject + "\"";
 
-		// ÉÌÆ·ÏêÇé
+		// å•†å“è¯¦æƒ…
 		orderInfo += "&body=" + "\"" + body + "\"";
 
-		// ÉÌÆ·½ğ¶î
+		// å•†å“é‡‘é¢
 		orderInfo += "&total_fee=" + "\"" + total_c + "\"";
 		// orderInfo += "&total_fee=" + "\"" + 0.01 + "\"";
 
-		// ·şÎñÆ÷Òì²½Í¨ÖªÒ³ÃæÂ·¾¶
+		// æœåŠ¡å™¨å¼‚æ­¥é€šçŸ¥é¡µé¢è·¯å¾„
 		// orderInfo += "&notify_url=" + "\"" +
 		// "http://183.62.138.31:1636/taobao/alipay_notify_url.aspx" + "\"";
 		orderInfo += "&notify_url=" + "\"" + notify_url + "\"";
 		System.out.println("======notify_url=============" + notify_url);
 
-		// ·şÎñ½Ó¿ÚÃû³Æ£¬ ¹Ì¶¨Öµ
+		// æœåŠ¡æ¥å£åç§°ï¼Œ å›ºå®šå€¼
 		orderInfo += "&service=\"mobile.securitypay.pay\"";
 
-		// Ö§¸¶ÀàĞÍ£¬ ¹Ì¶¨Öµ
+		// æ”¯ä»˜ç±»å‹ï¼Œ å›ºå®šå€¼
 		orderInfo += "&payment_type=\"1\"";
 
-		// ²ÎÊı±àÂë£¬ ¹Ì¶¨Öµ
+		// å‚æ•°ç¼–ç ï¼Œ å›ºå®šå€¼
 		orderInfo += "&_input_charset=\"utf-8\"";
 
-		// ÉèÖÃÎ´¸¶¿î½»Ò×µÄ³¬Ê±Ê±¼ä
-		// Ä¬ÈÏ30·ÖÖÓ£¬Ò»µ©³¬Ê±£¬¸Ã±Ê½»Ò×¾Í»á×Ô¶¯±»¹Ø±Õ¡£
-		// È¡Öµ·¶Î§£º1m¡«15d¡£
-		// m-·ÖÖÓ£¬h-Ğ¡Ê±£¬d-Ìì£¬1c-µ±Ìì£¨ÎŞÂÛ½»Ò×ºÎÊ±´´½¨£¬¶¼ÔÚ0µã¹Ø±Õ£©¡£
-		// ¸Ã²ÎÊıÊıÖµ²»½ÓÊÜĞ¡Êıµã£¬Èç1.5h£¬¿É×ª»»Îª90m¡£
+		// è®¾ç½®æœªä»˜æ¬¾äº¤æ˜“çš„è¶…æ—¶æ—¶é—´
+		// é»˜è®¤30åˆ†é’Ÿï¼Œä¸€æ—¦è¶…æ—¶ï¼Œè¯¥ç¬”äº¤æ˜“å°±ä¼šè‡ªåŠ¨è¢«å…³é—­ã€‚
+		// å–å€¼èŒƒå›´ï¼š1mï½15dã€‚
+		// m-åˆ†é’Ÿï¼Œh-å°æ—¶ï¼Œd-å¤©ï¼Œ1c-å½“å¤©ï¼ˆæ— è®ºäº¤æ˜“ä½•æ—¶åˆ›å»ºï¼Œéƒ½åœ¨0ç‚¹å…³é—­ï¼‰ã€‚
+		// è¯¥å‚æ•°æ•°å€¼ä¸æ¥å—å°æ•°ç‚¹ï¼Œå¦‚1.5hï¼Œå¯è½¬æ¢ä¸º90mã€‚
 		orderInfo += "&it_b_pay=\"30m\"";
 
-		// extern_tokenÎª¾­¹ı¿ìµÇÊÚÈ¨»ñÈ¡µ½µÄalipay_open_id,´øÉÏ´Ë²ÎÊıÓÃ»§½«Ê¹ÓÃÊÚÈ¨µÄÕË»§½øĞĞÖ§¸¶
+		// extern_tokenä¸ºç»è¿‡å¿«ç™»æˆæƒè·å–åˆ°çš„alipay_open_id,å¸¦ä¸Šæ­¤å‚æ•°ç”¨æˆ·å°†ä½¿ç”¨æˆæƒçš„è´¦æˆ·è¿›è¡Œæ”¯ä»˜
 		// orderInfo += "&extern_token=" + "\"" + extern_token + "\"";
 
-		// Ö§¸¶±¦´¦ÀíÍêÇëÇóºó£¬µ±Ç°Ò³ÃæÌø×ªµ½ÉÌ»§Ö¸¶¨Ò³ÃæµÄÂ·¾¶£¬¿É¿Õ
+		// æ”¯ä»˜å®å¤„ç†å®Œè¯·æ±‚åï¼Œå½“å‰é¡µé¢è·³è½¬åˆ°å•†æˆ·æŒ‡å®šé¡µé¢çš„è·¯å¾„ï¼Œå¯ç©º
 		// orderInfo += "&return_url=\"m.alipay.com\"";
 
-		// µ÷ÓÃÒøĞĞ¿¨Ö§¸¶£¬ĞèÅäÖÃ´Ë²ÎÊı£¬²ÎÓëÇ©Ãû£¬ ¹Ì¶¨Öµ £¨ĞèÒªÇ©Ô¼¡¶ÎŞÏßÒøĞĞ¿¨¿ì½İÖ§¸¶¡·²ÅÄÜÊ¹ÓÃ£©
+		// è°ƒç”¨é“¶è¡Œå¡æ”¯ä»˜ï¼Œéœ€é…ç½®æ­¤å‚æ•°ï¼Œå‚ä¸ç­¾åï¼Œ å›ºå®šå€¼ ï¼ˆéœ€è¦ç­¾çº¦ã€Šæ— çº¿é“¶è¡Œå¡å¿«æ·æ”¯ä»˜ã€‹æ‰èƒ½ä½¿ç”¨ï¼‰
 		// orderInfo += "&paymethod=\"expressGateway\"";
 		System.out.println(orderInfo);
 		return orderInfo;

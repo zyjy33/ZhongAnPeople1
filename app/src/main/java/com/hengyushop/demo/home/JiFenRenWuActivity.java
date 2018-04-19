@@ -130,47 +130,47 @@ public class JiFenRenWuActivity extends BaseActivity {
 	private Handler handler = new Handler() {
 		public void dispatchMessage(Message msg) {
 			switch (msg.what) {
-			case 0:
-				// TuiGuangBean content = (TuiGuangBean) msg.obj;
-				String id = (String) msg.obj;
-				Intent intent = new Intent(JiFenRenWuActivity.this,
-						JuFaFaXunaZheActivity.class);
-				intent.putExtra("exam_id", id);
-				startActivity(intent);
-				break;
-			case 1:
-				String web_id = (String) msg.obj;
-				Intent intent1 = new Intent(JiFenRenWuActivity.this,
-						Webview1.class);
-				intent1.putExtra("web_id", web_id);
-				startActivity(intent1);
-				break;
-			case 2:
-				try {
-					adapter1 = new TuiGuang1Adapter(getApplicationContext(),
-							lists, imageLoader, handler);
-					scrool.setAdapter(adapter1);
-					TuiGuang1Adapter.aQuery.clear();
-					// setListViewHeightBasedOnChildren(listView);
-				} catch (Exception e) {
-					// TODO: handle exception
-					e.printStackTrace();
-				}
-				break;
-			case 3:
-				adapter = new TuiGuang2Adapter(getApplicationContext(),
-						lists_ll, imageLoader, handler);
-				scroo2.setAdapter(adapter);
-				TuiGuang2Adapter.aQuery.clear();
-				break;
+				case 0:
+					// TuiGuangBean content = (TuiGuangBean) msg.obj;
+					String id = (String) msg.obj;
+					Intent intent = new Intent(JiFenRenWuActivity.this,
+							JuFaFaXunaZheActivity.class);
+					intent.putExtra("exam_id", id);
+					startActivity(intent);
+					break;
+				case 1:
+					String web_id = (String) msg.obj;
+					Intent intent1 = new Intent(JiFenRenWuActivity.this,
+							Webview1.class);
+					intent1.putExtra("web_id", web_id);
+					startActivity(intent1);
+					break;
+				case 2:
+					try {
+						adapter1 = new TuiGuang1Adapter(getApplicationContext(),
+								lists, imageLoader, handler);
+						scrool.setAdapter(adapter1);
+						TuiGuang1Adapter.aQuery.clear();
+						// setListViewHeightBasedOnChildren(listView);
+					} catch (Exception e) {
+						// TODO: handle exception
+						e.printStackTrace();
+					}
+					break;
+				case 3:
+					adapter = new TuiGuang2Adapter(getApplicationContext(),
+							lists_ll, imageLoader, handler);
+					scroo2.setAdapter(adapter);
+					TuiGuang2Adapter.aQuery.clear();
+					break;
 
-			default:
-				break;
+				default:
+					break;
 			}
 		};
 	};
 
-	// …Ã∆∑¡–±Ì
+	// ÂïÜÂìÅÂàóË°®
 	// private void loadCate(){
 	// progress.CreateProgress();
 	// AsyncHttp.get(RealmName.REALM_NAME_LL+"/get_test_lesson_model?" +
@@ -201,19 +201,19 @@ public class JiFenRenWuActivity extends BaseActivity {
 	// }
 
 	/**
-	 * ƒ„¿¥¥ Œ“¿¥ÀÕ
+	 * ‰Ω†Êù•Á≠î ÊàëÊù•ÈÄÅ
 	 */
 	private void loadCatel() {
 		AsyncHttp.get(RealmName.REALM_NAME_LL + "/get_test_exam_list?"
-				+ "channel_name=examine&lesson_id=" + 29
-				+ "&page_size=3&page_index=1&strwhere=&orderby=",
+						+ "channel_name=examine&lesson_id=" + 29
+						+ "&page_size=3&page_index=1&strwhere=&orderby=",
 				new AsyncHttpResponseHandler() {
 					@Override
 					public void onSuccess(int arg0, String arg1) {
 						// TODO Auto-generated method stub
 						super.onSuccess(arg0, arg1);
 						try {
-							System.out.println("£®…Ã∆∑¡–±Ì£©==========" + arg1);
+							System.out.println("ÔºàÂïÜÂìÅÂàóË°®Ôºâ==========" + arg1);
 							lists = new ArrayList<TuiGuangBean>();
 							JSONObject jsonObject = new JSONObject(arg1);
 							String status = jsonObject.getString("status");
@@ -250,19 +250,19 @@ public class JiFenRenWuActivity extends BaseActivity {
 	}
 
 	/**
-	 * Õ∆π„¥´≤•
+	 * Êé®Âπø‰º†Êí≠
 	 */
 	private void loadCatell() {
 		AsyncHttp.get(RealmName.REALM_NAME_LL + "/get_article_page_size_list?"
-				+ "channel_name=content&category_id=" + 2930
-				+ "&page_size=3&page_index=1&strwhere=&orderby=",
+						+ "channel_name=content&category_id=" + 2930
+						+ "&page_size=3&page_index=1&strwhere=&orderby=",
 				new AsyncHttpResponseHandler() {
 					@Override
 					public void onSuccess(int arg0, String arg1) {
 						// TODO Auto-generated method stub
 						super.onSuccess(arg0, arg1);
 						try {
-							System.out.println("Õ∆π„¥´≤•==========" + arg1);
+							System.out.println("Êé®Âπø‰º†Êí≠==========" + arg1);
 							lists_ll = new ArrayList<TuiGuangBean>();
 							JSONObject jsonObject = new JSONObject(arg1);
 							String status = jsonObject.getString("status");
@@ -299,7 +299,7 @@ public class JiFenRenWuActivity extends BaseActivity {
 	}
 
 	public void setListViewHeightBasedOnChildren(ListView listView) {
-		// ªÒ»°ListView∂‘”¶µƒAdapter
+		// Ëé∑ÂèñListViewÂØπÂ∫îÁöÑAdapter
 		ListAdapter listAdapter = listView.getAdapter();
 		if (listAdapter == null) {
 			return;
@@ -307,19 +307,19 @@ public class JiFenRenWuActivity extends BaseActivity {
 
 		int totalHeight = 0;
 		for (int i = 0, len = listAdapter.getCount(); i < len; i++) {
-			// listAdapter.getCount()∑µªÿ ˝æ›œÓµƒ ˝ƒø
+			// listAdapter.getCount()ËøîÂõûÊï∞ÊçÆÈ°πÁöÑÊï∞ÁõÆ
 			View listItem = listAdapter.getView(i, null, listView);
-			// º∆À„◊”œÓView µƒøÌ∏ﬂ
+			// ËÆ°ÁÆóÂ≠êÈ°πView ÁöÑÂÆΩÈ´ò
 			listItem.measure(0, 0);
-			// Õ≥º∆À˘”–◊”œÓµƒ◊‹∏ﬂ∂»
+			// ÁªüËÆ°ÊâÄÊúâÂ≠êÈ°πÁöÑÊÄªÈ´òÂ∫¶
 			totalHeight += listItem.getMeasuredHeight();
 		}
 
 		ViewGroup.LayoutParams params = listView.getLayoutParams();
 		params.height = totalHeight
 				+ (listView.getDividerHeight() * (listAdapter.getCount() - 1));
-		// listView.getDividerHeight()ªÒ»°◊”œÓº‰∑÷∏Ù∑˚’º”√µƒ∏ﬂ∂»
-		// params.height◊Ó∫Ûµ√µΩ’˚∏ˆListViewÕÍ’˚œ‘ æ–Ë“™µƒ∏ﬂ∂»
+		// listView.getDividerHeight()Ëé∑ÂèñÂ≠êÈ°πÈó¥ÂàÜÈöîÁ¨¶Âç†Áî®ÁöÑÈ´òÂ∫¶
+		// params.heightÊúÄÂêéÂæóÂà∞Êï¥‰∏™ListViewÂÆåÊï¥ÊòæÁ§∫ÈúÄË¶ÅÁöÑÈ´òÂ∫¶
 		listView.setLayoutParams(params);
 	}
 }

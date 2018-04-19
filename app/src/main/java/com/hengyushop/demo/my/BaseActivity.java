@@ -17,43 +17,43 @@ import com.mrwujay.cascade.service.XmlParserHandler;
 public class BaseActivity extends Activity {
 
 	/**
-	 * ËùÓĞÊ¡
+	 * æ‰€æœ‰çœ
 	 */
 	protected String[] mProvinceDatas;
 	/**
-	 * key - Ê¡ value - ÊĞ
+	 * key - çœ value - å¸‚
 	 */
 	protected Map<String, String[]> mCitisDatasMap = new HashMap<String, String[]>();
 	/**
-	 * key - ÊĞ values - Çø
+	 * key - å¸‚ values - åŒº
 	 */
 	protected Map<String, String[]> mDistrictDatasMap = new HashMap<String, String[]>();
 
 	/**
-	 * key - Çø values - ÓÊ±à
+	 * key - åŒº values - é‚®ç¼–
 	 */
 	protected Map<String, String> mZipcodeDatasMap = new HashMap<String, String>();
 
 	/**
-	 * µ±Ç°Ê¡µÄÃû³Æ
+	 * å½“å‰çœçš„åç§°
 	 */
 	protected String mCurrentProviceName;
 	/**
-	 * µ±Ç°ÊĞµÄÃû³Æ
+	 * å½“å‰å¸‚çš„åç§°
 	 */
 	protected String mCurrentCityName;
 	/**
-	 * µ±Ç°ÇøµÄÃû³Æ
+	 * å½“å‰åŒºçš„åç§°
 	 */
 	protected String mCurrentDistrictName = "";
 
 	/**
-	 * µ±Ç°ÇøµÄÓÊÕş±àÂë
+	 * å½“å‰åŒºçš„é‚®æ”¿ç¼–ç 
 	 */
 	protected String mCurrentZipCode = "";
 
 	/**
-	 * ½âÎöÊ¡ÊĞÇøµÄXMLÊı¾İ
+	 * è§£æçœå¸‚åŒºçš„XMLæ•°æ®
 	 */
 
 	protected void initProvinceDatas() {
@@ -61,16 +61,16 @@ public class BaseActivity extends Activity {
 		AssetManager asset = getAssets();
 		try {
 			InputStream input = asset.open("province_data.xml");
-			// ´´½¨Ò»¸ö½âÎöxmlµÄ¹¤³§¶ÔÏó
+			// åˆ›å»ºä¸€ä¸ªè§£æxmlçš„å·¥å‚å¯¹è±¡
 			SAXParserFactory spf = SAXParserFactory.newInstance();
-			// ½âÎöxml
+			// è§£æxml
 			SAXParser parser = spf.newSAXParser();
 			XmlParserHandler handler = new XmlParserHandler();
 			parser.parse(input, handler);
 			input.close();
-			// »ñÈ¡½âÎö³öÀ´µÄÊı¾İ
+			// è·å–è§£æå‡ºæ¥çš„æ•°æ®
 			provinceList = handler.getDataList();
-			// */ ³õÊ¼»¯Ä¬ÈÏÑ¡ÖĞµÄÊ¡¡¢ÊĞ¡¢Çø
+			// */ åˆå§‹åŒ–é»˜è®¤é€‰ä¸­çš„çœã€å¸‚ã€åŒº
 			if (provinceList != null && !provinceList.isEmpty()) {
 				mCurrentProviceName = provinceList.get(0).getName();
 				List<CityModel> cityList = provinceList.get(0).getCityList();
@@ -85,12 +85,12 @@ public class BaseActivity extends Activity {
 			// */
 			mProvinceDatas = new String[provinceList.size()];
 			for (int i = 0; i < provinceList.size(); i++) {
-				// ±éÀúËùÓĞÊ¡µÄÊı¾İ
+				// éå†æ‰€æœ‰çœçš„æ•°æ®
 				mProvinceDatas[i] = provinceList.get(i).getName();
 				List<CityModel> cityList = provinceList.get(i).getCityList();
 				String[] cityNames = new String[cityList.size()];
 				for (int j = 0; j < cityList.size(); j++) {
-					// ±éÀúÊ¡ÏÂÃæµÄËùÓĞÊĞµÄÊı¾İ
+					// éå†çœä¸‹é¢çš„æ‰€æœ‰å¸‚çš„æ•°æ®
 					cityNames[j] = cityList.get(j).getName();
 					List<DistrictModel> districtList = cityList.get(j)
 							.getDistrictList();
@@ -99,20 +99,20 @@ public class BaseActivity extends Activity {
 					DistrictModel[] distrinctArray = new DistrictModel[districtList
 							.size()];
 					for (int k = 0; k < districtList.size(); k++) {
-						// ±éÀúÊĞÏÂÃæËùÓĞÇø/ÏØµÄÊı¾İ
+						// éå†å¸‚ä¸‹é¢æ‰€æœ‰åŒº/å¿çš„æ•°æ®
 						DistrictModel districtModel = new DistrictModel(
 								districtList.get(k).getName(), districtList
-										.get(k).getZipcode());
-						// Çø/ÏØ¶ÔÓÚµÄÓÊ±à£¬±£´æµ½mZipcodeDatasMap
+								.get(k).getZipcode());
+						// åŒº/å¿å¯¹äºçš„é‚®ç¼–ï¼Œä¿å­˜åˆ°mZipcodeDatasMap
 						mZipcodeDatasMap.put(districtList.get(k).getName(),
 								districtList.get(k).getZipcode());
 						distrinctArray[k] = districtModel;
 						distrinctNameArray[k] = districtModel.getName();
 					}
-					// ÊĞ-Çø/ÏØµÄÊı¾İ£¬±£´æµ½mDistrictDatasMap
+					// å¸‚-åŒº/å¿çš„æ•°æ®ï¼Œä¿å­˜åˆ°mDistrictDatasMap
 					mDistrictDatasMap.put(cityNames[j], distrinctNameArray);
 				}
-				// Ê¡-ÊĞµÄÊı¾İ£¬±£´æµ½mCitisDatasMap
+				// çœ-å¸‚çš„æ•°æ®ï¼Œä¿å­˜åˆ°mCitisDatasMap
 				mCitisDatasMap.put(provinceList.get(i).getName(), cityNames);
 			}
 		} catch (Throwable e) {

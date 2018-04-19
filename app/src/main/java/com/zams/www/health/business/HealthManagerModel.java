@@ -1,4 +1,4 @@
-package com.zams.www.health;
+package com.zams.www.health.business;
 /**
  * 健康 管理列表对象
  * @author yunsenA

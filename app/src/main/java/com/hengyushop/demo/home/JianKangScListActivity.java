@@ -57,71 +57,71 @@ public class JianKangScListActivity extends BaseActivity {
 		textView1 = (TextView) findViewById(R.id.textView1);
 		type_zhi = getIntent().getStringExtra("type_zhi");
 //		if (type_zhi.equals("0")) {
-//			textView1.setText("2017º€÷µªÿ¿°A«¯");
+//			textView1.setText("2017‰ª∑ÂÄºÂõûÈ¶àAÂå∫");
 //		}else if (type_zhi.equals("1")) {
-//			textView1.setText("2017º€÷µªÿ¿°B«¯");
+//			textView1.setText("2017‰ª∑ÂÄºÂõûÈ¶àBÂå∫");
 //		}else if (type_zhi.equals("2")) {
-//			textView1.setText("2017º€÷µªÿ¿°C«¯");
-//		}else 
+//			textView1.setText("2017‰ª∑ÂÄºÂõûÈ¶àCÂå∫");
+//		}else
 //		if (type_zhi.equals("3")) {
-			textView1.setText(getIntent().getStringExtra("title"));
+		textView1.setText(getIntent().getStringExtra("title"));
 //		}
 		initdata();
-		
+
 		lists = new ArrayList<SpListData>();
 		jdhadapter = new JianKangGridViewAdaper(lists, getApplicationContext());
 		gridView.setAdapter(jdhadapter);;
-		
+
 		load_list(true);
 	}
-	
+
 
 	public void onDestroy() {
-		 super.onDestroy(); 
-			System.out.println("GoodsMyGridViewAdaper.type=======1=========="+JianKangGridViewAdaper.type);
-			try {
-				
+		super.onDestroy();
+		System.out.println("GoodsMyGridViewAdaper.type=======1=========="+JianKangGridViewAdaper.type);
+		try {
+
 			if (JianKangGridViewAdaper.type == true) {
-					JianKangGridViewAdaper.mAq.clear();
-					JianKangGridViewAdaper.type = false;
+				JianKangGridViewAdaper.mAq.clear();
+				JianKangGridViewAdaper.type = false;
 			}
-			
+
 			if (lists.size() < 0) {
 				lists.clear();
 			}
-			
+
 			System.out.println("GoodsMyGridViewAdaper.type=======1=========="+JianKangGridViewAdaper.type);
-			} catch (Exception e) {
-				// TODO: handle exception
-				e.printStackTrace();
-			}
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
 	};
-	
+
 	Handler handler = new Handler() {
 		public void dispatchMessage(Message msg) {
 			switch (msg.what) {
-			case 1:
-				System.out.println("=====================’‚¿Ô2=="+lists.size());
-				jdhadapter.putData(lists);
-				progress.CloseProgress();
+				case 1:
+					System.out.println("=====================ËøôÈáå2=="+lists.size());
+					jdhadapter.putData(lists);
+					progress.CloseProgress();
 //				jdhadapter.notifyDataSetChanged();
-				gridView.setOnItemClickListener(new OnItemClickListener() {
-	                
-					@Override
-					public void onItemClick(AdapterView<?> arg0, View arg1,
-							int arg2, long arg3) {
-						// TODO Auto-generated method stub
-						String id = lists.get(arg2).getId();
-						System.out.println("====================="+id);
-						Intent intent = new Intent(JianKangScListActivity.this,WareInformationActivity.class);
-						intent.putExtra("id", id);
-						startActivity(intent);
-					}
-				});
-				break;
+					gridView.setOnItemClickListener(new OnItemClickListener() {
 
-			default:
-				break;
+						@Override
+						public void onItemClick(AdapterView<?> arg0, View arg1,
+												int arg2, long arg3) {
+							// TODO Auto-generated method stub
+							String id = lists.get(arg2).getId();
+							System.out.println("====================="+id);
+							Intent intent = new Intent(JianKangScListActivity.this,WareInformationActivity.class);
+							intent.putExtra("id", id);
+							startActivity(intent);
+						}
+					});
+					break;
+
+				default:
+					break;
 			}
 		};
 	};
@@ -133,7 +133,7 @@ public class JianKangScListActivity extends BaseActivity {
 		gridView_list = (MyGridView) findViewById(R.id.gridView_list);
 		ImageView iv_fanhui = (ImageView) findViewById(R.id.iv_fanhui);
 		iv_fanhui.setOnClickListener(new OnClickListener() {
-			
+
 			@Override
 			public void onClick(View arg0) {
 				// TODO Auto-generated method stub
@@ -141,8 +141,8 @@ public class JianKangScListActivity extends BaseActivity {
 			}
 		});
 	}
-	
-//	  <GridView 
+
+//	  <GridView
 //      android:id="@+id/gridView"
 //      android:layout_width="match_parent"
 //      android:layout_height="match_parent"
@@ -151,9 +151,9 @@ public class JianKangScListActivity extends BaseActivity {
 //      android:divider="@color/list_diver"
 //      android:numColumns="2"
 //      android:dividerHeight="1dp">
-	  
+
 	/**
-	 * …œ¿≠¡–±ÌÀ¢–¬º”‘ÿ
+	 * ‰∏äÊãâÂàóË°®Âà∑Êñ∞Âä†ËΩΩ
 	 */
 	private OnHeaderRefreshListener listHeadListener = new OnHeaderRefreshListener() {
 
@@ -169,9 +169,9 @@ public class JianKangScListActivity extends BaseActivity {
 			}, 1000);
 		}
 	};
-	
+
 	/**
-	 * œ¬¿≠¡–±ÌÀ¢–¬º”‘ÿ
+	 * ‰∏ãÊãâÂàóË°®Âà∑Êñ∞Âä†ËΩΩ
 	 */
 	private OnFooterRefreshListener listFootListener = new OnFooterRefreshListener() {
 
@@ -184,8 +184,8 @@ public class JianKangScListActivity extends BaseActivity {
 				public void run() {
 					try {
 						load_list(false);
-					refresh.onFooterRefreshComplete();
-					
+						refresh.onFooterRefreshComplete();
+
 					} catch (Exception e) {
 						// TODO: handle exception
 						e.printStackTrace();
@@ -194,11 +194,11 @@ public class JianKangScListActivity extends BaseActivity {
 			}, 1000);
 		}
 	};
-	
+
 	/**
-	 * …Ã∆∑¡–±Ì ˝æ›Ω‚Œˆ
+	 * ÂïÜÂìÅÂàóË°®Êï∞ÊçÆËß£Êûê
 	 */
-	
+
 	private int CURRENT_NUM = 1;
 	private final int VIEW_NUM = 10;
 	private void load_list(boolean flag) {
@@ -207,65 +207,65 @@ public class JianKangScListActivity extends BaseActivity {
 			CURRENT_NUM = 1;
 			lists = new ArrayList<SpListData>();
 		}
-			String category_id = getIntent().getStringExtra("category_id");
-			AsyncHttp.get(RealmName.REALM_NAME_LL+"/get_article_page_size_list?channel_name=goods&category_id="+category_id+"" +
-					"&page_size="+VIEW_NUM+"&page_index="+CURRENT_NUM+"&strwhere=&orderby=",
-			new AsyncHttpResponseHandler(){
-							@Override
-							public void onSuccess(int arg0, String arg1) {
-								// TODO Auto-generated method stub
-								super.onSuccess(arg0, arg1);
-//								System.out.println("=====================»˝º∂÷µ"+arg1);
-								try {
-									JSONObject jsonObject = new JSONObject(arg1);
-									String status = jsonObject.getString("status");
-									String info = jsonObject.getString("info");
-									if (status.equals("y")) {
-									JSONArray jsonArray = jsonObject.getJSONArray("data");
-									 len = jsonArray.length();
-									for(int i=0;i<jsonArray.length();i++){
-										JSONObject object = jsonArray.getJSONObject(i);
-										spList = new SpListData();
-										spList.id = object.getString("id");
-										spList.img_url = object.getString("img_url");
-										spList.title = object.getString("title");
-										spList.market_price = object.getString("market_price");
-										spList.sell_price = object.getString("sell_price");
+		String category_id = getIntent().getStringExtra("category_id");
+		AsyncHttp.get(RealmName.REALM_NAME_LL+"/get_article_page_size_list?channel_name=goods&category_id="+category_id+"" +
+						"&page_size="+VIEW_NUM+"&page_index="+CURRENT_NUM+"&strwhere=&orderby=",
+				new AsyncHttpResponseHandler(){
+					@Override
+					public void onSuccess(int arg0, String arg1) {
+						// TODO Auto-generated method stub
+						super.onSuccess(arg0, arg1);
+//								System.out.println("=====================‰∏âÁ∫ßÂÄº"+arg1);
+						try {
+							JSONObject jsonObject = new JSONObject(arg1);
+							String status = jsonObject.getString("status");
+							String info = jsonObject.getString("info");
+							if (status.equals("y")) {
+								JSONArray jsonArray = jsonObject.getJSONArray("data");
+								len = jsonArray.length();
+								for(int i=0;i<jsonArray.length();i++){
+									JSONObject object = jsonArray.getJSONObject(i);
+									spList = new SpListData();
+									spList.id = object.getString("id");
+									spList.img_url = object.getString("img_url");
+									spList.title = object.getString("title");
+									spList.market_price = object.getString("market_price");
+									spList.sell_price = object.getString("sell_price");
 //										spList.cashing_packet = object.getString("cashing_packet");
 //										JSONArray jaArray = object.getJSONArray("albums");
 //										for (int j = 0; j < jaArray.length(); j++) {
 //											JSONObject jact = jaArray.getJSONObject(j);
 //										}
-										lists.add(spList);
-									}
-									}else {
-										progress.CloseProgress();
-										Toast.makeText(JianKangScListActivity.this, "√ª”–…Ã∆∑¡À", 200).show();
-									}
-									handler.sendEmptyMessage(1);
-									if (lists.size() > 0) {
-										JianKangGridViewAdaper.mAq.clear();
-									}
-									progress.CloseProgress();
-									
-									if(len!=0){
-										CURRENT_NUM =CURRENT_NUM+1;
-									}
-								} catch (JSONException e) {
-									// TODO Auto-generated catch block
-									e.printStackTrace();
+									lists.add(spList);
 								}
+							}else {
+								progress.CloseProgress();
+								Toast.makeText(JianKangScListActivity.this, "Ê≤°ÊúâÂïÜÂìÅ‰∫Ü", Toast.LENGTH_SHORT).show();
 							}
-							
-							@Override
-								public void onFailure(Throwable arg0,String arg1) {
-									// TODO Auto-generated method stub
-									super.onFailure(arg0, arg1);
-									progress.CloseProgress();
-									System.out.println("arg1====================="+arg1);
-									Toast.makeText(JianKangScListActivity.this, "¡¥Ω”“Ï≥£", 200).show();
-								}
-						}, JianKangScListActivity.this);
+							handler.sendEmptyMessage(1);
+							if (lists.size() > 0) {
+								JianKangGridViewAdaper.mAq.clear();
+							}
+							progress.CloseProgress();
+
+							if(len!=0){
+								CURRENT_NUM =CURRENT_NUM+1;
+							}
+						} catch (JSONException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+					}
+
+					@Override
+					public void onFailure(Throwable arg0,String arg1) {
+						// TODO Auto-generated method stub
+						super.onFailure(arg0, arg1);
+						progress.CloseProgress();
+						System.out.println("arg1====================="+arg1);
+						Toast.makeText(JianKangScListActivity.this, "ÈìæÊé•ÂºÇÂ∏∏", Toast.LENGTH_SHORT).show();
+					}
+				}, JianKangScListActivity.this);
 	}
 
 

@@ -91,14 +91,14 @@ public class JuTuanGou2Activity extends BaseActivity implements OnClickListener 
 		progress = new DialogProgress(this);
 		// progress.CreateProgress();
 		Initialize();
-//		loadguanggao();//¹ã¸æ
+//		loadguanggao();//å¹¿å‘Š
 		getTupian();
 		loadWeather();
 		category_id = "1703";
 		loadjutoutiao();
 		// loadWeather21();
 	}
-	
+
 	@Override
 	protected void onDestroy() {
 		// TODO Auto-generated method stub
@@ -109,7 +109,7 @@ public class JuTuanGou2Activity extends BaseActivity implements OnClickListener 
 				MyPosterView.type = false;
 			}
 			mAq.clear();
-			
+
 			if (list_1.size() > 0) {
 				list_1 = null;
 			}
@@ -127,7 +127,7 @@ public class JuTuanGou2Activity extends BaseActivity implements OnClickListener 
 
 	// public void uncaughtException(Thread arg0, Throwable arg1) {
 	// // TODO Auto-generated method stub
-	// //ÔÚ´Ë´¦ÀíÒì³££¬ arg1¼´Îª²¶»ñµ½µÄÒì³£
+	// //åœ¨æ­¤å¤„ç†å¼‚å¸¸ï¼Œ arg1å³ä¸ºæ•è·åˆ°çš„å¼‚å¸¸
 	// Log.i("AAA", "uncaughtException   " + arg1);
 	// }
 	// @Override
@@ -137,12 +137,12 @@ public class JuTuanGou2Activity extends BaseActivity implements OnClickListener 
 	// // loadCate();
 	// }
 
-	// ÖĞ½±
+	// ä¸­å¥–
 	private void loadjutoutiao() {
 		// progress.CreateProgress();
 		String strUrl = RealmName.REALM_NAME_LL
 				+ "/get_order_groupon_award_list?top=10&orderby=";
-		// System.out.println("ÖĞ½±"+strUrl);
+		// System.out.println("ä¸­å¥–"+strUrl);
 		AsyncHttp.get(strUrl, new AsyncHttpResponseHandler() {
 			@Override
 			public void onSuccess(int arg0, String arg1) {
@@ -153,14 +153,14 @@ public class JuTuanGou2Activity extends BaseActivity implements OnClickListener 
 		}, null);
 	}
 
-	// ÖĞ½±
+	// ä¸­å¥–
 	BeanVo data_zj;
 	private void parse1(String st) {
 		try {
 			JSONObject jsonObject = new JSONObject(st);
 			String status = jsonObject.getString("status");
 			if (status.equals("y")) {
-				System.out.println("ÖĞ½±====================" + st);
+				System.out.println("ä¸­å¥–====================" + st);
 				list_ju = new ArrayList<BeanVo>();
 				JSONArray jsonArray = jsonObject.getJSONArray("data");
 				for (int i = 0; i < jsonArray.length(); i++) {
@@ -173,7 +173,7 @@ public class JuTuanGou2Activity extends BaseActivity implements OnClickListener 
 					// for (int k = 0; k < json.length(); k++) {
 					// JSONObject jsont = json.getJSONObject(k);
 					// data.groupon_title =
-					// "¹§Ï²"+data.user_name+"ÇÀµ½"+obt.getString("groupon_title");
+					// "æ­å–œ"+data.user_name+"æŠ¢åˆ°"+obt.getString("groupon_title");
 					data_zj.groupon_title = obt.getString("groupon_title");
 					String nick_name = data_zj.user_name.replaceAll("\\s*", "");
 					System.out.println("nick_name-----2-----" + nick_name);
@@ -189,7 +189,7 @@ public class JuTuanGou2Activity extends BaseActivity implements OnClickListener 
 			} else {
 			}
 			System.out.println("type====================" + type);
-			
+
 			mytaobao.setData(list_ju);
 			// progress.CloseProgress();
 		} catch (Exception e) {
@@ -200,7 +200,7 @@ public class JuTuanGou2Activity extends BaseActivity implements OnClickListener 
 
 	private void Initialize() {
 		try {
-			// ¾ÛÍ·Ìõ
+			// èšå¤´æ¡
 			mytaobao = (ScrollTopViewll) findViewById(R.id.mytaobao);
 
 			mytaobao.setOnClickListener(new OnClickListener() {
@@ -288,148 +288,148 @@ public class JuTuanGou2Activity extends BaseActivity implements OnClickListener 
 	public void onClick(View v) {
 		// TODO Auto-generated method stub
 		switch (v.getId()) {
-		case R.id.index_item0:
-			try {
-				if (list_1.size() > 0) {
-					Intent intent = new Intent(JuTuanGou2Activity.this,
-							JuTuanGouActivity.class);
-					intent.putExtra("title", "Æ´¾«²Ê");
-					intent.putExtra("category_id", list_1.get(0)
-							.getCategory_id());
-					intent.putExtra("zhuangtai", "groupon");
-					intent.putExtra("type", "1");
-					startActivity(intent);
-				} else {
-					Toast.makeText(JuTuanGou2Activity.this, "Êı¾İÎª¿Õ", 200).show();
+			case R.id.index_item0:
+				try {
+					if (list_1.size() > 0) {
+						Intent intent = new Intent(JuTuanGou2Activity.this,
+								JuTuanGouActivity.class);
+						intent.putExtra("title", "æ‹¼ç²¾å½©");
+						intent.putExtra("category_id", list_1.get(0)
+								.getCategory_id());
+						intent.putExtra("zhuangtai", "groupon");
+						intent.putExtra("type", "1");
+						startActivity(intent);
+					} else {
+						Toast.makeText(JuTuanGou2Activity.this, "æ•°æ®ä¸ºç©º", 200).show();
+					}
+				} catch (Exception e) {
+					// TODO: handle exception
+					e.printStackTrace();
 				}
-			} catch (Exception e) {
-				// TODO: handle exception
-				e.printStackTrace();
-			}
-			break;
-		case R.id.index_item1:
-			try {
-				if (list_2.size() > 0) {
-					Intent intent01 = new Intent(JuTuanGou2Activity.this,
-							JuTuanGouActivity.class);
-					intent01.putExtra("title", "Æ´ÍÅ");
-					intent01.putExtra("category_id", list_2.get(0)
-							.getCategory_id());
-					intent01.putExtra("zhuangtai", "group");
-					intent01.putExtra("type", "2");
-					// intent01.putExtra("type_xq", "1");
-					startActivity(intent01);
-				} else {
-					Toast.makeText(JuTuanGou2Activity.this, "Êı¾İÎª¿Õ", 200).show();
+				break;
+			case R.id.index_item1:
+				try {
+					if (list_2.size() > 0) {
+						Intent intent01 = new Intent(JuTuanGou2Activity.this,
+								JuTuanGouActivity.class);
+						intent01.putExtra("title", "æ‹¼å›¢");
+						intent01.putExtra("category_id", list_2.get(0)
+								.getCategory_id());
+						intent01.putExtra("zhuangtai", "group");
+						intent01.putExtra("type", "2");
+						// intent01.putExtra("type_xq", "1");
+						startActivity(intent01);
+					} else {
+						Toast.makeText(JuTuanGou2Activity.this, "æ•°æ®ä¸ºç©º", 200).show();
+					}
+				} catch (Exception e) {
+					// TODO: handle exception
+					e.printStackTrace();
 				}
-			} catch (Exception e) {
-				// TODO: handle exception
-				e.printStackTrace();
-			}
-			break;
-		case R.id.index_item2:
-			try {
-				if (list_3.size() > 0) {
-					Intent intent02 = new Intent(JuTuanGou2Activity.this,
-							JuTuanGouActivity.class);
-					intent02.putExtra("title", "Ô¤ÊÛÍÅ");
-					intent02.putExtra("category_id", list_3.get(0)
-							.getCategory_id());
-					intent02.putExtra("zhuangtai", "ladder");
-					// intent02.putExtra("type_xq", "2");
-					startActivity(intent02);
-				} else {
-					Toast.makeText(JuTuanGou2Activity.this, "Êı¾İÎª¿Õ", 200).show();
+				break;
+			case R.id.index_item2:
+				try {
+					if (list_3.size() > 0) {
+						Intent intent02 = new Intent(JuTuanGou2Activity.this,
+								JuTuanGouActivity.class);
+						intent02.putExtra("title", "é¢„å”®å›¢");
+						intent02.putExtra("category_id", list_3.get(0)
+								.getCategory_id());
+						intent02.putExtra("zhuangtai", "ladder");
+						// intent02.putExtra("type_xq", "2");
+						startActivity(intent02);
+					} else {
+						Toast.makeText(JuTuanGou2Activity.this, "æ•°æ®ä¸ºç©º", 200).show();
+					}
+				} catch (Exception e) {
+					// TODO: handle exception
+					e.printStackTrace();
 				}
-			} catch (Exception e) {
-				// TODO: handle exception
-				e.printStackTrace();
-			}
-			break;
-		// case R.id.index_item3:
-		// if (list_4.size() > 0) {
-		//
-		// Intent intent03 = new Intent(JuTuanGou2Activity.this,
-		// JuTuanGouActivity.class);
-		// intent03.putExtra("title", "Ò»Ôª¾Û±¦");
-		// intent03.putExtra("category_id", list_4.get(0).getCategory_id());
-		// intent03.putExtra("zhuangtai","4");
-		// startActivity(intent03);
-		// }else {
-		// Toast.makeText(JuTuanGou2Activity.this, "Êı¾İÎª¿Õ", 200).show();
-		// }
-		// break;
-		case R.id.ll_tuangou1:
-			Intent intent0 = new Intent(JuTuanGou2Activity.this,
-					JuJingCaiXqActivity.class);
-			intent0.putExtra("id", list_1.get(0).getId());
-			intent0.putExtra("choujiang", "110");
-			intent0.putExtra("type", "1");
-			intent0.putExtra("time_type", "time_type");
-			intent0.putExtra("fx_shuzi", "groupon");
-			intent0.putExtra("datatype", "5");
-			startActivity(intent0);
-			break;
-		case R.id.ll_tuangou2:
-			Intent intent1 = new Intent(JuTuanGou2Activity.this,
-					JuTuanGouXqActivity.class);
-			intent1.putExtra("id", list_2.get(0).getId());
-			intent1.putExtra("type", "2");
-			intent1.putExtra("jiekou", "2");// ½Ó¿Ú×´Ì¬
-			intent1.putExtra("fx_shuzi", "group");
-			// intent1.putExtra("type_xq", "1");
-			intent1.putExtra("datatype", "4");
-			startActivity(intent1);
-			break;
-		case R.id.ll_tuangou3:
-			Intent intent2 = new Intent(JuTuanGou2Activity.this,
-					JuTuanGouXqActivity.class);
-			intent2.putExtra("id", list_3.get(0).getId());
-			intent2.putExtra("jiekou", "3");// ½Ó¿Ú×´Ì¬
-			// intent2.putExtra("type_xq", "2");
-			intent2.putExtra("fx_shuzi", "ladder");
-			intent2.putExtra("datatype", "7");
-			startActivity(intent2);
-			break;
-		case R.id.ll_tuangou4:
-			Intent intent3 = new Intent(JuTuanGou2Activity.this,
-					JuTuanGouXqActivity.class);
-			intent3.putExtra("id", list_4.get(0).getId());
-			startActivity(intent3);
-			break;
+				break;
+			// case R.id.index_item3:
+			// if (list_4.size() > 0) {
+			//
+			// Intent intent03 = new Intent(JuTuanGou2Activity.this,
+			// JuTuanGouActivity.class);
+			// intent03.putExtra("title", "ä¸€å…ƒèšå®");
+			// intent03.putExtra("category_id", list_4.get(0).getCategory_id());
+			// intent03.putExtra("zhuangtai","4");
+			// startActivity(intent03);
+			// }else {
+			// Toast.makeText(JuTuanGou2Activity.this, "æ•°æ®ä¸ºç©º", 200).show();
+			// }
+			// break;
+			case R.id.ll_tuangou1:
+				Intent intent0 = new Intent(JuTuanGou2Activity.this,
+						JuJingCaiXqActivity.class);
+				intent0.putExtra("id", list_1.get(0).getId());
+				intent0.putExtra("choujiang", "110");
+				intent0.putExtra("type", "1");
+				intent0.putExtra("time_type", "time_type");
+				intent0.putExtra("fx_shuzi", "groupon");
+				intent0.putExtra("datatype", "5");
+				startActivity(intent0);
+				break;
+			case R.id.ll_tuangou2:
+				Intent intent1 = new Intent(JuTuanGou2Activity.this,
+						JuTuanGouXqActivity.class);
+				intent1.putExtra("id", list_2.get(0).getId());
+				intent1.putExtra("type", "2");
+				intent1.putExtra("jiekou", "2");// æ¥å£çŠ¶æ€
+				intent1.putExtra("fx_shuzi", "group");
+				// intent1.putExtra("type_xq", "1");
+				intent1.putExtra("datatype", "4");
+				startActivity(intent1);
+				break;
+			case R.id.ll_tuangou3:
+				Intent intent2 = new Intent(JuTuanGou2Activity.this,
+						JuTuanGouXqActivity.class);
+				intent2.putExtra("id", list_3.get(0).getId());
+				intent2.putExtra("jiekou", "3");// æ¥å£çŠ¶æ€
+				// intent2.putExtra("type_xq", "2");
+				intent2.putExtra("fx_shuzi", "ladder");
+				intent2.putExtra("datatype", "7");
+				startActivity(intent2);
+				break;
+			case R.id.ll_tuangou4:
+				Intent intent3 = new Intent(JuTuanGou2Activity.this,
+						JuTuanGouXqActivity.class);
+				intent3.putExtra("id", list_4.get(0).getId());
+				startActivity(intent3);
+				break;
 
-		default:
-			break;
+			default:
+				break;
 		}
 	}
 
 	private Handler handler = new Handler() {
 		public void dispatchMessage(Message msg) {
 			switch (msg.what) {
-			case 0:
-				break;
-			case 1:
-				System.out.println("¸öÊıÊÇ¶àÉÙ1====================" + list.size());
-				adapter = new MyAdapter2(getApplicationContext(), list, list2);
-				myGridView.setAdapter(adapter);
-				break;
-			case 2:
-				System.out
-						.println("¸öÊıÊÇ¶àÉÙ2====================" + list_1.size());
-				Jutuangouadapter = new JuTuanGouAdapter(
-						getApplicationContext(), list_1);
-				new_list.setAdapter(Jutuangouadapter);
-				break;
+				case 0:
+					break;
+				case 1:
+					System.out.println("ä¸ªæ•°æ˜¯å¤šå°‘1====================" + list.size());
+					adapter = new MyAdapter2(getApplicationContext(), list, list2);
+					myGridView.setAdapter(adapter);
+					break;
+				case 2:
+					System.out
+							.println("ä¸ªæ•°æ˜¯å¤šå°‘2====================" + list_1.size());
+					Jutuangouadapter = new JuTuanGouAdapter(
+							getApplicationContext(), list_1);
+					new_list.setAdapter(Jutuangouadapter);
+					break;
 
-			default:
-				break;
+				default:
+					break;
 			}
 		};
 	};
 
 	/**
-	 * Êä³ö¾Û¾«²ÊÁĞ±í
-	 * 
+	 * è¾“å‡ºèšç²¾å½©åˆ—è¡¨
+	 *
 	 * @param category_id
 	 */
 	java.util.Date now_1;
@@ -441,14 +441,14 @@ public class JuTuanGou2Activity extends BaseActivity implements OnClickListener 
 		// "/get_game_groupon_top?channel_name=groupon&category_id=0&top=1"
 		AsyncHttp
 				.get(RealmName.REALM_NAME_LL
-						+ "/get_article_top_list_2017?channel_name=groupon&top=1&strwhere=",
+								+ "/get_article_top_list_2017?channel_name=groupon&top=1&strwhere=",
 						new AsyncHttpResponseHandler() {
 							@Override
 							public void onSuccess(int arg0, String arg1) {
 								// TODO Auto-generated method stub
 								super.onSuccess(arg0, arg1);
 								System.out
-										.println("Êä³öËùÓĞÆ´ÍÅ»î¶¯ÁĞ±í=========" + arg1);
+										.println("è¾“å‡ºæ‰€æœ‰æ‹¼å›¢æ´»åŠ¨åˆ—è¡¨=========" + arg1);
 								try {
 									list_1 = new ArrayList<JuTuanGouData>();
 
@@ -505,10 +505,10 @@ public class JuTuanGou2Activity extends BaseActivity implements OnClickListener 
 												.getTitle());
 										tv_price1.setText(list_1.get(0)
 												.getSell_price());
-										tv_groupon_price1.setText("£¤"
+										tv_groupon_price1.setText("ï¿¥"
 												+ list_1.get(0).getPrice());
 										tv_tuan1.setText(list_1.get(0)
-												.getPeople() + "ÈËÍÅ");
+												.getPeople() + "äººå›¢");
 										tv_time1.setText(list_1.get(0)
 												.getUpdate_time());
 										ImageLoader imageLoader = ImageLoader
@@ -517,7 +517,7 @@ public class JuTuanGou2Activity extends BaseActivity implements OnClickListener 
 												.displayImage(
 														(String) RealmName.REALM_NAME_HTTP
 																+ list_1.get(0)
-																		.getImg_url(),
+																.getImg_url(),
 														ll_tupian1);
 										imageLoader.clearMemoryCache();
 										// mAq.id(ll_tupian1).image(RealmName.REALM_NAME_HTTP+list_1.get(0).getImg_url());
@@ -546,13 +546,13 @@ public class JuTuanGou2Activity extends BaseActivity implements OnClickListener 
 												+ time);
 										if (end_time > time) {
 											System.out
-													.println("1-------Á¢¼´²ÎÓë------");
+													.println("1-------ç«‹å³å‚ä¸------");
 											getzhou();
 
 										} else {
 											System.out
-													.println("2-----ÒÑ½áÊø--------");
-											tv_anniu1.setText("ÒÑ¾­½áÊø");
+													.println("2-----å·²ç»“æŸ--------");
+											tv_anniu1.setText("å·²ç»ç»“æŸ");
 										}
 
 										System.out
@@ -582,8 +582,8 @@ public class JuTuanGou2Activity extends BaseActivity implements OnClickListener 
 	}
 
 	/**
-	 * Êä³ö¾ÛÍÅÁĞ±í2
-	 * 
+	 * è¾“å‡ºèšå›¢åˆ—è¡¨2
+	 *
 	 * @param category_id
 	 */
 	java.util.Date now_2;
@@ -595,14 +595,14 @@ public class JuTuanGou2Activity extends BaseActivity implements OnClickListener 
 		// "/get_game_groupon_top?channel_name=group&category_id=0&top=1"
 		AsyncHttp
 				.get(RealmName.REALM_NAME_LL
-						+ "/get_article_top_list_2017?channel_name=group&top=1&strwhere=",
+								+ "/get_article_top_list_2017?channel_name=group&top=1&strwhere=",
 						new AsyncHttpResponseHandler() {
 							@Override
 							public void onSuccess(int arg0, String arg1) {
 								// TODO Auto-generated method stub
 								super.onSuccess(arg0, arg1);
 								System.out
-										.println("Êä³öËùÓĞÆ´ÍÅ»î¶¯ÁĞ±í=========" + arg1);
+										.println("è¾“å‡ºæ‰€æœ‰æ‹¼å›¢æ´»åŠ¨åˆ—è¡¨=========" + arg1);
 								try {
 									list_2 = new ArrayList<JuTuanGouData>();
 									JSONObject object = new JSONObject(arg1);
@@ -656,10 +656,10 @@ public class JuTuanGou2Activity extends BaseActivity implements OnClickListener 
 												.getTitle());
 										tv_price2.setText(list_2.get(0)
 												.getSell_price());
-										tv_groupon_price2.setText("£¤"
+										tv_groupon_price2.setText("ï¿¥"
 												+ list_2.get(0).getPrice());
 										tv_tuan2.setText(list_2.get(0)
-												.getPeople() + "ÈËÍÅ");
+												.getPeople() + "äººå›¢");
 										tv_time2.setText(list_2.get(0)
 												.getUpdate_time());
 										ImageLoader imageLoader = ImageLoader
@@ -668,7 +668,7 @@ public class JuTuanGou2Activity extends BaseActivity implements OnClickListener 
 												.displayImage(
 														(String) RealmName.REALM_NAME_HTTP
 																+ list_2.get(0)
-																		.getImg_url(),
+																.getImg_url(),
 														ll_tupian2);
 										imageLoader.clearMemoryCache();
 										// mAq.id(ll_tupian2).image(RealmName.REALM_NAME_HTTP+list_2.get(0).getImg_url());
@@ -698,13 +698,13 @@ public class JuTuanGou2Activity extends BaseActivity implements OnClickListener 
 												+ time);
 										if (end_time > time) {
 											System.out
-													.println("1----2---Á¢¼´²ÎÓë------");
+													.println("1----2---ç«‹å³å‚ä¸------");
 											getzhou2();
 
 										} else {
 											System.out
-													.println("2--2---ÒÑ½áÊø--------");
-											tv_anniu2.setText("ÒÑ¾­½áÊø");
+													.println("2--2---å·²ç»“æŸ--------");
+											tv_anniu2.setText("å·²ç»ç»“æŸ");
 										}
 										data_11 = null;
 									} else {
@@ -726,8 +726,8 @@ public class JuTuanGou2Activity extends BaseActivity implements OnClickListener 
 	}
 
 	/**
-	 * Êä³öÔ¤ÊÛÍÅÁĞ±í3
-	 * 
+	 * è¾“å‡ºé¢„å”®å›¢åˆ—è¡¨3
+	 *
 	 * @param category_id
 	 */
 	java.util.Date now_3;
@@ -739,14 +739,14 @@ public class JuTuanGou2Activity extends BaseActivity implements OnClickListener 
 		// "/get_game_groupon_top?channel_name=ladder&category_id=0&top=1"
 		AsyncHttp
 				.get(RealmName.REALM_NAME_LL
-						+ "/get_article_top_list_2017?channel_name=ladder&top=1&strwhere=",
+								+ "/get_article_top_list_2017?channel_name=ladder&top=1&strwhere=",
 						new AsyncHttpResponseHandler() {
 							@Override
 							public void onSuccess(int arg0, String arg1) {
 								// TODO Auto-generated method stub
 								super.onSuccess(arg0, arg1);
 								System.out
-										.println("Êä³öËùÓĞÆ´ÍÅ»î¶¯ÁĞ±í=========" + arg1);
+										.println("è¾“å‡ºæ‰€æœ‰æ‹¼å›¢æ´»åŠ¨åˆ—è¡¨=========" + arg1);
 								try {
 									list_3 = new ArrayList<JuTuanGouData>();
 									JSONObject object = new JSONObject(arg1);
@@ -799,10 +799,10 @@ public class JuTuanGou2Activity extends BaseActivity implements OnClickListener 
 												.getTitle());
 										tv_price3.setText(list_3.get(0)
 												.getSell_price());
-										tv_groupon_price3.setText("£¤"
+										tv_groupon_price3.setText("ï¿¥"
 												+ list_3.get(0).getPrice());
 										tv_tuan3.setText(list_3.get(0)
-												.getPeople() + "ÈËÍÅ");
+												.getPeople() + "äººå›¢");
 										tv_time3.setText(list_3.get(0)
 												.getUpdate_time());
 										ImageLoader imageLoader = ImageLoader
@@ -811,7 +811,7 @@ public class JuTuanGou2Activity extends BaseActivity implements OnClickListener 
 												.displayImage(
 														(String) RealmName.REALM_NAME_HTTP
 																+ list_3.get(0)
-																		.getImg_url(),
+																.getImg_url(),
 														ll_tupian3);
 										imageLoader.clearMemoryCache();
 										// mAq.id(ll_tupian3).image(RealmName.REALM_NAME_HTTP+list_3.get(0).getImg_url());
@@ -841,12 +841,12 @@ public class JuTuanGou2Activity extends BaseActivity implements OnClickListener 
 												+ time);
 										if (end_time > time) {
 											System.out
-													.println("1----3---Á¢¼´²ÎÓë------");
+													.println("1----3---ç«‹å³å‚ä¸------");
 											getzhou3();
 										} else {
 											System.out
-													.println("2--3---ÒÑ½áÊø--------");
-											tv_anniu3.setText("ÒÑ¾­½áÊø");
+													.println("2--3---å·²ç»“æŸ--------");
+											tv_anniu3.setText("å·²ç»ç»“æŸ");
 										}
 										data_22 = null;
 									} else {
@@ -872,14 +872,14 @@ public class JuTuanGou2Activity extends BaseActivity implements OnClickListener 
 //	private void loadguanggao() {
 //		try {
 //
-//			// ¹ã¸æ¹ö¶¯
+//			// å¹¿å‘Šæ»šåŠ¨
 //			AsyncHttp.get(RealmName.REALM_NAME_LL+ "/get_adbanner_list?advert_id=17",
 //					new AsyncHttpResponseHandler() {
 //						@Override
 //						public void onSuccess(int arg0, String arg1) {
 //							super.onSuccess(arg0, arg1);
 //							System.out
-//									.println("======Êä³ö33=============" + arg1);
+//									.println("======è¾“å‡º33=============" + arg1);
 //							try {
 //								JSONObject object = new JSONObject(arg1);
 //								String status = object.getString("status");
@@ -897,7 +897,7 @@ public class JuTuanGou2Activity extends BaseActivity implements OnClickListener 
 //										String ad_url = ada.getAd_url();
 //										ImageLoader imageLoader = ImageLoader.getInstance();
 //										imageLoader.displayImage(RealmName.REALM_NAME_HTTP+ ad_url, img_menu);
-//										imageLoader.clearMemoryCache();// Çå³ıÄÚ´æ»º´æ
+//										imageLoader.clearMemoryCache();// æ¸…é™¤å†…å­˜ç¼“å­˜
 //										images.add(ada);
 //									}
 //								} else {
@@ -912,8 +912,8 @@ public class JuTuanGou2Activity extends BaseActivity implements OnClickListener 
 //						public void onFailure(Throwable arg0, String arg1) {
 //							// TODO Auto-generated method stub
 //							super.onFailure(arg0, arg1);
-//							System.out.println("======Êä³ö112============="+ arg0);
-//							System.out.println("======Êä³ö113============="+ arg1);
+//							System.out.println("======è¾“å‡º112============="+ arg0);
+//							System.out.println("======è¾“å‡º113============="+ arg1);
 //						}
 //
 //					}, null);
@@ -923,9 +923,9 @@ public class JuTuanGou2Activity extends BaseActivity implements OnClickListener 
 //			e.printStackTrace();
 //		}
 //	}
-	
+
 	/**
-	 * ¹ã¸æÍ¼Æ¬
+	 * å¹¿å‘Šå›¾ç‰‡
 	 */
 	ArrayList<AdvertDao1> images;
 	private MyPosterView advPager = null;
@@ -933,112 +933,112 @@ public class JuTuanGou2Activity extends BaseActivity implements OnClickListener 
 	private void getTupian() {
 		// TODO Auto-generated method stub
 		try {
-			//¹ã¸æ¹ö¶¯	
+			//å¹¿å‘Šæ»šåŠ¨
 			advPager = (MyPosterView) findViewById(R.id.adv_pagerll);
 			AsyncHttp.get(RealmName.REALM_NAME_LL
-					+ "/get_adbanner_list?advert_id=17",
+							+ "/get_adbanner_list?advert_id=17",
 					new AsyncHttpResponseHandler() {
 						@Override
 						public void onSuccess(int arg0, String arg1) {
 							super.onSuccess(arg0, arg1);
 							try {
-								System.out.println("¼ÓÔØ¹ö¶¯¹ã¸æ================="+arg1);
+								System.out.println("åŠ è½½æ»šåŠ¨å¹¿å‘Š================="+arg1);
 								JSONObject object = new JSONObject(arg1);
 								String status = object.getString("status");
 								if (status.equals("y")) {
-								JSONArray array = object.getJSONArray("data");
-								int len = array.length();
-								images = new ArrayList<AdvertDao1>();
-								for (int i = 0; i < len; i++) {
-									ada = new AdvertDao1();
-									JSONObject json = array.getJSONObject(i);
-									ada.setId(json.getString("id"));
-									ada.setAd_url(json.getString("ad_url"));
-									ada.setLink_url(json.getString("link_url"));
+									JSONArray array = object.getJSONArray("data");
+									int len = array.length();
+									images = new ArrayList<AdvertDao1>();
+									for (int i = 0; i < len; i++) {
+										ada = new AdvertDao1();
+										JSONObject json = array.getJSONObject(i);
+										ada.setId(json.getString("id"));
+										ada.setAd_url(json.getString("ad_url"));
+										ada.setLink_url(json.getString("link_url"));
 //									ada.setAd_url(RealmName.REALM_NAME_HTTP + json.getString("ad_url"));
-									images.add(ada);
-								}
-								ada = null;
-								System.out.println("images.size()================="+images.size());
-								Message msg = new Message();
-								msg.obj = images;
-								msg.what = 0;
-								childHandler.sendMessage(msg);
+										images.add(ada);
+									}
+									ada = null;
+									System.out.println("images.size()================="+images.size());
+									Message msg = new Message();
+									msg.obj = images;
+									msg.what = 0;
+									childHandler.sendMessage(msg);
 								}else{
-									
+
 								}
 							} catch (JSONException e) {
 								e.printStackTrace();
 							}
 						}
 					}, getApplicationContext());
-			
-			} catch (Exception e) {
-				// TODO: handle exception
-				e.printStackTrace();
-			}
+
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
 	}
-	
+
 	ArrayList<AdvertDao1> tempss;
 	private Handler childHandler = new Handler() {
 		@SuppressWarnings("unchecked")
 		public void dispatchMessage(Message msg) {
 			switch (msg.what) {
-			case 0:
-				tempss = (ArrayList<AdvertDao1>) msg.obj;
-				ArrayList<String> urls = new ArrayList<String>();
-				for(int i=0;i<tempss.size();i++){
-					urls.add(RealmName.REALM_NAME_HTTP + tempss.get(i).getAd_url());
-					System.out.println("tempss================="+tempss.get(i).getAd_url());
-				}
-				
-				if (urls.size() == 1) {
-					ll_buju_tp.setVisibility(View.GONE);
-					img_menu.setVisibility(View.VISIBLE);
+				case 0:
+					tempss = (ArrayList<AdvertDao1>) msg.obj;
+					ArrayList<String> urls = new ArrayList<String>();
+					for(int i=0;i<tempss.size();i++){
+						urls.add(RealmName.REALM_NAME_HTTP + tempss.get(i).getAd_url());
+						System.out.println("tempss================="+tempss.get(i).getAd_url());
+					}
+
+					if (urls.size() == 1) {
+						ll_buju_tp.setVisibility(View.GONE);
+						img_menu.setVisibility(View.VISIBLE);
 //					 mAq.id(ling_tip).image(RealmName.REALM_NAME_HTTP+proInverseImg);
-					 mAq.id(img_menu).image(RealmName.REALM_NAME_HTTP+tempss.get(0).getAd_url());
-				}else {
-					ll_buju_tp.setVisibility(View.VISIBLE);
-					img_menu.setVisibility(View.GONE);
-					advPager.setData(urls, new MyPosterOnClick() {
-					@Override
-					public void onMyclick(int position) {
-						// TODO Auto-generated method stub
+						mAq.id(img_menu).image(RealmName.REALM_NAME_HTTP+tempss.get(0).getAd_url());
+					}else {
+						ll_buju_tp.setVisibility(View.VISIBLE);
+						img_menu.setVisibility(View.GONE);
+						advPager.setData(urls, new MyPosterOnClick() {
+							@Override
+							public void onMyclick(int position) {
+								// TODO Auto-generated method stub
 //						link_url
 //						Message msg = new Message();
 //						msg.what = 13;
 //						msg.obj = tempss.get(position).getId();
 //						handler.sendMessage(msg);
+							}
+						}, true, imageLoader, true);
 					}
-				}, true, imageLoader, true);
-				}
-//				MyPosterView.mQuery.clear();//Çå³ıÄÚ´æ
-				break;
-			default:
-				break;
+//				MyPosterView.mQuery.clear();//æ¸…é™¤å†…å­˜
+					break;
+				default:
+					break;
 			}
 		};
 	};
 
 	private void inter() {
 
-		int size = list.size();// Êı¾İ×Ü³¤¶È
+		int size = list.size();// æ•°æ®æ€»é•¿åº¦
 
-		// »ñµÃÆÁÄ»¿í¶È
+		// è·å¾—å±å¹•å®½åº¦
 		DisplayMetrics metrics = new DisplayMetrics();
 		getWindowManager().getDefaultDisplay().getMetrics(metrics);
 		int windowWidth = metrics.widthPixels;
 		int itemWidth = windowWidth / 4;
 
-		// »ñµÃÆÁÄ»¿í¶ÈÒ²¿ÉÒÔÕâÑùĞ´
+		// è·å¾—å±å¹•å®½åº¦ä¹Ÿå¯ä»¥è¿™æ ·å†™
 		// int itemWidth = getWindowManager().getDefaultDisplay().getWidth() /
-		// 5;//ÆÁÄ»ÏÔÊ¾Ä¬ÈÏÊıÁ¿
+		// 5;//å±å¹•æ˜¾ç¤ºé»˜è®¤æ•°é‡
 
-		int gridViewWidth = (int) (size * itemWidth);// linearLayoutµÄ×Ü¿í¶È
+		int gridViewWidth = (int) (size * itemWidth);// linearLayoutçš„æ€»å®½åº¦
 		LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
 				gridViewWidth, LinearLayout.LayoutParams.MATCH_PARENT);
-		myGridView.setLayoutParams(params);// ÉèÖÃGridView²¼¾Ö²ÎÊı
-		myGridView.setNumColumns(size);// ¶¯Ì¬ÉèÖÃGridViewÁĞÊı
+		myGridView.setLayoutParams(params);// è®¾ç½®GridViewå¸ƒå±€å‚æ•°
+		myGridView.setNumColumns(size);// åŠ¨æ€è®¾ç½®GridViewåˆ—æ•°
 	}
 
 }

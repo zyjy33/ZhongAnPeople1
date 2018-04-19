@@ -1,4 +1,4 @@
-package com.zams.www.health;
+package com.zams.www.health.business;
 
 import java.util.List;
 

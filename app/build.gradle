@@ -21,6 +21,7 @@ android {
     }
 }
 
+
 dependencies {
     compile 'com.android.support:support-v4:23.0.0'
     compile files('libs/alipaysdk.jar')
@@ -46,4 +47,6 @@ dependencies {
     compile files('libs/umpay_sign_V40.jar')
     compile files('libs/universal-image-loader-1.9.2-SNAPSHOT-with-sources.jar')
     compile files('libs/yunzhixun_video_SDK_ver_1.1.10_release.jar')
+
+    compile 'com.github.bumptech.glide:glide:3.7.0'
 }

@@ -98,7 +98,6 @@ import com.tencent.mm.sdk.modelmsg.WXWebpageObject;
 import com.tencent.mm.sdk.openapi.IWXAPI;
 import com.tencent.mm.sdk.openapi.WXAPIFactory;
 import com.zams.www.health.HealthActivity;
-import com.zams.www.health.HealthManageActivity;
 import com.zijunlin.Zxing.Demo.CaptureActivity;
 
 public class IndividualCenterActivity extends Fragment implements

@@ -1,4 +1,4 @@
-package com.zams.www.health;
+package com.zams.www.health.business;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -8,6 +8,7 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.zams.www.R;
 
 import java.util.ArrayList;
@@ -60,6 +61,11 @@ public class HealthManageAdapter extends BaseAdapter{
 		HealthManagerModel modle=mList.get(position);
 		viewHolder.name.setText(modle.getCompany_name());
 		viewHolder.content.setText("已有"+modle.getCount()+"位客户购买了体检项项目");
+		Glide.with(mContext)
+				.load(modle.getImg_url())
+				.placeholder(R.drawable.sj_fw)//图片加载出来前，显示的图片
+				.error(R.drawable.sj_fw)//图片加载失败后，显示的图片
+				.into(viewHolder.pic);
 		return conterView;
 	}
 

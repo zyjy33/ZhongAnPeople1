@@ -1,7 +1,6 @@
 package com.hengyushop.demo.at;
 
 import com.nostra13.universalimageloader.core.ImageLoader;
-import android.app.Activity;
 import android.app.ActivityGroup;
 import android.content.res.Configuration;
 import android.os.Bundle;

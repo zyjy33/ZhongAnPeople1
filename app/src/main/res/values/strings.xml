@@ -189,5 +189,6 @@
     <string name="invalid_date">Date must be between %1$s and %2$s.</string>
     <string name="month_name_format">MMMM yyyy</string>
     <string name="title_activity_health_manage">健康管理</string>
+    <string name="details">详情</string>
 
 </resources>

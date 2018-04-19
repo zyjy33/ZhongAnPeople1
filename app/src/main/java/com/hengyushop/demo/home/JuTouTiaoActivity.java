@@ -42,16 +42,16 @@ public class JuTouTiaoActivity extends BaseActivity {
 	Handler handler = new Handler() {
 		public void dispatchMessage(Message msg) {
 			switch (msg.what) {
-			case 0:
-				list = (ArrayList<CollectWareData>) msg.obj;
-				MyjuTouTiaoAdapter adapter = new MyjuTouTiaoAdapter(list,
-						JuTouTiaoActivity.this, imageLoader);
-				listView.setAdapter(adapter);
-				progress.CloseProgress();
-				break;
+				case 0:
+					list = (ArrayList<CollectWareData>) msg.obj;
+					MyjuTouTiaoAdapter adapter = new MyjuTouTiaoAdapter(list,
+							JuTouTiaoActivity.this, imageLoader);
+					listView.setAdapter(adapter);
+					progress.CloseProgress();
+					break;
 
-			default:
-				break;
+				default:
+					break;
 			}
 		};
 	};
@@ -82,7 +82,7 @@ public class JuTouTiaoActivity extends BaseActivity {
 
 			@Override
 			public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
-					long arg3) {
+									long arg3) {
 				// TODO Auto-generated method stub
 				try {
 
@@ -117,7 +117,7 @@ public class JuTouTiaoActivity extends BaseActivity {
 				+ "/get_article_category_id_list?channel_name=news&category_id=3"
 				+ "&top=10&strwhere=";
 
-		System.out.println(" ’≤ÿ" + strUrl);
+		System.out.println("Êî∂Ëóè" + strUrl);
 		AsyncHttp.get(strUrl, new AsyncHttpResponseHandler() {
 			@Override
 			public void onSuccess(int arg0, String arg1) {

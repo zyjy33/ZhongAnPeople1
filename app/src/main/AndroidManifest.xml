@@ -1,78 +1,77 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="com.zams.www"
-          android:versionCode="1"
-          android:versionName="2.5.4">
+    package="com.zams.www"
+    android:versionCode="1"
+    android:versionName="2.5.4">
 
     <uses-sdk
         android:minSdkVersion="8"
-        android:targetSdkVersion="23"/>
+        android:targetSdkVersion="23" />
 
-    <uses-permission android:name="android.permission.INTERACT_ACROSS_USERS_FULL"/>
-    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS"/>
-    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
-    <uses-permission android:name="android.permission.VIBRATE"/>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
-    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.CALL_PHONE"/>
-    <uses-permission android:name="android.permission.WAKE_LOCK"/>
-    <uses-permission android:name="android.permission.DISABLE_KEYGUARD"/>
-    <uses-permission android:name="android.permission.READ_CONTACTS"/>
-    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
-    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
-    <uses-permission android:name="android.permission.READ_LOGS"/>
-    <uses-permission android:name="android.permission.WRITE_SETTINGS"/>
+    <uses-permission android:name="android.permission.INTERACT_ACROSS_USERS_FULL" />
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.DISABLE_KEYGUARD" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.READ_LOGS" />
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
 
     <!-- 读短信权限 -->
-    <uses-permission android:name="android.permission.READ_SMS"/>
+    <uses-permission android:name="android.permission.READ_SMS" />
     <!-- 读取上网记录权限 -->
-    <uses-permission android:name="com.android.browser.permission.READ_HISTORY_BOOKMARKS"/>
+    <uses-permission android:name="com.android.browser.permission.READ_HISTORY_BOOKMARKS" />
     <!-- 读取通话记录 -->
-    <uses-permission android:name="android.permission.READ_CALL_LOG"/>
-    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
-    <uses-permission android:name="android.permission.USE_CREDENTIALS"/>
-    <uses-permission android:name="android.permission.MANAGE_ACCOUNTS"/>
-    <uses-permission android:name="android.permission.AUTHENTICATE_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.READ_CALL_LOG" />
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.USE_CREDENTIALS" />
+    <uses-permission android:name="android.permission.MANAGE_ACCOUNTS" />
+    <uses-permission android:name="android.permission.AUTHENTICATE_ACCOUNTS" />
 
-    <uses-feature android:name="android.hardware.camera"/>
-    <uses-feature android:name="android.hardware.camera.autofocus"/>
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.camera.autofocus" />
 
-    <uses-permission android:name="android.permission.FLASHLIGHT"/>
-    <uses-permission android:name="android.permission.BAIDU_LOCATION_SERVICE"/>
-    <uses-permission android:name="android.permission.ACCESS_MOCK_LOCATION"/>
-
-    <uses-permission android:name="com.android.launcher.permission.READ_SETTINGS"/>
-    <uses-permission android:name="android.permission.ACCESS_GPS"/>
+    <uses-permission android:name="android.permission.FLASHLIGHT" />
+    <uses-permission android:name="android.permission.BAIDU_LOCATION_SERVICE" />
+    <uses-permission android:name="android.permission.ACCESS_MOCK_LOCATION" />
+    <uses-permission android:name="com.android.launcher.permission.READ_SETTINGS" />
+    <uses-permission android:name="android.permission.ACCESS_GPS" />
     <!-- SDK1.5需要android.permission.GET_TASKS权限判断本程序是否为当前运行的应用? -->
-    <uses-permission android:name="android.permission.GET_TASKS"/>
-    <uses-permission android:name="android.permission.CAMERA"/>
-    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
-    <uses-permission android:name="android.permission.BROADCAST_STICKY"/>
-    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
-    <uses-permission android:name="android.permission.SYSTEM_OVERLAY_WINDOW"/>
-    <uses-permission android:name="android.permission.PROCESS_OUTGOING_CALLS"/>
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.BROADCAST_STICKY" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.SYSTEM_OVERLAY_WINDOW" />
+    <uses-permission android:name="android.permission.PROCESS_OUTGOING_CALLS" />
 
     <!-- SDK离线地图和cache功能需要读写外部存储器 -->
 
 
     <!-- SDK离线地图定位取經緯度 -->
-    <uses-permission android:name="android.permission.ACCES_MOCK_LOCATION">
-    </uses-permission>
+    <uses-permission android:name="android.permission.ACCES_MOCK_LOCATION" />
     <!-- SDK2.1新增获取用户位置信息 -->
-    <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS"/>
+    <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" />
 
     <supports-screens
         android:anyDensity="true"
         android:largeScreens="true"
         android:normalScreens="false"
         android:resizeable="true"
-        android:smallScreens="true"/>
+        android:smallScreens="true" />
 
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
         android:name="com.android.hengyu.web.Location"
@@ -80,1139 +79,871 @@
         android:label="@string/app_name"
         android:largeHeap="true"
         android:theme="@style/AppTheme">
-
         <activity
-            android:name="com.zams.www.GuideActivity"
+            android:name=".GuideActivity"
             android:screenOrientation="portrait">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
+                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER"/>
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name="com.zijunlin.Zxing.Demo.CaptureActivity"
             android:configChanges="orientation|keyboardHidden"
             android:screenOrientation="landscape"
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
-            android:windowSoftInputMode="stateAlwaysHidden">
-        </activity>
-
+            android:windowSoftInputMode="stateAlwaysHidden" />
         <activity
             android:name="com.zxing.android.CaptureActivity"
-            android:screenOrientation="portrait">
-        </activity>
+            android:screenOrientation="portrait" />
         <activity
-            android:name="com.zams.www.MainFragment"
+            android:name=".MainFragment"
             android:launchMode="singleTask"
-            android:screenOrientation="portrait">
-        </activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name="com.android.cricle.CircleActivity"
             android:launchMode="singleTask"
-            android:screenOrientation="portrait">
-        </activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name="com.android.cricle.GuaGuaActivity"
             android:launchMode="singleTask"
-            android:screenOrientation="portrait">
-        </activity>
+            android:screenOrientation="portrait" />
         <activity
-            android:name="com.zams.www.CommonWeb"
+            android:name=".CommonWeb"
             android:launchMode="singleTask"
-            android:screenOrientation="portrait">
-        </activity>
+            android:screenOrientation="portrait" />
         <activity
-            android:name="com.zams.www.JDActivity"
+            android:name=".JDActivity"
             android:launchMode="singleTask"
-            android:screenOrientation="portrait">
-        </activity>
+            android:screenOrientation="portrait" />
         <activity
-            android:name="com.zams.www.ChongZhiActivity"
+            android:name=".ChongZhiActivity"
             android:launchMode="singleTask"
-            android:screenOrientation="portrait">
-        </activity>
+            android:screenOrientation="portrait" />
         <activity
-            android:name="com.zams.www.SYBActivity"
+            android:name=".SYBActivity"
             android:launchMode="singleTask"
-            android:screenOrientation="portrait">
-        </activity>
+            android:screenOrientation="portrait" />
         <activity
-            android:name="com.zams.www.YuActivity"
+            android:name=".YuActivity"
             android:launchMode="singleTask"
-            android:screenOrientation="portrait">
-        </activity>
+            android:screenOrientation="portrait" />
         <activity
-            android:name="com.zams.www.JD_detailActivity"
+            android:name=".JD_detailActivity"
             android:launchMode="singleTask"
-            android:screenOrientation="portrait">
-        </activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name="com.lglottery.www.activity.LgLotteryLoginActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
-            android:theme="@style/mydialog">
-        </activity>
+            android:theme="@style/mydialog" />
         <activity
             android:name="com.lglottery.www.activity.LglotteryEnterActivity"
             android:launchMode="singleTask"
-            android:screenOrientation="portrait">
-        </activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name="com.lglottery.www.activity.LglotteryMainActivity"
             android:launchMode="singleTask"
-            android:screenOrientation="portrait">
-        </activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name="com.lglottery.www.activity.LglotteryGoActivity"
             android:launchMode="singleTask"
-            android:screenOrientation="portrait">
-        </activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name="com.lglottery.www.activity.LglotteryPersonActivity"
             android:launchMode="singleTask"
-            android:screenOrientation="portrait">
-        </activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name="com.lglottery.www.activity.LglotteryLogActivity"
             android:launchMode="singleTask"
-            android:screenOrientation="portrait">
-        </activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name="com.alipay.sdk.app.H5PayActivity"
             android:configChanges="orientation|keyboardHidden|navigation"
             android:exported="false"
             android:screenOrientation="behind"
-            android:windowSoftInputMode="adjustResize|stateHidden">
-        </activity>
+            android:windowSoftInputMode="adjustResize|stateHidden" />
         <activity
             android:name="com.lglottery.www.activity.LglotteryRealdyActivity"
             android:launchMode="singleTask"
-            android:screenOrientation="portrait">
-        </activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name="com.umpay.quickpay.UmpayActivity"
             android:configChanges="orientation|keyboard|keyboardHidden"
             android:screenOrientation="portrait"
             android:theme="@style/ump_translucent"
-            android:windowSoftInputMode="stateHidden|adjustResize"/>
+            android:windowSoftInputMode="stateHidden|adjustResize" />
         <activity
-            android:name="com.zams.www.MenuAdvertActivity"
-            android:screenOrientation="portrait">
-        </activity>
+            android:name=".MenuAdvertActivity"
+            android:screenOrientation="portrait" />
 
-        <!--<service-->
-            <!--android:name="com.baidu.location.f"-->
-            <!--android:enabled="true"-->
-            <!--android:process=":remote">-->
-        <!--</service>-->
-
-        <activity
-            android:name="com.zams.www.OneNewActivity"
-            android:screenOrientation="portrait">
-        </activity>
+        <!-- <service -->
+        <!-- android:name="com.baidu.location.f" -->
+        <!-- android:enabled="true" -->
+        <!-- android:process=":remote"> -->
+        <!-- </service> -->
 
         <activity
-            android:name="com.zams.www.JubiDetailActivity"
-            android:screenOrientation="portrait">
-        </activity>
+            android:name=".OneNewActivity"
+            android:screenOrientation="portrait" />
         <activity
-            android:name="com.zams.www.PersonCenterActivity"
-            android:screenOrientation="portrait">
-        </activity>
+            android:name=".JubiDetailActivity"
+            android:screenOrientation="portrait" />
         <activity
-            android:name="com.zams.www.One_PersonActivity"
-            android:screenOrientation="portrait">
-        </activity>
+            android:name=".PersonCenterActivity"
+            android:screenOrientation="portrait" />
         <activity
-            android:name="com.zams.www.AddressManagerGlActivity"
-            android:screenOrientation="portrait">
-        </activity>
+            android:name=".One_PersonActivity"
+            android:screenOrientation="portrait" />
         <activity
-            android:name="com.zams.www.OneResultActivity"
-            android:screenOrientation="portrait">
-        </activity>
+            android:name=".AddressManagerGlActivity"
+            android:screenOrientation="portrait" />
         <activity
-            android:name="com.zams.www.SoftUpdataActivity"
-            android:screenOrientation="portrait">
-        </activity>
-
+            android:name=".OneResultActivity"
+            android:screenOrientation="portrait" />
         <activity
-            android:name="com.zams.www.VipQuanActivity"
-            android:screenOrientation="portrait">
-        </activity>
+            android:name=".SoftUpdataActivity"
+            android:screenOrientation="portrait" />
         <activity
-            android:name="com.zams.www.ShouYiActivity"
-            android:screenOrientation="portrait">
-        </activity>
+            android:name=".VipQuanActivity"
+            android:screenOrientation="portrait" />
         <activity
-            android:name="com.zams.www.OneBuyInformation"
-            android:screenOrientation="portrait">
-        </activity>
+            android:name=".ShouYiActivity"
+            android:screenOrientation="portrait" />
         <activity
-            android:name="com.zams.www.One_JiexiaoActivity"
-            android:screenOrientation="portrait">
-        </activity>
+            android:name=".OneBuyInformation"
+            android:screenOrientation="portrait" />
         <activity
-            android:name="com.zams.www.TuiGuangActivity"
-            android:screenOrientation="portrait">
-        </activity>
+            android:name=".One_JiexiaoActivity"
+            android:screenOrientation="portrait" />
         <activity
-            android:name="com.zams.www.JulsActivity"
-            android:screenOrientation="portrait">
-        </activity>
+            android:name=".TuiGuangActivity"
+            android:screenOrientation="portrait" />
         <activity
-            android:name="com.zams.www.SecondActivity"
+            android:name=".JulsActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".SecondActivity"
             android:launchMode="singleTask"
-            android:screenOrientation="portrait">
-        </activity>
+            android:screenOrientation="portrait" />
         <activity
-            android:name="com.zams.www.Guide2Activity"
+            android:name=".Guide2Activity"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="adjustUnspecified|stateHidden">
-        </activity>
+            android:windowSoftInputMode="adjustUnspecified|stateHidden" />
         <activity
-            android:name="com.zams.www.OneBuyListActivity"
-            android:screenOrientation="portrait">
-        </activity>
+            android:name=".OneBuyListActivity"
+            android:screenOrientation="portrait" />
         <activity
-            android:name="com.zams.www.LingjiaActivity"
-            android:screenOrientation="portrait">
-        </activity>
+            android:name=".LingjiaActivity"
+            android:screenOrientation="portrait" />
         <activity
-            android:name="com.zams.www.TuiGuangDetailActivity"
-            android:screenOrientation="portrait">
-        </activity>
-
+            android:name=".TuiGuangDetailActivity"
+            android:screenOrientation="portrait" />
         <activity
-            android:name="com.zams.www.PayActivity"
-            android:screenOrientation="portrait">
-        </activity>
+            android:name=".PayActivity"
+            android:screenOrientation="portrait" />
         <activity
             android:name="com.android.hengyu.post.WorkDetailActivity"
-            android:screenOrientation="portrait">
-        </activity>
+            android:screenOrientation="portrait" />
         <activity
-            android:name="com.zams.www.ChuGouInActivity"
-            android:screenOrientation="portrait">
-        </activity>
+            android:name=".ChuGouInActivity"
+            android:screenOrientation="portrait" />
         <activity
-            android:name="com.zams.www.ComboDetalActivity"
-            android:screenOrientation="portrait">
-        </activity>
+            android:name=".ComboDetalActivity"
+            android:screenOrientation="portrait" />
         <activity
-            android:name="com.zams.www.ComboListActivity"
-            android:screenOrientation="portrait">
-        </activity>
+            android:name=".ComboListActivity"
+            android:screenOrientation="portrait" />
         <activity
-            android:name="com.zams.www.ComboMainActivity"
-            android:screenOrientation="portrait">
-        </activity>
-
+            android:name=".ComboMainActivity"
+            android:screenOrientation="portrait" />
         <activity
-            android:name="com.zams.www.VipItemActivity"
-            android:screenOrientation="portrait">
-        </activity>
+            android:name=".VipItemActivity"
+            android:screenOrientation="portrait" />
         <activity
-            android:name="com.zams.www.WideMarketActivity"
-            android:screenOrientation="portrait">
-        </activity>
+            android:name=".WideMarketActivity"
+            android:screenOrientation="portrait" />
         <activity
-            android:name="com.zams.www.WideThreeActivity"
-            android:screenOrientation="portrait">
-        </activity>
+            android:name=".WideThreeActivity"
+            android:screenOrientation="portrait" />
         <activity
-            android:name="com.zams.www.GoodCheckActivity"
-            android:screenOrientation="portrait">
-        </activity>
+            android:name=".GoodCheckActivity"
+            android:screenOrientation="portrait" />
         <activity
             android:name="com.android.hengyu.post.PostStandDetail"
-            android:screenOrientation="portrait">
-        </activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name="com.android.hengyu.post.PostQiuListActivity"
-            android:screenOrientation="portrait">
-        </activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name="com.android.hengyu.post.PostQiuActivity"
-            android:screenOrientation="portrait">
-        </activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name="com.android.hengyu.post.PostWorkIndexActivity"
-            android:screenOrientation="portrait">
-        </activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name="com.android.hengyu.post.PostCYPX_Activity"
-            android:screenOrientation="portrait">
-        </activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name="com.android.hengyu.post.PostJYDT_Activity"
-            android:screenOrientation="portrait">
-        </activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name="com.android.hengyu.post.QiuDetailActivity"
-            android:screenOrientation="portrait">
-        </activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name="com.android.hengyu.post.PostCyDetail"
-            android:screenOrientation="portrait">
-        </activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name="com.android.hengyu.post.PostWorkListActivity"
-            android:screenOrientation="portrait">
-        </activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name="com.android.hengyu.post.PostMainActivity"
-            android:screenOrientation="portrait">
-        </activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name="com.hengyushop.demo.airplane.FlyDetailOrderActivity"
-            android:screenOrientation="portrait">
-        </activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name="com.hengyushop.demo.airplane.AirOrderSendActivity"
-            android:screenOrientation="portrait">
-        </activity>
+            android:screenOrientation="portrait" />
         <activity
-            android:name="com.zams.www.UserLoginActivity"
-            android:screenOrientation="portrait">
-        </activity>
+            android:name=".UserLoginActivity"
+            android:screenOrientation="portrait" />
         <activity
-            android:name="com.zams.www.PhoneLoginActivity"
-            android:screenOrientation="portrait">
-        </activity>
+            android:name=".PhoneLoginActivity"
+            android:screenOrientation="portrait" />
         <activity
-            android:name="com.zams.www.UserLoginWayActivity"
+            android:name=".UserLoginWayActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/DialogStyleBottom">
-        </activity>
+            android:theme="@style/DialogStyleBottom" />
         <activity
-            android:name="com.zams.www.UserForgotPasswordActivity"
-            android:screenOrientation="portrait">
-        </activity>
+            android:name=".UserForgotPasswordActivity"
+            android:screenOrientation="portrait" />
         <activity
-            android:name="com.zams.www.UserRegisterActivity"
-            android:screenOrientation="portrait">
-        </activity>
+            android:name=".UserRegisterActivity"
+            android:screenOrientation="portrait" />
         <activity
-            android:name="com.zams.www.ManagerOrderActivity"
-            android:screenOrientation="portrait">
-        </activity>
+            android:name=".ManagerOrderActivity"
+            android:screenOrientation="portrait" />
         <activity
-            android:name="com.zams.www.MobileManagerActivity"
-            android:screenOrientation="portrait">
-        </activity>
-
+            android:name=".MobileManagerActivity"
+            android:screenOrientation="portrait" />
         <activity
-            android:name="com.zams.www.AirManagerActivity"
-            android:screenOrientation="portrait">
-        </activity>
+            android:name=".AirManagerActivity"
+            android:screenOrientation="portrait" />
         <activity
-            android:name="com.zams.www.ManagerTrainActivity"
-            android:screenOrientation="portrait">
-        </activity>
+            android:name=".ManagerTrainActivity"
+            android:screenOrientation="portrait" />
         <activity
-            android:name="com.zams.www.AdvertSecond"
-            android:screenOrientation="portrait">
-        </activity>
+            android:name=".AdvertSecond"
+            android:screenOrientation="portrait" />
         <activity
-            android:name="com.zams.www.WareClassifyActivity"
-            android:screenOrientation="portrait">
-        </activity>
+            android:name=".WareClassifyActivity"
+            android:screenOrientation="portrait" />
         <activity
-            android:name="com.zams.www.RechargeActivity"
-            android:screenOrientation="portrait">
-        </activity>
+            android:name=".RechargeActivity"
+            android:screenOrientation="portrait" />
         <activity
-            android:name="com.zams.www.RechargeGameActivity"
-            android:screenOrientation="portrait">
-        </activity>
+            android:name=".RechargeGameActivity"
+            android:screenOrientation="portrait" />
         <activity
-            android:name="com.zams.www.RechargeMobileActivity"
-            android:screenOrientation="portrait">
-        </activity>
+            android:name=".RechargeMobileActivity"
+            android:screenOrientation="portrait" />
         <activity
-            android:name="com.zams.www.RechargeQQActivity"
-            android:screenOrientation="portrait">
-        </activity>
+            android:name=".RechargeQQActivity"
+            android:screenOrientation="portrait" />
         <activity
-            android:name="com.zams.www.VIPActivity"
-            android:screenOrientation="portrait">
-        </activity>
+            android:name=".VIPActivity"
+            android:screenOrientation="portrait" />
         <activity
-            android:name="com.zams.www.FindPasswordOneActivity"
-            android:screenOrientation="portrait">
-        </activity>
+            android:name=".FindPasswordOneActivity"
+            android:screenOrientation="portrait" />
         <activity
-            android:name="com.zams.www.FindPasswordThreeActivity"
-            android:screenOrientation="portrait">
-        </activity>
+            android:name=".FindPasswordThreeActivity"
+            android:screenOrientation="portrait" />
         <activity
-            android:name="com.zams.www.FindPasswordTwoActivity"
-            android:screenOrientation="portrait">
-        </activity>
+            android:name=".FindPasswordTwoActivity"
+            android:screenOrientation="portrait" />
         <activity
-            android:name="com.zams.www.WareClassifyTwoActivity"
-            android:screenOrientation="portrait">
-        </activity>
+            android:name=".WareClassifyTwoActivity"
+            android:screenOrientation="portrait" />
         <activity
             android:name="com.hengyushop.demo.wec.NewWare"
-            android:screenOrientation="portrait">
-        </activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name="com.hengyushop.demo.wec.NewWareMallActivity"
-            android:screenOrientation="portrait">
-        </activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name="com.hengyushop.demo.home.LieBiaoActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/DialogStyleBottom">
-        </activity>
-
+            android:theme="@style/DialogStyleBottom" />
         <activity
-            android:name="com.zams.www.WareClassifyFourActivity"
-            android:screenOrientation="portrait">
-        </activity>
+            android:name=".WareClassifyFourActivity"
+            android:screenOrientation="portrait" />
         <activity
-            android:name="com.zams.www.WareClassifyThreeActivity"
-            android:screenOrientation="portrait">
-        </activity>
+            android:name=".WareClassifyThreeActivity"
+            android:screenOrientation="portrait" />
         <activity
-            android:name="com.zams.www.WareInformationActivity"
-            android:screenOrientation="portrait">
-        </activity>
+            android:name=".WareInformationActivity"
+            android:screenOrientation="portrait" />
         <activity
-            android:name="com.zams.www.WareInformationActivityl"
-            android:screenOrientation="portrait">
-        </activity>
-
-
-
+            android:name=".WareInformationActivityl"
+            android:screenOrientation="portrait" />
         <activity
-            android:name="com.zams.www.MyShoppingCartActivity"
-            android:screenOrientation="portrait">
-        </activity>
+            android:name=".MyShoppingCartActivity"
+            android:screenOrientation="portrait" />
         <activity
-            android:name="com.zams.www.MyShoppingCartllActivity"
-            android:screenOrientation="portrait">
-        </activity>
+            android:name=".MyShoppingCartllActivity"
+            android:screenOrientation="portrait" />
         <activity
-            android:name="com.zams.www.MyOrderConfrimActivity"
-            android:screenOrientation="portrait">
-        </activity>
+            android:name=".MyOrderConfrimActivity"
+            android:screenOrientation="portrait" />
         <activity
-            android:name="com.zams.www.OneAllActivity"
-            android:screenOrientation="portrait">
-        </activity>
-
-
+            android:name=".OneAllActivity"
+            android:screenOrientation="portrait" />
         <activity
-            android:name="com.zams.www.WareInformationGalleryActivity"
-            android:screenOrientation="portrait">
-        </activity>
+            android:name=".WareInformationGalleryActivity"
+            android:screenOrientation="portrait" />
         <activity
-            android:name="com.zams.www.AddUserAddressActivity"
-            android:screenOrientation="portrait">
-        </activity>
+            android:name=".AddUserAddressActivity"
+            android:screenOrientation="portrait" />
         <activity
-            android:name="com.zams.www.RechargePayMobileActivity"
-            android:screenOrientation="portrait">
-        </activity>
+            android:name=".RechargePayMobileActivity"
+            android:screenOrientation="portrait" />
         <activity
-            android:name="com.zams.www.RechargePayQQActivity"
-            android:screenOrientation="portrait">
-        </activity>
+            android:name=".RechargePayQQActivity"
+            android:screenOrientation="portrait" />
         <activity
-            android:name="com.zams.www.WareInformationAssessActivity"
-            android:screenOrientation="portrait">
-        </activity>
+            android:name=".WareInformationAssessActivity"
+            android:screenOrientation="portrait" />
         <activity
-            android:name="com.zams.www.WareInformationDetailsActivity"
-            android:screenOrientation="portrait">
-        </activity>
+            android:name=".WareInformationDetailsActivity"
+            android:screenOrientation="portrait" />
         <activity
-            android:name="com.zams.www.EditUserAddressActivity"
-            android:screenOrientation="portrait">
-        </activity>
-
+            android:name=".EditUserAddressActivity"
+            android:screenOrientation="portrait" />
         <activity
-            android:name="com.zams.www.WareInformationParameterActivity"
-            android:screenOrientation="portrait">
-        </activity>
+            android:name=".WareInformationParameterActivity"
+            android:screenOrientation="portrait" />
         <activity
-            android:name="com.zams.www.WareInformationServerActivity"
-            android:screenOrientation="portrait">
-        </activity>
+            android:name=".WareInformationServerActivity"
+            android:screenOrientation="portrait" />
         <activity
-            android:name="com.zams.www.WareShopCartPayActivity"
-            android:screenOrientation="portrait">
-        </activity>
-
+            android:name=".WareShopCartPayActivity"
+            android:screenOrientation="portrait" />
         <activity
-            android:name="com.zams.www.AddressManagerActivity"
-            android:screenOrientation="portrait">
-        </activity>
+            android:name=".AddressManagerActivity"
+            android:screenOrientation="portrait" />
         <activity
-            android:name="com.zams.www.TicketShopDetailActivity"
-            android:screenOrientation="portrait">
-        </activity>
+            android:name=".TicketShopDetailActivity"
+            android:screenOrientation="portrait" />
         <activity
-            android:name="com.zams.www.TicketDetailActivity"
-            android:screenOrientation="portrait">
-        </activity>
+            android:name=".TicketDetailActivity"
+            android:screenOrientation="portrait" />
         <activity
-            android:name="com.zams.www.OrderInfromationActivity"
-            android:screenOrientation="portrait">
-        </activity>
+            android:name=".OrderInfromationActivity"
+            android:screenOrientation="portrait" />
         <activity
-            android:name="com.zams.www.OrderDetailActivity"
-            android:screenOrientation="portrait">
-        </activity>
+            android:name=".OrderDetailActivity"
+            android:screenOrientation="portrait" />
         <activity
-            android:name="com.zams.www.CollectWareActivity"
-            android:screenOrientation="portrait">
-        </activity>
+            android:name=".CollectWareActivity"
+            android:screenOrientation="portrait" />
         <activity
-            android:name="com.zams.www.UserSettingActivity"
-            android:screenOrientation="portrait">
-        </activity>
+            android:name=".UserSettingActivity"
+            android:screenOrientation="portrait" />
         <activity
-            android:name="com.zams.www.HelpActivity"
-            android:screenOrientation="portrait">
-        </activity>
+            android:name=".HelpActivity"
+            android:screenOrientation="portrait" />
         <activity
-            android:name="com.zams.www.HelpSuggestionActivity"
-            android:screenOrientation="portrait">
-        </activity>
+            android:name=".HelpSuggestionActivity"
+            android:screenOrientation="portrait" />
         <activity
-            android:name="com.zams.www.FinanceManageActivity"
-            android:screenOrientation="portrait">
-        </activity>
+            android:name=".FinanceManageActivity"
+            android:screenOrientation="portrait" />
         <activity
-            android:name="com.zams.www.EndowmentBankActivity"
-            android:screenOrientation="portrait">
-        </activity>
+            android:name=".EndowmentBankActivity"
+            android:screenOrientation="portrait" />
         <activity
-            android:name="com.zams.www.JifenDetailActivity"
-            android:screenOrientation="portrait">
-        </activity>
+            android:name=".JifenDetailActivity"
+            android:screenOrientation="portrait" />
         <activity
-            android:name="com.zams.www.TicketAttornActivity"
-            android:screenOrientation="portrait">
-        </activity>
+            android:name=".TicketAttornActivity"
+            android:screenOrientation="portrait" />
         <activity
-            android:name="com.zams.www.TuiGuang2Activity"
-            android:screenOrientation="portrait">
-        </activity>
+            android:name=".TuiGuang2Activity"
+            android:screenOrientation="portrait" />
         <activity
-            android:name="com.zams.www.ChuGouDetailActivity"
-            android:screenOrientation="portrait">
-        </activity>
+            android:name=".ChuGouDetailActivity"
+            android:screenOrientation="portrait" />
         <activity
-            android:name="com.zams.www.ModPassActivity"
-            android:screenOrientation="portrait">
-        </activity>
-
+            android:name=".ModPassActivity"
+            android:screenOrientation="portrait" />
         <activity
             android:name="com.hengyushop.demo.airplane.AirPlaneBargainActivity"
-            android:screenOrientation="portrait">
-        </activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name="com.hengyushop.demo.airplane.AirPlaneHomeActivity"
-            android:screenOrientation="portrait">
-        </activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name="com.hengyushop.demo.airplane.AirPlaneOnLineActivity"
-            android:screenOrientation="portrait">
-        </activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name="com.hengyushop.demo.airplane.AirPlaneSelectActivity"
-            android:screenOrientation="portrait">
-        </activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name="com.hengyushop.demo.airplane.AirPlaneSelectTwoActivity"
-            android:screenOrientation="portrait">
-        </activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name="com.hengyushop.demo.airplane.AirPlaneTicketInfromationActivity"
-            android:screenOrientation="portrait">
-        </activity>
-
+            android:screenOrientation="portrait" />
         <activity
             android:name="com.hengyushop.demo.movie.MovieHomeActivity"
-            android:screenOrientation="portrait">
-        </activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name="com.hengyushop.demo.movie.MovieDetailActivity"
-            android:screenOrientation="portrait">
-        </activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name="com.hengyushop.demo.movie.MovieCinemaSelectActivity"
-            android:screenOrientation="portrait">
-        </activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name="com.hengyushop.demo.movie.MovieCinemaSelectCityActivity"
-            android:screenOrientation="portrait">
-        </activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name="com.hengyushop.demo.movie.MovieCinemaSelectNearbyActivity"
-            android:screenOrientation="portrait">
-        </activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name="com.hengyushop.demo.hotel.HotelHomeActivity"
-            android:screenOrientation="portrait">
-        </activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name="com.hengyushop.demo.hotel.HotelSelectResultActivity"
-            android:screenOrientation="portrait">
-        </activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name="com.hengyushop.demo.hotel.HotelDetailActivity"
-            android:screenOrientation="portrait">
-        </activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name="com.hengyushop.demo.train.TrainHomeActivity"
-            android:screenOrientation="portrait">
-        </activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name="com.hengyushop.demo.train.TrainPersonActivity"
-            android:screenOrientation="portrait">
-        </activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name="com.hengyushop.demo.train.TrainAddPersonActivity"
-            android:screenOrientation="portrait">
-        </activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name="com.hengyushop.demo.train.TrainSelectResultActivity"
-            android:screenOrientation="portrait">
-        </activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name="com.hengyushop.demo.train.TrainInformationActivity"
-            android:screenOrientation="portrait">
-        </activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name="com.hengyushop.demo.train.TrainDetailActivity"
-            android:screenOrientation="portrait">
-        </activity>
+            android:screenOrientation="portrait" />
         <!-- 首页 -->
         <activity
             android:name="com.hengyushop.demo.home.JuPreferentialActivity"
-            android:screenOrientation="portrait">
-        </activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name="com.hengyushop.demo.home.YangLaoChongZhiActivity"
-            android:screenOrientation="portrait">
-        </activity>
-
+            android:screenOrientation="portrait" />
         <activity
             android:name="com.hengyushop.demo.home.JuYouFangActivity"
-            android:screenOrientation="portrait">
-        </activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name="com.hengyushop.demo.home.JuTuanGouActivity"
-            android:screenOrientation="portrait">
-        </activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name="com.hengyushop.demo.home.JuTuanGou2Activity"
-            android:screenOrientation="portrait">
-        </activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name="com.hengyushop.demo.home.JuTuanGouXqActivity"
-            android:screenOrientation="portrait">
-        </activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name="com.hengyushop.demo.home.JuTuanGouXq2Activity"
-            android:screenOrientation="portrait">
-        </activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name="com.hengyushop.demo.home.XinshouGyActivity"
-            android:screenOrientation="portrait">
-        </activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name="com.hengyushop.demo.home.XiaDanActivity"
-            android:screenOrientation="portrait">
-        </activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name="com.hengyushop.demo.home.TishiPensionActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/DialogStyleBottom">
-        </activity>
+            android:theme="@style/DialogStyleBottom" />
         <activity
             android:name="com.hengyushop.demo.home.ZyZTiShiActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/AlertDialogStyle">
-        </activity>
+            android:theme="@style/AlertDialogStyle" />
         <activity
             android:name="com.hengyushop.demo.home.SouSuoSpActivity"
-            android:screenOrientation="portrait">
-        </activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name="com.hengyushop.demo.home.JuTouTiaoActivity"
-            android:screenOrientation="portrait">
-        </activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name="com.hengyushop.demo.home.ZhiFuOKActivity"
-            android:screenOrientation="portrait">
-        </activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name="com.android.hengyu.web.Webview1"
-            android:screenOrientation="portrait">
-        </activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name="com.hengyushop.demo.home.JuYunshangActivity"
-            android:screenOrientation="portrait">
-        </activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name="com.hengyushop.demo.home.MyQuanZiActivity"
-            android:screenOrientation="portrait">
-        </activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name="com.hengyushop.demo.home.HealthGunaActivity"
-            android:screenOrientation="portrait">
-        </activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name="com.hengyushop.demo.home.SymptomsJieShaoActivity"
-            android:screenOrientation="portrait">
-        </activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name="com.hengyushop.demo.home.JuYunshangXqActivity"
-            android:screenOrientation="portrait">
-        </activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name="com.hengyushop.demo.home.JuDuiHuanActivity"
-            android:screenOrientation="portrait">
-        </activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name="com.hengyushop.demo.home.JuJingCaiXqActivity"
-            android:screenOrientation="portrait">
-        </activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name="com.hengyushop.demo.home.JuTuanConfrimActivity"
-            android:screenOrientation="portrait">
-        </activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name="com.hengyushop.demo.home.TiaoYiTiaoActivity"
-            android:screenOrientation="portrait">
-        </activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name="com.hengyushop.demo.home.JiFenRenWuActivity"
-            android:screenOrientation="portrait">
-        </activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name="com.hengyushop.demo.home.GuaYiGuaActivity"
-            android:screenOrientation="portrait">
-        </activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name="com.hengyushop.demo.home.EndowmentBankActivity"
-            android:screenOrientation="portrait">
-        </activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name="com.hengyushop.demo.home.QuanBuActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/DialogStyleBottom">
-        </activity>
+            android:theme="@style/DialogStyleBottom" />
         <activity
             android:name="com.hengyushop.demo.home.TuiJianActivity"
-            android:screenOrientation="portrait">
-        </activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name="com.hengyushop.demo.home.DianPingActivity"
-            android:screenOrientation="portrait">
-        </activity>
-
+            android:screenOrientation="portrait" />
         <activity
             android:name="com.hengyushop.demo.home.HongBaoZqListActivity"
-            android:screenOrientation="portrait">
-        </activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name="com.hengyushop.demo.home.ZhongAnYlActivity"
-            android:screenOrientation="portrait">
-        </activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name="com.hengyushop.demo.home.ZhongAnYlListActivity"
-            android:screenOrientation="portrait">
-        </activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name="com.hengyushop.demo.home.JianKangScListActivity"
-            android:screenOrientation="portrait">
-        </activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name="com.hengyushop.demo.home.JiangKangMallListActivity"
-            android:screenOrientation="portrait">
-        </activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name="com.hengyushop.demo.home.YangLaoMallActivity"
-            android:screenOrientation="portrait">
-        </activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name="com.hengyushop.demo.home.FenXiangActivity"
-            android:screenOrientation="portrait">
-        </activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name="com.hengyushop.demo.home.MainDuiMianPromoteActivity"
-            android:screenOrientation="portrait">
-        </activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name="com.hengyushop.demo.home.ZhiFuFangShiActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/DialogStyleBottom">
-        </activity>
+            android:theme="@style/DialogStyleBottom" />
         <activity
             android:name="com.hengyushop.demo.home.MainDuiMianActivity"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="adjustResize">
-        </activity>
+            android:windowSoftInputMode="adjustResize" />
         <activity
             android:name="com.hengyushop.demo.home.MainDuiMianllActivity"
-            android:screenOrientation="portrait">
-        </activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name="com.hengyushop.demo.home.MianDuiMianSySActivity"
-            android:screenOrientation="portrait">
-        </activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name="com.hengyushop.demo.home.MianDuiMianFxhbActivity"
-            android:screenOrientation="portrait">
-        </activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name="com.hengyushop.demo.home.MianDuiMianGhztActivity"
-            android:screenOrientation="portrait">
-        </activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name="com.hengyushop.demo.home.EndowmentBankMxActivity"
-            android:screenOrientation="portrait">
-        </activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name="com.hengyushop.demo.home.QianMingActivity"
-            android:screenOrientation="portrait">
-        </activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name="com.hengyushop.demo.home.JuFaFaXunaZheActivity"
-            android:screenOrientation="portrait">
-        </activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name="com.hengyushop.demo.home.MyJuFenActivity"
-            android:screenOrientation="portrait">
-        </activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name="com.hengyushop.demo.home.MyChuangYouActivity"
-            android:screenOrientation="portrait">
-        </activity>
-
+            android:screenOrientation="portrait" />
         <activity
             android:name="com.hengyushop.demo.home.MyJuFenMxActivity"
-            android:screenOrientation="portrait">
-        </activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name="com.hengyushop.demo.home.DBFengXiangActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/DialogStyleBottom">
-        </activity>
-
+            android:theme="@style/DialogStyleBottom" />
         <activity
             android:name="com.hengyushop.demo.my.MyorderAcitivity"
-            android:screenOrientation="portrait">
-        </activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name="com.hengyushop.demo.my.HaomaActivity"
-            android:screenOrientation="portrait">
-        </activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name="com.hengyushop.demo.my.GouWuCheActivity"
-            android:screenOrientation="portrait">
-        </activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name="com.hengyushop.demo.my.QuHuoHaomaActivity"
-            android:screenOrientation="portrait">
-        </activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name="com.hengyushop.demo.my.QuHuoListActivity"
-            android:screenOrientation="portrait">
-        </activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name="com.hengyushop.demo.my.MyOrderActivity"
-            android:screenOrientation="portrait">
-        </activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name="com.hengyushop.demo.my.MyJuDuiHuanActivity"
-            android:screenOrientation="portrait">
-        </activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name="com.hengyushop.demo.my.MyJuTuanActivity"
-            android:screenOrientation="portrait">
-        </activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name="com.hengyushop.demo.my.MyJuDuiHuanXqActivity"
-            android:screenOrientation="portrait">
-        </activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name="com.hengyushop.demo.my.ChuangKeActivity"
-            android:screenOrientation="portrait">
-        </activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name="com.hengyushop.demo.my.DaiRegisterActivity"
-            android:screenOrientation="portrait">
-        </activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name="com.hengyushop.demo.my.ChuangKeUserActivity"
-            android:screenOrientation="portrait">
-        </activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name="com.hengyushop.demo.my.SaoYiSaoPlaceActivity"
             android:launchMode="singleTask"
-            android:screenOrientation="portrait">
-        </activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name="com.hengyushop.demo.my.MobilePhoneActivity"
-            android:screenOrientation="portrait">
-        </activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name="com.hengyushop.demo.my.MyQianBaoActivity"
-            android:screenOrientation="portrait">
-        </activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name="com.hengyushop.demo.my.MonneyChongZhiActivity"
-            android:screenOrientation="portrait">
-        </activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name="com.hengyushop.demo.my.BeiHuoJinMxActivity"
-            android:screenOrientation="portrait">
-        </activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name="com.hengyushop.demo.my.ChongZhiActivity"
-            android:screenOrientation="portrait">
-        </activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name="com.hengyushop.demo.my.ShengJiCkActivity"
-            android:screenOrientation="portrait">
-        </activity>
-
+            android:screenOrientation="portrait" />
         <activity
             android:name="com.hengyushop.demo.my.MyAssetsActivity"
             android:launchMode="singleTask"
-            android:screenOrientation="portrait">
-        </activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name="com.hengyushop.demo.my.JiaZhiMxActivity"
             android:launchMode="singleTask"
-            android:screenOrientation="portrait">
-        </activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name="com.hengyushop.demo.my.UpgradeChongZhiActivity"
-            android:screenOrientation="portrait">
-        </activity>
-
+            android:screenOrientation="portrait" />
         <activity
             android:name="com.hengyushop.demo.my.Myorder1Acitivity"
-            android:screenOrientation="portrait">
-        </activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name="com.hengyushop.demo.my.Myorder2Acitivity"
-            android:screenOrientation="portrait">
-        </activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name="com.hengyushop.demo.my.Myorder3Acitivity"
-            android:screenOrientation="portrait">
-        </activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name="com.hengyushop.demo.my.MyXiaDanActivity"
-            android:screenOrientation="portrait">
-        </activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name="com.hengyushop.demo.my.Myorder4Acitivity"
-            android:screenOrientation="portrait">
-        </activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name="com.hengyushop.demo.my.CityXzActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/DialogStyleBottom">
-        </activity>
+            android:theme="@style/DialogStyleBottom" />
         <activity
             android:name="com.hengyushop.demo.activity.ZhongAnMinShenXqActivity"
-            android:screenOrientation="portrait">
-        </activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name="com.hengyushop.demo.activity.SouSuoActivity"
-            android:screenOrientation="portrait">
-        </activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name="com.hengyushop.demo.activity.BaoMinOKActivity"
-            android:screenOrientation="portrait">
-        </activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name="com.hengyushop.demo.activity.QianDaoListActivity"
-            android:screenOrientation="portrait">
-        </activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name="com.hengyushop.demo.activity.QianDaoBaoMingActivity"
-            android:screenOrientation="portrait">
-        </activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name="com.hengyushop.demo.activity.TishiBaoMinOkActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/AlertDialogStyle">
-        </activity>
+            android:theme="@style/AlertDialogStyle" />
         <activity
             android:name="com.hengyushop.demo.activity.DianZiPiaoActivity"
-            android:screenOrientation="portrait">
-        </activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name="com.hengyushop.demo.activity.BaoMinTiShiActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/DialogStyleBottom">
-        </activity>
+            android:theme="@style/DialogStyleBottom" />
         <activity
             android:name="com.hengyushop.demo.activity.TishiQianDaoOKActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/AlertDialogStyle">
-        </activity>
-
+            android:theme="@style/AlertDialogStyle" />
         <activity
             android:name="com.hengyushop.demo.my.MyOrderZFActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/DialogStyleBottom">
-        </activity>
+            android:theme="@style/DialogStyleBottom" />
         <activity
             android:name="com.hengyushop.demo.my.TishiCarArchivesActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/AlertDialogStyle">
-        </activity>
+            android:theme="@style/AlertDialogStyle" />
         <!-- AlertDialogStyle -->
         <activity
             android:name="com.hengyushop.demo.my.TishiChongZhiActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/DialogStyleBottom">
-        </activity>
+            android:theme="@style/DialogStyleBottom" />
         <activity
             android:name="com.hengyushop.demo.my.ChuanKeXuanZeActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/DialogStyleBottom">
-        </activity>
+            android:theme="@style/DialogStyleBottom" />
         <activity
             android:name="com.hengyushop.demo.my.TishiNicknameActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/AlertDialogStyle">
-        </activity>
+            android:theme="@style/AlertDialogStyle" />
         <activity
             android:name="com.hengyushop.demo.my.TishiWxBangDingActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/AlertDialogStyle">
-        </activity>
+            android:theme="@style/AlertDialogStyle" />
         <activity
             android:name="com.hengyushop.demo.home.GenderFangShiActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/DialogStyleBottom">
-        </activity>
+            android:theme="@style/DialogStyleBottom" />
         <activity
             android:name="com.hengyushop.demo.my.MyOrderXqActivity"
-            android:screenOrientation="portrait">
-        </activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name="com.hengyushop.demo.my.MyJuTuanOrderXqActivity"
-            android:screenOrientation="portrait">
-        </activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name="com.hengyushop.demo.my.TishiBaoMinQianDaoActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/AlertDialogStyle">
-        </activity>
+            android:theme="@style/AlertDialogStyle" />
         <activity
             android:name="com.hengyushop.demo.service.ApplyBusinessActivity"
-            android:screenOrientation="portrait">
-        </activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name="com.hengyushop.demo.service.ServiceGuangGaoActivity"
-            android:screenOrientation="portrait">
-        </activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name="com.hengyushop.demo.service.PlatformhotlineActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/DialogStyleBottom">
-        </activity>
+            android:theme="@style/DialogStyleBottom" />
         <activity
             android:name="com.hengyushop.demo.service.ApplyBusiness1Activity"
-            android:screenOrientation="portrait">
-        </activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name="com.hengyushop.demo.service.MerchantsLabelActivity"
-            android:screenOrientation="portrait">
-        </activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name="com.example.listviewitemslidedeletebtnshow.CollectionActivity"
-            android:screenOrientation="portrait">
-        </activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name="com.hengyushop.demo.service.ApplyBusiness2Activity"
-            android:screenOrientation="portrait">
-        </activity>
+            android:screenOrientation="portrait" />
         <activity
-            android:name="com.zams.www.wxapi.WXPayEntryActivity"
+            android:name=".wxapi.WXPayEntryActivity"
             android:exported="true"
-            android:launchMode="singleTop"/>
+            android:launchMode="singleTop" />
         <activity
-            android:name="com.zams.www.wxapi.WXEntryActivity"
+            android:name=".wxapi.WXEntryActivity"
             android:exported="true"
             android:label="@string/app_name"
-            android:launchMode="singleTask">
-        </activity>
-
+            android:launchMode="singleTask" />
         <activity
             android:name="com.example.baidunewdemo.BaiduActivity"
-            android:screenOrientation="portrait">
-        </activity>
+            android:screenOrientation="portrait" />
 
         <!-- 购物车 界面 -->
         <activity
             android:name="com.hengyushop.demo.shopcart.MyShopCarActivity"
-            android:screenOrientation="portrait">
-        </activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name="com.hengyushop.demo.shopcart.TuiJianSpListActivity"
-            android:screenOrientation="portrait">
-        </activity>
-
+            android:screenOrientation="portrait" />
         <activity
             android:name="com.tencent.connect.common.AssistActivity"
             android:configChanges="orientation|keyboardHidden"
             android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
-
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
         <activity
             android:name="com.tencent.tauth.AuthActivity"
             android:launchMode="singleTask"
             android:noHistory="true">
             <intent-filter>
-                <action android:name="android.intent.action.VIEW"/>
+                <action android:name="android.intent.action.VIEW" />
 
-                <category android:name="android.intent.category.DEFAULT"/>
-                <category android:name="android.intent.category.BROWSABLE"/>
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
 
-                <data android:scheme="tencent222222"/>
+                <data android:scheme="tencent222222" />
                 <!-- 100380359 100381104 222222 -->
             </intent-filter>
         </activity>
         <activity
             android:name="com.droid.Activity01"
-            android:screenOrientation="portrait">
-        </activity>
+            android:screenOrientation="portrait" />
 
         <service
             android:name="com.baidu.location.f"
             android:enabled="true"
             android:process=":remote">
             <intent-filter>
-                <action android:name="com.baidu.location.service_v2.2"/>
+                <action android:name="com.baidu.location.service_v2.2" />
             </intent-filter>
         </service>
 
         <!-- meta-data需要写在application中 -->
         <meta-data
             android:name="com.baidu.lbsapi.API_KEY"
-            android:value="vc8gixf5F6k7789nX9nscmiG"/>
+            android:value="vc8gixf5F6k7789nX9nscmiG" />
 
-
-        <activity android:name="com.zams.www.health.HealthActivity"/>
+        <activity
+            android:name=".health.HealthActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".health.HospitalHallActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".health.DescriptionActivity"
+            android:screenOrientation="portrait"></activity>
     </application>
 
 </manifest>

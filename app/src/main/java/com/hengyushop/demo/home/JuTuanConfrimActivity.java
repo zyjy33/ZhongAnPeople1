@@ -62,10 +62,10 @@ import com.zams.www.AddressManagerActivity;
 import com.zams.www.R;
 
 /**
- * ¶©µ¥È·ÈÏ
- * 
+ * è®¢å•ç¡®è®¤
+ *
  * @author Administrator
- * 
+ *
  */
 public class JuTuanConfrimActivity extends BaseActivity {
 	private ListView list_address_a;
@@ -152,8 +152,8 @@ public class JuTuanConfrimActivity extends BaseActivity {
 		// TODO Auto-generated method stub
 		super.onResume();
 		try {
-			System.out.println("flag=======Î¢ĞÅÖ§¸¶³É¹¦ºó¹Ø±Õ´Ë½çÃæ=======" + flag);
-			// Î¢ĞÅÖ§¸¶³É¹¦ºó¹Ø±Õ´Ë½çÃæ
+			System.out.println("flag=======å¾®ä¿¡æ”¯ä»˜æˆåŠŸåå…³é—­æ­¤ç•Œé¢=======" + flag);
+			// å¾®ä¿¡æ”¯ä»˜æˆåŠŸåå…³é—­æ­¤ç•Œé¢
 			if (flag == true) {
 				userloginqm();
 				// finish();
@@ -164,12 +164,12 @@ public class JuTuanConfrimActivity extends BaseActivity {
 			user_name = spPreferences.getString("user", "");
 			login_sign = spPreferences.getString("login_sign", "");
 			dzongjia = 0;
-			// System.out.println("dzongjiadeÖµÎªÁã================"+dzongjia);
+			// System.out.println("dzongjiadeå€¼ä¸ºé›¶================"+dzongjia);
 
 			// String type_wx = getIntent().getStringExtra("type_wx");
 			// System.out.println("type_wx===1====" + type_wx);
 
-			// »ñÈ¡µØÖ·
+			// è·å–åœ°å€
 			user_accept_name = getIntent().getStringExtra("user_accept_name");
 			System.out.println("name==============" + user_accept_name);
 			if (user_accept_name != null) {
@@ -179,29 +179,29 @@ public class JuTuanConfrimActivity extends BaseActivity {
 				user_address = getIntent().getStringExtra("user_address");
 				user_mobile = getIntent().getStringExtra("user_mobile");
 
-				tv_user_name.setText("ÊÕ»õÈË£º" + user_accept_name);
-				tv_user_address.setText("µØÖ·£º" + province + "¡¢" + city + "¡¢"
-						+ area + "¡¢" + user_address);
+				tv_user_name.setText("æ”¶è´§äººï¼š" + user_accept_name);
+				tv_user_address.setText("åœ°å€ï¼š" + province + "ã€" + city + "ã€"
+						+ area + "ã€" + user_address);
 				tv_user_phone.setText(user_mobile);
 			} else {
 				getuseraddress2();
 			}
 
 			// System.out.println("teby==============" + teby);
-			// Óà¶îÖ§¸¶³É¹¦ºó¸üĞÂ¶©µ¥
+			// ä½™é¢æ”¯ä»˜æˆåŠŸåæ›´æ–°è®¢å•
 			// if (teby == true) {
 			// // userloginqm();
 			// teby = false;
 			// finish();
 			// }
 
-			// Óà¶îÖ§¸¶È¡Ïû¹Ø±Õ´Ë½çÃæ
+			// ä½™é¢æ”¯ä»˜å–æ¶ˆå…³é—­æ­¤ç•Œé¢
 			// if (TishiCarArchivesActivity.yue_zhuangtai != null) {
 			// TishiCarArchivesActivity.yue_zhuangtai = null;
 			// finish();
 			// }
 
-			// Á¢¼´¹ºÂò
+			// ç«‹å³è´­ä¹°
 			img_ware = (ImageView) findViewById(R.id.img_ware);
 			tv_warename = (TextView) findViewById(R.id.tv_ware_name);
 			tv_guige = (TextView) findViewById(R.id.tv_guige);
@@ -223,15 +223,15 @@ public class JuTuanConfrimActivity extends BaseActivity {
 			// Double.parseDouble(getIntent().getStringExtra("groupon_price"));
 			// // tv_size.getPaint().setFlags(Paint.STRIKE_THRU_TEXT_FLAG |
 			// Paint.ANTI_ALIAS_FLAG);
-			// tv_1.setText("ÍÅ¹º¼Û£º");
-			// tv_2.setText("ÍÅÊı£º");
+			// tv_1.setText("å›¢è´­ä»·ï¼š");
+			// tv_2.setText("å›¢æ•°ï¼š");
 			// String activity_price =
 			// getIntent().getStringExtra("activity_price");
-			// tv_color.setText( "£¤" + activity_price);//ÍÅ¹º¼Û
+			// tv_color.setText( "ï¿¥" + activity_price);//å›¢è´­ä»·
 			// String ct_tuanshu = getIntent().getStringExtra("ct_tuanshu");
-			// tv_size.setText( "£¤" +ct_tuanshu);//ÍÅÊı
-			// heji.setText("ºÏ¼Æ:" + "£¤" + activity_price);
-			// shi_fukuang.setText("£¤" + activity_price);
+			// tv_size.setText( "ï¿¥" +ct_tuanshu);//å›¢æ•°
+			// heji.setText("åˆè®¡:" + "ï¿¥" + activity_price);
+			// shi_fukuang.setText("ï¿¥" + activity_price);
 			// tv_warename.setText(title);
 			// System.out.println("2======================");
 			// String img_url = getIntent().getStringExtra("img_url");
@@ -268,9 +268,9 @@ public class JuTuanConfrimActivity extends BaseActivity {
 		handlerll = new Handler() {
 			public void handleMessage(Message msg) {
 				switch (msg.what) {
-				case 2:
-					finish();
-					break;
+					case 2:
+						finish();
+						break;
 				}
 			}
 		};
@@ -316,7 +316,7 @@ public class JuTuanConfrimActivity extends BaseActivity {
 			});
 
 			/**
-			 * Ö§¸¶·½Ê½
+			 * æ”¯ä»˜æ–¹å¼
 			 */
 			// ll_zhifufs.setOnClickListener(new OnClickListener() {
 			//
@@ -327,7 +327,7 @@ public class JuTuanConfrimActivity extends BaseActivity {
 			// // retailPrice =
 			// Double.toString(a.setScale(2,BigDecimal.ROUND_HALF_UP).doubleValue());
 			// //
-			// System.out.println("Ö§¸¶·½Ê½retailPrice====================="+retailPrice);
+			// System.out.println("æ”¯ä»˜æ–¹å¼retailPrice====================="+retailPrice);
 			// Intent intent = new
 			// Intent(JuTuanConfrimActivity.this,ZhiFuFangShiActivity.class);
 			// intent.putExtra("order_confrim", "order_confrim");//
@@ -336,7 +336,7 @@ public class JuTuanConfrimActivity extends BaseActivity {
 			// });
 
 			/**
-			 * ÊÕ»õµØÖ·ÁĞ±í
+			 * æ”¶è´§åœ°å€åˆ—è¡¨
 			 */
 			layout0.setOnClickListener(new OnClickListener() {
 
@@ -386,7 +386,7 @@ public class JuTuanConfrimActivity extends BaseActivity {
 							.getStringExtra("price"));
 					intent.putExtra("people",
 							getIntent().getStringExtra("people"));
-					// intent.putExtra("title", title);// ±êÊ¾
+					// intent.putExtra("title", title);// æ ‡ç¤º
 					// intent.putExtra("stare", stare);
 					// intent.putExtra("groupon_price", groupon_price);
 					// intent.putExtra("img_url", img_url);
@@ -413,7 +413,7 @@ public class JuTuanConfrimActivity extends BaseActivity {
 			});
 
 			/**
-			 * Ìí¼ÓÊÕ»õµØÖ·
+			 * æ·»åŠ æ”¶è´§åœ°å€
 			 */
 			layout1.setOnClickListener(new OnClickListener() {
 
@@ -434,7 +434,7 @@ public class JuTuanConfrimActivity extends BaseActivity {
 		}
 
 		/**
-		 * Î¢ĞÅÖ§¸¶
+		 * å¾®ä¿¡æ”¯ä»˜
 		 */
 		yu_pay_c0.setOnClickListener(new OnClickListener() {
 
@@ -444,7 +444,7 @@ public class JuTuanConfrimActivity extends BaseActivity {
 				yu_pay_c1.setChecked(false);
 				yu_pay_c0.setChecked(true);
 				type = "5";
-				System.out.println("type======Î¢ĞÅÖ§¸¶========" + type);
+				System.out.println("type======å¾®ä¿¡æ”¯ä»˜========" + type);
 			}
 		});
 		yu_pay0.setOnClickListener(new OnClickListener() {
@@ -452,15 +452,15 @@ public class JuTuanConfrimActivity extends BaseActivity {
 			@Override
 			public void onClick(View arg0) {
 				// TODO Auto-generated method stub
-				// µã»÷ÉèÖÃÊÇ·ñÎªµã»÷×´Ì¬
+				// ç‚¹å‡»è®¾ç½®æ˜¯å¦ä¸ºç‚¹å‡»çŠ¶æ€
 				yu_pay_c1.setChecked(false);
 				yu_pay_c0.setChecked(true);
 				type = "5";
-				System.out.println("type======Î¢ĞÅÖ§¸¶========" + type);
+				System.out.println("type======å¾®ä¿¡æ”¯ä»˜========" + type);
 			}
 		});
 		/**
-		 * Ö§¸¶±¦Ö§¸¶
+		 * æ”¯ä»˜å®æ”¯ä»˜
 		 */
 		yu_pay_c1.setOnClickListener(new OnClickListener() {
 
@@ -470,7 +470,7 @@ public class JuTuanConfrimActivity extends BaseActivity {
 				yu_pay_c0.setChecked(false);
 				yu_pay_c1.setChecked(true);
 				type = "3";
-				System.out.println("type======Ö§¸¶±¦Ö§¸¶========" + type);
+				System.out.println("type======æ”¯ä»˜å®æ”¯ä»˜========" + type);
 			}
 		});
 		yu_pay1.setOnClickListener(new OnClickListener() {
@@ -481,12 +481,12 @@ public class JuTuanConfrimActivity extends BaseActivity {
 				yu_pay_c0.setChecked(false);
 				yu_pay_c1.setChecked(true);
 				type = "3";
-				System.out.println("type======Ö§¸¶±¦Ö§¸¶========" + type);
+				System.out.println("type======æ”¯ä»˜å®æ”¯ä»˜========" + type);
 			}
 		});
 
 		/**
-		 * ½áËã·½Ê½
+		 * ç»“ç®—æ–¹å¼
 		 */
 		confrim_btn.setOnClickListener(new OnClickListener() {
 
@@ -496,12 +496,12 @@ public class JuTuanConfrimActivity extends BaseActivity {
 
 				System.out.println("name======11========" + user_accept_name);
 				if (user_accept_name == null) {
-					Toast.makeText(JuTuanConfrimActivity.this, "Äú»¹Î´Ìí¼ÓÊÕ»õµØÖ·",
+					Toast.makeText(JuTuanConfrimActivity.this, "æ‚¨è¿˜æœªæ·»åŠ æ”¶è´§åœ°å€",
 							Toast.LENGTH_SHORT).show();
 				} else {
 					try {
-						System.out.println("type======½áËã·½Ê½========" + type);
-						loadtuangou(type, kou_hongbao);// Ìá½»¾ÛÍÅ¶©µ¥
+						System.out.println("type======ç»“ç®—æ–¹å¼========" + type);
+						loadtuangou(type, kou_hongbao);// æäº¤èšå›¢è®¢å•
 					} catch (Exception e) {
 						// TODO: handle exception
 						e.printStackTrace();
@@ -512,14 +512,14 @@ public class JuTuanConfrimActivity extends BaseActivity {
 	}
 
 	/**
-	 * »ñÈ¡µÇÂ¼Ç©Ãû
+	 * è·å–ç™»å½•ç­¾å
 	 */
 	private void userloginqm() {
 		try {
-			System.out.println("======11====µÇÂ¼Ç©Ãû=========");
+			System.out.println("======11====ç™»å½•ç­¾å=========");
 			String strUrlone = RealmName.REALM_NAME_LL
 					+ "/get_user_model?username=" + user_name + "";
-			System.out.println("======22====µÇÂ¼Ç©Ãû=========" + strUrlone);
+			System.out.println("======22====ç™»å½•ç­¾å=========" + strUrlone);
 			AsyncHttp.get(strUrlone, new AsyncHttpResponseHandler() {
 				public void onSuccess(int arg0, String arg1) {
 					try {
@@ -532,8 +532,8 @@ public class JuTuanConfrimActivity extends BaseActivity {
 							data.login_sign = obj.getString("login_sign");
 							login_sign = data.login_sign;
 							String type_jutuan = getIntent().getStringExtra(
-									"type_jutuan");// ¾ÛÍÅ×´Ì¬
-							System.out.println("type_jutuan-------¾ÛÍÅ------"
+									"type_jutuan");// èšå›¢çŠ¶æ€
+							System.out.println("type_jutuan-------èšå›¢------"
 									+ type_jutuan);
 							if (type_jutuan != null) {
 								loadguanggao_jutuan(recharge_no, login_sign);
@@ -556,7 +556,7 @@ public class JuTuanConfrimActivity extends BaseActivity {
 	}
 
 	/**
-	 * Êä³öÓÃ»§Ä¬ÈÏÊÕ»õµØÖ·
+	 * è¾“å‡ºç”¨æˆ·é»˜è®¤æ”¶è´§åœ°å€
 	 */
 	private void getuseraddress2() {
 		try {
@@ -565,7 +565,7 @@ public class JuTuanConfrimActivity extends BaseActivity {
 			user_name = spPreferences.getString("user", "");
 			user_id = spPreferences.getString("user_id", "");
 			AsyncHttp.get(RealmName.REALM_NAME_LL
-					+ "/get_user_shopping_address?user_name=" + user_name + "",
+							+ "/get_user_shopping_address?user_name=" + user_name + "",
 					new AsyncHttpResponseHandler() {
 						@Override
 						public void onSuccess(int arg0, String arg1) {
@@ -575,7 +575,7 @@ public class JuTuanConfrimActivity extends BaseActivity {
 							try {
 								JSONObject jsonObject = new JSONObject(arg1);
 								System.out
-										.println("Êä³öÓÃ»§Ä¬ÈÏÊÕ»õµØÖ·========1========"
+										.println("è¾“å‡ºç”¨æˆ·é»˜è®¤æ”¶è´§åœ°å€========1========"
 												+ arg1);
 								String status = jsonObject.getString("status");
 								if (status.equals("y")) {
@@ -601,10 +601,10 @@ public class JuTuanConfrimActivity extends BaseActivity {
 												.getString("user_address");
 										user_accept_name = user_dizhiname;
 									}
-									tv_user_name.setText("ÊÕ»õÈË£º"
+									tv_user_name.setText("æ”¶è´§äººï¼š"
 											+ user_accept_name);
-									tv_user_address.setText("µØÖ·£º" + province
-											+ "¡¢" + city + "¡¢" + area + "¡¢"
+									tv_user_address.setText("åœ°å€ï¼š" + province
+											+ "ã€" + city + "ã€" + area + "ã€"
 											+ user_address);
 									tv_user_phone.setText(user_mobile);
 
@@ -645,7 +645,7 @@ public class JuTuanConfrimActivity extends BaseActivity {
 	}
 
 	/**
-	 * »ñÈ¡¹ºµ¥ÎïĞÅÏ¢ µÚ1¸öÁĞ±íÊı¾İ½âÎö
+	 * è·å–è´­å•ç‰©ä¿¡æ¯ ç¬¬1ä¸ªåˆ—è¡¨æ•°æ®è§£æ
 	 */
 	private int CURRENT_NUM = 1;
 	private final int VIEW_NUM = 10;
@@ -653,7 +653,7 @@ public class JuTuanConfrimActivity extends BaseActivity {
 	private void load_list(boolean flag) {
 		list = new ArrayList<ShopCartData>();
 		if (flag) {
-			// ¼ÆÊıºÍÈİÆ÷ÇåÁã
+			// è®¡æ•°å’Œå®¹å™¨æ¸…é›¶
 			CURRENT_NUM = 0;
 			list = new ArrayList<ShopCartData>();
 		}
@@ -677,7 +677,7 @@ public class JuTuanConfrimActivity extends BaseActivity {
 			public void onSuccess(int arg0, String arg1) {
 				// TODO Auto-generated method stub
 				super.onSuccess(arg0, arg1);
-				System.out.println("=====================¶ş¼¶Öµ1" + arg1);
+				System.out.println("=====================äºŒçº§å€¼1" + arg1);
 				try {
 					JSONObject object = new JSONObject(arg1);
 					String status = object.getString("status");
@@ -705,10 +705,10 @@ public class JuTuanConfrimActivity extends BaseActivity {
 							data.buy_no = json.getString("buy_no");
 							data.goods_no = json.getString("goods_no");
 
-							// //ÉÌÆ·¼Û¸ñ
+							// //å•†å“ä»·æ ¼
 							// BigDecimal c = new
 							// BigDecimal(Double.parseDouble(data.sell_price)*data.quantity);
-							// //±£Áô2Î»Ğ¡Êı
+							// //ä¿ç•™2ä½å°æ•°
 							// double total_c_ll =
 							// c.setScale(2,BigDecimal.ROUND_HALF_UP).doubleValue();
 							// a += total_c_ll;
@@ -729,7 +729,7 @@ public class JuTuanConfrimActivity extends BaseActivity {
 									BigDecimal c = new BigDecimal(Double
 											.parseDouble(data.activity_price)
 											* data.quantity);
-									// ±£Áô2Î»Ğ¡Êı
+									// ä¿ç•™2ä½å°æ•°
 									dzongjia = c.setScale(2,
 											BigDecimal.ROUND_HALF_UP)
 											.doubleValue();
@@ -743,32 +743,32 @@ public class JuTuanConfrimActivity extends BaseActivity {
 										tv_guige.setText(getIntent()
 												.getStringExtra("spec_text"));
 									}
-									tv_1.setText("ÍÅ¹º¼Û£º");
-									tv_2.setText("ÍÅÊı£º");
-									tv_color.setText("£¤" + dzongjia);// ÍÅ¹º¼Û
+									tv_1.setText("å›¢è´­ä»·ï¼š");
+									tv_2.setText("å›¢æ•°ï¼š");
+									tv_color.setText("ï¿¥" + dzongjia);// å›¢è´­ä»·
 									tv_size.setText(getIntent().getStringExtra(
 											"people")
-											+ "ÈË");
-									heji.setText("ºÏ¼Æ:" + "£¤" + dzongjia);
-									shi_fukuang.setText("£¤" + dzongjia);
+											+ "äºº");
+									heji.setText("åˆè®¡:" + "ï¿¥" + dzongjia);
+									shi_fukuang.setText("ï¿¥" + dzongjia);
 								} else {
 									BigDecimal c = new BigDecimal(Double
 											.parseDouble(data.sell_price)
 											* data.quantity);
-									// ±£Áô2Î»Ğ¡Êı
+									// ä¿ç•™2ä½å°æ•°
 									dzongjia = c.setScale(2,
 											BigDecimal.ROUND_HALF_UP)
 											.doubleValue();
 									tv_guige.setText(data.spec_text);
-									tv_1.setText("¼Û¸ñ£º");
-									tv_2.setText("ÊĞ³¡¼Û£º");
-									tv_color.setText("£¤" + dzongjia);//
-									tv_size.setText("£¤" + data.market_price);
+									tv_1.setText("ä»·æ ¼ï¼š");
+									tv_2.setText("å¸‚åœºä»·ï¼š");
+									tv_color.setText("ï¿¥" + dzongjia);//
+									tv_size.setText("ï¿¥" + data.market_price);
 									tv_size.getPaint().setFlags(
 											Paint.STRIKE_THRU_TEXT_FLAG
 													| Paint.ANTI_ALIAS_FLAG);
-									heji.setText("ºÏ¼Æ:" + "£¤" + dzongjia);
-									shi_fukuang.setText("£¤" + dzongjia);
+									heji.setText("åˆè®¡:" + "ï¿¥" + dzongjia);
+									shi_fukuang.setText("ï¿¥" + dzongjia);
 								}
 								tv_warename.setText(data.title);
 								tv_num.setText(String.valueOf(data.quantity));
@@ -788,7 +788,7 @@ public class JuTuanConfrimActivity extends BaseActivity {
 						// handler.sendEmptyMessage(0);
 					} else {
 						progress.CloseProgress();
-						Toast.makeText(JuTuanConfrimActivity.this, info, 200)
+						Toast.makeText(JuTuanConfrimActivity.this, info, Toast.LENGTH_SHORT)
 								.show();
 					}
 					if (len != 0) {
@@ -804,8 +804,8 @@ public class JuTuanConfrimActivity extends BaseActivity {
 	}
 
 	/**
-	 * Ìá½»ÓÃ»§¶©µ¥
-	 * 
+	 * æäº¤ç”¨æˆ·è®¢å•
+	 *
 	 * @param payment_id
 	 * @param kou_hongbao
 	 */
@@ -841,7 +841,7 @@ public class JuTuanConfrimActivity extends BaseActivity {
 	// super.onSuccess(arg0, arg1);
 	// try {
 	// JSONObject object = new JSONObject(arg1);
-	// System.out.println("Ìá½»ÓÃ»§¶©µ¥ ================================="+arg1);
+	// System.out.println("æäº¤ç”¨æˆ·è®¢å• ================================="+arg1);
 	// try {
 	//
 	// String status = object.getString("status");
@@ -870,7 +870,7 @@ public class JuTuanConfrimActivity extends BaseActivity {
 	// // handler.sendEmptyMessage(0);
 	// }else {
 	// // progress.CloseProgress();
-	// Toast.makeText(JuTuanConfrimActivity.this, info, 200).show();
+	// Toast.makeText(JuTuanConfrimActivity.this, info, Toast.LENGTH_SHORT).show();
 	// }
 	//
 	// } catch (Exception e) {
@@ -893,8 +893,8 @@ public class JuTuanConfrimActivity extends BaseActivity {
 	// }
 
 	/**
-	 * Ìá½»ÍÅ¹º¶©µ¥
-	 * 
+	 * æäº¤å›¢è´­è®¢å•
+	 *
 	 * @param payment_id
 	 * @param kou_hongbao
 	 */
@@ -908,11 +908,11 @@ public class JuTuanConfrimActivity extends BaseActivity {
 				.println("jiekou==================1====================================="
 						+ jiekou);
 		if (jiekou.equals("1")) {
-			apl_jiekou = "add_order_groupon";// ¾Û¾«²ÊÌá½»¶©µ¥
+			apl_jiekou = "add_order_groupon";// èšç²¾å½©æäº¤è®¢å•
 		} else if (jiekou.equals("2")) {
-			apl_jiekou = "add_order_group";// Ìá½»¾ÛÍÅ¶©µ¥
+			apl_jiekou = "add_order_group";// æäº¤èšå›¢è®¢å•
 		} else if (jiekou.equals("3")) {
-			apl_jiekou = "add_order_ladder";// Ìá½»½×ÌİÍÅ¶©µ¥
+			apl_jiekou = "add_order_ladder";// æäº¤é˜¶æ¢¯å›¢è®¢å•
 		}
 		String buy_no = getIntent().getStringExtra("buy_no");
 		System.out.println("buy_no=====================" + buy_no);
@@ -933,12 +933,12 @@ public class JuTuanConfrimActivity extends BaseActivity {
 				try {
 					JSONObject object = new JSONObject(arg1);
 					System.out
-							.println("Ìá½»ÍÅ¹º¶©µ¥================================="
+							.println("æäº¤å›¢è´­è®¢å•================================="
 									+ arg1);
 					String status = object.getString("status");
 					String info = object.getString("info");
 					if (status.equals("y")) {
-						Toast.makeText(JuTuanConfrimActivity.this, info, 200)
+						Toast.makeText(JuTuanConfrimActivity.this, info, Toast.LENGTH_SHORT)
 								.show();
 						JSONObject jsonObject = object.getJSONObject("data");
 						recharge_no = jsonObject.getString("trade_no");
@@ -965,10 +965,10 @@ public class JuTuanConfrimActivity extends BaseActivity {
 						// System.out.println("fx_shuzi============================"
 						// + fx_shuzi);
 						// String stare =
-						// getIntent().getStringExtra("stare");//Æ´ÍÅÖ§¸¶Ìø×ªµ½·ÖÏí½çÃæ
+						// getIntent().getStringExtra("stare");//æ‹¼å›¢æ”¯ä»˜è·³è½¬åˆ°åˆ†äº«ç•Œé¢
 						// System.out.println("stare----------------------------------------"+stare);
 						// String type =
-						// getIntent().getStringExtra("type");//¾Û¾«²Ê×´Ì¬
+						// getIntent().getStringExtra("type");//èšç²¾å½©çŠ¶æ€
 						// System.out.println("type-------------"+type);
 						// String people = getIntent().getStringExtra("people");
 						// System.out.println("buy_no=====================" +
@@ -980,8 +980,8 @@ public class JuTuanConfrimActivity extends BaseActivity {
 						// Intent(JuTuanConfrimActivity.this,JuTuanGouXq2Activity.class);
 						// intent.putExtra("order_no",buy_no);
 						// intent.putExtra("ct_tuanshu",people);
-						// intent.putExtra("stare",stare);//ÅĞ¶Ï²ÎÍÅ»òÑûÇëÌáÊ¾·ÖÏí
-						// intent.putExtra("type",type);//¾Û¾«²Ê×´Ì¬
+						// intent.putExtra("stare",stare);//åˆ¤æ–­å‚å›¢æˆ–é‚€è¯·æç¤ºåˆ†äº«
+						// intent.putExtra("type",type);//èšç²¾å½©çŠ¶æ€
 						// intent.putExtra("jiekou",jiekou);
 						// intent.putExtra("fx_shuzi",fx_shuzi);
 						// startActivity(intent);
@@ -993,7 +993,7 @@ public class JuTuanConfrimActivity extends BaseActivity {
 						// String fx_key = getIntent().getStringExtra("fx_key");
 						// String ct_id = getIntent().getStringExtra("ct_id");
 						// String type =
-						// getIntent().getStringExtra("type");//¾Û¾«²Ê×´Ì¬
+						// getIntent().getStringExtra("type");//èšç²¾å½©çŠ¶æ€
 						// System.out.println("type-------------"+type);
 						// // String orders_no =
 						// getIntent().getStringExtra("orders_no");
@@ -1011,7 +1011,7 @@ public class JuTuanConfrimActivity extends BaseActivity {
 						// intent.putExtra("stare",stare);
 						// intent.putExtra("ct_tuanshu",ct_tuanshu);
 						// intent.putExtra("id",groupon_id);
-						// intent.putExtra("type",type);//¾Û¾«²Ê×´Ì¬
+						// intent.putExtra("type",type);//èšç²¾å½©çŠ¶æ€
 						// startActivity(intent);
 						// }
 					} else {
@@ -1021,7 +1021,7 @@ public class JuTuanConfrimActivity extends BaseActivity {
 							System.out.println("ct_tuanshu-------------"
 									+ TishiCarArchivesActivity.order_no);
 							Toast.makeText(JuTuanConfrimActivity.this, info,
-									200).show();
+									Toast.LENGTH_SHORT).show();
 
 						} catch (Exception e) {
 							// TODO: handle exception
@@ -1043,7 +1043,7 @@ public class JuTuanConfrimActivity extends BaseActivity {
 						.println("11=================================" + arg0);
 				System.out
 						.println("22=================================" + arg1);
-				Toast.makeText(JuTuanConfrimActivity.this, "Òì³£", 200).show();
+				Toast.makeText(JuTuanConfrimActivity.this, "å¼‚å¸¸", Toast.LENGTH_SHORT).show();
 			}
 
 		}, getApplicationContext());
@@ -1069,117 +1069,117 @@ public class JuTuanConfrimActivity extends BaseActivity {
 		public void dispatchMessage(Message msg) {
 
 			switch (msg.what) {
-			case 0:
-				try {
+				case 0:
+					try {
 
-					System.out.println("3================" + list.size());
-					adapter = new ShopingCartOrderAdapter(list,
-							getApplicationContext(), handler);
-					list_shop_cart.setAdapter(adapter);
-					// ShopingCartOrderAdapter.query.clear();
-					// list_shop_cart.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
+						System.out.println("3================" + list.size());
+						adapter = new ShopingCartOrderAdapter(list,
+								getApplicationContext(), handler);
+						list_shop_cart.setAdapter(adapter);
+						// ShopingCartOrderAdapter.query.clear();
+						// list_shop_cart.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
 
-				} catch (Exception e) {
-					// TODO: handle exception
-					e.printStackTrace();
-				}
-				break;
-			case 1:
-				ali_pay();
-				break;
-			case 2:// Î¢ĞÅÖ§¸¶
-				try {
-					boolean isPaySupported = api.getWXAppSupportAPI() >= Build.PAY_SUPPORTED_SDK_INT;
-					// Toast.makeText(MyOrderConfrimActivity.this, "»ñÈ¡¶©µ¥ÖĞ...",
-					// Toast.LENGTH_SHORT).show();
-					String zhou = String.valueOf(isPaySupported);
-					// Toast.makeText(MyOrderConfrimActivity.this, zhou,
-					// Toast.LENGTH_SHORT).show();
-					if (isPaySupported) {
-						try {
-							PayReq req = new PayReq();
-							req.appId = Constant.APP_ID;
-							req.partnerId = Constant.MCH_ID;
-							req.prepayId = prepayid;// 7
-							req.nonceStr = noncestr;// 3
-							req.timeStamp = timestamp;// -1
-							req.packageValue = package_;
-							req.sign = sign;// -3
+					} catch (Exception e) {
+						// TODO: handle exception
+						e.printStackTrace();
+					}
+					break;
+				case 1:
+					ali_pay();
+					break;
+				case 2:// å¾®ä¿¡æ”¯ä»˜
+					try {
+						boolean isPaySupported = api.getWXAppSupportAPI() >= Build.PAY_SUPPORTED_SDK_INT;
+						// Toast.makeText(MyOrderConfrimActivity.this, "è·å–è®¢å•ä¸­...",
+						// Toast.LENGTH_SHORT).show();
+						String zhou = String.valueOf(isPaySupported);
+						// Toast.makeText(MyOrderConfrimActivity.this, zhou,
+						// Toast.LENGTH_SHORT).show();
+						if (isPaySupported) {
+							try {
+								PayReq req = new PayReq();
+								req.appId = Constant.APP_ID;
+								req.partnerId = Constant.MCH_ID;
+								req.prepayId = prepayid;// 7
+								req.nonceStr = noncestr;// 3
+								req.timeStamp = timestamp;// -1
+								req.packageValue = package_;
+								req.sign = sign;// -3
 
-							// ÔÚÖ§¸¶Ö®Ç°£¬Èç¹ûÓ¦ÓÃÃ»ÓĞ×¢²áµ½Î¢ĞÅ£¬Ó¦¸ÃÏÈµ÷ÓÃIWXMsg.registerApp½«Ó¦ÓÃ×¢²áµ½Î¢ĞÅ
-							api.registerApp(Constant.APP_ID);
-							// api.sendReq(req);
-							flag = api.sendReq(req);
-							System.out.println("Ö§¸¶" + flag);
+								// åœ¨æ”¯ä»˜ä¹‹å‰ï¼Œå¦‚æœåº”ç”¨æ²¡æœ‰æ³¨å†Œåˆ°å¾®ä¿¡ï¼Œåº”è¯¥å…ˆè°ƒç”¨IWXMsg.registerAppå°†åº”ç”¨æ³¨å†Œåˆ°å¾®ä¿¡
+								api.registerApp(Constant.APP_ID);
+								// api.sendReq(req);
+								flag = api.sendReq(req);
+								System.out.println("æ”¯ä»˜" + flag);
 
-							// finish();
-							// Toast.makeText(MyOrderConfrimActivity.this,
-							// "Ö§¸¶true", Toast.LENGTH_SHORT).show();
+								// finish();
+								// Toast.makeText(MyOrderConfrimActivity.this,
+								// "æ”¯ä»˜true", Toast.LENGTH_SHORT).show();
 
-						} catch (Exception e) {
-							// TODO: handle exception
-							e.printStackTrace();
+							} catch (Exception e) {
+								// TODO: handle exception
+								e.printStackTrace();
+							}
+						} else {
+							Toast.makeText(JuTuanConfrimActivity.this, "æ”¯ä»˜å¤±è´¥",
+									Toast.LENGTH_SHORT).show();
+							finish();
 						}
-					} else {
-						Toast.makeText(JuTuanConfrimActivity.this, "Ö§¸¶Ê§°Ü",
-								Toast.LENGTH_SHORT).show();
-						finish();
+					} catch (Exception e) {
+						// TODO: handle exception
+						e.printStackTrace();
 					}
-				} catch (Exception e) {
-					// TODO: handle exception
-					e.printStackTrace();
-				}
 
-				break;
-			case 5:// Ö§¸¶±¦
-				PayResult payResult = new PayResult((String) msg.obj);
+					break;
+				case 5:// æ”¯ä»˜å®
+					PayResult payResult = new PayResult((String) msg.obj);
 
-				// Ö§¸¶±¦·µ»Ø´Ë´ÎÖ§¸¶½á¹û¼°¼ÓÇ©£¬½¨Òé¶ÔÖ§¸¶±¦Ç©ÃûĞÅÏ¢ÄÃÇ©Ô¼Ê±Ö§¸¶±¦Ìá¹©µÄ¹«Ô¿×öÑéÇ©
-				String resultInfo = payResult.getResult();
+					// æ”¯ä»˜å®è¿”å›æ­¤æ¬¡æ”¯ä»˜ç»“æœåŠåŠ ç­¾ï¼Œå»ºè®®å¯¹æ”¯ä»˜å®ç­¾åä¿¡æ¯æ‹¿ç­¾çº¦æ—¶æ”¯ä»˜å®æä¾›çš„å…¬é’¥åšéªŒç­¾
+					String resultInfo = payResult.getResult();
 
-				String resultStatus = payResult.getResultStatus();
-				System.out.println(resultInfo + "---" + resultStatus);
-				// ÅĞ¶ÏresultStatus Îª¡°9000¡±Ôò´ú±íÖ§¸¶³É¹¦£¬¾ßÌå×´Ì¬Âë´ú±íº¬Òå¿É²Î¿¼½Ó¿ÚÎÄµµ
-				if (TextUtils.equals(resultStatus, "9000")) {
-					Toast.makeText(JuTuanConfrimActivity.this, "Ö§¸¶³É¹¦",
-							Toast.LENGTH_SHORT).show();
-					userloginqm();
-					// finish();
-				} else {
-					// ÅĞ¶ÏresultStatus Îª·Ç¡°9000¡±Ôò´ú±í¿ÉÄÜÖ§¸¶Ê§°Ü
-					// ¡°8000¡±´ú±íÖ§¸¶½á¹ûÒòÎªÖ§¸¶ÇşµÀÔ­Òò»òÕßÏµÍ³Ô­Òò»¹ÔÚµÈ´ıÖ§¸¶½á¹ûÈ·ÈÏ£¬×îÖÕ½»Ò×ÊÇ·ñ³É¹¦ÒÔ·şÎñ¶ËÒì²½Í¨ÖªÎª×¼£¨Ğ¡¸ÅÂÊ×´Ì¬£©
-					if (TextUtils.equals(resultStatus, "8000")) {
-						Toast.makeText(JuTuanConfrimActivity.this, "Ö§¸¶½á¹ûÈ·ÈÏÖĞ",
+					String resultStatus = payResult.getResultStatus();
+					System.out.println(resultInfo + "---" + resultStatus);
+					// åˆ¤æ–­resultStatus ä¸ºâ€œ9000â€åˆ™ä»£è¡¨æ”¯ä»˜æˆåŠŸï¼Œå…·ä½“çŠ¶æ€ç ä»£è¡¨å«ä¹‰å¯å‚è€ƒæ¥å£æ–‡æ¡£
+					if (TextUtils.equals(resultStatus, "9000")) {
+						Toast.makeText(JuTuanConfrimActivity.this, "æ”¯ä»˜æˆåŠŸ",
 								Toast.LENGTH_SHORT).show();
-						finish();
-
+						userloginqm();
+						// finish();
 					} else {
-						// ÆäËûÖµ¾Í¿ÉÒÔÅĞ¶ÏÎªÖ§¸¶Ê§°Ü£¬°üÀ¨ÓÃ»§Ö÷¶¯È¡ÏûÖ§¸¶£¬»òÕßÏµÍ³·µ»ØµÄ´íÎó
-						Toast.makeText(JuTuanConfrimActivity.this, "Ö§¸¶Ê§°Ü",
-								Toast.LENGTH_SHORT).show();
-						finish();
+						// åˆ¤æ–­resultStatus ä¸ºéâ€œ9000â€åˆ™ä»£è¡¨å¯èƒ½æ”¯ä»˜å¤±è´¥
+						// â€œ8000â€ä»£è¡¨æ”¯ä»˜ç»“æœå› ä¸ºæ”¯ä»˜æ¸ é“åŸå› æˆ–è€…ç³»ç»ŸåŸå› è¿˜åœ¨ç­‰å¾…æ”¯ä»˜ç»“æœç¡®è®¤ï¼Œæœ€ç»ˆäº¤æ˜“æ˜¯å¦æˆåŠŸä»¥æœåŠ¡ç«¯å¼‚æ­¥é€šçŸ¥ä¸ºå‡†ï¼ˆå°æ¦‚ç‡çŠ¶æ€ï¼‰
+						if (TextUtils.equals(resultStatus, "8000")) {
+							Toast.makeText(JuTuanConfrimActivity.this, "æ”¯ä»˜ç»“æœç¡®è®¤ä¸­",
+									Toast.LENGTH_SHORT).show();
+							finish();
+
+						} else {
+							// å…¶ä»–å€¼å°±å¯ä»¥åˆ¤æ–­ä¸ºæ”¯ä»˜å¤±è´¥ï¼ŒåŒ…æ‹¬ç”¨æˆ·ä¸»åŠ¨å–æ¶ˆæ”¯ä»˜ï¼Œæˆ–è€…ç³»ç»Ÿè¿”å›çš„é”™è¯¯
+							Toast.makeText(JuTuanConfrimActivity.this, "æ”¯ä»˜å¤±è´¥",
+									Toast.LENGTH_SHORT).show();
+							finish();
+						}
 					}
-				}
-				break;
-			default:
-				break;
+					break;
+				default:
+					break;
 			}
 		}
 	};
 
 	/**
-	 * ¾ÛÍÅ¹º¸üĞÂÖ§¸¶
-	 * 
+	 * èšå›¢è´­æ›´æ–°æ”¯ä»˜
+	 *
 	 * @param login_sign
-	 * @param payment_id
+	 * @param
 	 */
 	private void loadguanggao_jutuan(String recharge_noll, String login_sign) {
 		try {
 			// recharge_no = recharge_noll;
 			AsyncHttp.get(RealmName.REALM_NAME_LL
-					+ "/update_order_payment?user_id=" + user_id
-					+ "&user_name=" + user_name + "" + "&trade_no="
-					+ recharge_noll + "&sign=" + login_sign + "",
+							+ "/update_order_payment?user_id=" + user_id
+							+ "&user_name=" + user_name + "" + "&trade_no="
+							+ recharge_noll + "&sign=" + login_sign + "",
 					new AsyncHttpResponseHandler() {
 						@Override
 						public void onSuccess(int arg0, String arg1) {
@@ -1187,7 +1187,7 @@ public class JuTuanConfrimActivity extends BaseActivity {
 							try {
 								JSONObject object = new JSONObject(arg1);
 								System.out
-										.println("¾ÛÍÅ¹º¸üĞÂ¶©µ¥================================="
+										.println("èšå›¢è´­æ›´æ–°è®¢å•================================="
 												+ arg1);
 								String status = object.getString("status");
 								String info = object.getString("info");
@@ -1197,7 +1197,7 @@ public class JuTuanConfrimActivity extends BaseActivity {
 									teby = false;
 									fanhui_type = true;
 									Toast.makeText(JuTuanConfrimActivity.this,
-											info, 200).show();
+											info, Toast.LENGTH_SHORT).show();
 
 									// String ct_tuanshu =
 									// JuTuanGouXqActivity.people;
@@ -1214,12 +1214,12 @@ public class JuTuanConfrimActivity extends BaseActivity {
 											.println("fx_shuzi============================"
 													+ fx_shuzi);
 									String stare = getIntent().getStringExtra(
-											"stare");// Æ´ÍÅÖ§¸¶Ìø×ªµ½·ÖÏí½çÃæ
+											"stare");// æ‹¼å›¢æ”¯ä»˜è·³è½¬åˆ°åˆ†äº«ç•Œé¢
 									System.out
 											.println("stare----------------------------------------"
 													+ stare);
 									String type_jutuan = getIntent()
-											.getStringExtra("type_jutuan");// ¾Û¾«²Ê×´Ì¬
+											.getStringExtra("type_jutuan");// èšç²¾å½©çŠ¶æ€
 									System.out
 											.println("type_jutuan-------------"
 													+ type_jutuan);
@@ -1238,9 +1238,9 @@ public class JuTuanConfrimActivity extends BaseActivity {
 											JuTuanGouXq2Activity.class);
 									intent.putExtra("order_no", buy_no);
 									intent.putExtra("ct_tuanshu", people);
-									intent.putExtra("stare", stare);// ÅĞ¶Ï²ÎÍÅ»òÑûÇëÌáÊ¾·ÖÏí
+									intent.putExtra("stare", stare);// åˆ¤æ–­å‚å›¢æˆ–é‚€è¯·æç¤ºåˆ†äº«
 									// intent.putExtra("ct_id",ct_id);
-									intent.putExtra("type", type_jutuan);// ¾Û¾«²Ê×´Ì¬
+									intent.putExtra("type", type_jutuan);// èšç²¾å½©çŠ¶æ€
 									intent.putExtra("jiekou", jiekou);
 									intent.putExtra("fx_shuzi", fx_shuzi);
 									startActivity(intent);
@@ -1256,7 +1256,7 @@ public class JuTuanConfrimActivity extends BaseActivity {
 									progress.CloseProgress();
 									teby = false;
 									Toast.makeText(JuTuanConfrimActivity.this,
-											info, 200).show();
+											info, Toast.LENGTH_SHORT).show();
 									finish();
 								}
 							} catch (JSONException e) {
@@ -1275,7 +1275,7 @@ public class JuTuanConfrimActivity extends BaseActivity {
 									.println("22================================="
 											+ arg1);
 							Toast.makeText(JuTuanConfrimActivity.this,
-									"ÍøÂç³¬Ê±Òì³£", 200).show();
+									"ç½‘ç»œè¶…æ—¶å¼‚å¸¸", Toast.LENGTH_SHORT).show();
 						}
 
 					}, null);
@@ -1287,18 +1287,18 @@ public class JuTuanConfrimActivity extends BaseActivity {
 	}
 
 	/**
-	 * ¶©µ¥¸üĞÂÖ§¸¶
-	 * 
+	 * è®¢å•æ›´æ–°æ”¯ä»˜
+	 *
 	 * @param login_sign
-	 * @param payment_id
+	 * @param
 	 */
 	private void loadguanggaoll(String recharge_noll, String login_sign) {
 		try {
 			// recharge_no = recharge_noll;
 			AsyncHttp.get(RealmName.REALM_NAME_LL
-					+ "/update_order_payment?user_id=" + user_id
-					+ "&user_name=" + user_name + "" + "&trade_no="
-					+ recharge_noll + "&sign=" + login_sign + "",
+							+ "/update_order_payment?user_id=" + user_id
+							+ "&user_name=" + user_name + "" + "&trade_no="
+							+ recharge_noll + "&sign=" + login_sign + "",
 					new AsyncHttpResponseHandler() {
 						@Override
 						public void onSuccess(int arg0, String arg1) {
@@ -1306,7 +1306,7 @@ public class JuTuanConfrimActivity extends BaseActivity {
 							try {
 								JSONObject object = new JSONObject(arg1);
 								System.out
-										.println("¶©µ¥¸üĞÂ¶©µ¥==============1==================="
+										.println("è®¢å•æ›´æ–°è®¢å•==============1==================="
 												+ arg1);
 								String status = object.getString("status");
 								String info = object.getString("info");
@@ -1348,7 +1348,7 @@ public class JuTuanConfrimActivity extends BaseActivity {
 										}
 									}
 									Toast.makeText(JuTuanConfrimActivity.this,
-											info, 200).show();
+											info, Toast.LENGTH_SHORT).show();
 									finish();
 									Intent intent = new Intent(
 											JuTuanConfrimActivity.this,
@@ -1358,7 +1358,7 @@ public class JuTuanConfrimActivity extends BaseActivity {
 									progress.CloseProgress();
 									teby = false;
 									Toast.makeText(JuTuanConfrimActivity.this,
-											info, 200).show();
+											info, Toast.LENGTH_SHORT).show();
 									finish();
 								}
 							} catch (JSONException e) {
@@ -1377,7 +1377,7 @@ public class JuTuanConfrimActivity extends BaseActivity {
 									.println("22================================="
 											+ arg1);
 							Toast.makeText(JuTuanConfrimActivity.this,
-									"ÍøÂç³¬Ê±Òì³£", 200).show();
+									"ç½‘ç»œè¶…æ—¶å¼‚å¸¸", Toast.LENGTH_SHORT).show();
 						}
 
 					}, null);
@@ -1389,10 +1389,10 @@ public class JuTuanConfrimActivity extends BaseActivity {
 	}
 
 	/**
-	 * Ö§¸¶±¦
-	 * 
+	 * æ”¯ä»˜å®
+	 *
 	 * @param total_amount
-	 * @param payment_id
+	 * @param
 	 */
 	private void loadzhidu(String recharge_no3, String total_amount) {
 		try {
@@ -1423,7 +1423,7 @@ public class JuTuanConfrimActivity extends BaseActivity {
 						} else {
 							progress.CloseProgress();
 							Toast.makeText(JuTuanConfrimActivity.this, info,
-									200).show();
+									Toast.LENGTH_SHORT).show();
 						}
 					} catch (JSONException e) {
 						e.printStackTrace();
@@ -1440,10 +1440,10 @@ public class JuTuanConfrimActivity extends BaseActivity {
 	}
 
 	/**
-	 * Î¢ĞÅÖ§¸¶
-	 * 
+	 * å¾®ä¿¡æ”¯ä»˜
+	 *
 	 * @param total_amount
-	 * @param payment_id
+	 * @param
 	 */
 	private void loadweixinzf2(String recharge_no2, String total_amount) {
 		try {
@@ -1458,47 +1458,47 @@ public class JuTuanConfrimActivity extends BaseActivity {
 			// String monney = "0.01";
 			System.out.println("monney==================" + monney);
 			AsyncHttp.get(RealmName.REALM_NAME_LL + "/payment_sign?user_id="
-					+ user_id + "&user_name=" + user_name + "" + "&total_fee="
-					+ monney + "&out_trade_no=" + recharge_no
-					+ "&payment_type=weixin",
+							+ user_id + "&user_name=" + user_name + "" + "&total_fee="
+							+ monney + "&out_trade_no=" + recharge_no
+							+ "&payment_type=weixin",
 
-			new AsyncHttpResponseHandler() {
-				@Override
-				public void onSuccess(int arg0, String arg1) {
-					super.onSuccess(arg0, arg1);
-					try {
+					new AsyncHttpResponseHandler() {
+						@Override
+						public void onSuccess(int arg0, String arg1) {
+							super.onSuccess(arg0, arg1);
+							try {
 
-						JSONObject object = new JSONObject(arg1);
-						System.out
-								.println("weixin================================="
-										+ arg1);
-						String status = object.getString("status");
-						String info = object.getString("info");
-						if (status.equals("y")) {
-							JSONObject jsonObject = object
-									.getJSONObject("data");
-							partner_id = jsonObject.getString("mch_id");
-							prepayid = jsonObject.getString("prepay_id");
-							noncestr = jsonObject.getString("nonce_str");
-							timestamp = jsonObject.getString("timestamp");
-							package_ = "Sign=WXPay";
-							sign = jsonObject.getString("sign");
-							System.out
-									.println("weixin================================="
-											+ package_);
-							progress.CloseProgress();
-							handler.sendEmptyMessage(2);
-						} else {
-							progress.CloseProgress();
-							Toast.makeText(JuTuanConfrimActivity.this, info,
-									200).show();
+								JSONObject object = new JSONObject(arg1);
+								System.out
+										.println("weixin================================="
+												+ arg1);
+								String status = object.getString("status");
+								String info = object.getString("info");
+								if (status.equals("y")) {
+									JSONObject jsonObject = object
+											.getJSONObject("data");
+									partner_id = jsonObject.getString("mch_id");
+									prepayid = jsonObject.getString("prepay_id");
+									noncestr = jsonObject.getString("nonce_str");
+									timestamp = jsonObject.getString("timestamp");
+									package_ = "Sign=WXPay";
+									sign = jsonObject.getString("sign");
+									System.out
+											.println("weixin================================="
+													+ package_);
+									progress.CloseProgress();
+									handler.sendEmptyMessage(2);
+								} else {
+									progress.CloseProgress();
+									Toast.makeText(JuTuanConfrimActivity.this, info,
+											Toast.LENGTH_SHORT).show();
+								}
+							} catch (JSONException e) {
+								e.printStackTrace();
+							}
 						}
-					} catch (JSONException e) {
-						e.printStackTrace();
-					}
-				}
 
-			}, null);
+					}, null);
 
 		} catch (Exception e) {
 			// TODO: handle exception
@@ -1510,18 +1510,18 @@ public class JuTuanConfrimActivity extends BaseActivity {
 		try {
 
 			//
-			String orderInfo = getOrderInfo("ÖĞ°²ÃñÉúÉÌÆ·", "ÉÌÆ·ÃèÊö", recharge_no);
+			String orderInfo = getOrderInfo("ä¸­å®‰æ°‘ç”Ÿå•†å“", "å•†å“æè¿°", recharge_no);
 
-			// ¶Ô¶©µ¥×öRSA Ç©Ãû
+			// å¯¹è®¢å•åšRSA ç­¾å
 			String sign = sign(orderInfo);
 			try {
-				// ½öĞè¶Ôsign ×öURL±àÂë
+				// ä»…éœ€å¯¹sign åšURLç¼–ç 
 				sign = URLEncoder.encode(sign, "UTF-8");
 			} catch (UnsupportedEncodingException e) {
 				e.printStackTrace();
 			}
 
-			// ÍêÕûµÄ·ûºÏÖ§¸¶±¦²ÎÊı¹æ·¶µÄ¶©µ¥ĞÅÏ¢
+			// å®Œæ•´çš„ç¬¦åˆæ”¯ä»˜å®å‚æ•°è§„èŒƒçš„è®¢å•ä¿¡æ¯
 			final String payInfo = orderInfo + "&sign=\"" + sign + "\"&"
 					+ getSignType();
 
@@ -1529,9 +1529,9 @@ public class JuTuanConfrimActivity extends BaseActivity {
 
 				@Override
 				public void run() {
-					// ¹¹ÔìPayTask ¶ÔÏó
+					// æ„é€ PayTask å¯¹è±¡
 					PayTask alipay = new PayTask(JuTuanConfrimActivity.this);
-					// µ÷ÓÃÖ§¸¶½Ó¿Ú£¬»ñÈ¡Ö§¸¶½á¹û
+					// è°ƒç”¨æ”¯ä»˜æ¥å£ï¼Œè·å–æ”¯ä»˜ç»“æœ
 					String result = alipay.pay(payInfo);
 					Message msg = new Message();
 					msg.what = 5;
@@ -1540,7 +1540,7 @@ public class JuTuanConfrimActivity extends BaseActivity {
 				}
 			};
 
-			// ±ØĞëÒì²½µ÷ÓÃ
+			// å¿…é¡»å¼‚æ­¥è°ƒç”¨
 			Thread payThread = new Thread(payRunnable);
 			payThread.start();
 
@@ -1552,74 +1552,74 @@ public class JuTuanConfrimActivity extends BaseActivity {
 	}
 
 	/**
-	 * sign the order info. ¶Ô¶©µ¥ĞÅÏ¢½øĞĞÇ©Ãû
-	 * 
+	 * sign the order info. å¯¹è®¢å•ä¿¡æ¯è¿›è¡Œç­¾å
+	 *
 	 * @param content
-	 *            ´ıÇ©Ãû¶©µ¥ĞÅÏ¢
+	 *            å¾…ç­¾åè®¢å•ä¿¡æ¯
 	 */
 	public String sign(String content) {
 		return SignUtils.sign(content, Common.RSA_PRIVATE);
 	}
 
 	/**
-	 * get the sign type we use. »ñÈ¡Ç©Ãû·½Ê½
-	 * 
+	 * get the sign type we use. è·å–ç­¾åæ–¹å¼
+	 *
 	 */
 	public String getSignType() {
 		return "sign_type=\"RSA\"";
 	}
 
 	/**
-	 * create the order info. ´´½¨¶©µ¥ĞÅÏ¢
-	 * 
+	 * create the order info. åˆ›å»ºè®¢å•ä¿¡æ¯
+	 *
 	 */
 	public String getOrderInfo(String subject, String body, String dingdan) {
-		// Ç©Ô¼ºÏ×÷ÕßÉí·İID
+		// ç­¾çº¦åˆä½œè€…èº«ä»½ID
 		String orderInfo = "partner=" + "\"" + Common.PARTNER + "\"";
 
-		// Ç©Ô¼Âô¼ÒÖ§¸¶±¦ÕËºÅ
+		// ç­¾çº¦å–å®¶æ”¯ä»˜å®è´¦å·
 		orderInfo += "&seller_id=" + "\"" + Common.SELLER + "\"";
 
-		// ÉÌ»§ÍøÕ¾Î¨Ò»¶©µ¥ºÅ
+		// å•†æˆ·ç½‘ç«™å”¯ä¸€è®¢å•å·
 		orderInfo += "&out_trade_no=" + "\"" + dingdan + "\"";
 
-		// ÉÌÆ·Ãû³Æ
+		// å•†å“åç§°
 		orderInfo += "&subject=" + "\"" + subject + "\"";
 
-		// ÉÌÆ·ÏêÇé
+		// å•†å“è¯¦æƒ…
 		orderInfo += "&body=" + "\"" + body + "\"";
 
-		// ÉÌÆ·½ğ¶î
+		// å•†å“é‡‘é¢
 		orderInfo += "&total_fee=" + "\"" + total_fee + "\"";
 		// orderInfo += "&total_fee=" + "\"" + 0.01 + "\"";
 
-		// ·şÎñÆ÷Òì²½Í¨ÖªÒ³ÃæÂ·¾¶
+		// æœåŠ¡å™¨å¼‚æ­¥é€šçŸ¥é¡µé¢è·¯å¾„
 		orderInfo += "&notify_url=" + "\"" + notify_url + "\"";
 		System.out.println("======notify_url=============" + notify_url);
 
-		// ·şÎñ½Ó¿ÚÃû³Æ£¬ ¹Ì¶¨Öµ
+		// æœåŠ¡æ¥å£åç§°ï¼Œ å›ºå®šå€¼
 		orderInfo += "&service=\"mobile.securitypay.pay\"";
 
-		// Ö§¸¶ÀàĞÍ£¬ ¹Ì¶¨Öµ
+		// æ”¯ä»˜ç±»å‹ï¼Œ å›ºå®šå€¼
 		orderInfo += "&payment_type=\"1\"";
 
-		// ²ÎÊı±àÂë£¬ ¹Ì¶¨Öµ
+		// å‚æ•°ç¼–ç ï¼Œ å›ºå®šå€¼
 		orderInfo += "&_input_charset=\"utf-8\"";
 
-		// ÉèÖÃÎ´¸¶¿î½»Ò×µÄ³¬Ê±Ê±¼ä
-		// Ä¬ÈÏ30·ÖÖÓ£¬Ò»µ©³¬Ê±£¬¸Ã±Ê½»Ò×¾Í»á×Ô¶¯±»¹Ø±Õ¡£
-		// È¡Öµ·¶Î§£º1m¡«15d¡£
-		// m-·ÖÖÓ£¬h-Ğ¡Ê±£¬d-Ìì£¬1c-µ±Ìì£¨ÎŞÂÛ½»Ò×ºÎÊ±´´½¨£¬¶¼ÔÚ0µã¹Ø±Õ£©¡£
-		// ¸Ã²ÎÊıÊıÖµ²»½ÓÊÜĞ¡Êıµã£¬Èç1.5h£¬¿É×ª»»Îª90m¡£
+		// è®¾ç½®æœªä»˜æ¬¾äº¤æ˜“çš„è¶…æ—¶æ—¶é—´
+		// é»˜è®¤30åˆ†é’Ÿï¼Œä¸€æ—¦è¶…æ—¶ï¼Œè¯¥ç¬”äº¤æ˜“å°±ä¼šè‡ªåŠ¨è¢«å…³é—­ã€‚
+		// å–å€¼èŒƒå›´ï¼š1mï½15dã€‚
+		// m-åˆ†é’Ÿï¼Œh-å°æ—¶ï¼Œd-å¤©ï¼Œ1c-å½“å¤©ï¼ˆæ— è®ºäº¤æ˜“ä½•æ—¶åˆ›å»ºï¼Œéƒ½åœ¨0ç‚¹å…³é—­ï¼‰ã€‚
+		// è¯¥å‚æ•°æ•°å€¼ä¸æ¥å—å°æ•°ç‚¹ï¼Œå¦‚1.5hï¼Œå¯è½¬æ¢ä¸º90mã€‚
 		orderInfo += "&it_b_pay=\"30m\"";
 
-		// extern_tokenÎª¾­¹ı¿ìµÇÊÚÈ¨»ñÈ¡µ½µÄalipay_open_id,´øÉÏ´Ë²ÎÊıÓÃ»§½«Ê¹ÓÃÊÚÈ¨µÄÕË»§½øĞĞÖ§¸¶
+		// extern_tokenä¸ºç»è¿‡å¿«ç™»æˆæƒè·å–åˆ°çš„alipay_open_id,å¸¦ä¸Šæ­¤å‚æ•°ç”¨æˆ·å°†ä½¿ç”¨æˆæƒçš„è´¦æˆ·è¿›è¡Œæ”¯ä»˜
 		// orderInfo += "&extern_token=" + "\"" + extern_token + "\"";
 
-		// Ö§¸¶±¦´¦ÀíÍêÇëÇóºó£¬µ±Ç°Ò³ÃæÌø×ªµ½ÉÌ»§Ö¸¶¨Ò³ÃæµÄÂ·¾¶£¬¿É¿Õ
+		// æ”¯ä»˜å®å¤„ç†å®Œè¯·æ±‚åï¼Œå½“å‰é¡µé¢è·³è½¬åˆ°å•†æˆ·æŒ‡å®šé¡µé¢çš„è·¯å¾„ï¼Œå¯ç©º
 		// orderInfo += "&return_url=\"m.alipay.com\"";
 
-		// µ÷ÓÃÒøĞĞ¿¨Ö§¸¶£¬ĞèÅäÖÃ´Ë²ÎÊı£¬²ÎÓëÇ©Ãû£¬ ¹Ì¶¨Öµ £¨ĞèÒªÇ©Ô¼¡¶ÎŞÏßÒøĞĞ¿¨¿ì½İÖ§¸¶¡·²ÅÄÜÊ¹ÓÃ£©
+		// è°ƒç”¨é“¶è¡Œå¡æ”¯ä»˜ï¼Œéœ€é…ç½®æ­¤å‚æ•°ï¼Œå‚ä¸ç­¾åï¼Œ å›ºå®šå€¼ ï¼ˆéœ€è¦ç­¾çº¦ã€Šæ— çº¿é“¶è¡Œå¡å¿«æ·æ”¯ä»˜ã€‹æ‰èƒ½ä½¿ç”¨ï¼‰
 		// orderInfo += "&paymethod=\"expressGateway\"";
 		System.out.println(orderInfo);
 		return orderInfo;

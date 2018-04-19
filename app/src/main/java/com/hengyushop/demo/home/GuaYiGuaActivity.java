@@ -59,7 +59,7 @@ public class GuaYiGuaActivity extends Activity implements OnClickListener
 //		getjiangxiangxq();
 //		getjiangxiang();
 	}
-	
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState)
 	{
@@ -81,7 +81,7 @@ public class GuaYiGuaActivity extends Activity implements OnClickListener
 		start.setOnClickListener(this);
 		more_gua.setOnClickListener(this);
 		iv_fanhui.setOnClickListener(this);
-		
+
 //		start.setOnClickListener(new OnClickListener() {
 //			@Override
 //			public void onClick(View arg0) {
@@ -92,13 +92,13 @@ public class GuaYiGuaActivity extends Activity implements OnClickListener
 ////				if (jifen >= 100) {
 ////					start_layout.setVisibility(View.GONE);
 ////				}else {
-////					Toast.makeText(GuaYiGuaActivity.this, "Äú»¹²»¹»100¸£Àû", 200).show();
+////					Toast.makeText(GuaYiGuaActivity.this, "æ‚¨è¿˜ä¸å¤Ÿ100ç¦åˆ©", 200).show();
 ////				}
 //			}
 //		});
-//		
+//
 //	   more_gua.setOnClickListener(new OnClickListener() {
-//			
+//
 //			@Override
 //			public void onClick(View arg0) {
 //				// TODO Auto-generated method stub
@@ -106,7 +106,7 @@ public class GuaYiGuaActivity extends Activity implements OnClickListener
 //				showPopupWindow(gua_jiang);
 //			}
 //		});
-//	
+//
 //		ImageView iv_fanhui = (ImageView) findViewById(R.id.iv_fanhui);
 //		iv_fanhui.setOnClickListener(new OnClickListener() {
 //			@Override
@@ -115,19 +115,19 @@ public class GuaYiGuaActivity extends Activity implements OnClickListener
 //				finish();
 //			}
 //		});
-		
-		
+
+
 //		getintner();
-		 handlerll = new Handler() {
-		   		public void handleMessage(Message msg) {
-		   			switch (msg.what) {
-		   			case 2:
+		handlerll = new Handler() {
+			public void handleMessage(Message msg) {
+				switch (msg.what) {
+					case 2:
 //		   				start_layout.setVisibility(View.VISIBLE);
-//		   				start.setText("ÔÙ¹ÎÒ»´Î");
+//		   				start.setText("å†åˆ®ä¸€æ¬¡");
 //		   				result.setText(TuiGuang2Activity.drawn);
 //		   				View layout = inflater.inflate(R.layout.activity_guayigua, null);
-//		   				drawn = "¹§Ï²Äú,³éÖĞ2µÈ½±";
-		   				
+//		   				drawn = "æ­å–œæ‚¨,æŠ½ä¸­2ç­‰å¥–";
+
 //		   				if (JuDuiHuanActivity.id_ll.equals("")) {
 //		   					id_gyg = JuDuiHuanActivity.id_ll;
 //		   					drawn_ll = JuDuiHuanActivity.drawn_ll;
@@ -139,21 +139,21 @@ public class GuaYiGuaActivity extends Activity implements OnClickListener
 //						}
 //		   				System.out.println("id_gyg=================="+id_gyg);
 //		   				System.out.println("drawn_ll=================="+drawn_ll);
-		   				intent = new Intent(GuaYiGuaActivity.this,ZyZTiShiActivity.class);
+						intent = new Intent(GuaYiGuaActivity.this,ZyZTiShiActivity.class);
 //	   					intent.putExtra("drawn", JuDuiHuanActivity.drawn);//
 //	   					intent.putExtra("id", JuDuiHuanActivity.id);//
-	   					intent.putExtra("drawn", drawn);//
-	   					intent.putExtra("id", id);//
+						intent.putExtra("drawn", drawn);//
+						intent.putExtra("id", id);//
 //		   				intent.putExtra("drawn", drawn_ll);
 //	   					intent.putExtra("id", id_gyg);
-	   					intent.putExtra("quxiao", "È¡Ïû");
-	   					startActivity(intent);
-	   					getintner2();
-		   				break;
-		   			}
-		   		}
-		 };
-		   	
+						intent.putExtra("quxiao", "å–æ¶ˆ");
+						startActivity(intent);
+						getintner2();
+						break;
+				}
+			}
+		};
+
 		userloginqm();
 		getjiangxiangxq();
 //		getguizhe();
@@ -175,9 +175,9 @@ public class GuaYiGuaActivity extends Activity implements OnClickListener
 		start.setOnClickListener(this);
 		more_gua.setOnClickListener(this);
 		iv_fanhui.setOnClickListener(this);
-		
+
 //		start.setOnClickListener(new OnClickListener() {
-//			
+//
 //			@Override
 //			public void onClick(View arg0) {
 //				// TODO Auto-generated method stub
@@ -187,13 +187,13 @@ public class GuaYiGuaActivity extends Activity implements OnClickListener
 ////				if (jifen >= 100) {
 ////					start_layout.setVisibility(View.GONE);
 ////				}else {
-////					Toast.makeText(GuaYiGuaActivity.this, "Äú»¹²»¹»100¸£Àû", 200).show();
+////					Toast.makeText(GuaYiGuaActivity.this, "æ‚¨è¿˜ä¸å¤Ÿ100ç¦åˆ©", 200).show();
 ////				}
 //			}
 //		});
-//		
+//
 //	   more_gua.setOnClickListener(new OnClickListener() {
-//			
+//
 //			@Override
 //			public void onClick(View arg0) {
 //				// TODO Auto-generated method stub
@@ -201,7 +201,7 @@ public class GuaYiGuaActivity extends Activity implements OnClickListener
 //				showPopupWindow(gua_jiang);
 //			}
 //		});
-//	
+//
 //		ImageView iv_fanhui = (ImageView) findViewById(R.id.iv_fanhui);
 //		iv_fanhui.setOnClickListener(new OnClickListener() {
 //			@Override
@@ -210,9 +210,9 @@ public class GuaYiGuaActivity extends Activity implements OnClickListener
 //				finish();
 //			}
 //		});
-		
+
 	}
-	
+
 	private void getintner() {
 		// TODO Auto-generated method stub
 		setContentView(R.layout.activity_guayigua);
@@ -231,9 +231,9 @@ public class GuaYiGuaActivity extends Activity implements OnClickListener
 		start.setOnClickListener(this);
 		more_gua.setOnClickListener(this);
 		iv_fanhui.setOnClickListener(this);
-		
+
 //		start.setOnClickListener(new OnClickListener() {
-//			
+//
 //			@Override
 //			public void onClick(View arg0) {
 //				// TODO Auto-generated method stub
@@ -243,13 +243,13 @@ public class GuaYiGuaActivity extends Activity implements OnClickListener
 ////				if (jifen >= 100) {
 ////					start_layout.setVisibility(View.GONE);
 ////				}else {
-////					Toast.makeText(GuaYiGuaActivity.this, "Äú»¹²»¹»100¸£Àû", 200).show();
+////					Toast.makeText(GuaYiGuaActivity.this, "æ‚¨è¿˜ä¸å¤Ÿ100ç¦åˆ©", 200).show();
 ////				}
 //			}
 //		});
-//		
+//
 //	   more_gua.setOnClickListener(new OnClickListener() {
-//			
+//
 //			@Override
 //			public void onClick(View arg0) {
 //				// TODO Auto-generated method stub
@@ -257,7 +257,7 @@ public class GuaYiGuaActivity extends Activity implements OnClickListener
 //				showPopupWindow(gua_jiang);
 //			}
 //		});
-//	
+//
 //		ImageView iv_fanhui = (ImageView) findViewById(R.id.iv_fanhui);
 //		iv_fanhui.setOnClickListener(new OnClickListener() {
 //			@Override
@@ -267,32 +267,32 @@ public class GuaYiGuaActivity extends Activity implements OnClickListener
 //			}
 //		});
 	}
-	
-	
+
+
 	/**
-	 * µã»÷´¥·¢ÊÂ¼ş
+	 * ç‚¹å‡»è§¦å‘äº‹ä»¶
 	 */
 	@Override
 	public void onClick(View v) {
 		// TODO Auto-generated method stub
-		
+
 		intent = new Intent();
 		switch (v.getId()) {
-		case R.id.start://
-			getjiangxiang();
-			break;
-		case R.id.more_gua://
-			initPopupWindow();
-			showPopupWindow(gua_jiang);
-			break;
-		case R.id.iv_fanhui://È¡Ïû
-			 finish();
-			break;
-		default:
-			break;
+			case R.id.start://
+				getjiangxiang();
+				break;
+			case R.id.more_gua://
+				initPopupWindow();
+				showPopupWindow(gua_jiang);
+				break;
+			case R.id.iv_fanhui://å–æ¶ˆ
+				finish();
+				break;
+			default:
+				break;
 		}
 	}
-	
+
 	private LayoutInflater mLayoutInflater;
 	private View popView;
 	private PopupWindow mPopupWindow;
@@ -302,32 +302,32 @@ public class GuaYiGuaActivity extends Activity implements OnClickListener
 		mPopupWindow = new PopupWindow(popView, LayoutParams.MATCH_PARENT,
 				LayoutParams.MATCH_PARENT);
 		// mPopupWindow.setBackgroundDrawable(new
-		// BitmapDrawable());//±ØĞëÉèÖÃbackground²ÅÄÜÏûÊ§
+		// BitmapDrawable());//å¿…é¡»è®¾ç½®backgroundæ‰èƒ½æ¶ˆå¤±
 		mPopupWindow.setBackgroundDrawable(getResources().getDrawable(R.color.ban_louming));
 		mPopupWindow.setOutsideTouchable(true);
-		// ×Ô¶¨Òå¶¯»­
+		// è‡ªå®šä¹‰åŠ¨ç”»
 		// mPopupWindow.setAnimationStyle(R.style.PopupAnimation);
-		// Ê¹ÓÃÏµÍ³¶¯»­
+		// ä½¿ç”¨ç³»ç»ŸåŠ¨ç”»
 		mPopupWindow.setAnimationStyle(android.R.style.Animation_Toast);
 		mPopupWindow.update();
 		mPopupWindow.setTouchable(true);
 		mPopupWindow.setOutsideTouchable(true);
 		mPopupWindow.setFocusable(true);
 		try {
-		Button closed = (Button) popView.findViewById(R.id.lglottery_pop_closed);
-		TextView tv_guizhe = (TextView) popView.findViewById(R.id.tv_guizhe);
-		System.out.println("activity_rule=======0============"+activity_rule);
-//		activity_rule = "»î¶¯¹æÔòÄÚÈİ";
-		tv_guizhe.setText(activity_rule);
-		closed.setOnClickListener(new OnClickListener() {
-			@Override
-			public void onClick(View arg0) {
-				// TODO Auto-generated method stub
-				if (mPopupWindow.isShowing()) {
-					mPopupWindow.dismiss();
+			Button closed = (Button) popView.findViewById(R.id.lglottery_pop_closed);
+			TextView tv_guizhe = (TextView) popView.findViewById(R.id.tv_guizhe);
+			System.out.println("activity_rule=======0============"+activity_rule);
+//		activity_rule = "æ´»åŠ¨è§„åˆ™å†…å®¹";
+			tv_guizhe.setText(activity_rule);
+			closed.setOnClickListener(new OnClickListener() {
+				@Override
+				public void onClick(View arg0) {
+					// TODO Auto-generated method stub
+					if (mPopupWindow.isShowing()) {
+						mPopupWindow.dismiss();
+					}
 				}
-			}
-		});
+			});
 		} catch (Exception e) {
 			// TODO: handle exception
 			e.printStackTrace();
@@ -338,159 +338,159 @@ public class GuaYiGuaActivity extends Activity implements OnClickListener
 	private void showPopupWindow(View view) {
 		if (!mPopupWindow.isShowing()) {
 			// mPopupWindow.showAsDropDown(view,0,0);
-			// µÚÒ»¸ö²ÎÊıÖ¸¶¨PopupWindowµÄÃªµãview£¬¼´ÒÀ¸½ÔÚÄÄ¸öviewÉÏ¡£
-			// µÚ¶ş¸ö²ÎÊıÖ¸¶¨ÆğÊ¼µãÎªparentµÄÓÒÏÂ½Ç£¬µÚÈı¸ö²ÎÊıÉèÖÃÒÔparentµÄÓÒÏÂ½ÇÎªÔ­µã£¬Ïò×ó¡¢ÉÏ¸÷Æ«ÒÆ10ÏñËØ¡£
+			// ç¬¬ä¸€ä¸ªå‚æ•°æŒ‡å®šPopupWindowçš„é”šç‚¹viewï¼Œå³ä¾é™„åœ¨å“ªä¸ªviewä¸Šã€‚
+			// ç¬¬äºŒä¸ªå‚æ•°æŒ‡å®šèµ·å§‹ç‚¹ä¸ºparentçš„å³ä¸‹è§’ï¼Œç¬¬ä¸‰ä¸ªå‚æ•°è®¾ç½®ä»¥parentçš„å³ä¸‹è§’ä¸ºåŸç‚¹ï¼Œå‘å·¦ã€ä¸Šå„åç§»10åƒç´ ã€‚
 			int[] location = new int[2];
 			view.getLocationOnScreen(location);
 			mPopupWindow.showAtLocation(view, Gravity.CENTER, 0, 0);
 		}
 	}
-	
+
 	/**
-	 * »ñÈ¡µÇÂ¼Ç©Ãû
-	 * @param order_no 
+	 * è·å–ç™»å½•ç­¾å
+	 * @param order_no
 	 */
 	private void userloginqm() {
-			SharedPreferences spPreferences = getSharedPreferences("longuserset", MODE_PRIVATE);
-			String user_name = spPreferences.getString("user", "");
-			String strUrlone = RealmName.REALM_NAME_LL + "/get_user_model?username="+user_name+"";
-			AsyncHttp.get(strUrlone, new AsyncHttpResponseHandler() {
-				public void onSuccess(int arg0, String arg1) {
-					try {
-//						System.out.println("µÇÂ¼Ç©Ãû==================="+arg1);
-						JSONObject object = new JSONObject(arg1);
-						String status = object.getString("status");
-						if (status.equals("y")) {
-							JSONObject obj = object.getJSONObject("data");
-							login_sign = obj.getString("login_sign");
-							point = obj.getString("point");
-						}else{
-						}
+		SharedPreferences spPreferences = getSharedPreferences("longuserset", MODE_PRIVATE);
+		String user_name = spPreferences.getString("user", "");
+		String strUrlone = RealmName.REALM_NAME_LL + "/get_user_model?username="+user_name+"";
+		AsyncHttp.get(strUrlone, new AsyncHttpResponseHandler() {
+			public void onSuccess(int arg0, String arg1) {
+				try {
+//						System.out.println("ç™»å½•ç­¾å==================="+arg1);
+					JSONObject object = new JSONObject(arg1);
+					String status = object.getString("status");
+					if (status.equals("y")) {
+						JSONObject obj = object.getJSONObject("data");
+						login_sign = obj.getString("login_sign");
+						point = obj.getString("point");
+					}else{
+					}
 //						SharedPreferences spPreferences = getSharedPreferences("longuserset",MODE_PRIVATE);
 //						Editor editor = spPreferences.edit();
 //						editor.putString("login_sign", login_sign);
 //						editor.commit();
 //						getjiangxiang(login_sign);
-					} catch (JSONException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
-				};
-			}, null);
+				} catch (JSONException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			};
+		}, null);
 	}
-	
-	
-	
+
+
+
 	/**
-	 * Êä³ö¹ÎÒ»¹Î½±
-	 * @param login_sign 
+	 * è¾“å‡ºåˆ®ä¸€åˆ®å¥–
+	 * @param login_sign
 	 */
 	ArrayList list_data2;
 	private void getjiangxiang(){
 		list_data2 = new ArrayList();
-			SharedPreferences spPreferences = getSharedPreferences("longuserset", MODE_PRIVATE);
-			String user_id = spPreferences.getString("user_id", "");
-			String user_name = spPreferences.getString("user", "");
+		SharedPreferences spPreferences = getSharedPreferences("longuserset", MODE_PRIVATE);
+		String user_id = spPreferences.getString("user_id", "");
+		String user_name = spPreferences.getString("user", "");
 //			String login_sign = spPreferences.getString("login_sign", "");
 //			String login_sign = getIntent().getStringExtra("login_sign");
-			String strUrlone = RealmName.REALM_NAME_LL + 
-					"/get_article_activity_award?user_id="+user_id+"&user_name="+user_name+"&article_id=7825&sign="+login_sign+"";
-//			System.out.println("======Êä³ö³é½±ĞÒ½±Ïî============="+strUrlone);
-			AsyncHttp.get(strUrlone, new AsyncHttpResponseHandler() {
-				public void onSuccess(int arg0, String arg1) {
-					try {
-						System.out.println("======Êä³ö³é½±ĞÒ½±Ïî============="+arg1);
-						JSONObject object = new JSONObject(arg1);
-						String status = object.getString("status");
-						String info = object.getString("info");
-						if (status.equals("y")) {
+		String strUrlone = RealmName.REALM_NAME_LL +
+				"/get_article_activity_award?user_id="+user_id+"&user_name="+user_name+"&article_id=7825&sign="+login_sign+"";
+//			System.out.println("======è¾“å‡ºæŠ½å¥–å¹¸å¥–é¡¹============="+strUrlone);
+		AsyncHttp.get(strUrlone, new AsyncHttpResponseHandler() {
+			public void onSuccess(int arg0, String arg1) {
+				try {
+					System.out.println("======è¾“å‡ºæŠ½å¥–å¹¸å¥–é¡¹============="+arg1);
+					JSONObject object = new JSONObject(arg1);
+					String status = object.getString("status");
+					String info = object.getString("info");
+					if (status.equals("y")) {
 //							Toast.makeText(ZhuanYiZhuanActivity.this, info, 200).show();
-							JSONObject obct = object.getJSONObject("data");
-							    id = obct.getString("id");
+						JSONObject obct = object.getJSONObject("data");
+						id = obct.getString("id");
 //								String title = obct.getString("title");
 //								String drawn = obct.getString("drawn");
-								System.out.println("id-----------------------------------"+id);
-								for (int i = 0; i < list.size(); i++) {
-									if (list.get(i).id.equals(id)) {
-										drawn = list.get(i).drawn;
-									}
-								}
+						System.out.println("id-----------------------------------"+id);
+						for (int i = 0; i < list.size(); i++) {
+							if (list.get(i).id.equals(id)) {
+								drawn = list.get(i).drawn;
+							}
+						}
 //								id_ll = id;
 //								drawn_ll = drawn;
 //								list_data2.add(drawn);
-								
-								System.out.println("drawn-----------------------------------"+drawn);
+
+						System.out.println("drawn-----------------------------------"+drawn);
 //								start_layout.setVisibility(View.GONE);
 //								guayigua_buju.setVisibility(View.VISIBLE);
-								try {
+						try {
 //								setContentView(R.layout.activity_guayigua);
-								getintner();
+							getintner();
 //								View convertView = LinearLayout.inflate(GuaYiGuaActivity.this,R.layout.guayigua_item, null);
 //								LinearLayout gua_jiang = (LinearLayout) convertView.findViewById(R.id.gua_jiang2);
 //								MyGridView gridView2=(MyGridView)findViewById(R.id.gridview2);
 //								ListView list_tuanjia = (ListView) findViewById(R.id.list_tuanjia);
 //								GuaYiGuaAdapter adapter = new GuaYiGuaAdapter(list_data2,GuaYiGuaActivity.this);
 //								list_tuanjia.setAdapter(adapter);
-								} catch (Exception e) {
-									// TODO: handle exception
-									e.printStackTrace();
-								}
-						}else{
-							Toast.makeText(GuaYiGuaActivity.this, info, 200).show();
+						} catch (Exception e) {
+							// TODO: handle exception
+							e.printStackTrace();
 						}
-						System.out.println("======Êä³ö³é½±ĞÒ½±Ïî=======id======"+id);
-						
-						
-					} catch (JSONException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
+					}else{
+						Toast.makeText(GuaYiGuaActivity.this, info, 200).show();
 					}
-				};
-				
-				@Override
-				public void onFailure(Throwable arg0, String arg1) {
-					// TODO Auto-generated method stub
-					super.onFailure(arg0, arg1);
-					System.out.println("======·ÃÎÊ½Ó¿ÚÊ§°Ü============="+arg1);
-//					Toast.makeText(ZhuanYiZhuanActivity.this, "·ÃÎÊ½Ó¿ÚÊ§°Ü", 200).show();
+					System.out.println("======è¾“å‡ºæŠ½å¥–å¹¸å¥–é¡¹=======id======"+id);
+
+
+				} catch (JSONException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
 				}
-			}, GuaYiGuaActivity.this);
-			
+			};
+
+			@Override
+			public void onFailure(Throwable arg0, String arg1) {
+				// TODO Auto-generated method stub
+				super.onFailure(arg0, arg1);
+				System.out.println("======è®¿é—®æ¥å£å¤±è´¥============="+arg1);
+//					Toast.makeText(ZhuanYiZhuanActivity.this, "è®¿é—®æ¥å£å¤±è´¥", 200).show();
+			}
+		}, GuaYiGuaActivity.this);
+
 	}
-	
+
 	/**
-	 * Êä³ö¹ÎÒ»¹Î½±ÏêÇé
+	 * è¾“å‡ºåˆ®ä¸€åˆ®å¥–è¯¦æƒ…
 	 */
 	private void getjiangxiangxq() {
 		list = new ArrayList<XsgyListData>();
 		String strUrlone = RealmName.REALM_NAME_LL + "/get_article_model?id=7825";
-//			System.out.println("======Êä³ö³é½±ÏêÇé============="+strUrlone);
-			AsyncHttp.get(strUrlone, new AsyncHttpResponseHandler() {
-				public void onSuccess(int arg0, String arg1) {
-					try {
-						System.out.println("======Êä³ö³é½±ÏêÇé============="+arg1);
-						JSONObject object = new JSONObject(arg1);
-						String status = object.getString("status");
-						String info = object.getString("info");
-						if (status.equals("y")) {
+//			System.out.println("======è¾“å‡ºæŠ½å¥–è¯¦æƒ…============="+strUrlone);
+		AsyncHttp.get(strUrlone, new AsyncHttpResponseHandler() {
+			public void onSuccess(int arg0, String arg1) {
+				try {
+					System.out.println("======è¾“å‡ºæŠ½å¥–è¯¦æƒ…============="+arg1);
+					JSONObject object = new JSONObject(arg1);
+					String status = object.getString("status");
+					String info = object.getString("info");
+					if (status.equals("y")) {
 //							Toast.makeText(ZhuanYiZhuanActivity.this, info, 200).show();
-							JSONObject obct = object.getJSONObject("data");
-							org.json.JSONArray jsonArray = obct.getJSONArray("activity_award");
-							for(int i=0;i<jsonArray.length();i++){
-								JSONObject jobject = jsonArray.getJSONObject(i);
-								XsgyListData spList = new XsgyListData();
-								spList.id = jobject.getString("id");
-								spList.title = jobject.getString("title");
-								spList.drawn = jobject.getString("drawn");
-								list.add(spList);
-							 }
-							JSONObject obct1 = obct.getJSONObject("activity");						
-							activity_rule = obct1.getString("activity_rule");
-							System.out.println("activity_rule==================="+activity_rule);
-						}else{
-							Toast.makeText(GuaYiGuaActivity.this, info, 200).show();
+						JSONObject obct = object.getJSONObject("data");
+						org.json.JSONArray jsonArray = obct.getJSONArray("activity_award");
+						for(int i=0;i<jsonArray.length();i++){
+							JSONObject jobject = jsonArray.getJSONObject(i);
+							XsgyListData spList = new XsgyListData();
+							spList.id = jobject.getString("id");
+							spList.title = jobject.getString("title");
+							spList.drawn = jobject.getString("drawn");
+							list.add(spList);
 						}
-						System.out.println("======list.size()============="+list.size());
+						JSONObject obct1 = obct.getJSONObject("activity");
+						activity_rule = obct1.getString("activity_rule");
+						System.out.println("activity_rule==================="+activity_rule);
+					}else{
+						Toast.makeText(GuaYiGuaActivity.this, info, 200).show();
+					}
+					System.out.println("======list.size()============="+list.size());
 
 //						System.out.println("id-----------------------------------"+id);
 //						for (int i = 0; i < list.size(); i++) {
@@ -499,26 +499,26 @@ public class GuaYiGuaActivity extends Activity implements OnClickListener
 //							}
 //						}
 //						System.out.println("drawn-----------------------------------"+drawn);
-						
-					} catch (JSONException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
-				};
-				
-				
-				@Override
-				public void onFailure(Throwable arg0, String arg1) {
-					// TODO Auto-generated method stub
-					super.onFailure(arg0, arg1);
-					System.out.println("======·ÃÎÊ½Ó¿ÚÊ§°Ü============="+arg1);
-//					Toast.makeText(ZhuanYiZhuanActivity.this, "·ÃÎÊ½Ó¿ÚÊ§°Ü", 200).show();
+
+				} catch (JSONException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
 				}
-			}, GuaYiGuaActivity.this);
+			};
+
+
+			@Override
+			public void onFailure(Throwable arg0, String arg1) {
+				// TODO Auto-generated method stub
+				super.onFailure(arg0, arg1);
+				System.out.println("======è®¿é—®æ¥å£å¤±è´¥============="+arg1);
+//					Toast.makeText(ZhuanYiZhuanActivity.this, "è®¿é—®æ¥å£å¤±è´¥", 200).show();
+			}
+		}, GuaYiGuaActivity.this);
 	}
-	
+
 	/**
-	 * Êä³öÄÚÈİ
+	 * è¾“å‡ºå†…å®¹
 	 */
 //	private void getguizhe() {
 ////		list = new ArrayList<XsgyListData>();
@@ -526,7 +526,7 @@ public class GuaYiGuaActivity extends Activity implements OnClickListener
 //			AsyncHttp.get(strUrlone, new AsyncHttpResponseHandler() {
 //				public void onSuccess(int arg0, String arg1) {
 //					try {
-//						System.out.println("======Êä³ö³é½±ÁĞ±í============="+arg1);
+//						System.out.println("======è¾“å‡ºæŠ½å¥–åˆ—è¡¨============="+arg1);
 //						JSONObject object = new JSONObject(arg1);
 //						String status = object.getString("status");
 //						String info = object.getString("info");
@@ -534,7 +534,7 @@ public class GuaYiGuaActivity extends Activity implements OnClickListener
 ////							Toast.makeText(ZhuanYiZhuanActivity.this, info, 200).show();
 //							JSONObject obct = object.getJSONObject("data");
 ////							org.json.JSONArray jsonArray = obct.getJSONArray("activity");
-//							JSONObject obct1 = obct.getJSONObject("activity");						
+//							JSONObject obct1 = obct.getJSONObject("activity");
 ////							for(int i=0;i<jsonArray.length();i++){
 ////								JSONObject jobject = jsonArray.getJSONObject(i);
 ////								XsgyListData spList = new XsgyListData();
@@ -551,13 +551,13 @@ public class GuaYiGuaActivity extends Activity implements OnClickListener
 //						e.printStackTrace();
 //					}
 //				};
-//				
+//
 //				@Override
 //				public void onFailure(Throwable arg0, String arg1) {
 //					// TODO Auto-generated method stub
 //					super.onFailure(arg0, arg1);
-//					System.out.println("======·ÃÎÊ½Ó¿ÚÊ§°Ü============="+arg1);
-////					Toast.makeText(ZhuanYiZhuanActivity.this, "·ÃÎÊ½Ó¿ÚÊ§°Ü", 200).show();
+//					System.out.println("======è®¿é—®æ¥å£å¤±è´¥============="+arg1);
+////					Toast.makeText(ZhuanYiZhuanActivity.this, "è®¿é—®æ¥å£å¤±è´¥", 200).show();
 //				}
 //			},getApplicationContext());
 //			

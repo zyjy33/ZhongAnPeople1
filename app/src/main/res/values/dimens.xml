@@ -41,4 +41,7 @@
     <dimen name="txt_24">24sp</dimen>
     <dimen name="txt_26">26sp</dimen>
     <dimen name="txt_28">28sp</dimen>
+    <dimen name="select_item_width">78dp</dimen>
+    <dimen name="select_item_height">35dp</dimen>
+    <dimen name="app_margin">10dp</dimen>
 </resources>

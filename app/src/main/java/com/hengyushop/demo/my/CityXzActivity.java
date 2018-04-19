@@ -27,29 +27,29 @@ public class CityXzActivity extends BaseActivity implements OnClickListener, OnW
 		setUpListener();
 		setUpData();
 	}
-	
+
 	private void setUpViews() {
 		mViewProvince = (WheelView) findViewById(R.id.id_province);
 		mViewCity = (WheelView) findViewById(R.id.id_city);
 		mViewDistrict = (WheelView) findViewById(R.id.id_district);
 		mBtnConfirm = (Button) findViewById(R.id.btn_confirm);
 	}
-	
+
 	private void setUpListener() {
-    	// Ìí¼ÓchangeÊÂ¼ş
-    	mViewProvince.addChangingListener(this);
-    	// Ìí¼ÓchangeÊÂ¼ş
-    	mViewCity.addChangingListener(this);
-    	// Ìí¼ÓchangeÊÂ¼ş
-    	mViewDistrict.addChangingListener(this);
-    	// Ìí¼ÓonclickÊÂ¼ş
-    	mBtnConfirm.setOnClickListener(this);
-    }
-	
+		// æ·»åŠ changeäº‹ä»¶
+		mViewProvince.addChangingListener(this);
+		// æ·»åŠ changeäº‹ä»¶
+		mViewCity.addChangingListener(this);
+		// æ·»åŠ changeäº‹ä»¶
+		mViewDistrict.addChangingListener(this);
+		// æ·»åŠ onclickäº‹ä»¶
+		mBtnConfirm.setOnClickListener(this);
+	}
+
 	private void setUpData() {
 		initProvinceDatas();
 		mViewProvince.setViewAdapter(new ArrayWheelAdapter<String>(CityXzActivity.this, mProvinceDatas));
-		// ÉèÖÃ¿É¼ûÌõÄ¿ÊıÁ¿
+		// è®¾ç½®å¯è§æ¡ç›®æ•°é‡
 		mViewProvince.setVisibleItems(7);
 		mViewCity.setVisibleItems(7);
 		mViewDistrict.setVisibleItems(7);
@@ -71,7 +71,7 @@ public class CityXzActivity extends BaseActivity implements OnClickListener, OnW
 	}
 
 	/**
-	 * ¸ù¾İµ±Ç°µÄÊĞ£¬¸üĞÂÇøWheelViewµÄĞÅÏ¢
+	 * æ ¹æ®å½“å‰çš„å¸‚ï¼Œæ›´æ–°åŒºWheelViewçš„ä¿¡æ¯
 	 */
 	private void updateAreas() {
 		int pCurrent = mViewCity.getCurrentItem();
@@ -86,7 +86,7 @@ public class CityXzActivity extends BaseActivity implements OnClickListener, OnW
 	}
 
 	/**
-	 * ¸ù¾İµ±Ç°µÄÊ¡£¬¸üĞÂÊĞWheelViewµÄĞÅÏ¢
+	 * æ ¹æ®å½“å‰çš„çœï¼Œæ›´æ–°å¸‚WheelViewçš„ä¿¡æ¯
 	 */
 	private void updateCities() {
 		int pCurrent = mViewProvince.getCurrentItem();
@@ -103,16 +103,16 @@ public class CityXzActivity extends BaseActivity implements OnClickListener, OnW
 	@Override
 	public void onClick(View v) {
 		switch (v.getId()) {
-		case R.id.btn_confirm:
-			showSelectedResult();
-			break;
-		default:
-			break;
+			case R.id.btn_confirm:
+				showSelectedResult();
+				break;
+			default:
+				break;
 		}
 	}
 
 	private void showSelectedResult() {
-		Toast.makeText(CityXzActivity.this, "µ±Ç°Ñ¡ÖĞ:"+mCurrentProviceName+","+mCurrentCityName+","
+		Toast.makeText(CityXzActivity.this, "å½“å‰é€‰ä¸­:"+mCurrentProviceName+","+mCurrentCityName+","
 				+mCurrentDistrictName+","+mCurrentZipCode, Toast.LENGTH_SHORT).show();
 	}
 }

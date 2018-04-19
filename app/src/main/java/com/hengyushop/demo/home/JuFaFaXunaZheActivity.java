@@ -46,14 +46,14 @@ import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.zams.www.R;
 import com.zams.www.UserLoginActivity;
 /**
- * Ñ¡Ôñ
+ * é€‰æ‹©
  * @author Administrator
  *
  */
 public class JuFaFaXunaZheActivity extends BaseActivity implements OnClickListener,OnItemClickListener {
 
 	private ArrayList<TuiGuangBean> list;
-//	private ArrayList<TuiGuangBean> list_ll;
+	//	private ArrayList<TuiGuangBean> list_ll;
 	private SharedPreferences spPreferences;
 	String user_name,user_id;
 	private DialogProgress progress;
@@ -68,15 +68,15 @@ public class JuFaFaXunaZheActivity extends BaseActivity implements OnClickListen
 	private TextView tv_shangyiti,tv_shangyitill,tv_xiayiti,tv_xiayiti_ll;
 	private ArrayList<String> list_name = new ArrayList<String>();
 	private ArrayList<String> list_id;
-	ArrayList<Group> groups;  
+	ArrayList<Group> groups;
 	String str1="";
 	String danxuanti = "";
 	LinearLayout ll_shangyiti;
 	StringBuffer str;
-//	private ListView listview;
+	//	private ListView listview;
 	private MyAdapter myAdapter;
-	private ArrayList<Boolean> checkList = new ArrayList<Boolean>(); // ÅĞ¶Ïlistviewµ¥Ñ¡Î»ÖÃ
-//	private ArrayList<String> list1 = new ArrayList<String>() { // listViewµÄÄÚÈİ
+	private ArrayList<Boolean> checkList = new ArrayList<Boolean>(); // åˆ¤æ–­listviewå•é€‰ä½ç½®
+	//	private ArrayList<String> list1 = new ArrayList<String>() { // listViewçš„å†…å®¹
 //		{
 //			add("item1");
 //			add("item2");
@@ -110,42 +110,42 @@ public class JuFaFaXunaZheActivity extends BaseActivity implements OnClickListen
 		initdata();
 		loadCate(exam_id);
 	}
-	
+
 	/**
-	 * µ¥Ñ¡
+	 * å•é€‰
 	 */
-	//ÉèÖÃÑ¡ÖĞµÄÎ»ÖÃ£¬½«ÆäËûÎ»ÖÃÉèÖÃÎªÎ´Ñ¡
-		public void checkPosition(int position) {
-			for (int i = 0; i < checkList.size(); i++) {
-				if (position == i) {// ÉèÖÃÒÑÑ¡Î»ÖÃ
-					checkList.set(i, true);
-					String str = list.get(i).title;
+	//è®¾ç½®é€‰ä¸­çš„ä½ç½®ï¼Œå°†å…¶ä»–ä½ç½®è®¾ç½®ä¸ºæœªé€‰
+	public void checkPosition(int position) {
+		for (int i = 0; i < checkList.size(); i++) {
+			if (position == i) {// è®¾ç½®å·²é€‰ä½ç½®
+				checkList.set(i, true);
+				String str = list.get(i).title;
 //					System.out.println("---"+str.replaceAll(" ",""));
-//					System.out.println(str.replaceAll("\\s*","")+"/"); 
-					String area1 = str.replaceAll("\\s*", "");
+//					System.out.println(str.replaceAll("\\s*","")+"/");
+				String area1 = str.replaceAll("\\s*", "");
 //					System.out.println("==============="+area1+"/");
-					danxuanti = area1+"_"+list.get(i).name;
-					System.out.println("==============="+danxuanti);
+				danxuanti = area1+"_"+list.get(i).name;
+				System.out.println("==============="+danxuanti);
 //					Toast.makeText(getApplicationContext(), danxuanti, 200).show();
-				} else {
-					checkList.set(i, false);
-				}
+			} else {
+				checkList.set(i, false);
 			}
-			myAdapter.notifyDataSetChanged();
 		}
-		
-		public void init() {
-			listView = (ListView) findViewById(R.id.new_list);
-			for (int i = 0; i < list.size(); i++) {
-				checkList.add(false); // ¾ùÎªÎ´Ñ¡
-			}
-			myAdapter = new MyAdapter(JuFaFaXunaZheActivity.this, list);
-			listView.setAdapter(myAdapter);
+		myAdapter.notifyDataSetChanged();
+	}
+
+	public void init() {
+		listView = (ListView) findViewById(R.id.new_list);
+		for (int i = 0; i < list.size(); i++) {
+			checkList.add(false); // å‡ä¸ºæœªé€‰
 		}
-		
+		myAdapter = new MyAdapter(JuFaFaXunaZheActivity.this, list);
+		listView.setAdapter(myAdapter);
+	}
+
 	private void initdata() {
 		tv_timu = (TextView) findViewById(R.id.textView1);
-//		tv_timu.setText("ÍÆ¹ã´«²¥");
+//		tv_timu.setText("æ¨å¹¿ä¼ æ’­");
 		listView = (ListView) findViewById(R.id.new_list);
 		tv_shangyiti = (TextView) findViewById(R.id.tv_shangyiti);
 		tv_shangyitill = (TextView) findViewById(R.id.tv_shangyitill);
@@ -158,11 +158,11 @@ public class JuFaFaXunaZheActivity extends BaseActivity implements OnClickListen
 		tv_xiayiti_ll.setOnClickListener(this);
 		tv_shangyiti.setOnClickListener(this);
 //		tv_shangyitill.setOnClickListener(this);
-		
+
 		listView.setOnItemClickListener(this);
 		ImageView iv_fanhui = (ImageView) findViewById(R.id.iv_fanhui);
 		iv_fanhui.setOnClickListener(new OnClickListener() {
-			
+
 			@Override
 			public void onClick(View arg0) {
 				// TODO Auto-generated method stub
@@ -170,201 +170,201 @@ public class JuFaFaXunaZheActivity extends BaseActivity implements OnClickListen
 			}
 		});
 	}
-	
-	//ÉÌÆ·ÁĞ±í
-		private void loadCate(String exam_id2){
-			progress.CreateProgress();
-			AsyncHttp.get(RealmName.REALM_NAME_LL+"/get_test_exam_model?" +
-	                "exam_id="+exam_id2+"", new AsyncHttpResponseHandler(){
-				@Override
-				public void onSuccess(int arg0, String arg1) {
-					// TODO Auto-generated method stub
-					super.onSuccess(arg0, arg1);
-					try {
+
+	//å•†å“åˆ—è¡¨
+	private void loadCate(String exam_id2){
+		progress.CreateProgress();
+		AsyncHttp.get(RealmName.REALM_NAME_LL+"/get_test_exam_model?" +
+				"exam_id="+exam_id2+"", new AsyncHttpResponseHandler(){
+			@Override
+			public void onSuccess(int arg0, String arg1) {
+				// TODO Auto-generated method stub
+				super.onSuccess(arg0, arg1);
+				try {
 //						System.out.println("arg1=========="+arg1);
-						JSONObject jsonObject = new JSONObject(arg1);
-						String status = jsonObject.getString("status");
-						if (status.equals("y")) {
+					JSONObject jsonObject = new JSONObject(arg1);
+					String status = jsonObject.getString("status");
+					if (status.equals("y")) {
 						JSONObject obj = jsonObject.getJSONObject("data");
 						String summary = obj.getString("summary");
 						String img_url = obj.getString("img_url");
-						
+
 						tv_zhuti.setText(summary);
 						aQuery.id(iv_tupian).image(RealmName.REALM_NAME + img_url);
-	                    } else {
-	                    	
-						}
-						
-						load_list(exam_id);
-					} catch (Exception e) {
-						e.printStackTrace();
+					} else {
+
 					}
+
+					load_list(exam_id);
+				} catch (Exception e) {
+					e.printStackTrace();
 				}
-				
-				@Override
-				public void onFailure(Throwable arg0, String arg1) {
+			}
+
+			@Override
+			public void onFailure(Throwable arg0, String arg1) {
 				// TODO Auto-generated method stub
 				super.onFailure(arg0, arg1);
-				Toast.makeText(JuFaFaXunaZheActivity.this, "¼ÓÔØÒì³£", 200).show();
+				Toast.makeText(JuFaFaXunaZheActivity.this, "åŠ è½½å¼‚å¸¸", 200).show();
 				progress.CloseProgress();
-				}
-			}, null);
-	    }
-		
+			}
+		}, null);
+	}
+
 	Handler handler = new Handler() {
 		public void dispatchMessage(Message msg) {
 			switch (msg.what) {
-			case 0:
-				System.out.println("=================5="+list.size());
-				
-				if (len == 1) {
-					System.out.println("=====================1");
-					tv_shangyiti.setVisibility(View.GONE);
-					tv_shangyitill.setVisibility(View.VISIBLE);
-				}
-				
-				if (list_id.size() == len) {
-					System.out.println("=====================2");
-					tv_xiayiti.setVisibility(View.VISIBLE);
-					tv_xiayiti_ll.setVisibility(View.GONE);
-				}
-				
-				
-				adapter = new MyListViewAdapter(list, getApplicationContext());
-				listView.setAdapter(adapter);
-				progress.CloseProgress();
-				break;
-				
-			case 1:
-				try {
+				case 0:
+					System.out.println("=================5="+list.size());
+
 					if (len == 1) {
 						System.out.println("=====================1");
 						tv_shangyiti.setVisibility(View.GONE);
 						tv_shangyitill.setVisibility(View.VISIBLE);
 					}
-					
+
 					if (list_id.size() == len) {
 						System.out.println("=====================2");
 						tv_xiayiti.setVisibility(View.VISIBLE);
 						tv_xiayiti_ll.setVisibility(View.GONE);
 					}
-						
-				for (int i = 0; i < list.size(); i++) {
-					checkList.add(false); // ¾ùÎªÎ´Ñ¡
-				}
-				
-				myAdapter = new MyAdapter(JuFaFaXunaZheActivity.this, list);
-				listView.setAdapter(myAdapter);
-				 
-				} catch (Exception e) {
-					// TODO: handle exception
-					e.printStackTrace();
-				}
-				break;
 
-			default:
-				break;
+
+					adapter = new MyListViewAdapter(list, getApplicationContext());
+					listView.setAdapter(adapter);
+					progress.CloseProgress();
+					break;
+
+				case 1:
+					try {
+						if (len == 1) {
+							System.out.println("=====================1");
+							tv_shangyiti.setVisibility(View.GONE);
+							tv_shangyitill.setVisibility(View.VISIBLE);
+						}
+
+						if (list_id.size() == len) {
+							System.out.println("=====================2");
+							tv_xiayiti.setVisibility(View.VISIBLE);
+							tv_xiayiti_ll.setVisibility(View.GONE);
+						}
+
+						for (int i = 0; i < list.size(); i++) {
+							checkList.add(false); // å‡ä¸ºæœªé€‰
+						}
+
+						myAdapter = new MyAdapter(JuFaFaXunaZheActivity.this, list);
+						listView.setAdapter(myAdapter);
+
+					} catch (Exception e) {
+						// TODO: handle exception
+						e.printStackTrace();
+					}
+					break;
+
+				default:
+					break;
 			}
 		};
 	};
-	
-	
+
+
 	/**
-	 * µÚ1¸öÁĞ±íÊı¾İ½âÎö
+	 * ç¬¬1ä¸ªåˆ—è¡¨æ•°æ®è§£æ
 	 */
 	private void load_list(String exam_id) {
 		System.out.println("==len==================="+len);
 		AsyncHttp.get(RealmName.REALM_NAME_LL+"/get_test_question_list?" +
-                "exam_id="+exam_id+"", new AsyncHttpResponseHandler(){
-				
-							@Override
-							public void onSuccess(int arg0, String arg1) {
-								// TODO Auto-generated method stub
-								super.onSuccess(arg0, arg1);
-//								System.out.println("=====================¶ş¼¶Öµ1"+arg1);
-								try {
-									JSONObject jsonObject = new JSONObject(arg1);
-									String status = jsonObject.getString("status");
-									String data_ll = jsonObject.getString("data");
-									if (data_ll.equals("null")) {
+				"exam_id="+exam_id+"", new AsyncHttpResponseHandler(){
+
+			@Override
+			public void onSuccess(int arg0, String arg1) {
+				// TODO Auto-generated method stub
+				super.onSuccess(arg0, arg1);
+//								System.out.println("=====================äºŒçº§å€¼1"+arg1);
+				try {
+					JSONObject jsonObject = new JSONObject(arg1);
+					String status = jsonObject.getString("status");
+					String data_ll = jsonObject.getString("data");
+					if (data_ll.equals("null")) {
 //										tv_xiayiti_ll.setVisibility(View.GONE);
-										Toast.makeText(JuFaFaXunaZheActivity.this, "Êı¾İÎª¿Õ", 200).show();
-										progress.CloseProgress();
-									}else {
-									tv_xiayiti_ll.setVisibility(View.VISIBLE);
-									if (status.equals("y")) {
-									JSONArray jsonArray = jsonObject.getJSONArray("data");
-									for (int i = 0; i < jsonArray.length(); i++) {
-										JSONObject object = jsonArray.getJSONObject(i);
+						Toast.makeText(JuFaFaXunaZheActivity.this, "æ•°æ®ä¸ºç©º", 200).show();
+						progress.CloseProgress();
+					}else {
+						tv_xiayiti_ll.setVisibility(View.VISIBLE);
+						if (status.equals("y")) {
+							JSONArray jsonArray = jsonObject.getJSONArray("data");
+							for (int i = 0; i < jsonArray.length(); i++) {
+								JSONObject object = jsonArray.getJSONObject(i);
 //										data.id = object.getString("id");
 //										title = object.getString("title");
-										String child = object.getString("child");
+								String child = object.getString("child");
 //										System.out.println("=====================child=="+child);
 //										if (child == null) {
 //											System.out.println("=======================null==/"+child);
 //										}
 //										else {
-										JSONArray ja = new JSONArray(child);
-										list_id = new ArrayList<String>();
+								JSONArray ja = new JSONArray(child);
+								list_id = new ArrayList<String>();
 //										System.out.println("=====================list_id.size()=="+list_id.size());
-										for (int j = 0; j < ja.length(); j++) {
-											JSONObject jo = ja.getJSONObject(j);
-											title_id = jo.getString("title");
-											list_id.add(title_id);
-										}
-										for (int j = 0; j < len; j++) { //ja.length(); j++) {
-											JSONObject jo = ja.getJSONObject(j);
-											title = jo.getString("title");
-											datatype = jo.getString("datatype");
-											String item = jo.getString("item");
-											JSONArray jaot = new JSONArray(item);
-											list = new ArrayList<TuiGuangBean>();
-											for (int k = 0; k < jaot.length(); k++) {
-												JSONObject jot = jaot.getJSONObject(k);
-												TuiGuangBean data = new TuiGuangBean();
-												data.question_id = jot.getString("question_id");
-												data.title = jot.getString("title");
-												data.name = jot.getString("name");
-												list.add(data);
-											}
-										}
-										
+								for (int j = 0; j < ja.length(); j++) {
+									JSONObject jo = ja.getJSONObject(j);
+									title_id = jo.getString("title");
+									list_id.add(title_id);
+								}
+								for (int j = 0; j < len; j++) { //ja.length(); j++) {
+									JSONObject jo = ja.getJSONObject(j);
+									title = jo.getString("title");
+									datatype = jo.getString("datatype");
+									String item = jo.getString("item");
+									JSONArray jaot = new JSONArray(item);
+									list = new ArrayList<TuiGuangBean>();
+									for (int k = 0; k < jaot.length(); k++) {
+										JSONObject jot = jaot.getJSONObject(k);
+										TuiGuangBean data = new TuiGuangBean();
+										data.question_id = jot.getString("question_id");
+										data.title = jot.getString("title");
+										data.name = jot.getString("name");
+										list.add(data);
+									}
+								}
+
 //										}
-									}
-									tv_ware_name.setText(title+"("+datatype+")");
-									tv_timu.setText("¹²"+list_id.size()+"Ìâ"+"/"+"µÚ"+len+"Ìâ");
-									if (datatype.contains("¶àÑ¡Ìâ")) {
-										handler.sendEmptyMessage(0);
-									}else {
-										handler.sendEmptyMessage(1);
-									}
-				                    }else {
-				                    	
-									}
-									progress.CloseProgress();
-								}
-								} catch (Exception e) {
-									e.printStackTrace();
-								}
 							}
-							@Override
-							public void onFailure(Throwable arg0, String arg1) {
-							// TODO Auto-generated method stub
-							super.onFailure(arg0, arg1);
-							Toast.makeText(JuFaFaXunaZheActivity.this, "¼ÓÔØÒì³£", 200).show();
-							progress.CloseProgress();
+							tv_ware_name.setText(title+"("+datatype+")");
+							tv_timu.setText("å…±"+list_id.size()+"é¢˜"+"/"+"ç¬¬"+len+"é¢˜");
+							if (datatype.contains("å¤šé€‰é¢˜")) {
+								handler.sendEmptyMessage(0);
+							}else {
+								handler.sendEmptyMessage(1);
 							}
-						}, null);
+						}else {
+
+						}
+						progress.CloseProgress();
+					}
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+			@Override
+			public void onFailure(Throwable arg0, String arg1) {
+				// TODO Auto-generated method stub
+				super.onFailure(arg0, arg1);
+				Toast.makeText(JuFaFaXunaZheActivity.this, "åŠ è½½å¼‚å¸¸", 200).show();
+				progress.CloseProgress();
+			}
+		}, null);
 	}
 
 	@Override
 	public void onClick(View v) {
 		// TODO Auto-generated method stub
 		switch (v.getId()) {
-		case R.id.tv_shangyiti:
-//			if (datatype.contains("¶àÑ¡Ìâ")) {
-//				
-//			System.out.println("=====================¶ş¼¶Öµ=="+len);
+			case R.id.tv_shangyiti:
+//			if (datatype.contains("å¤šé€‰é¢˜")) {
+//
+//			System.out.println("=====================äºŒçº§å€¼=="+len);
 //			System.out.println("=====================list_id.size()=="+list_id.size());
 //			HashMap<Integer, Boolean> map1 = MyListViewAdapter.getIsSelected();
 //			System.out.println("=====map.size()================"+map1.size());
@@ -388,7 +388,7 @@ public class JuFaFaXunaZheActivity extends BaseActivity implements OnClickListen
 ////				str1 +=	danxuanti;
 //				String fegefu = danxuanti.length()>0?",":"";
 //				str1 +=	fegefu+danxuanti;
-//				Toast.makeText(getApplicationContext(),"ÒÑÑ¡ÖĞÁË" + str1 + "", Toast.LENGTH_SHORT).show();
+//				Toast.makeText(getApplicationContext(),"å·²é€‰ä¸­äº†" + str1 + "", Toast.LENGTH_SHORT).show();
 //				list_name.add(str1);
 ////				for (int i = 0; i < checkList.size(); i++) {
 ////						checkList.set(i, true);
@@ -401,172 +401,172 @@ public class JuFaFaXunaZheActivity extends BaseActivity implements OnClickListen
 //					tv_xiayiti_ll.setVisibility(View.VISIBLE);
 //				}
 //			}
-			break;
-		case R.id.tv_xiayiti_ll:
-			if (datatype.contains("¶àÑ¡Ìâ")) {
+				break;
+			case R.id.tv_xiayiti_ll:
+				if (datatype.contains("å¤šé€‰é¢˜")) {
+					HashMap<Integer, Boolean> map = MyListViewAdapter.getIsSelected();
+					str1="";
+					for (int i = 0; i < map.size(); i++) {
+						if (map.get(i)) {
+							String fegefu = str1.length()>0?",":"";
+							str1 += fegefu+list.get(i).question_id+"_"+list.get(i).name;
+//					System.out.println("=====str1================"+str1);
+						}
+					}
+					if (str1.equals("")) {
+						Toast.makeText(getApplicationContext(),"è¯·é€‰æ‹©é€‰é¡¹", Toast.LENGTH_SHORT).show();
+					}else {
+						MyListViewAdapter.getIsSelected().get("");
+//			Toast.makeText(getApplicationContext(),"å·²é€‰ä¸­äº†" + str1 + "", Toast.LENGTH_SHORT).show();
+						list_name.add(str1);
+
+						if (list_id.size() > len) {
+							len += 1;
+							load_list(exam_id);
+//				tv_shangyiti.setVisibility(View.GONE);
+//				tv_shangyitill.setVisibility(View.VISIBLE);
+						}
+					}
+
+				}else {
+					if (danxuanti.equals("")) {
+						Toast.makeText(getApplicationContext(),"è¯·é€‰æ‹©é€‰é¡¹", Toast.LENGTH_SHORT).show();
+					}else {
+//				String fegefu = danxuanti.length()>0?",":"";
+//				str1 +=	danxuanti+fegefu+danxuanti;
+//				str1 +=	danxuanti;
+//				Toast.makeText(getApplicationContext(),"å·²é€‰ä¸­äº†" + danxuanti + "", Toast.LENGTH_SHORT).show();
+						list_name.add(danxuanti);
+						for (int i = 0; i < checkList.size(); i++) {
+							checkList.set(i, false);
+						}
+						danxuanti="";
+						if (list_id.size() > len) {
+							len += 1;
+							load_list(exam_id);
+//					tv_shangyiti.setVisibility(View.GONE);
+//					tv_shangyitill.setVisibility(View.VISIBLE);
+						}
+					}
+				}
+				break;
+			case R.id.tv_xiayiti:
+				myPrice();
+				break;
+
+			default:
+				break;
+		}
+	}
+
+	/**
+	 * æäº¤
+	 * */
+	public void myPrice() {
+		if (datatype.contains("å¤šé€‰é¢˜")) {
 			HashMap<Integer, Boolean> map = MyListViewAdapter.getIsSelected();
 			str1="";
 			for (int i = 0; i < map.size(); i++) {
 				if (map.get(i)) {
 					String fegefu = str1.length()>0?",":"";
-					str1 += fegefu+list.get(i).question_id+"_"+list.get(i).name;
-//					System.out.println("=====str1================"+str1);
-				}
-			}
-			if (str1.equals("")) {
-				Toast.makeText(getApplicationContext(),"ÇëÑ¡ÔñÑ¡Ïî", Toast.LENGTH_SHORT).show();
-			}else {
-			MyListViewAdapter.getIsSelected().get("");
-//			Toast.makeText(getApplicationContext(),"ÒÑÑ¡ÖĞÁË" + str1 + "", Toast.LENGTH_SHORT).show();
-			list_name.add(str1);
-			
-			if (list_id.size() > len) {
-				len += 1;
-				load_list(exam_id);
-//				tv_shangyiti.setVisibility(View.GONE);
-//				tv_shangyitill.setVisibility(View.VISIBLE);
-			}
-			}
-			
-			}else {
-				if (danxuanti.equals("")) {
-					Toast.makeText(getApplicationContext(),"ÇëÑ¡ÔñÑ¡Ïî", Toast.LENGTH_SHORT).show();
-				}else {
-//				String fegefu = danxuanti.length()>0?",":"";
-//				str1 +=	danxuanti+fegefu+danxuanti;
-//				str1 +=	danxuanti;
-//				Toast.makeText(getApplicationContext(),"ÒÑÑ¡ÖĞÁË" + danxuanti + "", Toast.LENGTH_SHORT).show();
-				list_name.add(danxuanti);
-				for (int i = 0; i < checkList.size(); i++) {
-						checkList.set(i, false);
-				}
-				danxuanti="";
-				if (list_id.size() > len) {
-					len += 1;
-					load_list(exam_id);
-//					tv_shangyiti.setVisibility(View.GONE);
-//					tv_shangyitill.setVisibility(View.VISIBLE);
-				}
-			   }
-			}
-			break;
-		case R.id.tv_xiayiti:
-			myPrice();
-			break;
-
-		default:
-			break;
-		}
-	}
-	
-	/**
-	 * Ìá½»
-	 * */
-	public void myPrice() {
-		if (datatype.contains("¶àÑ¡Ìâ")) {
-		HashMap<Integer, Boolean> map = MyListViewAdapter.getIsSelected();
-		str1="";
-		for (int i = 0; i < map.size(); i++) {
-			if (map.get(i)) {
-				String fegefu = str1.length()>0?",":"";
 //				str1 += fegefu+(i);
-				str1 += fegefu+list.get(i).question_id+"_"+list.get(i).name;
+					str1 += fegefu+list.get(i).question_id+"_"+list.get(i).name;
+				}
 			}
-		}
-		
-		if (str1.equals("")) {
-			Toast.makeText(getApplicationContext(),"Äú»¹Î´Ñ¡Ôñ´ğ°¸", Toast.LENGTH_SHORT).show();
-		}else {
-		MyListViewAdapter.getIsSelected().get("");
-//		Toast.makeText(getApplicationContext(),"ÒÑÑ¡ÖĞÁË" + str1 + "", Toast.LENGTH_SHORT).show();
-		Toast.makeText(getApplicationContext(), str1, 200).show();
-		
-		list_name.add(str1);
+
+			if (str1.equals("")) {
+				Toast.makeText(getApplicationContext(),"æ‚¨è¿˜æœªé€‰æ‹©ç­”æ¡ˆ", Toast.LENGTH_SHORT).show();
+			}else {
+				MyListViewAdapter.getIsSelected().get("");
+//		Toast.makeText(getApplicationContext(),"å·²é€‰ä¸­äº†" + str1 + "", Toast.LENGTH_SHORT).show();
+				Toast.makeText(getApplicationContext(), str1, 200).show();
+
+				list_name.add(str1);
 //		System.out.println("=====list_name.size()================"+list_name.size());
-		str = new StringBuffer();
-        for(String s:list_name){
-        	str.append(s+",");
-        }
-        str.delete(str.lastIndexOf(","),str.length()); 
+				str = new StringBuffer();
+				for(String s:list_name){
+					str.append(s+",");
+				}
+				str.delete(str.lastIndexOf(","),str.length());
 //        Toast.makeText(getApplicationContext(), str, 500).show();
-        System.out.println("idÆ´½ÓÖ®ºó---------------"+str);
-        
-        loadtijiao();
-		}
-		
+				System.out.println("idæ‹¼æ¥ä¹‹å---------------"+str);
+
+				loadtijiao();
+			}
+
 		}else {
 			try {
-			if (danxuanti.equals("")) {
-				Toast.makeText(getApplicationContext(),"ÇëÑ¡ÔñÑ¡Ïî", Toast.LENGTH_SHORT).show();
-			}else {
+				if (danxuanti.equals("")) {
+					Toast.makeText(getApplicationContext(),"è¯·é€‰æ‹©é€‰é¡¹", Toast.LENGTH_SHORT).show();
+				}else {
 //			MyListViewAdapter.getIsSelected().get("");
 //			String fegefu = danxuanti.length()>0?",":"";
 //			str1 +=	fegefu+danxuanti;
-//			Toast.makeText(getApplicationContext(),"ÒÑÑ¡ÖĞÁË" + str1 + "", Toast.LENGTH_SHORT).show();
-				System.out.println("list_name---------------"+list_name.size());
-			list_name.add(danxuanti);
-			str = new StringBuffer();
-	        for(String s:list_name){
-	        	str.append(s+",");
-	        }
-	        str.delete(str.lastIndexOf(","),str.length()); 
-	        System.out.println("idÆ´½ÓÖ®ºó---------------"+str);
+//			Toast.makeText(getApplicationContext(),"å·²é€‰ä¸­äº†" + str1 + "", Toast.LENGTH_SHORT).show();
+					System.out.println("list_name---------------"+list_name.size());
+					list_name.add(danxuanti);
+					str = new StringBuffer();
+					for(String s:list_name){
+						str.append(s+",");
+					}
+					str.delete(str.lastIndexOf(","),str.length());
+					System.out.println("idæ‹¼æ¥ä¹‹å---------------"+str);
 //	        Toast.makeText(getApplicationContext(), str, 500).show();
-	        loadtijiao();
-			}
-			
+					loadtijiao();
+				}
+
 			} catch (Exception e) {
 				// TODO: handle exception
 			}
-		   }
-			
+		}
+
 	}
-	
+
 	/**
-	 * Ìá½»ÔÚÏß¶¨ÖÆÌâÄ¿
+	 * æäº¤åœ¨çº¿å®šåˆ¶é¢˜ç›®
 	 * @param exam_id2
 	 */
 	public void loadtijiao(){
 		try {
-			
-		AsyncHttp.get(RealmName.REALM_NAME_LL+"/post_test_question?" +
-                "answer_list="+str+"&exam_id="+exam_id+"&user_id="+user_id+"&user_name="+user_name+"", new AsyncHttpResponseHandler(){
-			@Override
-			public void onSuccess(int arg0, String arg1) {
-				// TODO Auto-generated method stub
-				super.onSuccess(arg0, arg1);
-				try {
-					System.out.println("arg1=========="+arg1);
-					JSONObject jsonObject = new JSONObject(arg1);
-					String status = jsonObject.getString("status");
-					String info = jsonObject.getString("info");
-					if (status.equals("y")) {
-						Toast.makeText(getApplicationContext(), info, 200).show();
-                    } else {
-                    	Toast.makeText(getApplicationContext(), info, 200).show();
+
+			AsyncHttp.get(RealmName.REALM_NAME_LL+"/post_test_question?" +
+					"answer_list="+str+"&exam_id="+exam_id+"&user_id="+user_id+"&user_name="+user_name+"", new AsyncHttpResponseHandler(){
+				@Override
+				public void onSuccess(int arg0, String arg1) {
+					// TODO Auto-generated method stub
+					super.onSuccess(arg0, arg1);
+					try {
+						System.out.println("arg1=========="+arg1);
+						JSONObject jsonObject = new JSONObject(arg1);
+						String status = jsonObject.getString("status");
+						String info = jsonObject.getString("info");
+						if (status.equals("y")) {
+							Toast.makeText(getApplicationContext(), info, 200).show();
+						} else {
+							Toast.makeText(getApplicationContext(), info, 200).show();
+						}
+
+						finish();
+					} catch (Exception e) {
+						e.printStackTrace();
 					}
-					
-					finish();
-				} catch (Exception e) {
-					e.printStackTrace();
 				}
-			}
-		}, null);
-		
+			}, null);
+
 		} catch (Exception e) {
 			// TODO: handle exception
 			e.printStackTrace();
 		}
-    }
-	
+	}
+
 	/**
-	 * ÌáÊ¾ÊÇ·ñÈ¡Ïû
+	 * æç¤ºæ˜¯å¦å–æ¶ˆ
 	 */
 	protected void dialoglogin() {
 		AlertDialog.Builder builder = new Builder(JuFaFaXunaZheActivity.this);
-		builder.setMessage("ÊÇ·ñÈ·ÈÏÈ¡Ïû?");
-		builder.setTitle("ÌáÊ¾");
-		builder.setPositiveButton("È·ÈÏ", new DialogInterface.OnClickListener() {
+		builder.setMessage("æ˜¯å¦ç¡®è®¤å–æ¶ˆ?");
+		builder.setTitle("æç¤º");
+		builder.setPositiveButton("ç¡®è®¤", new DialogInterface.OnClickListener() {
 
 			@Override
 			public void onClick(DialogInterface dialog, int which) {
@@ -574,7 +574,7 @@ public class JuFaFaXunaZheActivity extends BaseActivity implements OnClickListen
 			}
 		});
 
-		builder.setNegativeButton("È¡Ïû", new DialogInterface.OnClickListener() {
+		builder.setNegativeButton("å–æ¶ˆ", new DialogInterface.OnClickListener() {
 
 			@Override
 			public void onClick(DialogInterface dialog, int which) {
@@ -584,55 +584,55 @@ public class JuFaFaXunaZheActivity extends BaseActivity implements OnClickListen
 
 		builder.create().show();
 	}
-	
+
 	/**
-	 * listviewµÄitemµÄÑ¡ÔñµÄ·½·¨
+	 * listviewçš„itemçš„é€‰æ‹©çš„æ–¹æ³•
 	 * */
 	@Override
 	public void onItemClick(AdapterView<?> parent, View view, int position,
-			long id) {
-		// È¡µÃViewHolder¶ÔÏó£¬ÕâÑù¾ÍÊ¡È¥ÁËÍ¨¹ı²ã²ãµÄfindViewByIdÈ¥ÊµÀı»¯ÎÒÃÇĞèÒªµÄcbÊµÀıµÄ²½Öè
+							long id) {
+		// å–å¾—ViewHolderå¯¹è±¡ï¼Œè¿™æ ·å°±çœå»äº†é€šè¿‡å±‚å±‚çš„findViewByIdå»å®ä¾‹åŒ–æˆ‘ä»¬éœ€è¦çš„cbå®ä¾‹çš„æ­¥éª¤
 		ViewHolder holder = (ViewHolder) view.getTag();
-		// ¸Ä±äCheckBoxµÄ×´Ì¬
+		// æ”¹å˜CheckBoxçš„çŠ¶æ€
 		holder.cb.toggle();
-		// ½«CheckBoxµÄÑ¡ÖĞ×´¿ö¼ÇÂ¼ÏÂÀ´
+		// å°†CheckBoxçš„é€‰ä¸­çŠ¶å†µè®°å½•ä¸‹æ¥
 		MyListViewAdapter.getIsSelected().put(position, holder.cb.isChecked());
 	}
-	
-	
-	//×Ô¶¨Òåadapter
-		private class MyAdapter extends BaseAdapter {
-			private LayoutInflater inflater;
-			ArrayList<TuiGuangBean> myList;
 
-			public MyAdapter(Context context, ArrayList<TuiGuangBean> myList) {
-				this.inflater = LayoutInflater.from(context);
-				this.myList = myList;
-			}
 
-			@Override
-			public int getCount() {
-				// TODO Auto-generated method stub
-				return myList.size();
-			}
+	//è‡ªå®šä¹‰adapter
+	private class MyAdapter extends BaseAdapter {
+		private LayoutInflater inflater;
+		ArrayList<TuiGuangBean> myList;
 
-			@Override
-			public Object getItem(int arg0) {
-				// TODO Auto-generated method stub
-				return myList.get(arg0);
-			}
+		public MyAdapter(Context context, ArrayList<TuiGuangBean> myList) {
+			this.inflater = LayoutInflater.from(context);
+			this.myList = myList;
+		}
 
-			@Override
-			public long getItemId(int arg0) {
-				// TODO Auto-generated method stub
-				return arg0;
-			}
+		@Override
+		public int getCount() {
+			// TODO Auto-generated method stub
+			return myList.size();
+		}
 
-			@Override
-			public View getView(final int position, View convertView,
-					ViewGroup parent) {
-				try {
-					
+		@Override
+		public Object getItem(int arg0) {
+			// TODO Auto-generated method stub
+			return myList.get(arg0);
+		}
+
+		@Override
+		public long getItemId(int arg0) {
+			// TODO Auto-generated method stub
+			return arg0;
+		}
+
+		@Override
+		public View getView(final int position, View convertView,
+							ViewGroup parent) {
+			try {
+
 				Log.i("aaa", "getview");
 				ViewHolder holder = null;
 				if (convertView == null) {
@@ -647,20 +647,20 @@ public class JuFaFaXunaZheActivity extends BaseActivity implements OnClickListen
 				holder.txt.setText(myList.get(position).title);
 				holder.checkBox.setChecked(checkList.get(position));
 				holder.checkBox
-						.setOnCheckedChangeListener(new OnCheckedChangeListener() {//µ¥»÷checkboxÊµÏÖµ¥Ñ¡£¬¸ù¾İ×´Ì¬±ä»»½øĞĞµ¥Ñ¡ÉèÖÃ
+						.setOnCheckedChangeListener(new OnCheckedChangeListener() {//å•å‡»checkboxå®ç°å•é€‰ï¼Œæ ¹æ®çŠ¶æ€å˜æ¢è¿›è¡Œå•é€‰è®¾ç½®
 
 							@Override
 							public void onCheckedChanged(CompoundButton buttonView,
-									boolean isChecked) {
+														 boolean isChecked) {
 								// TODO Auto-generated method stub
 								if (isChecked) {
 									checkPosition(position);
 								} else {
-									checkList.set(position, false);//½«ÒÑÑ¡ÔñµÄÎ»ÖÃÉèÎªÑ¡Ôñ
+									checkList.set(position, false);//å°†å·²é€‰æ‹©çš„ä½ç½®è®¾ä¸ºé€‰æ‹©
 								}
 							}
 						});
-				convertView.setOnClickListener(new OnClickListener() {//itemµ¥»÷½øĞĞµ¥Ñ¡ÉèÖÃ
+				convertView.setOnClickListener(new OnClickListener() {//itemå•å‡»è¿›è¡Œå•é€‰è®¾ç½®
 
 					@Override
 					public void onClick(View v) {
@@ -668,17 +668,17 @@ public class JuFaFaXunaZheActivity extends BaseActivity implements OnClickListen
 						checkPosition(position);
 					}
 				});
-				} catch (Exception e) {
-					// TODO: handle exception
-					e.printStackTrace();
-				}
-				return convertView;
+			} catch (Exception e) {
+				// TODO: handle exception
+				e.printStackTrace();
 			}
-
-			public final class ViewHolder {
-				public TextView txt;
-				public CheckBox checkBox;
-			}
+			return convertView;
 		}
+
+		public final class ViewHolder {
+			public TextView txt;
+			public CheckBox checkBox;
+		}
+	}
 
 }
