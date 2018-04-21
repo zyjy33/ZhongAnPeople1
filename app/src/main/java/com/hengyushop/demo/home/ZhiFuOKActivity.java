@@ -8,9 +8,7 @@ import android.view.View.OnClickListener;
 import android.view.Window;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.android.hengyu.pub.MyOrderllAdapter;
 import com.android.hengyu.web.DialogProgress;
 import com.hengyushop.demo.at.BaseActivity;
 import com.hengyushop.demo.my.MyOrderZFActivity;
@@ -19,10 +17,10 @@ import com.zams.www.MyOrderConfrimActivity;
 import com.zams.www.R;
 
 /**
- * Ö§¸¶³É¹¦
- * 
+ * æ”¯ä»˜æˆåŠŸ
+ *
  * @author Administrator
- * 
+ *
  */
 public class ZhiFuOKActivity extends BaseActivity implements OnClickListener {
 
@@ -45,7 +43,7 @@ public class ZhiFuOKActivity extends BaseActivity implements OnClickListener {
 		setContentView(R.layout.activity_zhifu_ok);
 		spPreferences = getSharedPreferences("longuserset", MODE_PRIVATE);
 		progress = new DialogProgress(ZhiFuOKActivity.this);
-		huodong_type = "1";// »î¶¯Ö§¸¶³É¹¦Ö®ºóÉèÖÃ²»ÄÜ¼ÌĞø±¨Ãû
+		huodong_type = "1";// æ´»åŠ¨æ”¯ä»˜æˆåŠŸä¹‹åè®¾ç½®ä¸èƒ½ç»§ç»­æŠ¥å
 		intren();
 	}
 
@@ -102,7 +100,7 @@ public class ZhiFuOKActivity extends BaseActivity implements OnClickListener {
 			textView3.setText(province + city + area + user_address);
 			textView4.setText(recharge_no);
 			textView5.setText(datetime);
-			textView6.setText("£¤" + sell_price);
+			textView6.setText("ï¿¥" + sell_price);
 
 			iv_fanhui = (ImageView) findViewById(R.id.iv_fanhui);
 			iv_fanhui.setOnClickListener(this);
@@ -124,14 +122,14 @@ public class ZhiFuOKActivity extends BaseActivity implements OnClickListener {
 		// TODO Auto-generated method stub
 
 		switch (v.getId()) {
-		case R.id.iv_fanhui:
-			finish();
-			break;
-		case R.id.ra5:
-			break;
+			case R.id.iv_fanhui:
+				finish();
+				break;
+			case R.id.ra5:
+				break;
 
-		default:
-			break;
+			default:
+				break;
 		}
 	}
 }

@@ -1,7 +1,5 @@
 package com.hengyushop.demo.movie;
 
-import com.zams.www.R;
-
 import android.app.TabActivity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,6 +7,8 @@ import android.view.View;
 import android.view.Window;
 import android.widget.TabHost;
 import android.widget.TextView;
+
+import com.zams.www.R;
 
 public class MovieCinemaSelectActivity extends TabActivity {
 
@@ -31,7 +31,7 @@ public class MovieCinemaSelectActivity extends TabActivity {
 		View localView = getLayoutInflater().inflate(R.layout.tab_indicator,
 				null);
 		TextView localTextView = (TextView) localView.findViewById(R.id.title);
-		localTextView.setText("¸½½ü");
+		localTextView.setText("é™„è¿‘");
 		Intent localIntent = new Intent(MovieCinemaSelectActivity.this,
 				MovieCinemaSelectNearbyActivity.class);
 		localTabSpec.setIndicator(localView).setContent(localIntent);
@@ -43,7 +43,7 @@ public class MovieCinemaSelectActivity extends TabActivity {
 		View localView = getLayoutInflater().inflate(R.layout.tab_indicator,
 				null);
 		TextView localTextView = (TextView) localView.findViewById(R.id.title);
-		localTextView.setText("³ÇÇø");
+		localTextView.setText("åŸŽåŒº");
 		TabHost.TabSpec localTabSpec2 = localTabSpec1.setIndicator(localView);
 		Intent localIntent = new Intent(MovieCinemaSelectActivity.this,
 				MovieCinemaSelectCityActivity.class);

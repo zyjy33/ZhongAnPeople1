@@ -1,137 +1,137 @@
 package com.lglottery.www.http;
 
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
-
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+
 public class BitmapUtil {
-	
-	//Í¼Æ¬°´±ÈÀı´óĞ¡Ñ¹Ëõ·½·¨£¨¸ù¾İÂ·¾¶»ñÈ¡Í¼Æ¬²¢Ñ¹Ëõ£©
-	private static Bitmap getimage(String srcPath) {  
-        BitmapFactory.Options newOpts = new BitmapFactory.Options();  
-        //¿ªÊ¼¶ÁÈëÍ¼Æ¬£¬´ËÊ±°Ñoptions.inJustDecodeBounds Éè»ØtrueÁË  
-        newOpts.inJustDecodeBounds = true;  
-        Bitmap bitmap = BitmapFactory.decodeFile(srcPath,newOpts);//´ËÊ±·µ»ØbmÎª¿Õ  
-          
-        newOpts.inJustDecodeBounds = false;  
-        int w = newOpts.outWidth;  
-        int h = newOpts.outHeight;  
-        //ÏÖÔÚÖ÷Á÷ÊÖ»ú±È½Ï¶àÊÇ800*480·Ö±æÂÊ£¬ËùÒÔ¸ßºÍ¿íÎÒÃÇÉèÖÃÎª  
-        float hh = 800f;//ÕâÀïÉèÖÃ¸ß¶ÈÎª800f  
-        float ww = 480f;//ÕâÀïÉèÖÃ¿í¶ÈÎª480f  
-        //Ëõ·Å±È¡£ÓÉÓÚÊÇ¹Ì¶¨±ÈÀıËõ·Å£¬Ö»ÓÃ¸ß»òÕß¿íÆäÖĞÒ»¸öÊı¾İ½øĞĞ¼ÆËã¼´¿É  
-        int be = 1;//be=1±íÊ¾²»Ëõ·Å  
-        if (w > h && w > ww) {//Èç¹û¿í¶È´óµÄ»°¸ù¾İ¿í¶È¹Ì¶¨´óĞ¡Ëõ·Å  
-            be = (int) (newOpts.outWidth / ww);  
-        } else if (w < h && h > hh) {//Èç¹û¸ß¶È¸ßµÄ»°¸ù¾İ¿í¶È¹Ì¶¨´óĞ¡Ëõ·Å  
-            be = (int) (newOpts.outHeight / hh);  
-        }  
-        if (be <= 0)  
-            be = 1;  
-        newOpts.inSampleSize = be;//ÉèÖÃËõ·Å±ÈÀı  
-        //ÖØĞÂ¶ÁÈëÍ¼Æ¬£¬×¢Òâ´ËÊ±ÒÑ¾­°Ñoptions.inJustDecodeBounds Éè»ØfalseÁË  
-        bitmap = BitmapFactory.decodeFile(srcPath, newOpts);  
-        return compressImage(bitmap);//Ñ¹ËõºÃ±ÈÀı´óĞ¡ºóÔÙ½øĞĞÖÊÁ¿Ñ¹Ëõ  
-    } 
-	
-	
-	//ÖÊÁ¿Ñ¹Ëõ·¨
+
+	//å›¾ç‰‡æŒ‰æ¯”ä¾‹å¤§å°å‹ç¼©æ–¹æ³•ï¼ˆæ ¹æ®è·¯å¾„è·å–å›¾ç‰‡å¹¶å‹ç¼©ï¼‰
+	private static Bitmap getimage(String srcPath) {
+		BitmapFactory.Options newOpts = new BitmapFactory.Options();
+		//å¼€å§‹è¯»å…¥å›¾ç‰‡ï¼Œæ­¤æ—¶æŠŠoptions.inJustDecodeBounds è®¾å›trueäº†
+		newOpts.inJustDecodeBounds = true;
+		Bitmap bitmap = BitmapFactory.decodeFile(srcPath,newOpts);//æ­¤æ—¶è¿”å›bmä¸ºç©º
+
+		newOpts.inJustDecodeBounds = false;
+		int w = newOpts.outWidth;
+		int h = newOpts.outHeight;
+		//ç°åœ¨ä¸»æµæ‰‹æœºæ¯”è¾ƒå¤šæ˜¯800*480åˆ†è¾¨ç‡ï¼Œæ‰€ä»¥é«˜å’Œå®½æˆ‘ä»¬è®¾ç½®ä¸º
+		float hh = 800f;//è¿™é‡Œè®¾ç½®é«˜åº¦ä¸º800f
+		float ww = 480f;//è¿™é‡Œè®¾ç½®å®½åº¦ä¸º480f
+		//ç¼©æ”¾æ¯”ã€‚ç”±äºæ˜¯å›ºå®šæ¯”ä¾‹ç¼©æ”¾ï¼Œåªç”¨é«˜æˆ–è€…å®½å…¶ä¸­ä¸€ä¸ªæ•°æ®è¿›è¡Œè®¡ç®—å³å¯
+		int be = 1;//be=1è¡¨ç¤ºä¸ç¼©æ”¾
+		if (w > h && w > ww) {//å¦‚æœå®½åº¦å¤§çš„è¯æ ¹æ®å®½åº¦å›ºå®šå¤§å°ç¼©æ”¾
+			be = (int) (newOpts.outWidth / ww);
+		} else if (w < h && h > hh) {//å¦‚æœé«˜åº¦é«˜çš„è¯æ ¹æ®å®½åº¦å›ºå®šå¤§å°ç¼©æ”¾
+			be = (int) (newOpts.outHeight / hh);
+		}
+		if (be <= 0)
+			be = 1;
+		newOpts.inSampleSize = be;//è®¾ç½®ç¼©æ”¾æ¯”ä¾‹
+		//é‡æ–°è¯»å…¥å›¾ç‰‡ï¼Œæ³¨æ„æ­¤æ—¶å·²ç»æŠŠoptions.inJustDecodeBounds è®¾å›falseäº†
+		bitmap = BitmapFactory.decodeFile(srcPath, newOpts);
+		return compressImage(bitmap);//å‹ç¼©å¥½æ¯”ä¾‹å¤§å°åå†è¿›è¡Œè´¨é‡å‹ç¼©
+	}
+
+
+	//è´¨é‡å‹ç¼©æ³•
 	private static Bitmap compressImage(Bitmap image) {
 
-        ByteArrayOutputStream baos = new ByteArrayOutputStream();
-        image.compress(Bitmap.CompressFormat.JPEG, 100, baos);//ÖÊÁ¿Ñ¹Ëõ·½·¨£¬ÕâÀï100±íÊ¾²»Ñ¹Ëõ£¬°ÑÑ¹ËõºóµÄÊı¾İ´æ·Åµ½baosÖĞ
-        int options = 100;
-        while ( baos.toByteArray().length / 1024>32) { //Ñ­»·ÅĞ¶ÏÈç¹ûÑ¹ËõºóÍ¼Æ¬ÊÇ·ñ´óÓÚ100kb,´óÓÚ¼ÌĞøÑ¹Ëõ
-            baos.reset();//ÖØÖÃbaos¼´Çå¿Õbaos
-            image.compress(Bitmap.CompressFormat.JPEG, options, baos);//ÕâÀïÑ¹Ëõoptions%£¬°ÑÑ¹ËõºóµÄÊı¾İ´æ·Åµ½baosÖĞ
-            options -= 10;//Ã¿´Î¶¼¼õÉÙ10
-        }
-        ByteArrayInputStream isBm = new ByteArrayInputStream(baos.toByteArray());//°ÑÑ¹ËõºóµÄÊı¾İbaos´æ·Åµ½ByteArrayInputStreamÖĞ
-        Bitmap bitmap = BitmapFactory.decodeStream(isBm, null, null);//°ÑByteArrayInputStreamÊı¾İÉú³ÉÍ¼Æ¬
-        return bitmap;
-   }
-	
-	//Í¼Æ¬°´±ÈÀı´óĞ¡Ñ¹Ëõ·½·¨£¨¸ù¾İBitmapÍ¼Æ¬Ñ¹Ëõ£©
-	public static Bitmap comp(Bitmap image) {  
-	    ByteArrayOutputStream baos = new ByteArrayOutputStream();         
-	    image.compress(Bitmap.CompressFormat.JPEG, 100, baos);  
-	    if( baos.toByteArray().length / 1024>1024) {//ÅĞ¶ÏÈç¹ûÍ¼Æ¬´óÓÚ1M,½øĞĞÑ¹Ëõ±ÜÃâÔÚÉú³ÉÍ¼Æ¬£¨BitmapFactory.decodeStream£©Ê±Òç³ö    
-	        baos.reset();//ÖØÖÃbaos¼´Çå¿Õbaos  
-	        image.compress(Bitmap.CompressFormat.JPEG, 50, baos);//ÕâÀïÑ¹Ëõ50%£¬°ÑÑ¹ËõºóµÄÊı¾İ´æ·Åµ½baosÖĞ  
-	    }  
-	    ByteArrayInputStream isBm = new ByteArrayInputStream(baos.toByteArray());  
-	    BitmapFactory.Options newOpts = new BitmapFactory.Options();  
-	    //¿ªÊ¼¶ÁÈëÍ¼Æ¬£¬´ËÊ±°Ñoptions.inJustDecodeBounds Éè»ØtrueÁË  
-	    newOpts.inJustDecodeBounds = true;  
-	    Bitmap bitmap = BitmapFactory.decodeStream(isBm, null, newOpts);  
-	    newOpts.inJustDecodeBounds = false;  
-	    int w = newOpts.outWidth;  
-	    int h = newOpts.outHeight;  
-	    //ÏÖÔÚÖ÷Á÷ÊÖ»ú±È½Ï¶àÊÇ800*480·Ö±æÂÊ£¬ËùÒÔ¸ßºÍ¿íÎÒÃÇÉèÖÃÎª  
-	    float hh = 800f;//ÕâÀïÉèÖÃ¸ß¶ÈÎª800f  
-	    float ww = 480f;//ÕâÀïÉèÖÃ¿í¶ÈÎª480f  
-	    //Ëõ·Å±È¡£ÓÉÓÚÊÇ¹Ì¶¨±ÈÀıËõ·Å£¬Ö»ÓÃ¸ß»òÕß¿íÆäÖĞÒ»¸öÊı¾İ½øĞĞ¼ÆËã¼´¿É  
-	    int be = 1;//be=1±íÊ¾²»Ëõ·Å  
-	    if (w > h && w > ww) {//Èç¹û¿í¶È´óµÄ»°¸ù¾İ¿í¶È¹Ì¶¨´óĞ¡Ëõ·Å  
-	        be = (int) (newOpts.outWidth / ww);  
-	    } else if (w < h && h > hh) {//Èç¹û¸ß¶È¸ßµÄ»°¸ù¾İ¿í¶È¹Ì¶¨´óĞ¡Ëõ·Å  
-	        be = (int) (newOpts.outHeight / hh);  
-	    }  
-	    if (be <= 0)  
-	        be = 1;  
-	    newOpts.inSampleSize = be;//ÉèÖÃËõ·Å±ÈÀı  
-	    //ÖØĞÂ¶ÁÈëÍ¼Æ¬£¬×¢Òâ´ËÊ±ÒÑ¾­°Ñoptions.inJustDecodeBounds Éè»ØfalseÁË  
-	    isBm = new ByteArrayInputStream(baos.toByteArray());  
-	    bitmap = BitmapFactory.decodeStream(isBm, null, newOpts);  
-	    return compressImage(bitmap);//Ñ¹ËõºÃ±ÈÀı´óĞ¡ºóÔÙ½øĞĞÖÊÁ¿Ñ¹Ëõ  
-	}  
-	
-	//Í¼Æ¬°´±ÈÀı´óĞ¡Ñ¹Ëõ·½·¨£¨¸ù¾İBitmapÍ¼Æ¬Ñ¹Ëõ£©
-//		public static byte[] comp(Bitmap image, int maxkb) {
-//
-//		    ByteArrayOutputStream baos = new ByteArrayOutputStream();
-//		    image.compress(Bitmap.CompressFormat.JPEG, 100, baos);
-//		    if( baos.toByteArray().length / 1024>1024) {//ÅĞ¶ÏÈç¹ûÍ¼Æ¬´óÓÚ1M,½øĞĞÑ¹Ëõ±ÜÃâÔÚÉú³ÉÍ¼Æ¬£¨BitmapFactory.decodeStream£©Ê±Òç³ö
-//		        baos.reset();//ÖØÖÃbaos¼´Çå¿Õbaos
-//		        image.compress(Bitmap.CompressFormat.JPEG, 50, baos);//ÕâÀïÑ¹Ëõ50%£¬°ÑÑ¹ËõºóµÄÊı¾İ´æ·Åµ½baosÖĞ
-//		    }
-//		    ByteArrayInputStream isBm = new ByteArrayInputStream(baos.toByteArray());
-//		    BitmapFactory.Options newOpts = new BitmapFactory.Options();
-//		    //¿ªÊ¼¶ÁÈëÍ¼Æ¬£¬´ËÊ±°Ñoptions.inJustDecodeBounds Éè»ØtrueÁË
-//		    newOpts.inJustDecodeBounds = true;
-//		    Bitmap bitmap = BitmapFactory.decodeStream(isBm, null, newOpts);
-//		    newOpts.inJustDecodeBounds = false;
-//		    int w = newOpts.outWidth;
-//		    int h = newOpts.outHeight;
-//		    //ÏÖÔÚÖ÷Á÷ÊÖ»ú±È½Ï¶àÊÇ800*480·Ö±æÂÊ£¬ËùÒÔ¸ßºÍ¿íÎÒÃÇÉèÖÃÎª
-//		    float hh = 800f;//ÕâÀïÉèÖÃ¸ß¶ÈÎª800f
-//		    float ww = 480f;//ÕâÀïÉèÖÃ¿í¶ÈÎª480f
-//		    //Ëõ·Å±È¡£ÓÉÓÚÊÇ¹Ì¶¨±ÈÀıËõ·Å£¬Ö»ÓÃ¸ß»òÕß¿íÆäÖĞÒ»¸öÊı¾İ½øĞĞ¼ÆËã¼´¿É
-//		    int be = 1;//be=1±íÊ¾²»Ëõ·Å
-//		    if (w > h && w > ww) {//Èç¹û¿í¶È´óµÄ»°¸ù¾İ¿í¶È¹Ì¶¨´óĞ¡Ëõ·Å
-//		        be = (int) (newOpts.outWidth / ww);
-//		    } else if (w < h && h > hh) {//Èç¹û¸ß¶È¸ßµÄ»°¸ù¾İ¿í¶È¹Ì¶¨´óĞ¡Ëõ·Å
-//		        be = (int) (newOpts.outHeight / hh);
-//		    }
-//		    if (be <= 0)
-//		        be = 1;
-//		    newOpts.inSampleSize = be;//ÉèÖÃËõ·Å±ÈÀı
-//		    //ÖØĞÂ¶ÁÈëÍ¼Æ¬£¬×¢Òâ´ËÊ±ÒÑ¾­°Ñoptions.inJustDecodeBounds Éè»ØfalseÁË
-//		    isBm = new ByteArrayInputStream(baos.toByteArray());
-//		    bitmap = BitmapFactory.decodeStream(isBm, null, newOpts);
-//		    
-//	        ByteArrayOutputStream output = new ByteArrayOutputStream();
-//	        bitmap.compress(Bitmap.CompressFormat.PNG, 100, output);
-//	        int options = 100;
-//	        while (output.toByteArray().length > maxkb&& options != 10) {
-//	            output.reset(); //Çå¿Õoutput
-//	            bitmap.compress(Bitmap.CompressFormat.JPEG, options, output);//ÕâÀïÑ¹Ëõoptions%£¬°ÑÑ¹ËõºóµÄÊı¾İ´æ·Åµ½outputÖĞ
-//	            options -= 10;
-//	        }
-//	        return output.toByteArray();
-////		    return compressImage(bitmap);//Ñ¹ËõºÃ±ÈÀı´óĞ¡ºóÔÙ½øĞĞÖÊÁ¿Ñ¹Ëõ
-//		}
+		ByteArrayOutputStream baos = new ByteArrayOutputStream();
+		image.compress(Bitmap.CompressFormat.JPEG, 100, baos);//è´¨é‡å‹ç¼©æ–¹æ³•ï¼Œè¿™é‡Œ100è¡¨ç¤ºä¸å‹ç¼©ï¼ŒæŠŠå‹ç¼©åçš„æ•°æ®å­˜æ”¾åˆ°baosä¸­
+		int options = 100;
+		while ( baos.toByteArray().length / 1024>32) { //å¾ªç¯åˆ¤æ–­å¦‚æœå‹ç¼©åå›¾ç‰‡æ˜¯å¦å¤§äº100kb,å¤§äºç»§ç»­å‹ç¼©
+			baos.reset();//é‡ç½®baoså³æ¸…ç©ºbaos
+			image.compress(Bitmap.CompressFormat.JPEG, options, baos);//è¿™é‡Œå‹ç¼©options%ï¼ŒæŠŠå‹ç¼©åçš„æ•°æ®å­˜æ”¾åˆ°baosä¸­
+			options -= 10;//æ¯æ¬¡éƒ½å‡å°‘10
+		}
+		ByteArrayInputStream isBm = new ByteArrayInputStream(baos.toByteArray());//æŠŠå‹ç¼©åçš„æ•°æ®baoså­˜æ”¾åˆ°ByteArrayInputStreamä¸­
+		Bitmap bitmap = BitmapFactory.decodeStream(isBm, null, null);//æŠŠByteArrayInputStreamæ•°æ®ç”Ÿæˆå›¾ç‰‡
+		return bitmap;
+	}
+
+	//å›¾ç‰‡æŒ‰æ¯”ä¾‹å¤§å°å‹ç¼©æ–¹æ³•ï¼ˆæ ¹æ®Bitmapå›¾ç‰‡å‹ç¼©ï¼‰
+	public static Bitmap comp(Bitmap image) {
+		ByteArrayOutputStream baos = new ByteArrayOutputStream();
+		image.compress(Bitmap.CompressFormat.JPEG, 100, baos);
+		if( baos.toByteArray().length / 1024>1024) {//åˆ¤æ–­å¦‚æœå›¾ç‰‡å¤§äº1M,è¿›è¡Œå‹ç¼©é¿å…åœ¨ç”Ÿæˆå›¾ç‰‡ï¼ˆBitmapFactory.decodeStreamï¼‰æ—¶æº¢å‡º
+			baos.reset();//é‡ç½®baoså³æ¸…ç©ºbaos
+			image.compress(Bitmap.CompressFormat.JPEG, 50, baos);//è¿™é‡Œå‹ç¼©50%ï¼ŒæŠŠå‹ç¼©åçš„æ•°æ®å­˜æ”¾åˆ°baosä¸­
+		}
+		ByteArrayInputStream isBm = new ByteArrayInputStream(baos.toByteArray());
+		BitmapFactory.Options newOpts = new BitmapFactory.Options();
+		//å¼€å§‹è¯»å…¥å›¾ç‰‡ï¼Œæ­¤æ—¶æŠŠoptions.inJustDecodeBounds è®¾å›trueäº†
+		newOpts.inJustDecodeBounds = true;
+		Bitmap bitmap = BitmapFactory.decodeStream(isBm, null, newOpts);
+		newOpts.inJustDecodeBounds = false;
+		int w = newOpts.outWidth;
+		int h = newOpts.outHeight;
+		//ç°åœ¨ä¸»æµæ‰‹æœºæ¯”è¾ƒå¤šæ˜¯800*480åˆ†è¾¨ç‡ï¼Œæ‰€ä»¥é«˜å’Œå®½æˆ‘ä»¬è®¾ç½®ä¸º
+		float hh = 800f;//è¿™é‡Œè®¾ç½®é«˜åº¦ä¸º800f
+		float ww = 480f;//è¿™é‡Œè®¾ç½®å®½åº¦ä¸º480f
+		//ç¼©æ”¾æ¯”ã€‚ç”±äºæ˜¯å›ºå®šæ¯”ä¾‹ç¼©æ”¾ï¼Œåªç”¨é«˜æˆ–è€…å®½å…¶ä¸­ä¸€ä¸ªæ•°æ®è¿›è¡Œè®¡ç®—å³å¯
+		int be = 1;//be=1è¡¨ç¤ºä¸ç¼©æ”¾
+		if (w > h && w > ww) {//å¦‚æœå®½åº¦å¤§çš„è¯æ ¹æ®å®½åº¦å›ºå®šå¤§å°ç¼©æ”¾
+			be = (int) (newOpts.outWidth / ww);
+		} else if (w < h && h > hh) {//å¦‚æœé«˜åº¦é«˜çš„è¯æ ¹æ®å®½åº¦å›ºå®šå¤§å°ç¼©æ”¾
+			be = (int) (newOpts.outHeight / hh);
+		}
+		if (be <= 0)
+			be = 1;
+		newOpts.inSampleSize = be;//è®¾ç½®ç¼©æ”¾æ¯”ä¾‹
+		//é‡æ–°è¯»å…¥å›¾ç‰‡ï¼Œæ³¨æ„æ­¤æ—¶å·²ç»æŠŠoptions.inJustDecodeBounds è®¾å›falseäº†
+		isBm = new ByteArrayInputStream(baos.toByteArray());
+		bitmap = BitmapFactory.decodeStream(isBm, null, newOpts);
+		return compressImage(bitmap);//å‹ç¼©å¥½æ¯”ä¾‹å¤§å°åå†è¿›è¡Œè´¨é‡å‹ç¼©
+	}
+
+	//å›¾ç‰‡æŒ‰æ¯”ä¾‹å¤§å°å‹ç¼©æ–¹æ³•ï¼ˆæ ¹æ®Bitmapå›¾ç‰‡å‹ç¼©ï¼‰
+	//		public static byte[] comp(Bitmap image, int maxkb) {
+	//
+	//		    ByteArrayOutputStream baos = new ByteArrayOutputStream();
+	//		    image.compress(Bitmap.CompressFormat.JPEG, 100, baos);
+	//		    if( baos.toByteArray().length / 1024>1024) {//åˆ¤æ–­å¦‚æœå›¾ç‰‡å¤§äº1M,è¿›è¡Œå‹ç¼©é¿å…åœ¨ç”Ÿæˆå›¾ç‰‡ï¼ˆBitmapFactory.decodeStreamï¼‰æ—¶æº¢å‡º
+	//		        baos.reset();//é‡ç½®baoså³æ¸…ç©ºbaos
+	//		        image.compress(Bitmap.CompressFormat.JPEG, 50, baos);//è¿™é‡Œå‹ç¼©50%ï¼ŒæŠŠå‹ç¼©åçš„æ•°æ®å­˜æ”¾åˆ°baosä¸­
+	//		    }
+	//		    ByteArrayInputStream isBm = new ByteArrayInputStream(baos.toByteArray());
+	//		    BitmapFactory.Options newOpts = new BitmapFactory.Options();
+	//		    //å¼€å§‹è¯»å…¥å›¾ç‰‡ï¼Œæ­¤æ—¶æŠŠoptions.inJustDecodeBounds è®¾å›trueäº†
+	//		    newOpts.inJustDecodeBounds = true;
+	//		    Bitmap bitmap = BitmapFactory.decodeStream(isBm, null, newOpts);
+	//		    newOpts.inJustDecodeBounds = false;
+	//		    int w = newOpts.outWidth;
+	//		    int h = newOpts.outHeight;
+	//		    //ç°åœ¨ä¸»æµæ‰‹æœºæ¯”è¾ƒå¤šæ˜¯800*480åˆ†è¾¨ç‡ï¼Œæ‰€ä»¥é«˜å’Œå®½æˆ‘ä»¬è®¾ç½®ä¸º
+	//		    float hh = 800f;//è¿™é‡Œè®¾ç½®é«˜åº¦ä¸º800f
+	//		    float ww = 480f;//è¿™é‡Œè®¾ç½®å®½åº¦ä¸º480f
+	//		    //ç¼©æ”¾æ¯”ã€‚ç”±äºæ˜¯å›ºå®šæ¯”ä¾‹ç¼©æ”¾ï¼Œåªç”¨é«˜æˆ–è€…å®½å…¶ä¸­ä¸€ä¸ªæ•°æ®è¿›è¡Œè®¡ç®—å³å¯
+	//		    int be = 1;//be=1è¡¨ç¤ºä¸ç¼©æ”¾
+	//		    if (w > h && w > ww) {//å¦‚æœå®½åº¦å¤§çš„è¯æ ¹æ®å®½åº¦å›ºå®šå¤§å°ç¼©æ”¾
+	//		        be = (int) (newOpts.outWidth / ww);
+	//		    } else if (w < h && h > hh) {//å¦‚æœé«˜åº¦é«˜çš„è¯æ ¹æ®å®½åº¦å›ºå®šå¤§å°ç¼©æ”¾
+	//		        be = (int) (newOpts.outHeight / hh);
+	//		    }
+	//		    if (be <= 0)
+	//		        be = 1;
+	//		    newOpts.inSampleSize = be;//è®¾ç½®ç¼©æ”¾æ¯”ä¾‹
+	//		    //é‡æ–°è¯»å…¥å›¾ç‰‡ï¼Œæ³¨æ„æ­¤æ—¶å·²ç»æŠŠoptions.inJustDecodeBounds è®¾å›falseäº†
+	//		    isBm = new ByteArrayInputStream(baos.toByteArray());
+	//		    bitmap = BitmapFactory.decodeStream(isBm, null, newOpts);
+	//
+	//	        ByteArrayOutputStream output = new ByteArrayOutputStream();
+	//	        bitmap.compress(Bitmap.CompressFormat.PNG, 100, output);
+	//	        int options = 100;
+	//	        while (output.toByteArray().length > maxkb&& options != 10) {
+	//	            output.reset(); //æ¸…ç©ºoutput
+	//	            bitmap.compress(Bitmap.CompressFormat.JPEG, options, output);//è¿™é‡Œå‹ç¼©options%ï¼ŒæŠŠå‹ç¼©åçš„æ•°æ®å­˜æ”¾åˆ°outputä¸­
+	//	            options -= 10;
+	//	        }
+	//	        return output.toByteArray();
+	////		    return compressImage(bitmap);//å‹ç¼©å¥½æ¯”ä¾‹å¤§å°åå†è¿›è¡Œè´¨é‡å‹ç¼©
+	//		}
 
 }

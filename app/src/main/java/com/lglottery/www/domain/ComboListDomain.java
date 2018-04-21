@@ -3,18 +3,18 @@ package com.lglottery.www.domain;
 import java.io.Serializable;
 import java.util.ArrayList;
 /**
- * ¹ØÓÚÁÐ±íµÄÊµÌå¶ÔÏó
+ * å…³äºŽåˆ—è¡¨çš„å®žä½“å¯¹è±¡
  * @author cloor
  *
  */
 public class ComboListDomain implements Serializable {
 	/**
-	 * 
+	 *
 	 */
 	private static final long serialVersionUID = 1L;
-	
-	
-	
+
+
+
 	private String bussiness_id;
 	private String name;
 	private String branch_name;
@@ -52,7 +52,7 @@ public class ComboListDomain implements Serializable {
 	public void setSecond_region(String second_region) {
 		this.second_region = second_region;
 	}
- 
+
 	public String getDistance() {
 		return distance;
 	}
@@ -65,7 +65,7 @@ public class ComboListDomain implements Serializable {
 	public void setDomains(ArrayList<ComboDomain> domains) {
 		this.domains = domains;
 	}
-	
-	 
+
+
 
 }

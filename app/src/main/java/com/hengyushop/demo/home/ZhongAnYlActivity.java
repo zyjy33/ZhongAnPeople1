@@ -1,12 +1,5 @@
 package com.hengyushop.demo.home;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
@@ -20,37 +13,35 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ImageView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.widget.AdapterView.OnItemClickListener;
 
-import com.android.hengyu.pub.JuTuanGouAdapter;
-import com.android.hengyu.pub.MyAdapter2;
-import com.android.hengyu.pub.WideMarketAdapter;
-import com.android.hengyu.pub.YsjGoodsListAdapter;
 import com.android.hengyu.pub.ZhongAnYlAdapter;
 import com.android.hengyu.web.DialogProgress;
 import com.android.hengyu.web.RealmName;
 import com.hengyushop.demo.at.AsyncHttp;
 import com.hengyushop.demo.at.BaseActivity;
 import com.hengyushop.demo.wec.NewWare;
-import com.hengyushop.demo.wec.NewWareMallActivity;
-import com.hengyushop.entity.GuigeBean;
-import com.hengyushop.entity.JuTuanGouData;
 import com.hengyushop.entity.ZhongAnYlBean;
 import com.hengyushop.entity.ZhongAnYlData;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.zams.www.R;
-import com.zams.www.WareInformationActivity;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
 
 /**
- * ÖĞ°²ÑøÀÏ
- * 
+ * ä¸­å®‰å…»è€
+ *
  * @author Administrator
- * 
+ *
  */
 public class ZhongAnYlActivity extends BaseActivity implements OnClickListener {
 
@@ -79,28 +70,28 @@ public class ZhongAnYlActivity extends BaseActivity implements OnClickListener {
 		loadzhonganyl();
 	}
 	public void onDestroy() {
-		 super.onDestroy(); 
-		 try {
+		super.onDestroy();
+		try {
 			BitmapDrawable bd1 = (BitmapDrawable)iv_biaoti1.getBackground();
-			iv_biaoti1.setBackgroundResource(0);//±ğÍüÁË°Ñ±³¾°ÉèÎªnull£¬±ÜÃâonDrawË¢ĞÂ±³¾°Ê±ºò³öÏÖused a recycled bitmap´íÎó
+			iv_biaoti1.setBackgroundResource(0);//åˆ«å¿˜äº†æŠŠèƒŒæ™¯è®¾ä¸ºnullï¼Œé¿å…onDrawåˆ·æ–°èƒŒæ™¯æ—¶å€™å‡ºç°used a recycled bitmapé”™è¯¯
 			bd1.setCallback(null);
 			bd1.getBitmap().recycle();
 			BitmapDrawable bd2 = (BitmapDrawable)iv_biaoti2.getBackground();
-			iv_biaoti2.setBackgroundResource(0);//±ğÍüÁË°Ñ±³¾°ÉèÎªnull£¬±ÜÃâonDrawË¢ĞÂ±³¾°Ê±ºò³öÏÖused a recycled bitmap´íÎó
+			iv_biaoti2.setBackgroundResource(0);//åˆ«å¿˜äº†æŠŠèƒŒæ™¯è®¾ä¸ºnullï¼Œé¿å…onDrawåˆ·æ–°èƒŒæ™¯æ—¶å€™å‡ºç°used a recycled bitmapé”™è¯¯
 			bd2.setCallback(null);
 			bd2.getBitmap().recycle();
 			BitmapDrawable bd3 = (BitmapDrawable)iv_biaoti3.getBackground();
-			iv_biaoti3.setBackgroundResource(0);//±ğÍüÁË°Ñ±³¾°ÉèÎªnull£¬±ÜÃâonDrawË¢ĞÂ±³¾°Ê±ºò³öÏÖused a recycled bitmap´íÎó
+			iv_biaoti3.setBackgroundResource(0);//åˆ«å¿˜äº†æŠŠèƒŒæ™¯è®¾ä¸ºnullï¼Œé¿å…onDrawåˆ·æ–°èƒŒæ™¯æ—¶å€™å‡ºç°used a recycled bitmapé”™è¯¯
 			bd3.setCallback(null);
 			bd3.getBitmap().recycle();
 			BitmapDrawable bd4 = (BitmapDrawable)iv_biaoti4.getBackground();
-			iv_biaoti4.setBackgroundResource(0);//±ğÍüÁË°Ñ±³¾°ÉèÎªnull£¬±ÜÃâonDrawË¢ĞÂ±³¾°Ê±ºò³öÏÖused a recycled bitmap´íÎó
+			iv_biaoti4.setBackgroundResource(0);//åˆ«å¿˜äº†æŠŠèƒŒæ™¯è®¾ä¸ºnullï¼Œé¿å…onDrawåˆ·æ–°èƒŒæ™¯æ—¶å€™å‡ºç°used a recycled bitmapé”™è¯¯
 			bd4.setCallback(null);
 			bd4.getBitmap().recycle();
-	} catch (Exception e) {
-		// TODO: handle exception
-		e.printStackTrace();
-	}
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
 	};
 	public void intren() {
 		try {
@@ -108,10 +99,10 @@ public class ZhongAnYlActivity extends BaseActivity implements OnClickListener {
 			iv_biaoti2 = (ImageView) findViewById(R.id.iv_biaoti2);
 			iv_biaoti3 = (ImageView) findViewById(R.id.iv_biaoti3);
 			iv_biaoti4 = (ImageView) findViewById(R.id.iv_biaoti4);
-//			iv_biaoti1.setBackgroundResource(R.drawable.scyanglao);
-//			iv_biaoti2.setBackgroundResource(R.drawable.sqyanglao);
-//			iv_biaoti3.setBackgroundResource(R.drawable.jyyanglao);
-//			iv_biaoti4.setBackgroundResource(R.drawable.cxyl);
+			//			iv_biaoti1.setBackgroundResource(R.drawable.scyanglao);
+			//			iv_biaoti2.setBackgroundResource(R.drawable.sqyanglao);
+			//			iv_biaoti3.setBackgroundResource(R.drawable.jyyanglao);
+			//			iv_biaoti4.setBackgroundResource(R.drawable.cxyl);
 			Bitmap bm1 = BitmapFactory.decodeResource(this.getResources(), R.drawable.scyanglao);
 			BitmapDrawable bd1 = new BitmapDrawable(this.getResources(), bm1);
 			iv_biaoti1.setBackgroundDrawable(bd1);
@@ -124,7 +115,7 @@ public class ZhongAnYlActivity extends BaseActivity implements OnClickListener {
 			Bitmap bm4 = BitmapFactory.decodeResource(this.getResources(), R.drawable.cxyl);
 			BitmapDrawable bd4 = new BitmapDrawable(this.getResources(), bm4);
 			iv_biaoti4.setBackgroundDrawable(bd4);
-			
+
 			listview_01 = (ListView) findViewById(R.id.listview_01);
 			iv_fanhui = (ImageView) findViewById(R.id.iv_fanhui);
 			tv_xiabu = (TextView) findViewById(R.id.tv_xiabu);
@@ -155,58 +146,58 @@ public class ZhongAnYlActivity extends BaseActivity implements OnClickListener {
 	private Handler handler = new Handler() {
 		public void dispatchMessage(Message msg) {
 			switch (msg.what) {
-			case 0:
-				break;
-			case 1:
+				case 0:
+					break;
+				case 1:
 
-				try {
+					try {
 
-					System.out.println("list¸öÊıÊÇ¶àÉÙ===================="
-							+ list.size());
-					ZhongAnYlAdapter adapter = new ZhongAnYlAdapter(list,
-							getApplicationContext());
-					listview_01.setAdapter(adapter);
+						System.out.println("listä¸ªæ•°æ˜¯å¤šå°‘===================="
+								+ list.size());
+						ZhongAnYlAdapter adapter = new ZhongAnYlAdapter(list,
+								getApplicationContext());
+						listview_01.setAdapter(adapter);
 
-					// WideMarketAdapter adapter = new
-					// WideMarketAdapter(list,list_ll,getApplicationContext(),
-					// handler);
-					// listview_01.setAdapter(adapter);
+						// WideMarketAdapter adapter = new
+						// WideMarketAdapter(list,list_ll,getApplicationContext(),
+						// handler);
+						// listview_01.setAdapter(adapter);
 
-					// ZhongAnYangLaoAdapter adapter = new
-					// ZhongAnYangLaoAdapter(list,list_ll,getApplicationContext(),
-					// imageLoader);
-					// listview_01.setAdapter(adapter);
-					setListViewHeightBasedOnChildren(listview_01);
-					adapter.notifyDataSetChanged();
+						// ZhongAnYangLaoAdapter adapter = new
+						// ZhongAnYangLaoAdapter(list,list_ll,getApplicationContext(),
+						// imageLoader);
+						// listview_01.setAdapter(adapter);
+						setListViewHeightBasedOnChildren(listview_01);
+						adapter.notifyDataSetChanged();
 
-					listview_01
-							.setOnItemClickListener(new OnItemClickListener() {
+						listview_01
+								.setOnItemClickListener(new OnItemClickListener() {
 
-								@Override
-								public void onItemClick(AdapterView<?> arg0,
-										View arg1, int arg2, long arg3) {
-									// TODO Auto-generated method stub
-									String id = list.get(arg2).getId();
-									System.out.println("====================="
-											+ id);
-									Intent intent = new Intent(
-											ZhongAnYlActivity.this,
-											ZhongAnYlListActivity.class);
-									intent.putExtra("id", id);
-									intent.putExtra("title", list.get(arg2)
-											.getTitle());
-									startActivity(intent);
-								}
-							});
+									@Override
+									public void onItemClick(AdapterView<?> arg0,
+															View arg1, int arg2, long arg3) {
+										// TODO Auto-generated method stub
+										String id = list.get(arg2).getId();
+										System.out.println("====================="
+												+ id);
+										Intent intent = new Intent(
+												ZhongAnYlActivity.this,
+												ZhongAnYlListActivity.class);
+										intent.putExtra("id", id);
+										intent.putExtra("title", list.get(arg2)
+												.getTitle());
+										startActivity(intent);
+									}
+								});
 
-				} catch (Exception e) {
-					// TODO: handle exception
-					e.printStackTrace();
-				}
-				break;
+					} catch (Exception e) {
+						// TODO: handle exception
+						e.printStackTrace();
+					}
+					break;
 
-			default:
-				break;
+				default:
+					break;
 			}
 		};
 	};
@@ -214,14 +205,14 @@ public class ZhongAnYlActivity extends BaseActivity implements OnClickListener {
 	private void loadzhonganyl() {
 		progress.CreateProgress();
 		AsyncHttp.get(RealmName.REALM_NAME_LL
-				+ "/get_article_loop_list?channel_name=innovate&top=3",
+						+ "/get_article_loop_list?channel_name=innovate&top=3",
 				new AsyncHttpResponseHandler() {
 					@Override
 					public void onSuccess(int arg0, String arg1) {
 						// TODO Auto-generated method stub
 						super.onSuccess(arg0, arg1);
 						System.out
-								.println("=======ÁĞ±íÊı¾İ================================"
+								.println("=======åˆ—è¡¨æ•°æ®================================"
 										+ arg1);
 						try {
 							JSONObject object = new JSONObject(arg1);
@@ -241,7 +232,7 @@ public class ZhongAnYlActivity extends BaseActivity implements OnClickListener {
 												.getString("title"));
 										String zhou1 = data.getTitle();
 										System.out
-												.println("=====±êÌâ====================="
+												.println("=====æ ‡é¢˜====================="
 														+ zhou1);
 										String article = object1
 												.getString("article");
@@ -264,7 +255,7 @@ public class ZhongAnYlActivity extends BaseActivity implements OnClickListener {
 													.getString("market_price"));
 											String zhou = bean.getTitle();
 											System.out
-													.println("=====ÄÚÈİ====================="
+													.println("=====å†…å®¹====================="
 															+ zhou);
 
 											data.getList().add(bean);
@@ -281,7 +272,7 @@ public class ZhongAnYlActivity extends BaseActivity implements OnClickListener {
 									}
 								}
 								System.out
-										.println("=====ÄÚÈİlist====================="
+										.println("=====å†…å®¹list====================="
 												+ list.size());
 								progress.CloseProgress();
 								handler.sendEmptyMessage(1);
@@ -301,7 +292,7 @@ public class ZhongAnYlActivity extends BaseActivity implements OnClickListener {
 				}, null);
 	}
 
-	// ÉÌ¼ÒÁĞ±í
+	// å•†å®¶åˆ—è¡¨
 	// private void loadCate(){
 	// progress.CreateProgress();
 	// AsyncHttp.get(RealmName.REALM_NAME_LL +
@@ -319,7 +310,7 @@ public class ZhongAnYlActivity extends BaseActivity implements OnClickListener {
 	// public void parse(String st) {
 	// try {
 	// list = new ArrayList<ZhongAnYlData>();
-	// System.out.println("Àà±ğ=======================");
+	// System.out.println("ç±»åˆ«=======================");
 	// JSONObject jsonObject = new JSONObject(st);
 	// String status = jsonObject.getString("status");
 	// String info = jsonObject.getString("info");
@@ -331,7 +322,7 @@ public class ZhongAnYlActivity extends BaseActivity implements OnClickListener {
 	// JSONObject object = jsonArray.getJSONObject(i);
 	// data.id = object.getString("id");
 	// data.title = object.getString("title");
-	// System.out.println("±êÌâ======================="+data.title);
+	// System.out.println("æ ‡é¢˜======================="+data.title);
 	// String id = data.id;
 	// int category_id = Integer.parseInt(id);
 	// loadWeather(category_id);
@@ -362,8 +353,8 @@ public class ZhongAnYlActivity extends BaseActivity implements OnClickListener {
 	// public void onSuccess(int arg0, String arg1) {
 	// // TODO Auto-generated method stub
 	// super.onSuccess(arg0, arg1);
-	// // System.out.println("=======ÏêÇéÊı¾İ=="+arg1);
-	// System.out.println("=======ÁĞ±íÊı¾İ================================");
+	// // System.out.println("=======è¯¦æƒ…æ•°æ®=="+arg1);
+	// System.out.println("=======åˆ—è¡¨æ•°æ®================================");
 	// try {
 	// progress.CloseProgress();
 	// JSONObject object = new JSONObject(arg1);
@@ -385,7 +376,7 @@ public class ZhongAnYlActivity extends BaseActivity implements OnClickListener {
 	// list_ll.add(bean);
 	// try {
 	// String zhou = bean.getTitle();
-	// System.out.println("=====ÄÚÈİ====================="+zhou);
+	// System.out.println("=====å†…å®¹====================="+zhou);
 	// data.getList().add(bean);
 	// // String items = data.getList().get(0).getTitle();
 	// progress.CloseProgress();
@@ -412,7 +403,7 @@ public class ZhongAnYlActivity extends BaseActivity implements OnClickListener {
 	// }
 
 	public void setListViewHeightBasedOnChildren(ListView listView) {
-		// »ñÈ¡ListView¶ÔÓ¦µÄAdapter
+		// è·å–ListViewå¯¹åº”çš„Adapter
 		ListAdapter listAdapter = listView.getAdapter();
 		if (listAdapter == null) {
 			return;
@@ -420,19 +411,19 @@ public class ZhongAnYlActivity extends BaseActivity implements OnClickListener {
 
 		int totalHeight = 0;
 		for (int i = 0, len = listAdapter.getCount(); i < len; i++) {
-			// listAdapter.getCount()·µ»ØÊı¾İÏîµÄÊıÄ¿
+			// listAdapter.getCount()è¿”å›æ•°æ®é¡¹çš„æ•°ç›®
 			View listItem = listAdapter.getView(i, null, listView);
-			// ¼ÆËã×ÓÏîView µÄ¿í¸ß
+			// è®¡ç®—å­é¡¹View çš„å®½é«˜
 			listItem.measure(0, 0);
-			// Í³¼ÆËùÓĞ×ÓÏîµÄ×Ü¸ß¶È
+			// ç»Ÿè®¡æ‰€æœ‰å­é¡¹çš„æ€»é«˜åº¦
 			totalHeight += listItem.getMeasuredHeight();
 		}
 
 		ViewGroup.LayoutParams params = listView.getLayoutParams();
 		params.height = totalHeight
 				+ (listView.getDividerHeight() * (listAdapter.getCount() - 1));
-		// listView.getDividerHeight()»ñÈ¡×ÓÏî¼ä·Ö¸ô·ûÕ¼ÓÃµÄ¸ß¶È
-		// params.height×îºóµÃµ½Õû¸öListViewÍêÕûÏÔÊ¾ĞèÒªµÄ¸ß¶È
+		// listView.getDividerHeight()è·å–å­é¡¹é—´åˆ†éš”ç¬¦å ç”¨çš„é«˜åº¦
+		// params.heightæœ€åå¾—åˆ°æ•´ä¸ªListViewå®Œæ•´æ˜¾ç¤ºéœ€è¦çš„é«˜åº¦
 		listView.setLayoutParams(params);
 	}
 
@@ -441,19 +432,19 @@ public class ZhongAnYlActivity extends BaseActivity implements OnClickListener {
 		// TODO Auto-generated method stub
 
 		switch (v.getId()) {
-		case R.id.iv_fanhui:
-			finish();
-			break;
-		case R.id.ra5:
-			// loadWeather();
-			break;
-		case R.id.iv_biaoti1:
-			Intent intent = new Intent(ZhongAnYlActivity.this, NewWare.class);
-			intent.putExtra("channel_name", "mall");
-			startActivity(intent);
-			break;
-		default:
-			break;
+			case R.id.iv_fanhui:
+				finish();
+				break;
+			case R.id.ra5:
+				// loadWeather();
+				break;
+			case R.id.iv_biaoti1:
+				Intent intent = new Intent(ZhongAnYlActivity.this, NewWare.class);
+				intent.putExtra("channel_name", "mall");
+				startActivity(intent);
+				break;
+			default:
+				break;
 		}
 	}
 }

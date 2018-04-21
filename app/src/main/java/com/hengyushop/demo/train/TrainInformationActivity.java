@@ -1,9 +1,12 @@
 package com.hengyushop.demo.train;
 
-import java.util.ArrayList;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
+import android.view.Window;
+import android.widget.ListView;
+import android.widget.TextView;
+
 import com.hengyushop.demo.at.AsyncHttp;
 import com.hengyushop.demo.at.BaseActivity;
 import com.hengyushop.demo.at.Common;
@@ -11,13 +14,11 @@ import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
 import com.zams.www.R;
 
-import android.app.Activity;
-import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
-import android.view.Window;
-import android.widget.ListView;
-import android.widget.TextView;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
 
 public class TrainInformationActivity extends BaseActivity {
 
@@ -39,27 +40,27 @@ public class TrainInformationActivity extends BaseActivity {
 	private Handler handler = new Handler() {
 		public void dispatchMessage(Message msg) {
 			switch (msg.what) {
-			case 0:
-				TrainInfoBean item = (TrainInfoBean) msg.obj;
-				TrainInfoChild child = item.getChild();
-				System.out.println((v1 == null) + "~~~" + (child == null));
-				v1.setText(child.getV1());
-				v2.setText(child.getV2());
-				v3.setText(child.getV3());
-				v4.setText(child.getV4());
-				v5.setText(child.getV5());
-				v6.setText(child.getV6());
-				v7.setText(child.getV7());
-				v8.setText(child.getV8());
-				v9.setText(child.getV9());
-				System.out.println(item.getInfoChilds().size());
-				TrainInfoAdapter adapter = new TrainInfoAdapter(
-						getApplicationContext(), item.getInfoChilds());
-				list_station.setAdapter(adapter);
-				break;
+				case 0:
+					TrainInfoBean item = (TrainInfoBean) msg.obj;
+					TrainInfoChild child = item.getChild();
+					System.out.println((v1 == null) + "~~~" + (child == null));
+					v1.setText(child.getV1());
+					v2.setText(child.getV2());
+					v3.setText(child.getV3());
+					v4.setText(child.getV4());
+					v5.setText(child.getV5());
+					v6.setText(child.getV6());
+					v7.setText(child.getV7());
+					v8.setText(child.getV8());
+					v9.setText(child.getV9());
+					System.out.println(item.getInfoChilds().size());
+					TrainInfoAdapter adapter = new TrainInfoAdapter(
+							getApplicationContext(), item.getInfoChilds());
+					list_station.setAdapter(adapter);
+					break;
 
-			default:
-				break;
+				default:
+					break;
 			}
 		};
 	};
@@ -123,7 +124,7 @@ public class TrainInformationActivity extends BaseActivity {
 			child.setV8(childHead8);
 			child.setV9(childHead9);
 			bean.setChild(child);
-			// Ê±¿Ì
+			// æ—¶åˆ»
 			ArrayList<TrainInfoChild> childs = new ArrayList<TrainInfoChild>();
 			JSONArray itemArray = childObject.getJSONArray("item");
 			int itemLen = itemArray.length();

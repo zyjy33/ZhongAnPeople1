@@ -1,11 +1,5 @@
 package com.lglottery.www.adapter;
 
-import java.util.ArrayList;
-
-import com.hengyushop.airplane.adapter.Distance;
-import com.hengyushop.db.SharedUtils;
-import com.nostra13.universalimageloader.core.ImageLoader;
-import com.zams.www.R;
 import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +7,13 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import com.hengyushop.airplane.adapter.Distance;
+import com.hengyushop.db.SharedUtils;
+import com.nostra13.universalimageloader.core.ImageLoader;
+import com.zams.www.R;
+
+import java.util.ArrayList;
 
 public class JDLayoutAdapter extends BaseAdapter {
 	private Context context;
@@ -22,7 +23,7 @@ public class JDLayoutAdapter extends BaseAdapter {
 	private double lat, log;
 
 	public JDLayoutAdapter(Context context, ArrayList<JDbean> list,
-			ImageLoader imageLoader, double lat, double log) {
+						   ImageLoader imageLoader, double lat, double log) {
 		// TODO Auto-generated constructor stub
 		this.context = context;
 		this.list = list;
@@ -77,19 +78,19 @@ public class JDLayoutAdapter extends BaseAdapter {
 		holder.item1.setText(list.get(index).getName());
 		holder.item2.setText(list.get(index).getScenSum());
 		holder.item3.setText(list.get(index).getAmountAdv());
-		holder.item4.setText(list.get(index).getAmount() + "Ôª");
+		holder.item4.setText(list.get(index).getAmount() + "å…ƒ");
 
 		System.out.println("lat:" + lat + "----lon:" + log);
 		try {
 			Double jl = Distance.GetDistance(
 					Double.parseDouble(list.get(index).getLat()),
 					Double.parseDouble(list.get(index).getLon()), lat, log);
-			System.out.println("µÃµ½µÄÊý¾Ý:" + jl);
+			System.out.println("å¾—åˆ°çš„æ•°æ®:" + jl);
 			if (jl > 1000) {
 				holder.item5.setText(String.valueOf(Math.floor(jl / 1000))
-						+ "¹«Àï");
+						+ "å…¬é‡Œ");
 			} else {
-				holder.item5.setText(String.valueOf(jl) + "Ã×");
+				holder.item5.setText(String.valueOf(jl) + "ç±³");
 			}
 
 		} catch (NumberFormatException e) {

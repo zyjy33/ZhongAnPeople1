@@ -1,15 +1,5 @@
 package com.hengyushop.demo.train;
 
-import java.io.UnsupportedEncodingException;
-import java.net.URLEncoder;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
-import com.android.hengyu.ui.CalendarPickerView;
-import com.android.hengyu.ui.CalendarPickerView.SelectionMode;
-import com.hengyushop.demo.at.BaseActivity;
-import com.zams.www.R;
-
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -24,6 +14,15 @@ import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.android.hengyu.ui.CalendarPickerView;
+import com.android.hengyu.ui.CalendarPickerView.SelectionMode;
+import com.hengyushop.demo.at.BaseActivity;
+import com.zams.www.R;
+
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 
 public class TrainHomeActivity extends BaseActivity {
 	private CalendarPickerView calendar;
@@ -48,14 +47,14 @@ public class TrainHomeActivity extends BaseActivity {
 
 			@Override
 			public void onTextChanged(CharSequence arg0, int arg1, int arg2,
-					int arg3) {
+									  int arg3) {
 
 				// startStation.showDropDown();
 			}
 
 			@Override
 			public void beforeTextChanged(CharSequence arg0, int arg1,
-					int arg2, int arg3) {
+										  int arg2, int arg3) {
 
 			}
 
@@ -66,11 +65,11 @@ public class TrainHomeActivity extends BaseActivity {
 				ArrayAdapter<String> adapter = new ArrayAdapter<String>(
 						TrainHomeActivity.this,
 						android.R.layout.simple_dropdown_item_1line, czDb
-								.getZ(temp));
+						.getZ(temp));
 				startStation.setAdapter(adapter);
 				// startStation.setDropDownHeight(50);
 				startStation.setThreshold(1);
-				startStation.setCompletionHint("πÿ”⁄'" + temp + "'πÿº¸◊÷µƒ’æ√˚");
+				startStation.setCompletionHint("ÂÖ≥‰∫é'" + temp + "'ÂÖ≥ÈîÆÂ≠óÁöÑÁ´ôÂêç");
 
 			}
 		});
@@ -78,13 +77,13 @@ public class TrainHomeActivity extends BaseActivity {
 
 			@Override
 			public void onTextChanged(CharSequence arg0, int arg1, int arg2,
-					int arg3) {
+									  int arg3) {
 				// startStation.showDropDown();
 			}
 
 			@Override
 			public void beforeTextChanged(CharSequence arg0, int arg1,
-					int arg2, int arg3) {
+										  int arg2, int arg3) {
 
 			}
 
@@ -95,10 +94,10 @@ public class TrainHomeActivity extends BaseActivity {
 				ArrayAdapter<String> adapter = new ArrayAdapter<String>(
 						TrainHomeActivity.this,
 						android.R.layout.simple_dropdown_item_1line, czDb
-								.getZ(temp));
+						.getZ(temp));
 				arrvieStation.setAdapter(adapter);
 				arrvieStation.setThreshold(1);
-				arrvieStation.setCompletionHint("πÿ”⁄'" + temp + "'πÿº¸◊÷µƒ’æ√˚");
+				arrvieStation.setCompletionHint("ÂÖ≥‰∫é'" + temp + "'ÂÖ≥ÈîÆÂ≠óÁöÑÁ´ôÂêç");
 
 			}
 		});
@@ -112,79 +111,79 @@ public class TrainHomeActivity extends BaseActivity {
 		@Override
 		public void onClick(View v) {
 			switch (v.getId()) {
-			case R.id.train_time:
-				dialogView = (CalendarPickerView) getLayoutInflater().inflate(
-						R.layout.dialog, null, false);
-				final Calendar nextYear = Calendar.getInstance();
-				nextYear.add(Calendar.YEAR, 1);
-				final Calendar lastYear = Calendar.getInstance();
-				lastYear.add(Calendar.YEAR, -1);
-				calendar = (CalendarPickerView) dialogView
-						.findViewById(R.id.calendar_view);
-				calendar.init(lastYear.getTime(), nextYear.getTime()) //
-						.inMode(SelectionMode.SINGLE) //
-						.withSelectedDate(new Date());
+				case R.id.train_time:
+					dialogView = (CalendarPickerView) getLayoutInflater().inflate(
+							R.layout.dialog, null, false);
+					final Calendar nextYear = Calendar.getInstance();
+					nextYear.add(Calendar.YEAR, 1);
+					final Calendar lastYear = Calendar.getInstance();
+					lastYear.add(Calendar.YEAR, -1);
+					calendar = (CalendarPickerView) dialogView
+							.findViewById(R.id.calendar_view);
+					calendar.init(lastYear.getTime(), nextYear.getTime()) //
+							.inMode(SelectionMode.SINGLE) //
+							.withSelectedDate(new Date());
 
-				dialogView.init(lastYear.getTime(), nextYear.getTime()) //
-						.withSelectedDate(new Date());
-				theDialog = new AlertDialog.Builder(TrainHomeActivity.this)
-						.setView(dialogView)
-						.setNeutralButton("—°÷–",
-								new DialogInterface.OnClickListener() {
-									@Override
-									public void onClick(
-											DialogInterface dialogInterface,
-											int i) {
-										SimpleDateFormat formatter = new SimpleDateFormat(
-												"yyyy-MM-dd");
-										train_time.setText(formatter
-												.format(calendar
-														.getSelectedDate()));
-										dialogInterface.dismiss();
-									}
-								}).create();
-				theDialog
-						.setOnShowListener(new DialogInterface.OnShowListener() {
-							@Override
-							public void onShow(DialogInterface dialogInterface) {
-								dialogView.fixDialogDimens();
-							}
-						});
-				theDialog.show();
+					dialogView.init(lastYear.getTime(), nextYear.getTime()) //
+							.withSelectedDate(new Date());
+					theDialog = new AlertDialog.Builder(TrainHomeActivity.this)
+							.setView(dialogView)
+							.setNeutralButton("ÈÄâ‰∏≠",
+									new DialogInterface.OnClickListener() {
+										@Override
+										public void onClick(
+												DialogInterface dialogInterface,
+												int i) {
+											SimpleDateFormat formatter = new SimpleDateFormat(
+													"yyyy-MM-dd");
+											train_time.setText(formatter
+													.format(calendar
+															.getSelectedDate()));
+											dialogInterface.dismiss();
+										}
+									}).create();
+					theDialog
+							.setOnShowListener(new DialogInterface.OnShowListener() {
+								@Override
+								public void onShow(DialogInterface dialogInterface) {
+									dialogView.fixDialogDimens();
+								}
+							});
+					theDialog.show();
 
-				break;
-			case R.id.btn_select:
-				Intent intent = new Intent(TrainHomeActivity.this,
-						TrainSelectResultActivity.class);
-				Bundle bule = new Bundle();
-				String s = startStation.getText().toString().trim();
-				String a = arrvieStation.getText().toString().trim();
-				HczDB db1 = new HczDB(getApplicationContext());
-				String param1 = db1.getCode(s);
-				HczDB db2 = new HczDB(getApplicationContext());
-				String param2 = db2.getCode(a);
-				if (param1.length() == 0) {
-					Toast.makeText(getApplicationContext(), "º¸»Î º∑¢µÿ", 200)
-							.show();
-				} else if (param2.length() == 0) {
-					Toast.makeText(getApplicationContext(), "º¸»Îƒøµƒµÿ", 200)
-							.show();
-				} else {
-					bule.putString("startStation", param1);
-					bule.putString("arrvieStation", param2);
-					bule.putString("add", s + "-" + a);
-					bule.putString("time", train_time.getText().toString());
-					intent.putExtras(bule);
-					startActivity(intent);
-				}
-				break;
-			case R.id.change_city:
-				String temp = startStation.getText().toString();
-				startStation.setText(arrvieStation.getText().toString());
-				arrvieStation.setText(temp);
-				break;
-			default:
-				break;
+					break;
+				case R.id.btn_select:
+					Intent intent = new Intent(TrainHomeActivity.this,
+							TrainSelectResultActivity.class);
+					Bundle bule = new Bundle();
+					String s = startStation.getText().toString().trim();
+					String a = arrvieStation.getText().toString().trim();
+					HczDB db1 = new HczDB(getApplicationContext());
+					String param1 = db1.getCode(s);
+					HczDB db2 = new HczDB(getApplicationContext());
+					String param2 = db2.getCode(a);
+					if (param1.length() == 0) {
+						Toast.makeText(getApplicationContext(), "ÈîÆÂÖ•ÂßãÂèëÂú∞", 200)
+								.show();
+					} else if (param2.length() == 0) {
+						Toast.makeText(getApplicationContext(), "ÈîÆÂÖ•ÁõÆÁöÑÂú∞", 200)
+								.show();
+					} else {
+						bule.putString("startStation", param1);
+						bule.putString("arrvieStation", param2);
+						bule.putString("add", s + "-" + a);
+						bule.putString("time", train_time.getText().toString());
+						intent.putExtras(bule);
+						startActivity(intent);
+					}
+					break;
+				case R.id.change_city:
+					String temp = startStation.getText().toString();
+					startStation.setText(arrvieStation.getText().toString());
+					arrvieStation.setText(temp);
+					break;
+				default:
+					break;
 			}
 		}
 	};

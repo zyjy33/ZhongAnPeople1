@@ -45,9 +45,9 @@ import com.zams.www.R;
 
 /**
  *
- * ∂©µ•œÍ«È
+ * ËÆ¢ÂçïËØ¶ÊÉÖ
  * @author Administrator
- * 
+ *
  */
 public class MyOrderXqActivity extends BaseActivity implements OnClickListener{
 
@@ -70,8 +70,8 @@ public class MyOrderXqActivity extends BaseActivity implements OnClickListener{
 	LinearLayout ll_anliu;
 	private String payment_status,express_status,status;
 	int zhuangtai;
-//	private List<MyOrderData> list = new ArrayList<MyOrderData>();
-//	private List<OrderBean> lists = new ArrayList<OrderBean>();
+	//	private List<MyOrderData> list = new ArrayList<MyOrderData>();
+	//	private List<OrderBean> lists = new ArrayList<OrderBean>();
 	MyOrderData md;
 	OrderBean mb;
 	private MyOrderXqAdapter mybAdapter;
@@ -86,36 +86,36 @@ public class MyOrderXqActivity extends BaseActivity implements OnClickListener{
 	protected void onResume() {
 		// TODO Auto-generated method stub
 		super.onResume();
-//		TextView tv_geshu = (TextView) findViewById(R.id.tv_geshu);
-//		if (list.size() > 0) {
-//			tv_geshu.setText(list.size());
-//		}
-		System.out.println("◊¥Ã¨==============" + teby);
-		//”‡∂Ó÷ß∏∂∏¸–¬
+		//		TextView tv_geshu = (TextView) findViewById(R.id.tv_geshu);
+		//		if (list.size() > 0) {
+		//			tv_geshu.setText(list.size());
+		//		}
+		System.out.println("Áä∂ÊÄÅ==============" + teby);
+		//‰ΩôÈ¢ùÊîØ‰ªòÊõ¥Êñ∞
 		if (teby == true) {
 			userloginqm();
 			finish();
 		}
-		
+
 	}
-	
-    //µ±Activity±ªœ˙ªŸ ±ª·µ˜”√onDestory∑Ω∑®
-    @Override  
-    protected void onDestroy() {  
-        super.onDestroy(); 
-    	try {
-    	
-    	if (list.size() > 0) {
-    		list.clear();
-    		list = null;
-		}
-    	
-    	} catch (Exception e) {
+
+	//ÂΩìActivityË¢´ÈîÄÊØÅÊó∂‰ºöË∞ÉÁî®onDestoryÊñπÊ≥ï
+	@Override
+	protected void onDestroy() {
+		super.onDestroy();
+		try {
+
+			if (list.size() > 0) {
+				list.clear();
+				list = null;
+			}
+
+		} catch (Exception e) {
 			// TODO: handle exception
-    		e.printStackTrace();
+			e.printStackTrace();
 		}
-    } 
-    
+	}
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
@@ -137,56 +137,56 @@ public class MyOrderXqActivity extends BaseActivity implements OnClickListener{
 			ll_anliu = (LinearLayout) findViewById(R.id.ll_anliu);//
 			iv_fanhui = (ImageView) findViewById(R.id.iv_fanhui);
 			tv_shanche.setOnClickListener(this);
-//			tv_fukuan.setOnClickListener(this);
+			//			tv_fukuan.setOnClickListener(this);
 			tv_queren_fukuan.setOnClickListener(this);
 			tv_pingjia.setOnClickListener(this);
-			
+
 			System.out.println("zhou1----------");
 			iv_fanhui.setOnClickListener(new OnClickListener() {
-				
+
 				@Override
 				public void onClick(View arg0) {
 					// TODO Auto-generated method stub
 					finish();
 				}
 			});
-			
+
 			bean = (MyOrderData) getIntent().getSerializableExtra("bean");
-//			List<MyOrderData> bean = (List<MyOrderData>) getIntent().getSerializableExtra("bean");
+			//			List<MyOrderData> bean = (List<MyOrderData>) getIntent().getSerializableExtra("bean");
 			list = new ArrayList<MyOrderData>();
 			list.add(bean);
 			lists = list.get(0).getList();
 			order_no = list.get(0).getOrder_no();
-//			System.out.println("order_no----------"+order_no);
-//			System.out.println("lists----------"+lists.size());
+			//			System.out.println("order_no----------"+order_no);
+			//			System.out.println("lists----------"+lists.size());
 			String zhou = lists.get(0).getGoods_title();
-//			System.out.println("zhou----------"+zhou);
-			
+			//			System.out.println("zhou----------"+zhou);
+
 			mybAdapter = new MyOrderXqAdapter(MyOrderXqActivity.this, list,handler);
 			my_list.setAdapter(mybAdapter);
 			MyOrderXqAdapter.mAq.clear();
-//			String payment_status = getIntent().getStringExtra("payment_status");
-//			System.out.println("payment_status----------"+payment_status);
-			
+			//			String payment_status = getIntent().getStringExtra("payment_status");
+			//			System.out.println("payment_status----------"+payment_status);
+
 			payment_status = list.get(0).getPayment_status();
 			System.out.println("payment_status============="+payment_status);
 			express_status = list.get(0).getExpress_status();
 			System.out.println("express_status============="+express_status);
 			status = list.get(0).getStatus();
 			System.out.println("status============="+status);
-			
+
 			System.out.println("zhou3----------");
 			if (payment_status.equals("1")){
-				System.out.println("¥˝∏∂øÓ=============");
+				System.out.println("ÂæÖ‰ªòÊ¨æ=============");
 				ll_anliu.setVisibility(View.VISIBLE);
 				tv_queren_fukuan.setVisibility(View.GONE);
 				tv_pingjia.setVisibility(View.GONE);
 				tv_fukuan.setVisibility(View.GONE);
 				tv_shanche.setVisibility(View.VISIBLE);
-//				tv_fukuan.setText("»∑»œ∏∂øÓ");
+				//				tv_fukuan.setText("Á°ÆËÆ§‰ªòÊ¨æ");
 				zhuangtai = 2;
 			}else if (payment_status.equals("2") && express_status.equals("1")){
-				System.out.println("¥˝∑¢ªı=============");
+				System.out.println("ÂæÖÂèëË¥ß=============");
 				ll_anliu.setVisibility(View.GONE);
 				zhuangtai = 3;
 			}else if (payment_status.equals("2") && express_status.equals("2") && status.equals("2")){
@@ -194,93 +194,93 @@ public class MyOrderXqActivity extends BaseActivity implements OnClickListener{
 				tv_fukuan.setVisibility(View.GONE);
 				tv_queren_fukuan.setVisibility(View.VISIBLE);
 				tv_pingjia.setVisibility(View.GONE);
-				tv_queren_fukuan.setText("»∑»œ ’ªı");
+				tv_queren_fukuan.setText("Á°ÆËÆ§Êî∂Ë¥ß");
 				zhuangtai = 4;
 			}else if (payment_status.equals("2") && express_status.equals("2") && status.equals("3")){
-				System.out.println("“—ÕÍ≥…=============");
+				System.out.println("Â∑≤ÂÆåÊàê=============");
 				ll_anliu.setVisibility(View.VISIBLE);
 				tv_fukuan.setVisibility(View.GONE);
 				tv_queren_fukuan.setVisibility(View.GONE);
-//				tv_pingjia.setVisibility(View.VISIBLE);
+				//				tv_pingjia.setVisibility(View.VISIBLE);
 				tv_shanche.setVisibility(View.VISIBLE);
-//				tv_pingjia.setText("∆¿º€");
+				//				tv_pingjia.setText("ËØÑ‰ª∑");
 				zhuangtai = 5;
 			}
-	    
-			
+
+
 			handler = new Handler() {
 				public void dispatchMessage(Message msg) {
 					switch (msg.what) {
-					case 0:
-		            break;
-					case 1:
-//						System.out.println("======dialog1===============");
-//						order_no = (String) msg.obj;
-//						dialog();
-						finish();
-			            break;
-//					case 2:
-//						System.out.println("======dialog2===============");
-//						order_no = (String) msg.obj;
-//						dialog2();
-//			            break;
-//					case 3:
-//						System.out.println("======dialog3===============");
-//						order_no = (String) msg.obj;
-////						dialog3();
-//						break;
+						case 0:
+							break;
+						case 1:
+							//						System.out.println("======dialog1===============");
+							//						order_no = (String) msg.obj;
+							//						dialog();
+							finish();
+							break;
+						//					case 2:
+						//						System.out.println("======dialog2===============");
+						//						order_no = (String) msg.obj;
+						//						dialog2();
+						//			            break;
+						//					case 3:
+						//						System.out.println("======dialog3===============");
+						//						order_no = (String) msg.obj;
+						////						dialog3();
+						//						break;
 
-					default:
-						break;
+						default:
+							break;
 					}
 				}
 			};
-				
-	    } catch (Exception e) {
-		// TODO: handle exception
-		e.printStackTrace();
+
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+
 	}
-	     
-	}
-	
-	
+
+
 	public void initUI() {
-		
+
 	}
-	
-//	handler = new Handler() {
-//		public void dispatchMessage(Message msg) {
-//			switch (msg.what) {
-//			case 0:
-//            break;
-////			case 1:
-////				System.out.println("======dialog1===============");
-////				order_no = (String) msg.obj;
-////				dialog();
-////	            break;
-////			case 2:
-////				System.out.println("======dialog2===============");
-////				order_no = (String) msg.obj;
-////				dialog2();
-////	            break;
-////			case 3:
-////				System.out.println("======dialog3===============");
-////				order_no = (String) msg.obj;
-//////				dialog3();
-////				break;
-//
-//			default:
-//				break;
-//			}
-//		};
-//	};
-	
-	
+
+	//	handler = new Handler() {
+	//		public void dispatchMessage(Message msg) {
+	//			switch (msg.what) {
+	//			case 0:
+	//            break;
+	////			case 1:
+	////				System.out.println("======dialog1===============");
+	////				order_no = (String) msg.obj;
+	////				dialog();
+	////	            break;
+	////			case 2:
+	////				System.out.println("======dialog2===============");
+	////				order_no = (String) msg.obj;
+	////				dialog2();
+	////	            break;
+	////			case 3:
+	////				System.out.println("======dialog3===============");
+	////				order_no = (String) msg.obj;
+	//////				dialog3();
+	////				break;
+	//
+	//			default:
+	//				break;
+	//			}
+	//		};
+	//	};
+
+
 	protected void dialog2() {
 		AlertDialog.Builder builder = new Builder(MyOrderXqActivity.this);
-		builder.setMessage(" «∑Ò»∑∂®»°œ˚∂©µ•?");
-		builder.setTitle("Ã· æ");
-		builder.setPositiveButton("»∑»œ", new DialogInterface.OnClickListener() {
+		builder.setMessage("ÊòØÂê¶Á°ÆÂÆöÂèñÊ∂àËÆ¢Âçï?");
+		builder.setTitle("ÊèêÁ§∫");
+		builder.setPositiveButton("Á°ÆËÆ§", new DialogInterface.OnClickListener() {
 
 			@Override
 			public void onClick(DialogInterface dialog, int which) {
@@ -288,7 +288,7 @@ public class MyOrderXqActivity extends BaseActivity implements OnClickListener{
 			}
 		});
 
-		builder.setNegativeButton("»°œ˚", new DialogInterface.OnClickListener() {
+		builder.setNegativeButton("ÂèñÊ∂à", new DialogInterface.OnClickListener() {
 
 			@Override
 			public void onClick(DialogInterface dialog, int which) {
@@ -298,12 +298,12 @@ public class MyOrderXqActivity extends BaseActivity implements OnClickListener{
 
 		builder.create().show();
 	}
-	
+
 	protected void dialog3() {
 		AlertDialog.Builder builder = new Builder(MyOrderXqActivity.this);
-		builder.setMessage(" «∑Ò»∑∂®…æ≥˝∂©µ•?");
-		builder.setTitle("Ã· æ");
-		builder.setPositiveButton("»∑»œ", new DialogInterface.OnClickListener() {
+		builder.setMessage("ÊòØÂê¶Á°ÆÂÆöÂà†Èô§ËÆ¢Âçï?");
+		builder.setTitle("ÊèêÁ§∫");
+		builder.setPositiveButton("Á°ÆËÆ§", new DialogInterface.OnClickListener() {
 
 			@Override
 			public void onClick(DialogInterface dialog, int which) {
@@ -312,7 +312,7 @@ public class MyOrderXqActivity extends BaseActivity implements OnClickListener{
 			}
 		});
 
-		builder.setNegativeButton("»°œ˚", new DialogInterface.OnClickListener() {
+		builder.setNegativeButton("ÂèñÊ∂à", new DialogInterface.OnClickListener() {
 
 			@Override
 			public void onClick(DialogInterface dialog, int which) {
@@ -322,130 +322,130 @@ public class MyOrderXqActivity extends BaseActivity implements OnClickListener{
 
 		builder.create().show();
 	}
-	
+
 	/**
-	 * …æ≥˝∂©µ•
-	 * @param order_no 
-	 * @param payment_id 
+	 * Âà†Èô§ËÆ¢Âçï
+	 * @param order_no
+	 * @param payment_id
 	 */
 	public void fukuanok3(String order_no2) {
-			progress.CreateProgress();	
-			order_no = order_no2;
-			System.out.println("order_no================================="+order_no);
-			String login_sign = spPreferences.getString("login_sign", "");
-			System.out.println("login_sign================================="+login_sign);
+		progress.CreateProgress();
+		order_no = order_no2;
+		System.out.println("order_no================================="+order_no);
+		String login_sign = spPreferences.getString("login_sign", "");
+		System.out.println("login_sign================================="+login_sign);
 		AsyncHttp.get(RealmName.REALM_NAME_LL
-				+ "/delete_order?user_id="+user_id+"&user_name="+user_name+"" +
-				"&trade_no="+order_no+"&sign="+login_sign+"",
+						+ "/delete_order?user_id="+user_id+"&user_name="+user_name+"" +
+						"&trade_no="+order_no+"&sign="+login_sign+"",
 				new AsyncHttpResponseHandler() {
 					@Override
 					public void onSuccess(int arg0, String arg1) {
 						super.onSuccess(arg0, arg1);
 						try {
 							JSONObject object = new JSONObject(arg1);
-							System.out.println("»°œ˚∂©µ•================================="+arg1);
-							  String status = object.getString("status");
-							    String info = object.getString("info");
-							    if (status.equals("y")) {
-									  progress.CloseProgress();
-									  Toast.makeText(MyOrderXqActivity.this, info, 200).show();
-//									  Intent intent = new Intent(getActivity(), MyOrderConfrimActivity.class);
-//									  intent.putExtra("order_no",order_no);
-//									  intent.putExtra("id","1");
-//									  startActivity(intent);
-							    }else {
-							    	progress.CloseProgress();
-									Toast.makeText(MyOrderXqActivity.this, info, 200).show();
-								}
-							    
-							
+							System.out.println("ÂèñÊ∂àËÆ¢Âçï================================="+arg1);
+							String status = object.getString("status");
+							String info = object.getString("info");
+							if (status.equals("y")) {
+								progress.CloseProgress();
+								Toast.makeText(MyOrderXqActivity.this, info, 200).show();
+								//									  Intent intent = new Intent(getActivity(), MyOrderConfrimActivity.class);
+								//									  intent.putExtra("order_no",order_no);
+								//									  intent.putExtra("id","1");
+								//									  startActivity(intent);
+							}else {
+								progress.CloseProgress();
+								Toast.makeText(MyOrderXqActivity.this, info, 200).show();
+							}
+
+
 						} catch (JSONException e) {
 							e.printStackTrace();
 						}
 					}
 
 				}, MyOrderXqActivity.this);
-		
+
 	}
 	/**
-	 * »°œ˚∂©µ•
-	 * @param order_no 
-	 * @param payment_id 
+	 * ÂèñÊ∂àËÆ¢Âçï
+	 * @param order_no
+	 * @param payment_id
 	 */
 	public void fukuanok2(String order_no2) {
-			progress.CreateProgress();	
-			order_no = order_no2;
-			System.out.println("order_no================================="+order_no);
-			String login_sign = spPreferences.getString("login_sign", "");
-			System.out.println("login_sign================================="+login_sign);
+		progress.CreateProgress();
+		order_no = order_no2;
+		System.out.println("order_no================================="+order_no);
+		String login_sign = spPreferences.getString("login_sign", "");
+		System.out.println("login_sign================================="+login_sign);
 		AsyncHttp.get(RealmName.REALM_NAME_LL
-				+ "/update_order_cancel?user_id="+user_id+"&user_name="+user_name+"" +
-				"&trade_no="+order_no+"&sign="+login_sign+"",
+						+ "/update_order_cancel?user_id="+user_id+"&user_name="+user_name+"" +
+						"&trade_no="+order_no+"&sign="+login_sign+"",
 				new AsyncHttpResponseHandler() {
 					@Override
 					public void onSuccess(int arg0, String arg1) {
 						super.onSuccess(arg0, arg1);
 						try {
 							JSONObject object = new JSONObject(arg1);
-							System.out.println("»°œ˚∂©µ•================================="+arg1);
-							  String status = object.getString("status");
-							    String info = object.getString("info");
-							    if (status.equals("y")) {
-									  progress.CloseProgress();
-									  Toast.makeText(MyOrderXqActivity.this, info, 200).show();
-							    }else {
-							    	progress.CloseProgress();
-									Toast.makeText(MyOrderXqActivity.this, info, 200).show();
-								}
-							    
-							
+							System.out.println("ÂèñÊ∂àËÆ¢Âçï================================="+arg1);
+							String status = object.getString("status");
+							String info = object.getString("info");
+							if (status.equals("y")) {
+								progress.CloseProgress();
+								Toast.makeText(MyOrderXqActivity.this, info, 200).show();
+							}else {
+								progress.CloseProgress();
+								Toast.makeText(MyOrderXqActivity.this, info, 200).show();
+							}
+
+
 						} catch (JSONException e) {
 							e.printStackTrace();
 						}
 					}
 
 				}, MyOrderXqActivity.this);
-		
+
 	}
 
 	@Override
 	public void onClick(View v) {
 		// TODO Auto-generated method stub
-		
+
 		switch (v.getId()) {
-		case R.id.iv_fanhui:
-			finish();
-			break;
-		case R.id.tv_fukuang:
-			    String total_c = MyOrderXqAdapter.heji_zongjia;
+			case R.id.iv_fanhui:
+				finish();
+				break;
+			case R.id.tv_fukuang:
+				String total_c = MyOrderXqAdapter.heji_zongjia;
 				Intent intent = new Intent(MyOrderXqActivity.this, MyOrderZFActivity.class);
-				  intent.putExtra("order_no",order_no);
-				  intent.putExtra("total_c",total_c);
-				  intent.putExtra("5","5");
-				  startActivity(intent);
-//				  finish();
-			break;
-		case R.id.tv_queren_fukuan:
-			Intent intent1 = new Intent(MyOrderXqActivity.this, TishiCarArchivesActivity.class);
-			intent1.putExtra("order_no",order_no);
-//			intent1.putExtra("order_yue","order_yue");
-//			intent1.putExtra("orderxq","orderxq");
-			startActivity(intent1);
-			break;
-		case R.id.tv_pingjia:
-			
-			break;
-		case R.id.tv_shanche:
-			dialog3();
-			break;
-		default:
-			break;
+				intent.putExtra("order_no",order_no);
+				intent.putExtra("total_c",total_c);
+				intent.putExtra("5","5");
+				startActivity(intent);
+				//				  finish();
+				break;
+			case R.id.tv_queren_fukuan:
+				Intent intent1 = new Intent(MyOrderXqActivity.this, TishiCarArchivesActivity.class);
+				intent1.putExtra("order_no",order_no);
+				//			intent1.putExtra("order_yue","order_yue");
+				//			intent1.putExtra("orderxq","orderxq");
+				startActivity(intent1);
+				break;
+			case R.id.tv_pingjia:
+
+				break;
+			case R.id.tv_shanche:
+				dialog3();
+				break;
+			default:
+				break;
 		}
 	}
-	
-	
+
+
 	/**
-	 * ªÒ»°µ«¬º«©√˚
+	 * Ëé∑ÂèñÁôªÂΩïÁ≠æÂêç
 	 */
 	private void userloginqm() {
 		try{
@@ -472,66 +472,66 @@ public class MyOrderXqActivity extends BaseActivity implements OnClickListener{
 					}
 				};
 			}, MyOrderXqActivity.this);
-			
+
 		} catch (Exception e) {
 			// TODO: handle exception
 			e.printStackTrace();
 		}
 	}
-	
+
 	/**
-	 * ∏¸–¬∂©µ•
-	 * @param login_sign 
-	 * @param payment_id 
+	 * Êõ¥Êñ∞ËÆ¢Âçï
+	 * @param login_sign
+	 * @param payment_id
 	 */
 	private void loadguanggaoll(String recharge_noll, String login_sign) {
 		try {
-//			recharge_no = recharge_noll;
+			//			recharge_no = recharge_noll;
 			System.out.println("recharge_no================================="+recharge_noll);
 			System.out.println("login_sign================================="+login_sign);
-		   AsyncHttp.get(RealmName.REALM_NAME_LL
-				+ "/update_order_payment?user_id="+user_id+"&user_name="+user_name+"" +
-						"&trade_no="+recharge_noll+"&sign="+login_sign+"",
-						
-				new AsyncHttpResponseHandler() {
-					@Override
-					public void onSuccess(int arg0, String arg1) {
-						super.onSuccess(arg0, arg1);
-						try {
-							JSONObject object = new JSONObject(arg1);
-							System.out.println("∏¸–¬∂©µ•================================="+arg1);
-							  String status = object.getString("status");
-							    String info = object.getString("info");
-							    if (status.equals("y")) {
-							    	   progress.CloseProgress();
-							    	   teby = false;
-							    	   finish();
-							    	   Toast.makeText(MyOrderXqActivity.this, info, 200).show();
-							    }else {
-							    	progress.CloseProgress();
-							    	teby = false;
+			AsyncHttp.get(RealmName.REALM_NAME_LL
+							+ "/update_order_payment?user_id="+user_id+"&user_name="+user_name+"" +
+							"&trade_no="+recharge_noll+"&sign="+login_sign+"",
+
+					new AsyncHttpResponseHandler() {
+						@Override
+						public void onSuccess(int arg0, String arg1) {
+							super.onSuccess(arg0, arg1);
+							try {
+								JSONObject object = new JSONObject(arg1);
+								System.out.println("Êõ¥Êñ∞ËÆ¢Âçï================================="+arg1);
+								String status = object.getString("status");
+								String info = object.getString("info");
+								if (status.equals("y")) {
+									progress.CloseProgress();
+									teby = false;
+									finish();
+									Toast.makeText(MyOrderXqActivity.this, info, 200).show();
+								}else {
+									progress.CloseProgress();
+									teby = false;
 									Toast.makeText(MyOrderXqActivity.this, info, 200).show();
 								}
-						} catch (JSONException e) {
-							e.printStackTrace();
+							} catch (JSONException e) {
+								e.printStackTrace();
+							}
 						}
-					}
-					
-					@Override
-					public void onFailure(Throwable arg0, String arg1) {
-						// TODO Auto-generated method stub
-						super.onFailure(arg0, arg1);
-						System.out.println("11================================="+arg0);
-						System.out.println("22================================="+arg1);
-						Toast.makeText(MyOrderXqActivity.this, "Õ¯¬Á≥¨ ±“Ï≥£", 200).show();
-					}
 
-				}, null);
-		
+						@Override
+						public void onFailure(Throwable arg0, String arg1) {
+							// TODO Auto-generated method stub
+							super.onFailure(arg0, arg1);
+							System.out.println("11================================="+arg0);
+							System.out.println("22================================="+arg1);
+							Toast.makeText(MyOrderXqActivity.this, "ÁΩëÁªúË∂ÖÊó∂ÂºÇÂ∏∏", 200).show();
+						}
+
+					}, null);
+
 		} catch (Exception e) {
 			// TODO: handle exception
 			e.printStackTrace();
 		}
 	}
-	
+
 }

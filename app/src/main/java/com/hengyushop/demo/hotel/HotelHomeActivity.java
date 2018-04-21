@@ -1,12 +1,5 @@
 package com.hengyushop.demo.hotel;
 
-import java.util.ArrayList;
-
-import com.hengyushop.dao.CityDao;
-import com.hengyushop.demo.airplane.CityDB;
-import com.hengyushop.demo.at.BaseActivity;
-import com.zams.www.R;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -14,6 +7,12 @@ import android.view.View.OnClickListener;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.Spinner;
+
+import com.hengyushop.dao.CityDao;
+import com.hengyushop.demo.at.BaseActivity;
+import com.zams.www.R;
+
+import java.util.ArrayList;
 
 public class HotelHomeActivity extends BaseActivity implements OnClickListener {
 
@@ -31,7 +30,7 @@ public class HotelHomeActivity extends BaseActivity implements OnClickListener {
 	}
 
 	/**
-	 * ≥ı ºªØ◊Èº˛
+	 * ÂàùÂßãÂåñÁªÑ‰ª∂
 	 */
 	private void init() {
 		CityDao db = new CityDao(getApplicationContext());
@@ -52,17 +51,17 @@ public class HotelHomeActivity extends BaseActivity implements OnClickListener {
 	@Override
 	public void onClick(View v) {
 		switch (v.getId()) {
-		case R.id.btn_hotel_select:
-			Intent intent = new Intent(HotelHomeActivity.this,
-					HotelSelectResultActivity.class);
-			Bundle bundle = new Bundle();
-			bundle.putString("city",
-					citys.get(now_city.getSelectedItemPosition()).getId());
-			intent.putExtras(bundle);
-			startActivity(intent);
-			break;
-		default:
-			break;
+			case R.id.btn_hotel_select:
+				Intent intent = new Intent(HotelHomeActivity.this,
+						HotelSelectResultActivity.class);
+				Bundle bundle = new Bundle();
+				bundle.putString("city",
+						citys.get(now_city.getSelectedItemPosition()).getId());
+				intent.putExtras(bundle);
+				startActivity(intent);
+				break;
+			default:
+				break;
 		}
 	}
 

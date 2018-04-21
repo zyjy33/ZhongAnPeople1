@@ -1,12 +1,5 @@
 package com.hengyushop.demo.my;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.AlertDialog.Builder;
@@ -42,11 +35,18 @@ import com.lglottery.www.widget.PullToRefreshView.OnHeaderRefreshListener;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.zams.www.R;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
+import java.util.List;
+
 /**
- * ´ı¸¶¿î
- * 
+ * å¾…ä»˜æ¬¾
+ *
  * @author Administrator
- * 
+ *
  */
 public class CompleteyesFragment extends Fragment implements OnClickListener {
 
@@ -97,7 +97,7 @@ public class CompleteyesFragment extends Fragment implements OnClickListener {
 	// }
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
-			Bundle savedInstanceState) {
+							 Bundle savedInstanceState) {
 		if (null != parentView) {
 			ViewGroup parent = (ViewGroup) parentView.getParent();
 			if (null != parent) {
@@ -146,50 +146,50 @@ public class CompleteyesFragment extends Fragment implements OnClickListener {
 	Handler handler = new Handler() {
 		public void dispatchMessage(Message msg) {
 			switch (msg.what) {
-			case 0:
-				// madapter = new MyOrderllAdapter(getActivity(), list,handler);
-				// my_list.setAdapter(madapter);
+				case 0:
+					// madapter = new MyOrderllAdapter(getActivity(), list,handler);
+					// my_list.setAdapter(madapter);
 
-				my_list.setOnItemClickListener(new OnItemClickListener() {
+					my_list.setOnItemClickListener(new OnItemClickListener() {
 
-					@Override
-					public void onItemClick(AdapterView<?> arg0, View arg1,
-							int arg2, long arg3) {
-						// TODO Auto-generated method stub
-						String id = lists.get(arg2).getId();
-						System.out.println("=====================" + id);
-						Intent intent = new Intent(getActivity(),
-								MyOrderXqActivity.class);
-						intent.putExtra("id", id);
-						startActivity(intent);
-					}
-				});
-				break;
-			case 1:
-				order_no = (String) msg.obj;
-				dialog();
-				break;
-			case 2:
-				order_no = (String) msg.obj;
-				dialog2();
-				break;
-			// case 3:
-			// System.out.println("======dialog3===============");
-			// order_no = (String) msg.obj;
-			// // dialog3();
-			// break;
+						@Override
+						public void onItemClick(AdapterView<?> arg0, View arg1,
+												int arg2, long arg3) {
+							// TODO Auto-generated method stub
+							String id = lists.get(arg2).getId();
+							System.out.println("=====================" + id);
+							Intent intent = new Intent(getActivity(),
+									MyOrderXqActivity.class);
+							intent.putExtra("id", id);
+							startActivity(intent);
+						}
+					});
+					break;
+				case 1:
+					order_no = (String) msg.obj;
+					dialog();
+					break;
+				case 2:
+					order_no = (String) msg.obj;
+					dialog2();
+					break;
+				// case 3:
+				// System.out.println("======dialog3===============");
+				// order_no = (String) msg.obj;
+				// // dialog3();
+				// break;
 
-			default:
-				break;
+				default:
+					break;
 			}
 		};
 	};
 
 	protected void dialog() {
 		AlertDialog.Builder builder = new Builder(getActivity());
-		builder.setMessage("ÊÇ·ñÒªÈ·ÈÏ¸¶¿î?");
-		builder.setTitle("ÌáÊ¾");
-		builder.setPositiveButton("È·ÈÏ", new DialogInterface.OnClickListener() {
+		builder.setMessage("æ˜¯å¦è¦ç¡®è®¤ä»˜æ¬¾?");
+		builder.setTitle("æç¤º");
+		builder.setPositiveButton("ç¡®è®¤", new DialogInterface.OnClickListener() {
 
 			@Override
 			public void onClick(DialogInterface dialog, int which) {
@@ -197,7 +197,7 @@ public class CompleteyesFragment extends Fragment implements OnClickListener {
 			}
 		});
 
-		builder.setNegativeButton("È¡Ïû", new DialogInterface.OnClickListener() {
+		builder.setNegativeButton("å–æ¶ˆ", new DialogInterface.OnClickListener() {
 
 			@Override
 			public void onClick(DialogInterface dialog, int which) {
@@ -210,9 +210,9 @@ public class CompleteyesFragment extends Fragment implements OnClickListener {
 
 	protected void dialog2() {
 		AlertDialog.Builder builder = new Builder(getActivity());
-		builder.setMessage("ÊÇ·ñÈ·¶¨È¡Ïû¶©µ¥?");
-		builder.setTitle("ÌáÊ¾");
-		builder.setPositiveButton("È·ÈÏ", new DialogInterface.OnClickListener() {
+		builder.setMessage("æ˜¯å¦ç¡®å®šå–æ¶ˆè®¢å•?");
+		builder.setTitle("æç¤º");
+		builder.setPositiveButton("ç¡®è®¤", new DialogInterface.OnClickListener() {
 
 			@Override
 			public void onClick(DialogInterface dialog, int which) {
@@ -220,7 +220,7 @@ public class CompleteyesFragment extends Fragment implements OnClickListener {
 			}
 		});
 
-		builder.setNegativeButton("È¡Ïû", new DialogInterface.OnClickListener() {
+		builder.setNegativeButton("å–æ¶ˆ", new DialogInterface.OnClickListener() {
 
 			@Override
 			public void onClick(DialogInterface dialog, int which) {
@@ -233,9 +233,9 @@ public class CompleteyesFragment extends Fragment implements OnClickListener {
 
 	// protected void dialog3() {
 	// AlertDialog.Builder builder = new Builder(getActivity());
-	// builder.setMessage("ÊÇ·ñÈ·¶¨É¾³ı¶©µ¥?");
-	// builder.setTitle("ÌáÊ¾");
-	// builder.setPositiveButton("È·ÈÏ", new DialogInterface.OnClickListener() {
+	// builder.setMessage("æ˜¯å¦ç¡®å®šåˆ é™¤è®¢å•?");
+	// builder.setTitle("æç¤º");
+	// builder.setPositiveButton("ç¡®è®¤", new DialogInterface.OnClickListener() {
 	//
 	// @Override
 	// public void onClick(DialogInterface dialog, int which) {
@@ -243,7 +243,7 @@ public class CompleteyesFragment extends Fragment implements OnClickListener {
 	// }
 	// });
 	//
-	// builder.setNegativeButton("È¡Ïû", new DialogInterface.OnClickListener() {
+	// builder.setNegativeButton("å–æ¶ˆ", new DialogInterface.OnClickListener() {
 	//
 	// @Override
 	// public void onClick(DialogInterface dialog, int which) {
@@ -255,7 +255,7 @@ public class CompleteyesFragment extends Fragment implements OnClickListener {
 	// }
 
 	/**
-	 * ÉÏÀ­ÁĞ±íË¢ĞÂ¼ÓÔØ
+	 * ä¸Šæ‹‰åˆ—è¡¨åˆ·æ–°åŠ è½½
 	 */
 	private OnHeaderRefreshListener listHeadListener = new OnHeaderRefreshListener() {
 
@@ -273,7 +273,7 @@ public class CompleteyesFragment extends Fragment implements OnClickListener {
 	};
 
 	/**
-	 * ÏÂÀ­ÁĞ±íË¢ĞÂ¼ÓÔØ
+	 * ä¸‹æ‹‰åˆ—è¡¨åˆ·æ–°åŠ è½½
 	 */
 	private OnFooterRefreshListener listFootListener = new OnFooterRefreshListener() {
 
@@ -306,7 +306,7 @@ public class CompleteyesFragment extends Fragment implements OnClickListener {
 	};
 
 	/**
-	 * µÚ1¸öÁĞ±íÊı¾İ½âÎö
+	 * ç¬¬1ä¸ªåˆ—è¡¨æ•°æ®è§£æ
 	 */
 	private int CURRENT_NUM = 1;
 	private final int VIEW_NUM = 10;
@@ -318,7 +318,7 @@ public class CompleteyesFragment extends Fragment implements OnClickListener {
 			RUN_METHOD = 1;
 			list = new ArrayList<MyOrderData>();
 			if (flag) {
-				// ¼ÆÊıºÍÈİÆ÷ÇåÁã
+				// è®¡æ•°å’Œå®¹å™¨æ¸…é›¶
 				CURRENT_NUM = 0;
 				list = new ArrayList<MyOrderData>();
 			}
@@ -326,17 +326,17 @@ public class CompleteyesFragment extends Fragment implements OnClickListener {
 			// System.out.println("=========1============"+id);//5897
 			AsyncHttp
 					.get(RealmName.REALM_NAME_LL
-							+ "/get_order_page_size_list?user_id="
-							+ user_id
-							+ ""
-							+ "&page_size=10&page_index=1&strwhere=payment_status=1&orderby=",
+									+ "/get_order_page_size_list?user_id="
+									+ user_id
+									+ ""
+									+ "&page_size=10&page_index=1&strwhere=payment_status=1&orderby=",
 							new AsyncHttpResponseHandler() {
 								@Override
 								public void onSuccess(int arg0, String arg1) {
 									// TODO Auto-generated method stub
 									super.onSuccess(arg0, arg1);
 									System.out
-											.println("=========È«²¿============"
+											.println("=========å…¨éƒ¨============"
 													+ arg1);
 									try {
 
@@ -427,28 +427,28 @@ public class CompleteyesFragment extends Fragment implements OnClickListener {
 	}
 
 	/**
-	 * µÚ2¸öÁĞ±íÊı¾İ½âÎö
+	 * ç¬¬2ä¸ªåˆ—è¡¨æ•°æ®è§£æ
 	 */
 	private void load_list2(boolean flag) {
 		progress.CreateProgress();
 		list = new ArrayList<MyOrderData>();
 		if (flag) {
-			// ¼ÆÊıºÍÈİÆ÷ÇåÁã
+			// è®¡æ•°å’Œå®¹å™¨æ¸…é›¶
 			CURRENT_NUM = 0;
 			list = new ArrayList<MyOrderData>();
 		}
 		AsyncHttp
 				.get(RealmName.REALM_NAME_LL
-						+ "/get_order_page_size_list?user_id="
-						+ user_id
-						+ ""
-						+ "&page_size=10&page_index=1&strwhere=payment_status=1&orderby=",
+								+ "/get_order_page_size_list?user_id="
+								+ user_id
+								+ ""
+								+ "&page_size=10&page_index=1&strwhere=payment_status=1&orderby=",
 						new AsyncHttpResponseHandler() {
 							@Override
 							public void onSuccess(int arg0, String arg1) {
 								// TODO Auto-generated method stub
 								super.onSuccess(arg0, arg1);
-								System.out.println("=========È«²¿============"
+								System.out.println("=========å…¨éƒ¨============"
 										+ arg1);
 								try {
 
@@ -522,8 +522,8 @@ public class CompleteyesFragment extends Fragment implements OnClickListener {
 	}
 
 	/**
-	 * È·ÈÏ¸¶¿î
-	 * 
+	 * ç¡®è®¤ä»˜æ¬¾
+	 *
 	 * @param order_no
 	 * @param payment_id
 	 */
@@ -544,7 +544,7 @@ public class CompleteyesFragment extends Fragment implements OnClickListener {
 				super.onSuccess(arg0, arg1);
 				try {
 					JSONObject object = new JSONObject(arg1);
-					System.out.println("È·ÈÏ¸¶¿î================================="
+					System.out.println("ç¡®è®¤ä»˜æ¬¾================================="
 							+ arg1);
 					String status = object.getString("status");
 					String info = object.getString("info");
@@ -575,8 +575,8 @@ public class CompleteyesFragment extends Fragment implements OnClickListener {
 	}
 
 	/**
-	 * È¡Ïû¶©µ¥
-	 * 
+	 * å–æ¶ˆè®¢å•
+	 *
 	 * @param order_no
 	 * @param payment_id
 	 */
@@ -589,8 +589,8 @@ public class CompleteyesFragment extends Fragment implements OnClickListener {
 		System.out.println("login_sign================================="
 				+ login_sign);
 		AsyncHttp.get(RealmName.REALM_NAME_LL + "/update_order_cancel?user_id="
-				+ user_id + "&user_name=" + user_name + "" + "&order_no="
-				+ order_no + "&sign=" + login_sign + "",
+						+ user_id + "&user_name=" + user_name + "" + "&order_no="
+						+ order_no + "&sign=" + login_sign + "",
 				new AsyncHttpResponseHandler() {
 					@Override
 					public void onSuccess(int arg0, String arg1) {
@@ -598,7 +598,7 @@ public class CompleteyesFragment extends Fragment implements OnClickListener {
 						try {
 							JSONObject object = new JSONObject(arg1);
 							System.out
-									.println("È¡Ïû¶©µ¥================================="
+									.println("å–æ¶ˆè®¢å•================================="
 											+ arg1);
 							String status = object.getString("status");
 							String info = object.getString("info");
@@ -625,8 +625,8 @@ public class CompleteyesFragment extends Fragment implements OnClickListener {
 	}
 
 	/**
-	 * É¾³ı¶©µ¥
-	 * 
+	 * åˆ é™¤è®¢å•
+	 *
 	 * @param order_no
 	 * @param payment_id
 	 */
@@ -639,8 +639,8 @@ public class CompleteyesFragment extends Fragment implements OnClickListener {
 		System.out.println("login_sign================================="
 				+ login_sign);
 		AsyncHttp.get(RealmName.REALM_NAME_LL + "/delete_order?user_id="
-				+ user_id + "&user_name=" + user_name + "" + "&order_no="
-				+ order_no + "&sign=" + login_sign + "",
+						+ user_id + "&user_name=" + user_name + "" + "&order_no="
+						+ order_no + "&sign=" + login_sign + "",
 				new AsyncHttpResponseHandler() {
 					@Override
 					public void onSuccess(int arg0, String arg1) {
@@ -648,7 +648,7 @@ public class CompleteyesFragment extends Fragment implements OnClickListener {
 						try {
 							JSONObject object = new JSONObject(arg1);
 							System.out
-									.println("È¡Ïû¶©µ¥================================="
+									.println("å–æ¶ˆè®¢å•================================="
 											+ arg1);
 							String status = object.getString("status");
 							String info = object.getString("info");
@@ -678,8 +678,8 @@ public class CompleteyesFragment extends Fragment implements OnClickListener {
 	public void onClick(View v) {
 		// TODO Auto-generated method stub
 		switch (v.getId()) {
-		default:
-			break;
+			default:
+				break;
 		}
 
 	}

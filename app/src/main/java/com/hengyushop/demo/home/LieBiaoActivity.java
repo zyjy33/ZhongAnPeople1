@@ -1,11 +1,5 @@
 package com.hengyushop.demo.home;
 
-import java.util.ArrayList;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -17,8 +11,6 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.GridView;
 import android.widget.LinearLayout;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import com.android.hengyu.web.DialogProgress;
 import com.android.hengyu.web.RealmName;
@@ -29,10 +21,16 @@ import com.hengyushop.entity.WareDatall;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.zams.www.R;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
+
 /**
- * 
+ *
  * @author
- * 
+ *
  */
 public class LieBiaoActivity extends Activity implements OnClickListener {
 	private Intent intent;
@@ -64,9 +62,9 @@ public class LieBiaoActivity extends Activity implements OnClickListener {
 		gridView = (GridView) findViewById(R.id.gridView);
 		String parent_id = getIntent().getStringExtra("id");
 		quanbu = getIntent().getStringExtra("quanbu_id");
-		System.out.println("=====1µÚ¶ş²ãdeÊı¾İ==========parent_id==========="
+		System.out.println("=====1ç¬¬äºŒå±‚deæ•°æ®==========parent_id==========="
 				+ parent_id);
-		System.out.println("=====1µÚ¶ş²ãdeÊı¾İ===========quanbu==========" + quanbu);
+		System.out.println("=====1ç¬¬äºŒå±‚deæ•°æ®===========quanbu==========" + quanbu);
 		// String parent_id = "609";
 		getleibie(parent_id);
 
@@ -84,8 +82,8 @@ public class LieBiaoActivity extends Activity implements OnClickListener {
 	private void getleibie(String parent_id) {
 		// TODO Auto-generated method stub
 		String channel_name = getIntent().getStringExtra("channel_name");
-		// System.out.println("=====1µÚ¶ş²ãdeÊı¾İchannel_name====================="+channel_name);
-		System.out.println("=====1µÚ¶ş²ãdeÊı¾İ=====================" + parent_id);
+		// System.out.println("=====1ç¬¬äºŒå±‚deæ•°æ®channel_name====================="+channel_name);
+		System.out.println("=====1ç¬¬äºŒå±‚deæ•°æ®=====================" + parent_id);
 		AsyncHttp.get(RealmName.REALM_NAME_LL + "/get_category_child_list?"
 				+ "channel_name=" + channel_name + "&parent_id=" + parent_id
 				+ "", new AsyncHttpResponseHandler() {
@@ -99,7 +97,7 @@ public class LieBiaoActivity extends Activity implements OnClickListener {
 	}
 
 	/**
-	 * µÚ¶ş¼¶²Ëµ¥
+	 * ç¬¬äºŒçº§èœå•
 	 */
 	private ArrayList data1, data2;
 
@@ -108,7 +106,7 @@ public class LieBiaoActivity extends Activity implements OnClickListener {
 		data2 = new ArrayList();
 		listll = new ArrayList<WareDatall>();
 		try {
-			System.out.println("=====µÚ¶ş²ãÊı¾İ=====================" + result);
+			System.out.println("=====ç¬¬äºŒå±‚æ•°æ®=====================" + result);
 			JSONObject object = new JSONObject(result);
 			String status = object.getString("status");
 			if (status.equals("y")) {
@@ -116,7 +114,7 @@ public class LieBiaoActivity extends Activity implements OnClickListener {
 
 				listll.add(0, null);
 				data1.add("001");
-				data2.add("È«²¿");
+				data2.add("å…¨éƒ¨");
 				for (int i = 0; i < jsonArray.length(); i++) {
 					JSONObject obj = jsonArray.getJSONObject(i);
 					dm = new WareDatall();
@@ -142,7 +140,7 @@ public class LieBiaoActivity extends Activity implements OnClickListener {
 				gridView.setOnItemClickListener(new OnItemClickListener() {
 					@Override
 					public void onItemClick(AdapterView<?> arg0, View arg1,
-							int arg2, long arg3) {
+											int arg2, long arg3) {
 						try {
 							System.out.println("=====arg2===================="
 									+ arg2);
@@ -150,12 +148,12 @@ public class LieBiaoActivity extends Activity implements OnClickListener {
 							if (quanbu_id.equals("001")) {
 								title_id = quanbu;
 								System.out
-										.println("=====1µÚ¶ş²ãtitle_id====================="
+										.println("=====1ç¬¬äºŒå±‚title_id====================="
 												+ title_id);
 							} else {
 								title_id = (String) data1.get(arg2);
 								System.out
-										.println("=====2µÚ¶ş²ãtitle_id====================="
+										.println("=====2ç¬¬äºŒå±‚title_id====================="
 												+ title_id);
 							}
 
@@ -171,7 +169,7 @@ public class LieBiaoActivity extends Activity implements OnClickListener {
 
 			} else {
 				gridView.setVisibility(View.GONE);
-				System.out.println("=====µÚ¶ş²ãÊı¾İ2=====================" + INDX);
+				System.out.println("=====ç¬¬äºŒå±‚æ•°æ®2=====================" + INDX);
 				// load_list(INDX, true);
 			}
 

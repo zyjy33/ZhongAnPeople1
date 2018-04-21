@@ -3,13 +3,13 @@ package com.lglottery.www.common;
 import com.android.hengyu.web.RealmName;
 
 /**
- * ¹ØÓÚÊı¾İÁ´½ÓµØÖ·µÄ¹ÜÀí
+ * å…³äºæ•°æ®é“¾æ¥åœ°å€çš„ç®¡ç†
  * @author cloor
  *
  */
 public class U {
 	/**
-	 * »ñÈ¡Êı¾İµÄ·şÎñÆ÷µØÖ·
+	 * è·å–æ•°æ®çš„æœåŠ¡å™¨åœ°å€
 	 */
 	public final static String IP = RealmName.REALM_NAME+"/";
 	public static String GET_RND = IP + "mi/getRnd.ashx?key=jes800&msisdn=0";

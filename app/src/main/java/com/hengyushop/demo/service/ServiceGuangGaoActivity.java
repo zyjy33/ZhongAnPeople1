@@ -1,11 +1,5 @@
 package com.hengyushop.demo.service;
 
-import java.util.ArrayList;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -15,8 +9,8 @@ import android.os.Message;
 import android.support.v4.view.ViewPager;
 import android.util.Log;
 import android.view.View;
-import android.view.Window;
 import android.view.View.OnClickListener;
+import android.view.Window;
 import android.widget.Button;
 
 import com.android.hengyu.web.RealmName;
@@ -26,14 +20,19 @@ import com.hengyushop.demo.at.BaseActivity;
 import com.lglottery.www.common.SharedUtils;
 import com.lglottery.www.widget.MyPosterOnClick;
 import com.lglottery.www.widget.MyPosterServiceView;
-import com.lglottery.www.widget.MyPosterllView;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.zams.www.R;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
+
 public class ServiceGuangGaoActivity extends BaseActivity {
 	/**
-	 * 关于引导页的界面
+	 * 鍏充簬寮曞椤电殑鐣岄潰
 	 */
 	private ViewPager viewPager;
 	private ArrayList<View> pageViews;
@@ -53,7 +52,7 @@ public class ServiceGuangGaoActivity extends BaseActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_sj_sq);
 
-		Log.i("1", "这里出错了！---");
+		Log.i("1", "杩欓噷鍑洪敊浜嗭紒---");
 
 		Button btn_settle_accounts = (Button) findViewById(R.id.btn_settle_accounts);
 		btn_settle_accounts.setOnClickListener(new OnClickListener() {
@@ -72,11 +71,11 @@ public class ServiceGuangGaoActivity extends BaseActivity {
 			}
 		});
 
-		// 广告滚动
+		// 骞垮憡婊氬姩
 		advPager = (MyPosterServiceView) findViewById(R.id.adv_pagerll);
 
 		AsyncHttp.get(RealmName.REALM_NAME_LL
-				+ "/get_adbanner_list?advert_id=1017",
+						+ "/get_adbanner_list?advert_id=1017",
 				new AsyncHttpResponseHandler() {
 					@Override
 					public void onSuccess(int arg0, String arg1) {
@@ -128,28 +127,28 @@ public class ServiceGuangGaoActivity extends BaseActivity {
 		@SuppressWarnings("unchecked")
 		public void dispatchMessage(Message msg) {
 			switch (msg.what) {
-			case 0:
-				tempss = (ArrayList<AdvertDao1>) msg.obj;
+				case 0:
+					tempss = (ArrayList<AdvertDao1>) msg.obj;
 
-				ArrayList<String> urls = new ArrayList<String>();
-				for (int i = 0; i < tempss.size(); i++) {
-					urls.add(tempss.get(i).getAd_url());
-				}
-				// addvie(context, tempss,urls);
-				ImageLoader imageLoader = ImageLoader.getInstance();
-				advPager.setData(urls, new MyPosterOnClick() {
-					@Override
-					public void onMyclick(int position) {
-						// TODO Auto-generated method stub
-						// Message msg = new Message();
-						// msg.what = 13;
-						// msg.obj = tempss.get(position).getId();
-						// handler.sendMessage(msg);
+					ArrayList<String> urls = new ArrayList<String>();
+					for (int i = 0; i < tempss.size(); i++) {
+						urls.add(tempss.get(i).getAd_url());
 					}
-				}, true, imageLoader, true);
-				break;
-			default:
-				break;
+					// addvie(context, tempss,urls);
+					ImageLoader imageLoader = ImageLoader.getInstance();
+					advPager.setData(urls, new MyPosterOnClick() {
+						@Override
+						public void onMyclick(int position) {
+							// TODO Auto-generated method stub
+							// Message msg = new Message();
+							// msg.what = 13;
+							// msg.obj = tempss.get(position).getId();
+							// handler.sendMessage(msg);
+						}
+					}, true, imageLoader, true);
+					break;
+				default:
+					break;
 			}
 		};
 	};
@@ -157,10 +156,10 @@ public class ServiceGuangGaoActivity extends BaseActivity {
 	private Handler handler = new Handler() {
 		public void dispatchMessage(android.os.Message msg) {
 			switch (msg.what) {
-			case 0:
-				break;
-			default:
-				break;
+				case 0:
+					break;
+				default:
+					break;
 			}
 		};
 	};

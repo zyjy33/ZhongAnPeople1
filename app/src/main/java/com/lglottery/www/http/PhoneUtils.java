@@ -1,24 +1,24 @@
 package com.lglottery.www.http;
 
-import java.lang.reflect.Method;
+import android.telephony.TelephonyManager;
 
 import com.android.internal.telephony.ITelephony;
 
-import android.telephony.TelephonyManager;
+import java.lang.reflect.Method;
 
 public class PhoneUtils {
 	/**
-	 * ¸ù¾İ´«ÈëµÄTelephonyManagerÀ´È¡µÃÏµÍ³µÄITelephonyÊµÀı.
-	 * 
+	 * æ ¹æ®ä¼ å…¥çš„TelephonyManageræ¥å–å¾—ç³»ç»Ÿçš„ITelephonyå®ä¾‹.
+	 *
 	 * @param telephony
-	 * @return ÏµÍ³µÄITelephonyÊµÀı
+	 * @return ç³»ç»Ÿçš„ITelephonyå®ä¾‹
 	 * @throws Exception
 	 */
 	public static ITelephony getITelephony(TelephonyManager telephony)
 			throws Exception {
 		Method getITelephonyMethod = telephony.getClass().getDeclaredMethod(
 				"getITelephony");
-		getITelephonyMethod.setAccessible(true);// Ë½ÓĞ»¯º¯ÊıÒ²ÄÜÊ¹ÓÃ
+		getITelephonyMethod.setAccessible(true);// ç§æœ‰åŒ–å‡½æ•°ä¹Ÿèƒ½ä½¿ç”¨
 		return (ITelephony) getITelephonyMethod.invoke(telephony);
 	}
 }

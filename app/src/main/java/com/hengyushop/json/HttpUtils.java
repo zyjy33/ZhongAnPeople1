@@ -1,5 +1,8 @@
 package com.hengyushop.json;
 
+import android.content.Context;
+import android.net.ConnectivityManager;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -8,13 +11,10 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import android.content.Context;
-import android.net.ConnectivityManager;
-
 public class HttpUtils {
 	/**
-	 * ½«InputStream¶ÔÏó×ª»»³ÉString¶ÔÏó
-	 * 
+	 * å°†InputStreamå¯¹è±¡è½¬æ¢æˆStringå¯¹è±¡
+	 *
 	 * @param in
 	 * @return
 	 * @throws IOException
@@ -29,20 +29,20 @@ public class HttpUtils {
 		try {
 			reader = new InputStreamReader(in, charse);
 			br = new BufferedReader(reader, 2048);
-			// ´´½¨±£´æÎÄ×ÖÊı¾İµÄ¶ÔÏó
+			// åˆ›å»ºä¿å­˜æ–‡å­—æ•°æ®çš„å¯¹è±¡
 
 			String line = br.readLine();
 			while (line != null) {
 				builder.append(line);
 				line = br.readLine();
 			}
-			// ¹Ø±ÕÁ÷
+			// å…³é—­æµ
 		} catch (IOException e) {
-			// WLog.v("Òì³£");
+			// WLog.v("å¼‚å¸¸");
 			e.printStackTrace();
 		} catch (NullPointerException e) {
 			// TODO: handle exception
-			// WLog.v("¿ÕÖ¸ÕëÒì³£");
+			// WLog.v("ç©ºæŒ‡é’ˆå¼‚å¸¸");
 		} finally {
 			try {
 				in.close();
@@ -55,14 +55,14 @@ public class HttpUtils {
 				// TODO: handle exception
 			}
 		}
-		// ·µ»ØÎÄ×Ö¶ÔÏó
+		// è¿”å›æ–‡å­—å¯¹è±¡
 		return builder.toString().trim();
 
 	}
 
 	/**
-	 * ¼ì²éÍøÂçÊÇ·ñÁ¬Í¨
-	 * 
+	 * æ£€æŸ¥ç½‘ç»œæ˜¯å¦è¿é€š
+	 *
 	 * @param context
 	 * @return
 	 */
@@ -77,7 +77,7 @@ public class HttpUtils {
 	}
 
 	/**
-	 * ¸ù¾İÊÖ»úµÄ·Ö±æÂÊ´Ó dp µÄµ¥Î» ×ª³ÉÎª px(ÏñËØ)
+	 * æ ¹æ®æ‰‹æœºçš„åˆ†è¾¨ç‡ä» dp çš„å•ä½ è½¬æˆä¸º px(åƒç´ )
 	 */
 	public static int dip2px(Context context, float dpValue) {
 		final float scale = context.getResources().getDisplayMetrics().density;
@@ -85,7 +85,7 @@ public class HttpUtils {
 	}
 
 	/**
-	 * ¸ù¾İÊÖ»úµÄ·Ö±æÂÊ´Ó px(ÏñËØ) µÄµ¥Î» ×ª³ÉÎª dp
+	 * æ ¹æ®æ‰‹æœºçš„åˆ†è¾¨ç‡ä» px(åƒç´ ) çš„å•ä½ è½¬æˆä¸º dp
 	 */
 	public static int px2dip(Context context, float pxValue) {
 		final float scale = context.getResources().getDisplayMetrics().density;

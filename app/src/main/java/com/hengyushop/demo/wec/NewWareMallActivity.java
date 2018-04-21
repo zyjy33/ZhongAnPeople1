@@ -127,7 +127,7 @@ public class NewWareMallActivity extends BaseActivity implements
 		super.onCreate(savedInstanceState);
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.new_ware);
-		// ‘⁄¥Àµ˜”√œ¬√Ê∑Ω∑®£¨≤≈ƒ‹≤∂ªÒµΩœﬂ≥Ã÷–µƒ“Ï≥£
+		// Âú®Ê≠§Ë∞ÉÁî®‰∏ãÈù¢ÊñπÊ≥ïÔºåÊâçËÉΩÊçïËé∑Âà∞Á∫øÁ®ã‰∏≠ÁöÑÂºÇÂ∏∏
 		// Thread.setDefaultUncaughtExceptionHandler(this);
 		radio_group = (RadioGroup) findViewById(R.id.radio_group);
 		new_list = (ListView) findViewById(R.id.new_list);
@@ -164,11 +164,11 @@ public class NewWareMallActivity extends BaseActivity implements
 
 				@Override
 				public boolean onEditorAction(TextView arg0, int arg1,
-						KeyEvent arg2) {
+											  KeyEvent arg2) {
 					// TODO Auto-generated method stub
 					if (arg1 == EditorInfo.IME_ACTION_SEARCH) {
 
-						// Toast.makeText(NewWare.this,"∫«∫«",Toast.LENGTH_SHORT).show();
+						// Toast.makeText(NewWare.this,"ÂëµÂëµ",Toast.LENGTH_SHORT).show();
 						// search pressed and perform your functionality.
 						Intent intent = new Intent(NewWareMallActivity.this,
 								SouSuoSpActivity.class);
@@ -260,7 +260,7 @@ public class NewWareMallActivity extends BaseActivity implements
 		jdhadapter = new GoodsMyGridViewAdaper(lists, getApplicationContext());
 		gridView_list.setAdapter(jdhadapter);
 
-		System.out.println("=======±ÍÃ‚÷µ111==" + nobiaoti);
+		System.out.println("=======Ê†áÈ¢òÂÄº111==" + nobiaoti);
 
 		loadWeather();
 		popupWindowMenu = new MyPopupWindowMenu(this);
@@ -281,7 +281,7 @@ public class NewWareMallActivity extends BaseActivity implements
 
 	// public void uncaughtException(Thread arg0, Throwable arg1) {
 	// // TODO Auto-generated method stub
-	// //‘⁄¥À¥¶¿Ì“Ï≥££¨ arg1º¥Œ™≤∂ªÒµΩµƒ“Ï≥£
+	// //Âú®Ê≠§Â§ÑÁêÜÂºÇÂ∏∏Ôºå arg1Âç≥‰∏∫ÊçïËé∑Âà∞ÁöÑÂºÇÂ∏∏
 	// Log.i("AAA", "uncaughtException   " + arg1);
 	// }
 	@Override
@@ -296,247 +296,247 @@ public class NewWareMallActivity extends BaseActivity implements
 
 	}
 
-    @Override  
-    protected void onDestroy() {  
-        super.onDestroy(); 
-    	if (MySpListAdapter.type == true) {
-    		MySpListAdapter.query.clear();
-    		MySpListAdapter.query.recycle(new_list);
-    		MySpListAdapter.type = false;
+	@Override
+	protected void onDestroy() {
+		super.onDestroy();
+		if (MySpListAdapter.type == true) {
+			MySpListAdapter.query.clear();
+			MySpListAdapter.query.recycle(new_list);
+			MySpListAdapter.type = false;
 		}
-    	if (GoodsMyGridViewAdaper.type == true) {
-    		GoodsMyGridViewAdaper.mAq.clear();
-    		GoodsMyGridViewAdaper.mAq.recycle(myGridView);
-    		GoodsMyGridViewAdaper.type = false;
+		if (GoodsMyGridViewAdaper.type == true) {
+			GoodsMyGridViewAdaper.mAq.clear();
+			GoodsMyGridViewAdaper.mAq.recycle(myGridView);
+			GoodsMyGridViewAdaper.type = false;
 		}
-    	
-    	if (lists.size() > 0) {
-    		lists.clear();
-        	lists = null;
-        	list_lb = null;
-        	data1 = null;
-    		data2 = null;
+
+		if (lists.size() > 0) {
+			lists.clear();
+			lists = null;
+			list_lb = null;
+			data1 = null;
+			data2 = null;
 		}
-    }
-    
+	}
+
 	Handler handler = new Handler() {
 		public void dispatchMessage(Message msg) {
 			switch (msg.what) {
-			case 0:
-				myadapter.putData(lists);
-				progress.CloseProgress();
-				 if (lists.size() > 0) {
-					 MySpListAdapter.query.clear();
-				}
-//				myadapter.notifyDataSetChanged();
-				// setListViewHeightBasedOnChildren(new_list);
-				System.out.println("=====================’‚¿Ô1==" + lists.size());
-
-				new_list.setOnItemClickListener(new OnItemClickListener() {
-
-					@Override
-					public void onItemClick(AdapterView<?> arg0, View arg1,
-							int arg2, long arg3) {
-						// TODO Auto-generated method stub
-						String id = lists.get(arg2).getId();
-						System.out.println("=====================" + id);
-						Intent intent = new Intent(NewWareMallActivity.this,WareInformationActivity.class);
-						intent.putExtra("id", id);
-						startActivity(intent);
+				case 0:
+					myadapter.putData(lists);
+					progress.CloseProgress();
+					if (lists.size() > 0) {
+						MySpListAdapter.query.clear();
 					}
-				});
-				break;
-			case 1:
-				jdhadapter.putData(lists);
-				progress.CloseProgress();
-				 if (lists.size() > 0) {
-					 GoodsMyGridViewAdaper.mAq.clear();
-				}
-//				jdhadapter.notifyDataSetChanged();
-				System.out.println("=====================’‚¿Ô2==" + lists.size());
+					//				myadapter.notifyDataSetChanged();
+					// setListViewHeightBasedOnChildren(new_list);
+					System.out.println("=====================ËøôÈáå1==" + lists.size());
 
-				gridView_list.setOnItemClickListener(new OnItemClickListener() {
+					new_list.setOnItemClickListener(new OnItemClickListener() {
 
-					@Override
-					public void onItemClick(AdapterView<?> arg0, View arg1,
-							int arg2, long arg3) {
-						// TODO Auto-generated method stub
-						String id = lists.get(arg2).getId();
-						System.out.println("=====================" + id);
-						Intent intent = new Intent(NewWareMallActivity.this,
-								WareInformationActivity.class);
-						intent.putExtra("id", id);
-						startActivity(intent);
+						@Override
+						public void onItemClick(AdapterView<?> arg0, View arg1,
+												int arg2, long arg3) {
+							// TODO Auto-generated method stub
+							String id = lists.get(arg2).getId();
+							System.out.println("=====================" + id);
+							Intent intent = new Intent(NewWareMallActivity.this,WareInformationActivity.class);
+							intent.putExtra("id", id);
+							startActivity(intent);
+						}
+					});
+					break;
+				case 1:
+					jdhadapter.putData(lists);
+					progress.CloseProgress();
+					if (lists.size() > 0) {
+						GoodsMyGridViewAdaper.mAq.clear();
 					}
-				});
-				break;
-			case 2:
-				formatWeather((String) msg.obj);
-				break;
-			case 3:
-				try {
+					//				jdhadapter.notifyDataSetChanged();
+					System.out.println("=====================ËøôÈáå2==" + lists.size());
 
-					lbadapter = new MyAdapter(getApplicationContext(), list_lb);
-					myGridView.setAdapter(lbadapter);
+					gridView_list.setOnItemClickListener(new OnItemClickListener() {
 
-					INDX = list_lb.get(0).id;
-					quanbu = list_lb.get(0).id;
+						@Override
+						public void onItemClick(AdapterView<?> arg0, View arg1,
+												int arg2, long arg3) {
+							// TODO Auto-generated method stub
+							String id = lists.get(arg2).getId();
+							System.out.println("=====================" + id);
+							Intent intent = new Intent(NewWareMallActivity.this,
+									WareInformationActivity.class);
+							intent.putExtra("id", id);
+							startActivity(intent);
+						}
+					});
+					break;
+				case 2:
+					formatWeather((String) msg.obj);
+					break;
+				case 3:
+					try {
 
-					System.out.println("=====1µ⁄∂˛≤„de ˝æ›====================="
-							+ INDX);
-					AsyncHttp.get(RealmName.REALM_NAME_LL
-							+ "/get_category_child_list?"
-							+ "channel_name=mall&parent_id=" + INDX + "",
-							new AsyncHttpResponseHandler() {
-								@Override
-								public void onSuccess(int arg0, String arg1) {
-									// TODO Auto-generated method stub
-									super.onSuccess(arg0, arg1);
-									formatWeatherll(arg1);
+						lbadapter = new MyAdapter(getApplicationContext(), list_lb);
+						myGridView.setAdapter(lbadapter);
 
-								}
-							}, null);
+						INDX = list_lb.get(0).id;
+						quanbu = list_lb.get(0).id;
 
-					myGridView
-							.setOnItemClickListener(new OnItemClickListener() {
+						System.out.println("=====1Á¨¨‰∫åÂ±ÇdeÊï∞ÊçÆ====================="
+								+ INDX);
+						AsyncHttp.get(RealmName.REALM_NAME_LL
+										+ "/get_category_child_list?"
+										+ "channel_name=mall&parent_id=" + INDX + "",
+								new AsyncHttpResponseHandler() {
+									@Override
+									public void onSuccess(int arg0, String arg1) {
+										// TODO Auto-generated method stub
+										super.onSuccess(arg0, arg1);
+										formatWeatherll(arg1);
 
-								@Override
-								public void onItemClick(AdapterView<?> arg0,
-										View arg1, int arg2, long arg3) {
-									try {
-										INDX = list_lb.get(arg2).id;
-										quanbu = list_lb.get(arg2).id;
-										System.out
-												.println("=====myGridViewµ„ª˜0µ⁄∂˛≤„de ˝æ›====================="
-														+ list_lb.get(0).id);
-										System.out
-												.println("=====myGridViewµ„ª˜1µ⁄∂˛≤„de ˝æ›====================="
-														+ list_lb.get(1).id);
-										System.out
-												.println("=====myGridViewµ„ª˜2µ⁄∂˛≤„de ˝æ›====================="
-														+ INDX);
+									}
+								}, null);
 
-										lbadapter.setSeclection(arg2);
-										lbadapter.notifyDataSetChanged();
+						myGridView
+								.setOnItemClickListener(new OnItemClickListener() {
 
-										spPreferences = getSharedPreferences(
-												"longuserset", MODE_PRIVATE);
-										int id = spPreferences.getInt("id", 0);
-										System.out
-												.println("strue===================="
-														+ strue);
-										if (arg2 != id) {
-											// µ⁄“ª¥ŒµΩΩÁ√Ê—°‘Òµ⁄“ª∏ˆ∂˛º∂≤Àµ•
-											if (strue = false) {
-												String parent_id = String
-														.valueOf(list_lb
-																.get(arg2).id);
-												String quanbu_id = String
-														.valueOf(quanbu);
-												Intent intent = new Intent(
-														NewWareMallActivity.this,
-														LieBiaoActivity.class);
-												intent.putExtra("id", parent_id);
-												intent.putExtra("quanbu_id",
-														quanbu_id);
-												startActivity(intent);
-												strue = true;
-											} else {
-												num = 0;
-												System.out
-														.println("Œª÷√Œ™0===================="
-																+ INDX);
-												AsyncHttp
-														.get(RealmName.REALM_NAME_LL
-																+ "/get_category_child_list?"
-																+ "channel_name=mall&parent_id="
-																+ INDX + "",
-																new AsyncHttpResponseHandler() {
-																	@Override
-																	public void onSuccess(
-																			int arg0,
-																			String arg1) {
-																		// TODO
-																		// Auto-generated
-																		// method
-																		// stub
-																		super.onSuccess(
-																				arg0,
-																				arg1);
-																		quanbu_id = arg1;
-																		formatWeatherll(arg1);
-																	}
-																}, null);
-											}
-
-										} else {
-											num = 1;
+									@Override
+									public void onItemClick(AdapterView<?> arg0,
+															View arg1, int arg2, long arg3) {
+										try {
+											INDX = list_lb.get(arg2).id;
+											quanbu = list_lb.get(arg2).id;
 											System.out
-													.println("Œª÷√Œ™1====================");
-										}
-										int geshu = list_lb.get(arg2).id;
-										if (geshu != 0) {
+													.println("=====myGridViewÁÇπÂáª0Á¨¨‰∫åÂ±ÇdeÊï∞ÊçÆ====================="
+															+ list_lb.get(0).id);
+											System.out
+													.println("=====myGridViewÁÇπÂáª1Á¨¨‰∫åÂ±ÇdeÊï∞ÊçÆ====================="
+															+ list_lb.get(1).id);
+											System.out
+													.println("=====myGridViewÁÇπÂáª2Á¨¨‰∫åÂ±ÇdeÊï∞ÊçÆ====================="
+															+ INDX);
 
-											if (num == 1) {
-												num = 0;
-												// MyGridAdapter.clickTemp = 0;
-												String parent_id = String
-														.valueOf(list_lb
-																.get(arg2).id);
-												String quanbu_id = String
-														.valueOf(quanbu);
-												Intent intent = new Intent(
-														NewWareMallActivity.this,
-														LieBiaoActivity.class);
-												intent.putExtra("id", parent_id);
-												intent.putExtra("quanbu_id",
-														quanbu_id);
-												startActivity(intent);
+											lbadapter.setSeclection(arg2);
+											lbadapter.notifyDataSetChanged();
+
+											spPreferences = getSharedPreferences(
+													"longuserset", MODE_PRIVATE);
+											int id = spPreferences.getInt("id", 0);
+											System.out
+													.println("strue===================="
+															+ strue);
+											if (arg2 != id) {
+												// Á¨¨‰∏ÄÊ¨°Âà∞ÁïåÈù¢ÈÄâÊã©Á¨¨‰∏Ä‰∏™‰∫åÁ∫ßËèúÂçï
+												if (strue = false) {
+													String parent_id = String
+															.valueOf(list_lb
+																	.get(arg2).id);
+													String quanbu_id = String
+															.valueOf(quanbu);
+													Intent intent = new Intent(
+															NewWareMallActivity.this,
+															LieBiaoActivity.class);
+													intent.putExtra("id", parent_id);
+													intent.putExtra("quanbu_id",
+															quanbu_id);
+													startActivity(intent);
+													strue = true;
+												} else {
+													num = 0;
+													System.out
+															.println("‰ΩçÁΩÆ‰∏∫0===================="
+																	+ INDX);
+													AsyncHttp
+															.get(RealmName.REALM_NAME_LL
+																			+ "/get_category_child_list?"
+																			+ "channel_name=mall&parent_id="
+																			+ INDX + "",
+																	new AsyncHttpResponseHandler() {
+																		@Override
+																		public void onSuccess(
+																				int arg0,
+																				String arg1) {
+																			// TODO
+																			// Auto-generated
+																			// method
+																			// stub
+																			super.onSuccess(
+																					arg0,
+																					arg1);
+																			quanbu_id = arg1;
+																			formatWeatherll(arg1);
+																		}
+																	}, null);
+												}
 
 											} else {
 												num = 1;
-												Editor editor = spPreferences
-														.edit();
-												editor.putInt("id", arg2);
-												editor.commit();
-
+												System.out
+														.println("‰ΩçÁΩÆ‰∏∫1====================");
 											}
-										} else {
-											// num = 1;
-											Toast.makeText(
-													NewWareMallActivity.this,
-													"Œﬁ◊”ƒø¬º", 200).show();
+											int geshu = list_lb.get(arg2).id;
+											if (geshu != 0) {
+
+												if (num == 1) {
+													num = 0;
+													// MyGridAdapter.clickTemp = 0;
+													String parent_id = String
+															.valueOf(list_lb
+																	.get(arg2).id);
+													String quanbu_id = String
+															.valueOf(quanbu);
+													Intent intent = new Intent(
+															NewWareMallActivity.this,
+															LieBiaoActivity.class);
+													intent.putExtra("id", parent_id);
+													intent.putExtra("quanbu_id",
+															quanbu_id);
+													startActivity(intent);
+
+												} else {
+													num = 1;
+													Editor editor = spPreferences
+															.edit();
+													editor.putInt("id", arg2);
+													editor.commit();
+
+												}
+											} else {
+												// num = 1;
+												Toast.makeText(
+														NewWareMallActivity.this,
+														"Êó†Â≠êÁõÆÂΩï", 200).show();
+											}
+
+										} catch (Exception e) {
+											// TODO Auto-generated catch block
+											e.printStackTrace();
 										}
-
-									} catch (Exception e) {
-										// TODO Auto-generated catch block
-										e.printStackTrace();
 									}
-								}
-							});
-				} catch (Exception e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-				break;
-			case 20:
-				adapter.putData(datas);
-				new_list.setOnItemClickListener(new OnItemClickListener() {
-
-					@Override
-					public void onItemClick(AdapterView<?> arg0, View arg1,
-							int arg2, long arg3) {
-						// TODO Auto-generated method stub
-						Intent intent = new Intent(NewWareMallActivity.this,
-								WareInformationActivity.class);
-						intent.putExtra("id", datas.get(arg2).id);
-						startActivity(intent);
+								});
+					} catch (Exception e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
 					}
-				});
+					break;
+				case 20:
+					adapter.putData(datas);
+					new_list.setOnItemClickListener(new OnItemClickListener() {
 
-				break;
-			default:
-				break;
+						@Override
+						public void onItemClick(AdapterView<?> arg0, View arg1,
+												int arg2, long arg3) {
+							// TODO Auto-generated method stub
+							Intent intent = new Intent(NewWareMallActivity.this,
+									WareInformationActivity.class);
+							intent.putExtra("id", datas.get(arg2).id);
+							startActivity(intent);
+						}
+					});
+
+					break;
+				default:
+					break;
 			}
 
 		};
@@ -544,7 +544,7 @@ public class NewWareMallActivity extends BaseActivity implements
 
 	private void loadWeather() {
 		AsyncHttp.get(RealmName.REALM_NAME_LL
-				+ "/get_category_child_list?channel_name=mall&parent_id=0",
+						+ "/get_category_child_list?channel_name=mall&parent_id=0",
 				new AsyncHttpResponseHandler() {
 					@Override
 					public void onSuccess(int arg0, String arg1) {
@@ -559,7 +559,7 @@ public class NewWareMallActivity extends BaseActivity implements
 	EnterpriseData data;
 	private void formatWeather(String result) {
 		try {
-			System.out.println("=======¡–±Ì ˝æ›==" + result);
+			System.out.println("=======ÂàóË°®Êï∞ÊçÆ==" + result);
 			list_lb = new ArrayList<EnterpriseData>();
 			JSONObject object = new JSONObject(result);
 			JSONArray jsonArray = object.getJSONArray("data");
@@ -586,7 +586,7 @@ public class NewWareMallActivity extends BaseActivity implements
 	}
 
 	/**
-	 * µ⁄∂˛º∂≤Àµ•
+	 * Á¨¨‰∫åÁ∫ßËèúÂçï
 	 */
 	private ArrayList data1, data2;
 
@@ -595,7 +595,7 @@ public class NewWareMallActivity extends BaseActivity implements
 		data2 = new ArrayList();
 		listll = new ArrayList<WareDatall>();
 		try {
-			System.out.println("=====µ⁄∂˛≤„ ˝æ›=====================" + result);
+			System.out.println("=====Á¨¨‰∫åÂ±ÇÊï∞ÊçÆ=====================" + result);
 			JSONObject object = new JSONObject(result);
 			String status = object.getString("status");
 			if (status.equals("y")) {
@@ -603,7 +603,7 @@ public class NewWareMallActivity extends BaseActivity implements
 
 				listll.add(0, null);
 				data1.add("001");
-				data2.add("»´≤ø");
+				data2.add("ÂÖ®ÈÉ®");
 				for (int i = 0; i < jsonArray.length(); i++) {
 					JSONObject obj = jsonArray.getJSONObject(i);
 					dm = new WareDatall();
@@ -637,7 +637,7 @@ public class NewWareMallActivity extends BaseActivity implements
 				// try{
 				// String title_id = (String) data1.get(arg2);
 				// INDX = Integer.parseInt(title_id);
-				// System.out.println("=====µ⁄∂˛≤„title_id====================="+title_id);
+				// System.out.println("=====Á¨¨‰∫åÂ±Çtitle_id====================="+title_id);
 				// //
 				// System.out.println("=====quanbu====================="+quanbu);
 				// if (title_id.equals("001")) {
@@ -649,7 +649,7 @@ public class NewWareMallActivity extends BaseActivity implements
 				// // String id = listll.get(arg2).getId();
 				// // INDX = Integer.parseInt(id);
 				// //
-				// System.out.println("=====µ⁄∂˛≤„ ˝æ›1====================="+INDX);
+				// System.out.println("=====Á¨¨‰∫åÂ±ÇÊï∞ÊçÆ1====================="+INDX);
 				// // load_list(INDX, true);
 				// System.out.println("=====arg2===================="+arg2);
 				// arrayadapter.setSeclection(arg2);
@@ -675,7 +675,7 @@ public class NewWareMallActivity extends BaseActivity implements
 	}
 
 	/**
-	 * …œ¿≠¡–±ÌÀ¢–¬º”‘ÿ
+	 * ‰∏äÊãâÂàóË°®Âà∑Êñ∞Âä†ËΩΩ
 	 */
 	private OnHeaderRefreshListener listHeadListener = new OnHeaderRefreshListener() {
 
@@ -693,7 +693,7 @@ public class NewWareMallActivity extends BaseActivity implements
 	};
 
 	/**
-	 * œ¬¿≠¡–±ÌÀ¢–¬º”‘ÿ
+	 * ‰∏ãÊãâÂàóË°®Âà∑Êñ∞Âä†ËΩΩ
 	 */
 	private OnFooterRefreshListener listFootListener = new OnFooterRefreshListener() {
 
@@ -719,7 +719,7 @@ public class NewWareMallActivity extends BaseActivity implements
 	};
 
 	/**
-	 * 1¡–±Ì ˝æ›Ω‚Œˆ
+	 * 1ÂàóË°®Êï∞ÊçÆËß£Êûê
 	 */
 
 	private int CURRENT_NUM = 1;
@@ -727,7 +727,7 @@ public class NewWareMallActivity extends BaseActivity implements
 	JSONObject object;
 	SpListData spList;
 	private void load_list(int INDX, boolean flag) {
-		 progress.CreateProgress();
+		progress.CreateProgress();
 		RUN_METHOD = 1;
 		if (flag) {
 			CURRENT_NUM = 1;
@@ -735,15 +735,15 @@ public class NewWareMallActivity extends BaseActivity implements
 		}
 		System.out.println("=====================002--" + INDX);
 		AsyncHttp.get(RealmName.REALM_NAME_LL
-				+ "/get_article_page_size_list?channel_name=mall&category_id="
-				+ INDX + "" + "&page_size=" + VIEW_NUM + "&page_index="
-				+ CURRENT_NUM + "&strwhere=&orderby=",
+						+ "/get_article_page_size_list?channel_name=mall&category_id="
+						+ INDX + "" + "&page_size=" + VIEW_NUM + "&page_index="
+						+ CURRENT_NUM + "&strwhere=&orderby=",
 				new AsyncHttpResponseHandler() {
 					@Override
 					public void onSuccess(int arg0, String arg1) {
 						// TODO Auto-generated method stub
 						super.onSuccess(arg0, arg1);
-						// System.out.println("=====================»˝º∂÷µ"+arg1);
+						// System.out.println("=====================‰∏âÁ∫ßÂÄº"+arg1);
 						try {
 							JSONObject jsonObject = new JSONObject(arg1);
 							String status = jsonObject.getString("status");
@@ -780,7 +780,7 @@ public class NewWareMallActivity extends BaseActivity implements
 							} else {
 								progress.CloseProgress();
 								Toast.makeText(NewWareMallActivity.this,
-										"√ª”–…Ã∆∑¡À", 200).show();
+										"Ê≤°ÊúâÂïÜÂìÅ‰∫Ü", 200).show();
 							}
 							if (len != 0) {
 								CURRENT_NUM = CURRENT_NUM + 1;
@@ -806,7 +806,7 @@ public class NewWareMallActivity extends BaseActivity implements
 
 	}
 
-	// ∫·œÚª¨∂Ø  ≈‰∆˜
+	// Ê®™ÂêëÊªëÂä®ÈÄÇÈÖçÂô®
 	public class MyAdapter extends BaseAdapter {
 
 		private Context mContext;
@@ -853,7 +853,7 @@ public class NewWareMallActivity extends BaseActivity implements
 
 		@Override
 		public View getView(final int position, View convertView,
-				ViewGroup parent) {
+							ViewGroup parent) {
 			final ViewHolder holder;
 			try {
 
@@ -871,9 +871,9 @@ public class NewWareMallActivity extends BaseActivity implements
 				} else {
 					holder = (ViewHolder) convertView.getTag();
 				}
-				System.out.println("=====Œª÷√=====================" + position);
+				System.out.println("=====‰ΩçÁΩÆ=====================" + position);
 				// holder.img.setImageResource(dataList.get(position));
-				// holder.text.setText("µ⁄" + position + "œÓ");
+				// holder.text.setText("Á¨¨" + position + "È°π");
 				holder.text.setText(List_lb.get(position).title);
 				biaoti = list_lb.get(position).title.length();
 
@@ -923,13 +923,13 @@ public class NewWareMallActivity extends BaseActivity implements
 				android.widget.LinearLayout.LayoutParams.WRAP_CONTENT,
 				android.widget.LinearLayout.LayoutParams.WRAP_CONTENT);
 		// mPopupWindow.setBackgroundDrawable(new
-		// BitmapDrawable());//±ÿ–Î…Ë÷√background≤≈ƒ‹œ˚ ß
+		// BitmapDrawable());//ÂøÖÈ°ªËÆæÁΩÆbackgroundÊâçËÉΩÊ∂àÂ§±
 		mPopupWindow.setBackgroundDrawable(getResources().getDrawable(
 				android.R.color.white));
 		mPopupWindow.setOutsideTouchable(true);
-		// ◊‘∂®“Â∂Øª≠
+		// Ëá™ÂÆö‰πâÂä®Áîª
 		// mPopupWindow.setAnimationStyle(R.style.PopupAnimation);
-		//  π”√œµÕ≥∂Øª≠
+		// ‰ΩøÁî®Á≥ªÁªüÂä®Áîª
 		mPopupWindow.setAnimationStyle(android.R.style.Animation_Toast);
 		mPopupWindow.update();
 		mPopupWindow.setTouchable(true);
@@ -942,11 +942,11 @@ public class NewWareMallActivity extends BaseActivity implements
 		// mPopupWindow = new PopupWindow(popView,
 		// LayoutParams.MATCH_PARENT,LayoutParams.WRAP_CONTENT);
 		// // mPopupWindow.setBackgroundDrawable(new
-		// // BitmapDrawable());//±ÿ–Î…Ë÷√background≤≈ƒ‹œ˚ ß
+		// // BitmapDrawable());//ÂøÖÈ°ªËÆæÁΩÆbackgroundÊâçËÉΩÊ∂àÂ§±
 		// mPopupWindow.setBackgroundDrawable(getResources().getDrawable(R.color.ban_louming));
-		// // ◊‘∂®“Â∂Øª≠
+		// // Ëá™ÂÆö‰πâÂä®Áîª
 		// // mPopupWindow.setAnimationStyle(R.style.PopupAnimation);
-		// //  π”√œµÕ≥∂Øª≠
+		// // ‰ΩøÁî®Á≥ªÁªüÂä®Áîª
 		// mPopupWindow.setAnimationStyle(R.style.delete_pop_style);
 		// mPopupWindow.update();
 		// mPopupWindow.setTouchable(true);
@@ -960,8 +960,8 @@ public class NewWareMallActivity extends BaseActivity implements
 		if (!mPopupWindow.isShowing()) {
 			try {
 				// mPopupWindow.showAsDropDown(view,0,0);
-				// µ⁄“ª∏ˆ≤Œ ˝÷∏∂®PopupWindowµƒ√™µ„view£¨º¥“¿∏Ω‘⁄ƒƒ∏ˆview…œ°£
-				// µ⁄∂˛∏ˆ≤Œ ˝÷∏∂®∆ ºµ„Œ™parentµƒ”“œ¬Ω«£¨µ⁄»˝∏ˆ≤Œ ˝…Ë÷√“‘parentµƒ”“œ¬Ω«Œ™‘≠µ„£¨œÚ◊Û°¢…œ∏˜∆´“∆10œÒÀÿ°£
+				// Á¨¨‰∏Ä‰∏™ÂèÇÊï∞ÊåáÂÆöPopupWindowÁöÑÈîöÁÇπviewÔºåÂç≥‰æùÈôÑÂú®Âì™‰∏™view‰∏ä„ÄÇ
+				// Á¨¨‰∫å‰∏™ÂèÇÊï∞ÊåáÂÆöËµ∑ÂßãÁÇπ‰∏∫parentÁöÑÂè≥‰∏ãËßíÔºåÁ¨¨‰∏â‰∏™ÂèÇÊï∞ËÆæÁΩÆ‰ª•parentÁöÑÂè≥‰∏ãËßí‰∏∫ÂéüÁÇπÔºåÂêëÂ∑¶„ÄÅ‰∏äÂêÑÂÅèÁßª10ÂÉèÁ¥†„ÄÇ
 				int[] location = new int[2];
 				view.getLocationOnScreen(location);
 				mPopupWindow.showAtLocation(view, Gravity.CENTER, 0, 0);
@@ -974,13 +974,13 @@ public class NewWareMallActivity extends BaseActivity implements
 
 	}
 
-	// …Ë÷√∫·œÚœ‘ æµƒ∏ˆ ˝
+	// ËÆæÁΩÆÊ®™ÂêëÊòæÁ§∫ÁöÑ‰∏™Êï∞
 	private void inter() {
 		try {
 
-			int size = list_lb.size();//  ˝æ›◊‹≥§∂»
+			int size = list_lb.size();// Êï∞ÊçÆÊÄªÈïøÂ∫¶
 
-			// ªÒµ√∆¡ƒªøÌ∂»
+			// Ëé∑ÂæóÂ±èÂπïÂÆΩÂ∫¶
 			DisplayMetrics metrics = new DisplayMetrics();
 			getWindowManager().getDefaultDisplay().getMetrics(metrics);
 			int windowWidth = metrics.widthPixels;
@@ -991,15 +991,15 @@ public class NewWareMallActivity extends BaseActivity implements
 				itemWidth = windowWidth / 3;
 			}
 
-			// ªÒµ√∆¡ƒªøÌ∂»“≤ø…“‘’‚—˘–¥
+			// Ëé∑ÂæóÂ±èÂπïÂÆΩÂ∫¶‰πüÂèØ‰ª•ËøôÊ†∑ÂÜô
 			// int itemWidth = getWindowManager().getDefaultDisplay().getWidth()
-			// / 5;//∆¡ƒªœ‘ æƒ¨»œ ˝¡ø
+			// / 5;//Â±èÂπïÊòæÁ§∫ÈªòËÆ§Êï∞Èáè
 
-			int gridViewWidth = (int) (size * itemWidth);// linearLayoutµƒ◊‹øÌ∂»
+			int gridViewWidth = (int) (size * itemWidth);// linearLayoutÁöÑÊÄªÂÆΩÂ∫¶
 			LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
 					gridViewWidth, LinearLayout.LayoutParams.MATCH_PARENT);
-			myGridView.setLayoutParams(params);// …Ë÷√GridView≤ºæ÷≤Œ ˝
-			myGridView.setNumColumns(size);// ∂ØÃ¨…Ë÷√GridView¡– ˝
+			myGridView.setLayoutParams(params);// ËÆæÁΩÆGridViewÂ∏ÉÂ±ÄÂèÇÊï∞
+			myGridView.setNumColumns(size);// Âä®ÊÄÅËÆæÁΩÆGridViewÂàóÊï∞
 
 		} catch (Exception e) {
 			// TODO: handle exception
@@ -1016,9 +1016,9 @@ public class NewWareMallActivity extends BaseActivity implements
 			datas = new ArrayList<WareInformationData>();
 		}
 		AsyncHttp.get(RealmName.REALM_NAME_LL
-				+ "/get_article_page_size_list?channel_name=mall&category_id="
-				+ INDX + "" + "&page_size=" + VIEW_NUM + "&page_index="
-				+ CURRENT_NUM + "&strwhere=&orderby=",
+						+ "/get_article_page_size_list?channel_name=mall&category_id="
+						+ INDX + "" + "&page_size=" + VIEW_NUM + "&page_index="
+						+ CURRENT_NUM + "&strwhere=&orderby=",
 				new AsyncHttpResponseHandler() {
 					@Override
 					public void onSuccess(int arg0, String arg1) {
@@ -1048,7 +1048,7 @@ public class NewWareMallActivity extends BaseActivity implements
 					lists.add(spList);
 				}
 
-				System.out.println("=====================µ⁄»˝∏ˆ¡–±Ì");
+				System.out.println("=====================Á¨¨‰∏â‰∏™ÂàóË°®");
 			} else {
 				progress.CloseProgress();
 				Toast.makeText(NewWareMallActivity.this, info, 200).show();
@@ -1066,7 +1066,7 @@ public class NewWareMallActivity extends BaseActivity implements
 	}
 
 	public void setListViewHeightBasedOnChildren(ListView listView) {
-		// ªÒ»°ListView∂‘”¶µƒAdapter
+		// Ëé∑ÂèñListViewÂØπÂ∫îÁöÑAdapter
 		ListAdapter listAdapter = listView.getAdapter();
 		if (listAdapter == null) {
 			return;
@@ -1074,19 +1074,19 @@ public class NewWareMallActivity extends BaseActivity implements
 
 		int totalHeight = 0;
 		for (int i = 0, len = listAdapter.getCount(); i < len; i++) {
-			// listAdapter.getCount()∑µªÿ ˝æ›œÓµƒ ˝ƒø
+			// listAdapter.getCount()ËøîÂõûÊï∞ÊçÆÈ°πÁöÑÊï∞ÁõÆ
 			View listItem = listAdapter.getView(i, null, listView);
-			// º∆À„◊”œÓView µƒøÌ∏ﬂ
+			// ËÆ°ÁÆóÂ≠êÈ°πView ÁöÑÂÆΩÈ´ò
 			listItem.measure(0, 0);
-			// Õ≥º∆À˘”–◊”œÓµƒ◊‹∏ﬂ∂»
+			// ÁªüËÆ°ÊâÄÊúâÂ≠êÈ°πÁöÑÊÄªÈ´òÂ∫¶
 			totalHeight += listItem.getMeasuredHeight();
 		}
 
 		ViewGroup.LayoutParams params = listView.getLayoutParams();
 		params.height = totalHeight
 				+ (listView.getDividerHeight() * (listAdapter.getCount() - 1));
-		// listView.getDividerHeight()ªÒ»°◊”œÓº‰∑÷∏Ù∑˚’º”√µƒ∏ﬂ∂»
-		// params.height◊Ó∫Ûµ√µΩ’˚∏ˆListViewÕÍ’˚œ‘ æ–Ë“™µƒ∏ﬂ∂»
+		// listView.getDividerHeight()Ëé∑ÂèñÂ≠êÈ°πÈó¥ÂàÜÈöîÁ¨¶Âç†Áî®ÁöÑÈ´òÂ∫¶
+		// params.heightÊúÄÂêéÂæóÂà∞Êï¥‰∏™ListViewÂÆåÊï¥ÊòæÁ§∫ÈúÄË¶ÅÁöÑÈ´òÂ∫¶
 		listView.setLayoutParams(params);
 	}
 }

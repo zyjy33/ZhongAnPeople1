@@ -19,8 +19,8 @@ public class SharedUtils {
 		preferences = context.getSharedPreferences(NAME, Context.MODE_PRIVATE);
 		editor = preferences.edit();
 	}
-	/**listÍ¨Óä›
-	 * ¸ù¾İÄ³ÖÖÖµ²éÕÒ
+	/**listé€šè¨ŠéŒ„
+	 * æ ¹æ®æŸç§å€¼æŸ¥æ‰¾
 	 * @param key
 	 * @param compare
 	 * @return
@@ -50,7 +50,7 @@ public class SharedUtils {
 		return values;
 	}
 	/**
-	 * Çå¿Õ
+	 * æ¸…ç©º
 	 */
 	public void clear() {
 		editor.clear();
@@ -58,8 +58,8 @@ public class SharedUtils {
 	}
 
 	/**
-	 * ÅĞ¶ÏÊÇ·ñ´æÔÚ
-	 * 
+	 * åˆ¤æ–­æ˜¯å¦å­˜åœ¨
+	 *
 	 * @param tag
 	 * @return
 	 */
@@ -68,8 +68,8 @@ public class SharedUtils {
 	}
 
 	/**
-	 * ÉèÖÃStringÀàĞÍµÄsharedpreferences
-	 * 
+	 * è®¾ç½®Stringç±»å‹çš„sharedpreferences
+	 *
 	 * @param key
 	 * @return
 	 */
@@ -85,8 +85,8 @@ public class SharedUtils {
 		return preferences.getInt(key, 0);
 	}
 	/**
-	 * »ñµÃStringÀàĞÍµÄsharedpreferences
-	 * 
+	 * è·å¾—Stringç±»å‹çš„sharedpreferences
+	 *
 	 * @param key
 	 * @return
 	 */
@@ -94,15 +94,15 @@ public class SharedUtils {
 		return preferences.getString(key, "");
 	}
 	/**
-	 * »ñµÃ½ğ±Ò
+	 * è·å¾—é‡‘å¸
 	 */
 	public String getValue(String key) {
 		return preferences.getString(key, "0");
 	}
-	
+
 	/**
-	 * ÉèÖÃbooleanÀàĞÍµÄsharedpreferences
-	 * 
+	 * è®¾ç½®booleanç±»å‹çš„sharedpreferences
+	 *
 	 * @param key
 	 * @return
 	 */
@@ -112,13 +112,13 @@ public class SharedUtils {
 	}
 
 	/**
-	 * »ñµÃbooleanÀàĞÍµÄsharedpreferences
-	 * 
+	 * è·å¾—booleanç±»å‹çš„sharedpreferences
+	 *
 	 * @param key
 	 * @return
 	 */
 	public Boolean getBooleanValue(String key) {
-		// Ä¬ÈÏÎªfalse
+		// é»˜è®¤ä¸ºfalse
 		return preferences.getBoolean(key, false);
 	}
 }

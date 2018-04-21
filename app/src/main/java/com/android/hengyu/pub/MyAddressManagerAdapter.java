@@ -18,7 +18,7 @@ public class MyAddressManagerAdapter extends BaseAdapter {
 	private ArrayList<UserAddressData> list = null;
 
 	public MyAddressManagerAdapter(Context context,
-			ArrayList<UserAddressData> list) {
+								   ArrayList<UserAddressData> list) {
 		// TODO Auto-generated constructor stub
 		this.context = context;
 		this.list = list;
@@ -63,13 +63,13 @@ public class MyAddressManagerAdapter extends BaseAdapter {
 				.findViewById(R.id.tv_user_address);
 		TextView tv_user_phone = (TextView) convertView
 				.findViewById(R.id.tv_user_phone);
-		tv_user_name.setText("�ջ��ˣ�" + list.get(position).user_accept_name);
+		tv_user_name.setText("收货人：" + list.get(position).user_accept_name);
 		tv_user_phone.setText(list.get(position).user_mobile);
 		String user_area = list.get(position).user_area;
 		String user_address = list.get(position).user_address;
 		// tv_user_address.setText(user_area+" "+user_address);
-		tv_user_address.setText("��ַ��" + list.get(position).province + "��"
-				+ list.get(position).city + "��" + user_area + "��"
+		tv_user_address.setText("地址：" + list.get(position).province + "、"
+				+ list.get(position).city + "、" + user_area + "、"
 				+ user_address);
 
 		// tv.setText(list.get(position).consigneeAddressInfo);

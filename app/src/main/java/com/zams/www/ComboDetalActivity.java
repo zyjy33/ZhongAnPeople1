@@ -1,24 +1,5 @@
 package com.zams.www;
 
-import java.text.ParseException;
-import java.util.ArrayList;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import com.android.hengyu.web.RealmName;
-import com.hengyushop.airplane.adapter.ComboOtherAdapter;
-import com.hengyushop.demo.at.AsyncHttp;
-import com.hengyushop.demo.at.BaseActivity;
-import com.hengyushop.demo.at.Common;
-import com.hengyushop.json.HttpUtils;
-import com.lglottery.www.common.SharedUtils;
-import com.lglottery.www.domain.ComboDetailDomain;
-import com.lglottery.www.domain.ComboOtherItem;
-import com.loopj.android.http.AsyncHttpResponseHandler;
-import com.loopj.android.http.RequestParams;
-import com.zams.www.R;
-
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
@@ -27,6 +8,24 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.ScrollView;
 import android.widget.TextView;
+
+import com.android.hengyu.web.RealmName;
+import com.hengyushop.airplane.adapter.ComboOtherAdapter;
+import com.hengyushop.demo.at.AsyncHttp;
+import com.hengyushop.demo.at.BaseActivity;
+import com.hengyushop.json.HttpUtils;
+import com.lglottery.www.common.SharedUtils;
+import com.lglottery.www.domain.ComboDetailDomain;
+import com.lglottery.www.domain.ComboOtherItem;
+import com.loopj.android.http.AsyncHttpResponseHandler;
+import com.loopj.android.http.RequestParams;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.text.ParseException;
+import java.util.ArrayList;
 
 public class ComboDetalActivity extends BaseActivity {
 	private SharedUtils utils;
@@ -41,37 +40,37 @@ public class ComboDetalActivity extends BaseActivity {
 	private Handler handler = new Handler() {
 		public void dispatchMessage(android.os.Message msg) {
 			switch (msg.what) {
-			case 0:
-				title.setText(detailDomain.getTitle());
-				describe.setText(detailDomain.getDescription());
-				current_price.setText(detailDomain.getCurrent_price() + "Ôª");
-				list_price.setText(detailDomain.getList_price() + "Ôª");
-				imageLoader.displayImage(detailDomain.getImage_url(),
-						combo_detail_img);
-				is_seals.setText("ÒÑÊÛ" + detailDomain.getPurchase_count());
-				if (detailDomain.getIs_required().equals("1")) {
-					is_req.setVisibility(View.VISIBLE);
-				} else {
-					is_req.setVisibility(View.INVISIBLE);
-				}
-				try {
-					purchase_deadline.setText(HttpUtils.getSimpleTime(
-							detailDomain.getPurchase_deadline(), "yyyy-MM-dd"));
+				case 0:
+					title.setText(detailDomain.getTitle());
+					describe.setText(detailDomain.getDescription());
+					current_price.setText(detailDomain.getCurrent_price() + "å…ƒ");
+					list_price.setText(detailDomain.getList_price() + "å…ƒ");
+					imageLoader.displayImage(detailDomain.getImage_url(),
+							combo_detail_img);
+					is_seals.setText("å·²å”®" + detailDomain.getPurchase_count());
+					if (detailDomain.getIs_required().equals("1")) {
+						is_req.setVisibility(View.VISIBLE);
+					} else {
+						is_req.setVisibility(View.INVISIBLE);
+					}
+					try {
+						purchase_deadline.setText(HttpUtils.getSimpleTime(
+								detailDomain.getPurchase_deadline(), "yyyy-MM-dd"));
 
-				} catch (ParseException e) {
-					e.printStackTrace();
-				}
-				detail_tips.setText(detailDomain.getTips());
-				detail_des.setText(detailDomain.getDetails());
-				otherAdapter = new ComboOtherAdapter(getApplicationContext(),
-						detailDomain.getItems(), imageLoader, handler);
-				combo_other.setAdapter(otherAdapter);
-				combo_scrool.scrollTo(0, 0);
+					} catch (ParseException e) {
+						e.printStackTrace();
+					}
+					detail_tips.setText(detailDomain.getTips());
+					detail_des.setText(detailDomain.getDetails());
+					otherAdapter = new ComboOtherAdapter(getApplicationContext(),
+							detailDomain.getItems(), imageLoader, handler);
+					combo_other.setAdapter(otherAdapter);
+					combo_scrool.scrollTo(0, 0);
 
-				break;
+					break;
 
-			default:
-				break;
+				default:
+					break;
 			}
 		};
 	};
@@ -108,7 +107,7 @@ public class ComboDetalActivity extends BaseActivity {
 	}
 
 	/**
-	 * 
+	 *
 	 * @param id
 	 */
 	private void loadData(String id) {
@@ -118,7 +117,7 @@ public class ComboDetalActivity extends BaseActivity {
 		params.put("longitude", utils.getStringValue("log"));
 		params.put("deal_id", id);
 		AsyncHttp.post(RealmName.REALM_NAME
-				+ "/mi/DianPing_Handler.ashx?act=GetOneDealDetail_ForMobile",
+						+ "/mi/DianPing_Handler.ashx?act=GetOneDealDetail_ForMobile",
 				params, new AsyncHttpResponseHandler() {
 					@Override
 					public void onSuccess(int arg0, String arg1) {

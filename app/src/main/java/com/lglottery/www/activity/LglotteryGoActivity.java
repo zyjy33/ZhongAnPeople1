@@ -1,10 +1,15 @@
 package com.lglottery.www.activity;
 
-import java.util.ArrayList;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.view.Window;
+import android.widget.Button;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.hengyushop.demo.at.AppManager;
 import com.hengyushop.demo.at.AsyncHttp;
@@ -23,16 +28,11 @@ import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
 import com.zams.www.R;
 
-import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
-import android.view.View;
-import android.view.Window;
-import android.view.View.OnClickListener;
-import android.widget.Button;
-import android.widget.LinearLayout;
-import android.widget.TextView;
-import android.widget.Toast;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
 
 public class LglotteryGoActivity extends BaseActivity {
 	private Button lglottery_lottery_view;
@@ -47,8 +47,8 @@ public class LglotteryGoActivity extends BaseActivity {
 	private TextView lglottery_lg_id;
 
 	/**
-	 * ²éÑ¯³é½±ÈËÔ±
-	 * 
+	 * æŸ¥è¯¢æŠ½å¥–äººå‘˜
+	 *
 	 * @param gamephaseorder
 	 */
 	private void connect(String gamephaseorder) {
@@ -66,7 +66,7 @@ public class LglotteryGoActivity extends BaseActivity {
 			public void onSuccess(int arg0, String arg1) {
 				// TODO Auto-generated method stub
 				super.onSuccess(arg0, arg1);
-				WLog.v("³é½±½á¹û" + arg1);
+				WLog.v("æŠ½å¥–ç»“æœ" + arg1);
 				try {
 					JSONObject jsonObject = new JSONObject(arg1);
 					JSONArray jsonArray = jsonObject.getJSONArray("items");
@@ -80,21 +80,21 @@ public class LglotteryGoActivity extends BaseActivity {
 								.getString("GamePhaseOrder"));
 						lottery_Go.setYth(object.getString("HengYuCode"));
 						/*
-						 * Èç¹û³é½±½áÊøÔò»á´æÔÚÒ»¸ö³éÖĞµÄÊı¾İ
+						 * å¦‚æœæŠ½å¥–ç»“æŸåˆ™ä¼šå­˜åœ¨ä¸€ä¸ªæŠ½ä¸­çš„æ•°æ®
 						 */
 						switch (Integer.parseInt(jsonObject
 								.getString("LotteryGameStatus"))) {
-						case 0:
+							case 0:
 
-							break;
-						case 1:
-							lottery_Go.setProductItemId(object
-									.getString("ProductItemId"));
-							lottery_Go.setLotteryGameTypeId(object
-									.getString("LotteryGameTypeId"));
-							break;
-						default:
-							break;
+								break;
+							case 1:
+								lottery_Go.setProductItemId(object
+										.getString("ProductItemId"));
+								lottery_Go.setLotteryGameTypeId(object
+										.getString("LotteryGameTypeId"));
+								break;
+							default:
+								break;
 						}
 
 						ArrayList<Lottery_Gobean> childGobeans = new ArrayList<Lottery_Gobean>();
@@ -103,7 +103,7 @@ public class LglotteryGoActivity extends BaseActivity {
 						int childLen = childArray.length();
 						/*
 						 * "LotteryGameTypeId": "3", "ProductItemId": "125",
-						 * "proName": "³öÈëÆ½°²"
+						 * "proName": "å‡ºå…¥å¹³å®‰"
 						 */
 						for (int j = 0; j < childLen; j++) {
 							JSONObject childObject = childArray
@@ -140,18 +140,18 @@ public class LglotteryGoActivity extends BaseActivity {
 	}
 
 	/**
-	 * ´´½¨×é¼şµÄ¶ÔÏóÊµÀı
+	 * åˆ›å»ºç»„ä»¶çš„å¯¹è±¡å®ä¾‹
 	 */
 	private void init() {
 		sharedUtils = new SharedUtils(getApplicationContext(),
 				Config.LOGIN_STATUS);
 		Bundle bundle = getIntent().getExtras();
 		if (bundle.containsKey("gamephaseorder")) {
-			// ´æÔÚÕâÑùµÄ³é½±ÆÚÊı
+			// å­˜åœ¨è¿™æ ·çš„æŠ½å¥–æœŸæ•°
 			number = bundle.getString("gamephaseorder");
 		} else {
-			// ²»´æÔÚÕâÑùµÄ³é½±ÆÚÊı
-			// ¹Ø±Õµ±Ç°µÄÓÎÏ·
+			// ä¸å­˜åœ¨è¿™æ ·çš„æŠ½å¥–æœŸæ•°
+			// å…³é—­å½“å‰çš„æ¸¸æˆ
 			AppManager.getAppManager().finishActivity();
 		}
 		lglottery_lottery_view = (Button) findViewById(R.id.lglottery_lottery_view);
@@ -182,7 +182,7 @@ public class LglotteryGoActivity extends BaseActivity {
 	private void visible(View view, TextView textView, String value) {
 		if (view != null) {
 			view.setVisibility(View.VISIBLE);
-			WLog.v("ÏÔÊ¾µÄÊÇ:" + value);
+			WLog.v("æ˜¾ç¤ºçš„æ˜¯:" + value);
 			textView.setText(value);
 		}
 	}
@@ -195,80 +195,80 @@ public class LglotteryGoActivity extends BaseActivity {
 	private Handler handler = new Handler() {
 		public void dispatchMessage(android.os.Message msg) {
 			switch (msg.what) {
-			case 0:
-				connect(number);
-				// lglottery_lottery_view.setOnClickListener(clickListener);
-				break;
-			case 1:
-				parentLists = (ArrayList<Lottery_Go>) msg.obj;
-				int size = parentLists.size();
-				switch (size) {
+				case 0:
+					connect(number);
+					// lglottery_lottery_view.setOnClickListener(clickListener);
+					break;
 				case 1:
-					visible(lottery_layout1, lottery_layout_view1, parentLists
-							.get(0).getUserName());
-					initWheel(lglottery_go1, parentLists.get(0).getArrayList());
-					break;
-				case 2:
-					visible(lottery_layout1, lottery_layout_view1, parentLists
-							.get(0).getUserName());
-					visible(lottery_layout2, lottery_layout_view2, parentLists
-							.get(1).getUserName());
-					initWheel(lglottery_go1, parentLists.get(0).getArrayList());
-					initWheel(lglottery_go2, parentLists.get(1).getArrayList());
-					break;
-				case 3:
-					visible(lottery_layout1, lottery_layout_view1, parentLists
-							.get(0).getUserName());
-					visible(lottery_layout2, lottery_layout_view2, parentLists
-							.get(1).getUserName());
-					visible(lottery_layout3, lottery_layout_view3, parentLists
-							.get(2).getUserName());
-					initWheel(lglottery_go1, parentLists.get(0).getArrayList());
-					initWheel(lglottery_go2, parentLists.get(1).getArrayList());
-					initWheel(lglottery_go3, parentLists.get(2).getArrayList());
+					parentLists = (ArrayList<Lottery_Go>) msg.obj;
+					int size = parentLists.size();
+					switch (size) {
+						case 1:
+							visible(lottery_layout1, lottery_layout_view1, parentLists
+									.get(0).getUserName());
+							initWheel(lglottery_go1, parentLists.get(0).getArrayList());
+							break;
+						case 2:
+							visible(lottery_layout1, lottery_layout_view1, parentLists
+									.get(0).getUserName());
+							visible(lottery_layout2, lottery_layout_view2, parentLists
+									.get(1).getUserName());
+							initWheel(lglottery_go1, parentLists.get(0).getArrayList());
+							initWheel(lglottery_go2, parentLists.get(1).getArrayList());
+							break;
+						case 3:
+							visible(lottery_layout1, lottery_layout_view1, parentLists
+									.get(0).getUserName());
+							visible(lottery_layout2, lottery_layout_view2, parentLists
+									.get(1).getUserName());
+							visible(lottery_layout3, lottery_layout_view3, parentLists
+									.get(2).getUserName());
+							initWheel(lglottery_go1, parentLists.get(0).getArrayList());
+							initWheel(lglottery_go2, parentLists.get(1).getArrayList());
+							initWheel(lglottery_go3, parentLists.get(2).getArrayList());
 
+							break;
+						default:
+							break;
+					}
+					lglottery_lottery_view.setOnClickListener(clickListener);
 					break;
 				default:
 					break;
-				}
-				lglottery_lottery_view.setOnClickListener(clickListener);
-				break;
-			default:
-				break;
 			}
 		};
 	};
 	/**
-	 * µã»÷ÊÂ¼ş
+	 * ç‚¹å‡»äº‹ä»¶
 	 */
 	private OnClickListener clickListener = new OnClickListener() {
 		@Override
 		public void onClick(View view) {
 			// TODO Auto-generated method stub
 			switch (view.getId()) {
-			case R.id.lglottery_lottery_view:
-				if (parentLists.size() != 3) {
-					Toast.makeText(getApplicationContext(), "³é½±ÈËÔ±Î´Âú!", 200)
-							.show();
-				} else {
-					initWheel(lglottery_go1, parentLists.get(0).getArrayList());
-					initWheel(lglottery_go2, parentLists.get(1).getArrayList());
-					initWheel(lglottery_go3, parentLists.get(2).getArrayList());
+				case R.id.lglottery_lottery_view:
+					if (parentLists.size() != 3) {
+						Toast.makeText(getApplicationContext(), "æŠ½å¥–äººå‘˜æœªæ»¡!", 200)
+								.show();
+					} else {
+						initWheel(lglottery_go1, parentLists.get(0).getArrayList());
+						initWheel(lglottery_go2, parentLists.get(1).getArrayList());
+						initWheel(lglottery_go3, parentLists.get(2).getArrayList());
 
-					System.out.println("üc“ôÊÂ¼ş");
-					String index1 = parentLists.get(0).getProductItemId();
-					String index2 = parentLists.get(1).getProductItemId();
-					String index3 = parentLists.get(2).getProductItemId();
-					WLog.v("·Ö„eÊÇ:" + index1 + "   " + index2 + "    " + index3);
-					int index[] = process(index1, index2, index3);
-					mixWheel(lglottery_go1, index[0]);
-					mixWheel(lglottery_go2, index[1]);
-					mixWheel(lglottery_go3, index[2]);
-				}
-				break;
+						System.out.println("é»æ“Šäº‹ä»¶");
+						String index1 = parentLists.get(0).getProductItemId();
+						String index2 = parentLists.get(1).getProductItemId();
+						String index3 = parentLists.get(2).getProductItemId();
+						WLog.v("åˆ†åˆ¥æ˜¯:" + index1 + "   " + index2 + "    " + index3);
+						int index[] = process(index1, index2, index3);
+						mixWheel(lglottery_go1, index[0]);
+						mixWheel(lglottery_go2, index[1]);
+						mixWheel(lglottery_go3, index[2]);
+					}
+					break;
 
-			default:
-				break;
+				default:
+					break;
 			}
 		}
 	};
@@ -279,28 +279,28 @@ public class LglotteryGoActivity extends BaseActivity {
 
 	private int[] process(String... params) {
 		int[] indexs = new int[params.length];
-		// ´¦ÀíµÚÒ»¸ö
+		// å¤„ç†ç¬¬ä¸€ä¸ª
 		ArrayList<Lottery_Gobean> index1 = getLists(0);
 		for (int i = 0; i < index1.size(); i++) {
 			if (params[0].equals(index1.get(i).getItemId())) {
 				indexs[0] = i;
-				WLog.v("µÚÒ»¸ö³é½±ÊÇ:" + params[0] + "Æ¥ÅäÊÇ" + indexs[0]);
+				WLog.v("ç¬¬ä¸€ä¸ªæŠ½å¥–æ˜¯:" + params[0] + "åŒ¹é…æ˜¯" + indexs[0]);
 			}
 		}
-		// ´¦ÀíµÚ2¸ö
+		// å¤„ç†ç¬¬2ä¸ª
 		ArrayList<Lottery_Gobean> index2 = getLists(1);
 		for (int i = 0; i < index2.size(); i++) {
 			if (params[1].equals(index2.get(i).getItemId())) {
 				indexs[1] = i;
-				WLog.v("µÚ¶ş¸ö³é½±ÊÇ:" + params[1] + "Æ¥ÅäÊÇ" + indexs[1]);
+				WLog.v("ç¬¬äºŒä¸ªæŠ½å¥–æ˜¯:" + params[1] + "åŒ¹é…æ˜¯" + indexs[1]);
 			}
 		}
-		// ´¦ÀíµÚ3¸ö
+		// å¤„ç†ç¬¬3ä¸ª
 		ArrayList<Lottery_Gobean> index3 = getLists(2);
 		for (int i = 0; i < index3.size(); i++) {
 			if (params[2].equals(index3.get(i).getItemId())) {
 				indexs[2] = i;
-				WLog.v("µÚÈı¸ö³é½±ÊÇ:" + params[2] + "Æ¥ÅäÊÇ" + indexs[2]);
+				WLog.v("ç¬¬ä¸‰ä¸ªæŠ½å¥–æ˜¯:" + params[2] + "åŒ¹é…æ˜¯" + indexs[2]);
 			}
 		}
 
@@ -313,7 +313,7 @@ public class LglotteryGoActivity extends BaseActivity {
 
 	/**
 	 * Tests wheels
-	 * 
+	 *
 	 * @return true
 	 */
 	private boolean test(WheelView wheel) {
@@ -324,7 +324,7 @@ public class LglotteryGoActivity extends BaseActivity {
 
 	/**
 	 * Tests wheel value
-	 * 
+	 *
 	 * @param id
 	 *            the wheel Id
 	 * @param value
@@ -337,9 +337,9 @@ public class LglotteryGoActivity extends BaseActivity {
 
 	private void updateStatus() {
 		if (test(lglottery_go1)) {
-			System.out.println("ÖĞ½±ÁË");
+			System.out.println("ä¸­å¥–äº†");
 		} else {
-			System.out.println("¼ÓÓÍ");
+			System.out.println("åŠ æ²¹");
 		}
 	}
 
@@ -376,11 +376,11 @@ public class LglotteryGoActivity extends BaseActivity {
 	}
 
 	/**
-	 * ¹ö¶¯²¨ÂÖ
-	 * 
+	 * æ»šåŠ¨æ³¢è½®
+	 *
 	 * @param id
 	 * @param length
-	 *            :ÎåÃëÖÓÄÚ¹ö¶¯15000È¦Ö¸¶¨¹ö¶¯µ½µÚ¼¸¸öÎ»ÖÃÍ£Ö¹
+	 *            :äº”ç§’é’Ÿå†…æ»šåŠ¨15000åœˆæŒ‡å®šæ»šåŠ¨åˆ°ç¬¬å‡ ä¸ªä½ç½®åœæ­¢
 	 */
 	private void mixWheel(WheelView wheel, int length) {
 		// wheel.scroll(-350 + (int) (Math.random() * 50), 5000);

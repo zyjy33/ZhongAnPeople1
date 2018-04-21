@@ -1,19 +1,20 @@
 package com.mrwujay.cascade.service;
 
-import java.util.ArrayList;
-import java.util.List;
-import org.xml.sax.Attributes;
-import org.xml.sax.SAXException;
-import org.xml.sax.helpers.DefaultHandler;
-
 import com.mrwujay.cascade.model.CityModel;
 import com.mrwujay.cascade.model.DistrictModel;
 import com.mrwujay.cascade.model.ProvinceModel;
 
+import org.xml.sax.Attributes;
+import org.xml.sax.SAXException;
+import org.xml.sax.helpers.DefaultHandler;
+
+import java.util.ArrayList;
+import java.util.List;
+
 public class XmlParserHandler extends DefaultHandler {
 
 	/**
-	 * ´æ´¢ËùÓĞµÄ½âÎö¶ÔÏó
+	 * å­˜å‚¨æ‰€æœ‰çš„è§£æå¯¹è±¡
 	 */
 	private List<ProvinceModel> provinceList = new ArrayList<ProvinceModel>();
 
@@ -27,7 +28,7 @@ public class XmlParserHandler extends DefaultHandler {
 
 	@Override
 	public void startDocument() throws SAXException {
-		// µ±¶Áµ½µÚÒ»¸ö¿ªÊ¼±êÇ©µÄÊ±ºò£¬»á´¥·¢Õâ¸ö·½·¨
+		// å½“è¯»åˆ°ç¬¬ä¸€ä¸ªå¼€å§‹æ ‡ç­¾çš„æ—¶å€™ï¼Œä¼šè§¦å‘è¿™ä¸ªæ–¹æ³•
 	}
 
 	ProvinceModel provinceModel = new ProvinceModel();
@@ -36,8 +37,8 @@ public class XmlParserHandler extends DefaultHandler {
 
 	@Override
 	public void startElement(String uri, String localName, String qName,
-			Attributes attributes) throws SAXException {
-		// µ±Óöµ½¿ªÊ¼±ê¼ÇµÄÊ±ºò£¬µ÷ÓÃÕâ¸ö·½·¨
+							 Attributes attributes) throws SAXException {
+		// å½“é‡åˆ°å¼€å§‹æ ‡è®°çš„æ—¶å€™ï¼Œè°ƒç”¨è¿™ä¸ªæ–¹æ³•
 		if (qName.equals("province")) {
 			provinceModel = new ProvinceModel();
 			provinceModel.setName(attributes.getValue(0));
@@ -56,7 +57,7 @@ public class XmlParserHandler extends DefaultHandler {
 	@Override
 	public void endElement(String uri, String localName, String qName)
 			throws SAXException {
-		// Óöµ½½áÊø±ê¼ÇµÄÊ±ºò£¬»áµ÷ÓÃÕâ¸ö·½·¨
+		// é‡åˆ°ç»“æŸæ ‡è®°çš„æ—¶å€™ï¼Œä¼šè°ƒç”¨è¿™ä¸ªæ–¹æ³•
 		if (qName.equals("district")) {
 			cityModel.getDistrictList().add(districtModel);
 		} else if (qName.equals("city")) {

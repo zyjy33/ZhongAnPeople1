@@ -1,10 +1,5 @@
 package com.hengyushop.demo.movie;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,10 +8,14 @@ import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
-import android.widget.SimpleAdapter;
 
 import com.hengyushop.movie.adapter.MovieHomeAdapter;
 import com.zams.www.R;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class MovieHomeActivity extends Activity {
 
@@ -37,17 +36,17 @@ public class MovieHomeActivity extends Activity {
 
 			@Override
 			public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
-					long arg3) {
+									long arg3) {
 				// TODO Auto-generated method stub
 				Intent intent = new Intent(getApplicationContext(),
 						MovieDetailActivity.class);
-				startActivity(intent); 
+				startActivity(intent);
 			}
 		});
 	}
 
 	private void listData() {
-		String[] type = new String[] { "ÈçºÎ×¢²á", "ÈçºÎ³äÖµ", "ÈçºÎÌáÏÖ", "Íø¹º°²È«", "¹ØÓÚÎÒÃÇ" };
+		String[] type = new String[] { "å¦‚ä½•æ³¨å†Œ", "å¦‚ä½•å……å€¼", "å¦‚ä½•æç°", "ç½‘è´­å®‰å…¨", "å…³äºæˆ‘ä»¬" };
 		List<Map<String, String>> list = new ArrayList<Map<String, String>>();
 		Map<String, String> lines = null;
 		for (int i = 0; i < type.length; i++) {

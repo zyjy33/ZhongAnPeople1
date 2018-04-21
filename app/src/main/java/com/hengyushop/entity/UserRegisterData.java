@@ -1,10 +1,10 @@
 package com.hengyushop.entity;
 
 /**
- * 用户注册的bwan数据
- * 
+ * 鐢ㄦ埛娉ㄥ唽鐨刡wan鏁版嵁
+ *
  * @author Administrator
- * 
+ *
  */
 public class UserRegisterData {
 

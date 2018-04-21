@@ -43,22 +43,22 @@ public class LglotteryPersonActivity extends BaseActivity {
 	private Handler handler = new Handler() {
 		public void dispatchMessage(Message msg) {
 			switch (msg.what) {
-			case 0:
-				lglottery_person_dai.setText(getString(
-						R.string.person_view_dai,
-						personUtil.getValue("shopPassTicket")));
-				lglottery_person_dou.setText(getString(
-						R.string.person_view_dou,
-						personUtil.getValue("credits")));
-				lglottery_person_title.setText(personUtil
-						.getStringValue("username"));
-				lglottery_person_xian.setText(getString(
-						R.string.person_view_xian,
-						personUtil.getValue("PassTicketBalance")));
-				break;
+				case 0:
+					lglottery_person_dai.setText(getString(
+							R.string.person_view_dai,
+							personUtil.getValue("shopPassTicket")));
+					lglottery_person_dou.setText(getString(
+							R.string.person_view_dou,
+							personUtil.getValue("credits")));
+					lglottery_person_title.setText(personUtil
+							.getStringValue("username"));
+					lglottery_person_xian.setText(getString(
+							R.string.person_view_xian,
+							personUtil.getValue("PassTicketBalance")));
+					break;
 
-			default:
-				break;
+				default:
+					break;
 			}
 		};
 	};
@@ -89,14 +89,14 @@ public class LglotteryPersonActivity extends BaseActivity {
 		@Override
 		public void onClick(View view) {
 			switch (view.getId()) {
-			case R.id.lglottery_person_log:
-				Intent logIntent = new Intent(LglotteryPersonActivity.this,
-						LglotteryLogActivity.class);
-				startActivity(logIntent);
-				break;
+				case R.id.lglottery_person_log:
+					Intent logIntent = new Intent(LglotteryPersonActivity.this,
+							LglotteryLogActivity.class);
+					startActivity(logIntent);
+					break;
 
-			default:
-				break;
+				default:
+					break;
 			}
 		}
 	};
@@ -112,7 +112,7 @@ public class LglotteryPersonActivity extends BaseActivity {
 						lglottery_person_ico);
 			} else {
 				imageLoader.displayImage("drawable://"
-						+ R.drawable.lglottery_login_ico, lglottery_person_ico,
+								+ R.drawable.lglottery_login_ico, lglottery_person_ico,
 						options);
 			}
 
@@ -141,9 +141,9 @@ public class LglotteryPersonActivity extends BaseActivity {
 									handler.sendEmptyMessage(0);
 
 								} else {
-									// ±íÊ¾ÓĞ´íÎó
+									// è¡¨ç¤ºæœ‰é”™è¯¯
 									Toast.makeText(getApplicationContext(),
-											"Éí·İÑéÖ¤¹ıÆÚ£¬ÇëÖØĞÂµÇÂ¼!", 200).show();
+											"èº«ä»½éªŒè¯è¿‡æœŸï¼Œè¯·é‡æ–°ç™»å½•!", 200).show();
 									sharedUtils.clear();
 									AppManager.getAppManager().finishActivity();
 								}
@@ -165,7 +165,7 @@ public class LglotteryPersonActivity extends BaseActivity {
 					});
 		} else {
 			imageLoader.displayImage("drawable://"
-					+ R.drawable.lglottery_login_ico, lglottery_person_ico,
+							+ R.drawable.lglottery_login_ico, lglottery_person_ico,
 					options);
 		}
 	};

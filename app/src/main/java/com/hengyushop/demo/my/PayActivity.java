@@ -37,16 +37,16 @@
 //				
 //				Button payBtn = (Button) findViewById(R.id.appay_btn);
 //				payBtn.setEnabled(false);
-//				Toast.makeText(PayActivity.this, "»ñÈ¡¶©µ¥ÖĞ...", Toast.LENGTH_SHORT).show();
+//				Toast.makeText(PayActivity.this, "è·å–è®¢å•ä¸­...", Toast.LENGTH_SHORT).show();
 //		        try{
 //					byte[] buf = Util.httpGet(url);
 //					if (buf != null && buf.length > 0) {
 //						String content = new String(buf);
 //						Log.e("get server pay params:",content);
-//			        	JSONObject json = new JSONObject(content); 
+//			        	JSONObject json = new JSONObject(content);
 //						if(null != json && !json.has("retcode") ){
 //							PayReq req = new PayReq();
-//							//req.appId = "wxf8b4f85f3a794e77";  // ²âÊÔÓÃappId
+//							//req.appId = "wxf8b4f85f3a794e77";  // æµ‹è¯•ç”¨appId
 //							req.appId			= json.getString("appid");
 //							req.partnerId		= json.getString("partnerid");
 //							req.prepayId		= json.getString("prepayid");
@@ -55,22 +55,22 @@
 //							req.packageValue	= json.getString("package");
 //							req.sign			= json.getString("sign");
 ////							req.extData			= "app data"; // optional
-//							Toast.makeText(PayActivity.this, "Õı³£µ÷ÆğÖ§¸¶", Toast.LENGTH_SHORT).show();
-//							// ÔÚÖ§¸¶Ö®Ç°£¬Èç¹ûÓ¦ÓÃÃ»ÓĞ×¢²áµ½Î¢ĞÅ£¬Ó¦¸ÃÏÈµ÷ÓÃIWXMsg.registerApp½«Ó¦ÓÃ×¢²áµ½Î¢ĞÅ
+//							Toast.makeText(PayActivity.this, "æ­£å¸¸è°ƒèµ·æ”¯ä»˜", Toast.LENGTH_SHORT).show();
+//							// åœ¨æ”¯ä»˜ä¹‹å‰ï¼Œå¦‚æœåº”ç”¨æ²¡æœ‰æ³¨å†Œåˆ°å¾®ä¿¡ï¼Œåº”è¯¥å…ˆè°ƒç”¨IWXMsg.registerAppå°†åº”ç”¨æ³¨å†Œåˆ°å¾®ä¿¡
 //							api.sendReq(req);
 //							boolean flag = api.sendReq(req);
-//							System.out.println("Ö§¸¶"+flag);
+//							System.out.println("æ”¯ä»˜"+flag);
 //						}else{
-//				        	Log.d("PAY_GET", "·µ»Ø´íÎó"+json.getString("retmsg"));
-//				        	Toast.makeText(PayActivity.this, "·µ»Ø´íÎó"+json.getString("retmsg"), Toast.LENGTH_SHORT).show();
+//				        	Log.d("PAY_GET", "è¿”å›é”™è¯¯"+json.getString("retmsg"));
+//				        	Toast.makeText(PayActivity.this, "è¿”å›é”™è¯¯"+json.getString("retmsg"), Toast.LENGTH_SHORT).show();
 //						}
 //					}else{
-//			        	Log.d("PAY_GET", "·şÎñÆ÷ÇëÇó´íÎó");
-//			        	Toast.makeText(PayActivity.this, "·şÎñÆ÷ÇëÇó´íÎó", Toast.LENGTH_SHORT).show();
+//			        	Log.d("PAY_GET", "æœåŠ¡å™¨è¯·æ±‚é”™è¯¯");
+//			        	Toast.makeText(PayActivity.this, "æœåŠ¡å™¨è¯·æ±‚é”™è¯¯", Toast.LENGTH_SHORT).show();
 //			        }
 //		        }catch(Exception e){
-//		        	Log.e("PAY_GET", "Òì³££º"+e.getMessage());
-//		        	Toast.makeText(PayActivity.this, "Òì³££º"+e.getMessage(), Toast.LENGTH_SHORT).show();
+//		        	Log.e("PAY_GET", "å¼‚å¸¸ï¼š"+e.getMessage());
+//		        	Toast.makeText(PayActivity.this, "å¼‚å¸¸ï¼š"+e.getMessage(), Toast.LENGTH_SHORT).show();
 //		        }
 //		        payBtn.setEnabled(true);
 //			}

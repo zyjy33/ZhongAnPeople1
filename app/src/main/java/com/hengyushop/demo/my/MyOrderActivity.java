@@ -47,11 +47,11 @@ import com.zams.www.HomeActivity;
 import com.zams.www.R;
 
 /**
- * 
- * ÎÒµÄ¶©µ¥
- * 
+ *
+ * æˆ‘çš„è®¢å•
+ *
  * @author Administrator
- * 
+ *
  */
 public class MyOrderActivity extends BaseActivity implements OnClickListener {
 	private ImageView iv_fanhui, cursor1, cursor2, cursor3, cursor4,cursor5;
@@ -63,7 +63,7 @@ public class MyOrderActivity extends BaseActivity implements OnClickListener {
 	private MyOrderllAdapter madapter;
 	private ArrayList<MyOrderData> list;
 	ImageView imageView1;
-//	private List<OrderBean> lists;
+	//	private List<OrderBean> lists;
 	MyOrderData md;
 	OrderBean mb;
 	private DialogProgress progress;
@@ -74,7 +74,7 @@ public class MyOrderActivity extends BaseActivity implements OnClickListener {
 	String recharge_no,total_c;
 	LinearLayout no_data_no;
 	String payment_status;
-	String type = ""; 
+	String type = "";
 	public static boolean teby = false;
 	public static String notify_url;
 	private Activity activity;
@@ -92,8 +92,8 @@ public class MyOrderActivity extends BaseActivity implements OnClickListener {
 		madapter = new MyOrderllAdapter(list,MyOrderActivity.this,handler);
 		my_list.setAdapter(madapter);
 
-//		strwhere = "datatype=1";
-//		load_list(true, strwhere);
+		//		strwhere = "datatype=1";
+		//		load_list(true, strwhere);
 	}
 
 	@Override
@@ -101,84 +101,84 @@ public class MyOrderActivity extends BaseActivity implements OnClickListener {
 		// TODO Auto-generated method stub
 		super.onResume();
 		try {
-			System.out.println("×´Ì¬==============" + teby);
-			//Óà¶îÖ§¸¶¸üĞÂ
+			System.out.println("çŠ¶æ€==============" + teby);
+			//ä½™é¢æ”¯ä»˜æ›´æ–°
 			if (teby == true) {
-//				userloginqm();
+				//				userloginqm();
 			}
-		
-//		//ÅĞ¶Ï×´Ì¬µ½½çÃæ
-		String status = getIntent().getStringExtra("status");
-		if (status != null) {
-			if (status.equals("0")) {
-				item1();
-				strwhere = "datatype=1";
-//				list.clear();
-				load_list(true,strwhere);
-			}else if (status.equals("1")) {
-				item2();
-				strwhere = "payment_status=1%20and%20datatype=1";
-//				list.clear();
-				load_list(true,strwhere);
-			}else if (status.equals("2")) {
-				item3();
-				strwhere = "payment_status=2%20and%20express_status=1%20and%20status=2%20and%20datatype=1";
-//				list.clear();
-				load_list(true,strwhere);
-			}else if (status.equals("3")) {
-				item4();
-				strwhere = "payment_status=2%20and%20express_status=2%20and%20status=2%20and%20datatype=1";
-//				list.clear();
-				load_list(true,strwhere);
-			}else if (status.equals("4")) {
-				item5();
-				strwhere = "payment_status=2%20and%20express_status=2%20and%20status=3%20and%20datatype=1";
-//				list.clear();
+
+			//		//åˆ¤æ–­çŠ¶æ€åˆ°ç•Œé¢
+			String status = getIntent().getStringExtra("status");
+			if (status != null) {
+				if (status.equals("0")) {
+					item1();
+					strwhere = "datatype=1";
+					//				list.clear();
+					load_list(true,strwhere);
+				}else if (status.equals("1")) {
+					item2();
+					strwhere = "payment_status=1%20and%20datatype=1";
+					//				list.clear();
+					load_list(true,strwhere);
+				}else if (status.equals("2")) {
+					item3();
+					strwhere = "payment_status=2%20and%20express_status=1%20and%20status=2%20and%20datatype=1";
+					//				list.clear();
+					load_list(true,strwhere);
+				}else if (status.equals("3")) {
+					item4();
+					strwhere = "payment_status=2%20and%20express_status=2%20and%20status=2%20and%20datatype=1";
+					//				list.clear();
+					load_list(true,strwhere);
+				}else if (status.equals("4")) {
+					item5();
+					strwhere = "payment_status=2%20and%20express_status=2%20and%20status=3%20and%20datatype=1";
+					//				list.clear();
+					load_list(true,strwhere);
+				}
+			}else{
 				load_list(true,strwhere);
 			}
-		}else{
-			load_list(true,strwhere);
-		}
-		
+
 		} catch (Exception e) {
 			// TODO: handle exception
 			e.printStackTrace();
 		}
 	}
-	
-    //µ±Activity±»Ïú»ÙÊ±»áµ÷ÓÃonDestory·½·¨
-    @Override  
-    protected void onDestroy() {  
-        super.onDestroy(); 
-        try {
-			
-//        activity = null;
-    	BitmapDrawable bd = (BitmapDrawable)imageView1.getBackground();
-		imageView1.setBackgroundResource(0);//±ğÍüÁË°Ñ±³¾°ÉèÎªnull£¬±ÜÃâonDrawË¢ĞÂ±³¾°Ê±ºò³öÏÖused a recycled bitmap´íÎó
-		bd.setCallback(null);
-		bd.getBitmap().recycle();
-		
-    	if (MyOrderllAdapter.type == true) {
+
+	//å½“Activityè¢«é”€æ¯æ—¶ä¼šè°ƒç”¨onDestoryæ–¹æ³•
+	@Override
+	protected void onDestroy() {
+		super.onDestroy();
+		try {
+
+			//        activity = null;
+			BitmapDrawable bd = (BitmapDrawable)imageView1.getBackground();
+			imageView1.setBackgroundResource(0);//åˆ«å¿˜äº†æŠŠèƒŒæ™¯è®¾ä¸ºnullï¼Œé¿å…onDrawåˆ·æ–°èƒŒæ™¯æ—¶å€™å‡ºç°used a recycled bitmapé”™è¯¯
+			bd.setCallback(null);
+			bd.getBitmap().recycle();
+
+			if (MyOrderllAdapter.type == true) {
 				MyOrderllAdapter.mAq.clear();
 				MyOrderllAdapter.mAq.recycle(my_list);
 				MyOrderllAdapter.type = false;
-		}
-    	
-    	
-    	if (list.size() > 0) {
-    		list.clear();
-    		list = null;
-		}
-    	
-    	 //Ê¹ÓÃLeakCanary¹Û²ìÊÇ·ñÓĞÄÚ´æĞ¹Â©
-//        MyApplication.getRefWatcher().watch(this);
-    	} catch (Exception e) {
+			}
+
+
+			if (list.size() > 0) {
+				list.clear();
+				list = null;
+			}
+
+			//ä½¿ç”¨LeakCanaryè§‚å¯Ÿæ˜¯å¦æœ‰å†…å­˜æ³„æ¼
+			//        MyApplication.getRefWatcher().watch(this);
+		} catch (Exception e) {
 			// TODO: handle exception
-    		e.printStackTrace();
+			e.printStackTrace();
 		}
-    } 
+	}
 	/**
-	 * ¿Ø¼ş³õÊ¼»¯
+	 * æ§ä»¶åˆå§‹åŒ–
 	 */
 	private void Initialize() {
 
@@ -187,12 +187,12 @@ public class MyOrderActivity extends BaseActivity implements OnClickListener {
 			Bitmap bm = BitmapFactory.decodeResource(this.getResources(), R.drawable.no_data);
 			BitmapDrawable bd = new BitmapDrawable(this.getResources(), bm);
 			imageView1.setBackgroundDrawable(bd);
-			
+
 			refresh = (PullToRefreshView) findViewById(R.id.refresh);
 			refresh.setOnHeaderRefreshListener(listHeadListener);
 			refresh.setOnFooterRefreshListener(listFootListener);
 			my_list = (ListView) findViewById(R.id.new_list);
-			 no_data_no = (LinearLayout) findViewById(R.id.no_data_no);
+			no_data_no = (LinearLayout) findViewById(R.id.no_data_no);
 			index_item0 = (LinearLayout) findViewById(R.id.index_item0);
 			index_item1 = (LinearLayout) findViewById(R.id.index_item1);
 			index_item2 = (LinearLayout) findViewById(R.id.index_item2);
@@ -208,10 +208,10 @@ public class MyOrderActivity extends BaseActivity implements OnClickListener {
 			index_item2.setOnClickListener(this);
 			index_item3.setOnClickListener(this);
 			index_item4.setOnClickListener(this);
-			
+
 			ImageView iv_fanhui = (ImageView) findViewById(R.id.iv_fanhui);
 			iv_fanhui.setOnClickListener(new OnClickListener() {
-				
+
 				@Override
 				public void onClick(View arg0) {
 					// TODO Auto-generated method stub
@@ -229,49 +229,49 @@ public class MyOrderActivity extends BaseActivity implements OnClickListener {
 	public void onClick(View v) {
 		// TODO Auto-generated method stub
 		switch (v.getId()) {
-		case R.id.index_item0:
-			item1();
-			list = new ArrayList<MyOrderData>();
-			System.out.println("list×´Ì¬==============" + list.size());
-			strwhere = "datatype=1";
-			System.out.println("=========11============"+strwhere);
-			load_list(true, strwhere);
-			break;
-		case R.id.index_item1:
-			item2();
-			list = new ArrayList<MyOrderData>();
-			System.out.println("list×´Ì¬==============" + list.size());
-			strwhere = "payment_status=1%20and%20datatype=1";
-			System.out.println("=========22============"+strwhere);
-			load_list(true, strwhere);
-			break;
-		case R.id.index_item2:
-			item3();
-			list = new ArrayList<MyOrderData>();
-			System.out.println("list×´Ì¬==============" + list.size());
-			strwhere = "payment_status=2%20and%20express_status=1%20and%20status=2%20and%20datatype=1";
-			System.out.println("=========33============"+strwhere);
-			load_list(true, strwhere);
-			break;
-		case R.id.index_item3:
-			item4();
-			list = new ArrayList<MyOrderData>();
-			System.out.println("list×´Ì¬==============" + list.size());
-			strwhere = "payment_status=2%20and%20express_status=2%20and%20status=2%20and%20datatype=1";
-			System.out.println("=========55============"+strwhere);
-			load_list(true, strwhere);
-			break;
-		case R.id.index_item4:
-			item5();
-			list = new ArrayList<MyOrderData>();
-			System.out.println("list×´Ì¬==============" + list.size());
-			strwhere = "payment_status=2%20and%20express_status=2%20and%20status=3%20and%20datatype=1";
-			System.out.println("=========66============"+strwhere);
-			load_list(true, strwhere);
-			break;
+			case R.id.index_item0:
+				item1();
+				list = new ArrayList<MyOrderData>();
+				System.out.println("listçŠ¶æ€==============" + list.size());
+				strwhere = "datatype=1";
+				System.out.println("=========11============"+strwhere);
+				load_list(true, strwhere);
+				break;
+			case R.id.index_item1:
+				item2();
+				list = new ArrayList<MyOrderData>();
+				System.out.println("listçŠ¶æ€==============" + list.size());
+				strwhere = "payment_status=1%20and%20datatype=1";
+				System.out.println("=========22============"+strwhere);
+				load_list(true, strwhere);
+				break;
+			case R.id.index_item2:
+				item3();
+				list = new ArrayList<MyOrderData>();
+				System.out.println("listçŠ¶æ€==============" + list.size());
+				strwhere = "payment_status=2%20and%20express_status=1%20and%20status=2%20and%20datatype=1";
+				System.out.println("=========33============"+strwhere);
+				load_list(true, strwhere);
+				break;
+			case R.id.index_item3:
+				item4();
+				list = new ArrayList<MyOrderData>();
+				System.out.println("listçŠ¶æ€==============" + list.size());
+				strwhere = "payment_status=2%20and%20express_status=2%20and%20status=2%20and%20datatype=1";
+				System.out.println("=========55============"+strwhere);
+				load_list(true, strwhere);
+				break;
+			case R.id.index_item4:
+				item5();
+				list = new ArrayList<MyOrderData>();
+				System.out.println("listçŠ¶æ€==============" + list.size());
+				strwhere = "payment_status=2%20and%20express_status=2%20and%20status=3%20and%20datatype=1";
+				System.out.println("=========66============"+strwhere);
+				load_list(true, strwhere);
+				break;
 
-		default:
-			break;
+			default:
+				break;
 		}
 	}
 	private void item1() {
@@ -309,10 +309,10 @@ public class MyOrderActivity extends BaseActivity implements OnClickListener {
 		cursor4.setVisibility(View.INVISIBLE);
 		cursor5.setVisibility(View.VISIBLE);
 	}
-	
+
 
 	/**
-	 * ÉÏÀ­ÁĞ±íË¢ĞÂ¼ÓÔØ
+	 * ä¸Šæ‹‰åˆ—è¡¨åˆ·æ–°åŠ è½½
 	 */
 	private OnHeaderRefreshListener listHeadListener = new OnHeaderRefreshListener() {
 
@@ -330,7 +330,7 @@ public class MyOrderActivity extends BaseActivity implements OnClickListener {
 	};
 
 	/**
-	 * ÏÂÀ­ÁĞ±íË¢ĞÂ¼ÓÔØ
+	 * ä¸‹æ‹‰åˆ—è¡¨åˆ·æ–°åŠ è½½
 	 */
 	private OnFooterRefreshListener listFootListener = new OnFooterRefreshListener() {
 
@@ -342,14 +342,14 @@ public class MyOrderActivity extends BaseActivity implements OnClickListener {
 				@Override
 				public void run() {
 					try {
-//						if (RUN_METHOD == 0) {
-//							System.out.println("RUN_METHOD1========="+ RUN_METHOD);
-//							load_list2(false);
-//						} else {
-							System.out.println("strwhere========="+ strwhere);
-							
-							load_list(false, strwhere);
-//						}
+						//						if (RUN_METHOD == 0) {
+						//							System.out.println("RUN_METHOD1========="+ RUN_METHOD);
+						//							load_list2(false);
+						//						} else {
+						System.out.println("strwhere========="+ strwhere);
+
+						load_list(false, strwhere);
+						//						}
 						refresh.onFooterRefreshComplete();
 
 					} catch (Exception e) {
@@ -360,9 +360,9 @@ public class MyOrderActivity extends BaseActivity implements OnClickListener {
 			}, 1000);
 		}
 	};
-	
+
 	/**
-	 * µÚ1¸öÁĞ±íÊı¾İ½âÎö
+	 * ç¬¬1ä¸ªåˆ—è¡¨æ•°æ®è§£æ
 	 */
 	private int CURRENT_NUM = 1;
 	private final int VIEW_NUM = 10;
@@ -370,241 +370,241 @@ public class MyOrderActivity extends BaseActivity implements OnClickListener {
 		progress.CreateProgress();
 		RUN_METHOD = 1;
 		if (flag) {
-			// ¼ÆÊıºÍÈİÆ÷ÇåÁã
+			// è®¡æ•°å’Œå®¹å™¨æ¸…é›¶
 			CURRENT_NUM = 1;
 			list = new ArrayList<MyOrderData>();
-//			System.out.println("=========list11============"+list.size());
+			//			System.out.println("=========list11============"+list.size());
 		}
 		System.out.println("====1=====list============"+list.size());//5897
 		System.out.println("=========strwhere============"+strwhere);//5897
-		
+
 		AsyncHttp.get(RealmName.REALM_NAME_LL+ "/get_order_page_size_list?user_id="+user_id+"" +
-				"&page_size="+VIEW_NUM+"&page_index="+CURRENT_NUM+"&strwhere="+strwhere+"&orderby=",
+						"&page_size="+VIEW_NUM+"&page_index="+CURRENT_NUM+"&strwhere="+strwhere+"&orderby=",
 				new AsyncHttpResponseHandler() {
-							@Override
-							public void onSuccess(int arg0, String arg1) {
-								// TODO Auto-generated method stub
-								super.onSuccess(arg0, arg1);
-								System.out.println("=========Êı¾İ½Ó¿Ú============"+arg1);
-								try {
-								
-								JSONObject object = new JSONObject(arg1);
-								String status = object.getString("status");
-								String info = object.getString("info");
-								if (status.equals("y")) {
+					@Override
+					public void onSuccess(int arg0, String arg1) {
+						// TODO Auto-generated method stub
+						super.onSuccess(arg0, arg1);
+						System.out.println("=========æ•°æ®æ¥å£============"+arg1);
+						try {
+
+							JSONObject object = new JSONObject(arg1);
+							String status = object.getString("status");
+							String info = object.getString("info");
+							if (status.equals("y")) {
 								JSONArray jsonArray = object.getJSONArray("data");
 								len = jsonArray.length();
 								for (int i = 0; i < jsonArray.length(); i++) {
-								md = new MyOrderData();
-								JSONObject obj= jsonArray.getJSONObject(i);
-								md.setId(obj.getString("id"));
-								md.setAccept_no(obj.getString("accept_no"));
-								md.setOrder_no(obj.getString("order_no"));
-								md.setTrade_no(obj.getString("trade_no"));
-								md.setCompany_name(obj.getString("company_name"));
-								md.setAccept_name(obj.getString("accept_name"));
-								md.setPayment_status(obj.getString("payment_status"));
-								md.setExpress_status(obj.getString("express_status"));
-								md.setExpress_fee(obj.getString("express_fee"));
-								md.setStatus(obj.getString("status"));
-								md.setProvince(obj.getString("province"));
-								md.setCashing_packet(obj.getString("cashing_packet_total"));
-								md.setAddress(obj.getString("address"));
-								md.setUser_name(obj.getString("user_name"));
-								md.setPayment_time(obj.getString("payment_time"));//Ö§¸¶Ê±¼ä
-								md.setPayable_amount(obj.getString("payable_amount"));
-								md.setAdd_time(obj.getString("add_time"));//´´½¨Ê±¼ä
-								md.setComplete_time(obj.getString("complete_time"));//Íê³ÉÊ±¼ä
-								md.setRebate_time(obj.getString("rebate_time"));
-								
-								md.setCity(obj.getString("city"));
-								md.setArea(obj.getString("area"));
-								md.setMobile(obj.getString("mobile"));
-//								String getPayable_amount  = md.getPayable_amount();
-//								System.out.println("============="+getPayable_amount);
-								String order_goods = obj.getString("order_goods");
-								System.out.println("=====order_goods====================="+order_goods);
-								md.setList(new ArrayList<OrderBean>());
-								JSONArray ja = new JSONArray(order_goods);
-								List<OrderBean> lists = new ArrayList<OrderBean>();
-								for (int j = 0; j < ja.length(); j++) {
-									mb = new OrderBean();
-									JSONObject jo = ja.getJSONObject(j);
-									mb.setImg_url(jo.getString("img_url"));
-									mb.setArticle_title(jo.getString("article_title"));
-									mb.setSell_price(jo.getString("sell_price"));
-									mb.setMarket_price(jo.getString("market_price"));
-									mb.setReal_price(jo.getString("real_price"));
-									mb.setQuantity(jo.getInt("quantity"));
-									mb.setArticle_id(jo.getString("article_id"));
-									mb.setCashing_packet(jo.getString("cashing_packet"));
-									String zhouString  = mb.getArticle_title();
-									System.out.println("article_title============="+zhouString);
-									md.getList().add(mb);
-									lists.add(mb);
+									md = new MyOrderData();
+									JSONObject obj= jsonArray.getJSONObject(i);
+									md.setId(obj.getString("id"));
+									md.setAccept_no(obj.getString("accept_no"));
+									md.setOrder_no(obj.getString("order_no"));
+									md.setTrade_no(obj.getString("trade_no"));
+									md.setCompany_name(obj.getString("company_name"));
+									md.setAccept_name(obj.getString("accept_name"));
+									md.setPayment_status(obj.getString("payment_status"));
+									md.setExpress_status(obj.getString("express_status"));
+									md.setExpress_fee(obj.getString("express_fee"));
+									md.setStatus(obj.getString("status"));
+									md.setProvince(obj.getString("province"));
+									md.setCashing_packet(obj.getString("cashing_packet_total"));
+									md.setAddress(obj.getString("address"));
+									md.setUser_name(obj.getString("user_name"));
+									md.setPayment_time(obj.getString("payment_time"));//æ”¯ä»˜æ—¶é—´
+									md.setPayable_amount(obj.getString("payable_amount"));
+									md.setAdd_time(obj.getString("add_time"));//åˆ›å»ºæ—¶é—´
+									md.setComplete_time(obj.getString("complete_time"));//å®Œæˆæ—¶é—´
+									md.setRebate_time(obj.getString("rebate_time"));
+
+									md.setCity(obj.getString("city"));
+									md.setArea(obj.getString("area"));
+									md.setMobile(obj.getString("mobile"));
+									//								String getPayable_amount  = md.getPayable_amount();
+									//								System.out.println("============="+getPayable_amount);
+									String order_goods = obj.getString("order_goods");
+									System.out.println("=====order_goods====================="+order_goods);
+									md.setList(new ArrayList<OrderBean>());
+									JSONArray ja = new JSONArray(order_goods);
+									List<OrderBean> lists = new ArrayList<OrderBean>();
+									for (int j = 0; j < ja.length(); j++) {
+										mb = new OrderBean();
+										JSONObject jo = ja.getJSONObject(j);
+										mb.setImg_url(jo.getString("img_url"));
+										mb.setArticle_title(jo.getString("article_title"));
+										mb.setSell_price(jo.getString("sell_price"));
+										mb.setMarket_price(jo.getString("market_price"));
+										mb.setReal_price(jo.getString("real_price"));
+										mb.setQuantity(jo.getInt("quantity"));
+										mb.setArticle_id(jo.getString("article_id"));
+										mb.setCashing_packet(jo.getString("cashing_packet"));
+										String zhouString  = mb.getArticle_title();
+										System.out.println("article_title============="+zhouString);
+										md.getList().add(mb);
+										lists.add(mb);
+									}
+									list.add(md);
 								}
-								list.add(md); 
-								}
-								
+
 								md = null;
 								mb = null;
-//								progress.CloseProgress();
-						    	no_data_no.setVisibility(View.GONE);
-								} else {
-//									System.out.println("====list.size()========="+list.size());
-									progress.CloseProgress();
-									if (list.size() == 0) {
-										no_data_no.setVisibility(View.VISIBLE);
-									}else {
-										Toast.makeText(MyOrderActivity.this, "Ã»ÓĞ¶©µ¥ÁË", 200).show();
-									}
-								}
-								
-								System.out.println("==2==list.size()========="+list.size());
-
-								if (len != 0) {
-									CURRENT_NUM = CURRENT_NUM + 1;
-								}
+								//								progress.CloseProgress();
+								no_data_no.setVisibility(View.GONE);
+							} else {
+								//									System.out.println("====list.size()========="+list.size());
 								progress.CloseProgress();
-								
-								Message msg = new Message();
-								msg.what = 0;
-								msg.obj = list;
-								handler.sendMessage(msg);
-//								handler.sendEmptyMessage(0);
-								progress.CloseProgress();
-								
-								} catch (Exception e) {
-									// TODO: handle exception
-									e.printStackTrace();
+								if (list.size() == 0) {
+									no_data_no.setVisibility(View.VISIBLE);
+								}else {
+									Toast.makeText(MyOrderActivity.this, "æ²¡æœ‰è®¢å•äº†", 200).show();
 								}
 							}
-							
-						}, MyOrderActivity.this);
+
+							System.out.println("==2==list.size()========="+list.size());
+
+							if (len != 0) {
+								CURRENT_NUM = CURRENT_NUM + 1;
+							}
+							progress.CloseProgress();
+
+							Message msg = new Message();
+							msg.what = 0;
+							msg.obj = list;
+							handler.sendMessage(msg);
+							//								handler.sendEmptyMessage(0);
+							progress.CloseProgress();
+
+						} catch (Exception e) {
+							// TODO: handle exception
+							e.printStackTrace();
+						}
+					}
+
+				}, MyOrderActivity.this);
 	}
-	
+
 	Handler handler = new Handler() {
 		public void dispatchMessage(Message msg) {
 			switch (msg.what) {
-			case 0:
-//			list = (ArrayList<MyOrderData>) msg.obj;	
-			madapter.putData(list);
-			if (list.size() > 0) {
-				MyOrderllAdapter.mAq.clear();
-			}
-//			madapter.notifyDataSetChanged();
-//			madapter = new MyOrderllAdapter(list,MyOrderActivity.this,handler);
-//			my_list.setAdapter(madapter);
-//			progress.CloseProgress();	
-            break;
-			case 1:
-				order_no = (String) msg.obj;
-				dialog1();
-				break;
-			case 2:
-				order_no = (String) msg.obj;
-				dialog2();
-	            break;
-			case 3:
-				order_no = (String) msg.obj;
-				dialog3();
-				break;
-			case 4:
-				  order_no = (String) msg.obj;
-				  
-//				  Intent intent = new Intent(MyOrderActivity.this, MyOrderZFActivity.class);
-//				  intent.putExtra("order_no",order_no);
-//				  startActivity(intent);
-				  
-//					CommomConfrim.showSheet(MyOrderActivity.this,new onDeleteSelect() {
-//
-//								@Override
-//								public void onClick(int resID) {
-//									// TODO Auto-generated method stub
-//									switch (resID) {
-//									case R.id.item0:
-//										// Óà¶îÖ§¸¶
-//										break;
-//									case R.id.item1:
-//										break;
-//									case R.id.item2:// Ö§¸¶±¦
-//										loadzhidu(order_no);
-//										break;
-//									case R.id.item3:// Î¢ĞÅ
-//										break;
-//									case R.id.item4:
-//
-//										break;
-//									default:
-//										break;
-//									}
-//								}
-//
-//							}, cancelListener, null);
-				  
-	            break;
-			case 5://Ö§¸¶±¦
-				PayResult payResult = new PayResult((String) msg.obj);
-
-				// Ö§¸¶±¦·µ»Ø´Ë´ÎÖ§¸¶½á¹û¼°¼ÓÇ©£¬½¨Òé¶ÔÖ§¸¶±¦Ç©ÃûĞÅÏ¢ÄÃÇ©Ô¼Ê±Ö§¸¶±¦Ìá¹©µÄ¹«Ô¿×öÑéÇ©
-				String resultInfo = payResult.getResult();
-
-				String resultStatus = payResult.getResultStatus();
-				System.out.println(resultInfo + "---" + resultStatus);
-				// ÅĞ¶ÏresultStatus Îª¡°9000¡±Ôò´ú±íÖ§¸¶³É¹¦£¬¾ßÌå×´Ì¬Âë´ú±íº¬Òå¿É²Î¿¼½Ó¿ÚÎÄµµ
-				if (TextUtils.equals(resultStatus, "9000")) {
-					Toast.makeText(MyOrderActivity.this, "Ö§¸¶³É¹¦",
-							Toast.LENGTH_SHORT).show();
-					userloginqm();
-				} else {
-					// ÅĞ¶ÏresultStatus Îª·Ç¡°9000¡±Ôò´ú±í¿ÉÄÜÖ§¸¶Ê§°Ü
-					// ¡°8000¡±´ú±íÖ§¸¶½á¹ûÒòÎªÖ§¸¶ÇşµÀÔ­Òò»òÕßÏµÍ³Ô­Òò»¹ÔÚµÈ´ıÖ§¸¶½á¹ûÈ·ÈÏ£¬×îÖÕ½»Ò×ÊÇ·ñ³É¹¦ÒÔ·şÎñ¶ËÒì²½Í¨ÖªÎª×¼£¨Ğ¡¸ÅÂÊ×´Ì¬£©
-					if (TextUtils.equals(resultStatus, "8000")) {
-						Toast.makeText(MyOrderActivity.this, "Ö§¸¶½á¹ûÈ·ÈÏÖĞ",
-								Toast.LENGTH_SHORT).show();
-
-					} else {
-						// ÆäËûÖµ¾Í¿ÉÒÔÅĞ¶ÏÎªÖ§¸¶Ê§°Ü£¬°üÀ¨ÓÃ»§Ö÷¶¯È¡ÏûÖ§¸¶£¬»òÕßÏµÍ³·µ»ØµÄ´íÎó
-						Toast.makeText(MyOrderActivity.this, "Ö§¸¶Ê§°Ü",
-								Toast.LENGTH_SHORT).show();
-
-						
-						
+				case 0:
+					//			list = (ArrayList<MyOrderData>) msg.obj;
+					madapter.putData(list);
+					if (list.size() > 0) {
+						MyOrderllAdapter.mAq.clear();
 					}
-				}
-				break;
+					//			madapter.notifyDataSetChanged();
+					//			madapter = new MyOrderllAdapter(list,MyOrderActivity.this,handler);
+					//			my_list.setAdapter(madapter);
+					//			progress.CloseProgress();
+					break;
+				case 1:
+					order_no = (String) msg.obj;
+					dialog1();
+					break;
+				case 2:
+					order_no = (String) msg.obj;
+					dialog2();
+					break;
+				case 3:
+					order_no = (String) msg.obj;
+					dialog3();
+					break;
+				case 4:
+					order_no = (String) msg.obj;
 
-			default:
-				break;
+					//				  Intent intent = new Intent(MyOrderActivity.this, MyOrderZFActivity.class);
+					//				  intent.putExtra("order_no",order_no);
+					//				  startActivity(intent);
+
+					//					CommomConfrim.showSheet(MyOrderActivity.this,new onDeleteSelect() {
+					//
+					//								@Override
+					//								public void onClick(int resID) {
+					//									// TODO Auto-generated method stub
+					//									switch (resID) {
+					//									case R.id.item0:
+					//										// ä½™é¢æ”¯ä»˜
+					//										break;
+					//									case R.id.item1:
+					//										break;
+					//									case R.id.item2:// æ”¯ä»˜å®
+					//										loadzhidu(order_no);
+					//										break;
+					//									case R.id.item3:// å¾®ä¿¡
+					//										break;
+					//									case R.id.item4:
+					//
+					//										break;
+					//									default:
+					//										break;
+					//									}
+					//								}
+					//
+					//							}, cancelListener, null);
+
+					break;
+				case 5://æ”¯ä»˜å®
+					PayResult payResult = new PayResult((String) msg.obj);
+
+					// æ”¯ä»˜å®è¿”å›æ­¤æ¬¡æ”¯ä»˜ç»“æœåŠåŠ ç­¾ï¼Œå»ºè®®å¯¹æ”¯ä»˜å®ç­¾åä¿¡æ¯æ‹¿ç­¾çº¦æ—¶æ”¯ä»˜å®æä¾›çš„å…¬é’¥åšéªŒç­¾
+					String resultInfo = payResult.getResult();
+
+					String resultStatus = payResult.getResultStatus();
+					System.out.println(resultInfo + "---" + resultStatus);
+					// åˆ¤æ–­resultStatus ä¸ºâ€œ9000â€åˆ™ä»£è¡¨æ”¯ä»˜æˆåŠŸï¼Œå…·ä½“çŠ¶æ€ç ä»£è¡¨å«ä¹‰å¯å‚è€ƒæ¥å£æ–‡æ¡£
+					if (TextUtils.equals(resultStatus, "9000")) {
+						Toast.makeText(MyOrderActivity.this, "æ”¯ä»˜æˆåŠŸ",
+								Toast.LENGTH_SHORT).show();
+						userloginqm();
+					} else {
+						// åˆ¤æ–­resultStatus ä¸ºéâ€œ9000â€åˆ™ä»£è¡¨å¯èƒ½æ”¯ä»˜å¤±è´¥
+						// â€œ8000â€ä»£è¡¨æ”¯ä»˜ç»“æœå› ä¸ºæ”¯ä»˜æ¸ é“åŸå› æˆ–è€…ç³»ç»ŸåŸå› è¿˜åœ¨ç­‰å¾…æ”¯ä»˜ç»“æœç¡®è®¤ï¼Œæœ€ç»ˆäº¤æ˜“æ˜¯å¦æˆåŠŸä»¥æœåŠ¡ç«¯å¼‚æ­¥é€šçŸ¥ä¸ºå‡†ï¼ˆå°æ¦‚ç‡çŠ¶æ€ï¼‰
+						if (TextUtils.equals(resultStatus, "8000")) {
+							Toast.makeText(MyOrderActivity.this, "æ”¯ä»˜ç»“æœç¡®è®¤ä¸­",
+									Toast.LENGTH_SHORT).show();
+
+						} else {
+							// å…¶ä»–å€¼å°±å¯ä»¥åˆ¤æ–­ä¸ºæ”¯ä»˜å¤±è´¥ï¼ŒåŒ…æ‹¬ç”¨æˆ·ä¸»åŠ¨å–æ¶ˆæ”¯ä»˜ï¼Œæˆ–è€…ç³»ç»Ÿè¿”å›çš„é”™è¯¯
+							Toast.makeText(MyOrderActivity.this, "æ”¯ä»˜å¤±è´¥",
+									Toast.LENGTH_SHORT).show();
+
+
+
+						}
+					}
+					break;
+
+				default:
+					break;
 			}
 		};
 	};
-	
+
 	OnCancelListener cancelListener = new OnCancelListener() {
 
 		@Override
 		public void onCancel(DialogInterface dialog) {
 		}
 	};
-	
+
 	/**
-	 * ÉêÇëÍË¿î
+	 * ç”³è¯·é€€æ¬¾
 	 */
 	protected void dialog1() {
 		AlertDialog.Builder builder = new Builder(MyOrderActivity.this);
-		builder.setMessage("ÊÇ·ñÈ·¶¨ÉêÇëÍË¿î?");
-		builder.setTitle("ÌáÊ¾");
-		builder.setPositiveButton("È·ÈÏ", new DialogInterface.OnClickListener() {
+		builder.setMessage("æ˜¯å¦ç¡®å®šç”³è¯·é€€æ¬¾?");
+		builder.setTitle("æç¤º");
+		builder.setPositiveButton("ç¡®è®¤", new DialogInterface.OnClickListener() {
 
 			@Override
 			public void onClick(DialogInterface dialog, int which) {
-//				fukuanok2(order_no);
+				//				fukuanok2(order_no);
 				type = "1";
 				userloginqm();
 			}
 		});
 
-		builder.setNegativeButton("È¡Ïû", new DialogInterface.OnClickListener() {
+		builder.setNegativeButton("å–æ¶ˆ", new DialogInterface.OnClickListener() {
 
 			@Override
 			public void onClick(DialogInterface dialog, int which) {
@@ -614,12 +614,12 @@ public class MyOrderActivity extends BaseActivity implements OnClickListener {
 
 		builder.create().show();
 	}
-	
+
 	protected void dialog2() {
 		AlertDialog.Builder builder = new Builder(MyOrderActivity.this);
-		builder.setMessage("ÊÇ·ñÈ·¶¨È¡Ïû¶©µ¥?");
-		builder.setTitle("ÌáÊ¾");
-		builder.setPositiveButton("È·ÈÏ", new DialogInterface.OnClickListener() {
+		builder.setMessage("æ˜¯å¦ç¡®å®šå–æ¶ˆè®¢å•?");
+		builder.setTitle("æç¤º");
+		builder.setPositiveButton("ç¡®è®¤", new DialogInterface.OnClickListener() {
 
 			@Override
 			public void onClick(DialogInterface dialog, int which) {
@@ -627,7 +627,7 @@ public class MyOrderActivity extends BaseActivity implements OnClickListener {
 			}
 		});
 
-		builder.setNegativeButton("È¡Ïû", new DialogInterface.OnClickListener() {
+		builder.setNegativeButton("å–æ¶ˆ", new DialogInterface.OnClickListener() {
 
 			@Override
 			public void onClick(DialogInterface dialog, int which) {
@@ -637,12 +637,12 @@ public class MyOrderActivity extends BaseActivity implements OnClickListener {
 
 		builder.create().show();
 	}
-	
+
 	protected void dialog3() {
 		AlertDialog.Builder builder = new Builder(MyOrderActivity.this);
-		builder.setMessage("ÊÇ·ñÈ·¶¨É¾³ı¶©µ¥?");
-		builder.setTitle("ÌáÊ¾");
-		builder.setPositiveButton("È·ÈÏ", new DialogInterface.OnClickListener() {
+		builder.setMessage("æ˜¯å¦ç¡®å®šåˆ é™¤è®¢å•?");
+		builder.setTitle("æç¤º");
+		builder.setPositiveButton("ç¡®è®¤", new DialogInterface.OnClickListener() {
 
 			@Override
 			public void onClick(DialogInterface dialog, int which) {
@@ -650,7 +650,7 @@ public class MyOrderActivity extends BaseActivity implements OnClickListener {
 			}
 		});
 
-		builder.setNegativeButton("È¡Ïû", new DialogInterface.OnClickListener() {
+		builder.setNegativeButton("å–æ¶ˆ", new DialogInterface.OnClickListener() {
 
 			@Override
 			public void onClick(DialogInterface dialog, int which) {
@@ -663,135 +663,135 @@ public class MyOrderActivity extends BaseActivity implements OnClickListener {
 
 
 	/**
-	 * È·ÈÏ¸¶¿î
-	 * @param order_no 
-	 * @param payment_id 
+	 * ç¡®è®¤ä»˜æ¬¾
+	 * @param order_no
+	 * @param payment_id
 	 */
 	public void fukuanok(String order_no2) {
-			progress.CreateProgress();	
-			order_no = order_no2;
-			System.out.println("order_no================================="+order_no);
-			String login_sign = spPreferences.getString("login_sign", "");
-			System.out.println("login_sign================================="+login_sign);
-		    AsyncHttp.get(RealmName.REALM_NAME_LL
-				+ "/update_order_payment?user_id="+user_id+"&user_name="+user_name+"" +
-				"&trade_no="+order_no+"&sign="+login_sign+"",
+		progress.CreateProgress();
+		order_no = order_no2;
+		System.out.println("order_no================================="+order_no);
+		String login_sign = spPreferences.getString("login_sign", "");
+		System.out.println("login_sign================================="+login_sign);
+		AsyncHttp.get(RealmName.REALM_NAME_LL
+						+ "/update_order_payment?user_id="+user_id+"&user_name="+user_name+"" +
+						"&trade_no="+order_no+"&sign="+login_sign+"",
 				new AsyncHttpResponseHandler() {
 					@Override
 					public void onSuccess(int arg0, String arg1) {
 						super.onSuccess(arg0, arg1);
 						try {
 							JSONObject object = new JSONObject(arg1);
-							System.out.println("È·ÈÏ¸¶¿î================================="+arg1);
-							  String status = object.getString("status");
-							    String info = object.getString("info");
-							    if (status.equals("y")) {
-									  progress.CloseProgress();
-									  Toast.makeText(MyOrderActivity.this, info, 200).show();
-							    }else {
-							    	progress.CloseProgress();
-									Toast.makeText(MyOrderActivity.this, info, 200).show();
-								}
-							    
-							
+							System.out.println("ç¡®è®¤ä»˜æ¬¾================================="+arg1);
+							String status = object.getString("status");
+							String info = object.getString("info");
+							if (status.equals("y")) {
+								progress.CloseProgress();
+								Toast.makeText(MyOrderActivity.this, info, 200).show();
+							}else {
+								progress.CloseProgress();
+								Toast.makeText(MyOrderActivity.this, info, 200).show();
+							}
+
+
 						} catch (JSONException e) {
 							e.printStackTrace();
 						}
 					}
 
 				}, MyOrderActivity.this);
-		
+
 	}
-	
+
 	/**
-	 * È¡Ïû¶©µ¥
-	 * @param order_no 
-	 * @param payment_id 
+	 * å–æ¶ˆè®¢å•
+	 * @param order_no
+	 * @param payment_id
 	 */
 	public void fukuanok2(String order_no2) {
-			progress.CreateProgress();	
-			order_no = order_no2;
-			System.out.println("order_no================================="+order_no);
-			String login_sign = spPreferences.getString("login_sign", "");
-			System.out.println("login_sign================================="+login_sign);
+		progress.CreateProgress();
+		order_no = order_no2;
+		System.out.println("order_no================================="+order_no);
+		String login_sign = spPreferences.getString("login_sign", "");
+		System.out.println("login_sign================================="+login_sign);
 		AsyncHttp.get(RealmName.REALM_NAME_LL
-				+ "/update_order_cancel?user_id="+user_id+"&user_name="+user_name+"" +
-				"&trade_no="+order_no+"&sign="+login_sign+"",
+						+ "/update_order_cancel?user_id="+user_id+"&user_name="+user_name+"" +
+						"&trade_no="+order_no+"&sign="+login_sign+"",
 				new AsyncHttpResponseHandler() {
 					@Override
 					public void onSuccess(int arg0, String arg1) {
 						super.onSuccess(arg0, arg1);
 						try {
 							JSONObject object = new JSONObject(arg1);
-							System.out.println("È¡Ïû¶©µ¥================================="+arg1);
-							  String status = object.getString("status");
-							    String info = object.getString("info");
-							    if (status.equals("y")) {
-									  progress.CloseProgress();
-									  Toast.makeText(MyOrderActivity.this, info, 200).show();
-									  load_list(true,strwhere);
-									  madapter.notifyDataSetChanged();
-							    }else {
-							    	progress.CloseProgress();
-									Toast.makeText(MyOrderActivity.this, info, 200).show();
-								}
-							    
-							
+							System.out.println("å–æ¶ˆè®¢å•================================="+arg1);
+							String status = object.getString("status");
+							String info = object.getString("info");
+							if (status.equals("y")) {
+								progress.CloseProgress();
+								Toast.makeText(MyOrderActivity.this, info, 200).show();
+								load_list(true,strwhere);
+								madapter.notifyDataSetChanged();
+							}else {
+								progress.CloseProgress();
+								Toast.makeText(MyOrderActivity.this, info, 200).show();
+							}
+
+
 						} catch (JSONException e) {
 							e.printStackTrace();
 						}
 					}
 
 				}, MyOrderActivity.this);
-		
+
 	}
-	
+
 	/**
-	 * É¾³ı¶©µ¥
-	 * @param order_no 
-	 * @param payment_id 
+	 * åˆ é™¤è®¢å•
+	 * @param order_no
+	 * @param payment_id
 	 */
 	public void fukuanok3(String order_no2) {
-			progress.CreateProgress();	
-			order_no = order_no2;
-			System.out.println("order_no================================="+order_no);
-			String login_sign = spPreferences.getString("login_sign", "");
-			System.out.println("login_sign================================="+login_sign);
+		progress.CreateProgress();
+		order_no = order_no2;
+		System.out.println("order_no================================="+order_no);
+		String login_sign = spPreferences.getString("login_sign", "");
+		System.out.println("login_sign================================="+login_sign);
 		AsyncHttp.get(RealmName.REALM_NAME_LL
-				+ "/delete_order?user_id="+user_id+"&user_name="+user_name+"" +
-				"&trade_no="+order_no+"&sign="+login_sign+"",
+						+ "/delete_order?user_id="+user_id+"&user_name="+user_name+"" +
+						"&trade_no="+order_no+"&sign="+login_sign+"",
 				new AsyncHttpResponseHandler() {
 					@Override
 					public void onSuccess(int arg0, String arg1) {
 						super.onSuccess(arg0, arg1);
 						try {
 							JSONObject object = new JSONObject(arg1);
-							System.out.println("È¡Ïû¶©µ¥================================="+arg1);
-							  String status = object.getString("status");
-							    String info = object.getString("info");
-							    if (status.equals("y")) {
-									  progress.CloseProgress();
-									  Toast.makeText(MyOrderActivity.this, info, 200).show();
-									  load_list(true,strwhere);
-									  madapter.notifyDataSetChanged();
-							    }else {
-							    	progress.CloseProgress();
-									Toast.makeText(MyOrderActivity.this, info, 200).show();
-								}
-							    
-							
+							System.out.println("å–æ¶ˆè®¢å•================================="+arg1);
+							String status = object.getString("status");
+							String info = object.getString("info");
+							if (status.equals("y")) {
+								progress.CloseProgress();
+								Toast.makeText(MyOrderActivity.this, info, 200).show();
+								load_list(true,strwhere);
+								madapter.notifyDataSetChanged();
+							}else {
+								progress.CloseProgress();
+								Toast.makeText(MyOrderActivity.this, info, 200).show();
+							}
+
+
 						} catch (JSONException e) {
 							e.printStackTrace();
 						}
 					}
 
 				}, MyOrderActivity.this);
-		
+
 	}
-	
+
 
 	/**
-	 * »ñÈ¡µÇÂ¼Ç©Ãû
+	 * è·å–ç™»å½•ç­¾å
 	 */
 	private void userloginqm() {
 		try{
@@ -823,22 +823,22 @@ public class MyOrderActivity extends BaseActivity implements OnClickListener {
 					}
 				};
 			}, MyOrderActivity.this);
-			
+
 		} catch (Exception e) {
 			// TODO: handle exception
 			e.printStackTrace();
 		}
 	}
 	/**
-	 * ÍË¿î
-	 * @param login_sign 
-	 * @param order_no 
+	 * é€€æ¬¾
+	 * @param login_sign
+	 * @param order_no
 	 */
 	private void getKuiKuan(String login_sign, String order_no) {
 		try{
 			SharedPreferences spPreferences = getSharedPreferences("longuserset", MODE_PRIVATE);
 			String user_id = spPreferences.getString("user_id", "");
-//			String sign = spPreferences.getString("login_sign", "");
+			//			String sign = spPreferences.getString("login_sign", "");
 			String strUrlone = RealmName.REALM_NAME_LL + "/order_refund?user_id="+user_id+"&trade_no="+order_no+"&sign="+login_sign+"";
 			System.out.println("======11============="+strUrlone);
 			AsyncHttp.get(strUrlone, new AsyncHttpResponseHandler() {
@@ -860,66 +860,66 @@ public class MyOrderActivity extends BaseActivity implements OnClickListener {
 					}
 				};
 			}, MyOrderActivity.this);
-			
+
 		} catch (Exception e) {
 			// TODO: handle exception
 			e.printStackTrace();
 		}
 	}
 	/**
-	 * ¸üĞÂ¶©µ¥
-	 * @param login_sign 
-	 * @param payment_id 
+	 * æ›´æ–°è®¢å•
+	 * @param login_sign
+	 * @param payment_id
 	 */
 	private void loadguanggaoll(String recharge_noll, String login_sign) {
 		try {
-//			recharge_no = recharge_noll;
+			//			recharge_no = recharge_noll;
 			System.out.println("recharge_no================================="+recharge_noll);
 			System.out.println("login_sign================================="+login_sign);
-		   AsyncHttp.get(RealmName.REALM_NAME_LL
-				+ "/update_order_payment?user_id="+user_id+"&user_name="+user_name+"" +
-						"&trade_no="+recharge_noll+"&sign="+login_sign+"",
-						
-				new AsyncHttpResponseHandler() {
-					@Override
-					public void onSuccess(int arg0, String arg1) {
-						super.onSuccess(arg0, arg1);
-						try {
-							JSONObject object = new JSONObject(arg1);
-							System.out.println("¸üĞÂ¶©µ¥================================="+arg1);
-							  String status = object.getString("status");
-							    String info = object.getString("info");
-							    if (status.equals("y")) {
-							    	   progress.CloseProgress();
-							    	   teby = false;
-//							    	   finish();
-							    	   Toast.makeText(MyOrderActivity.this, info, 200).show();
-							    }else {
-							    	progress.CloseProgress();
-							    	teby = false;
+			AsyncHttp.get(RealmName.REALM_NAME_LL
+							+ "/update_order_payment?user_id="+user_id+"&user_name="+user_name+"" +
+							"&trade_no="+recharge_noll+"&sign="+login_sign+"",
+
+					new AsyncHttpResponseHandler() {
+						@Override
+						public void onSuccess(int arg0, String arg1) {
+							super.onSuccess(arg0, arg1);
+							try {
+								JSONObject object = new JSONObject(arg1);
+								System.out.println("æ›´æ–°è®¢å•================================="+arg1);
+								String status = object.getString("status");
+								String info = object.getString("info");
+								if (status.equals("y")) {
+									progress.CloseProgress();
+									teby = false;
+									//							    	   finish();
+									Toast.makeText(MyOrderActivity.this, info, 200).show();
+								}else {
+									progress.CloseProgress();
+									teby = false;
 									Toast.makeText(MyOrderActivity.this, info, 200).show();
 								}
-						} catch (JSONException e) {
-							e.printStackTrace();
+							} catch (JSONException e) {
+								e.printStackTrace();
+							}
 						}
-					}
-					
-					@Override
-					public void onFailure(Throwable arg0, String arg1) {
-						// TODO Auto-generated method stub
-						super.onFailure(arg0, arg1);
-						System.out.println("11================================="+arg0);
-						System.out.println("22================================="+arg1);
-						Toast.makeText(MyOrderActivity.this, "¸üĞÂ¶©µ¥ÍøÂç³¬Ê±Òì³£", 200).show();
-					}
 
-				}, null);
-		
+						@Override
+						public void onFailure(Throwable arg0, String arg1) {
+							// TODO Auto-generated method stub
+							super.onFailure(arg0, arg1);
+							System.out.println("11================================="+arg0);
+							System.out.println("22================================="+arg1);
+							Toast.makeText(MyOrderActivity.this, "æ›´æ–°è®¢å•ç½‘ç»œè¶…æ—¶å¼‚å¸¸", 200).show();
+						}
+
+					}, null);
+
 		} catch (Exception e) {
 			// TODO: handle exception
 			e.printStackTrace();
 		}
 	}
-	
-	
+
+
 }

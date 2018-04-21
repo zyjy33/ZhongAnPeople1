@@ -37,7 +37,7 @@ import com.hengyushop.entity.ShopCartData;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.zams.www.R;
 /**
- * œ¬µ•
+ * ‰∏ãÂçï
  * @author Administrator
  *
  */
@@ -58,7 +58,7 @@ public class HaomaActivity extends BaseActivity {
 	ArrayList<jsondata> users3;
 	public static boolean zhuangtai = false;
 	String haoma;
-	
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
@@ -69,78 +69,78 @@ public class HaomaActivity extends BaseActivity {
 		SharedPreferences spPreferences = getSharedPreferences("longuserset", MODE_PRIVATE);
 		user_id = spPreferences.getString("user_id", "");
 		user_name = spPreferences.getString("user", "");
-//		mobile = spPreferences.getString("mobile", "");
+		//		mobile = spPreferences.getString("mobile", "");
 		login_sign = spPreferences.getString("login_sign", "");
 		zhuangtai = true;
 		initdata();
 	}
-	
-	
+
+
 	private void initdata() {
 		ImageView iv_fanhui = (ImageView) findViewById(R.id.iv_fanhui);
 		btn_add_shop_cart = (Button) findViewById(R.id.btn_add_shop_cart);
 		et_username = (EditText) findViewById(R.id.et_user_name);
-		
+
 		btn_add_shop_cart.setOnClickListener(new OnClickListener() {
-			
+
 			@Override
 			public void onClick(View arg0) {
 				// TODO Auto-generated method stub
 				haoma = et_username.getText().toString().trim();
 				if (haoma.equals("")) {
-					Toast.makeText(HaomaActivity.this, " ÷ª˙∫≈¬Î≤ªƒ‹Œ™ø’", 100).show();
+					Toast.makeText(HaomaActivity.this, "ÊâãÊú∫Âè∑Á†Å‰∏çËÉΩ‰∏∫Á©∫", 100).show();
 				}else {
-					
+
 					if(Validator.isMobile(haoma)){
-//					String article_id = getIntent().getStringExtra("article_id");
-//					System.out.println("goods_id================"+goods_id);
-			        
-					ArrayList<jsondata>  users3 = new ArrayList<jsondata>();
-			        System.out.println("users3================"+users3.size());
-			        jsondata jsondata1 = new jsondata();
-			        users3.add(jsondata1);
-			        
-			        
-//			        ShopCartData bean = (ShopCartData) getIntent().getSerializableExtra("bean");
-//					String zhou = bean.getTitle();
-//					System.out.println("zhou================"+zhou);
-			        
-					List<jsondata> list_ll = XiaDanActivity.list_ll;
-					System.out.println("list_ll.size()---------------"+list_ll.size());
-			        String jsondata_zhi = JSON.toJSONString(list_ll);  
-			        
-//			        String jsondata_zhi = getIntent().getStringExtra("jsondata_zhi");
-//			        System.out.println("jsondata_zhi---------------"+jsondata_zhi);
-			        
-			        
-			        load_dingdan_ll(HaomaActivity.this,jsondata_zhi);
-			        
+						//					String article_id = getIntent().getStringExtra("article_id");
+						//					System.out.println("goods_id================"+goods_id);
+
+						ArrayList<jsondata>  users3 = new ArrayList<jsondata>();
+						System.out.println("users3================"+users3.size());
+						jsondata jsondata1 = new jsondata();
+						users3.add(jsondata1);
+
+
+						//			        ShopCartData bean = (ShopCartData) getIntent().getSerializableExtra("bean");
+						//					String zhou = bean.getTitle();
+						//					System.out.println("zhou================"+zhou);
+
+						List<jsondata> list_ll = XiaDanActivity.list_ll;
+						System.out.println("list_ll.size()---------------"+list_ll.size());
+						String jsondata_zhi = JSON.toJSONString(list_ll);
+
+						//			        String jsondata_zhi = getIntent().getStringExtra("jsondata_zhi");
+						//			        System.out.println("jsondata_zhi---------------"+jsondata_zhi);
+
+
+						load_dingdan_ll(HaomaActivity.this,jsondata_zhi);
+
 					}else {
-						Toast.makeText(HaomaActivity.this, " ÷ª˙∫≈¬Î≤ª’˝»∑", 200).show();
+						Toast.makeText(HaomaActivity.this, "ÊâãÊú∫Âè∑Á†Å‰∏çÊ≠£Á°Æ", 200).show();
 					}
 				}
 			}
 		});
-	
+
 		iv_fanhui.setOnClickListener(new OnClickListener() {
-			
+
 			@Override
 			public void onClick(View arg0) {
 				// TODO Auto-generated method stub
 				finish();
 			}
 		});
-		
+
 	}
-	
-        
-	
+
+
+
 
 	/**
-	 * 
-	 * 
+	 *
+	 *
 	 * @param mContext
-	 * @param jsonString2 
+	 * @param jsonString2
 	 * @param mobile
 	 * @param pwd
 	 * @param url
@@ -150,125 +150,125 @@ public class HaomaActivity extends BaseActivity {
 		params.put("sale_id", user_id);
 		params.put("sale_name", user_name);
 		params.put("mobile", haoma);
-//		params.put("jsondata", "[{article_id:"+6356+",goods_id:"+6325+",quantity:"+1+"}]");
+		//		params.put("jsondata", "[{article_id:"+6356+",goods_id:"+6325+",quantity:"+1+"}]");
 		params.put("jsondata", jsonString2);
 		params.put("sign", login_sign);
-		
+
 		mAq = new AQuery(mContext);
-		
+
 		String url = RealmName.REALM_NAME_LL+ "/order_goods_save?";
-//		String url =  RealmName.REALM_NAME_LL + "/order_goods_save?sale_id="+user_id+"&sale_name="+user_name+"" +
-//		"&mobile="+mobile+"&jsondata="+article_id+"&sign="+login_sign+"";
-		
+		//		String url =  RealmName.REALM_NAME_LL + "/order_goods_save?sale_id="+user_id+"&sale_name="+user_name+"" +
+		//		"&mobile="+mobile+"&jsondata="+article_id+"&sign="+login_sign+"";
+
 		System.out.println("url---------------------"+url);
 		System.out.println("params---------------------"+params);
 		mAq.ajax(url,params, JSONObject.class, new AjaxCallback<JSONObject>() {
 			@Override
 			public void callback(String url, JSONObject object, AjaxStatus status) {
-				Log.i("dzhi", " »°µ√µƒ÷µ-----" + object);
-//				System.out.println("===µ√µΩµƒ ˝æ›Ω·π˚ «:" + object);
+				Log.i("dzhi", " ÂèñÂæóÁöÑÂÄº-----" + object);
+				//				System.out.println("===ÂæóÂà∞ÁöÑÊï∞ÊçÆÁªìÊûúÊòØ:" + object);
 				if (object != null) {
 					try {
 						String info = object.getString("info");
-					if (object.getString("status").equals("y")) {
-//					    String data = object.optString("data");
-						Toast.makeText(HaomaActivity.this,info, 200).show();
-						
-						if (XiaDanActivity.list.size() > 0) {
-							XiaDanActivity.list.clear();
-				 	    }
-						
-						if (XiaDanActivity.list_ll.size() > 0) {
-							XiaDanActivity.list_ll.clear();
-				 	    }
-						btn_add_shop_cart.setVisibility(View.GONE);
-						
-						HaomaActivity.zhuangtai = false;
-						System.out.println("url------1---------------");
-						finish();
-						XiaDanActivity.handler1.sendEmptyMessage(0);
-					} else {
-						Toast.makeText(HaomaActivity.this,info, 200).show();
-					}
-					
+						if (object.getString("status").equals("y")) {
+							//					    String data = object.optString("data");
+							Toast.makeText(HaomaActivity.this,info, 200).show();
+
+							if (XiaDanActivity.list.size() > 0) {
+								XiaDanActivity.list.clear();
+							}
+
+							if (XiaDanActivity.list_ll.size() > 0) {
+								XiaDanActivity.list_ll.clear();
+							}
+							btn_add_shop_cart.setVisibility(View.GONE);
+
+							HaomaActivity.zhuangtai = false;
+							System.out.println("url------1---------------");
+							finish();
+							XiaDanActivity.handler1.sendEmptyMessage(0);
+						} else {
+							Toast.makeText(HaomaActivity.this,info, 200).show();
+						}
+
 					} catch (JSONException e) {
 						e.printStackTrace();
 					}
 				} else {
-					
-					Toast.makeText(HaomaActivity.this,"«Î«Û”–“Ï≥££°", 200).show();
+
+					Toast.makeText(HaomaActivity.this,"ËØ∑Ê±ÇÊúâÂºÇÂ∏∏ÔºÅ", 200).show();
 				}
-				
-				
+
+
 				super.callback(url, object, status);
 
 			}
 		});
 	}
-	
-	
+
+
 	/**
-	 * œ¬µ•
-	 * @param jsonString2 
-	 * @param content 
-	 * @param goods_id 
+	 * ‰∏ãÂçï
+	 * @param jsonString2
+	 * @param content
+	 * @param goods_id
 	 */
 	private void load_dingdan(String jsonString2){
 		try {
 			progress.CloseProgress();
-		list = new ArrayList<ShopCartData>();
-		AsyncHttp.get(RealmName.REALM_NAME_LL + "/order_goods_save?sale_id="+user_id+"&sale_name="+user_name+"" +
-				"&mobile="+haoma+"&jsondata="+jsonString2+"&sign="+login_sign+"",
-				//[{article_id:"+article_id+",goods_id:"+goods_id+",quantity:"+1+"}]
-				new AsyncHttpResponseHandler() {
-					@Override
-					public void onSuccess(int arg0, String arg1) {
-						// TODO Auto-generated method stub
-						super.onSuccess(arg0, arg1);
-						System.out.println("=====================∂˛º∂÷µ11" + arg1);
-						try {
-							JSONObject jsonObject = new JSONObject(arg1);
-							String status = jsonObject.getString("status");
-							String info = jsonObject.getString("info");
-							if (status.equals("y")) {
-//								try {
-								JSONObject jsonobt = jsonObject.getJSONObject("data");
-//								data = new ShopCartData();
-//								data.setId(jsonobt.getString("id"));
-//								data.setTitle(jsonobt.getString("title"));
-//								data.setImg_url(jsonobt.getString("img_url"));
-//								// data.quantity = jsonobt.getInt("quantity");
-								
-//								String spec_item = jsonobt.getString("spec_item");
-//								JSONArray ja = new JSONArray(spec_item);
-//								for (int j = 0; j < ja.length(); j++) {
-//									JSONObject obct = ja.getJSONObject(j);
-//									data.setMarket_price(obct.getString("market_price"));
-//									data.setSell_price(obct.getString("sell_price"));
-//								}
-//								list.add(data);
-//								System.out.println("====11=====================");
-//								
-//								} catch (Exception e) {
-//									// TODO: handle exception
-//									e.printStackTrace();
-//								}
-								progress.CloseProgress();
-								Toast.makeText(HaomaActivity.this,info, 200).show();
-								finish();
-							} else {
-								progress.CloseProgress();
-								Toast.makeText(HaomaActivity.this,info, 200).show();
+			list = new ArrayList<ShopCartData>();
+			AsyncHttp.get(RealmName.REALM_NAME_LL + "/order_goods_save?sale_id="+user_id+"&sale_name="+user_name+"" +
+							"&mobile="+haoma+"&jsondata="+jsonString2+"&sign="+login_sign+"",
+					//[{article_id:"+article_id+",goods_id:"+goods_id+",quantity:"+1+"}]
+					new AsyncHttpResponseHandler() {
+						@Override
+						public void onSuccess(int arg0, String arg1) {
+							// TODO Auto-generated method stub
+							super.onSuccess(arg0, arg1);
+							System.out.println("=====================‰∫åÁ∫ßÂÄº11" + arg1);
+							try {
+								JSONObject jsonObject = new JSONObject(arg1);
+								String status = jsonObject.getString("status");
+								String info = jsonObject.getString("info");
+								if (status.equals("y")) {
+									//								try {
+									JSONObject jsonobt = jsonObject.getJSONObject("data");
+									//								data = new ShopCartData();
+									//								data.setId(jsonobt.getString("id"));
+									//								data.setTitle(jsonobt.getString("title"));
+									//								data.setImg_url(jsonobt.getString("img_url"));
+									//								// data.quantity = jsonobt.getInt("quantity");
+
+									//								String spec_item = jsonobt.getString("spec_item");
+									//								JSONArray ja = new JSONArray(spec_item);
+									//								for (int j = 0; j < ja.length(); j++) {
+									//									JSONObject obct = ja.getJSONObject(j);
+									//									data.setMarket_price(obct.getString("market_price"));
+									//									data.setSell_price(obct.getString("sell_price"));
+									//								}
+									//								list.add(data);
+									//								System.out.println("====11=====================");
+									//
+									//								} catch (Exception e) {
+									//									// TODO: handle exception
+									//									e.printStackTrace();
+									//								}
+									progress.CloseProgress();
+									Toast.makeText(HaomaActivity.this,info, 200).show();
+									finish();
+								} else {
+									progress.CloseProgress();
+									Toast.makeText(HaomaActivity.this,info, 200).show();
+								}
+								System.out.println("=====22=====================");
+
+							} catch (JSONException e) {
+								// TODO Auto-generated catch block
+								e.printStackTrace();
 							}
-							System.out.println("=====22=====================");
-							
-						} catch (JSONException e) {
-							// TODO Auto-generated catch block
-							e.printStackTrace();
 						}
-					}
-				}, HaomaActivity.this);
-		
+					}, HaomaActivity.this);
+
 		} catch (Exception e) {
 			// TODO: handle exception
 			e.printStackTrace();

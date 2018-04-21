@@ -1,11 +1,5 @@
 package com.hengyushop.demo.my;
 
-import java.util.ArrayList;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -26,15 +20,20 @@ import com.hengyushop.dao.AdvertDao1;
 import com.hengyushop.demo.at.AsyncHttp;
 import com.hengyushop.demo.at.BaseActivity;
 import com.loopj.android.http.AsyncHttpResponseHandler;
-import com.nostra13.universalimageloader.core.ImageLoader;
 import com.zams.www.R;
 import com.zxing.android.CaptureActivity;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
+
 /**
- * 服务顾问
- * 
+ * 鏈嶅姟椤鹃棶
+ *
  * @author Administrator
- * 
+ *
  */
 public class ChuangKeActivity extends BaseActivity implements OnClickListener {
 	private ImageView iv_fanhui, img_menu;
@@ -70,7 +69,7 @@ public class ChuangKeActivity extends BaseActivity implements OnClickListener {
 					// TODO Auto-generated method stub
 					Intent intent4 = new Intent(ChuangKeActivity.this,
 							Webview1.class);
-//					intent4.putExtra("ylsc_id", "5977");
+					//					intent4.putExtra("ylsc_id", "5977");
 					intent4.putExtra("web_id", "5977");
 					startActivity(intent4);
 				}
@@ -81,9 +80,9 @@ public class ChuangKeActivity extends BaseActivity implements OnClickListener {
 			handler = new Handler() {
 				public void handleMessage(Message msg) {
 					switch (msg.what) {
-					case 2:
-						finish();
-						break;
+						case 2:
+							finish();
+							break;
 					}
 				}
 			};
@@ -98,23 +97,23 @@ public class ChuangKeActivity extends BaseActivity implements OnClickListener {
 	public void onClick(View v) {
 		// TODO Auto-generated method stub
 		switch (v.getId()) {
-		case R.id.fanhui:
-			finish();
-			break;
-		case R.id.btn_login:
-			Intent intent = new Intent(ChuangKeActivity.this,
-					ShengJiCkActivity.class);
-			// Intent intent = new
-			// Intent(ChuangKeActivity.this,ChongZhiActivity.class);
-			startActivity(intent);
-			break;
-		case R.id.btn_chuangke:
-			Intent intent1 = new Intent(ChuangKeActivity.this,
-					CaptureActivity.class);
-			startActivity(intent1);
-			break;
-		default:
-			break;
+			case R.id.fanhui:
+				finish();
+				break;
+			case R.id.btn_login:
+				Intent intent = new Intent(ChuangKeActivity.this,
+						ShengJiCkActivity.class);
+				// Intent intent = new
+				// Intent(ChuangKeActivity.this,ChongZhiActivity.class);
+				startActivity(intent);
+				break;
+			case R.id.btn_chuangke:
+				Intent intent1 = new Intent(ChuangKeActivity.this,
+						CaptureActivity.class);
+				startActivity(intent1);
+				break;
+			default:
+				break;
 		}
 	}
 
@@ -130,9 +129,9 @@ public class ChuangKeActivity extends BaseActivity implements OnClickListener {
 	private void loadguanggao() {
 		try {
 
-			// 广告滚动
+			// 骞垮憡婊氬姩
 			AsyncHttp.get(RealmName.REALM_NAME_LL
-					+ "/get_adbanner_list?advert_id=13",
+							+ "/get_adbanner_list?advert_id=13",
 					new AsyncHttpResponseHandler() {
 						@Override
 						public void onSuccess(int arg0, String arg1) {
@@ -148,8 +147,8 @@ public class ChuangKeActivity extends BaseActivity implements OnClickListener {
 									ada.setId(json.getString("id"));
 									ada.setAd_url(json.getString("ad_url"));
 									String ad_url = ada.getAd_url();
-//									ImageLoader imageLoader = ImageLoader.getInstance();
-//									imageLoader.displayImage(RealmName.REALM_NAME_HTTP + ad_url,img_menu);
+									//									ImageLoader imageLoader = ImageLoader.getInstance();
+									//									imageLoader.displayImage(RealmName.REALM_NAME_HTTP + ad_url,img_menu);
 									mAq.id(img_menu).image(RealmName.REALM_NAME_HTTP + ad_url);
 									images.add(ada);
 								}

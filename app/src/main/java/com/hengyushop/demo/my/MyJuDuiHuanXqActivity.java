@@ -46,11 +46,11 @@ import com.tencent.mm.sdk.openapi.IWXAPI;
 import com.zams.www.R;
 
 /**
- * 
- * ∂©µ•œÍ«È
- * 
+ *
+ * ËÆ¢ÂçïËØ¶ÊÉÖ
+ *
  * @author Administrator
- * 
+ *
  */
 public class MyJuDuiHuanXqActivity extends BaseActivity implements
 		OnClickListener {
@@ -94,8 +94,8 @@ public class MyJuDuiHuanXqActivity extends BaseActivity implements
 		// if (list.size() > 0) {
 		// tv_geshu.setText(list.size());
 		// }
-		System.out.println("◊¥Ã¨==============" + teby);
-		// ”‡∂Ó÷ß∏∂∏¸–¬
+		System.out.println("Áä∂ÊÄÅ==============" + teby);
+		// ‰ΩôÈ¢ùÊîØ‰ªòÊõ¥Êñ∞
 		if (teby == true) {
 			userloginqm();
 			finish();
@@ -157,16 +157,16 @@ public class MyJuDuiHuanXqActivity extends BaseActivity implements
 
 			System.out.println("zhou3----------");
 			if (payment_status.equals("1")) {
-				System.out.println("¥˝∏∂øÓ=============");
+				System.out.println("ÂæÖ‰ªòÊ¨æ=============");
 				ll_anliu.setVisibility(View.VISIBLE);
 				tv_queren_fukuan.setVisibility(View.GONE);
 				tv_pingjia.setVisibility(View.GONE);
 				// tv_fukuan.setVisibility(View.VISIBLE);
 				tv_shanche.setVisibility(View.VISIBLE);
-				// tv_fukuan.setText("»∑»œ∏∂øÓ");
+				// tv_fukuan.setText("Á°ÆËÆ§‰ªòÊ¨æ");
 				zhuangtai = 2;
 			} else if (payment_status.equals("2") && express_status.equals("1")) {
-				System.out.println("¥˝∑¢ªı=============");
+				System.out.println("ÂæÖÂèëË¥ß=============");
 				ll_anliu.setVisibility(View.GONE);
 				zhuangtai = 3;
 			} else if (payment_status.equals("2") && express_status.equals("2")
@@ -175,44 +175,44 @@ public class MyJuDuiHuanXqActivity extends BaseActivity implements
 				tv_fukuan.setVisibility(View.GONE);
 				tv_queren_fukuan.setVisibility(View.VISIBLE);
 				tv_pingjia.setVisibility(View.GONE);
-				tv_queren_fukuan.setText("»∑»œ ’ªı");
+				tv_queren_fukuan.setText("Á°ÆËÆ§Êî∂Ë¥ß");
 				zhuangtai = 4;
 			} else if (payment_status.equals("2") && express_status.equals("2")
 					&& status.equals("3")) {
-				System.out.println("“—ÕÍ≥…=============");
+				System.out.println("Â∑≤ÂÆåÊàê=============");
 				ll_anliu.setVisibility(View.VISIBLE);
 				tv_fukuan.setVisibility(View.GONE);
 				tv_queren_fukuan.setVisibility(View.GONE);
 				// tv_pingjia.setVisibility(View.VISIBLE);
 				tv_shanche.setVisibility(View.VISIBLE);
-				// tv_pingjia.setText("∆¿º€");
+				// tv_pingjia.setText("ËØÑ‰ª∑");
 				zhuangtai = 5;
 			}
 
 			handler = new Handler() {
 				public void dispatchMessage(Message msg) {
 					switch (msg.what) {
-					case 0:
-						break;
-					case 1:
-						// System.out.println("======dialog1===============");
+						case 0:
+							break;
+						case 1:
+							// System.out.println("======dialog1===============");
+							// order_no = (String) msg.obj;
+							// dialog();
+							finish();
+							break;
+						// case 2:
+						// System.out.println("======dialog2===============");
 						// order_no = (String) msg.obj;
-						// dialog();
-						finish();
-						break;
-					// case 2:
-					// System.out.println("======dialog2===============");
-					// order_no = (String) msg.obj;
-					// dialog2();
-					// break;
-					// case 3:
-					// System.out.println("======dialog3===============");
-					// order_no = (String) msg.obj;
-					// // dialog3();
-					// break;
+						// dialog2();
+						// break;
+						// case 3:
+						// System.out.println("======dialog3===============");
+						// order_no = (String) msg.obj;
+						// // dialog3();
+						// break;
 
-					default:
-						break;
+						default:
+							break;
 					}
 				}
 			};
@@ -257,9 +257,9 @@ public class MyJuDuiHuanXqActivity extends BaseActivity implements
 
 	protected void dialog2() {
 		AlertDialog.Builder builder = new Builder(MyJuDuiHuanXqActivity.this);
-		builder.setMessage(" «∑Ò»∑∂®»°œ˚∂©µ•?");
-		builder.setTitle("Ã· æ");
-		builder.setPositiveButton("»∑»œ", new DialogInterface.OnClickListener() {
+		builder.setMessage("ÊòØÂê¶Á°ÆÂÆöÂèñÊ∂àËÆ¢Âçï?");
+		builder.setTitle("ÊèêÁ§∫");
+		builder.setPositiveButton("Á°ÆËÆ§", new DialogInterface.OnClickListener() {
 
 			@Override
 			public void onClick(DialogInterface dialog, int which) {
@@ -267,7 +267,7 @@ public class MyJuDuiHuanXqActivity extends BaseActivity implements
 			}
 		});
 
-		builder.setNegativeButton("»°œ˚", new DialogInterface.OnClickListener() {
+		builder.setNegativeButton("ÂèñÊ∂à", new DialogInterface.OnClickListener() {
 
 			@Override
 			public void onClick(DialogInterface dialog, int which) {
@@ -280,9 +280,9 @@ public class MyJuDuiHuanXqActivity extends BaseActivity implements
 
 	protected void dialog3() {
 		AlertDialog.Builder builder = new Builder(MyJuDuiHuanXqActivity.this);
-		builder.setMessage(" «∑Ò»∑∂®…æ≥˝∂©µ•?");
-		builder.setTitle("Ã· æ");
-		builder.setPositiveButton("»∑»œ", new DialogInterface.OnClickListener() {
+		builder.setMessage("ÊòØÂê¶Á°ÆÂÆöÂà†Èô§ËÆ¢Âçï?");
+		builder.setTitle("ÊèêÁ§∫");
+		builder.setPositiveButton("Á°ÆËÆ§", new DialogInterface.OnClickListener() {
 
 			@Override
 			public void onClick(DialogInterface dialog, int which) {
@@ -291,7 +291,7 @@ public class MyJuDuiHuanXqActivity extends BaseActivity implements
 			}
 		});
 
-		builder.setNegativeButton("»°œ˚", new DialogInterface.OnClickListener() {
+		builder.setNegativeButton("ÂèñÊ∂à", new DialogInterface.OnClickListener() {
 
 			@Override
 			public void onClick(DialogInterface dialog, int which) {
@@ -303,8 +303,8 @@ public class MyJuDuiHuanXqActivity extends BaseActivity implements
 	}
 
 	/**
-	 * …æ≥˝∂©µ•
-	 * 
+	 * Âà†Èô§ËÆ¢Âçï
+	 *
 	 * @param order_no
 	 * @param payment_id
 	 */
@@ -317,8 +317,8 @@ public class MyJuDuiHuanXqActivity extends BaseActivity implements
 		System.out.println("login_sign================================="
 				+ login_sign);
 		AsyncHttp.get(RealmName.REALM_NAME_LL + "/delete_order?user_id="
-				+ user_id + "&user_name=" + user_name + "" + "&trade_no="
-				+ order_no + "&sign=" + login_sign + "",
+						+ user_id + "&user_name=" + user_name + "" + "&trade_no="
+						+ order_no + "&sign=" + login_sign + "",
 				new AsyncHttpResponseHandler() {
 					@Override
 					public void onSuccess(int arg0, String arg1) {
@@ -326,7 +326,7 @@ public class MyJuDuiHuanXqActivity extends BaseActivity implements
 						try {
 							JSONObject object = new JSONObject(arg1);
 							System.out
-									.println("»°œ˚∂©µ•================================="
+									.println("ÂèñÊ∂àËÆ¢Âçï================================="
 											+ arg1);
 							String status = object.getString("status");
 							String info = object.getString("info");
@@ -355,8 +355,8 @@ public class MyJuDuiHuanXqActivity extends BaseActivity implements
 	}
 
 	/**
-	 * »°œ˚∂©µ•
-	 * 
+	 * ÂèñÊ∂àËÆ¢Âçï
+	 *
 	 * @param order_no
 	 * @param payment_id
 	 */
@@ -369,8 +369,8 @@ public class MyJuDuiHuanXqActivity extends BaseActivity implements
 		System.out.println("login_sign================================="
 				+ login_sign);
 		AsyncHttp.get(RealmName.REALM_NAME_LL + "/update_order_cancel?user_id="
-				+ user_id + "&user_name=" + user_name + "" + "&trade_no="
-				+ order_no + "&sign=" + login_sign + "",
+						+ user_id + "&user_name=" + user_name + "" + "&trade_no="
+						+ order_no + "&sign=" + login_sign + "",
 				new AsyncHttpResponseHandler() {
 					@Override
 					public void onSuccess(int arg0, String arg1) {
@@ -378,7 +378,7 @@ public class MyJuDuiHuanXqActivity extends BaseActivity implements
 						try {
 							JSONObject object = new JSONObject(arg1);
 							System.out
-									.println("»°œ˚∂©µ•================================="
+									.println("ÂèñÊ∂àËÆ¢Âçï================================="
 											+ arg1);
 							String status = object.getString("status");
 							String info = object.getString("info");
@@ -406,43 +406,43 @@ public class MyJuDuiHuanXqActivity extends BaseActivity implements
 		// TODO Auto-generated method stub
 
 		switch (v.getId()) {
-		case R.id.iv_fanhui:
-			finish();
-			break;
-		case R.id.tv_fukuang:
-			String total_c = MyOrderXqAdapter.heji_zongjia;
-			Intent intent = new Intent(MyJuDuiHuanXqActivity.this,
-					MyOrderZFActivity.class);
-			intent.putExtra("order_no", order_no);
-			intent.putExtra("total_c", total_c);
-			intent.putExtra("5", "5");
-			startActivity(intent);
-			// finish();
-			break;
-		case R.id.tv_queren_fukuan:
-			Intent intent1 = new Intent(MyJuDuiHuanXqActivity.this,
-					TishiCarArchivesActivity.class);
-			intent1.putExtra("order_no", order_no);
-			// intent1.putExtra("order_yue","order_yue");
-			// intent1.putExtra("orderxq","orderxq");
-			startActivity(intent1);
-			break;
-		case R.id.tv_pingjia:
-			Intent intent2 = new Intent(MyJuDuiHuanXqActivity.this,
-					DianPingActivity.class);
-			// intent2.putExtra("article_id",list.get(position).getList().get(p).getArticle_id());
-			startActivity(intent2);
-			break;
-		case R.id.tv_shanche:
-			dialog3();
-			break;
-		default:
-			break;
+			case R.id.iv_fanhui:
+				finish();
+				break;
+			case R.id.tv_fukuang:
+				String total_c = MyOrderXqAdapter.heji_zongjia;
+				Intent intent = new Intent(MyJuDuiHuanXqActivity.this,
+						MyOrderZFActivity.class);
+				intent.putExtra("order_no", order_no);
+				intent.putExtra("total_c", total_c);
+				intent.putExtra("5", "5");
+				startActivity(intent);
+				// finish();
+				break;
+			case R.id.tv_queren_fukuan:
+				Intent intent1 = new Intent(MyJuDuiHuanXqActivity.this,
+						TishiCarArchivesActivity.class);
+				intent1.putExtra("order_no", order_no);
+				// intent1.putExtra("order_yue","order_yue");
+				// intent1.putExtra("orderxq","orderxq");
+				startActivity(intent1);
+				break;
+			case R.id.tv_pingjia:
+				Intent intent2 = new Intent(MyJuDuiHuanXqActivity.this,
+						DianPingActivity.class);
+				// intent2.putExtra("article_id",list.get(position).getList().get(p).getArticle_id());
+				startActivity(intent2);
+				break;
+			case R.id.tv_shanche:
+				dialog3();
+				break;
+			default:
+				break;
 		}
 	}
 
 	/**
-	 * ªÒ»°µ«¬º«©√˚
+	 * Ëé∑ÂèñÁôªÂΩïÁ≠æÂêç
 	 */
 	private void userloginqm() {
 		try {
@@ -479,8 +479,8 @@ public class MyJuDuiHuanXqActivity extends BaseActivity implements
 	}
 
 	/**
-	 * ∏¸–¬∂©µ•
-	 * 
+	 * Êõ¥Êñ∞ËÆ¢Âçï
+	 *
 	 * @param login_sign
 	 * @param payment_id
 	 */
@@ -492,51 +492,51 @@ public class MyJuDuiHuanXqActivity extends BaseActivity implements
 			System.out.println("login_sign================================="
 					+ login_sign);
 			AsyncHttp.get(RealmName.REALM_NAME_LL
-					+ "/update_order_payment?user_id=" + user_id
-					+ "&user_name=" + user_name + "" + "&trade_no="
-					+ recharge_noll + "&sign=" + login_sign + "",
+							+ "/update_order_payment?user_id=" + user_id
+							+ "&user_name=" + user_name + "" + "&trade_no="
+							+ recharge_noll + "&sign=" + login_sign + "",
 
-			new AsyncHttpResponseHandler() {
-				@Override
-				public void onSuccess(int arg0, String arg1) {
-					super.onSuccess(arg0, arg1);
-					try {
-						JSONObject object = new JSONObject(arg1);
-						System.out
-								.println("∏¸–¬∂©µ•================================="
-										+ arg1);
-						String status = object.getString("status");
-						String info = object.getString("info");
-						if (status.equals("y")) {
-							progress.CloseProgress();
-							teby = false;
-							finish();
-							Toast.makeText(MyJuDuiHuanXqActivity.this, info,
-									200).show();
-						} else {
-							progress.CloseProgress();
-							teby = false;
-							Toast.makeText(MyJuDuiHuanXqActivity.this, info,
-									200).show();
+					new AsyncHttpResponseHandler() {
+						@Override
+						public void onSuccess(int arg0, String arg1) {
+							super.onSuccess(arg0, arg1);
+							try {
+								JSONObject object = new JSONObject(arg1);
+								System.out
+										.println("Êõ¥Êñ∞ËÆ¢Âçï================================="
+												+ arg1);
+								String status = object.getString("status");
+								String info = object.getString("info");
+								if (status.equals("y")) {
+									progress.CloseProgress();
+									teby = false;
+									finish();
+									Toast.makeText(MyJuDuiHuanXqActivity.this, info,
+											200).show();
+								} else {
+									progress.CloseProgress();
+									teby = false;
+									Toast.makeText(MyJuDuiHuanXqActivity.this, info,
+											200).show();
+								}
+							} catch (JSONException e) {
+								e.printStackTrace();
+							}
 						}
-					} catch (JSONException e) {
-						e.printStackTrace();
-					}
-				}
 
-				@Override
-				public void onFailure(Throwable arg0, String arg1) {
-					// TODO Auto-generated method stub
-					super.onFailure(arg0, arg1);
-					System.out.println("11================================="
-							+ arg0);
-					System.out.println("22================================="
-							+ arg1);
-					Toast.makeText(MyJuDuiHuanXqActivity.this, "Õ¯¬Á≥¨ ±“Ï≥£", 200)
-							.show();
-				}
+						@Override
+						public void onFailure(Throwable arg0, String arg1) {
+							// TODO Auto-generated method stub
+							super.onFailure(arg0, arg1);
+							System.out.println("11================================="
+									+ arg0);
+							System.out.println("22================================="
+									+ arg1);
+							Toast.makeText(MyJuDuiHuanXqActivity.this, "ÁΩëÁªúË∂ÖÊó∂ÂºÇÂ∏∏", 200)
+									.show();
+						}
 
-			}, null);
+					}, null);
 
 		} catch (Exception e) {
 			// TODO: handle exception

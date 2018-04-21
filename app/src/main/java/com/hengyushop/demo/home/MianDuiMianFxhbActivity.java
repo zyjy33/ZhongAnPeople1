@@ -48,10 +48,10 @@ import com.tencent.mm.sdk.openapi.WXAPIFactory;
 import com.zams.www.R;
 
 /**
- * Ãæ¶ÔÃæº£±¨·ÖÏí
- * 
+ * é¢å¯¹é¢æµ·æŠ¥åˆ†äº«
+ *
  * @author Administrator
- * 
+ *
  */
 public class MianDuiMianFxhbActivity extends BaseActivity implements OnClickListener{
 	private ImageView iv_fanhui,iv_qr_image1,iv_touxiang,iv_touxiang2;
@@ -73,7 +73,7 @@ public class MianDuiMianFxhbActivity extends BaseActivity implements OnClickList
 	Bitmap bitMap_tx,bitMap_ewm_tx;
 	Bitmap bitMap1;
 	Bitmap bitMap2;
-	private static final String TAG = "ActivityDemo";  
+	private static final String TAG = "ActivityDemo";
 	public static  boolean zhuangtai = true;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -84,98 +84,98 @@ public class MianDuiMianFxhbActivity extends BaseActivity implements OnClickList
 		spPreferences = getSharedPreferences("longuserset", MODE_PRIVATE);
 		progress = new DialogProgress(MianDuiMianFxhbActivity.this);
 		intren();
-		
+
 		handler = new Handler() {
 			public void dispatchMessage(Message msg) {
 				switch (msg.what) {
-				case 0:
-	            break;
-				case 1:
-//					bitmap_fx.recycle();  //»ØÊÕÍ¼Æ¬ËùÕ¼µÄÄÚ´æ 
-					finish();
-		            break;
-				case 2:
-		            break;
+					case 0:
+						break;
+					case 1:
+						//					bitmap_fx.recycle();  //å›æ”¶å›¾ç‰‡æ‰€å çš„å†…å­˜
+						finish();
+						break;
+					case 2:
+						break;
 
-				default:
-					break;
+					default:
+						break;
 				}
 			}
 		};
 	}
-	
-//	 @Override  
-//	    protected void onStart() {  
-//	        super.onStart();  
-//	        Log.e(TAG, "start onStart~~~");  
-//	    }  
-//	    @Override  
-//	    protected void onRestart() {  
-//	        super.onRestart();  
-//	        Log.e(TAG, "start onRestart~~~");  
-//	    }  
-//	    @Override  
-//	    protected void onResume() {  
-//	        super.onResume();  
-//	        Log.e(TAG, "start onResume~~~");  
-//	    }  
-//	    @Override  
-//	    protected void onPause() {  
-//	        super.onPause();  
-//	        Log.e(TAG, "start onPause~~~");  
-//	    }  
-//	    @Override  
-//	    protected void onStop() {  
-//	        super.onStop();  
-//	        Log.e(TAG, "start onStop~~~");  
-//	    }  
-//	    @Override  
-//	    protected void onDestroy() {  
-//	        super.onDestroy();  
-//	        Log.e(TAG, "start onDestroy~~~");  
-//	    }
-	
-//	@Override
-//	protected void onNewIntent(Intent intent) {
-//	    super.onNewIntent(intent);
-//	 
-//	    setIntent(intent);
-//	    api.handleIntent(intent, this);
-//	}
-	
+
+	//	 @Override
+	//	    protected void onStart() {
+	//	        super.onStart();
+	//	        Log.e(TAG, "start onStart~~~");
+	//	    }
+	//	    @Override
+	//	    protected void onRestart() {
+	//	        super.onRestart();
+	//	        Log.e(TAG, "start onRestart~~~");
+	//	    }
+	//	    @Override
+	//	    protected void onResume() {
+	//	        super.onResume();
+	//	        Log.e(TAG, "start onResume~~~");
+	//	    }
+	//	    @Override
+	//	    protected void onPause() {
+	//	        super.onPause();
+	//	        Log.e(TAG, "start onPause~~~");
+	//	    }
+	//	    @Override
+	//	    protected void onStop() {
+	//	        super.onStop();
+	//	        Log.e(TAG, "start onStop~~~");
+	//	    }
+	//	    @Override
+	//	    protected void onDestroy() {
+	//	        super.onDestroy();
+	//	        Log.e(TAG, "start onDestroy~~~");
+	//	    }
+
+	//	@Override
+	//	protected void onNewIntent(Intent intent) {
+	//	    super.onNewIntent(intent);
+	//
+	//	    setIntent(intent);
+	//	    api.handleIntent(intent, this);
+	//	}
+
 	public void intren() {
 		try {
-			
+
 			btn_fenxiang = (Button) findViewById(R.id.btn_fenxiang);
 			btn_zhuti = (Button) findViewById(R.id.btn_zhuti);
 			iv_fanhui = (ImageView) findViewById(R.id.iv_fanhui);
 			iv = (ImageView) findViewById(R.id.iv);
 			iv_fanhui.setOnClickListener(this);
 			ll_user_buju = (LinearLayout) findViewById(R.id.ll_user_buju);
-//			iv.setVisibility(View.VISIBLE);
-//			ll_user_buju.setVisibility(View.GONE);
-			
+			//			iv.setVisibility(View.VISIBLE);
+			//			ll_user_buju.setVisibility(View.GONE);
+
 			iv.setVisibility(View.GONE);
 			ll_user_buju.setVisibility(View.VISIBLE);
 			iv_touxiang = (ImageView) findViewById(R.id.iv_touxiang);
 			networkImage = (RoundImageView)findViewById(R.id.roundImage_network);
-//			iv_touxiang2 = (ImageView) findViewById(R.id.iv_touxiang2);
+			//			iv_touxiang2 = (ImageView) findViewById(R.id.iv_touxiang2);
 			iv_qr_image1 = (ImageView) findViewById(R.id.iv_qr_image1);
 			btn_fenxiang.setOnClickListener(this);
 			btn_zhuti.setOnClickListener(this);
 			ll_zhuti = (LinearLayout) findViewById(R.id.ll_zhuti);
-			
+
 			String zhuti_tp = getIntent().getStringExtra("num");
 			System.out.println("zhuti_tp========"+zhuti_tp);
 			if (zhuti_tp != null) {
 				if (zhuti_tp.equals("1")) {
-					
+
 					ll_zhuti.setBackgroundResource(R.drawable.zams_haibao1);
-//					Toast.makeText(MianDuiMianFxhbActivity.this, "1", 200).show();
+					//					Toast.makeText(MianDuiMianFxhbActivity.this, "1", 200).show();
 				}else if (zhuti_tp.equals("2")){
 					try {
-					ll_zhuti.setBackgroundResource(R.drawable.zams_haibao1);
-//					Toast.makeText(MianDuiMianFxhbActivity.this, "2", 200).show();
+						ll_zhuti.setBackgroundResource(R.drawable.zams_haibao1);
+						//					Toast.makeText(MianDuiMianFxhbActivity.this, "2", 200).show();
 					} catch (Exception e) {
 						// TODO: handle exception
 						e.printStackTrace();
@@ -184,14 +184,14 @@ public class MianDuiMianFxhbActivity extends BaseActivity implements OnClickList
 			}else {
 				ll_zhuti.setBackgroundResource(R.drawable.zams_haibao1);
 			}
-			
+
 			erweima = getIntent().getStringExtra("erweima");
-//			System.out.println("erweima========"+erweima);
+			//			System.out.println("erweima========"+erweima);
 			if (erweima != null) {
 				Bitmap bitmap_erweima = BitUtil.stringtoBitmap(erweima);
 				iv_qr_image1.setImageBitmap(bitmap_erweima);
 			}
-			
+
 			avatar = spPreferences.getString("avatar", "");
 			System.out.println("avatar========"+avatar);
 			if (!avatar.equals("")) {
@@ -200,15 +200,15 @@ public class MianDuiMianFxhbActivity extends BaseActivity implements OnClickList
 				if (!avatar.equals("")){
 					mImageLoader.displayImage(RealmName.REALM_NAME_FTP +avatar,networkImage);
 				}
-				
-//				ImageLoader imageLoader=ImageLoader.getInstance();
-//				imageLoader.displayImage(RealmName.REALM_NAME_HTTP+avatar,iv_touxiang2);
+
+				//				ImageLoader imageLoader=ImageLoader.getInstance();
+				//				imageLoader.displayImage(RealmName.REALM_NAME_HTTP+avatar,iv_touxiang2);
 			}else {
-				
+
 			}
-			
-//	        canvas.drawBitmap(ic_luncher, new Matrix(), paint);
-//			softshareWxChat();
+
+			//	        canvas.drawBitmap(ic_luncher, new Matrix(), paint);
+			//			softshareWxChat();
 		} catch (Exception e) {
 			// TODO: handle exception
 			e.printStackTrace();
@@ -219,398 +219,398 @@ public class MianDuiMianFxhbActivity extends BaseActivity implements OnClickList
 	@Override
 	public void onClick(View v) {
 		// TODO Auto-generated method stub
-		
+
 		switch (v.getId()) {
-		case R.id.iv_fanhui:
-			finish();
-			break;
-		case R.id.btn_fenxiang:
-			softshareWxChat();
-			break;
-		case R.id.btn_zhuti:
-			try {
-				
-//			Intent intent = new Intent(MianDuiMianFxhbActivity.this, MianDuiMianFxhbActivity.class);
-			Intent intent = new Intent(MianDuiMianFxhbActivity.this, MianDuiMianGhztActivity.class);
-			intent.putExtra("erweima", erweima);
-			startActivity(intent);
-//			finish();
-			
-			} catch (Exception e) {
-				// TODO: handle exception
-				e.printStackTrace();
-			}
-			break;
-		default:
-			break;
+			case R.id.iv_fanhui:
+				finish();
+				break;
+			case R.id.btn_fenxiang:
+				softshareWxChat();
+				break;
+			case R.id.btn_zhuti:
+				try {
+
+					//			Intent intent = new Intent(MianDuiMianFxhbActivity.this, MianDuiMianFxhbActivity.class);
+					Intent intent = new Intent(MianDuiMianFxhbActivity.this, MianDuiMianGhztActivity.class);
+					intent.putExtra("erweima", erweima);
+					startActivity(intent);
+					//			finish();
+
+				} catch (Exception e) {
+					// TODO: handle exception
+					e.printStackTrace();
+				}
+				break;
+			default:
+				break;
 		}
 	}
-	
-//	@Override
-//	protected void onDestroy() {
-//		// TODO Auto-generated method stub
-//		super.onDestroy();
-//	}
-	
-	
+
+	//	@Override
+	//	protected void onDestroy() {
+	//		// TODO Auto-generated method stub
+	//		super.onDestroy();
+	//	}
+
+
 	/**
-	 * Î¢ĞÅ·ÖÏíÍ¼Æ¬
-	 * 
+	 * å¾®ä¿¡åˆ†äº«å›¾ç‰‡
+	 *
 	 * @param text
 	 */
 	private void softshareWxChat() {
-         try {
-//        	 if (bitMap_tx != null) {
-        	 
-        	  // Í¼Æ¬ºÏ³É-»­²¼ ÏÈÈ¥»­A ÔÙÈ¥»­B
- 			String zhuti_tp = getIntent().getStringExtra("num");
- 			System.out.println("zhuti_tp========"+zhuti_tp);
- 			System.out.println("bitmap_fx0=============="+bitmap_fx);
- 			if (zhuti_tp != null) {
-// 				bitmap_fx.recycle();  //»ØÊÕÍ¼Æ¬ËùÕ¼µÄÄÚ´æ  	
- 				if (zhuti_tp.equals("1")) {
-// 					String fx_tp2 = spPreferences.getString("fx_tp2", "");
-// 					bitmap_fx = BitUtil.stringtoBitmap(fx_tp2);
-// 					bitmap_fx = BitmapFactory.decodeResource(getResources(),R.drawable.ysj_haibao1); // bitmapÎªÖ»¶ÁµÄ
- 				     InputStream is = this.getResources().openRawResource(R.drawable.zams_haibao1); 
-				     BitmapFactory.Options options=new BitmapFactory.Options(); 
-				     options.inJustDecodeBounds = false; 
-				     options.inSampleSize = 2;   //width£¬hightÉèÎªÔ­À´µÄÊ®·ÖÒ»
-				     bitmap_fx =BitmapFactory.decodeStream(is,null,options); 
-//				     zhou();
-				     zhoull();
- 				}else if (zhuti_tp.equals("2")){
- 					try {
-// 					bitmap_fx = BitmapFactory.decodeResource(getResources(),R.drawable.ysj_haibao2); // bitmapÎªÖ»¶ÁµÄ
- 						 InputStream is = this.getResources().openRawResource(R.drawable.zams_haibao1); 
- 					     BitmapFactory.Options options=new BitmapFactory.Options(); 
- 					     options.inJustDecodeBounds = false; 
- 					     options.inSampleSize = 2;   //width£¬hightÉèÎªÔ­À´µÄÊ®·ÖÒ»
- 					     bitmap_fx =BitmapFactory.decodeStream(is,null,options); 
- 					     zhoull();	
- 					} catch (Exception e) {
+		try {
+			//        	 if (bitMap_tx != null) {
+
+			// å›¾ç‰‡åˆæˆ-ç”»å¸ƒ å…ˆå»ç”»A å†å»ç”»B
+			String zhuti_tp = getIntent().getStringExtra("num");
+			System.out.println("zhuti_tp========"+zhuti_tp);
+			System.out.println("bitmap_fx0=============="+bitmap_fx);
+			if (zhuti_tp != null) {
+				// 				bitmap_fx.recycle();  //å›æ”¶å›¾ç‰‡æ‰€å çš„å†…å­˜
+				if (zhuti_tp.equals("1")) {
+					// 					String fx_tp2 = spPreferences.getString("fx_tp2", "");
+					// 					bitmap_fx = BitUtil.stringtoBitmap(fx_tp2);
+					// 					bitmap_fx = BitmapFactory.decodeResource(getResources(),R.drawable.ysj_haibao1); // bitmapä¸ºåªè¯»çš„
+					InputStream is = this.getResources().openRawResource(R.drawable.zams_haibao1);
+					BitmapFactory.Options options=new BitmapFactory.Options();
+					options.inJustDecodeBounds = false;
+					options.inSampleSize = 2;   //widthï¼Œhightè®¾ä¸ºåŸæ¥çš„ååˆ†ä¸€
+					bitmap_fx =BitmapFactory.decodeStream(is,null,options);
+					//				     zhou();
+					zhoull();
+				}else if (zhuti_tp.equals("2")){
+					try {
+						// 					bitmap_fx = BitmapFactory.decodeResource(getResources(),R.drawable.ysj_haibao2); // bitmapä¸ºåªè¯»çš„
+						InputStream is = this.getResources().openRawResource(R.drawable.zams_haibao1);
+						BitmapFactory.Options options=new BitmapFactory.Options();
+						options.inJustDecodeBounds = false;
+						options.inSampleSize = 2;   //widthï¼Œhightè®¾ä¸ºåŸæ¥çš„ååˆ†ä¸€
+						bitmap_fx =BitmapFactory.decodeStream(is,null,options);
+						zhoull();
+					} catch (Exception e) {
 						// TODO: handle exception
- 						e.printStackTrace();
+						e.printStackTrace();
 					}
- 				}
- 			} else {
-// 				bitmap_fx = BitmapFactory.decodeResource(getResources(),R.drawable.ysj_haibao1); // bitmapÎªÖ»¶ÁµÄ
-// 				yuanban();
- 				     InputStream is = this.getResources().openRawResource(R.drawable.zams_haibao1); 
-				     BitmapFactory.Options options=new BitmapFactory.Options(); 
-				     options.inJustDecodeBounds = false; 
-				     options.inSampleSize = 2;   //width£¬hightÉèÎªÔ­À´µÄÊ®·ÖÒ»
-				     bitmap_fx =BitmapFactory.decodeStream(is,null,options); 
-//				     zhou();
-				     zhoull();
- 			}
- 			
- 	        System.out.println("bitmap_fx1=============="+bitmap_fx);
-         } catch (Exception e) {
- 			// TODO: handle exception
-        	 e.printStackTrace();
- 		}
+				}
+			} else {
+				// 				bitmap_fx = BitmapFactory.decodeResource(getResources(),R.drawable.ysj_haibao1); // bitmapä¸ºåªè¯»çš„
+				// 				yuanban();
+				InputStream is = this.getResources().openRawResource(R.drawable.zams_haibao1);
+				BitmapFactory.Options options=new BitmapFactory.Options();
+				options.inJustDecodeBounds = false;
+				options.inSampleSize = 2;   //widthï¼Œhightè®¾ä¸ºåŸæ¥çš„ååˆ†ä¸€
+				bitmap_fx =BitmapFactory.decodeStream(is,null,options);
+				//				     zhou();
+				zhoull();
+			}
+
+			System.out.println("bitmap_fx1=============="+bitmap_fx);
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
 	}
-	
+
 	private String buildTransaction(final String type) {
 		return (type == null) ? String.valueOf(System.currentTimeMillis())
 				: type + System.currentTimeMillis();
 	}
-	
-//	private void zhou() {
-//		// TODO Auto-generated method stub
-//		 System.out.println("bitmap_fx1=============="+bitmap_fx);
-//	        
-//	        alterBitmap = Bitmap.createBitmap(bitmap_fx.getWidth(),bitmap_fx.getHeight(), bitmap_fx.getConfig());
-//	        Canvas canvas = new Canvas(alterBitmap);
-//	        Paint paint = new Paint();
-//	        paint.setColor(Color.BLACK);
-//	        canvas.drawBitmap(bitmap_fx, new Matrix(), paint);
-//	        System.out.println("bitmap_fx2=============="+bitmap_fx);
-//	        bitmap_fx.recycle();  //»ØÊÕÍ¼Æ¬ËùÕ¼µÄÄÚ´æ  
-//	       
-//	       //Í·Ïñ
-////	       String touxiang = getIntent().getStringExtra("touxiang");
-////	       System.out.println("touxiang=============="+touxiang);
-//	       if (bitMap_tx == null) {
-//	    	     bitMap2 = BitmapFactory.decodeResource(getResources(),R.drawable.app_zams);
-//	       }else {
-//	    	    bitMap2 = bitMap_tx;
-//	       }
-//	       System.out.println("bitMap2=============="+bitMap2);
-//	        if (bitMap2 != null) {
-//	    	   try {
-////	        bitMap2 = BitmapFactory.decodeResource(getResources(),R.drawable.ysj_tx);
-//	        int width2 = bitMap2.getWidth();
-//	        int height2 = bitMap2.getHeight();
-//	        // ÉèÖÃÏëÒªµÄ´óĞ¡
-//	        int newWidth2= 240;
-//	        int newHeight2 = 240;
-//	        // ¼ÆËãËõ·Å±ÈÀı
-//	        float scaleWidth2 = ((float) newWidth2) / width2;
-//	        float scaleHeight2 = ((float) newHeight2) / height2;
-//	        // È¡µÃÏëÒªËõ·ÅµÄmatrix²ÎÊı
-//	        Matrix matrix2 = new Matrix();
-//	        matrix2.postScale(scaleWidth2, scaleHeight2);
-//	        // µÃµ½ĞÂµÄÍ¼Æ¬
-//	        bitMap2 = Bitmap.createBitmap(bitMap2, 0, 0, width2, height2, matrix2, true);
-//	        canvas.drawBitmap(bitMap2, 430, 280, null);
-//	    	  } catch (Exception e) {
-//					// TODO: handle exception
-//	    		  e.printStackTrace();
-//			  }
-//	       }else {
-//			
-//		   }
-//	        
-//	        //¶şÎ¬Âë
-//	        erweima = getIntent().getStringExtra("erweima");
-//			Bitmap bitMap = BitUtil.stringtoBitmap(erweima);
-//	        int width = bitMap.getWidth();
-//	        int height = bitMap.getHeight();
-//// 	        // ÉèÖÃÏëÒªµÄ´óĞ¡
-// 	        int newWidth = 350;
-// 	        int newHeight = 350;
-//	        // ¼ÆËãËõ·Å±ÈÀı
-//	        float scaleWidth = ((float) newWidth) / width;
-//	        float scaleHeight = ((float) newHeight) / height;
-//	        // È¡µÃÏëÒªËõ·ÅµÄmatrix²ÎÊı
-//	        Matrix matrix = new Matrix();
-//	        matrix.postScale(scaleWidth, scaleHeight);
-//	        // µÃµ½ĞÂµÄÍ¼Æ¬
-//	        bitMap = Bitmap.createBitmap(bitMap, 0, 0, width, height, matrix, true);
-//	        canvas.drawBitmap(bitMap, 360, 1280, null);
-//	        
-//	       System.out.println("bitMap_tx=============="+bitMap_tx);
-//	       
-//	        
-//	       iv.setImageBitmap(alterBitmap);
-//	       System.out.println("alterBitmap=============="+alterBitmap);
-//	       iv.setVisibility(View.VISIBLE);
-//		   ll_user_buju.setVisibility(View.GONE);
-//		   
-////	        api = WXAPIFactory.createWXAPI(MianDuiMianFxhbActivity.this, Constant.APP_ID,false);
-////			api.registerApp(Constant.APP_ID);
-////			WXImageObject imgObj1 = new WXImageObject(alterBitmap);
-////			WXMediaMessage msg = new WXMediaMessage();
-////			msg.mediaObject = imgObj1;
-////			
-////			Bitmap thumbBmp = Bitmap.createScaledBitmap(alterBitmap, THUMB_SIZE, THUMB_SIZE, true);
-////			alterBitmap.recycle();
-////			msg.thumbData = Util.bmpToByteArray(thumbBmp, true);  // ÉèÖÃËõÂÔÍ¼
-////			
-////			SendMessageToWX.Req req = new SendMessageToWX.Req();
-////			req.transaction = buildTransaction("webpage");
-////			req.message = msg;
-////			req.scene = SendMessageToWX.Req.WXSceneSession;
-////			boolean flag = api.sendReq(req);
-////
-////			System.out.println("Î¢ĞÅ×¢²á" + flag);
-//			
-//	}
-	
+
+	//	private void zhou() {
+	//		// TODO Auto-generated method stub
+	//		 System.out.println("bitmap_fx1=============="+bitmap_fx);
+	//
+	//	        alterBitmap = Bitmap.createBitmap(bitmap_fx.getWidth(),bitmap_fx.getHeight(), bitmap_fx.getConfig());
+	//	        Canvas canvas = new Canvas(alterBitmap);
+	//	        Paint paint = new Paint();
+	//	        paint.setColor(Color.BLACK);
+	//	        canvas.drawBitmap(bitmap_fx, new Matrix(), paint);
+	//	        System.out.println("bitmap_fx2=============="+bitmap_fx);
+	//	        bitmap_fx.recycle();  //å›æ”¶å›¾ç‰‡æ‰€å çš„å†…å­˜
+	//
+	//	       //å¤´åƒ
+	////	       String touxiang = getIntent().getStringExtra("touxiang");
+	////	       System.out.println("touxiang=============="+touxiang);
+	//	       if (bitMap_tx == null) {
+	//	    	     bitMap2 = BitmapFactory.decodeResource(getResources(),R.drawable.app_zams);
+	//	       }else {
+	//	    	    bitMap2 = bitMap_tx;
+	//	       }
+	//	       System.out.println("bitMap2=============="+bitMap2);
+	//	        if (bitMap2 != null) {
+	//	    	   try {
+	////	        bitMap2 = BitmapFactory.decodeResource(getResources(),R.drawable.ysj_tx);
+	//	        int width2 = bitMap2.getWidth();
+	//	        int height2 = bitMap2.getHeight();
+	//	        // è®¾ç½®æƒ³è¦çš„å¤§å°
+	//	        int newWidth2= 240;
+	//	        int newHeight2 = 240;
+	//	        // è®¡ç®—ç¼©æ”¾æ¯”ä¾‹
+	//	        float scaleWidth2 = ((float) newWidth2) / width2;
+	//	        float scaleHeight2 = ((float) newHeight2) / height2;
+	//	        // å–å¾—æƒ³è¦ç¼©æ”¾çš„matrixå‚æ•°
+	//	        Matrix matrix2 = new Matrix();
+	//	        matrix2.postScale(scaleWidth2, scaleHeight2);
+	//	        // å¾—åˆ°æ–°çš„å›¾ç‰‡
+	//	        bitMap2 = Bitmap.createBitmap(bitMap2, 0, 0, width2, height2, matrix2, true);
+	//	        canvas.drawBitmap(bitMap2, 430, 280, null);
+	//	    	  } catch (Exception e) {
+	//					// TODO: handle exception
+	//	    		  e.printStackTrace();
+	//			  }
+	//	       }else {
+	//
+	//		   }
+	//
+	//	        //äºŒç»´ç 
+	//	        erweima = getIntent().getStringExtra("erweima");
+	//			Bitmap bitMap = BitUtil.stringtoBitmap(erweima);
+	//	        int width = bitMap.getWidth();
+	//	        int height = bitMap.getHeight();
+	//// 	        // è®¾ç½®æƒ³è¦çš„å¤§å°
+	// 	        int newWidth = 350;
+	// 	        int newHeight = 350;
+	//	        // è®¡ç®—ç¼©æ”¾æ¯”ä¾‹
+	//	        float scaleWidth = ((float) newWidth) / width;
+	//	        float scaleHeight = ((float) newHeight) / height;
+	//	        // å–å¾—æƒ³è¦ç¼©æ”¾çš„matrixå‚æ•°
+	//	        Matrix matrix = new Matrix();
+	//	        matrix.postScale(scaleWidth, scaleHeight);
+	//	        // å¾—åˆ°æ–°çš„å›¾ç‰‡
+	//	        bitMap = Bitmap.createBitmap(bitMap, 0, 0, width, height, matrix, true);
+	//	        canvas.drawBitmap(bitMap, 360, 1280, null);
+	//
+	//	       System.out.println("bitMap_tx=============="+bitMap_tx);
+	//
+	//
+	//	       iv.setImageBitmap(alterBitmap);
+	//	       System.out.println("alterBitmap=============="+alterBitmap);
+	//	       iv.setVisibility(View.VISIBLE);
+	//		   ll_user_buju.setVisibility(View.GONE);
+	//
+	////	        api = WXAPIFactory.createWXAPI(MianDuiMianFxhbActivity.this, Constant.APP_ID,false);
+	////			api.registerApp(Constant.APP_ID);
+	////			WXImageObject imgObj1 = new WXImageObject(alterBitmap);
+	////			WXMediaMessage msg = new WXMediaMessage();
+	////			msg.mediaObject = imgObj1;
+	////
+	////			Bitmap thumbBmp = Bitmap.createScaledBitmap(alterBitmap, THUMB_SIZE, THUMB_SIZE, true);
+	////			alterBitmap.recycle();
+	////			msg.thumbData = Util.bmpToByteArray(thumbBmp, true);  // è®¾ç½®ç¼©ç•¥å›¾
+	////
+	////			SendMessageToWX.Req req = new SendMessageToWX.Req();
+	////			req.transaction = buildTransaction("webpage");
+	////			req.message = msg;
+	////			req.scene = SendMessageToWX.Req.WXSceneSession;
+	////			boolean flag = api.sendReq(req);
+	////
+	////			System.out.println("å¾®ä¿¡æ³¨å†Œ" + flag);
+	//
+	//	}
+
 	private void zhoull() {
 		// TODO Auto-generated method stub
-		 System.out.println("bitmap_fx1=============="+bitmap_fx);
-	        
-	        alterBitmap = Bitmap.createBitmap(bitmap_fx.getWidth(),bitmap_fx.getHeight(), bitmap_fx.getConfig());
-	        Canvas canvas = new Canvas(alterBitmap);
-	        Paint paint = new Paint();
-	        paint.setColor(Color.BLACK);
-	        canvas.drawBitmap(bitmap_fx, new Matrix(), paint);
-	        System.out.println("bitmap_fx2=============="+bitmap_fx);
-	        bitmap_fx.recycle();  //»ØÊÕÍ¼Æ¬ËùÕ¼µÄÄÚ´æ  
-	       
-	       //Í·Ïñ
-	       if (bitMap_tx == null) {
-	    	     bitMap2 = BitmapFactory.decodeResource(getResources(),R.drawable.app_zams);
-	       }else {
-	    	    bitMap2 = bitMap_tx;
-	       }
-	       System.out.println("bitMap2=============="+bitMap2);
-	        if (bitMap2 != null) {
-	    	   try {
-	        int width2 = bitMap2.getWidth();
-	        int height2 = bitMap2.getHeight();
-	        // ÉèÖÃÏëÒªµÄ´óĞ¡
-	        int newWidth2= 130;
-	        int newHeight2 = 130;
-	        // ¼ÆËãËõ·Å±ÈÀı
-	        float scaleWidth2 = ((float) newWidth2) / width2;
-	        float scaleHeight2 = ((float) newHeight2) / height2;
-	        // È¡µÃÏëÒªËõ·ÅµÄmatrix²ÎÊı
-	        Matrix matrix2 = new Matrix();
-	        matrix2.postScale(scaleWidth2, scaleHeight2);
-	        // µÃµ½ĞÂµÄÍ¼Æ¬
-	        bitMap2 = Bitmap.createBitmap(bitMap2, 0, 0, width2, height2, matrix2, true);
-	        canvas.drawBitmap(bitMap2, 205, 130, null);
-	    	  } catch (Exception e) {
-					// TODO: handle exception
-	    		  e.printStackTrace();
-			  }
-	       }else {
-			
-		   }
-	        
-	        //¶şÎ¬Âë
-	        erweima = getIntent().getStringExtra("erweima");
-			Bitmap bitMap = BitUtil.stringtoBitmap(erweima);
-	        int width = bitMap.getWidth();
-	        int height = bitMap.getHeight();
-// 	        // ÉèÖÃÏëÒªµÄ´óĞ¡
- 	        int newWidth = 200;
- 	        int newHeight = 200;
-	        // ¼ÆËãËõ·Å±ÈÀı
-	        float scaleWidth = ((float) newWidth) / width;
-	        float scaleHeight = ((float) newHeight) / height;
-	        // È¡µÃÏëÒªËõ·ÅµÄmatrix²ÎÊı
-	        Matrix matrix = new Matrix();
-	        matrix.postScale(scaleWidth, scaleHeight);
-	        // µÃµ½ĞÂµÄÍ¼Æ¬
-	        bitMap = Bitmap.createBitmap(bitMap, 0, 0, width, height, matrix, true);
-	        canvas.drawBitmap(bitMap, 170, 640, null);
-	        
-	       System.out.println("bitMap_tx=============="+bitMap_tx);
-	       
-	        
-//	        iv.setImageBitmap(alterBitmap);
-//	        System.out.println("alterBitmap=============="+alterBitmap);
-//	        iv.setVisibility(View.VISIBLE);
-//		    ll_user_buju.setVisibility(View.GONE);
-		   
-	        api = WXAPIFactory.createWXAPI(MianDuiMianFxhbActivity.this, Constant.APP_ID,false);
-			api.registerApp(Constant.APP_ID);
-			WXImageObject imgObj1 = new WXImageObject(alterBitmap);
-			WXMediaMessage msg = new WXMediaMessage();
-			msg.mediaObject = imgObj1;
-			//import com.lglottery.www.http.Util;
-			Bitmap thumbBmp = Bitmap.createScaledBitmap(alterBitmap, THUMB_SIZE, THUMB_SIZE, true);
-			alterBitmap.recycle();
-			msg.thumbData = Util.bmpToByteArray(thumbBmp, true);  // ÉèÖÃËõÂÔÍ¼
-			
-			SendMessageToWX.Req req = new SendMessageToWX.Req();
-			req.transaction = buildTransaction("webpage");
-			req.message = msg;
-			req.scene = SendMessageToWX.Req.WXSceneSession;
-			boolean flag = api.sendReq(req);
+		System.out.println("bitmap_fx1=============="+bitmap_fx);
 
-			System.out.println("Î¢ĞÅ×¢²á" + flag);
-	}
-	
-//	private void yuanban() {
-//		// TODO Auto-generated method stub
-//		 	Bitmap alterBitmap = Bitmap.createBitmap(bitmap_fx.getWidth(),bitmap_fx.getHeight(), bitmap_fx.getConfig());
-//	        Canvas canvas = new Canvas(alterBitmap);
-//	        Paint paint = new Paint();
-//	        paint.setColor(Color.BLACK);
-//	        canvas.drawBitmap(bitmap_fx, new Matrix(), paint);
-//	        System.out.println("bitmap_fx2=============="+bitmap_fx);
-//	        bitmap_fx.recycle();  //»ØÊÕÍ¼Æ¬ËùÕ¼µÄÄÚ´æ  
-//	       
-//	        //¶şÎ¬Âë
-//	        erweima = getIntent().getStringExtra("erweima");
-//			Bitmap bitMap = BitUtil.stringtoBitmap(erweima);
-//	        int width = bitMap.getWidth();
-//	        int height = bitMap.getHeight();
-//	        // ÉèÖÃÏëÒªµÄ´óĞ¡
-//	        int newWidth = 610;
-//	        int newHeight = 610;
-//	        // ¼ÆËãËõ·Å±ÈÀı
-//	        float scaleWidth = ((float) newWidth) / width;
-//	        float scaleHeight = ((float) newHeight) / height;
-//	        // È¡µÃÏëÒªËõ·ÅµÄmatrix²ÎÊı
-//	        Matrix matrix = new Matrix();
-//	        matrix.postScale(scaleWidth, scaleHeight);
-//	        // µÃµ½ĞÂµÄÍ¼Æ¬
-//	        bitMap = Bitmap.createBitmap(bitMap, 0, 0, width, height, matrix, true);
-//	        canvas.drawBitmap(bitMap, 440, 1830, null);
-//	        
-//	       System.out.println("bitMap_tx=============="+bitMap_tx);
-//	       System.out.println("avatar2=============="+avatar);
-//	       
-//	       
-////	        System.out.println("bitMap2=============="+bitMap2);
-//	       //Í·Ïñ
-//	       String touxiang = getIntent().getStringExtra("touxiang");
-//	       System.out.println("touxiang=============="+touxiang);
-//	       if (touxiang == null) {
-////	    	     InputStream is = this.getResources().openRawResource(R.drawable.ysj_logn); 
-////		     BitmapFactory.Options options=new BitmapFactory.Options(); 
-////		     options.inJustDecodeBounds = false; 
-////		     options.inSampleSize = 10;   //width£¬hightÉèÎªÔ­À´µÄÊ®·ÖÒ»
-////		     bitMap2 =BitmapFactory.decodeStream(is,null,options); 
-//	    	     bitMap2 = BitmapFactory.decodeResource(getResources(),R.drawable.app_zams);
-//	       }else {
-//	    	   Bitmap bitmap_tx = BitUtil.stringtoBitmap(touxiang);
-//	    	   bitMap2 = bitmap_tx;
-//	       }
-//	       System.out.println("bitMap2=============="+bitMap2);
-//	        if (bitMap2 != null) {
-//	    	   try {
-////	        bitMap2 = BitmapFactory.decodeResource(getResources(),R.drawable.ysj_tx);
-//	        int width2 = bitMap2.getWidth();
-//	        int height2 = bitMap2.getHeight();
-//	        // ÉèÖÃÏëÒªµÄ´óĞ¡
-//	        int newWidth2= 400;
-//	        int newHeight2 = 400;
-//	        // ¼ÆËãËõ·Å±ÈÀı
-//	        float scaleWidth2 = ((float) newWidth2) / width2;
-//	        float scaleHeight2 = ((float) newHeight2) / height2;
-//	        // È¡µÃÏëÒªËõ·ÅµÄmatrix²ÎÊı
-//	        Matrix matrix2 = new Matrix();
-//	        matrix2.postScale(scaleWidth2, scaleHeight2);
-//	        // µÃµ½ĞÂµÄÍ¼Æ¬
-//	        bitMap2 = Bitmap.createBitmap(bitMap2, 0, 0, width2, height2, matrix2, true);
-//	        canvas.drawBitmap(bitMap2, 540, 350, null);
-//	    	  } catch (Exception e) {
-//					// TODO: handle exception
-//	    		  e.printStackTrace();
-//			  }
-//	       }
-//	        
-//	        iv.setImageBitmap(alterBitmap);
-//	        
-//	        System.out.println("alterBitmap=============="+alterBitmap);
-////	   Bitmap bmp = BitmapFactory.decodeResource(getResources(),R.drawable.ysj_haibao1);     
-//	       iv.setVisibility(View.VISIBLE);
-//	   ll_user_buju.setVisibility(View.GONE);
-//	}
-	  Runnable getPicByUrl = new Runnable() {
-			@Override
-			public void run() {
-				try {
-//					String img_url2 = "http://183.62.138.31:1010/upload/phone/113875199/20170217164544307.jpg";
-					String img_url2 = RealmName.REALM_NAME_HTTP +avatar;
-					System.out.println("img_url2=============="+img_url2);
-					Bitmap bmp = GetImgUtil.getImage(img_url2);// BitmapFactory£ºÍ¼Æ¬¹¤³§£¡
-					bitMap_ewm_tx = bmp;
-					bitMap_tx = Utils.toRoundBitmap(bmp,null);// Õâ¸öÊ±ºòµÄÍ¼Æ¬ÒÑ¾­±»´¦Àí³ÉÔ²ĞÎµÄÁË
-					System.out.println("bitMap1=============="+bitMap_tx);
-				} catch (Exception e) {
-					Log.i("ggggg", e.getMessage());
-				}
+		alterBitmap = Bitmap.createBitmap(bitmap_fx.getWidth(),bitmap_fx.getHeight(), bitmap_fx.getConfig());
+		Canvas canvas = new Canvas(alterBitmap);
+		Paint paint = new Paint();
+		paint.setColor(Color.BLACK);
+		canvas.drawBitmap(bitmap_fx, new Matrix(), paint);
+		System.out.println("bitmap_fx2=============="+bitmap_fx);
+		bitmap_fx.recycle();  //å›æ”¶å›¾ç‰‡æ‰€å çš„å†…å­˜
+
+		//å¤´åƒ
+		if (bitMap_tx == null) {
+			bitMap2 = BitmapFactory.decodeResource(getResources(),R.drawable.app_zams);
+		}else {
+			bitMap2 = bitMap_tx;
+		}
+		System.out.println("bitMap2=============="+bitMap2);
+		if (bitMap2 != null) {
+			try {
+				int width2 = bitMap2.getWidth();
+				int height2 = bitMap2.getHeight();
+				// è®¾ç½®æƒ³è¦çš„å¤§å°
+				int newWidth2= 130;
+				int newHeight2 = 130;
+				// è®¡ç®—ç¼©æ”¾æ¯”ä¾‹
+				float scaleWidth2 = ((float) newWidth2) / width2;
+				float scaleHeight2 = ((float) newHeight2) / height2;
+				// å–å¾—æƒ³è¦ç¼©æ”¾çš„matrixå‚æ•°
+				Matrix matrix2 = new Matrix();
+				matrix2.postScale(scaleWidth2, scaleHeight2);
+				// å¾—åˆ°æ–°çš„å›¾ç‰‡
+				bitMap2 = Bitmap.createBitmap(bitMap2, 0, 0, width2, height2, matrix2, true);
+				canvas.drawBitmap(bitMap2, 205, 130, null);
+			} catch (Exception e) {
+				// TODO: handle exception
+				e.printStackTrace();
 			}
-		};
-		
+		}else {
+
+		}
+
+		//äºŒç»´ç 
+		erweima = getIntent().getStringExtra("erweima");
+		Bitmap bitMap = BitUtil.stringtoBitmap(erweima);
+		int width = bitMap.getWidth();
+		int height = bitMap.getHeight();
+		// 	        // è®¾ç½®æƒ³è¦çš„å¤§å°
+		int newWidth = 200;
+		int newHeight = 200;
+		// è®¡ç®—ç¼©æ”¾æ¯”ä¾‹
+		float scaleWidth = ((float) newWidth) / width;
+		float scaleHeight = ((float) newHeight) / height;
+		// å–å¾—æƒ³è¦ç¼©æ”¾çš„matrixå‚æ•°
+		Matrix matrix = new Matrix();
+		matrix.postScale(scaleWidth, scaleHeight);
+		// å¾—åˆ°æ–°çš„å›¾ç‰‡
+		bitMap = Bitmap.createBitmap(bitMap, 0, 0, width, height, matrix, true);
+		canvas.drawBitmap(bitMap, 170, 640, null);
+
+		System.out.println("bitMap_tx=============="+bitMap_tx);
+
+
+		//	        iv.setImageBitmap(alterBitmap);
+		//	        System.out.println("alterBitmap=============="+alterBitmap);
+		//	        iv.setVisibility(View.VISIBLE);
+		//		    ll_user_buju.setVisibility(View.GONE);
+
+		api = WXAPIFactory.createWXAPI(MianDuiMianFxhbActivity.this, Constant.APP_ID,false);
+		api.registerApp(Constant.APP_ID);
+		WXImageObject imgObj1 = new WXImageObject(alterBitmap);
+		WXMediaMessage msg = new WXMediaMessage();
+		msg.mediaObject = imgObj1;
+		//import com.lglottery.www.http.Util;
+		Bitmap thumbBmp = Bitmap.createScaledBitmap(alterBitmap, THUMB_SIZE, THUMB_SIZE, true);
+		alterBitmap.recycle();
+		msg.thumbData = Util.bmpToByteArray(thumbBmp, true);  // è®¾ç½®ç¼©ç•¥å›¾
+
+		SendMessageToWX.Req req = new SendMessageToWX.Req();
+		req.transaction = buildTransaction("webpage");
+		req.message = msg;
+		req.scene = SendMessageToWX.Req.WXSceneSession;
+		boolean flag = api.sendReq(req);
+
+		System.out.println("å¾®ä¿¡æ³¨å†Œ" + flag);
+	}
+
+	//	private void yuanban() {
+	//		// TODO Auto-generated method stub
+	//		 	Bitmap alterBitmap = Bitmap.createBitmap(bitmap_fx.getWidth(),bitmap_fx.getHeight(), bitmap_fx.getConfig());
+	//	        Canvas canvas = new Canvas(alterBitmap);
+	//	        Paint paint = new Paint();
+	//	        paint.setColor(Color.BLACK);
+	//	        canvas.drawBitmap(bitmap_fx, new Matrix(), paint);
+	//	        System.out.println("bitmap_fx2=============="+bitmap_fx);
+	//	        bitmap_fx.recycle();  //å›æ”¶å›¾ç‰‡æ‰€å çš„å†…å­˜
+	//
+	//	        //äºŒç»´ç 
+	//	        erweima = getIntent().getStringExtra("erweima");
+	//			Bitmap bitMap = BitUtil.stringtoBitmap(erweima);
+	//	        int width = bitMap.getWidth();
+	//	        int height = bitMap.getHeight();
+	//	        // è®¾ç½®æƒ³è¦çš„å¤§å°
+	//	        int newWidth = 610;
+	//	        int newHeight = 610;
+	//	        // è®¡ç®—ç¼©æ”¾æ¯”ä¾‹
+	//	        float scaleWidth = ((float) newWidth) / width;
+	//	        float scaleHeight = ((float) newHeight) / height;
+	//	        // å–å¾—æƒ³è¦ç¼©æ”¾çš„matrixå‚æ•°
+	//	        Matrix matrix = new Matrix();
+	//	        matrix.postScale(scaleWidth, scaleHeight);
+	//	        // å¾—åˆ°æ–°çš„å›¾ç‰‡
+	//	        bitMap = Bitmap.createBitmap(bitMap, 0, 0, width, height, matrix, true);
+	//	        canvas.drawBitmap(bitMap, 440, 1830, null);
+	//
+	//	       System.out.println("bitMap_tx=============="+bitMap_tx);
+	//	       System.out.println("avatar2=============="+avatar);
+	//
+	//
+	////	        System.out.println("bitMap2=============="+bitMap2);
+	//	       //å¤´åƒ
+	//	       String touxiang = getIntent().getStringExtra("touxiang");
+	//	       System.out.println("touxiang=============="+touxiang);
+	//	       if (touxiang == null) {
+	////	    	     InputStream is = this.getResources().openRawResource(R.drawable.ysj_logn);
+	////		     BitmapFactory.Options options=new BitmapFactory.Options();
+	////		     options.inJustDecodeBounds = false;
+	////		     options.inSampleSize = 10;   //widthï¼Œhightè®¾ä¸ºåŸæ¥çš„ååˆ†ä¸€
+	////		     bitMap2 =BitmapFactory.decodeStream(is,null,options);
+	//	    	     bitMap2 = BitmapFactory.decodeResource(getResources(),R.drawable.app_zams);
+	//	       }else {
+	//	    	   Bitmap bitmap_tx = BitUtil.stringtoBitmap(touxiang);
+	//	    	   bitMap2 = bitmap_tx;
+	//	       }
+	//	       System.out.println("bitMap2=============="+bitMap2);
+	//	        if (bitMap2 != null) {
+	//	    	   try {
+	////	        bitMap2 = BitmapFactory.decodeResource(getResources(),R.drawable.ysj_tx);
+	//	        int width2 = bitMap2.getWidth();
+	//	        int height2 = bitMap2.getHeight();
+	//	        // è®¾ç½®æƒ³è¦çš„å¤§å°
+	//	        int newWidth2= 400;
+	//	        int newHeight2 = 400;
+	//	        // è®¡ç®—ç¼©æ”¾æ¯”ä¾‹
+	//	        float scaleWidth2 = ((float) newWidth2) / width2;
+	//	        float scaleHeight2 = ((float) newHeight2) / height2;
+	//	        // å–å¾—æƒ³è¦ç¼©æ”¾çš„matrixå‚æ•°
+	//	        Matrix matrix2 = new Matrix();
+	//	        matrix2.postScale(scaleWidth2, scaleHeight2);
+	//	        // å¾—åˆ°æ–°çš„å›¾ç‰‡
+	//	        bitMap2 = Bitmap.createBitmap(bitMap2, 0, 0, width2, height2, matrix2, true);
+	//	        canvas.drawBitmap(bitMap2, 540, 350, null);
+	//	    	  } catch (Exception e) {
+	//					// TODO: handle exception
+	//	    		  e.printStackTrace();
+	//			  }
+	//	       }
+	//
+	//	        iv.setImageBitmap(alterBitmap);
+	//
+	//	        System.out.println("alterBitmap=============="+alterBitmap);
+	////	   Bitmap bmp = BitmapFactory.decodeResource(getResources(),R.drawable.ysj_haibao1);
+	//	       iv.setVisibility(View.VISIBLE);
+	//	   ll_user_buju.setVisibility(View.GONE);
+	//	}
+	Runnable getPicByUrl = new Runnable() {
+		@Override
+		public void run() {
+			try {
+				//					String img_url2 = "http://183.62.138.31:1010/upload/phone/113875199/20170217164544307.jpg";
+				String img_url2 = RealmName.REALM_NAME_HTTP +avatar;
+				System.out.println("img_url2=============="+img_url2);
+				Bitmap bmp = GetImgUtil.getImage(img_url2);// BitmapFactoryï¼šå›¾ç‰‡å·¥å‚ï¼
+				bitMap_ewm_tx = bmp;
+				bitMap_tx = Utils.toRoundBitmap(bmp,null);// è¿™ä¸ªæ—¶å€™çš„å›¾ç‰‡å·²ç»è¢«å¤„ç†æˆåœ†å½¢çš„äº†
+				System.out.println("bitMap1=============="+bitMap_tx);
+			} catch (Exception e) {
+				Log.i("ggggg", e.getMessage());
+			}
+		}
+	};
+
 	/**
-	 * ³õÊ¼»¯Í¼Æ¬ÏÂÔØÆ÷£¬Í¼Æ¬»º´æµØÖ·<i>("/Android/data/[app_package_name]/cache/dirName")</i>
+	 * åˆå§‹åŒ–å›¾ç‰‡ä¸‹è½½å™¨ï¼Œå›¾ç‰‡ç¼“å­˜åœ°å€<i>("/Android/data/[app_package_name]/cache/dirName")</i>
 	 */
 	public ImageLoader initImageLoader(Context context,
-			ImageLoader imageLoader, String dirName) {
+									   ImageLoader imageLoader, String dirName) {
 		imageLoader = ImageLoader.getInstance();
 		if (imageLoader.isInited()) {
-			// ÖØĞÂ³õÊ¼»¯ImageLoaderÊ±,ĞèÒªÊÍ·Å×ÊÔ´.
+			// é‡æ–°åˆå§‹åŒ–ImageLoaderæ—¶,éœ€è¦é‡Šæ”¾èµ„æº.
 			imageLoader.destroy();
 		}
 		imageLoader.init(initImageLoaderConfig(context, dirName));
 		return imageLoader;
 	}
-	
+
 	/**
-	 * ÅäÖÃÍ¼Æ¬ÏÂÔØÆ÷
-	 * 
+	 * é…ç½®å›¾ç‰‡ä¸‹è½½å™¨
+	 *
 	 * @param dirName
-	 *            ÎÄ¼şÃû
+	 *            æ–‡ä»¶å
 	 */
 	private ImageLoaderConfiguration initImageLoaderConfig(
 			Context context, String dirName) {
@@ -631,12 +631,12 @@ public class MianDuiMianFxhbActivity extends BaseActivity implements OnClickList
 					.getSystemService(Context.ACTIVITY_SERVICE))
 					.getMemoryClass();
 			memoryCacheSize = (memClass / 8) * 1024 * 1024; // 1/8 of app memory
-															// limit
+			// limit
 		} else {
 			memoryCacheSize = 2 * 1024 * 1024;
 		}
 		return memoryCacheSize;
 	}
-     
+
 
 }

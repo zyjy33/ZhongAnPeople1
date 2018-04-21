@@ -38,7 +38,7 @@ import com.zams.www.R;
 import com.zams.www.WareInformationActivity;
 
 public class JuYunshangXqActivity extends BaseActivity implements OnClickListener{
-//	private ArrayList<GoodsListData> lists;
+	//	private ArrayList<GoodsListData> lists;
 	private ArrayList<shangpingListData> list_ll;
 	private MyGridView myGridView;
 	private int INDX = -1;
@@ -52,7 +52,7 @@ public class JuYunshangXqActivity extends BaseActivity implements OnClickListene
 	int len;
 	private ImageView iv_fanhui, cursor1, cursor2, cursor3, cursor4;
 	private LinearLayout index_item0, index_item1, index_item2, index_item3,
-	ll_sjjs;
+			ll_sjjs;
 	public AQuery mAq;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -63,66 +63,66 @@ public class JuYunshangXqActivity extends BaseActivity implements OnClickListene
 		progress = new DialogProgress(this);
 		mAq = new AQuery(this);
 		Initialize();
-//		lists = new ArrayList<GoodsListData>();
-//		new_list.setAdapter(jysadapter);
-//		loadCate();
+		//		lists = new ArrayList<GoodsListData>();
+		//		new_list.setAdapter(jysadapter);
+		//		loadCate();
 		int trade_id = Integer.parseInt(getIntent().getStringExtra("id"));
 		System.out.println("=====================trade_id"+trade_id);
 		loadCate(trade_id);
 	}
-	
+
 	private void Initialize() {
 		try {
-		tv_shangping = (TextView) findViewById(R.id.tv_shangping);
-		myGridView = (MyGridView) findViewById(R.id.gridView);
-		ll_sjjs = (LinearLayout) findViewById(R.id.ll_sjjs);
-		index_item0 = (LinearLayout) findViewById(R.id.index_item0);
-		index_item1 = (LinearLayout) findViewById(R.id.index_item1);
-		index_item2 = (LinearLayout) findViewById(R.id.index_item2);
-		index_item3 = (LinearLayout) findViewById(R.id.index_item3);
-		
-		cursor1 = (ImageView) findViewById(R.id.cursor1);
-		cursor2 = (ImageView) findViewById(R.id.cursor2);
-		cursor3 = (ImageView) findViewById(R.id.cursor3);
-		cursor4 = (ImageView) findViewById(R.id.cursor4);
-		index_item0.setOnClickListener(this);
-		index_item1.setOnClickListener(this);
-		index_item2.setOnClickListener(this);
-		index_item3.setOnClickListener(this);
-		
-		TextView tv_letter = (TextView) findViewById(R.id.tv_ware_name);
-		ImageView img_ware = (ImageView) findViewById(R.id.img_ware);
-		ImageView iv_img_url = (ImageView) findViewById(R.id.iv_img_url);
-		String name = getIntent().getStringExtra("name");
-		String img_url = getIntent().getStringExtra("img_url");
-		String logo_url = getIntent().getStringExtra("logo_url");
-		if (name.equals("null")) {
-			tv_letter.setText("");
-		}else {
-			tv_letter.setText(name);
-		}
-		
-//		ImageLoader imageLoader = ImageLoader.getInstance();
-//	    imageLoader.displayImage(RealmName.REALM_NAME_HTTP + logo_url,img_ware);
-//	    imageLoader.displayImage(RealmName.REALM_NAME_HTTP + img_url,iv_img_url);
-		System.out.println("logo_url-------------------------"+logo_url);
-		if (logo_url.equals("")) {
-			img_ware.setBackgroundResource(R.drawable.zams_tb);
-		}else {
-	    mAq.id(img_ware).image(RealmName.REALM_NAME_HTTP + logo_url);
-		}
-	    mAq.id(iv_img_url).image(RealmName.REALM_NAME_HTTP + img_url);
-		
+			tv_shangping = (TextView) findViewById(R.id.tv_shangping);
+			myGridView = (MyGridView) findViewById(R.id.gridView);
+			ll_sjjs = (LinearLayout) findViewById(R.id.ll_sjjs);
+			index_item0 = (LinearLayout) findViewById(R.id.index_item0);
+			index_item1 = (LinearLayout) findViewById(R.id.index_item1);
+			index_item2 = (LinearLayout) findViewById(R.id.index_item2);
+			index_item3 = (LinearLayout) findViewById(R.id.index_item3);
+
+			cursor1 = (ImageView) findViewById(R.id.cursor1);
+			cursor2 = (ImageView) findViewById(R.id.cursor2);
+			cursor3 = (ImageView) findViewById(R.id.cursor3);
+			cursor4 = (ImageView) findViewById(R.id.cursor4);
+			index_item0.setOnClickListener(this);
+			index_item1.setOnClickListener(this);
+			index_item2.setOnClickListener(this);
+			index_item3.setOnClickListener(this);
+
+			TextView tv_letter = (TextView) findViewById(R.id.tv_ware_name);
+			ImageView img_ware = (ImageView) findViewById(R.id.img_ware);
+			ImageView iv_img_url = (ImageView) findViewById(R.id.iv_img_url);
+			String name = getIntent().getStringExtra("name");
+			String img_url = getIntent().getStringExtra("img_url");
+			String logo_url = getIntent().getStringExtra("logo_url");
+			if (name.equals("null")) {
+				tv_letter.setText("");
+			}else {
+				tv_letter.setText(name);
+			}
+
+			//		ImageLoader imageLoader = ImageLoader.getInstance();
+			//	    imageLoader.displayImage(RealmName.REALM_NAME_HTTP + logo_url,img_ware);
+			//	    imageLoader.displayImage(RealmName.REALM_NAME_HTTP + img_url,iv_img_url);
+			System.out.println("logo_url-------------------------"+logo_url);
+			if (logo_url.equals("")) {
+				img_ware.setBackgroundResource(R.drawable.zams_tb);
+			}else {
+				mAq.id(img_ware).image(RealmName.REALM_NAME_HTTP + logo_url);
+			}
+			mAq.id(iv_img_url).image(RealmName.REALM_NAME_HTTP + img_url);
+
 		} catch (Exception e) {
 			// TODO: handle exception
 			e.printStackTrace();
 		}
-		
-		
+
+
 
 		ImageView iv_fanhui = (ImageView) findViewById(R.id.iv_fanhui);
 		iv_fanhui.setOnClickListener(new OnClickListener() {
-			
+
 			@Override
 			public void onClick(View arg0) {
 				// TODO Auto-generated method stub
@@ -130,111 +130,111 @@ public class JuYunshangXqActivity extends BaseActivity implements OnClickListene
 			}
 		});
 	}
-	
+
 	Handler handler = new Handler(){
 		public void dispatchMessage(Message msg) {
 			switch (msg.what) {
-			case 0:
-				try {
-//				jysadapter.putData(lists);
-					System.out.println("=====================’‚¿Ô"+list_ll.size());
-				jysadapter = new JuYunShangAdaper(list_ll, getApplicationContext());
-				myGridView.setAdapter(jysadapter);
-				JuYunShangAdaper.mAq.clear();
-				myGridView.setOnItemClickListener(new OnItemClickListener() {
+				case 0:
+					try {
+						//				jysadapter.putData(lists);
+						System.out.println("=====================ËøôÈáå"+list_ll.size());
+						jysadapter = new JuYunShangAdaper(list_ll, getApplicationContext());
+						myGridView.setAdapter(jysadapter);
+						JuYunShangAdaper.mAq.clear();
+						myGridView.setOnItemClickListener(new OnItemClickListener() {
 
-		            @Override
-		            public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
-		            	System.out.println("=====================’‚¿Ô"+list_ll.size());
-						Intent intent = new Intent(JuYunshangXqActivity.this,WareInformationActivity.class);
-						intent.putExtra("id", list_ll.get(arg2).id);
-						intent.putExtra("hongbao", "hongbao");
-						startActivity(intent);
-		            }
-		        });
-				} catch (Exception e) {
-					// TODO: handle exception
-					e.printStackTrace();
-				}
-				break;
-			case 1:
-				break;
-			case 2:
-				break;
-				
+							@Override
+							public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
+								System.out.println("=====================ËøôÈáå"+list_ll.size());
+								Intent intent = new Intent(JuYunshangXqActivity.this,WareInformationActivity.class);
+								intent.putExtra("id", list_ll.get(arg2).id);
+								intent.putExtra("hongbao", "hongbao");
+								startActivity(intent);
+							}
+						});
+					} catch (Exception e) {
+						// TODO: handle exception
+						e.printStackTrace();
+					}
+					break;
+				case 1:
+					break;
+				case 2:
+					break;
 
-			default:
-				break;
+
+				default:
+					break;
 			}
 		};
 	};
-	
+
 	@Override
 	public void onClick(View v) {
 		// TODO Auto-generated method stub
 		switch (v.getId()) {
-		case R.id.index_item0:
-			cursor1.setVisibility(View.VISIBLE);
-			cursor2.setVisibility(View.INVISIBLE);
-			cursor3.setVisibility(View.INVISIBLE);
-			cursor4.setVisibility(View.INVISIBLE);
-			myGridView.setVisibility(View.GONE);
-			ll_sjjs.setVisibility(View.VISIBLE);
-//			fund_id = "1";
-//			load_list(true, fund_id);
-			break;
-		case R.id.index_item1:
-			cursor1.setVisibility(View.INVISIBLE);
-			cursor2.setVisibility(View.VISIBLE);
-			cursor3.setVisibility(View.INVISIBLE);
-			cursor4.setVisibility(View.INVISIBLE);
-			myGridView.setVisibility(View.VISIBLE);
-			ll_sjjs.setVisibility(View.GONE);
-//			fund_id = "4";
-//			int trade_id = Integer.parseInt(getIntent().getStringExtra("id"));
-//			System.out.println("=====================trade_id"+trade_id);
-//			loadCate(trade_id);
-			
-//			load_list(trade_id, true);
-			break;
-		case R.id.index_item2:
-			cursor1.setVisibility(View.INVISIBLE);
-			cursor2.setVisibility(View.INVISIBLE);
-			cursor3.setVisibility(View.VISIBLE);
-			cursor4.setVisibility(View.INVISIBLE);
-			myGridView.setVisibility(View.GONE);
-			ll_sjjs.setVisibility(View.GONE);
-			break;
-		case R.id.index_item3:
-			cursor1.setVisibility(View.INVISIBLE);
-			cursor2.setVisibility(View.INVISIBLE);
-			cursor3.setVisibility(View.INVISIBLE);
-			cursor4.setVisibility(View.VISIBLE);
-			myGridView.setVisibility(View.GONE);
-			ll_sjjs.setVisibility(View.GONE);
-			break;
+			case R.id.index_item0:
+				cursor1.setVisibility(View.VISIBLE);
+				cursor2.setVisibility(View.INVISIBLE);
+				cursor3.setVisibility(View.INVISIBLE);
+				cursor4.setVisibility(View.INVISIBLE);
+				myGridView.setVisibility(View.GONE);
+				ll_sjjs.setVisibility(View.VISIBLE);
+				//			fund_id = "1";
+				//			load_list(true, fund_id);
+				break;
+			case R.id.index_item1:
+				cursor1.setVisibility(View.INVISIBLE);
+				cursor2.setVisibility(View.VISIBLE);
+				cursor3.setVisibility(View.INVISIBLE);
+				cursor4.setVisibility(View.INVISIBLE);
+				myGridView.setVisibility(View.VISIBLE);
+				ll_sjjs.setVisibility(View.GONE);
+				//			fund_id = "4";
+				//			int trade_id = Integer.parseInt(getIntent().getStringExtra("id"));
+				//			System.out.println("=====================trade_id"+trade_id);
+				//			loadCate(trade_id);
 
-		default:
-			break;
+				//			load_list(trade_id, true);
+				break;
+			case R.id.index_item2:
+				cursor1.setVisibility(View.INVISIBLE);
+				cursor2.setVisibility(View.INVISIBLE);
+				cursor3.setVisibility(View.VISIBLE);
+				cursor4.setVisibility(View.INVISIBLE);
+				myGridView.setVisibility(View.GONE);
+				ll_sjjs.setVisibility(View.GONE);
+				break;
+			case R.id.index_item3:
+				cursor1.setVisibility(View.INVISIBLE);
+				cursor2.setVisibility(View.INVISIBLE);
+				cursor3.setVisibility(View.INVISIBLE);
+				cursor4.setVisibility(View.VISIBLE);
+				myGridView.setVisibility(View.GONE);
+				ll_sjjs.setVisibility(View.GONE);
+				break;
+
+			default:
+				break;
 		}
 	}
-	
-	//…Ã∆∑¡–±Ì
-		private void loadCate(int user_id){
-			list_ll = new ArrayList<shangpingListData>();
-				System.out.println("◊ﬂµΩ…Ã∆∑¡–±Ì¡À=========="+user_id);
-			AsyncHttp.get(RealmName.REALM_NAME_LL+"/get_article_top_list?" +
-	                "channel_name=goods&top=100&strwhere=user_id="+user_id+"", new AsyncHttpResponseHandler(){
-				@Override
-				public void onSuccess(int arg0, String arg1) {
-					// TODO Auto-generated method stub
-					super.onSuccess(arg0, arg1);
-					try {
-						System.out.println("£®…Ã∆∑¡–±Ì£©=========="+arg1);
-						JSONObject jsonObject = new JSONObject(arg1);
-						String status = jsonObject.getString("status");
-						String info = jsonObject.getString("info");
-						if (status.equals("y")) {
+
+	//ÂïÜÂìÅÂàóË°®
+	private void loadCate(int user_id){
+		list_ll = new ArrayList<shangpingListData>();
+		System.out.println("Ëµ∞Âà∞ÂïÜÂìÅÂàóË°®‰∫Ü=========="+user_id);
+		AsyncHttp.get(RealmName.REALM_NAME_LL+"/get_article_top_list?" +
+				"channel_name=goods&top=100&strwhere=user_id="+user_id+"", new AsyncHttpResponseHandler(){
+			@Override
+			public void onSuccess(int arg0, String arg1) {
+				// TODO Auto-generated method stub
+				super.onSuccess(arg0, arg1);
+				try {
+					System.out.println("ÔºàÂïÜÂìÅÂàóË°®Ôºâ=========="+arg1);
+					JSONObject jsonObject = new JSONObject(arg1);
+					String status = jsonObject.getString("status");
+					String info = jsonObject.getString("info");
+					if (status.equals("y")) {
 						JSONArray jsonArray = jsonObject.getJSONArray("data");
 						for (int i = 0; i < jsonArray.length(); i++) {
 							shangpingListData data = new shangpingListData();
@@ -248,26 +248,26 @@ public class JuYunshangXqActivity extends BaseActivity implements OnClickListene
 							Log.v("data1", data.id + "");
 							list_ll.add(data);
 						}
-//						String zhou = list_ll.get(0).title;
-//						System.out.println("================"+zhou);
+						//						String zhou = list_ll.get(0).title;
+						//						System.out.println("================"+zhou);
 						tv_shangping.setText(String.valueOf(list_ll.size()));
 						handler.sendEmptyMessage(0);
-	                    }else {
-	                    	Toast.makeText(JuYunshangXqActivity.this, info, 200).show();
-						}
-						
-					} catch (Exception e) {
-						e.printStackTrace();
+					}else {
+						Toast.makeText(JuYunshangXqActivity.this, info, 200).show();
 					}
+
+				} catch (Exception e) {
+					e.printStackTrace();
 				}
-			}, null);
-			
-	    }
-	
-	
-	
+			}
+		}, null);
+
+	}
+
+
+
 	/**
-	 * …œ¿≠¡–±ÌÀ¢–¬º”‘ÿ
+	 * ‰∏äÊãâÂàóË°®Âà∑Êñ∞Âä†ËΩΩ
 	 */
 	private OnHeaderRefreshListener listHeadListener = new OnHeaderRefreshListener() {
 
@@ -283,9 +283,9 @@ public class JuYunshangXqActivity extends BaseActivity implements OnClickListene
 			}, 1000);
 		}
 	};
-	
+
 	/**
-	 * œ¬¿≠¡–±ÌÀ¢–¬º”‘ÿ
+	 * ‰∏ãÊãâÂàóË°®Âà∑Êñ∞Âä†ËΩΩ
 	 */
 	private OnFooterRefreshListener listFootListener = new OnFooterRefreshListener() {
 
@@ -296,14 +296,14 @@ public class JuYunshangXqActivity extends BaseActivity implements OnClickListene
 
 				@Override
 				public void run() {
-//						load_list(INDX, false);
+					//						load_list(INDX, false);
 					refresh.onFooterRefreshComplete();
 				}
 			}, 1000);
 		}
 	};
-	
-	
+
+
 
 
 }

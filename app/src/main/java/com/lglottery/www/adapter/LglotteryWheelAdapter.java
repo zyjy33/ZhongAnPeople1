@@ -1,18 +1,18 @@
 package com.lglottery.www.adapter;
 
-import java.util.ArrayList;
-
-import com.lglottery.www.activity.LglotteryGoActivity;
-import com.lglottery.www.common.WLog;
-import com.lglottery.www.domain.Lottery_Gobean;
-import com.zams.www.R;
-
 import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.LinearLayout.LayoutParams;
 import android.widget.TextView;
+
+import com.lglottery.www.activity.LglotteryGoActivity;
+import com.lglottery.www.common.WLog;
+import com.lglottery.www.domain.Lottery_Gobean;
+import com.zams.www.R;
+
+import java.util.ArrayList;
 
 public class LglotteryWheelAdapter extends AbstractWheelAdapter {
 	private ArrayList<Lottery_Gobean> goBeans;
@@ -21,8 +21,8 @@ public class LglotteryWheelAdapter extends AbstractWheelAdapter {
 	private final int HEIGHT = LglotteryGoActivity.HEIGHT;
 
 	// Slot machine symbols
-	private final String items[] = new String[] { "A1ÀàÉÌÆ·", "B1ÀàÉÌÆ·", "C1ÀàÉÌÆ·",
-			"A2ÀàÉÌÆ·", "B2ÀàÉÌÆ·", "C2ÀàÉÌÆ·" };
+	private final String items[] = new String[] { "A1ç±»å•†å“", "B1ç±»å•†å“", "C1ç±»å•†å“",
+			"A2ç±»å•†å“", "B2ç±»å•†å“", "C2ç±»å•†å“" };
 
 	// Layout inflater
 	private Context context;
@@ -31,7 +31,7 @@ public class LglotteryWheelAdapter extends AbstractWheelAdapter {
 	 * Constructor
 	 */
 	public LglotteryWheelAdapter(Context context,
-			ArrayList<Lottery_Gobean> goBeans) {
+								 ArrayList<Lottery_Gobean> goBeans) {
 		this.context = context;
 		this.goBeans = goBeans;
 	}

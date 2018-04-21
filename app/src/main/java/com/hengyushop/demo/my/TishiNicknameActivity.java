@@ -27,8 +27,8 @@ import com.zams.www.MyOrderConfrimActivity;
 import com.zams.www.PersonCenterActivity;
 import com.zams.www.R;
 /**
- * 修改性别
- * @author 
+ * 淇敼鎬у埆
+ * @author
  *
  */
 public class TishiNicknameActivity extends Activity implements OnClickListener{
@@ -56,117 +56,117 @@ public class TishiNicknameActivity extends Activity implements OnClickListener{
 	}
 
 
-	
+
 	protected void initUI() {
 		zhidupess = (EditText) findViewById(R.id.et_user_pwd);
 		btnConfirm =(TextView) findViewById(R.id.btnConfirm);//
 		btnConfirm.setOnClickListener(this);//
-		btnCancle =(TextView) findViewById(R.id.btnCancle);// 
+		btnCancle =(TextView) findViewById(R.id.btnCancle);//
 		btnCancle.setOnClickListener(this);//
-		
+
 		handler = new Handler() {
 			public void handleMessage(Message msg) {
 				switch (msg.what) {
-				case 8:
-					
+					case 8:
+
 				}
 			}
 		};
 	}
-	
-	
+
+
 	/**
-	 * 点击触发事件
+	 * 鐐瑰嚮瑙﹀彂浜嬩欢
 	 */
 	@Override
 	public void onClick(View v) {
 		// TODO Auto-generated method stub
-		
+
 		intent = new Intent();
 		switch (v.getId()) {
-		case R.id.btnConfirm://取消
-			finish();
-			break;
-		case R.id.btnCancle://
-			nichen = zhidupess.getText().toString().trim();
-			System.out.println("nichen-------------"+nichen);
-			if (nichen.equals("")) {
-				Toast.makeText(TishiNicknameActivity.this, "请输入修改的昵称", 200).show();
-			}else{
-				userloginqm();
-			}	
-			break;
-	
-		default:
-			break;
+			case R.id.btnConfirm://鍙栨秷
+				finish();
+				break;
+			case R.id.btnCancle://
+				nichen = zhidupess.getText().toString().trim();
+				System.out.println("nichen-------------"+nichen);
+				if (nichen.equals("")) {
+					Toast.makeText(TishiNicknameActivity.this, "璇疯緭鍏ヤ慨鏀圭殑鏄电О", 200).show();
+				}else{
+					userloginqm();
+				}
+				break;
+
+			default:
+				break;
 		}
 	}
-	
+
 	/**
-	 * 获取登录签名
-	 * @param order_no 
+	 * 鑾峰彇鐧诲綍绛惧悕
+	 * @param order_no
 	 */
 	private void userloginqm() {
-			String strUrlone = RealmName.REALM_NAME_LL + "/get_user_model?username="+user_name+"";
-			AsyncHttp.get(strUrlone, new AsyncHttpResponseHandler() {
-				public void onSuccess(int arg0, String arg1) {
-					try {
-						JSONObject object = new JSONObject(arg1);
-						String status = object.getString("status");
-						if (status.equals("y")) {
-							JSONObject obj = object.getJSONObject("data");
-							UserRegisterllData data = new UserRegisterllData();
-							data.login_sign = obj.getString("login_sign");
-							login_sign = data.login_sign;
-							System.out.println("======login_sign============="+login_sign);
-							loadusersex(login_sign);
-						}else{
-						}
-					} catch (JSONException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
+		String strUrlone = RealmName.REALM_NAME_LL + "/get_user_model?username="+user_name+"";
+		AsyncHttp.get(strUrlone, new AsyncHttpResponseHandler() {
+			public void onSuccess(int arg0, String arg1) {
+				try {
+					JSONObject object = new JSONObject(arg1);
+					String status = object.getString("status");
+					if (status.equals("y")) {
+						JSONObject obj = object.getJSONObject("data");
+						UserRegisterllData data = new UserRegisterllData();
+						data.login_sign = obj.getString("login_sign");
+						login_sign = data.login_sign;
+						System.out.println("======login_sign============="+login_sign);
+						loadusersex(login_sign);
+					}else{
 					}
-				};
-			}, null);
+				} catch (JSONException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			};
+		}, null);
 	}
 	/**
-	 * 修改昵称
-	 * @param login_sign 
-	 * @param payment_id 
+	 * 淇敼鏄电О
+	 * @param login_sign
+	 * @param payment_id
 	 */
 	private void loadusersex(String login_sign) {
 		try {
-		AsyncHttp.get(RealmName.REALM_NAME_LL
-				+ "/user_update_field?user_id="+user_id+"&user_name="+user_name+"" +
-						"&field=nick_name&value="+nichen+"&sign="+login_sign+"",
-				new AsyncHttpResponseHandler() {
-					@Override
-					public void onSuccess(int arg0, String arg1) {
-						try {
-							JSONObject object = new JSONObject(arg1);
-							System.out.println("2================================="+arg1);
-							  String status = object.getString("status");
-							    String info = object.getString("info");
-							    if (status.equals("y")) {
-							    	progress.CloseProgress();
-//									Toast.makeText(TishiNicknameActivity.this, info, 200).show();
+			AsyncHttp.get(RealmName.REALM_NAME_LL
+							+ "/user_update_field?user_id="+user_id+"&user_name="+user_name+"" +
+							"&field=nick_name&value="+nichen+"&sign="+login_sign+"",
+					new AsyncHttpResponseHandler() {
+						@Override
+						public void onSuccess(int arg0, String arg1) {
+							try {
+								JSONObject object = new JSONObject(arg1);
+								System.out.println("2================================="+arg1);
+								String status = object.getString("status");
+								String info = object.getString("info");
+								if (status.equals("y")) {
+									progress.CloseProgress();
+									//									Toast.makeText(TishiNicknameActivity.this, info, 200).show();
 									finish();
-							    } else {
-							    	progress.CloseProgress();
+								} else {
+									progress.CloseProgress();
 									Toast.makeText(TishiNicknameActivity.this, info, 200).show();
 									finish();
 								}
-						} catch (JSONException e) {
-							e.printStackTrace();
+							} catch (JSONException e) {
+								e.printStackTrace();
+							}
 						}
-					}
 
-				}, null);
-		
+					}, null);
+
 		} catch (Exception e) {
 			// TODO: handle exception
 			e.printStackTrace();
 		}
 	}
-	
+
 }

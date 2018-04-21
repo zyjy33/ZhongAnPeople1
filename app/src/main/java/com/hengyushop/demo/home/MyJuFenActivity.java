@@ -1,11 +1,5 @@
 package com.hengyushop.demo.home;
 
-import java.util.ArrayList;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
@@ -50,14 +44,19 @@ import com.tencent.mm.sdk.openapi.IWXAPI;
 import com.tencent.mm.sdk.openapi.WXAPIFactory;
 import com.zams.www.R;
 import com.zams.www.UserLoginActivity;
-import com.zams.www.WareInformationActivity;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
 
 /**
- * 
- * ÎÒµÄ¾Û·Û
- * 
+ *
+ * æˆ‘çš„èšç²‰
+ *
  * @author Administrator
- * 
+ *
  */
 public class MyJuFenActivity extends BaseActivity implements OnClickListener {
 
@@ -140,7 +139,7 @@ public class MyJuFenActivity extends BaseActivity implements OnClickListener {
 	}
 
 	// /**
-	// * ÉÏÀ­ÁĞ±íË¢ĞÂ¼ÓÔØ
+	// * ä¸Šæ‹‰åˆ—è¡¨åˆ·æ–°åŠ è½½
 	// */
 	// private OnHeaderRefreshListener listHeadListener = new
 	// OnHeaderRefreshListener() {
@@ -159,7 +158,7 @@ public class MyJuFenActivity extends BaseActivity implements OnClickListener {
 	// };
 	//
 	// /**
-	// * ÏÂÀ­ÁĞ±íË¢ĞÂ¼ÓÔØ
+	// * ä¸‹æ‹‰åˆ—è¡¨åˆ·æ–°åŠ è½½
 	// */
 	// private OnFooterRefreshListener listFootListener = new
 	// OnFooterRefreshListener() {
@@ -192,37 +191,37 @@ public class MyJuFenActivity extends BaseActivity implements OnClickListener {
 	Handler handler = new Handler() {
 		public void dispatchMessage(Message msg) {
 			switch (msg.what) {
-			case 0:
-				// list = (ArrayList<MyJuFenData>) msg.obj;
-				try {
+				case 0:
+					// list = (ArrayList<MyJuFenData>) msg.obj;
+					try {
 
-					System.out.println("-------------------------"
-							+ list.size());
-					if (list.size() > 0) {
-						String num = String.valueOf(list.size());
-						tv_geshu.setText(num + "¸ö");
-						// tv_fensi_geshu.setText(num+"¸ö");
+						System.out.println("-------------------------"
+								+ list.size());
+						if (list.size() > 0) {
+							String num = String.valueOf(list.size());
+							tv_geshu.setText(num + "ä¸ª");
+							// tv_fensi_geshu.setText(num+"ä¸ª");
+						}
+
+						MyJuFenMxAdapter adapter = new MyJuFenMxAdapter(list,
+								list_avatar1, MyJuFenActivity.this, imageLoader);
+						listView.setAdapter(adapter);
+
+						progress.CloseProgress();
+
+					} catch (Exception e) {
+						// TODO: handle exception
+						e.printStackTrace();
 					}
+					break;
 
-					MyJuFenMxAdapter adapter = new MyJuFenMxAdapter(list,
-							list_avatar1, MyJuFenActivity.this, imageLoader);
-					listView.setAdapter(adapter);
-
-					progress.CloseProgress();
-
-				} catch (Exception e) {
-					// TODO: handle exception
-					e.printStackTrace();
-				}
-				break;
-
-			default:
-				break;
+				default:
+					break;
 			}
 		};
 	};
 	/**
-	 * µÚ1¸öÁĞ±íÊı¾İ½âÎö
+	 * ç¬¬1ä¸ªåˆ—è¡¨æ•°æ®è§£æ
 	 */
 	private int RUN_METHOD = -1;
 	private int CURRENT_NUM = 1;
@@ -235,21 +234,21 @@ public class MyJuFenActivity extends BaseActivity implements OnClickListener {
 		RUN_METHOD = 1;
 		list = new ArrayList<MyJuFenData>();
 		if (flag) {
-			// ¼ÆÊıºÍÈİÆ÷ÇåÁã
+			// è®¡æ•°å’Œå®¹å™¨æ¸…é›¶
 			CURRENT_NUM = 1;
 			list = new ArrayList<MyJuFenData>();
 		}
 		// get_user_child_list
 		AsyncHttp.get(RealmName.REALM_NAME_LL
-				+ "/get_user_childs_list_2017?user_id=" + user_id
-				+ "&user_name=" + user_name + "" + "&page_size=" + VIEW_NUM
-				+ "&page_index=" + CURRENT_NUM + "",
+						+ "/get_user_childs_list_2017?user_id=" + user_id
+						+ "&user_name=" + user_name + "" + "&page_size=" + VIEW_NUM
+						+ "&page_index=" + CURRENT_NUM + "",
 				new AsyncHttpResponseHandler() {
 					@Override
 					public void onSuccess(int arg0, String arg1) {
 						// TODO Auto-generated method stub
 						super.onSuccess(arg0, arg1);
-						System.out.println("=====================¶ş¼¶Öµ1" + arg1);
+						System.out.println("=====================äºŒçº§å€¼1" + arg1);
 						try {
 							JSONObject jsonObject = new JSONObject(arg1);
 							String status = jsonObject.getString("status");
@@ -276,7 +275,7 @@ public class MyJuFenActivity extends BaseActivity implements OnClickListener {
 											.getString("group_name");
 									String avatar = data.avatar;//
 									System.out
-											.println("¶ş¼¶Öµ2====================="
+											.println("äºŒçº§å€¼2====================="
 													+ avatar);
 									if (avatar.contains("http")) {
 										System.out
@@ -290,7 +289,7 @@ public class MyJuFenActivity extends BaseActivity implements OnClickListener {
 										list_avatar1.add(img_url);
 									} else {
 										System.out
-												.println("================================¿ÕÖµ");
+												.println("================================ç©ºå€¼");
 										list_avatar1.add(avatar);
 									}
 									System.out
@@ -307,7 +306,7 @@ public class MyJuFenActivity extends BaseActivity implements OnClickListener {
 								// }
 								load_yanglaojin();
 							} else {
-								Toast.makeText(MyJuFenActivity.this, "ÔİÎŞ·ÛË¿",
+								Toast.makeText(MyJuFenActivity.this, "æš‚æ— ç²‰ä¸",
 										200).show();
 							}
 							progress.CloseProgress();
@@ -321,8 +320,8 @@ public class MyJuFenActivity extends BaseActivity implements OnClickListener {
 					public void onFailure(Throwable arg0, String arg1) {
 						// TODO Auto-generated method stub
 						progress.CloseProgress();
-						System.out.println("==========================·ÃÎÊ½Ó¿ÚÊ§°Ü£¡");
-						Toast.makeText(MyJuFenActivity.this, "·ÃÎÊ½Ó¿ÚÊ§°Ü", 200)
+						System.out.println("==========================è®¿é—®æ¥å£å¤±è´¥ï¼");
+						Toast.makeText(MyJuFenActivity.this, "è®¿é—®æ¥å£å¤±è´¥", 200)
 								.show();
 						System.out.println("=========================" + arg0);
 						System.out.println("==========================" + arg1);
@@ -339,7 +338,7 @@ public class MyJuFenActivity extends BaseActivity implements OnClickListener {
 			public void onSuccess(int arg0, String arg1) {
 				// TODO Auto-generated method stub
 				super.onSuccess(arg0, arg1);
-				System.out.println("=====================¶ş¼¶Öµ1" + arg1);
+				System.out.println("=====================äºŒçº§å€¼1" + arg1);
 				try {
 					JSONObject jsonObject = new JSONObject(arg1);
 					String status = jsonObject.getString("status");
@@ -349,7 +348,7 @@ public class MyJuFenActivity extends BaseActivity implements OnClickListener {
 						// String num = jobt.getString("sum");
 						double num = jobt.getDouble("sum");
 						// String num_ll = String.valueOf(num);
-						tv_fensi_geshu.setText("´Ó·ÛË¿ÍÅ¹²»ñµÃ¸£Àû×ÜÊı:" + num + "·Ö");
+						tv_fensi_geshu.setText("ä»ç²‰ä¸å›¢å…±è·å¾—ç¦åˆ©æ€»æ•°:" + num + "åˆ†");
 					} else {
 						progress.CloseProgress();
 					}
@@ -366,34 +365,34 @@ public class MyJuFenActivity extends BaseActivity implements OnClickListener {
 		// TODO Auto-generated method stub
 
 		switch (v.getId()) {
-		case R.id.iv_fanhui:
-			finish();
-			break;
-		case R.id.img_btn_order:
-			// Intent intent = new Intent(MyJuFenActivity.this,
-			// MyJuFenMxActivity.class);
-			// startActivity(intent);
-			break;
-		case R.id.btn_settle_accounts:
-			// Intent intent1 = new Intent(MyJuFenActivity.this,
-			// FenXiangActivity.class);
-			// startActivity(intent1);
-			if (UserLoginActivity.wx_fanhui == false) {
-				Intent intent5 = new Intent(MyJuFenActivity.this,
-						UserLoginActivity.class);
-				startActivity(intent5);
-			} else {
-				SoftWarePopuWindow(btn_settle_accounts, MyJuFenActivity.this);
-			}
-			break;
-		default:
-			break;
+			case R.id.iv_fanhui:
+				finish();
+				break;
+			case R.id.img_btn_order:
+				// Intent intent = new Intent(MyJuFenActivity.this,
+				// MyJuFenMxActivity.class);
+				// startActivity(intent);
+				break;
+			case R.id.btn_settle_accounts:
+				// Intent intent1 = new Intent(MyJuFenActivity.this,
+				// FenXiangActivity.class);
+				// startActivity(intent1);
+				if (UserLoginActivity.wx_fanhui == false) {
+					Intent intent5 = new Intent(MyJuFenActivity.this,
+							UserLoginActivity.class);
+					startActivity(intent5);
+				} else {
+					SoftWarePopuWindow(btn_settle_accounts, MyJuFenActivity.this);
+				}
+				break;
+			default:
+				break;
 		}
 	}
 
 	/**
-	 * ·ÖÏí
-	 * 
+	 * åˆ†äº«
+	 *
 	 * @param view2
 	 * @param context
 	 */
@@ -409,7 +408,7 @@ public class MyJuFenActivity extends BaseActivity implements OnClickListener {
 			pop.setBackgroundDrawable(new BitmapDrawable());
 			pop.setOutsideTouchable(true);
 			// pop.setFocusable(true);
-			// pop.setTouchable(true); // ÉèÖÃPopupWindow¿É´¥Ãş
+			// pop.setTouchable(true); // è®¾ç½®PopupWindowå¯è§¦æ‘¸
 			//
 			if (!pop.isShowing()) {
 				pop.showAtLocation(view2, Gravity.BOTTOM, 0, 0);
@@ -434,18 +433,18 @@ public class MyJuFenActivity extends BaseActivity implements OnClickListener {
 			e.printStackTrace();
 		}
 
-		// ĞÂÀË
+		// æ–°æµª
 		img_btn_tencent.setOnClickListener(new OnClickListener() {
 
 			@Override
 			public void onClick(View arg0) {
 				pop.dismiss();
 				// con(19, 1);
-				Toast.makeText(MyJuFenActivity.this, "±§Ç¸£¬ÔİÊ±²»Ö§³Ö", 200).show();
+				Toast.makeText(MyJuFenActivity.this, "æŠ±æ­‰ï¼Œæš‚æ—¶ä¸æ”¯æŒ", 200).show();
 			}
 		});
 
-		// Î¢ĞÅ
+		// å¾®ä¿¡
 		btn_wechat.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
@@ -454,7 +453,7 @@ public class MyJuFenActivity extends BaseActivity implements OnClickListener {
 				con(16, 1);
 			}
 		});
-		// ÅóÓÑÈ¦
+		// æœ‹å‹åœˆ
 		btn_wx_friend.setOnClickListener(new OnClickListener() {
 
 			@Override
@@ -464,14 +463,14 @@ public class MyJuFenActivity extends BaseActivity implements OnClickListener {
 				con(17, 1);
 			}
 		});
-		// ¶ÌĞÅ
+		// çŸ­ä¿¡
 		btn_sms.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
 				pop.dismiss();
 				// con(18, 0);
-				Toast.makeText(MyJuFenActivity.this, "±§Ç¸£¬ÔİÊ±²»Ö§³Ö", 200).show();
+				Toast.makeText(MyJuFenActivity.this, "æŠ±æ­‰ï¼Œæš‚æ—¶ä¸æ”¯æŒ", 200).show();
 			}
 		});
 	}
@@ -486,8 +485,8 @@ public class MyJuFenActivity extends BaseActivity implements OnClickListener {
 			// "http://a.app.qq.com/o/simple.jsp?pkgname=com.zams.www";
 			String data = RealmName.REALM_NAME_FX + "/appshare/" + user_id
 					+ ".html";
-			System.out.println("·ÖÏídata======================" + data);
-			String zhou = "ÖĞ°²ÃñÉúÏÂÔØµØÖ·,ÏÂÔØºó¿É°ï·ÖÏíµÄºÃÓÑ»ñµÃ¸£Àû" + data;
+			System.out.println("åˆ†äº«data======================" + data);
+			String zhou = "ä¸­å®‰æ°‘ç”Ÿä¸‹è½½åœ°å€,ä¸‹è½½åå¯å¸®åˆ†äº«çš„å¥½å‹è·å¾—ç¦åˆ©" + data;
 			System.out.println("==========" + zhou);
 
 			// softshareWxChat(zhou);
@@ -505,8 +504,8 @@ public class MyJuFenActivity extends BaseActivity implements OnClickListener {
 	}
 
 	/**
-	 * Î¢ĞÅ·ÖÏí
-	 * 
+	 * å¾®ä¿¡åˆ†äº«
+	 *
 	 * @param text
 	 */
 	private void softshareWxChat(String text) {
@@ -519,8 +518,8 @@ public class MyJuFenActivity extends BaseActivity implements OnClickListener {
 		webpage.webpageUrl = "http" + temp[1];
 		// webpage.webpageUrl = temp[1];
 		WXMediaMessage msg = new WXMediaMessage(webpage);
-		// msg.title = "ÎÒ·¢ÄãÒ»¸öÈí¼ş,¿´¿´ßÂ!";
-		msg.title = "ÖĞ°²ÃñÉúAPP·ÖÏí";
+		// msg.title = "æˆ‘å‘ä½ ä¸€ä¸ªè½¯ä»¶,çœ‹çœ‹å‘—!";
+		msg.title = "ä¸­å®‰æ°‘ç”ŸAPPåˆ†äº«";
 		msg.description = temp[0];
 		Bitmap thumb = BitmapFactory.decodeResource(getResources(),
 				R.drawable.app_zams);
@@ -532,13 +531,13 @@ public class MyJuFenActivity extends BaseActivity implements OnClickListener {
 		req.scene = SendMessageToWX.Req.WXSceneSession;
 		boolean flag = api.sendReq(req);
 
-		System.out.println("Î¢ĞÅ×¢²á" + flag);
+		System.out.println("å¾®ä¿¡æ³¨å†Œ" + flag);
 
 	}
 
 	/**
-	 * Î¢ĞÅ·ÖÏíÅóÓÑÈ¦
-	 * 
+	 * å¾®ä¿¡åˆ†äº«æœ‹å‹åœˆ
+	 *
 	 * @param text
 	 */
 	private void softshareWxFriend(String text) {
@@ -549,8 +548,8 @@ public class MyJuFenActivity extends BaseActivity implements OnClickListener {
 		WXWebpageObject webpage = new WXWebpageObject();
 		webpage.webpageUrl = "http" + temp[1];
 		WXMediaMessage msg = new WXMediaMessage(webpage);
-		msg.title = "ÖĞ°²ÃñÉúAPP·ÖÏí";
-		// msg.title = "ni"+"ÎÒ·¢ÄãÒ»¸öÈí¼ş,¿´¿´ßÂ!";
+		msg.title = "ä¸­å®‰æ°‘ç”ŸAPPåˆ†äº«";
+		// msg.title = "ni"+"æˆ‘å‘ä½ ä¸€ä¸ªè½¯ä»¶,çœ‹çœ‹å‘—!";
 		msg.description = temp[0];
 		Bitmap thumb = BitmapFactory.decodeResource(
 				MyJuFenActivity.this.getResources(), R.drawable.app_zams);

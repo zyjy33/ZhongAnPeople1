@@ -72,38 +72,38 @@ public class SaoYiSaoPlaceActivity extends BaseActivity {
 	Handler handler = new Handler() {
 		public void dispatchMessage(Message msg) {
 			switch (msg.what) {
-			case 0:
-				System.out.println("=================5=" + list.size());
-				XiaDanListAdapter adapter = new XiaDanListAdapter(list,
-						SaoYiSaoPlaceActivity.this, imageLoader);
-				listView.setAdapter(adapter);
+				case 0:
+					System.out.println("=================5=" + list.size());
+					XiaDanListAdapter adapter = new XiaDanListAdapter(list,
+							SaoYiSaoPlaceActivity.this, imageLoader);
+					listView.setAdapter(adapter);
 
-				progress.CloseProgress();
-				listView.setOnItemClickListener(new OnItemClickListener() {
+					progress.CloseProgress();
+					listView.setOnItemClickListener(new OnItemClickListener() {
 
-					@Override
-					public void onItemClick(AdapterView<?> arg0, View arg1,
-							int arg2, long arg3) {
-						// TODO Auto-generated method stub
-						try {
+						@Override
+						public void onItemClick(AdapterView<?> arg0, View arg1,
+												int arg2, long arg3) {
+							// TODO Auto-generated method stub
+							try {
 
-							System.out.println("=================1="
-									+ list.size());
-							Intent intent = new Intent(
-									SaoYiSaoPlaceActivity.this, Webview1.class);
-							intent.putExtra("list_xsgy", list.get(arg2).id);
-							startActivity(intent);
+								System.out.println("=================1="
+										+ list.size());
+								Intent intent = new Intent(
+										SaoYiSaoPlaceActivity.this, Webview1.class);
+								intent.putExtra("list_xsgy", list.get(arg2).id);
+								startActivity(intent);
 
-						} catch (Exception e) {
-							// TODO: handle exception
-							e.printStackTrace();
+							} catch (Exception e) {
+								// TODO: handle exception
+								e.printStackTrace();
+							}
 						}
-					}
-				});
-				break;
+					});
+					break;
 
-			default:
-				break;
+				default:
+					break;
 			}
 		};
 	};
@@ -135,63 +135,63 @@ public class SaoYiSaoPlaceActivity extends BaseActivity {
 	}
 
 	/**
-	 * ¡–±Ì ˝æ›Ω‚Œˆ
-	 * 
+	 * ÂàóË°®Êï∞ÊçÆËß£Êûê
+	 *
 	 * @param content
 	 */
 	private void load_list(String content) {
 		try {
 			list = new ArrayList<ShopCartData>();
 			AsyncHttp.get(RealmName.REALM_NAME_LL
-					+ "/get_goods_content?goods_no=" + content + "",
+							+ "/get_goods_content?goods_no=" + content + "",
 
-			new AsyncHttpResponseHandler() {
-				@Override
-				public void onSuccess(int arg0, String arg1) {
-					// TODO Auto-generated method stub
-					super.onSuccess(arg0, arg1);
-					System.out.println("=====================∂˛º∂÷µ1" + arg1);
-					// try {
-					// JSONObject jsonObject = new JSONObject(arg1);
-					// String status = jsonObject.getString("status");
-					// String info = jsonObject.getString("info");
-					// if (status.equals("y")) {
-					// JSONObject jsonobt = jsonObject.getJSONObject("data");
-					// data = new ShopCartData();
-					// data.setId(jsonobt.getString("id"));
-					// data.title = jsonobt.getString("title");
-					// data.img_url = jsonobt.getString("img_url");
-					// // data.quantity = jsonobt.getInt("quantity");
-					// String groupon_item = jsonobt.getString("spec_item");
-					// JSONArray ja = new JSONArray(groupon_item);
-					// for (int j = 0; j < ja.length(); j++) {
-					// JSONObject obct = ja.getJSONObject(j);
-					// data.setId(obct.getString("id"));
-					// data.title = obct.getString("title");
-					// data.market_price = obct.getString("market_price");
-					// data.sell_price = obct.getString("sell_price");
-					// // data.quantity = obct.getInt("quantity");
-					// //
-					// System.out.println("=====22====================="+zhou2);
-					// list.add(data);
-					// }
-					// } else {
-					// progress.CloseProgress();
-					// Toast.makeText(SaoYiSaoPlaceActivity.this,info,
-					// 200).show();
-					// }
-					//
-					// Message msg = new Message();
-					// msg.what = 0;
-					// msg.obj = list;
-					// handler.sendMessage(msg);
-					//
-					// } catch (JSONException e) {
-					// // TODO Auto-generated catch block
-					// e.printStackTrace();
-					// }
-				}
-			}, null);
+					new AsyncHttpResponseHandler() {
+						@Override
+						public void onSuccess(int arg0, String arg1) {
+							// TODO Auto-generated method stub
+							super.onSuccess(arg0, arg1);
+							System.out.println("=====================‰∫åÁ∫ßÂÄº1" + arg1);
+							// try {
+							// JSONObject jsonObject = new JSONObject(arg1);
+							// String status = jsonObject.getString("status");
+							// String info = jsonObject.getString("info");
+							// if (status.equals("y")) {
+							// JSONObject jsonobt = jsonObject.getJSONObject("data");
+							// data = new ShopCartData();
+							// data.setId(jsonobt.getString("id"));
+							// data.title = jsonobt.getString("title");
+							// data.img_url = jsonobt.getString("img_url");
+							// // data.quantity = jsonobt.getInt("quantity");
+							// String groupon_item = jsonobt.getString("spec_item");
+							// JSONArray ja = new JSONArray(groupon_item);
+							// for (int j = 0; j < ja.length(); j++) {
+							// JSONObject obct = ja.getJSONObject(j);
+							// data.setId(obct.getString("id"));
+							// data.title = obct.getString("title");
+							// data.market_price = obct.getString("market_price");
+							// data.sell_price = obct.getString("sell_price");
+							// // data.quantity = obct.getInt("quantity");
+							// //
+							// System.out.println("=====22====================="+zhou2);
+							// list.add(data);
+							// }
+							// } else {
+							// progress.CloseProgress();
+							// Toast.makeText(SaoYiSaoPlaceActivity.this,info,
+							// 200).show();
+							// }
+							//
+							// Message msg = new Message();
+							// msg.what = 0;
+							// msg.obj = list;
+							// handler.sendMessage(msg);
+							//
+							// } catch (JSONException e) {
+							// // TODO Auto-generated catch block
+							// e.printStackTrace();
+							// }
+						}
+					}, null);
 		} catch (Exception e) {
 			// TODO: handle exception
 			e.printStackTrace();

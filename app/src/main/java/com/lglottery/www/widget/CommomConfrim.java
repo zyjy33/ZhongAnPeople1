@@ -1,7 +1,5 @@
 package com.lglottery.www.widget;
 
-import com.zams.www.R;
-
 import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface.OnCancelListener;
@@ -14,20 +12,22 @@ import android.view.WindowManager;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.zams.www.R;
+
 public class CommomConfrim {
 	public interface onDeleteSelect {
 		void onClick(int resID);
 	}
 
 	/**
-	 * Ö§¸¶µ¯³ö¿ò
+	 * Ã–Â§Â¸Â¶ÂµÂ¯Â³Ã¶Â¿Ã²
 	 */
 	private CommomConfrim() {
 	}
 
 	public static Dialog showSheet(Context context,
-			final onDeleteSelect actionSheetSelected,
-			OnCancelListener cancelListener, final Object object) {
+								   final onDeleteSelect actionSheetSelected,
+								   OnCancelListener cancelListener, final Object object) {
 		final Dialog dlg = new Dialog(context, R.style.delete_pop_style);
 		LayoutInflater inflater = (LayoutInflater) context
 				.getSystemService(Context.LAYOUT_INFLATER_SERVICE);

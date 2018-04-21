@@ -1,12 +1,5 @@
 package com.hengyushop.demo.wec;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -16,7 +9,6 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.util.DisplayMetrics;
-import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -34,15 +26,11 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListAdapter;
 import android.widget.ListView;
-import android.widget.PopupWindow;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.android.hengyu.pub.GouWuCheAGoodsAdaper;
-import com.android.hengyu.pub.MyGridllAdapter;
-import com.android.hengyu.pub.MyOrderllAdapter;
 import com.android.hengyu.pub.MySpListAdapter;
 import com.android.hengyu.pub.MyWareFourAdapter1;
 import com.android.hengyu.ui.MyGridView;
@@ -69,6 +57,13 @@ import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.zams.www.R;
 import com.zams.www.WareInformationActivity;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
+import java.util.List;
+
 public class NewWare extends BaseActivity implements OnClickListener{
 
 	private String strUrl = RealmName.REALM_NAME+ "/mi/getdata.ashx";
@@ -78,8 +73,8 @@ public class NewWare extends BaseActivity implements OnClickListener{
 	private WareData ware;
 	private ArrayList<WareData> list;
 	private ArrayList<WareDatall> listll;
-//	private ArrayList<WareDatall> listll = new ArrayList<WareDatall>();
-//	private List<WareDatall> listll;
+	//	private ArrayList<WareDatall> listll = new ArrayList<WareDatall>();
+	//	private List<WareDatall> listll;
 	private ArrayList<String> imgList = new ArrayList<String>();
 	WareDatall dm;
 	private ArrayList<WareInformationData> datas;
@@ -94,13 +89,13 @@ public class NewWare extends BaseActivity implements OnClickListener{
 	private int quanbu;
 	private GridView gridView,myGridView;
 	private MyGridView gridView_list;
-	RadioButton btn; 
+	RadioButton btn;
 	private ArrayList<SpListData> lists;
 	private boolean flag = false;
 	private int nobiaoti;
 	private LinearLayout ll_xuanzhe;
-//	SpListData spList;
-	RadioButton[] btns; 
+	//	SpListData spList;
+	RadioButton[] btns;
 	private RadioGroup radio_group;
 	private MyWareFourAdapter1 adapter;
 	private MySpListAdapter myadapter;
@@ -111,7 +106,7 @@ public class NewWare extends BaseActivity implements OnClickListener{
 	GoodsMyGridViewAdaper jdhadapter;
 	int biaoti;
 	int itemWidth;
-	int len; 
+	int len;
 	View vi_xian;
 	String quanbu_id,user_name;
 	EditText tv1;
@@ -121,106 +116,230 @@ public class NewWare extends BaseActivity implements OnClickListener{
 	private boolean pailie = false;
 	ImageView img_shared;
 	public String channel_name;
-//	private int VIEW_NUM; 
-//	private int VIEW_NUM = 10;
+	//	private int VIEW_NUM;
+	//	private int VIEW_NUM = 10;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.new_ware);
-		 //‘⁄¥Àµ˜”√œ¬√Ê∑Ω∑®£¨≤≈ƒ‹≤∂ªÒµΩœﬂ≥Ã÷–µƒ“Ï≥£
-//        Thread.setDefaultUncaughtExceptionHandler(this);
+		//Âú®Ê≠§Ë∞ÉÁî®‰∏ãÈù¢ÊñπÊ≥ïÔºåÊâçËÉΩÊçïËé∑Âà∞Á∫øÁ®ã‰∏≠ÁöÑÂºÇÂ∏∏
+		//        Thread.setDefaultUncaughtExceptionHandler(this);
 		channel_name = getIntent().getStringExtra("channel_name");
-		
+
 		radio_group = (RadioGroup) findViewById(R.id.radio_group);
 		new_list = (ListView) findViewById(R.id.new_list);
 		refresh = (PullToRefreshView) findViewById(R.id.refresh);
-//		new_image = (ImageView) findViewById(R.id.new_image);
+		//		new_image = (ImageView) findViewById(R.id.new_image);
 		refresh.setOnHeaderRefreshListener(listHeadListener);
 		refresh.setOnFooterRefreshListener(listFootListener);
 		vi_xian = (View) findViewById(R.id.vi_xian);
-//		channel = (Button) findViewById(R.id.channel);
+		//		channel = (Button) findViewById(R.id.channel);
 		sharedUtils = new SharedUtils(getApplicationContext(), "shouyi");
-//		gridView = (GridView) findViewById(R.id.gridView);
+		//		gridView = (GridView) findViewById(R.id.gridView);
 		myGridView = (MyGridView) findViewById(R.id.mGv);
-//		gridView.setSelector(new ColorDrawable(Color.TRANSPARENT));
+		//		gridView.setSelector(new ColorDrawable(Color.TRANSPARENT));
 		datas = new ArrayList<WareInformationData>();
 		try {
-			
-		LinearLayout ll_sousuo = (LinearLayout) findViewById(R.id.ll_sousuo);
-		ll_sousuo.setBackgroundColor(getResources().getColor(R.color.white));
-		ImageView iv_sousuo = (ImageView) findViewById(R.id.iv_sousuo);
-		tv1 = (EditText) findViewById(R.id.tv1);
-		iv_sousuo.setOnClickListener(new OnClickListener() {
-			@Override
-			public void onClick(View arg0) {
-				Intent intent = new Intent(NewWare.this, SouSuoSpActivity.class);
-				String 	strwhere_zhi = tv1.getText().toString().trim(); 
-				intent.putExtra("strwhere_zhi", strwhere_zhi);
-				intent.putExtra("channel_name", channel_name);
-				startActivity(intent);
+
+			LinearLayout ll_sousuo = (LinearLayout) findViewById(R.id.ll_sousuo);
+			ll_sousuo.setBackgroundColor(getResources().getColor(R.color.white));
+			ImageView iv_sousuo = (ImageView) findViewById(R.id.iv_sousuo);
+			tv1 = (EditText) findViewById(R.id.tv1);
+			iv_sousuo.setOnClickListener(new OnClickListener() {
+				@Override
+				public void onClick(View arg0) {
+					Intent intent = new Intent(NewWare.this, SouSuoSpActivity.class);
+					String 	strwhere_zhi = tv1.getText().toString().trim();
+					intent.putExtra("strwhere_zhi", strwhere_zhi);
+					intent.putExtra("channel_name", channel_name);
+					startActivity(intent);
+				}
+			});
+
+			tv1.setOnEditorActionListener(new TextView.OnEditorActionListener(){
+
+				@Override
+				public boolean onEditorAction(TextView arg0, int arg1, KeyEvent arg2) {
+					// TODO Auto-generated method stub
+					if(arg1 == EditorInfo.IME_ACTION_SEARCH)
+					{
+						//	                    Toast.makeText(NewWare.this,"ÂëµÂëµ",Toast.LENGTH_SHORT).show();
+						// search pressed and perform your functionality.
+						Intent intent = new Intent(NewWare.this, SouSuoSpActivity.class);
+						String 	strwhere_zhi = tv1.getText().toString().trim();
+						intent.putExtra("strwhere_zhi", strwhere_zhi);
+						intent.putExtra("channel_name", channel_name);
+						startActivity(intent);
+					}
+					return false;
+				}
+
+			});
+			try {
+
+				img_shared = (ImageView) findViewById(R.id.img_shared);
+				img_shared.setBackgroundResource(R.drawable.liebiao_pl);
+				gridView_list = (MyGridView) findViewById(R.id.gridView_list);
+			} catch (Exception e) {
+				// TODO: handle exception
+				e.printStackTrace();
 			}
-		});
-		
-		tv1.setOnEditorActionListener(new TextView.OnEditorActionListener(){  
-			  
-	            @Override  
-	            public boolean onEditorAction(TextView arg0, int arg1, KeyEvent arg2) {  
-	                // TODO Auto-generated method stub  
-	                if(arg1 == EditorInfo.IME_ACTION_SEARCH)  
-	                {  
-//	                    Toast.makeText(NewWare.this,"∫«∫«",Toast.LENGTH_SHORT).show();  
-	                    // search pressed and perform your functionality.  
-	    				Intent intent = new Intent(NewWare.this, SouSuoSpActivity.class);
-	    				String 	strwhere_zhi = tv1.getText().toString().trim(); 
-	    				intent.putExtra("strwhere_zhi", strwhere_zhi);
-	    				intent.putExtra("channel_name", channel_name);
-	    				startActivity(intent);
-	                }  
-	                return false;  
-	            }  
-	  
-	        });  
-		try {
-			
-		img_shared = (ImageView) findViewById(R.id.img_shared);
-		img_shared.setBackgroundResource(R.drawable.liebiao_pl);
-		gridView_list = (MyGridView) findViewById(R.id.gridView_list);
+			img_shared.setOnClickListener(new OnClickListener() {
+				@Override
+				public void onClick(View arg0) {
+					//				SharedPreferences spPreferences = getSharedPreferences("longuserset", MODE_PRIVATE);
+					//				user_name = spPreferences.getString("user", "");
+					//				if (user_name.equals("")) {
+					//					Intent intentll = new Intent(NewWare.this,UserLoginActivity.class);
+					//					startActivity(intentll);
+					//				} else {
+					//						Intent intentll = new Intent(NewWare.this,FenXiangActivity.class);
+					//						startActivity(intentll);
+					//				}
+					try {
+						//				gridView_list = (MyGridView) findViewById(R.id.gridView_list);
+						//				gridView_list.setVisibility(View.VISIBLE);
+						if (pailie == false) {
+							try {
+								pailie = true;
+								//					VIEW_NUM = 50;
+								img_shared.setBackgroundResource(R.drawable.juzheng_pl);
+								gridView_list.setVisibility(View.VISIBLE);
+								refresh.setVisibility(View.GONE);
+								//					load_list(INDX, VIEW_NUM, true);
+								jdhadapter = new GoodsMyGridViewAdaper(lists, getApplicationContext());
+								gridView_list.setAdapter(jdhadapter);
+
+								gridView_list.setOnItemClickListener(new OnItemClickListener() {
+
+									@Override
+									public void onItemClick(AdapterView<?> arg0, View arg1,
+															int arg2, long arg3) {
+										// TODO Auto-generated method stub
+										String id = lists.get(arg2).getId();
+										System.out.println("====================="+id);
+										Intent intent = new Intent(NewWare.this,WareInformationActivity.class);
+										intent.putExtra("id", id);
+										startActivity(intent);
+									}
+								});
+
+							} catch (Exception e) {
+								// TODO: handle exception
+								e.printStackTrace();
+							}
+						} else {
+							try {
+								pailie = false;
+								//					VIEW_NUM = 10;
+								img_shared.setBackgroundResource(R.drawable.liebiao_pl);
+								gridView_list.setVisibility(View.GONE);
+								refresh.setVisibility(View.VISIBLE);
+								//					load_list(INDX, VIEW_NUM, true);
+								myadapter = new MySpListAdapter(lists,NewWare.this, imageLoader);
+								new_list.setAdapter(myadapter);
+							} catch (Exception e) {
+								// TODO: handle exception
+								e.printStackTrace();
+							}
+						}
+					} catch (Exception e) {
+						// TODO: handle exception
+						e.printStackTrace();
+					}
+
+				}
+			});
+
 		} catch (Exception e) {
 			// TODO: handle exception
 			e.printStackTrace();
 		}
-		img_shared.setOnClickListener(new OnClickListener() {
+		lists = new ArrayList<SpListData>();
+
+		myadapter = new MySpListAdapter(lists,NewWare.this, imageLoader);
+		new_list.setAdapter(myadapter);
+
+		jdhadapter = new GoodsMyGridViewAdaper(lists, getApplicationContext());
+		gridView_list.setAdapter(jdhadapter);
+
+		System.out.println("=======Ê†áÈ¢òÂÄº111=="+nobiaoti);
+
+		loadWeather();
+		popupWindowMenu = new MyPopupWindowMenu(this);
+		progress = new DialogProgress(NewWare.this);
+		progress.CreateProgress();
+
+		ImageView iv_fanhui = (ImageView) findViewById(R.id.iv_fanhui);
+		iv_fanhui.setOnClickListener(new OnClickListener() {
+
 			@Override
 			public void onClick(View arg0) {
-//				SharedPreferences spPreferences = getSharedPreferences("longuserset", MODE_PRIVATE);
-//				user_name = spPreferences.getString("user", "");
-//				if (user_name.equals("")) {
-//					Intent intentll = new Intent(NewWare.this,UserLoginActivity.class);
-//					startActivity(intentll);
-//				} else {
-//						Intent intentll = new Intent(NewWare.this,FenXiangActivity.class);
-//						startActivity(intentll);
-//				}
-				try {
-//				gridView_list = (MyGridView) findViewById(R.id.gridView_list);
-//				gridView_list.setVisibility(View.VISIBLE);
-				if (pailie == false) {
-					try {
-					pailie = true;
-//					VIEW_NUM = 50;
-					img_shared.setBackgroundResource(R.drawable.juzheng_pl);
-					gridView_list.setVisibility(View.VISIBLE);
-					refresh.setVisibility(View.GONE);
-//					load_list(INDX, VIEW_NUM, true);
-					jdhadapter = new GoodsMyGridViewAdaper(lists, getApplicationContext());
-					gridView_list.setAdapter(jdhadapter);
-					
-					gridView_list.setOnItemClickListener(new OnItemClickListener() {
-		                
+				// TODO Auto-generated method stub
+				finish();
+			}
+		});
+
+	}
+
+	// 	public void uncaughtException(Thread arg0, Throwable arg1) {
+	//		// TODO Auto-generated method stub
+	//		 //Âú®Ê≠§Â§ÑÁêÜÂºÇÂ∏∏Ôºå arg1Âç≥‰∏∫ÊçïËé∑Âà∞ÁöÑÂºÇÂ∏∏
+	//        Log.i("AAA", "uncaughtException   " + arg1);
+	//	}
+	@Override
+	public void onResume() {
+		// TODO Auto-generated method stub
+		super.onResume();
+		//		loadWeather();
+		if (LieBiaoActivity.title_id != null) {
+			INDX = Integer.parseInt(LieBiaoActivity.title_id);
+			load_list(INDX,true);
+		}
+		//		MySpListAdapter.query.clear();
+	}
+
+	//ÂΩìActivityË¢´ÈîÄÊØÅÊó∂‰ºöË∞ÉÁî®onDestoryÊñπÊ≥ï
+	@Override
+	protected void onDestroy() {
+		super.onDestroy();
+		if (MySpListAdapter.type == true) {
+			MySpListAdapter.query.clear();
+			MySpListAdapter.query.recycle(new_list);
+			MySpListAdapter.type = false;
+		}
+		if (GoodsMyGridViewAdaper.type == true) {
+			GoodsMyGridViewAdaper.mAq.clear();
+			GoodsMyGridViewAdaper.mAq.recycle(myGridView);
+			GoodsMyGridViewAdaper.type = false;
+		}
+
+		if (lists.size() > 0) {
+			lists.clear();
+			list_lb = null;
+			lists = null;
+		}
+	}
+
+	Handler handler = new Handler() {
+		public void dispatchMessage(Message msg) {
+			switch (msg.what) {
+				case 0:
+					myadapter.putData(lists);
+					progress.CloseProgress();
+					if (lists.size() > 0) {
+						MySpListAdapter.query.clear();
+					}
+					//				myadapter.notifyDataSetChanged();
+					//				setListViewHeightBasedOnChildren(new_list);
+					System.out.println("=====================ËøôÈáå1=="+lists.size());
+
+					new_list.setOnItemClickListener(new OnItemClickListener() {
+
 						@Override
 						public void onItemClick(AdapterView<?> arg0, View arg1,
-								int arg2, long arg3) {
+												int arg2, long arg3) {
 							// TODO Auto-generated method stub
 							String id = lists.get(arg2).getId();
 							System.out.println("====================="+id);
@@ -229,380 +348,256 @@ public class NewWare extends BaseActivity implements OnClickListener{
 							startActivity(intent);
 						}
 					});
-					
-					} catch (Exception e) {
-						// TODO: handle exception
-						e.printStackTrace();
+					break;
+				case 1:
+					System.out.println("=====================ËøôÈáå2=="+lists.size());
+					jdhadapter.putData(lists);
+					progress.CloseProgress();
+					if (lists.size() > 0) {
+						GoodsMyGridViewAdaper.mAq.clear();
 					}
-				} else {
-					try {
-					pailie = false;
-//					VIEW_NUM = 10;
-					img_shared.setBackgroundResource(R.drawable.liebiao_pl);
-					gridView_list.setVisibility(View.GONE);
-					refresh.setVisibility(View.VISIBLE);
-//					load_list(INDX, VIEW_NUM, true);
-					myadapter = new MySpListAdapter(lists,NewWare.this, imageLoader);
-					new_list.setAdapter(myadapter);
-				    } catch (Exception e) {
-					// TODO: handle exception
-					e.printStackTrace();
-				    }
-				}
-				 } catch (Exception e) {
-						// TODO: handle exception
-						e.printStackTrace();
-					    }
-				
-			}
-		});
-		
-		} catch (Exception e) {
-			// TODO: handle exception
-			e.printStackTrace();
-		}
-		lists = new ArrayList<SpListData>();
-		
-		myadapter = new MySpListAdapter(lists,NewWare.this, imageLoader);
-		new_list.setAdapter(myadapter);
-		
-		jdhadapter = new GoodsMyGridViewAdaper(lists, getApplicationContext());
-		gridView_list.setAdapter(jdhadapter);
-		
-		System.out.println("=======±ÍÃ‚÷µ111=="+nobiaoti);
-		
-		loadWeather();
-		popupWindowMenu = new MyPopupWindowMenu(this);
-		progress = new DialogProgress(NewWare.this);
-		progress.CreateProgress();
-		
-		ImageView iv_fanhui = (ImageView) findViewById(R.id.iv_fanhui);
-		iv_fanhui.setOnClickListener(new OnClickListener() {
-			
-			@Override
-			public void onClick(View arg0) {
-				// TODO Auto-generated method stub
-				finish();
-			}
-		});
+					//				jdhadapter.notifyDataSetChanged();
 
-	    }
-	
-// 	public void uncaughtException(Thread arg0, Throwable arg1) {
-//		// TODO Auto-generated method stub
-//		 //‘⁄¥À¥¶¿Ì“Ï≥££¨ arg1º¥Œ™≤∂ªÒµΩµƒ“Ï≥£
-//        Log.i("AAA", "uncaughtException   " + arg1);
-//	}
-	@Override
-	public void onResume() {
-		// TODO Auto-generated method stub
-		super.onResume();
-//		loadWeather();
-		if (LieBiaoActivity.title_id != null) {
-			INDX = Integer.parseInt(LieBiaoActivity.title_id);
-			load_list(INDX,true);
-		}
-//		MySpListAdapter.query.clear();
-	}
-	
-	   //µ±Activity±ªœ˙ªŸ ±ª·µ˜”√onDestory∑Ω∑®
-    @Override  
-    protected void onDestroy() {  
-        super.onDestroy(); 
-    	if (MySpListAdapter.type == true) {
-    		MySpListAdapter.query.clear();
-    		MySpListAdapter.query.recycle(new_list);
-    		MySpListAdapter.type = false;
-		}
-    	if (GoodsMyGridViewAdaper.type == true) {
-    		GoodsMyGridViewAdaper.mAq.clear();
-    		GoodsMyGridViewAdaper.mAq.recycle(myGridView);
-    		GoodsMyGridViewAdaper.type = false;
-		}
-    	
-    	if (lists.size() > 0) {
-    		lists.clear();
-    		list_lb = null;
-        	lists = null;
-		}
-    }
-	
-	Handler handler = new Handler() {
-		public void dispatchMessage(Message msg) {
-			switch (msg.what) {
-			case 0:
-				myadapter.putData(lists);
-				progress.CloseProgress();
-				 if (lists.size() > 0) {
-					 MySpListAdapter.query.clear();
-				}
-//				myadapter.notifyDataSetChanged();
-//				setListViewHeightBasedOnChildren(new_list); 
-				System.out.println("=====================’‚¿Ô1=="+lists.size());
-				
-				new_list.setOnItemClickListener(new OnItemClickListener() {
-	                
-					@Override
-					public void onItemClick(AdapterView<?> arg0, View arg1,
-							int arg2, long arg3) {
-						// TODO Auto-generated method stub
-						String id = lists.get(arg2).getId();
-						System.out.println("====================="+id);
-						Intent intent = new Intent(NewWare.this,WareInformationActivity.class);
-						intent.putExtra("id", id);
-						startActivity(intent);
-					}
-				});
-				break;
-			case 1:
-				System.out.println("=====================’‚¿Ô2=="+lists.size());
-				jdhadapter.putData(lists);
-				progress.CloseProgress();
-				 if (lists.size() > 0) {
-					 GoodsMyGridViewAdaper.mAq.clear();
-				}
-//				jdhadapter.notifyDataSetChanged();
-				
-//				gridView_list.setOnItemClickListener(new OnItemClickListener() {
-//	                
-//					@Override
-//					public void onItemClick(AdapterView<?> arg0, View arg1,
-//							int arg2, long arg3) {
-//						// TODO Auto-generated method stub
-//						String id = lists.get(arg2).getId();
-//						System.out.println("====================="+id);
-//						Intent intent = new Intent(NewWare.this,WareInformationActivity.class);
-//						intent.putExtra("id", id);
-//						startActivity(intent);
-//					}
-//				});
-				break;
-			case 2:
-				formatWeather((String) msg.obj);
-				break;
-			case 3:
-				try{
-				
-				lbadapter = new MyAdapter(getApplicationContext(),list_lb);
-				myGridView.setAdapter(lbadapter);
-				
-				INDX = list_lb.get(0).id;
-				quanbu = list_lb.get(0).id;
-		        	
-           	     System.out.println("=====1µ⁄∂˛≤„de ˝æ›====================="+INDX);
-				AsyncHttp.get(RealmName.REALM_NAME_LL+ "/get_category_child_list?" +
-						"channel_name="+channel_name+"&parent_id="+INDX+"",new AsyncHttpResponseHandler() {
+					//				gridView_list.setOnItemClickListener(new OnItemClickListener() {
+					//
+					//					@Override
+					//					public void onItemClick(AdapterView<?> arg0, View arg1,
+					//							int arg2, long arg3) {
+					//						// TODO Auto-generated method stub
+					//						String id = lists.get(arg2).getId();
+					//						System.out.println("====================="+id);
+					//						Intent intent = new Intent(NewWare.this,WareInformationActivity.class);
+					//						intent.putExtra("id", id);
+					//						startActivity(intent);
+					//					}
+					//				});
+					break;
+				case 2:
+					formatWeather((String) msg.obj);
+					break;
+				case 3:
+					try{
+
+						lbadapter = new MyAdapter(getApplicationContext(),list_lb);
+						myGridView.setAdapter(lbadapter);
+
+						INDX = list_lb.get(0).id;
+						quanbu = list_lb.get(0).id;
+
+						System.out.println("=====1Á¨¨‰∫åÂ±ÇdeÊï∞ÊçÆ====================="+INDX);
+						AsyncHttp.get(RealmName.REALM_NAME_LL+ "/get_category_child_list?" +
+								"channel_name="+channel_name+"&parent_id="+INDX+"",new AsyncHttpResponseHandler() {
 							@Override
 							public void onSuccess(int arg0,String arg1) {
 								// TODO Auto-generated method stub
 								super.onSuccess(arg0, arg1);
 								formatWeatherll(arg1);
-								
+
 							}
 						}, null);
-				
-				myGridView.setOnItemClickListener(new OnItemClickListener() {
 
-		            @Override
-		            public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
-		            	try{
-		            	 INDX = list_lb.get(arg2).id;
-		            	 quanbu = list_lb.get(arg2).id;
-		            	 System.out.println("=====myGridViewµ„ª˜0µ⁄∂˛≤„de ˝æ›====================="+list_lb.get(0).id);
-		            	 System.out.println("=====myGridViewµ„ª˜1µ⁄∂˛≤„de ˝æ›====================="+list_lb.get(1).id);
-		            	 System.out.println("=====myGridViewµ„ª˜2µ⁄∂˛≤„de ˝æ›====================="+INDX);
-		            	 
-		            	 lbadapter.setSeclection(arg2);
-		            	 lbadapter.notifyDataSetChanged();
-		            	 
-		       			spPreferences = getSharedPreferences("longuserset", MODE_PRIVATE);
-		     			int id = spPreferences.getInt("id", 0);
-		            	 	System.out.println("strue===================="+strue);
-		                 if (arg2 != id) {
-		                	    //µ⁄“ª¥ŒµΩΩÁ√Ê—°‘Òµ⁄“ª∏ˆ∂˛º∂≤Àµ•
-		                	    if(strue = false){
-		                	    	String parent_id = String.valueOf(list_lb.get(arg2).id);
-									String quanbu_id = String.valueOf(quanbu);
-									Intent intent = new Intent(NewWare.this,LieBiaoActivity.class);
-									intent.putExtra("id", parent_id);
-									intent.putExtra("quanbu_id", quanbu_id);
-									intent.putExtra("channel_name", channel_name);
-									startActivity(intent);
-		                	    	strue = true;
-		                	    }else{
-		                    	num = 0;
-		                    	System.out.println("Œª÷√Œ™0===================="+INDX);
-				     			AsyncHttp.get(RealmName.REALM_NAME_LL+ "/get_category_child_list?" +
-										"channel_name="+channel_name+"&parent_id="+INDX+"",new AsyncHttpResponseHandler() {
-											@Override
-											public void onSuccess(int arg0,String arg1) {
-												// TODO Auto-generated method stub
-												super.onSuccess(arg0, arg1);
-												quanbu_id = arg1;
-												formatWeatherll(arg1);
-											}
-										}, null);
-		                	    }
-				     			
-							}else {
-								num = 1;
-								System.out.println("Œª÷√Œ™1====================");
-							}
-							int geshu = list_lb.get(arg2).id;
-							if(geshu!=0){
-								
-								if(num == 1){
-									num = 0;
-//									MyGridAdapter.clickTemp = 0;
-									String parent_id = String.valueOf(list_lb.get(arg2).id);
-									String quanbu_id = String.valueOf(quanbu);
-									Intent intent = new Intent(NewWare.this,LieBiaoActivity.class);
-									intent.putExtra("id", parent_id);
-									intent.putExtra("quanbu_id", quanbu_id);
-									intent.putExtra("channel_name", channel_name);
-									startActivity(intent);
-									
-				  				}else{
-				  					num = 1;
-				  					Editor editor = spPreferences.edit();
-									editor.putInt("id", arg2);
-									editor.commit();
-				  					
+						myGridView.setOnItemClickListener(new OnItemClickListener() {
+
+							@Override
+							public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
+								try{
+									INDX = list_lb.get(arg2).id;
+									quanbu = list_lb.get(arg2).id;
+									System.out.println("=====myGridViewÁÇπÂáª0Á¨¨‰∫åÂ±ÇdeÊï∞ÊçÆ====================="+list_lb.get(0).id);
+									System.out.println("=====myGridViewÁÇπÂáª1Á¨¨‰∫åÂ±ÇdeÊï∞ÊçÆ====================="+list_lb.get(1).id);
+									System.out.println("=====myGridViewÁÇπÂáª2Á¨¨‰∫åÂ±ÇdeÊï∞ÊçÆ====================="+INDX);
+
+									lbadapter.setSeclection(arg2);
+									lbadapter.notifyDataSetChanged();
+
+									spPreferences = getSharedPreferences("longuserset", MODE_PRIVATE);
+									int id = spPreferences.getInt("id", 0);
+									System.out.println("strue===================="+strue);
+									if (arg2 != id) {
+										//Á¨¨‰∏ÄÊ¨°Âà∞ÁïåÈù¢ÈÄâÊã©Á¨¨‰∏Ä‰∏™‰∫åÁ∫ßËèúÂçï
+										if(strue = false){
+											String parent_id = String.valueOf(list_lb.get(arg2).id);
+											String quanbu_id = String.valueOf(quanbu);
+											Intent intent = new Intent(NewWare.this,LieBiaoActivity.class);
+											intent.putExtra("id", parent_id);
+											intent.putExtra("quanbu_id", quanbu_id);
+											intent.putExtra("channel_name", channel_name);
+											startActivity(intent);
+											strue = true;
+										}else{
+											num = 0;
+											System.out.println("‰ΩçÁΩÆ‰∏∫0===================="+INDX);
+											AsyncHttp.get(RealmName.REALM_NAME_LL+ "/get_category_child_list?" +
+													"channel_name="+channel_name+"&parent_id="+INDX+"",new AsyncHttpResponseHandler() {
+												@Override
+												public void onSuccess(int arg0,String arg1) {
+													// TODO Auto-generated method stub
+													super.onSuccess(arg0, arg1);
+													quanbu_id = arg1;
+													formatWeatherll(arg1);
+												}
+											}, null);
+										}
+
+									}else {
+										num = 1;
+										System.out.println("‰ΩçÁΩÆ‰∏∫1====================");
+									}
+									int geshu = list_lb.get(arg2).id;
+									if(geshu!=0){
+
+										if(num == 1){
+											num = 0;
+											//									MyGridAdapter.clickTemp = 0;
+											String parent_id = String.valueOf(list_lb.get(arg2).id);
+											String quanbu_id = String.valueOf(quanbu);
+											Intent intent = new Intent(NewWare.this,LieBiaoActivity.class);
+											intent.putExtra("id", parent_id);
+											intent.putExtra("quanbu_id", quanbu_id);
+											intent.putExtra("channel_name", channel_name);
+											startActivity(intent);
+
+										}else{
+											num = 1;
+											Editor editor = spPreferences.edit();
+											editor.putInt("id", arg2);
+											editor.commit();
+
+										}
+									}else {
+										//								num = 1;
+										Toast.makeText(NewWare.this, "Êó†Â≠êÁõÆÂΩï", 200).show();
+									}
+
+								} catch (Exception e) {
+									// TODO Auto-generated catch block
+									e.printStackTrace();
 								}
-							}else {
-//								num = 1;
-								Toast.makeText(NewWare.this, "Œﬁ◊”ƒø¬º", 200).show();
 							}
-							
-		            	} catch (Exception e) {
-							// TODO Auto-generated catch block
-							e.printStackTrace();
-						}
-		            }
-		        });
-				} catch (Exception e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-				break;
-			case 20:
-				adapter.putData(datas);
-				new_list.setOnItemClickListener(new OnItemClickListener() {
-                
-					@Override
-					public void onItemClick(AdapterView<?> arg0, View arg1,
-							int arg2, long arg3) {
-						// TODO Auto-generated method stub
-						Intent intent = new Intent(NewWare.this,WareInformationActivity.class);
-						intent.putExtra("id", datas.get(arg2).id);
-						startActivity(intent);
+						});
+					} catch (Exception e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
 					}
-				});
-				
-				break;
-			default:
-				break;
+					break;
+				case 20:
+					adapter.putData(datas);
+					new_list.setOnItemClickListener(new OnItemClickListener() {
+
+						@Override
+						public void onItemClick(AdapterView<?> arg0, View arg1,
+												int arg2, long arg3) {
+							// TODO Auto-generated method stub
+							Intent intent = new Intent(NewWare.this,WareInformationActivity.class);
+							intent.putExtra("id", datas.get(arg2).id);
+							startActivity(intent);
+						}
+					});
+
+					break;
+				default:
+					break;
 			}
 
 		};
 	};
-	
+
 	private void loadWeather() {
 		AsyncHttp.get(RealmName.REALM_NAME_LL+ "/get_category_child_list?channel_name="+channel_name+"&parent_id=0",new AsyncHttpResponseHandler() {
-							@Override
-							public void onSuccess(int arg0, String arg1) {
-								// TODO Auto-generated method stub
-								super.onSuccess(arg0, arg1);
-								formatWeather(arg1);
-							}
-						}, null);
+			@Override
+			public void onSuccess(int arg0, String arg1) {
+				// TODO Auto-generated method stub
+				super.onSuccess(arg0, arg1);
+				formatWeather(arg1);
+			}
+		}, null);
 	}
-	
+
 	private int RUN_METHOD = -1;
 	EnterpriseData data;
 	private void formatWeather(String result) {
 		try {
-			System.out.println("=======¡–±Ì ˝æ›=="+result);
+			System.out.println("=======ÂàóË°®Êï∞ÊçÆ=="+result);
 			list_lb = new ArrayList<EnterpriseData>();
 			JSONObject object = new JSONObject(result);
 			JSONArray jsonArray = object.getJSONArray("data");
-    		for (int i = 0; i < jsonArray.length(); i++) {
-    		JSONObject obj= jsonArray.getJSONObject(i);
-    		data = new EnterpriseData();
-    		data.id = obj.getInt("id");
-    		data.title = obj.getString("title");
-			list_lb.add(data);
-    		}
-    		progress.CloseProgress();
-    		inter();
-    		vi_xian.setVisibility(View.VISIBLE);
-    		System.out.println("=======list_lb1=="+list_lb.get(0).id);
-    		System.out.println("=======list_lb2=="+list_lb.get(1).id);
-			handler.sendEmptyMessage(3); 
-//			System.out.println("=======22==");
-//			handler.sendEmptyMessage(100); 
+			for (int i = 0; i < jsonArray.length(); i++) {
+				JSONObject obj= jsonArray.getJSONObject(i);
+				data = new EnterpriseData();
+				data.id = obj.getInt("id");
+				data.title = obj.getString("title");
+				list_lb.add(data);
+			}
+			progress.CloseProgress();
+			inter();
+			vi_xian.setVisibility(View.VISIBLE);
+			System.out.println("=======list_lb1=="+list_lb.get(0).id);
+			System.out.println("=======list_lb2=="+list_lb.get(1).id);
+			handler.sendEmptyMessage(3);
+			//			System.out.println("=======22==");
+			//			handler.sendEmptyMessage(100);
 		} catch (JSONException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-    		
+
 	}
-	
+
 	/**
-	 * µ⁄∂˛º∂≤Àµ•
+	 * Á¨¨‰∫åÁ∫ßËèúÂçï
 	 */
 	private ArrayList data1,data2;
 	private void formatWeatherll(String result) {
 		data1= new ArrayList();
 		data2= new ArrayList();
-//		listll = new ArrayList<WareDatall>();
+		//		listll = new ArrayList<WareDatall>();
 		try {
-			System.out.println("=====µ⁄∂˛≤„ ˝æ›====================="+result);
+			System.out.println("=====Á¨¨‰∫åÂ±ÇÊï∞ÊçÆ====================="+result);
 			JSONObject object = new JSONObject(result);
 			String status = object.getString("status");
 			if (status.equals("y")) {
-			JSONArray jsonArray = object.getJSONArray("data");
-			
-//			listll.add(0, null);
-			data1.add("001");
-			data2.add("»´≤ø");
-    		for (int i = 0; i < jsonArray.length(); i++) {
-    		JSONObject obj= jsonArray.getJSONObject(i);
-//    		dm = new WareDatall();
-//     	    dm.setId(obj.getString("id"));
-//     	    dm.setTitle(obj.getString("title"));
-			String title = obj.getString("title");
-			String id = obj.getString("id");
-//			INDX =  Integer.parseInt(id);
-//			listll.add(dm);
-			data1.add(id);
-			data2.add(title);
-    		}
-    		
-    		System.out.println("=====data2====================="+data2.size());
-    		MyGridAdapter.clickTemp = 0;
-//    		arrayadapter = new MyGridAdapter(data1,data2,getApplicationContext());
-//	        gridView.setAdapter(arrayadapter);
-	        
-//	        INDX = Integer.parseInt((String) data1.get(1));
-//	        System.out.println("=====INDX3=========yes============"+INDX);
-	    	load_list(INDX, true);
-	        
-            }else {
-//            	INDX = Integer.parseInt((String) data1.get(1));
-//    	        System.out.println("=====INDX==========NO==========="+INDX);
-            	load_list(INDX, true);
+				JSONArray jsonArray = object.getJSONArray("data");
+
+				//			listll.add(0, null);
+				data1.add("001");
+				data2.add("ÂÖ®ÈÉ®");
+				for (int i = 0; i < jsonArray.length(); i++) {
+					JSONObject obj= jsonArray.getJSONObject(i);
+					//    		dm = new WareDatall();
+					//     	    dm.setId(obj.getString("id"));
+					//     	    dm.setTitle(obj.getString("title"));
+					String title = obj.getString("title");
+					String id = obj.getString("id");
+					//			INDX =  Integer.parseInt(id);
+					//			listll.add(dm);
+					data1.add(id);
+					data2.add(title);
+				}
+
+				System.out.println("=====data2====================="+data2.size());
+				MyGridAdapter.clickTemp = 0;
+				//    		arrayadapter = new MyGridAdapter(data1,data2,getApplicationContext());
+				//	        gridView.setAdapter(arrayadapter);
+
+				//	        INDX = Integer.parseInt((String) data1.get(1));
+				//	        System.out.println("=====INDX3=========yes============"+INDX);
+				load_list(INDX, true);
+
+			}else {
+				//            	INDX = Integer.parseInt((String) data1.get(1));
+				//    	        System.out.println("=====INDX==========NO==========="+INDX);
+				load_list(INDX, true);
 			}
-			 
+
 		} catch (JSONException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
-	
-	
+
+
 	/**
-	 * …œ¿≠¡–±ÌÀ¢–¬º”‘ÿ
+	 * ‰∏äÊãâÂàóË°®Âà∑Êñ∞Âä†ËΩΩ
 	 */
 	private OnHeaderRefreshListener listHeadListener = new OnHeaderRefreshListener() {
 
@@ -618,9 +613,9 @@ public class NewWare extends BaseActivity implements OnClickListener{
 			}, 1000);
 		}
 	};
-	
+
 	/**
-	 * œ¬¿≠¡–±ÌÀ¢–¬º”‘ÿ
+	 * ‰∏ãÊãâÂàóË°®Âà∑Êñ∞Âä†ËΩΩ
 	 */
 	private OnFooterRefreshListener listFootListener = new OnFooterRefreshListener() {
 
@@ -634,8 +629,8 @@ public class NewWare extends BaseActivity implements OnClickListener{
 					try {
 						System.out.println("=======4=="+INDX);
 						load_list(INDX, false);
-					refresh.onFooterRefreshComplete();
-					
+						refresh.onFooterRefreshComplete();
+
 					} catch (Exception e) {
 						// TODO: handle exception
 						e.printStackTrace();
@@ -644,11 +639,11 @@ public class NewWare extends BaseActivity implements OnClickListener{
 			}, 1000);
 		}
 	};
-	
+
 	/**
-	 * …Ã∆∑¡–±Ì ˝æ›Ω‚Œˆ
+	 * ÂïÜÂìÅÂàóË°®Êï∞ÊçÆËß£Êûê
 	 */
-	
+
 	private int CURRENT_NUM = 1;
 	private final int VIEW_NUM = 10;
 	JSONObject object;
@@ -661,74 +656,74 @@ public class NewWare extends BaseActivity implements OnClickListener{
 			lists = new ArrayList<SpListData>();
 		}
 		System.out.println("=====================002--"+INDX);
-			AsyncHttp.get(RealmName.REALM_NAME_LL+"/get_article_page_size_list?channel_name="+channel_name+"&category_id="+INDX+"" +
-							"&page_size="+VIEW_NUM+"&page_index="+CURRENT_NUM+"&strwhere=&orderby=",
-							 new AsyncHttpResponseHandler(){
-							@Override
-							public void onSuccess(int arg0, String arg1) {
-								// TODO Auto-generated method stub
-								super.onSuccess(arg0, arg1);
-//								System.out.println("=====================»˝º∂÷µ"+arg1);
-								try {
-									JSONObject jsonObject = new JSONObject(arg1);
-									String status = jsonObject.getString("status");
-									String info = jsonObject.getString("info");
-									if (status.equals("y")) {
-									JSONArray jsonArray = jsonObject.getJSONArray("data");
-//									if (jsonArray.length() > 0) {
-									 len = jsonArray.length();
-									for(int i=0;i<jsonArray.length();i++){
-										object = jsonArray.getJSONObject(i);
-										spList = new SpListData();
-										spList.id = object.getString("id");
-										spList.img_url = object.getString("img_url");
-										spList.title = object.getString("title");
-										spList.market_price = object.getString("market_price");
-										spList.sell_price = object.getString("sell_price");
-										spList.cashing_packet = object.getString("cashing_packet");
-//										JSONArray jaArray = object.getJSONArray("albums");
-//										for (int j = 0; j < jaArray.length(); j++) {
-//											JSONObject jact = jaArray.getJSONObject(j);
-//										}
-										lists.add(spList);
-									}
-									
-									object = null;
-									spList = null;
-									}else {
-										progress.CloseProgress();
-										Toast.makeText(NewWare.this, "√ª”–…Ã∆∑¡À", 200).show();
-									}
-									if(len!=0){
-										CURRENT_NUM =CURRENT_NUM+1;
-									}
-									LieBiaoActivity.title_id = null;
-									if (pailie == false) {
-									    handler.sendEmptyMessage(0);
-//									    MySpListAdapter.query.clear();
-									}else {
-										handler.sendEmptyMessage(1);
-//										GoodsMyGridViewAdaper.mAq.clear();
-									}
-									progress.CloseProgress();
-								} catch (JSONException e) {
-									// TODO Auto-generated catch block
-									e.printStackTrace();
+		AsyncHttp.get(RealmName.REALM_NAME_LL+"/get_article_page_size_list?channel_name="+channel_name+"&category_id="+INDX+"" +
+						"&page_size="+VIEW_NUM+"&page_index="+CURRENT_NUM+"&strwhere=&orderby=",
+				new AsyncHttpResponseHandler(){
+					@Override
+					public void onSuccess(int arg0, String arg1) {
+						// TODO Auto-generated method stub
+						super.onSuccess(arg0, arg1);
+						//								System.out.println("=====================‰∏âÁ∫ßÂÄº"+arg1);
+						try {
+							JSONObject jsonObject = new JSONObject(arg1);
+							String status = jsonObject.getString("status");
+							String info = jsonObject.getString("info");
+							if (status.equals("y")) {
+								JSONArray jsonArray = jsonObject.getJSONArray("data");
+								//									if (jsonArray.length() > 0) {
+								len = jsonArray.length();
+								for(int i=0;i<jsonArray.length();i++){
+									object = jsonArray.getJSONObject(i);
+									spList = new SpListData();
+									spList.id = object.getString("id");
+									spList.img_url = object.getString("img_url");
+									spList.title = object.getString("title");
+									spList.market_price = object.getString("market_price");
+									spList.sell_price = object.getString("sell_price");
+									spList.cashing_packet = object.getString("cashing_packet");
+									//										JSONArray jaArray = object.getJSONArray("albums");
+									//										for (int j = 0; j < jaArray.length(); j++) {
+									//											JSONObject jact = jaArray.getJSONObject(j);
+									//										}
+									lists.add(spList);
 								}
+
+								object = null;
+								spList = null;
+							}else {
+								progress.CloseProgress();
+								Toast.makeText(NewWare.this, "Ê≤°ÊúâÂïÜÂìÅ‰∫Ü", 200).show();
 							}
-						}, null);
+							if(len!=0){
+								CURRENT_NUM =CURRENT_NUM+1;
+							}
+							LieBiaoActivity.title_id = null;
+							if (pailie == false) {
+								handler.sendEmptyMessage(0);
+								//									    MySpListAdapter.query.clear();
+							}else {
+								handler.sendEmptyMessage(1);
+								//										GoodsMyGridViewAdaper.mAq.clear();
+							}
+							progress.CloseProgress();
+						} catch (JSONException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+					}
+				}, null);
 	}
-	
-	
+
+
 	@Override
 	public void onClick(View v) {
 		// TODO Auto-generated method stub
 
 	}
-	
+
 	/**
-	 * 
-	 * ∫·œÚª¨∂Ø  ≈‰∆˜  ¿‡±¡–±Ì
+	 *
+	 * Ê®™ÂêëÊªëÂä®ÈÄÇÈÖçÂô®  Á±ªÂà´ÂàóË°®
 	 * @author Administrator
 	 *
 	 */
@@ -755,21 +750,21 @@ public class NewWare extends BaseActivity implements OnClickListener{
 				return List_lb.size();
 			}
 		}
-		
+
 		public void setSeclection(int position) {
 			clickTemp = position;
 		}
-		
+
 		@Override
 		public Object getItem(int position) {
 			// TODO Auto-generated method stub
 			return List_lb.get(position);
 		}
 
-//		@Override
-//		public Object getItem(int position) {
-//			return list.getItem(position);
-//		}
+		//		@Override
+		//		public Object getItem(int position) {
+		//			return list.getItem(position);
+		//		}
 
 		@Override
 		public long getItemId(int position) {
@@ -780,48 +775,48 @@ public class NewWare extends BaseActivity implements OnClickListener{
 		public View getView(final int position, View convertView, ViewGroup parent) {
 			final ViewHolder holder;
 			try {
-				
-			if (convertView == null) {
-				holder =  new ViewHolder();
-				convertView = mInflater.inflate(R.layout.leibie_item, null);
-				holder.img = (ImageView) convertView.findViewById(R.id.iv_img);
-				holder.text = (TextView) convertView.findViewById(R.id.tv);
-				holder.v_xiaxian = (View) convertView.findViewById(R.id.v_xiaxian);
-				holder.v_xiaxian2 = (View) convertView.findViewById(R.id.v_xiaxian2);
-				convertView.setTag(holder);
-			}else {
-				holder = (ViewHolder) convertView.getTag();
-			}
-			System.out.println("=====Œª÷√====================="+position);
-//			holder.img.setImageResource(dataList.get(position));
-//			holder.text.setText("µ⁄" + position + "œÓ");
-			holder.text.setText(List_lb.get(position).title);
-			biaoti = list_lb.get(position).title.length();
 
-			if (clickTemp == position) {
-//				convertView.setBackgroundResource(R.drawable.julegou_xuankuang);//julegou_xuankuang 
-				holder.text.setTextColor(Color.RED);
-				holder.v_xiaxian.setVisibility(View.VISIBLE);
-//				holder.v_xiaxian2.setVisibility(View.INVISIBLE);
-				holder.img.setBackgroundResource(R.drawable.xiabiao);
-				
-			} else {
-//				convertView.setBackgroundColor(Color.TRANSPARENT);
-//				convertView.setBackgroundResource(R.drawable.zangfutiaoli);//julegou_xuankuang 
-				holder.text.setTextColor(Color.GRAY);
-				holder.v_xiaxian.setVisibility(View.INVISIBLE);
-//				holder.v_xiaxian2.setVisibility(View.VISIBLE);
-//				holder.v_xiaxian.setBackgroundResource(Color.GRAY);
-				holder.img.setBackgroundResource(R.drawable.xiabiao_huise);
-//				iv_baby_collection.setImageResource(R.drawable.second_2_collection);
-		    }
-			
+				if (convertView == null) {
+					holder =  new ViewHolder();
+					convertView = mInflater.inflate(R.layout.leibie_item, null);
+					holder.img = (ImageView) convertView.findViewById(R.id.iv_img);
+					holder.text = (TextView) convertView.findViewById(R.id.tv);
+					holder.v_xiaxian = (View) convertView.findViewById(R.id.v_xiaxian);
+					holder.v_xiaxian2 = (View) convertView.findViewById(R.id.v_xiaxian2);
+					convertView.setTag(holder);
+				}else {
+					holder = (ViewHolder) convertView.getTag();
+				}
+				System.out.println("=====‰ΩçÁΩÆ====================="+position);
+				//			holder.img.setImageResource(dataList.get(position));
+				//			holder.text.setText("Á¨¨" + position + "È°π");
+				holder.text.setText(List_lb.get(position).title);
+				biaoti = list_lb.get(position).title.length();
+
+				if (clickTemp == position) {
+					//				convertView.setBackgroundResource(R.drawable.julegou_xuankuang);//julegou_xuankuang
+					holder.text.setTextColor(Color.RED);
+					holder.v_xiaxian.setVisibility(View.VISIBLE);
+					//				holder.v_xiaxian2.setVisibility(View.INVISIBLE);
+					holder.img.setBackgroundResource(R.drawable.xiabiao);
+
+				} else {
+					//				convertView.setBackgroundColor(Color.TRANSPARENT);
+					//				convertView.setBackgroundResource(R.drawable.zangfutiaoli);//julegou_xuankuang
+					holder.text.setTextColor(Color.GRAY);
+					holder.v_xiaxian.setVisibility(View.INVISIBLE);
+					//				holder.v_xiaxian2.setVisibility(View.VISIBLE);
+					//				holder.v_xiaxian.setBackgroundResource(Color.GRAY);
+					holder.img.setBackgroundResource(R.drawable.xiabiao_huise);
+					//				iv_baby_collection.setImageResource(R.drawable.second_2_collection);
+				}
+
 			} catch (Exception e) {
 				// TODO: handle exception
 				e.printStackTrace();
 			}
 			return convertView;
-			
+
 		}
 
 
@@ -834,61 +829,61 @@ public class NewWare extends BaseActivity implements OnClickListener{
 		}
 	}
 
-	
-    //…Ë÷√∫·œÚœ‘ æµƒ∏ˆ ˝
+
+	//ËÆæÁΩÆÊ®™ÂêëÊòæÁ§∫ÁöÑ‰∏™Êï∞
 	private void inter(){
 		try {
-			
-		int size = list_lb.size();// ˝æ›◊‹≥§∂»
 
-		//ªÒµ√∆¡ƒªøÌ∂»
-		DisplayMetrics metrics = new DisplayMetrics();
-		getWindowManager().getDefaultDisplay().getMetrics(metrics);
-		int windowWidth = metrics.widthPixels;
+			int size = list_lb.size();//Êï∞ÊçÆÊÄªÈïøÂ∫¶
 
-		if (biaoti > 4) {
-			 itemWidth = windowWidth/2;
-		}else {
-			 itemWidth = windowWidth/3;
-		}
+			//Ëé∑ÂæóÂ±èÂπïÂÆΩÂ∫¶
+			DisplayMetrics metrics = new DisplayMetrics();
+			getWindowManager().getDefaultDisplay().getMetrics(metrics);
+			int windowWidth = metrics.widthPixels;
 
-		//ªÒµ√∆¡ƒªøÌ∂»“≤ø…“‘’‚—˘–¥
-		//int itemWidth = getWindowManager().getDefaultDisplay().getWidth() / 5;//∆¡ƒªœ‘ æƒ¨»œ ˝¡ø
+			if (biaoti > 4) {
+				itemWidth = windowWidth/2;
+			}else {
+				itemWidth = windowWidth/3;
+			}
 
-		int gridViewWidth = (int)(size * itemWidth);//linearLayoutµƒ◊‹øÌ∂»
-		LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(gridViewWidth,LinearLayout.LayoutParams.MATCH_PARENT);
-		myGridView.setLayoutParams(params);//…Ë÷√GridView≤ºæ÷≤Œ ˝
-		myGridView.setNumColumns(size);//∂ØÃ¨…Ë÷√GridView¡– ˝
-		
+			//Ëé∑ÂæóÂ±èÂπïÂÆΩÂ∫¶‰πüÂèØ‰ª•ËøôÊ†∑ÂÜô
+			//int itemWidth = getWindowManager().getDefaultDisplay().getWidth() / 5;//Â±èÂπïÊòæÁ§∫ÈªòËÆ§Êï∞Èáè
+
+			int gridViewWidth = (int)(size * itemWidth);//linearLayoutÁöÑÊÄªÂÆΩÂ∫¶
+			LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(gridViewWidth,LinearLayout.LayoutParams.MATCH_PARENT);
+			myGridView.setLayoutParams(params);//ËÆæÁΩÆGridViewÂ∏ÉÂ±ÄÂèÇÊï∞
+			myGridView.setNumColumns(size);//Âä®ÊÄÅËÆæÁΩÆGridViewÂàóÊï∞
+
 		} catch (Exception e) {
 			// TODO: handle exception
 			e.printStackTrace();
 		}
 	}
-	
-	
-	
-	public void setListViewHeightBasedOnChildren(ListView listView) {   
-        // ªÒ»°ListView∂‘”¶µƒAdapter   
-        ListAdapter listAdapter = listView.getAdapter();   
-        if (listAdapter == null) {   
-            return;   
-        }   
-   
-        int totalHeight = 0;   
-        for (int i = 0, len = listAdapter.getCount(); i < len; i++) {   
-            // listAdapter.getCount()∑µªÿ ˝æ›œÓµƒ ˝ƒø   
-            View listItem = listAdapter.getView(i, null, listView);   
-            // º∆À„◊”œÓView µƒøÌ∏ﬂ   
-            listItem.measure(0, 0);    
-            // Õ≥º∆À˘”–◊”œÓµƒ◊‹∏ﬂ∂»   
-            totalHeight += listItem.getMeasuredHeight();    
-        }   
-   
-        ViewGroup.LayoutParams params = listView.getLayoutParams();   
-        params.height = totalHeight+ (listView.getDividerHeight() * (listAdapter.getCount() - 1));   
-        // listView.getDividerHeight()ªÒ»°◊”œÓº‰∑÷∏Ù∑˚’º”√µƒ∏ﬂ∂»   
-        // params.height◊Ó∫Ûµ√µΩ’˚∏ˆListViewÕÍ’˚œ‘ æ–Ë“™µƒ∏ﬂ∂»   
-        listView.setLayoutParams(params);   
-    }   
+
+
+
+	public void setListViewHeightBasedOnChildren(ListView listView) {
+		// Ëé∑ÂèñListViewÂØπÂ∫îÁöÑAdapter
+		ListAdapter listAdapter = listView.getAdapter();
+		if (listAdapter == null) {
+			return;
+		}
+
+		int totalHeight = 0;
+		for (int i = 0, len = listAdapter.getCount(); i < len; i++) {
+			// listAdapter.getCount()ËøîÂõûÊï∞ÊçÆÈ°πÁöÑÊï∞ÁõÆ
+			View listItem = listAdapter.getView(i, null, listView);
+			// ËÆ°ÁÆóÂ≠êÈ°πView ÁöÑÂÆΩÈ´ò
+			listItem.measure(0, 0);
+			// ÁªüËÆ°ÊâÄÊúâÂ≠êÈ°πÁöÑÊÄªÈ´òÂ∫¶
+			totalHeight += listItem.getMeasuredHeight();
+		}
+
+		ViewGroup.LayoutParams params = listView.getLayoutParams();
+		params.height = totalHeight+ (listView.getDividerHeight() * (listAdapter.getCount() - 1));
+		// listView.getDividerHeight()Ëé∑ÂèñÂ≠êÈ°πÈó¥ÂàÜÈöîÁ¨¶Âç†Áî®ÁöÑÈ´òÂ∫¶
+		// params.heightÊúÄÂêéÂæóÂà∞Êï¥‰∏™ListViewÂÆåÊï¥ÊòæÁ§∫ÈúÄË¶ÅÁöÑÈ´òÂ∫¶
+		listView.setLayoutParams(params);
+	}
 }

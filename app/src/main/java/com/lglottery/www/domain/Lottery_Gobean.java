@@ -4,12 +4,12 @@ import java.io.Serializable;
 
 public class Lottery_Gobean implements Serializable{
 	/**
-	 * 
+	 *
 	 */
 	private static final long serialVersionUID = 1L;
-	private String typeId;//µÚ¼¸ÀàÉÌÆ·
-	private String itemId;//ÉÌÆ·ID
-	private String proName;//ÉÌÆ·Ãû×Ö
+	private String typeId;//ç¬¬å‡ ç±»å•†å“
+	private String itemId;//å•†å“ID
+	private String proName;//å•†å“åå­—
 	public String getTypeId() {
 		return typeId;
 	}
@@ -28,7 +28,7 @@ public class Lottery_Gobean implements Serializable{
 	public void setProName(String proName) {
 		this.proName = proName;
 	}
-	
-	
-	
+
+
+
 }

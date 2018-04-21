@@ -70,41 +70,41 @@ public class MyShopPingCarActivity extends Fragment implements OnClickListener {
 
 	private static final int INITIALIZE = 0;
 	private SharedPreferences spPreferences;
-	private static ListView mListView;// ¡–±Ì
+	private static ListView mListView;// ÂàóË°®
 	public static String user_id;
 	private ListAdapter mListAdapter;// adapter
 	private LinearLayout adv_pager,ll_tjsp;
 	private LinearLayout list_shops, list_none,ll_xianshi;
-	private List<DataBean> mListData = new ArrayList<DataBean>();//  ˝æ›
+	private List<DataBean> mListData = new ArrayList<DataBean>();// Êï∞ÊçÆ
 
-	private boolean isBatchModel;//  «∑Òø……æ≥˝ƒ£ Ω
+	private boolean isBatchModel;// ÊòØÂê¶ÂèØÂà†Èô§Ê®°Âºè
 
 	private RelativeLayout mBottonLayout;
-	private CheckBox mCheckAll; // »´—° »´≤ª—°
-	private TextView mEdit; // «–ªªµΩ…æ≥˝ƒ£ Ω
+	private CheckBox mCheckAll; // ÂÖ®ÈÄâ ÂÖ®‰∏çÈÄâ
+	private TextView mEdit; // ÂàáÊç¢Âà∞Âà†Èô§Ê®°Âºè
 
-	private TextView mPriceAll; // …Ã∆∑◊‹º€
+	private TextView mPriceAll; // ÂïÜÂìÅÊÄª‰ª∑
 
-	private TextView mSelectNum; // —°÷– ˝¡ø
+	private TextView mSelectNum; // ÈÄâ‰∏≠Êï∞Èáè
 
-	private TextView mFavorite; // “∆µΩ ’≤ÿº–,∑÷œÌ
+	private TextView mFavorite; // ÁßªÂà∞Êî∂ËóèÂ§π,ÂàÜ‰∫´
 
-	private TextView mDelete; // …æ≥˝ Ω·À„
-	
+	private TextView mDelete; // Âà†Èô§ ÁªìÁÆó
+
 	private TextView subtitle;
 	ImageView imageView1;
 	public boolean ptye = false;
-	private double totalPrice = 0; // …Ã∆∑◊‹º€
+	private double totalPrice = 0; // ÂïÜÂìÅÊÄª‰ª∑
 	public static double dzongjia = 0;
-	/** ≈˙¡øƒ£ Ωœ¬£¨”√¿¥º«¬ºµ±«∞—°÷–◊¥Ã¨ */
+	/** ÊâπÈáèÊ®°Âºè‰∏ãÔºåÁî®Êù•ËÆ∞ÂΩïÂΩìÂâçÈÄâ‰∏≠Áä∂ÊÄÅ */
 	private SparseArray<Boolean> mSelectState = new SparseArray<Boolean>();
 	private ImageView back;
-	private boolean flag = true; // »´—°ªÚ»´»°œ˚
+	private boolean flag = true; // ÂÖ®ÈÄâÊàñÂÖ®ÂèñÊ∂à
 	List<DataBean> result;
 	private DialogProgress progress;
 	public static AQuery query;
-	private static List<String> list_id = new ArrayList<String>(); 
-	private static List<String> list_size = new ArrayList<String>(); 
+	private static List<String> list_id = new ArrayList<String>();
+	private static List<String> list_size = new ArrayList<String>();
 	String num = "1";
 	public static StringBuffer str;
 	boolean zhuangtai = true;
@@ -114,60 +114,60 @@ public class MyShopPingCarActivity extends Fragment implements OnClickListener {
 	GouWuCheAGoodsAdaper jdhadapter;
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
-			Bundle savedInstanceState) {
+							 Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		View layout = inflater.inflate(R.layout.activity_gouwuche, null);
-		
+
 		progress = new DialogProgress(getActivity());
-//		spPreferences = getActivity().getSharedPreferences("longuserset", Context.MODE_PRIVATE);
-//		user_name = spPreferences.getString("user_name", "");
-//		user_id = spPreferences.getString("user_id", "");
-		
+		//		spPreferences = getActivity().getSharedPreferences("longuserset", Context.MODE_PRIVATE);
+		//		user_name = spPreferences.getString("user_name", "");
+		//		user_id = spPreferences.getString("user_id", "");
+
 		query = new AQuery(getActivity());
 		initView(layout);
 		initListener();
 		load_list();
 		return layout;
 	}
-	
+
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-//		setContentView(R.layout.activity_gouwuche);
+		//		setContentView(R.layout.activity_gouwuche);
 
 	}
-	
-	    String weixin = "";
-		String qq = "";
-		String nickname = "";
-		String user_name = "";
-		String user_name_phone = "";
-		String oauth_name;
-		String datall;
+
+	String weixin = "";
+	String qq = "";
+	String nickname = "";
+	String user_name = "";
+	String user_name_phone = "";
+	String oauth_name;
+	String datall;
 	@Override
 	public void onResume() {
 		// TODO Auto-generated method stub
 		super.onResume();
-		WareInformationActivity.jdh_type = "";//æ€∂“ªª≈–∂œŒ™ø’
-		
+		WareInformationActivity.jdh_type = "";//ËÅöÂÖëÊç¢Âà§Êñ≠‰∏∫Á©∫
+
 		SharedPreferences spPreferences_login = getActivity().getSharedPreferences("longuserset_login", Context.MODE_PRIVATE);
 		nickname = spPreferences_login.getString("nickname", "");
-		
+
 		System.out.println("nickname================="+nickname);
 		if (!nickname.equals("")) {
-			getjianche();//∫ÛÃ®ºÏ≤‚ «∑Ò∞Û∂® ÷ª˙
+			getjianche();//ÂêéÂè∞Ê£ÄÊµãÊòØÂê¶ÁªëÂÆöÊâãÊú∫
 		}else {
-		    getuserxinxi();
+			getuserxinxi();
 		}
-		
-		
+
+
 		spPreferences = getActivity().getSharedPreferences("longuserset", Context.MODE_PRIVATE);
 		user_name = spPreferences.getString("user", "");
 		user_id = spPreferences.getString("user_id", "");
-		
+
 		System.out.println("user_id================"+user_id);
 		System.out.println("user_name================"+user_name);
-		
+
 		if (user_name.equals("")) {
 			adv_pager.setVisibility(View.VISIBLE);
 			subtitle.setVisibility(View.GONE);
@@ -176,70 +176,70 @@ public class MyShopPingCarActivity extends Fragment implements OnClickListener {
 		}else {
 			getgouwuche();
 		}
-		
-		MyShopCarActivity.str = null;//…Ã∆∑œÍ«È¿Ôµƒπ∫ŒÔ≥µ«Âø’
-		//º∆À„…Ã∆∑Ã·ΩªID«Âø’
+
+		MyShopCarActivity.str = null;//ÂïÜÂìÅËØ¶ÊÉÖÈáåÁöÑË¥≠Áâ©ËΩ¶Ê∏ÖÁ©∫
+		//ËÆ°ÁÆóÂïÜÂìÅÊèê‰∫§IDÊ∏ÖÁ©∫
 		if (list_id.size() > 0) {
 			list_id.clear();
-			
+
 		}
-		//º∆À„∏ˆ ˝«Âø’
+		//ËÆ°ÁÆó‰∏™Êï∞Ê∏ÖÁ©∫
 		if (list_size.size() > 0) {
 			list_size.clear();
 			mDelete.setText(getResources().getString(R.string.menu_sett)+"(" + list_size.size() + ")");
 		}
-		
+
 	}
-    @Override  
-    public void onPause() {  
-        super.onPause();  
-    }   
-    @Override  
-    public void onStop() {  
-        super.onStop();  
-    }  
+	@Override
+	public void onPause() {
+		super.onPause();
+	}
+	@Override
+	public void onStop() {
+		super.onStop();
+	}
 	public void onDestroy() {
-		 super.onDestroy(); 
-		 try {
-			
+		super.onDestroy();
+		try {
+
 			BitmapDrawable bd = (BitmapDrawable)imageView1.getBackground();
-			imageView1.setBackgroundResource(0);//±Õ¸¡À∞—±≥æ∞…ËŒ™null£¨±‹√‚onDrawÀ¢–¬±≥æ∞ ±∫Ú≥ˆœ÷used a recycled bitmap¥ÌŒÛ
+			imageView1.setBackgroundResource(0);//Âà´Âøò‰∫ÜÊääËÉåÊôØËÆæ‰∏∫nullÔºåÈÅøÂÖçonDrawÂà∑Êñ∞ËÉåÊôØÊó∂ÂÄôÂá∫Áé∞used a recycled bitmapÈîôËØØ
 			bd.setCallback(null);
 			bd.getBitmap().recycle();
-			
+
 			System.out.println("MyPosterView.type=======1=========="+MyPosterView.type);
 			System.out.println("HomeActivity.type=======1==============="+HomeActivity.type);
 			System.out.println("GouWuCheAGoodsAdaper.type=======1==============="+ GouWuCheAGoodsAdaper.type);
 			try {
-				
-//			if (MyPosterView.type == true) {
-//				MyPosterView.mQuery.clear();
-//				MyPosterView.type = false;
-//			}
-//			if (HomeActivity.type == true) {
-//				HomeActivity.mAq.clear();
-//				HomeActivity.type = false;
-//			}
-			
-			if (GouWuCheAGoodsAdaper.type == true) {
-				GouWuCheAGoodsAdaper.mAq.clear();
-				GouWuCheAGoodsAdaper.type = false;
-			}
-			if (MyShopPingCarActivity.type == true) {
-				MyShopPingCarActivity.query.clear();
-				MyShopPingCarActivity.query.recycle(mListView);
-				MyShopPingCarActivity.type = false;
-			}
-			
-			if (lists.size() > 0) {
-				lists.clear();
-				lists = null;
-			}
-			
-			if (result.size() > 0) {
-				result.clear();
-				result = null;
-			}
+
+				//			if (MyPosterView.type == true) {
+				//				MyPosterView.mQuery.clear();
+				//				MyPosterView.type = false;
+				//			}
+				//			if (HomeActivity.type == true) {
+				//				HomeActivity.mAq.clear();
+				//				HomeActivity.type = false;
+				//			}
+
+				if (GouWuCheAGoodsAdaper.type == true) {
+					GouWuCheAGoodsAdaper.mAq.clear();
+					GouWuCheAGoodsAdaper.type = false;
+				}
+				if (MyShopPingCarActivity.type == true) {
+					MyShopPingCarActivity.query.clear();
+					MyShopPingCarActivity.query.recycle(mListView);
+					MyShopPingCarActivity.type = false;
+				}
+
+				if (lists.size() > 0) {
+					lists.clear();
+					lists = null;
+				}
+
+				if (result.size() > 0) {
+					result.clear();
+					result = null;
+				}
 			} catch (Exception e) {
 				// TODO: handle exception
 				e.printStackTrace();
@@ -247,110 +247,110 @@ public class MyShopPingCarActivity extends Fragment implements OnClickListener {
 			System.out.println("HomeActivity.type=======2=========="+ HomeActivity.type);
 			System.out.println("MyPosterView.type=======2==============="+ MyPosterView.type);
 			System.out.println("GouWuCheAGoodsAdaper.type=======2==============="+ GouWuCheAGoodsAdaper.type);
-		 } catch (Exception e) {
-				// TODO: handle exception
-			 e.printStackTrace();
-		 }
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
 	};
-	
-	
+
+
 	private void getjianche() {
 		// TODO Auto-generated method stub
-		  SharedPreferences spPreferences_login = getActivity().getSharedPreferences("longuserset_login", Context.MODE_PRIVATE);
-			nickname = spPreferences_login.getString("nickname", "");
-			String headimgurl = spPreferences_login.getString("headimgurl", "");
-			String unionid = spPreferences_login.getString("unionid", "");
-			String access_token = spPreferences_login.getString("access_token", "");
-			String sex = spPreferences_login.getString("sex", "");
-			
-				System.out.println("UserLoginActivity====================="+UserLoginActivity.oauth_name);
-				System.out.println("UserLoginWayActivity====================="+UserLoginWayActivity.oauth_name);
-				
-			if (UserLoginActivity.oauth_name.equals("weixin")) {
-				oauth_name = "weixin";
-			} else if (UserLoginWayActivity.oauth_name.equals("weixin")) {
-				oauth_name = "qq";
-			}
-			
-			System.out.println("nickname-----1-----"+nickname);
-			String nick_name = nickname.replaceAll("\\s*", "");
-			System.out.println("nick_name-----2-----"+nick_name);
-			
-//			String strUrlone = RealmName.REALM_NAME_LL + "/user_oauth_register_0215?nick_name="+nick_name+"&sex="+sex+"&avatar="+headimgurl+"" +
-//			"&province=&city=&country=&oauth_name="+oauth_name+"&oauth_access_token="+access_token+"&oauth_unionid="+unionid+"";
-			
-			String oauth_openid = spPreferences_login.getString("oauth_openid", "");
-			String strUrlone = RealmName.REALM_NAME_LL + "/user_oauth_register_0217?nick_name="+nick_name+"&sex="+sex+"&avatar="+headimgurl+"" +
-					"&province=&city=&country=&oauth_name="+oauth_name+"&oauth_unionid="+unionid+"" +
-							"&oauth_openid="+oauth_openid+"";
-			System.out.println("Œ“µƒ======11======1======="+strUrlone);
-			AsyncHttp.get(strUrlone, new AsyncHttpResponseHandler() {
-				public void onSuccess(int arg0, String arg1) {
-					System.out.println("Œ“µƒ====== ‰≥ˆ=====1========"+arg1);
-					try {
-						JSONObject object = new JSONObject(arg1);
-							datall = object.getString("data");
-							System.out.println("datall=============="+datall);
-							if (datall.equals("null")) {
-								
-								SharedPreferences spPreferences_tishi = getActivity().getSharedPreferences("longuserset_tishi", Context.MODE_PRIVATE);
-								weixin = spPreferences_tishi.getString("weixin", "");
-								qq = spPreferences_tishi.getString("qq", "");
-								if (!nickname.equals("")) {
-									
-									if (UserLoginActivity.panduan_tishi == true) { 
-										if (weixin.equals("weixin")) {
-										}else {
-											 Intent intent1 = new Intent(getActivity(), TishiWxBangDingActivity.class);
-										     startActivity(intent1);
-											 UserLoginActivity.panduan_tishi = false;
-										}
-										
-									}else if (UserLoginWayActivity.panduan_tishi == true) {
-										if (qq.equals("qq")) {
-										}else {
-											Intent intent2 = new Intent(getActivity(), TishiWxBangDingActivity.class);
-									        startActivity(intent2);
-											UserLoginWayActivity.panduan_tishi = false;
-										}
-									}
+		SharedPreferences spPreferences_login = getActivity().getSharedPreferences("longuserset_login", Context.MODE_PRIVATE);
+		nickname = spPreferences_login.getString("nickname", "");
+		String headimgurl = spPreferences_login.getString("headimgurl", "");
+		String unionid = spPreferences_login.getString("unionid", "");
+		String access_token = spPreferences_login.getString("access_token", "");
+		String sex = spPreferences_login.getString("sex", "");
+
+		System.out.println("UserLoginActivity====================="+UserLoginActivity.oauth_name);
+		System.out.println("UserLoginWayActivity====================="+UserLoginWayActivity.oauth_name);
+
+		if (UserLoginActivity.oauth_name.equals("weixin")) {
+			oauth_name = "weixin";
+		} else if (UserLoginWayActivity.oauth_name.equals("weixin")) {
+			oauth_name = "qq";
+		}
+
+		System.out.println("nickname-----1-----"+nickname);
+		String nick_name = nickname.replaceAll("\\s*", "");
+		System.out.println("nick_name-----2-----"+nick_name);
+
+		//			String strUrlone = RealmName.REALM_NAME_LL + "/user_oauth_register_0215?nick_name="+nick_name+"&sex="+sex+"&avatar="+headimgurl+"" +
+		//			"&province=&city=&country=&oauth_name="+oauth_name+"&oauth_access_token="+access_token+"&oauth_unionid="+unionid+"";
+
+		String oauth_openid = spPreferences_login.getString("oauth_openid", "");
+		String strUrlone = RealmName.REALM_NAME_LL + "/user_oauth_register_0217?nick_name="+nick_name+"&sex="+sex+"&avatar="+headimgurl+"" +
+				"&province=&city=&country=&oauth_name="+oauth_name+"&oauth_unionid="+unionid+"" +
+				"&oauth_openid="+oauth_openid+"";
+		System.out.println("ÊàëÁöÑ======11======1======="+strUrlone);
+		AsyncHttp.get(strUrlone, new AsyncHttpResponseHandler() {
+			public void onSuccess(int arg0, String arg1) {
+				System.out.println("ÊàëÁöÑ======ËæìÂá∫=====1========"+arg1);
+				try {
+					JSONObject object = new JSONObject(arg1);
+					datall = object.getString("data");
+					System.out.println("datall=============="+datall);
+					if (datall.equals("null")) {
+
+						SharedPreferences spPreferences_tishi = getActivity().getSharedPreferences("longuserset_tishi", Context.MODE_PRIVATE);
+						weixin = spPreferences_tishi.getString("weixin", "");
+						qq = spPreferences_tishi.getString("qq", "");
+						if (!nickname.equals("")) {
+
+							if (UserLoginActivity.panduan_tishi == true) {
+								if (weixin.equals("weixin")) {
+								}else {
+									Intent intent1 = new Intent(getActivity(), TishiWxBangDingActivity.class);
+									startActivity(intent1);
+									UserLoginActivity.panduan_tishi = false;
 								}
-								
-							}else {
-								UserRegisterllData data = new UserRegisterllData();
-								JSONObject obj = object.getJSONObject("data");
-								data.id = obj.getString("id");
-								data.user_name = obj.getString("user_name");
-								data.login_sign = obj.getString("login_sign");
-								user_id = data.id;
-								System.out.println("---data.user_name-------------------"+data.user_name);
-								System.out.println("---user_id-------------------"+user_id);
-								if (data.user_name.equals("ƒ‰√˚")) {
-//									if (data.id.equals("0")) {
-										System.out.println("---Œ¢–≈ªπŒ¥∞Û∂®-------------------");
-										
-									}else {
-								SharedPreferences spPreferences = getActivity().getSharedPreferences("longuserset", Context.MODE_PRIVATE);
-								Editor editor = spPreferences.edit();
-								editor.putString("user",data.user_name);
-								editor.putString("user_id", data.id);
-								editor.putString("login_sign", data.login_sign);
-								editor.commit();
-								String user_name = spPreferences.getString("user", "");
-								System.out.println("---2-------------------"+user_name);
-									}
+
+							}else if (UserLoginWayActivity.panduan_tishi == true) {
+								if (qq.equals("qq")) {
+								}else {
+									Intent intent2 = new Intent(getActivity(), TishiWxBangDingActivity.class);
+									startActivity(intent2);
+									UserLoginWayActivity.panduan_tishi = false;
+								}
 							}
-							
-							getuserxinxi();
-							
-					} catch (JSONException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
+						}
+
+					}else {
+						UserRegisterllData data = new UserRegisterllData();
+						JSONObject obj = object.getJSONObject("data");
+						data.id = obj.getString("id");
+						data.user_name = obj.getString("user_name");
+						data.login_sign = obj.getString("login_sign");
+						user_id = data.id;
+						System.out.println("---data.user_name-------------------"+data.user_name);
+						System.out.println("---user_id-------------------"+user_id);
+						if (data.user_name.equals("ÂåøÂêç")) {
+							//									if (data.id.equals("0")) {
+							System.out.println("---ÂæÆ‰ø°ËøòÊú™ÁªëÂÆö-------------------");
+
+						}else {
+							SharedPreferences spPreferences = getActivity().getSharedPreferences("longuserset", Context.MODE_PRIVATE);
+							Editor editor = spPreferences.edit();
+							editor.putString("user",data.user_name);
+							editor.putString("user_id", data.id);
+							editor.putString("login_sign", data.login_sign);
+							editor.commit();
+							String user_name = spPreferences.getString("user", "");
+							System.out.println("---2-------------------"+user_name);
+						}
 					}
-					
-				};
-			}, getActivity());
-			
+
+					getuserxinxi();
+
+				} catch (JSONException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+
+			};
+		}, getActivity());
+
 	}
 	private void getuserxinxi() {
 		// TODO Auto-generated method stub
@@ -360,20 +360,20 @@ public class MyShopPingCarActivity extends Fragment implements OnClickListener {
 		System.out.println("user_name================="+user_name);
 		System.out.println("user_id================="+user_id);
 	}
-	
+
 	DataBean dm;
 	private void getgouwuche() {
 		// TODO Auto-generated method stub
 		System.out.println("ptye================"+ptye);
 		if (ptye == false) {
 			progress.CreateProgress();
-//			ptye = true;
+			//			ptye = true;
 		}
-		
+
 		result = new ArrayList<DataBean>();
-//		user_id = spPreferences.getString("user_id", "");
-//		if (!user_id.equals("")) {
-			
+		//		user_id = spPreferences.getString("user_id", "");
+		//		if (!user_id.equals("")) {
+
 		AsyncHttp.get(RealmName.REALM_NAME_LL+ "/get_shopping_cart?pageSize=500&pageIndex=1&user_id="+user_id+""
 				,new AsyncHttpResponseHandler() {
 					@Override
@@ -382,42 +382,42 @@ public class MyShopPingCarActivity extends Fragment implements OnClickListener {
 						super.onSuccess(arg0, arg1);
 						try {
 							JSONObject jsonObject = new JSONObject(arg1);
-							System.out.println("π∫ŒÔ≥µ ˝æ›================");
-//							System.out.println("π∫ŒÔ≥µ ˝æ›================"+arg1);
+							System.out.println("Ë¥≠Áâ©ËΩ¶Êï∞ÊçÆ================");
+							//							System.out.println("Ë¥≠Áâ©ËΩ¶Êï∞ÊçÆ================"+arg1);
 							JSONArray jsot = jsonObject.getJSONArray("data");
 							System.out.println("jsot================"+jsot.length());
 							if (jsot.length() > 0) {
-							for (int i = 0; i < jsot.length(); i++) {
-								dm = new DataBean();
-								JSONObject object = jsot.getJSONObject(i);
-								dm.setId(object.getInt("id"));
-								dm.setTitle(object.getString("title"));
-								dm.setMarket_price(object.getString("market_price"));
-								dm.setSell_price(object.getDouble("sell_price"));
-								dm.setImg_url(object.getString("img_url"));
-								dm.setQuantity(object.getInt("quantity"));
-								dm.setArticle_id(object.getString("article_id"));
-								dm.setGoods_id(object.getString("goods_id"));
-								result.add(dm);
-								
-							}
-							dm = null;
-							progress.CloseProgress();
-							adv_pager.setVisibility(View.GONE);
-							subtitle.setVisibility(View.VISIBLE);
-							mListView.setVisibility(View.VISIBLE);
-							ll_xianshi.setVisibility(View.VISIBLE);
-							System.out.println("1================");
+								for (int i = 0; i < jsot.length(); i++) {
+									dm = new DataBean();
+									JSONObject object = jsot.getJSONObject(i);
+									dm.setId(object.getInt("id"));
+									dm.setTitle(object.getString("title"));
+									dm.setMarket_price(object.getString("market_price"));
+									dm.setSell_price(object.getDouble("sell_price"));
+									dm.setImg_url(object.getString("img_url"));
+									dm.setQuantity(object.getInt("quantity"));
+									dm.setArticle_id(object.getString("article_id"));
+									dm.setGoods_id(object.getString("goods_id"));
+									result.add(dm);
+
+								}
+								dm = null;
+								progress.CloseProgress();
+								adv_pager.setVisibility(View.GONE);
+								subtitle.setVisibility(View.VISIBLE);
+								mListView.setVisibility(View.VISIBLE);
+								ll_xianshi.setVisibility(View.VISIBLE);
+								System.out.println("1================");
 							}else {
 								progress.CloseProgress();
 								System.out.println("2================");
 								adv_pager.setVisibility(View.VISIBLE);
 								subtitle.setVisibility(View.GONE);
 								mListView.setVisibility(View.GONE);
-//								mPriceAll.setText("£§"+0.00);
+								//								mPriceAll.setText("Ôø•"+0.00);
 								ll_xianshi.setVisibility(View.GONE);
 							}
-//							refreshListView();
+							//							refreshListView();
 							progress.CloseProgress();
 						} catch (JSONException e) {
 							// TODO Auto-generated catch block
@@ -427,19 +427,19 @@ public class MyShopPingCarActivity extends Fragment implements OnClickListener {
 					}
 
 				}, null);
-//		}else {
-//			progress.CloseProgress();
-////			adv_pager.setVisibility(View.VISIBLE);
-//		}
+		//		}else {
+		//			progress.CloseProgress();
+		////			adv_pager.setVisibility(View.VISIBLE);
+		//		}
 		totalPrice = 0;
-		mPriceAll.setText("£§"+totalPrice);
+		mPriceAll.setText("Ôø•"+totalPrice);
 		mCheckAll.setChecked(false);
 		System.out.println("result22-------------"+result.size());
 		loadData();
 	}
 
 	/**
-	 * »»œ˙◊®«¯
+	 * ÁÉ≠ÈîÄ‰∏ìÂå∫
 	 */
 	private ArrayList<SpListData> lists;
 	SpListData spList;
@@ -447,22 +447,22 @@ public class MyShopPingCarActivity extends Fragment implements OnClickListener {
 		lists = new ArrayList<SpListData>();
 		try {
 			//821
-		AsyncHttp.get(RealmName.REALM_NAME_LL+ 
-//				"/get_article_page_size_list?channel_name=life&category_id=687&page_size=20&page_index=1&strwhere=&orderby=",
-				 "/get_article_top_list?channel_name=goods&top=5&strwhere=status=0%20and%20is_top=1",
-				new AsyncHttpResponseHandler() {
-							@Override
-							public void onSuccess(int arg0, String arg1) {
-								// TODO Auto-generated method stub
-								super.onSuccess(arg0, arg1);
-//								System.out.println("»»œ˙◊®«¯====================="+arg1);
-								try {
-									JSONObject jsonObject = new JSONObject(arg1);
-									String status = jsonObject.getString("status");
-									String info = jsonObject.getString("info");
-									if (status.equals("y")) {
+			AsyncHttp.get(RealmName.REALM_NAME_LL+
+							//				"/get_article_page_size_list?channel_name=life&category_id=687&page_size=20&page_index=1&strwhere=&orderby=",
+							"/get_article_top_list?channel_name=goods&top=5&strwhere=status=0%20and%20is_top=1",
+					new AsyncHttpResponseHandler() {
+						@Override
+						public void onSuccess(int arg0, String arg1) {
+							// TODO Auto-generated method stub
+							super.onSuccess(arg0, arg1);
+							//								System.out.println("ÁÉ≠ÈîÄ‰∏ìÂå∫====================="+arg1);
+							try {
+								JSONObject jsonObject = new JSONObject(arg1);
+								String status = jsonObject.getString("status");
+								String info = jsonObject.getString("info");
+								if (status.equals("y")) {
 									JSONArray jsonArray = jsonObject.getJSONArray("data");
-//									 len = jsonArray.length();
+									//									 len = jsonArray.length();
 									for(int i=1;i<jsonArray.length();i++){
 										spList = new SpListData();
 										JSONObject object = jsonArray.getJSONObject(i);
@@ -474,34 +474,34 @@ public class MyShopPingCarActivity extends Fragment implements OnClickListener {
 										lists.add(spList);
 									}
 									spList = null;
-									}else {
-//										progress.CloseProgress();
-										Toast.makeText(getActivity(), info, 200).show();
-									}
-									System.out.println("lists.size()====================="+lists.size());
-									jdhadapter = new GouWuCheAGoodsAdaper(lists, getActivity());
-									myGridView.setAdapter(jdhadapter);
-									if (lists.size() > 0) {
-										GouWuCheAGoodsAdaper.mAq.clear();
-										GouWuCheAGoodsAdaper.mAq.recycle(myGridView);
-									}
-//									setListViewHeightBasedOnChildren(myGridView);
-									myGridView.setOnItemClickListener(new OnItemClickListener() {
-							            @Override
-							            public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
-											System.out.println("====================="+lists.get(arg2).id);
-											Intent intent = new Intent(getActivity(),WareInformationActivity.class);
-											intent.putExtra("id", lists.get(arg2).id);
-											startActivity(intent);
-							            }
-							        });
-//									progress.CloseProgress();
-								} catch (JSONException e) {
-									// TODO Auto-generated catch block
-									e.printStackTrace();
+								}else {
+									//										progress.CloseProgress();
+									Toast.makeText(getActivity(), info, 200).show();
 								}
+								System.out.println("lists.size()====================="+lists.size());
+								jdhadapter = new GouWuCheAGoodsAdaper(lists, getActivity());
+								myGridView.setAdapter(jdhadapter);
+								if (lists.size() > 0) {
+									GouWuCheAGoodsAdaper.mAq.clear();
+									GouWuCheAGoodsAdaper.mAq.recycle(myGridView);
+								}
+								//									setListViewHeightBasedOnChildren(myGridView);
+								myGridView.setOnItemClickListener(new OnItemClickListener() {
+									@Override
+									public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
+										System.out.println("====================="+lists.get(arg2).id);
+										Intent intent = new Intent(getActivity(),WareInformationActivity.class);
+										intent.putExtra("id", lists.get(arg2).id);
+										startActivity(intent);
+									}
+								});
+								//									progress.CloseProgress();
+							} catch (JSONException e) {
+								// TODO Auto-generated catch block
+								e.printStackTrace();
 							}
-						}, null);
+						}
+					}, null);
 		} catch (Exception e) {
 			// TODO: handle exception
 			e.printStackTrace();
@@ -511,12 +511,12 @@ public class MyShopPingCarActivity extends Fragment implements OnClickListener {
 
 	private void initView(View layout) {
 		imageView1 =  (ImageView) layout.findViewById(R.id.imageView1);
-//		Bitmap thumb_1 = BitmapFactory.decodeResource(getActivity().getResources(),R.drawable.zams_gwc);
-//		imageView1.setImageBitmap(thumb_1);
+		//		Bitmap thumb_1 = BitmapFactory.decodeResource(getActivity().getResources(),R.drawable.zams_gwc);
+		//		imageView1.setImageBitmap(thumb_1);
 		Bitmap bm = BitmapFactory.decodeResource(this.getResources(), R.drawable.zams_gwc);
 		BitmapDrawable bd = new BitmapDrawable(this.getResources(), bm);
 		imageView1.setBackgroundDrawable(bd);
-		
+
 		myGridView = (MyGridView) layout.findViewById(R.id.gridView);
 		myGridView.setFocusable(false);
 		back = (ImageView) layout.findViewById(R.id.back);
@@ -532,10 +532,10 @@ public class MyShopPingCarActivity extends Fragment implements OnClickListener {
 		subtitle = (TextView) layout.findViewById(R.id.subtitle);
 		mListView = (ListView) layout.findViewById(R.id.listview);
 		mListView.setSelector(R.drawable.list_selector);
-		
-        btn_register = (Button) layout.findViewById(R.id.btn_register);
-        
-        ll_tjsp = (LinearLayout)layout.findViewById(R.id.ll_tjsp);
+
+		btn_register = (Button) layout.findViewById(R.id.btn_register);
+
+		ll_tjsp = (LinearLayout)layout.findViewById(R.id.ll_tjsp);
 		ll_tjsp.setOnClickListener(new OnClickListener() {
 
 			@Override
@@ -545,48 +545,48 @@ public class MyShopPingCarActivity extends Fragment implements OnClickListener {
 				startActivity(intent);
 			}
 		});
-		
-		
-		//π∫ŒÔ≥µŒﬁ…Ã∆∑»•π‰π‰
-				btn_register.setOnClickListener(new OnClickListener() {
-					
-					@Override
-					public void onClick(View arg0) {
-						// TODO Auto-generated method stub
-//						user_name = spPreferences.getString("user", "");
-						System.out.println("user_name================"+user_name);
-//						if (user_name.equals("")) {
-//							Intent intentll = new Intent(getActivity(),UserLoginActivity.class);
-//							startActivity(intentll);
-//							
-//						} else {
-//								Intent intentll = new Intent(getActivity(),NewWare.class);
-//								startActivity(intentll);
-//						}
-						
-						if (!nickname.equals("")) {
-							if (!user_name.equals("")) {
-//								Intent Intent2 = new Intent(getActivity(),NewWare.class);
-//								Intent2.putExtra("channel_name", "life");
-//								startActivity(Intent2);
-							} else {
-							Intent intent = new Intent(getActivity(), TishiWxBangDingActivity.class);
-							startActivity(intent);
-							}
-						}else {
-						if (user_name.equals("")) {
-							Intent intentll = new Intent(getActivity(),UserLoginActivity.class);
-							startActivity(intentll);
-						} else {
-//						Intent intent = new Intent(getActivity(),NewWare.class);
-//						intent.putExtra("channel_name", "life");
-//						startActivity(intent);
-						MainFragment.handlerll.sendEmptyMessage(0);
-						}
-						}
-						
+
+
+		//Ë¥≠Áâ©ËΩ¶Êó†ÂïÜÂìÅÂéªÈÄõÈÄõ
+		btn_register.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View arg0) {
+				// TODO Auto-generated method stub
+				//						user_name = spPreferences.getString("user", "");
+				System.out.println("user_name================"+user_name);
+				//						if (user_name.equals("")) {
+				//							Intent intentll = new Intent(getActivity(),UserLoginActivity.class);
+				//							startActivity(intentll);
+				//
+				//						} else {
+				//								Intent intentll = new Intent(getActivity(),NewWare.class);
+				//								startActivity(intentll);
+				//						}
+
+				if (!nickname.equals("")) {
+					if (!user_name.equals("")) {
+						//								Intent Intent2 = new Intent(getActivity(),NewWare.class);
+						//								Intent2.putExtra("channel_name", "life");
+						//								startActivity(Intent2);
+					} else {
+						Intent intent = new Intent(getActivity(), TishiWxBangDingActivity.class);
+						startActivity(intent);
 					}
-				});
+				}else {
+					if (user_name.equals("")) {
+						Intent intentll = new Intent(getActivity(),UserLoginActivity.class);
+						startActivity(intentll);
+					} else {
+						//						Intent intent = new Intent(getActivity(),NewWare.class);
+						//						intent.putExtra("channel_name", "life");
+						//						startActivity(intent);
+						MainFragment.handlerll.sendEmptyMessage(0);
+					}
+				}
+
+			}
+		});
 	}
 
 	private void initListener() {
@@ -603,29 +603,29 @@ public class MyShopPingCarActivity extends Fragment implements OnClickListener {
 	private void refreshListView() {
 		if (mListAdapter == null) {
 			try {
-			mListAdapter = new ListAdapter();
-			mListView.setAdapter(mListAdapter);
-			mListView.setOnItemClickListener(mListAdapter);
-//			query.clear();
-//			System.out.println("clear------11-------«Â≥˝ƒ⁄¥Ê");
-			setListViewHeightBasedOnChildren(mListView);
+				mListAdapter = new ListAdapter();
+				mListView.setAdapter(mListAdapter);
+				mListView.setOnItemClickListener(mListAdapter);
+				//			query.clear();
+				//			System.out.println("clear------11-------Ê∏ÖÈô§ÂÜÖÂ≠ò");
+				setListViewHeightBasedOnChildren(mListView);
 			} catch (Exception e) {
 				// TODO: handle exception
 				e.printStackTrace();
 			}
 		} else {
 			try {
-			mListAdapter.notifyDataSetChanged();
-			setListViewHeightBasedOnChildren(mListView);
-		} catch (Exception e) {
-			// TODO: handle exception
-			e.printStackTrace();
-		}
+				mListAdapter.notifyDataSetChanged();
+				setListViewHeightBasedOnChildren(mListView);
+			} catch (Exception e) {
+				// TODO: handle exception
+				e.printStackTrace();
+			}
 		}
 	}
 
 	private List<DataBean> getData() {
-//		System.out.println("result11-------------"+result.size());
+		//		System.out.println("result11-------------"+result.size());
 		return result;
 	}
 
@@ -650,7 +650,7 @@ public class MyShopPingCarActivity extends Fragment implements OnClickListener {
 			Params p = params[0];
 			Result result = new Result();
 			result.op = p.op;
-			try {// ƒ£ƒ‚∫ƒ ±
+			try {// Ê®°ÊãüËÄóÊó∂
 				Thread.sleep(500L);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
@@ -665,12 +665,12 @@ public class MyShopPingCarActivity extends Fragment implements OnClickListener {
 			if (result.op == INITIALIZE) {
 				mListData = result.list;
 				query.clear();
-				System.out.println("clear-------------«Â≥˝ƒ⁄¥Ê");
+				System.out.println("clear-------------Ê∏ÖÈô§ÂÜÖÂ≠ò");
 				System.out.println("result2-------------");
 			} else {
 				System.out.println("result3-------------");
 				mListData.addAll(result.list);
-				Toast.makeText(getActivity(), "ÃÌº”≥…π¶£°",Toast.LENGTH_SHORT).show();
+				Toast.makeText(getActivity(), "Ê∑ªÂä†ÊàêÂäüÔºÅ",Toast.LENGTH_SHORT).show();
 			}
 
 			refreshListView();
@@ -681,7 +681,7 @@ public class MyShopPingCarActivity extends Fragment implements OnClickListener {
 	boolean isSelect = false;
 
 	/**
-	 * …Ã∆∑¡–±Ì
+	 * ÂïÜÂìÅÂàóË°®
 	 * @author Administrator
 	 *
 	 */
@@ -706,23 +706,23 @@ public class MyShopPingCarActivity extends Fragment implements OnClickListener {
 
 		@Override
 		public View getView(final int position, View convertView,
-				ViewGroup parent) {
+							ViewGroup parent) {
 			View view = convertView;
 			if (view == null) {
 				try {
-					
-				
-				holder = new ViewHolder();
-				view = LayoutInflater.from(getActivity()).inflate(R.layout.cart_list_item, null);
-				holder.checkBox = (CheckBox) view.findViewById(R.id.check_box);
-				holder.tv_size = (TextView) view.findViewById(R.id.tv_size);
-				holder.image = (ImageView) view.findViewById(R.id.iv_adapter_list_pic);
-				holder.content = (TextView) view.findViewById(R.id.tv_intro);
-				holder.carNum = (TextView) view.findViewById(R.id.tv_num);
-				holder.price = (TextView) view.findViewById(R.id.tv_price);
-				holder.add = (TextView) view.findViewById(R.id.tv_add);
-				holder.red = (TextView) view.findViewById(R.id.tv_reduce);
-				holder.frontView = view.findViewById(R.id.item_left);
+
+
+					holder = new ViewHolder();
+					view = LayoutInflater.from(getActivity()).inflate(R.layout.cart_list_item, null);
+					holder.checkBox = (CheckBox) view.findViewById(R.id.check_box);
+					holder.tv_size = (TextView) view.findViewById(R.id.tv_size);
+					holder.image = (ImageView) view.findViewById(R.id.iv_adapter_list_pic);
+					holder.content = (TextView) view.findViewById(R.id.tv_intro);
+					holder.carNum = (TextView) view.findViewById(R.id.tv_num);
+					holder.price = (TextView) view.findViewById(R.id.tv_price);
+					holder.add = (TextView) view.findViewById(R.id.tv_add);
+					holder.red = (TextView) view.findViewById(R.id.tv_reduce);
+					holder.frontView = view.findViewById(R.id.item_left);
 				} catch (Exception e) {
 					// TODO: handle exception
 					e.printStackTrace();
@@ -731,83 +731,83 @@ public class MyShopPingCarActivity extends Fragment implements OnClickListener {
 			} else {
 				holder = (ViewHolder) view.getTag();
 			}
-try {
-	
-			
-			final DataBean data = mListData.get(position);
-			bindListItem(holder, data);
+			try {
 
-			
-//			mListData.get(position).setChoose(true);
-			if (data != null) {
-				// ≈–∂œ «∑Ò—°‘Ò
-				if (data.isChoose()) {
-					holder.checkBox.setChecked(true);
-				} else {
-					holder.checkBox.setChecked(false);
+
+				final DataBean data = mListData.get(position);
+				bindListItem(holder, data);
+
+
+				//			mListData.get(position).setChoose(true);
+				if (data != null) {
+					// Âà§Êñ≠ÊòØÂê¶ÈÄâÊã©
+					if (data.isChoose()) {
+						holder.checkBox.setChecked(true);
+					} else {
+						holder.checkBox.setChecked(false);
+					}
+
+					// ÈÄâ‰∏≠Êìç‰Ωú
+					//				holder.checkBox.setOnClickListener(new CheckBoxOnClick(data));
+					// ÂáèÂ∞ëÊìç‰Ωú
+					holder.red.setOnClickListener(new ReduceOnClick(data,holder.carNum));
+
+					// Â¢ûÂä†Êìç‰Ωú
+					holder.add.setOnClickListener(new AddOnclick(data,holder.carNum));
+
 				}
-
-				// —°÷–≤Ÿ◊˜
-//				holder.checkBox.setOnClickListener(new CheckBoxOnClick(data));
-				// ºı…Ÿ≤Ÿ◊˜
-				holder.red.setOnClickListener(new ReduceOnClick(data,holder.carNum));
-
-				// ‘ˆº”≤Ÿ◊˜
-				holder.add.setOnClickListener(new AddOnclick(data,holder.carNum));
-
+			} catch (Exception e) {
+				// TODO: handle exception
+				e.printStackTrace();
 			}
-} catch (Exception e) {
-	// TODO: handle exception
-	e.printStackTrace();
-}
 			return view;
 		}
 
-//		class CheckBoxOnClick implements OnClickListener {
-//			DataBean shopcartEntity;
-//
-//			public CheckBoxOnClick(DataBean shopcartEntity) {
-//				this.shopcartEntity = shopcartEntity;
-//			}
-//
-//			@Override
-//			public void onClick(View view) {
-//				CheckBox cb = (CheckBox) view;
-//				if (cb.isChecked()) {
-//					shopcartEntity.setChoose(true);
-////					totalPrice = 0;
-////					list_size.add(num);
-////					if (zhuangtai == true) {
-////						mDelete.setText(getResources().getString(R.string.menu_sett)+"5(" + list_size.size() + ")");
-////					}else {
-////						mDelete.setText(getResources().getString(R.string.menu_del)+"6(" + list_size.size() + ")");
-////					}
-//					count();
-//				} else {
-//					shopcartEntity.setChoose(false);
-////					list_size.remove(num);
-////					if (zhuangtai == true) {
-////						mDelete.setText(getResources().getString(R.string.menu_sett)+"7(" + list_size.size() + ")");
-////					}else {
-////						mDelete.setText(getResources().getString(R.string.menu_del)+"8(" + list_size.size() + ")");
-////					}
-//				}
-//				select();
-//
-//			}
-//
-//		}
+		//		class CheckBoxOnClick implements OnClickListener {
+		//			DataBean shopcartEntity;
+		//
+		//			public CheckBoxOnClick(DataBean shopcartEntity) {
+		//				this.shopcartEntity = shopcartEntity;
+		//			}
+		//
+		//			@Override
+		//			public void onClick(View view) {
+		//				CheckBox cb = (CheckBox) view;
+		//				if (cb.isChecked()) {
+		//					shopcartEntity.setChoose(true);
+		////					totalPrice = 0;
+		////					list_size.add(num);
+		////					if (zhuangtai == true) {
+		////						mDelete.setText(getResources().getString(R.string.menu_sett)+"5(" + list_size.size() + ")");
+		////					}else {
+		////						mDelete.setText(getResources().getString(R.string.menu_del)+"6(" + list_size.size() + ")");
+		////					}
+		//					count();
+		//				} else {
+		//					shopcartEntity.setChoose(false);
+		////					list_size.remove(num);
+		////					if (zhuangtai == true) {
+		////						mDelete.setText(getResources().getString(R.string.menu_sett)+"7(" + list_size.size() + ")");
+		////					}else {
+		////						mDelete.setText(getResources().getString(R.string.menu_del)+"8(" + list_size.size() + ")");
+		////					}
+		//				}
+		//				select();
+		//
+		//			}
+		//
+		//		}
 
 		private class AddOnclick implements OnClickListener {
-			
+
 			DataBean shopcartEntity;
 			TextView shopcart_number_btn;
 
 			private AddOnclick(DataBean shopcartEntity,
-					TextView shopcart_number_btn) {
+							   TextView shopcart_number_btn) {
 				this.shopcartEntity = shopcartEntity;
 				this.shopcart_number_btn = shopcart_number_btn;
-				
+
 			}
 
 			@Override
@@ -818,7 +818,7 @@ try {
 					int number = Integer.parseInt(numberStr);
 
 					int currentNum = number + 1;
-					// …Ë÷√¡–±Ì
+					// ËÆæÁΩÆÂàóË°®
 					shopcartEntity.setQuantity(currentNum);
 					holder.carNum.setText("" + currentNum);
 					int cart_id = shopcartEntity.getId();
@@ -827,16 +827,16 @@ try {
 						@Override
 						public void onSuccess(int arg0, String arg1) {
 							// TODO Auto-generated method stub
-							System.out.println("==========================∑√Œ Ω”ø⁄≥…π¶£°"+arg1);
+							System.out.println("==========================ËÆøÈóÆÊé•Âè£ÊàêÂäüÔºÅ"+arg1);
 							super.onSuccess(arg0, arg1);
 						}
-						
+
 					}, getActivity());
 					notifyDataSetChanged();
 				}
 				count();
 			}
-			
+
 		}
 
 		private class ReduceOnClick implements OnClickListener {
@@ -844,7 +844,7 @@ try {
 			TextView shopcart_number_btn;
 
 			private ReduceOnClick(DataBean shopcartEntity,
-					TextView shopcart_number_btn) {
+								  TextView shopcart_number_btn) {
 				this.shopcartEntity = shopcartEntity;
 				this.shopcart_number_btn = shopcart_number_btn;
 			}
@@ -856,10 +856,10 @@ try {
 				if (!TextUtils.isEmpty(numberStr)) {
 					int number = Integer.parseInt(numberStr);
 					if (number == 1) {
-						 Toast.makeText(getActivity(), "≤ªƒ‹Õ˘œ¬ºı…Ÿ¡À", 200).show();
+						Toast.makeText(getActivity(), "‰∏çËÉΩÂæÄ‰∏ãÂáèÂ∞ë‰∫Ü", 200).show();
 					} else {
 						int currentNum = number - 1;
-						// …Ë÷√¡–±Ì
+						// ËÆæÁΩÆÂàóË°®
 						shopcartEntity.setQuantity(currentNum);
 
 						holder.carNum.setText("" + currentNum);
@@ -869,10 +869,10 @@ try {
 							@Override
 							public void onSuccess(int arg0, String arg1) {
 								// TODO Auto-generated method stub
-								System.out.println("==========================2∑√Œ Ω”ø⁄≥…π¶£°"+arg1);
+								System.out.println("==========================2ËÆøÈóÆÊé•Âè£ÊàêÂäüÔºÅ"+arg1);
 								super.onSuccess(arg0, arg1);
 							}
-							
+
 						}, getActivity());
 						notifyDataSetChanged();
 
@@ -888,23 +888,23 @@ try {
 
 			// holder.shopName.setText(data.getShopName());
 			holder.content.setText(data.getTitle());
-			holder.price.setText("£§" + data.getSell_price());
+			holder.price.setText("Ôø•" + data.getSell_price());
 			holder.carNum.setText(data.getQuantity() + "");
-			holder.tv_size.setText("£§"+data.getMarket_price());
+			holder.tv_size.setText("Ôø•"+data.getMarket_price());
 			holder.tv_size.getPaint().setFlags(Paint.STRIKE_THRU_TEXT_FLAG | Paint.ANTI_ALIAS_FLAG);
-			
+
 			query.id(holder.image).image(RealmName.REALM_NAME_HTTP+data.getImg_url());
 			type = true;
 			int _id = data.getId();
 			boolean selected = mSelectState.get(_id, false);
-//			System.out.println("selected-------------"+selected);
+			//			System.out.println("selected-------------"+selected);
 			holder.checkBox.setChecked(selected);
 
 		}
 
 		@Override
 		public void onItemClick(AdapterView<?> parent, View view, int position,
-				long id) {
+								long id) {
 			DataBean bean = mListData.get(position);
 
 			ViewHolder holder = (ViewHolder) view.getTag();
@@ -913,12 +913,12 @@ try {
 			boolean selected = !mSelectState.get(_id, false);
 			holder.checkBox.toggle();
 
-			// Ω´CheckBoxµƒ—°÷–◊¥øˆº«¬ºœ¬¿¥
+			// Â∞ÜCheckBoxÁöÑÈÄâ‰∏≠Áä∂ÂÜµËÆ∞ÂΩï‰∏ãÊù•
 			mListData.get(position).setChoose(holder.checkBox.isChecked());
-			// µ˜’˚—°∂®Ãıƒø
+			// Ë∞ÉÊï¥ÈÄâÂÆöÊù°ÁõÆ
 			if (holder.checkBox.isChecked() == true) {
-//				String num = "1";
-//				totalPrice = 0;
+				//				String num = "1";
+				//				totalPrice = 0;
 				list_size.add(num);
 				if (zhuangtai == true) {
 					mDelete.setText(getResources().getString(R.string.menu_sett)+"(" + list_size.size() + ")");
@@ -938,7 +938,7 @@ try {
 			}
 			BigDecimal   c   =   new   BigDecimal(totalPrice);
 			dzongjia = c.setScale(2,BigDecimal.ROUND_HALF_UP).doubleValue();
-			mPriceAll.setText("£§" + dzongjia + "");
+			mPriceAll.setText("Ôø•" + dzongjia + "");
 			if (mSelectState.size() == mListData.size()) {
 				mCheckAll.setChecked(true);
 			} else {
@@ -959,7 +959,7 @@ try {
 		TextView price;
 		TextView add;
 		TextView red;
-		Button button; // ”√”⁄÷¥––…æ≥˝µƒbutton
+		Button button; // Áî®‰∫éÊâßË°åÂà†Èô§ÁöÑbutton
 		View frontView;
 		LinearLayout item_right, item_left;
 	}
@@ -971,228 +971,228 @@ try {
 		// TODO Auto-generated method stub
 		switch (v.getId()) {
 
-		case R.id.subtitle:
-			isBatchModel = !isBatchModel;
-			if (isBatchModel) {
-				mEdit.setText(getResources().getString(R.string.menu_enter));
-				mDelete.setText(getResources().getString(R.string.menu_del));
-				mBottonLayout.setVisibility(View.VISIBLE);
-				mFavorite.setVisibility(View.GONE);
-				BigDecimal   c   =   new   BigDecimal(totalPrice);
-				dzongjia = c.setScale(2,BigDecimal.ROUND_HALF_UP).doubleValue();
-				mPriceAll.setText("£§"+dzongjia);
-				System.out.println("totalPrice1-------------"+totalPrice);
-				mDelete.setText(getResources().getString(R.string.menu_del)+"(" + list_size.size() + ")");
-				zhuangtai = false;
-			} else {
-				mEdit.setText(getResources().getString(R.string.menu_edit));
-				mDelete.setText(getResources().getString(R.string.menu_sett));
-				mFavorite.setVisibility(View.GONE);
-				mBottonLayout.setVisibility(View.VISIBLE);
-//				totalPrice=0;
-				BigDecimal   c   =   new   BigDecimal(totalPrice);
-				dzongjia = c.setScale(2,BigDecimal.ROUND_HALF_UP).doubleValue();
-				mPriceAll.setText("£§"+dzongjia);
-				System.out.println("totalPrice2-------------"+totalPrice);
-				mDelete.setText(getResources().getString(R.string.menu_sett)+"(" + list_size.size() + ")");
-				zhuangtai = true;
-			}
+			case R.id.subtitle:
+				isBatchModel = !isBatchModel;
+				if (isBatchModel) {
+					mEdit.setText(getResources().getString(R.string.menu_enter));
+					mDelete.setText(getResources().getString(R.string.menu_del));
+					mBottonLayout.setVisibility(View.VISIBLE);
+					mFavorite.setVisibility(View.GONE);
+					BigDecimal   c   =   new   BigDecimal(totalPrice);
+					dzongjia = c.setScale(2,BigDecimal.ROUND_HALF_UP).doubleValue();
+					mPriceAll.setText("Ôø•"+dzongjia);
+					System.out.println("totalPrice1-------------"+totalPrice);
+					mDelete.setText(getResources().getString(R.string.menu_del)+"(" + list_size.size() + ")");
+					zhuangtai = false;
+				} else {
+					mEdit.setText(getResources().getString(R.string.menu_edit));
+					mDelete.setText(getResources().getString(R.string.menu_sett));
+					mFavorite.setVisibility(View.GONE);
+					mBottonLayout.setVisibility(View.VISIBLE);
+					//				totalPrice=0;
+					BigDecimal   c   =   new   BigDecimal(totalPrice);
+					dzongjia = c.setScale(2,BigDecimal.ROUND_HALF_UP).doubleValue();
+					mPriceAll.setText("Ôø•"+dzongjia);
+					System.out.println("totalPrice2-------------"+totalPrice);
+					mDelete.setText(getResources().getString(R.string.menu_sett)+"(" + list_size.size() + ")");
+					zhuangtai = true;
+				}
 
-			break;
+				break;
 
-		case R.id.check_box_all:
-			totalPrice = 0;
-			if (mCheckAll.isChecked()) {
-				list_size.clear();
-				for (int i = 0; i < mListData.size(); i++) {
-					mListData.get(i).setChoose(true);
-					// »Áπ˚Œ™—°÷–
-					if (mListData.get(i).isChoose()) {
-						
-						totalPrice = totalPrice + mListData.get(i).getQuantity()* mListData.get(i).getSell_price();
-						list_size.add(num);
+			case R.id.check_box_all:
+				totalPrice = 0;
+				if (mCheckAll.isChecked()) {
+					list_size.clear();
+					for (int i = 0; i < mListData.size(); i++) {
+						mListData.get(i).setChoose(true);
+						// Â¶ÇÊûú‰∏∫ÈÄâ‰∏≠
+						if (mListData.get(i).isChoose()) {
+
+							totalPrice = totalPrice + mListData.get(i).getQuantity()* mListData.get(i).getSell_price();
+							list_size.add(num);
+							if (zhuangtai == true) {
+								mDelete.setText(getResources().getString(R.string.menu_sett)+"(" + list_size.size() + ")");
+							}else {
+								mDelete.setText(getResources().getString(R.string.menu_del)+"(" + list_size.size() + ")");
+							}
+						}
+					}
+
+					// Âà∑Êñ∞
+					mListAdapter.notifyDataSetChanged();
+					// ÊòæÁ§∫
+					BigDecimal   c   =   new   BigDecimal(totalPrice);
+					dzongjia = c.setScale(2,BigDecimal.ROUND_HALF_UP).doubleValue();
+					mPriceAll.setText("Ôø•"+dzongjia);
+				} else {
+					for (int i = 0; i < mListData.size(); i++) {
+						mListData.get(i).setChoose(false);
+						list_size.clear();
 						if (zhuangtai == true) {
 							mDelete.setText(getResources().getString(R.string.menu_sett)+"(" + list_size.size() + ")");
 						}else {
 							mDelete.setText(getResources().getString(R.string.menu_del)+"(" + list_size.size() + ")");
 						}
+						//Âà∑Êñ∞
+						mListAdapter.notifyDataSetChanged();
 					}
+					BigDecimal   c   =   new   BigDecimal(totalPrice);
+					dzongjia = c.setScale(2,BigDecimal.ROUND_HALF_UP).doubleValue();
+					mPriceAll.setText("Ôø•"+dzongjia);
 				}
+				break;
 
-				// À¢–¬
-				mListAdapter.notifyDataSetChanged();
-				// œ‘ æ
-				BigDecimal   c   =   new   BigDecimal(totalPrice);
-				dzongjia = c.setScale(2,BigDecimal.ROUND_HALF_UP).doubleValue();
-				mPriceAll.setText("£§"+dzongjia);
-			} else {
-				for (int i = 0; i < mListData.size(); i++) {
-					mListData.get(i).setChoose(false);
-			list_size.clear();
-			if (zhuangtai == true) {
-				mDelete.setText(getResources().getString(R.string.menu_sett)+"(" + list_size.size() + ")");
-			}else {
-				mDelete.setText(getResources().getString(R.string.menu_del)+"(" + list_size.size() + ")");
-			}
-					//À¢–¬
-					mListAdapter.notifyDataSetChanged();
-				}
-				BigDecimal   c   =   new   BigDecimal(totalPrice);
-				dzongjia = c.setScale(2,BigDecimal.ROUND_HALF_UP).doubleValue();
-				mPriceAll.setText("£§"+dzongjia);
-			}
-			break;
+			case R.id.tv_cart_buy_or_del:
+				list_num = new ArrayList<Integer>();
+				list_num2 = new ArrayList<Integer>();
+				System.out.println("isBatchModel-------------"+isBatchModel);
+				if (isBatchModel) {
 
-		case R.id.tv_cart_buy_or_del:
-		list_num = new ArrayList<Integer>();
-		list_num2 = new ArrayList<Integer>();
-			System.out.println("isBatchModel-------------"+isBatchModel);
-			if (isBatchModel) {
-			
-//				Iterator it = mListData.iterator();
-//				while (it.hasNext()) {
-//					// µ√µΩ∂‘”¶ºØ∫œ‘™Àÿ
-//					DataBean g = (DataBean) it.next();
-//					// ≈–∂œ
-//					if (g.isChoose()) {
-//						// ¥”ºØ∫œ÷–…æ≥˝…œ“ª¥Œnext∑Ω∑®∑µªÿµƒ‘™Àÿ
-//						it.remove();
-//					}
-//				}
-				if (list_size.size() == 0) {
-					Toast.makeText(getActivity(), "«Î—°‘Ò“™…æ≥˝µƒ…Ã∆∑", 200).show();
-				}else {
-					
-					 String str1="";
+					//				Iterator it = mListData.iterator();
+					//				while (it.hasNext()) {
+					//					// ÂæóÂà∞ÂØπÂ∫îÈõÜÂêàÂÖÉÁ¥†
+					//					DataBean g = (DataBean) it.next();
+					//					// Âà§Êñ≠
+					//					if (g.isChoose()) {
+					//						// ‰ªéÈõÜÂêà‰∏≠Âà†Èô§‰∏ä‰∏ÄÊ¨°nextÊñπÊ≥ïËøîÂõûÁöÑÂÖÉÁ¥†
+					//						it.remove();
+					//					}
+					//				}
+					if (list_size.size() == 0) {
+						Toast.makeText(getActivity(), "ËØ∑ÈÄâÊã©Ë¶ÅÂà†Èô§ÁöÑÂïÜÂìÅ", 200).show();
+					}else {
+
+						String str1="";
 						for(i=0;i<mListData.size();i++){
 							if (mListData.get(i).isChoose()) {
 								System.out.println("i=========================="+i);
 								list_num.add(i);
-//								String fegefu = str1.length()>0?",":"";
-//								str1 = str1+fegefu+String.valueOf(mListData.get(i).getId());
+								//								String fegefu = str1.length()>0?",":"";
+								//								str1 = str1+fegefu+String.valueOf(mListData.get(i).getId());
 								String strUrl = RealmName.REALM_NAME_LL + "/cart_goods_delete?"+ "clear=0&user_id=" + user_id+ "&cart_id=" + mListData.get(i).getId();
 								AsyncHttp.get(strUrl,new AsyncHttpResponseHandler() {
 									@Override
 									public void onSuccess(int arg0, String arg1) {
 										// TODO Auto-generated method stub
-										System.out.println("==========================…æ≥˝Ω”ø⁄≥…π¶£°"+arg1);
+										System.out.println("==========================Âà†Èô§Êé•Âè£ÊàêÂäüÔºÅ"+arg1);
 										super.onSuccess(arg0, arg1);
 										try {
-											
-										JSONObject object = new JSONObject(arg1);
-										  String status = object.getString("status");
-										    String info = object.getString("info");
-										    if (status.equals("y")) {
-										    	Toast.makeText(getActivity(), info, 200).show();
-										    	System.out.println("mListData.size()=========================="+mListData.size());
-										    	    ptye = true;
-										    	 	System.out.println("list_size.size()=========================="+list_size.size());
-										    	 	list_num2.add(i);
-//										    	 	result.clear();
-//													System.out.println("result.size()=========================="+result.size());
-										    		System.out.println("list_num.size()=========================="+list_num.size());
-													System.out.println("list_num2.size()=========================="+list_num2.size());
-													if (list_num.size() == list_num2.size()) {
-														getgouwuche();
-														list_num.clear();
-														list_num2.clear();
-													}
-										    }else {
-										    	Toast.makeText(getActivity(), info, 200).show();
+
+											JSONObject object = new JSONObject(arg1);
+											String status = object.getString("status");
+											String info = object.getString("info");
+											if (status.equals("y")) {
+												Toast.makeText(getActivity(), info, 200).show();
+												System.out.println("mListData.size()=========================="+mListData.size());
+												ptye = true;
+												System.out.println("list_size.size()=========================="+list_size.size());
+												list_num2.add(i);
+												//										    	 	result.clear();
+												//													System.out.println("result.size()=========================="+result.size());
+												System.out.println("list_num.size()=========================="+list_num.size());
+												System.out.println("list_num2.size()=========================="+list_num2.size());
+												if (list_num.size() == list_num2.size()) {
+													getgouwuche();
+													list_num.clear();
+													list_num2.clear();
+												}
+											}else {
+												Toast.makeText(getActivity(), info, 200).show();
 											}
 										} catch (Exception e) {
 											// TODO: handle exception
 											e.printStackTrace();
 										}
 									}
-									
+
 								}, getActivity());
-								
+
 							}
-							
-						}
-						
-						//º∆À„∏ˆ ˝«Âø’
-			    		if (list_size.size() > 0) {
-			    			list_size.clear();
-			    			mDelete.setText(getResources().getString(R.string.menu_sett)+"(" + list_size.size() + ")");
-			    		}
-			    		
-//						String strUrl = RealmName.REALM_NAME_LL + "/cart_goods_delete?"+ "clear=0&user_id=" + user_id+ "&cart_id=" + str1;
-//						AsyncHttp.get(strUrl,new AsyncHttpResponseHandler() {
-//							@Override
-//							public void onSuccess(int arg0, String arg1) {
-//								// TODO Auto-generated method stub
-//								System.out.println("==========================∑√Œ Ω”ø⁄≥…π¶£°"+arg1);
-//								super.onSuccess(arg0, arg1);
-//								try {
-//									
-//								JSONObject object = new JSONObject(arg1);
-//								  String status = object.getString("status");
-//								    String info = object.getString("info");
-//								    if (status.equals("y")) {
-//								    	Toast.makeText(getActivity(), info, 200).show();
-//								    	// À¢–¬
-////										mListAdapter.notifyDataSetChanged();
-//								    }else {
-//								    	Toast.makeText(getActivity(), info, 200).show();
-//									}
-//								} catch (Exception e) {
-//									// TODO: handle exception
-//									e.printStackTrace();
-//								}
-//							}
-//							
-//						}, getActivity());
-				}
-			} else {
-			    String str1="";
-			    String str2="";
-			    String str3="";
-				if (totalPrice != 0) {
-					for(int i=0;i<mListData.size();i++){
-						if (mListData.get(i).isChoose()) {
-//							str1 = "";//œ»«Âø’
-//							str2 = "";//œ»«Âø’
-//							str3 = "";//œ»«Âø’
-							String fegefu = str1.length()>0?",":"";
-							str1 = str1+fegefu+String.valueOf(mListData.get(i).getArticle_id());
-							str2 = str2+fegefu+String.valueOf(mListData.get(i).getGoods_id());
-							str3 = str3+fegefu+String.valueOf(mListData.get(i).getQuantity());
 
 						}
+
+						//ËÆ°ÁÆó‰∏™Êï∞Ê∏ÖÁ©∫
+						if (list_size.size() > 0) {
+							list_size.clear();
+							mDelete.setText(getResources().getString(R.string.menu_sett)+"(" + list_size.size() + ")");
+						}
+
+						//						String strUrl = RealmName.REALM_NAME_LL + "/cart_goods_delete?"+ "clear=0&user_id=" + user_id+ "&cart_id=" + str1;
+						//						AsyncHttp.get(strUrl,new AsyncHttpResponseHandler() {
+						//							@Override
+						//							public void onSuccess(int arg0, String arg1) {
+						//								// TODO Auto-generated method stub
+						//								System.out.println("==========================ËÆøÈóÆÊé•Âè£ÊàêÂäüÔºÅ"+arg1);
+						//								super.onSuccess(arg0, arg1);
+						//								try {
+						//
+						//								JSONObject object = new JSONObject(arg1);
+						//								  String status = object.getString("status");
+						//								    String info = object.getString("info");
+						//								    if (status.equals("y")) {
+						//								    	Toast.makeText(getActivity(), info, 200).show();
+						//								    	// Âà∑Êñ∞
+						////										mListAdapter.notifyDataSetChanged();
+						//								    }else {
+						//								    	Toast.makeText(getActivity(), info, 200).show();
+						//									}
+						//								} catch (Exception e) {
+						//									// TODO: handle exception
+						//									e.printStackTrace();
+						//								}
+						//							}
+						//
+						//						}, getActivity());
 					}
-					System.out.println("str1-------------"+str1);
-					String zhou = str1+"/"+str2+"/"+str3;
-					 if (str1.equals("")) {
-						 Toast.makeText(getActivity(), "«Î—°‘Ò“™÷ß∏∂µƒ…Ã∆∑", 200).show();
-//							mListAdapter.notifyDataSetChanged();
-					 }else {
-					 loadgouwuche(str1,str2,str3);
-					 }
-				
 				} else {
-					 Toast.makeText(getActivity(), "«Î—°‘Ò“™÷ß∏∂µƒ…Ã∆∑", 200).show();
-					mListAdapter.notifyDataSetChanged();
-					return;
-				}
-			}
+					String str1="";
+					String str2="";
+					String str3="";
+					if (totalPrice != 0) {
+						for(int i=0;i<mListData.size();i++){
+							if (mListData.get(i).isChoose()) {
+								//							str1 = "";//ÂÖàÊ∏ÖÁ©∫
+								//							str2 = "";//ÂÖàÊ∏ÖÁ©∫
+								//							str3 = "";//ÂÖàÊ∏ÖÁ©∫
+								String fegefu = str1.length()>0?",":"";
+								str1 = str1+fegefu+String.valueOf(mListData.get(i).getArticle_id());
+								str2 = str2+fegefu+String.valueOf(mListData.get(i).getGoods_id());
+								str3 = str3+fegefu+String.valueOf(mListData.get(i).getQuantity());
 
-			break;
-		case R.id.back:
-//			onBackPressed();
-			break;
-		default:
-			break;
+							}
+						}
+						System.out.println("str1-------------"+str1);
+						String zhou = str1+"/"+str2+"/"+str3;
+						if (str1.equals("")) {
+							Toast.makeText(getActivity(), "ËØ∑ÈÄâÊã©Ë¶ÅÊîØ‰ªòÁöÑÂïÜÂìÅ", 200).show();
+							//							mListAdapter.notifyDataSetChanged();
+						}else {
+							loadgouwuche(str1,str2,str3);
+						}
+
+					} else {
+						Toast.makeText(getActivity(), "ËØ∑ÈÄâÊã©Ë¶ÅÊîØ‰ªòÁöÑÂïÜÂìÅ", 200).show();
+						mListAdapter.notifyDataSetChanged();
+						return;
+					}
+				}
+
+				break;
+			case R.id.back:
+				//			onBackPressed();
+				break;
+			default:
+				break;
 		}
 	}
 
 	/**
-	 * º∆À„º€∏Ò
+	 * ËÆ°ÁÆó‰ª∑Ê†º
 	 */
 	public void count() {
 
-		totalPrice = 0;// »À√Ò±“
+		totalPrice = 0;// ‰∫∫Ê∞ëÂ∏Å
 		if (mListData != null && mListData.size() > 0) {
 			for (int i = 0; i < mListData.size(); i++) {
 				if (mListData.get(i).isChoose()) {
@@ -1204,15 +1204,15 @@ try {
 			}
 			BigDecimal   c   =   new   BigDecimal(totalPrice);
 			dzongjia = c.setScale(2,BigDecimal.ROUND_HALF_UP).doubleValue();
-			mPriceAll.setText("£§"+dzongjia);
+			mPriceAll.setText("Ôø•"+dzongjia);
 		}
-		
-		
+
+
 
 	}
-	
-	
-	
+
+
+
 
 	public void select() {
 		int count = 0;
@@ -1232,9 +1232,9 @@ try {
 	private void loadgouwuche(String str1, String str2, String str3){
 		try {
 			progress.CreateProgress();
-			   String login_sign = spPreferences.getString("login_sign", ""); 
+			String login_sign = spPreferences.getString("login_sign", "");
 			AsyncHttp.get(RealmName.REALM_NAME_LL+ "/add_shopping_buys?user_id="+user_id+"&user_name="+user_name_phone+
-					"&user_sign="+login_sign+"&article_id="+str1+"&goods_id="+str2+"&quantity="+str3+"",		
+							"&user_sign="+login_sign+"&article_id="+str1+"&goods_id="+str2+"&quantity="+str3+"",
 					new AsyncHttpResponseHandler() {
 						@Override
 						public void onSuccess(int arg0,String arg1) {
@@ -1243,31 +1243,31 @@ try {
 							try {
 								JSONObject jsonObject = new JSONObject(arg1);
 								String status = jsonObject.getString("status");
-								System.out.println("π∫ŒÔ«Âµ•================"+arg1);
+								System.out.println("Ë¥≠Áâ©Ê∏ÖÂçï================"+arg1);
 								String info = jsonObject.getString("info");
 								if (status.equals("y")) {
 									progress.CloseProgress();
 									JSONObject obj= jsonObject.getJSONObject("data");
 									String buy_no = obj.getString("buy_no");
 									String count = obj.getString("count");
-									
-//									JSONArray jsot = jsonObject.getJSONArray("data");
-//									ShopCartBean bean = new ShopCartBean();
-//									for (int i = 0; i < jsot.length(); i++) {
-//									JSONObject obj = jsot.getJSONObject(i);
-//									bean.setId(obj.getString("id"));
-//									String id = obj.getString("id");
-//									list_id.add(id);
-//									}
-//									    str = new StringBuffer();
-//								        for(String s:list_id){
-//								        	str.append(s+",");
-//								        }
-//								        str.delete(str.lastIndexOf(","),str.length()); 
-//								        System.out.println("id∆¥Ω”÷Æ∫Û---------------"+str);
-									
-									
-//									Toast.makeText(getActivity(), info, 200).show();
+
+									//									JSONArray jsot = jsonObject.getJSONArray("data");
+									//									ShopCartBean bean = new ShopCartBean();
+									//									for (int i = 0; i < jsot.length(); i++) {
+									//									JSONObject obj = jsot.getJSONObject(i);
+									//									bean.setId(obj.getString("id"));
+									//									String id = obj.getString("id");
+									//									list_id.add(id);
+									//									}
+									//									    str = new StringBuffer();
+									//								        for(String s:list_id){
+									//								        	str.append(s+",");
+									//								        }
+									//								        str.delete(str.lastIndexOf(","),str.length());
+									//								        System.out.println("idÊãºÊé•‰πãÂêé---------------"+str);
+
+
+									//									Toast.makeText(getActivity(), info, 200).show();
 									Intent intent=new Intent(getActivity(), MyOrderConfrimActivity.class);
 									intent.putExtra("buy_no", buy_no);
 									startActivity(intent);
@@ -1284,87 +1284,87 @@ try {
 						@Override
 						public void onFailure(Throwable arg0, String arg1) {
 							// TODO Auto-generated method stub
-							System.out.println("==========================∑√Œ Ω”ø⁄ ß∞‹£°");
+							System.out.println("==========================ËÆøÈóÆÊé•Âè£Â§±Ë¥•ÔºÅ");
 							System.out.println("========================="+arg0);
 							System.out.println("=========================="+arg1);
 							super.onFailure(arg0, arg1);
 						}
-						
+
 
 					}, getActivity());
-			
-			} catch (Exception e) {
-				// TODO: handle exception
-				e.printStackTrace();
-			}
+
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
 	}
-//	private void loadgouwuche(String str1, String str2, String str3){
-//		try {
-//			progress.CreateProgress();
-//		        
-//			AsyncHttp.get(RealmName.REALM_NAME_LL+ "/add_shopping_buys?user_id="+user_id+"&user_name="+user_name+
-//					"&article_id="+str1+"&goods_id="+str2+"&quantity="+str3+"",
-//					
-//					new AsyncHttpResponseHandler() {
-//						@Override
-//						public void onSuccess(int arg0,String arg1) {
-//							// TODO Auto-generated method stub
-//							super.onSuccess(arg0, arg1);
-//							try {
-//								JSONObject jsonObject = new JSONObject(arg1);
-//								String status = jsonObject.getString("status");
-//								System.out.println("π∫ŒÔ«Âµ•================"+arg1);
-//								String info = jsonObject.getString("info");
-//								if (status.equals("y")) {
-//									progress.CloseProgress();
-//									JSONArray jsot = jsonObject.getJSONArray("data");
-//									ShopCartBean bean = new ShopCartBean();
-//									for (int i = 0; i < jsot.length(); i++) {
-//									JSONObject obj = jsot.getJSONObject(i);
-//									bean.setId(obj.getString("id"));
-//									String id = obj.getString("id");
-//									list_id.add(id);
-//									}
-//									    str = new StringBuffer();
-//								        for(String s:list_id){
-//								        	str.append(s+",");
-//								        }
-//								        str.delete(str.lastIndexOf(","),str.length()); 
-//								        System.out.println("id∆¥Ω”÷Æ∫Û---------------"+str);
-//									
-//									
-////									Toast.makeText(getActivity(), info, 200).show();
-//									Intent intent=new Intent(getActivity(), MyOrderConfrimActivity.class);
-//									startActivity(intent);
-//								}else {
-//									Toast.makeText(getActivity(), info, 200).show();
-//								}
-//								progress.CloseProgress();
-//							} catch (JSONException e) {
-//								// TODO Auto-generated catch block
-//								e.printStackTrace();
-//							}
-//
-//						}
-//						@Override
-//						public void onFailure(Throwable arg0, String arg1) {
-//							// TODO Auto-generated method stub
-//							System.out.println("==========================∑√Œ Ω”ø⁄ ß∞‹£°");
-//							System.out.println("========================="+arg0);
-//							System.out.println("=========================="+arg1);
-//							super.onFailure(arg0, arg1);
-//						}
-//						
-//
-//					}, getActivity());
-//			
-//			} catch (Exception e) {
-//				// TODO: handle exception
-//				e.printStackTrace();
-//			}
-//	}
+	//	private void loadgouwuche(String str1, String str2, String str3){
+	//		try {
+	//			progress.CreateProgress();
+	//
+	//			AsyncHttp.get(RealmName.REALM_NAME_LL+ "/add_shopping_buys?user_id="+user_id+"&user_name="+user_name+
+	//					"&article_id="+str1+"&goods_id="+str2+"&quantity="+str3+"",
+	//
+	//					new AsyncHttpResponseHandler() {
+	//						@Override
+	//						public void onSuccess(int arg0,String arg1) {
+	//							// TODO Auto-generated method stub
+	//							super.onSuccess(arg0, arg1);
+	//							try {
+	//								JSONObject jsonObject = new JSONObject(arg1);
+	//								String status = jsonObject.getString("status");
+	//								System.out.println("Ë¥≠Áâ©Ê∏ÖÂçï================"+arg1);
+	//								String info = jsonObject.getString("info");
+	//								if (status.equals("y")) {
+	//									progress.CloseProgress();
+	//									JSONArray jsot = jsonObject.getJSONArray("data");
+	//									ShopCartBean bean = new ShopCartBean();
+	//									for (int i = 0; i < jsot.length(); i++) {
+	//									JSONObject obj = jsot.getJSONObject(i);
+	//									bean.setId(obj.getString("id"));
+	//									String id = obj.getString("id");
+	//									list_id.add(id);
+	//									}
+	//									    str = new StringBuffer();
+	//								        for(String s:list_id){
+	//								        	str.append(s+",");
+	//								        }
+	//								        str.delete(str.lastIndexOf(","),str.length());
+	//								        System.out.println("idÊãºÊé•‰πãÂêé---------------"+str);
+	//
+	//
+	////									Toast.makeText(getActivity(), info, 200).show();
+	//									Intent intent=new Intent(getActivity(), MyOrderConfrimActivity.class);
+	//									startActivity(intent);
+	//								}else {
+	//									Toast.makeText(getActivity(), info, 200).show();
+	//								}
+	//								progress.CloseProgress();
+	//							} catch (JSONException e) {
+	//								// TODO Auto-generated catch block
+	//								e.printStackTrace();
+	//							}
+	//
+	//						}
+	//						@Override
+	//						public void onFailure(Throwable arg0, String arg1) {
+	//							// TODO Auto-generated method stub
+	//							System.out.println("==========================ËÆøÈóÆÊé•Âè£Â§±Ë¥•ÔºÅ");
+	//							System.out.println("========================="+arg0);
+	//							System.out.println("=========================="+arg1);
+	//							super.onFailure(arg0, arg1);
+	//						}
+	//
+	//
+	//					}, getActivity());
+	//
+	//			} catch (Exception e) {
+	//				// TODO: handle exception
+	//				e.printStackTrace();
+	//			}
+	//	}
 	public static void setListViewHeightBasedOnChildren(ListView listView) {
-		// ªÒ»°ListView∂‘”¶µƒAdapter
+		// Ëé∑ÂèñListViewÂØπÂ∫îÁöÑAdapter
 		ListAdapter listAdapter = (ListAdapter) mListView.getAdapter();
 		if (listAdapter == null) {
 			return;
@@ -1372,19 +1372,19 @@ try {
 
 		int totalHeight = 0;
 		for (int i = 0, len = listAdapter.getCount(); i < len; i++) {
-			// listAdapter.getCount()∑µªÿ ˝æ›œÓµƒ ˝ƒø
+			// listAdapter.getCount()ËøîÂõûÊï∞ÊçÆÈ°πÁöÑÊï∞ÁõÆ
 			View listItem = listAdapter.getView(i, null, listView);
-			// º∆À„◊”œÓView µƒøÌ∏ﬂ
+			// ËÆ°ÁÆóÂ≠êÈ°πView ÁöÑÂÆΩÈ´ò
 			listItem.measure(0, 0);
-			// Õ≥º∆À˘”–◊”œÓµƒ◊‹∏ﬂ∂»
+			// ÁªüËÆ°ÊâÄÊúâÂ≠êÈ°πÁöÑÊÄªÈ´òÂ∫¶
 			totalHeight += listItem.getMeasuredHeight();
 		}
 
 		ViewGroup.LayoutParams params = listView.getLayoutParams();
 		params.height = totalHeight
 				+ (listView.getDividerHeight() * (listAdapter.getCount() - 1));
-		// listView.getDividerHeight()ªÒ»°◊”œÓº‰∑÷∏Ù∑˚’º”√µƒ∏ﬂ∂»
-		// params.height◊Ó∫Ûµ√µΩ’˚∏ˆListViewÕÍ’˚œ‘ æ–Ë“™µƒ∏ﬂ∂»
+		// listView.getDividerHeight()Ëé∑ÂèñÂ≠êÈ°πÈó¥ÂàÜÈöîÁ¨¶Âç†Áî®ÁöÑÈ´òÂ∫¶
+		// params.heightÊúÄÂêéÂæóÂà∞Êï¥‰∏™ListViewÂÆåÊï¥ÊòæÁ§∫ÈúÄË¶ÅÁöÑÈ´òÂ∫¶
 		listView.setLayoutParams(params);
 	}
 }

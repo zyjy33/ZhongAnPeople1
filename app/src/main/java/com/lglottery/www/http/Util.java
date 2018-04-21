@@ -22,7 +22,7 @@ public class Util {
 	private static final String TAG = "SDK_Sample.Util";
 
 	public static byte[] bmpToByteArray(final Bitmap bmp,
-			final boolean needRecycle) {
+										final boolean needRecycle) {
 		ByteArrayOutputStream output = new ByteArrayOutputStream();
 		bmp.compress(CompressFormat.PNG, 100, output);
 		if (needRecycle) {
@@ -38,25 +38,25 @@ public class Util {
 
 		return result;
 	}
-	
-	 /**
-     * Bitmap×ª»»³Ébyte[]²¢ÇÒ½øÐÐÑ¹Ëõ,Ñ¹Ëõµ½²»´óÓÚmaxkb
-     * @param bitmap
-     * @param IMAGE_SIZE
-     * @return
-     */
-     public static byte[] bitmap2Bytes(Bitmap bitmap, int maxkb) {
-        ByteArrayOutputStream output = new ByteArrayOutputStream();
-        bitmap.compress(Bitmap.CompressFormat.PNG, 100, output);
-        int options = 100;
-        while (output.toByteArray().length > maxkb&& options != 10) {
-            output.reset(); //Çå¿Õoutput
-            bitmap.compress(Bitmap.CompressFormat.JPEG, options, output);//ÕâÀïÑ¹Ëõoptions%£¬°ÑÑ¹ËõºóµÄÊý¾Ý´æ·Åµ½outputÖÐ
-            options -= 10;
-        }
-        return output.toByteArray();
-     }
-     
+
+	/**
+	 * Bitmapè½¬æ¢æˆbyte[]å¹¶ä¸”è¿›è¡ŒåŽ‹ç¼©,åŽ‹ç¼©åˆ°ä¸å¤§äºŽmaxkb
+	 * @param bitmap
+	 * @param IMAGE_SIZE
+	 * @return
+	 */
+	public static byte[] bitmap2Bytes(Bitmap bitmap, int maxkb) {
+		ByteArrayOutputStream output = new ByteArrayOutputStream();
+		bitmap.compress(Bitmap.CompressFormat.PNG, 100, output);
+		int options = 100;
+		while (output.toByteArray().length > maxkb&& options != 10) {
+			output.reset(); //æ¸…ç©ºoutput
+			bitmap.compress(Bitmap.CompressFormat.JPEG, options, output);//è¿™é‡ŒåŽ‹ç¼©options%ï¼ŒæŠŠåŽ‹ç¼©åŽçš„æ•°æ®å­˜æ”¾åˆ°outputä¸­
+			options -= 10;
+		}
+		return output.toByteArray();
+	}
+
 
 	public static byte[] getHtmlByteArray(final String url) {
 		URL htmlUrl = null;
@@ -130,7 +130,7 @@ public class Util {
 		byte[] b = null;
 		try {
 			RandomAccessFile in = new RandomAccessFile(fileName, "r");
-			b = new byte[len]; // ´´½¨ºÏÊÊÎÄ¼þ´óÐ¡µÄÊý×é
+			b = new byte[len]; // åˆ›å»ºåˆé€‚æ–‡ä»¶å¤§å°çš„æ•°ç»„
 			in.seek(offset);
 			in.readFully(b);
 			in.close();
@@ -145,7 +145,7 @@ public class Util {
 	private static final int MAX_DECODE_PICTURE_SIZE = 1920 * 1440;
 
 	public static Bitmap extractThumbNail(final String path, final int height,
-			final int width, final boolean crop) {
+										  final int width, final boolean crop) {
 		Assert.assertTrue(path != null && !path.equals("") && height > 0
 				&& width > 0);
 

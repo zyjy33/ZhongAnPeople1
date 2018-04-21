@@ -1,10 +1,5 @@
 package com.hengyushop.demo.service;
 
-import java.util.ArrayList;
-
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import android.app.Fragment;
 import android.content.Context;
 import android.content.Intent;
@@ -40,6 +35,11 @@ import com.zams.www.R;
 import com.zams.www.UserLoginActivity;
 import com.zams.www.UserLoginWayActivity;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
+
 public class CopyOfYunshangServiceActivity extends Fragment {
 	private ListView list_shop_cart;
 	private TextView tv_endnumber, tv_endmarketprice, tv_preferential,
@@ -66,7 +66,7 @@ public class CopyOfYunshangServiceActivity extends Fragment {
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
-			Bundle savedInstanceState) {
+							 Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		View layout = inflater.inflate(R.layout.activity_yun_service, null);
 		progress = new DialogProgress(getActivity());
@@ -122,7 +122,7 @@ public class CopyOfYunshangServiceActivity extends Fragment {
 
 		System.out.println("nickname=================" + nickname);
 		if (!nickname.equals("")) {
-			getjianche();// ºóÌ¨¼ì²âÊÇ·ñ°ó¶¨ÊÖ»ú
+			getjianche();// åå°æ£€æµ‹æ˜¯å¦ç»‘å®šæ‰‹æœº
 		} else {
 			getuserxinxi();
 		}
@@ -168,10 +168,10 @@ public class CopyOfYunshangServiceActivity extends Fragment {
 				+ "&oauth_unionid=" + unionid + "" + "&oauth_openid="
 				+ oauth_openid + "";
 
-		System.out.println("ÎÒµÄ======11======1=======" + strUrlone);
+		System.out.println("æˆ‘çš„======11======1=======" + strUrlone);
 		AsyncHttp.get(strUrlone, new AsyncHttpResponseHandler() {
 			public void onSuccess(int arg0, String arg1) {
-				System.out.println("ÎÒµÄ======Êä³ö=====1========" + arg1);
+				System.out.println("æˆ‘çš„======è¾“å‡º=====1========" + arg1);
 				try {
 					JSONObject object = new JSONObject(arg1);
 					String status = object.getString("status");
@@ -235,9 +235,9 @@ public class CopyOfYunshangServiceActivity extends Fragment {
 										+ data.user_name);
 						System.out.println("---user_id-------------------"
 								+ user_id);
-						if (data.user_name.equals("ÄäÃû")) {
+						if (data.user_name.equals("åŒ¿å")) {
 							// if (data.id.equals("0")) {
-							System.out.println("---Î¢ĞÅ»¹Î´°ó¶¨-------------------");
+							System.out.println("---å¾®ä¿¡è¿˜æœªç»‘å®š-------------------");
 							Intent intent1 = new Intent(getActivity(),
 									TishiWxBangDingActivity.class);
 							startActivity(intent1);
@@ -330,7 +330,7 @@ public class CopyOfYunshangServiceActivity extends Fragment {
 		// Intent intent48 = new Intent(getActivity(), UserLoginActivity.class);
 		// startActivity(intent48);
 		// }else {
-		// ½Ó¿Úµ÷ÓÃuser_nameµÄ²ÎÊıÖµ
+		// æ¥å£è°ƒç”¨user_nameçš„å‚æ•°å€¼
 		if (!user_name_phone.equals("")) {
 			user_name_key = user_name_phone;
 		}
@@ -350,7 +350,7 @@ public class CopyOfYunshangServiceActivity extends Fragment {
 	}
 
 	/**
-	 * ³õÊ¼»¯¿Ø¼şÀà±ğ
+	 * åˆå§‹åŒ–æ§ä»¶ç±»åˆ«
 	 */
 	private void ininate(View layout) {
 		// list_none = (LinearLayout)layout.findViewById(R.id.list_none);
@@ -380,11 +380,11 @@ public class CopyOfYunshangServiceActivity extends Fragment {
 				// TODO Auto-generated method stub
 				if (ck_xuanzhe.isChecked()) {
 
-					// Toast.makeText(getActivity(), "µÇÂ¼³É¹¦1", 1000).show();
+					// Toast.makeText(getActivity(), "ç™»å½•æˆåŠŸ1", 1000).show();
 					getShowButton();
 				} else {
 					getNisabledButton();
-					// Toast.makeText(getActivity(), "µÇÂ¼³É¹¦2", 2000).show();
+					// Toast.makeText(getActivity(), "ç™»å½•æˆåŠŸ2", 2000).show();
 				}
 			}
 		});
@@ -420,7 +420,7 @@ public class CopyOfYunshangServiceActivity extends Fragment {
 	}
 
 	/*
-	 * ²»¿ÉÓÃµÇÂ¼°´Å¥
+	 * ä¸å¯ç”¨ç™»å½•æŒ‰é’®
 	 */
 
 	public void getNisabledButton() {
@@ -429,7 +429,7 @@ public class CopyOfYunshangServiceActivity extends Fragment {
 	}
 
 	/*
-	 * »Ö¸´µÇÂ¼°´Å¥
+	 * æ¢å¤ç™»å½•æŒ‰é’®
 	 */
 	public void getShowButton() {
 		btn_register.setClickable(true);
@@ -442,25 +442,25 @@ public class CopyOfYunshangServiceActivity extends Fragment {
 		public void dispatchMessage(Message msg) {
 
 			switch (msg.what) {
-			case 0:
-				break;
-			case 1:
-				break;
-			default:
-				break;
+				case 0:
+					break;
+				case 1:
+					break;
+				default:
+					break;
 			}
 			super.dispatchMessage(msg);
 		}
 	};
 
 	/**
-	 * »ñÈ¡¹ºÎï³µÁĞ±íÊı¾İ
+	 * è·å–è´­ç‰©è½¦åˆ—è¡¨æ•°æ®
 	 */
 	// private void loadWeather() {
 	// list_ll = new ArrayList<ShopCartData>();
 	// progress.CreateProgress();
 	// String id = UserLoginActivity.id;
-	// System.out.println("½á¹ûÄØ1=============="+id);
+	// System.out.println("ç»“æœå‘¢1=============="+id);
 	// AsyncHttp.get(RealmName.REALM_NAME_LL+
 	// "/get_shopping_cart?pageSize=10&pageIndex=1&user_id="+19+""
 	// ,new AsyncHttpResponseHandler() {
@@ -499,14 +499,14 @@ public class CopyOfYunshangServiceActivity extends Fragment {
 	// // for (int j = 0; j < geshu; j++) {
 	// // sum +=geshu;
 	// // }
-	// System.out.println("×Ü¶î================"+sum);
+	// System.out.println("æ€»é¢================"+sum);
 	// list_ll.add(dm);
 	// // list_ll.add(data);
 	// }
 	//
 	// System.out.println("2================"+list_ll.size());
 	// String zhou = dm.getSell_price();
-	// // tv_endmoney.setText("£¤" + zhou);
+	// // tv_endmoney.setText("ï¿¥" + zhou);
 	// handler.sendEmptyMessage(0);
 	// progress.CloseProgress();
 	// } catch (JSONException e) {

@@ -50,11 +50,11 @@ import com.tencent.mm.sdk.openapi.WXAPIFactory;
 import com.zams.www.R;
 
 /**
- * 
- * ÎÒµÄ¾Û·Û
- * 
+ *
+ * æˆ‘çš„èšç²‰
+ *
  * @author Administrator
- * 
+ *
  */
 public class MyChuangYouActivity extends BaseActivity implements
 		OnClickListener {
@@ -138,7 +138,7 @@ public class MyChuangYouActivity extends BaseActivity implements
 	}
 
 	// /**
-	// * ÉÏÀ­ÁĞ±íË¢ĞÂ¼ÓÔØ
+	// * ä¸Šæ‹‰åˆ—è¡¨åˆ·æ–°åŠ è½½
 	// */
 	// private OnHeaderRefreshListener listHeadListener = new
 	// OnHeaderRefreshListener() {
@@ -157,7 +157,7 @@ public class MyChuangYouActivity extends BaseActivity implements
 	// };
 	//
 	// /**
-	// * ÏÂÀ­ÁĞ±íË¢ĞÂ¼ÓÔØ
+	// * ä¸‹æ‹‰åˆ—è¡¨åˆ·æ–°åŠ è½½
 	// */
 	// private OnFooterRefreshListener listFootListener = new
 	// OnFooterRefreshListener() {
@@ -190,38 +190,38 @@ public class MyChuangYouActivity extends BaseActivity implements
 	Handler handler = new Handler() {
 		public void dispatchMessage(Message msg) {
 			switch (msg.what) {
-			case 0:
-				// list = (ArrayList<MyJuFenData>) msg.obj;
-				try {
+				case 0:
+					// list = (ArrayList<MyJuFenData>) msg.obj;
+					try {
 
-					System.out.println("-------------------------"
-							+ list.size());
-					if (list.size() > 0) {
-						String num = String.valueOf(list.size());
-						tv_geshu.setText(num + "¸ö");
-						// tv_fensi_geshu.setText(num+"¸ö");
+						System.out.println("-------------------------"
+								+ list.size());
+						if (list.size() > 0) {
+							String num = String.valueOf(list.size());
+							tv_geshu.setText(num + "ä¸ª");
+							// tv_fensi_geshu.setText(num+"ä¸ª");
+						}
+
+						// MyJuFenMxAdapter adapter = new
+						// MyJuFenMxAdapter(list,MyChuangYouActivity.this,
+						// imageLoader);
+						// listView.setAdapter(adapter);
+
+						progress.CloseProgress();
+
+					} catch (Exception e) {
+						// TODO: handle exception
+						e.printStackTrace();
 					}
+					break;
 
-					// MyJuFenMxAdapter adapter = new
-					// MyJuFenMxAdapter(list,MyChuangYouActivity.this,
-					// imageLoader);
-					// listView.setAdapter(adapter);
-
-					progress.CloseProgress();
-
-				} catch (Exception e) {
-					// TODO: handle exception
-					e.printStackTrace();
-				}
-				break;
-
-			default:
-				break;
+				default:
+					break;
 			}
 		};
 	};
 	/**
-	 * µÚ1¸öÁĞ±íÊı¾İ½âÎö
+	 * ç¬¬1ä¸ªåˆ—è¡¨æ•°æ®è§£æ
 	 */
 	private int RUN_METHOD = -1;
 	private int CURRENT_NUM = 1;
@@ -231,7 +231,7 @@ public class MyChuangYouActivity extends BaseActivity implements
 		RUN_METHOD = 1;
 		list = new ArrayList<MyJuFenData>();
 		if (flag) {
-			// ¼ÆÊıºÍÈİÆ÷ÇåÁã
+			// è®¡æ•°å’Œå®¹å™¨æ¸…é›¶
 			CURRENT_NUM = 1;
 			list = new ArrayList<MyJuFenData>();
 		}
@@ -244,7 +244,7 @@ public class MyChuangYouActivity extends BaseActivity implements
 			public void onSuccess(int arg0, String arg1) {
 				// TODO Auto-generated method stub
 				super.onSuccess(arg0, arg1);
-				System.out.println("=====================¶ş¼¶Öµ1" + arg1);
+				System.out.println("=====================äºŒçº§å€¼1" + arg1);
 				try {
 					JSONObject jsonObject = new JSONObject(arg1);
 					String status = jsonObject.getString("status");
@@ -262,7 +262,7 @@ public class MyChuangYouActivity extends BaseActivity implements
 							data.update_time = object.getString("update_time");
 							data.nick_name = object.getString("nick_name");
 							String avatar = data.avatar;//
-							System.out.println("¶ş¼¶Öµ2====================="
+							System.out.println("äºŒçº§å€¼2====================="
 									+ avatar);
 							list.add(data);
 						}
@@ -277,7 +277,7 @@ public class MyChuangYouActivity extends BaseActivity implements
 						load_yanglaojin();
 					} else {
 						progress.CloseProgress();
-						Toast.makeText(MyChuangYouActivity.this, "ÔİÎŞ´´ÓÑ", 200)
+						Toast.makeText(MyChuangYouActivity.this, "æš‚æ— åˆ›å‹", 200)
 								.show();
 					}
 				} catch (JSONException e) {
@@ -296,7 +296,7 @@ public class MyChuangYouActivity extends BaseActivity implements
 			public void onSuccess(int arg0, String arg1) {
 				// TODO Auto-generated method stub
 				super.onSuccess(arg0, arg1);
-				System.out.println("=====================¶ş¼¶Öµ1" + arg1);
+				System.out.println("=====================äºŒçº§å€¼1" + arg1);
 				try {
 					JSONObject jsonObject = new JSONObject(arg1);
 					String status = jsonObject.getString("status");
@@ -306,7 +306,7 @@ public class MyChuangYouActivity extends BaseActivity implements
 						// String num = jobt.getString("sum");
 						double num = jobt.getDouble("sum");
 						String num_ll = String.valueOf(num);
-						tv_fensi_geshu.setText("´Ó·ÛË¿ÍÅ¹²»ñµÃ¸£Àû×ÜÊı:" + num_ll + "·Ö");
+						tv_fensi_geshu.setText("ä»ç²‰ä¸å›¢å…±è·å¾—ç¦åˆ©æ€»æ•°:" + num_ll + "åˆ†");
 					} else {
 						progress.CloseProgress();
 					}
@@ -323,28 +323,28 @@ public class MyChuangYouActivity extends BaseActivity implements
 		// TODO Auto-generated method stub
 
 		switch (v.getId()) {
-		case R.id.iv_fanhui:
-			finish();
-			break;
-		case R.id.img_btn_order:
-			// Intent intent = new Intent(MyJuFenActivity.this,
-			// MyJuFenMxActivity.class);
-			// startActivity(intent);
-			break;
-		case R.id.btn_settle_accounts:
-			// Intent intent1 = new Intent(MyJuFenActivity.this,
-			// FenXiangActivity.class);
-			// startActivity(intent1);
-			SoftWarePopuWindow(btn_settle_accounts, MyChuangYouActivity.this);
-			break;
-		default:
-			break;
+			case R.id.iv_fanhui:
+				finish();
+				break;
+			case R.id.img_btn_order:
+				// Intent intent = new Intent(MyJuFenActivity.this,
+				// MyJuFenMxActivity.class);
+				// startActivity(intent);
+				break;
+			case R.id.btn_settle_accounts:
+				// Intent intent1 = new Intent(MyJuFenActivity.this,
+				// FenXiangActivity.class);
+				// startActivity(intent1);
+				SoftWarePopuWindow(btn_settle_accounts, MyChuangYouActivity.this);
+				break;
+			default:
+				break;
 		}
 	}
 
 	/**
-	 * ·ÖÏí
-	 * 
+	 * åˆ†äº«
+	 *
 	 * @param view2
 	 * @param context
 	 */
@@ -360,7 +360,7 @@ public class MyChuangYouActivity extends BaseActivity implements
 			pop.setBackgroundDrawable(new BitmapDrawable());
 			pop.setOutsideTouchable(true);
 			// pop.setFocusable(true);
-			// pop.setTouchable(true); // ÉèÖÃPopupWindow¿É´¥Ãş
+			// pop.setTouchable(true); // è®¾ç½®PopupWindowå¯è§¦æ‘¸
 			//
 			if (!pop.isShowing()) {
 				pop.showAtLocation(view2, Gravity.BOTTOM, 0, 0);
@@ -385,7 +385,7 @@ public class MyChuangYouActivity extends BaseActivity implements
 			e.printStackTrace();
 		}
 
-		// ĞÂÀË
+		// æ–°æµª
 		img_btn_tencent.setOnClickListener(new OnClickListener() {
 
 			@Override
@@ -394,7 +394,7 @@ public class MyChuangYouActivity extends BaseActivity implements
 			}
 		});
 
-		// Î¢ĞÅ
+		// å¾®ä¿¡
 		btn_wechat.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
@@ -403,7 +403,7 @@ public class MyChuangYouActivity extends BaseActivity implements
 				con(16, 1);
 			}
 		});
-		// ÅóÓÑÈ¦
+		// æœ‹å‹åœˆ
 		btn_wx_friend.setOnClickListener(new OnClickListener() {
 
 			@Override
@@ -413,7 +413,7 @@ public class MyChuangYouActivity extends BaseActivity implements
 				con(17, 1);
 			}
 		});
-		// ¶ÌĞÅ
+		// çŸ­ä¿¡
 		btn_sms.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
@@ -431,8 +431,8 @@ public class MyChuangYouActivity extends BaseActivity implements
 			String id = spPreferences.getString("user_id", "");
 			// String data = "http://zams.cn/appshare/"+id+".html";
 			String data = "http://a.app.qq.com/o/simple.jsp?pkgname=com.zams.www";
-			System.out.println("·ÖÏídata======================" + data);
-			String zhou = "ÖĞ°²ÃñÉúÏÂÔØµØÖ·,ÏÂÔØºó¿É°ï·ÖÏíµÄºÃÓÑ»ñµÃ¸£Àû" + data;
+			System.out.println("åˆ†äº«data======================" + data);
+			String zhou = "ä¸­å®‰æ°‘ç”Ÿä¸‹è½½åœ°å€,ä¸‹è½½åå¯å¸®åˆ†äº«çš„å¥½å‹è·å¾—ç¦åˆ©" + data;
 			System.out.println("==========" + zhou);
 			softshareWxChat(zhou);
 		} catch (Exception e) {
@@ -442,8 +442,8 @@ public class MyChuangYouActivity extends BaseActivity implements
 	}
 
 	/**
-	 * Î¢ĞÅ·ÖÏí
-	 * 
+	 * å¾®ä¿¡åˆ†äº«
+	 *
 	 * @param text
 	 */
 	private void softshareWxChat(String text) {
@@ -456,8 +456,8 @@ public class MyChuangYouActivity extends BaseActivity implements
 		webpage.webpageUrl = "http" + temp[1];
 		// webpage.webpageUrl = temp[1];
 		WXMediaMessage msg = new WXMediaMessage(webpage);
-		// msg.title = "ÎÒ·¢ÄãÒ»¸öÈí¼ş,¿´¿´ßÂ!";
-		msg.title = "ÖĞ°²ÃñÉúAPP·ÖÏí";
+		// msg.title = "æˆ‘å‘ä½ ä¸€ä¸ªè½¯ä»¶,çœ‹çœ‹å‘—!";
+		msg.title = "ä¸­å®‰æ°‘ç”ŸAPPåˆ†äº«";
 		msg.description = temp[0];
 		Bitmap thumb = BitmapFactory.decodeResource(getResources(),
 				R.drawable.app_zams);
@@ -469,7 +469,7 @@ public class MyChuangYouActivity extends BaseActivity implements
 		req.scene = SendMessageToWX.Req.WXSceneSession;
 		boolean flag = api.sendReq(req);
 
-		System.out.println("Î¢ĞÅ×¢²á" + flag);
+		System.out.println("å¾®ä¿¡æ³¨å†Œ" + flag);
 
 	}
 

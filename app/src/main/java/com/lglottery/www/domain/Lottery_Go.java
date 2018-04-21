@@ -5,15 +5,15 @@ import java.util.ArrayList;
 
 public class Lottery_Go implements Serializable {
 	/**
-	 * 
+	 *
 	 */
 	private static final long serialVersionUID = 8974146276530485518L;
-	private String gameOrder;// ³é½±ÆÚÊı
-	private String userName;// Ãû×Ö
-	private String yth;// ÕËºÅ
-	private String ProductItemId;//³éÖĞµÄ½±Æ·id
-	private String LotteryGameTypeId;//³éÖĞµÄ½±Æ··ÖÀà
-	
+	private String gameOrder;// æŠ½å¥–æœŸæ•°
+	private String userName;// åå­—
+	private String yth;// è´¦å·
+	private String ProductItemId;//æŠ½ä¸­çš„å¥–å“id
+	private String LotteryGameTypeId;//æŠ½ä¸­çš„å¥–å“åˆ†ç±»
+
 	private ArrayList<Lottery_Gobean> arrayList;
 
 	public String getProductItemId() {

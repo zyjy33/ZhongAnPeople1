@@ -14,10 +14,10 @@ import com.android.hengyu.web.DialogProgress;
 import com.zams.www.R;
 
 /**
- * 平台热线
- * 
+ * 骞冲彴鐑嚎
+ *
  * @author
- * 
+ *
  */
 public class PlatformhotlineActivity extends Activity implements OnClickListener {
 	private Intent intent;
@@ -57,31 +57,31 @@ public class PlatformhotlineActivity extends Activity implements OnClickListener
 	}
 
 	/**
-	 * 点击触发事件
+	 * 鐐瑰嚮瑙﹀彂浜嬩欢
 	 */
 	@Override
 	public void onClick(View v) {
 		// TODO Auto-generated method stub
 		intent = new Intent();
 		switch (v.getId()) {
-		case R.id.iv_guanxi:// 取消
-			iv_guanxi.setVisibility(View.INVISIBLE);
-			finish();
-			break;
-		case R.id.tv_dianhua1://
-			Intent intent = new Intent(Intent.ACTION_CALL);// 调用系统的CALL
-			intent.setData(Uri.parse("tel:" + "400-606-1201"));
-			startActivity(intent);
-			finish();
-			break;
-		case R.id.tv_dianhua2://
-			Intent intent1 = new Intent(Intent.ACTION_CALL);// 调用系统的CALL
-			intent1.setData(Uri.parse("tel:" + "010-62575060"));
-			startActivity(intent1);
-			finish();
-			break;
-		default:
-			break;
+			case R.id.iv_guanxi:// 鍙栨秷
+				iv_guanxi.setVisibility(View.INVISIBLE);
+				finish();
+				break;
+			case R.id.tv_dianhua1://
+				Intent intent = new Intent(Intent.ACTION_CALL);// 璋冪敤绯荤粺鐨凜ALL
+				intent.setData(Uri.parse("tel:" + "400-606-1201"));
+				startActivity(intent);
+				finish();
+				break;
+			case R.id.tv_dianhua2://
+				Intent intent1 = new Intent(Intent.ACTION_CALL);// 璋冪敤绯荤粺鐨凜ALL
+				intent1.setData(Uri.parse("tel:" + "010-62575060"));
+				startActivity(intent1);
+				finish();
+				break;
+			default:
+				break;
 		}
 	}
 

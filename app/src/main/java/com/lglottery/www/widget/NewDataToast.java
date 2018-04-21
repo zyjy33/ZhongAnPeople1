@@ -1,6 +1,5 @@
 package com.lglottery.www.widget;
 
-import com.zams.www.R;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.media.MediaPlayer;
@@ -10,6 +9,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.zams.www.R;
 
 /**
  * @author
@@ -72,7 +73,7 @@ public class NewDataToast extends Toast {
 
 	/**
 	 * 鑾峰彇鎺т欢瀹炰緥
-	 * 
+	 *
 	 * @param context
 	 * @param text
 	 *            鎻愮ず娑堟伅
@@ -81,7 +82,7 @@ public class NewDataToast extends Toast {
 	 * @return
 	 */
 	public static NewDataToast makeText(Context context, CharSequence text,
-			boolean isSound, int rawid) {
+										boolean isSound, int rawid) {
 		if (result == null) {
 			result = new NewDataToast(context, isSound, rawid);
 		}
@@ -89,7 +90,6 @@ public class NewDataToast extends Toast {
 				.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 		DisplayMetrics dm = context.getResources().getDisplayMetrics();
 		View v = inflate.inflate(R.layout.new_data_toast, null);
-		// v.setMinimumWidth(dm.widthPixels);//璁剧疆鎺т欢锟�锟斤拷瀹藉害涓烘墜鏈哄睆骞曞锟�
 		TextView tv = (TextView) v.findViewById(R.id.new_data_toast_message);
 		tv.setText(text);
 		result.setView(v);

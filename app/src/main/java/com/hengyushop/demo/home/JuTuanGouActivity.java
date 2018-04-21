@@ -35,10 +35,10 @@ import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.zams.www.R;
 
 /**
- * ¾ÛÍÅ¹º
- * 
+ * èšå›¢è´­
+ *
  * @author Administrator
- * 
+ *
  */
 public class JuTuanGouActivity extends BaseActivity implements OnClickListener,
 		UncaughtExceptionHandler {
@@ -66,7 +66,7 @@ public class JuTuanGouActivity extends BaseActivity implements OnClickListener,
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_my_jutuangou);
-		// ÔÚ´Ëµ÷ÓÃÏÂÃæ·½·¨£¬²ÅÄÜ²¶»ñµ½Ïß³ÌÖÐµÄÒì³£
+		// åœ¨æ­¤è°ƒç”¨ä¸‹é¢æ–¹æ³•ï¼Œæ‰èƒ½æ•èŽ·åˆ°çº¿ç¨‹ä¸­çš„å¼‚å¸¸
 		Thread.setDefaultUncaughtExceptionHandler(this);
 		spPreferences = getSharedPreferences("longuserset", MODE_PRIVATE);
 		progress = new DialogProgress(JuTuanGouActivity.this);
@@ -115,7 +115,7 @@ public class JuTuanGouActivity extends BaseActivity implements OnClickListener,
 
 	public void uncaughtException(Thread arg0, Throwable arg1) {
 		// TODO Auto-generated method stub
-		// ÔÚ´Ë´¦ÀíÒì³££¬ arg1¼´Îª²¶»ñµ½µÄÒì³£
+		// åœ¨æ­¤å¤„ç†å¼‚å¸¸ï¼Œ arg1å³ä¸ºæ•èŽ·åˆ°çš„å¼‚å¸¸
 		Log.i("AAA", "uncaughtException   " + arg1);
 	}
 
@@ -138,35 +138,35 @@ public class JuTuanGouActivity extends BaseActivity implements OnClickListener,
 	private Handler handler = new Handler() {
 		public void dispatchMessage(Message msg) {
 			switch (msg.what) {
-			case 0:
-				break;
-			case 1:
-				System.out.println("1====================" + list.size());
-				// list.add(0,"");
-				// MyAdapter2 adapter = new MyAdapter2(getApplicationContext(),
-				// list);
-				// myGridView.setAdapter(adapter);
-				break;
-			case 2:
-				System.out.println("¸öÊýÊÇ¶àÉÙ2====================" + list.size());
-				Jutuangouadapter.putData(list);
-				progress.CloseProgress();
-				if (list.size() > 0) {
-					JuTuanGouAdapter.mAq.clear();
-					list = null;
-				}
-				// Jutuangouadapter = new
-				// JuTuanGouAdapter(getApplicationContext(), list);
-				// new_list.setAdapter(Jutuangouadapter);
-				break;
-			default:
-				break;
+				case 0:
+					break;
+				case 1:
+					System.out.println("1====================" + list.size());
+					// list.add(0,"");
+					// MyAdapter2 adapter = new MyAdapter2(getApplicationContext(),
+					// list);
+					// myGridView.setAdapter(adapter);
+					break;
+				case 2:
+					System.out.println("ä¸ªæ•°æ˜¯å¤šå°‘2====================" + list.size());
+					Jutuangouadapter.putData(list);
+					progress.CloseProgress();
+					if (list.size() > 0) {
+						JuTuanGouAdapter.mAq.clear();
+						list = null;
+					}
+					// Jutuangouadapter = new
+					// JuTuanGouAdapter(getApplicationContext(), list);
+					// new_list.setAdapter(Jutuangouadapter);
+					break;
+				default:
+					break;
 			}
 		};
 	};
 
 	/**
-	 * ÉÏÀ­ÁÐ±íË¢ÐÂ¼ÓÔØ
+	 * ä¸Šæ‹‰åˆ—è¡¨åˆ·æ–°åŠ è½½
 	 */
 	private OnHeaderRefreshListener listHeadListener = new OnHeaderRefreshListener() {
 
@@ -184,7 +184,7 @@ public class JuTuanGouActivity extends BaseActivity implements OnClickListener,
 	};
 
 	/**
-	 * ÏÂÀ­ÁÐ±íË¢ÐÂ¼ÓÔØ
+	 * ä¸‹æ‹‰åˆ—è¡¨åˆ·æ–°åŠ è½½
 	 */
 	private OnFooterRefreshListener listFootListener = new OnFooterRefreshListener() {
 
@@ -215,7 +215,7 @@ public class JuTuanGouActivity extends BaseActivity implements OnClickListener,
 		}
 	};
 	/**
-	 * Êä³öËùÓÐÆ´ÍÅ»î¶¯ÁÐ±í
+	 * è¾“å‡ºæ‰€æœ‰æ‹¼å›¢æ´»åŠ¨åˆ—è¡¨
 	 */
 	private int CURRENT_NUM = 1;
 	private final int VIEW_NUM = 10;
@@ -224,7 +224,7 @@ public class JuTuanGouActivity extends BaseActivity implements OnClickListener,
 		try {
 			progress.CreateProgress();
 			if (flag) {
-				// ¼ÆÊýºÍÈÝÆ÷ÇåÁã
+				// è®¡æ•°å’Œå®¹å™¨æ¸…é›¶
 				CURRENT_NUM = 1;
 				list = new ArrayList<JuTuanGouData>();
 			}
@@ -234,15 +234,15 @@ public class JuTuanGouActivity extends BaseActivity implements OnClickListener,
 			// "&channel_name="+zhuangtai+"&category_id="+0+""
 
 			AsyncHttp.get(RealmName.REALM_NAME_LL
-					+ "/get_article_page_size_list_2017?channel_name="
-					+ zhuangtai + "&category_id=0" + "&page_size=" + VIEW_NUM
-					+ "&page_index=" + CURRENT_NUM + "&strwhere=&orderby=",
+							+ "/get_article_page_size_list_2017?channel_name="
+							+ zhuangtai + "&category_id=0" + "&page_size=" + VIEW_NUM
+							+ "&page_index=" + CURRENT_NUM + "&strwhere=&orderby=",
 					new AsyncHttpResponseHandler() {
 						@Override
 						public void onSuccess(int arg0, String arg1) {
 							// TODO Auto-generated method stub
 							super.onSuccess(arg0, arg1);
-							System.out.println("Êä³öËùÓÐÆ´ÍÅ»î¶¯ÁÐ±í=========" + arg1);
+							System.out.println("è¾“å‡ºæ‰€æœ‰æ‹¼å›¢æ´»åŠ¨åˆ—è¡¨=========" + arg1);
 							try {
 								// list = new ArrayList<JuTuanGouData>();
 								progress.CloseProgress();
@@ -332,11 +332,11 @@ public class JuTuanGouActivity extends BaseActivity implements OnClickListener,
 	public void onClick(View v) {
 		// TODO Auto-generated method stub
 		switch (v.getId()) {
-		case R.id.fanhui:
-			finish();
-			break;
-		default:
-			break;
+			case R.id.fanhui:
+				finish();
+				break;
+			default:
+				break;
 		}
 	}
 

@@ -1,28 +1,6 @@
 package com.hengyushop.demo.service;
 
-import java.io.File;
-import java.util.ArrayList;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import com.android.hengyu.web.DialogProgress;
-import com.android.hengyu.web.RealmName;
-import com.example.uploadpicdemo.Utils;
-import com.hengyushop.demo.airplane.AirPlaneBargainActivity;
-import com.hengyushop.demo.airplane.AirPlaneOnLineActivity;
-import com.hengyushop.demo.airplane.AirPlaneSelectActivity;
-import com.hengyushop.demo.at.AsyncHttp;
-import com.hengyushop.demo.at.BaseActivity;
-import com.hengyushop.demo.my.ShengJiCkActivity;
-import com.hengyushop.entity.XiangqingData;
-import com.loopj.android.http.AsyncHttpResponseHandler;
-import com.zams.www.R;
-
-import android.R.integer;
 import android.app.AlertDialog;
-import android.app.TabActivity;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -30,24 +8,34 @@ import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
-import android.os.Message;
 import android.provider.MediaStore;
 import android.util.Log;
 import android.view.View;
-import android.view.WindowManager;
 import android.view.View.OnClickListener;
 import android.view.Window;
+import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.TabHost;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.hengyu.web.DialogProgress;
+import com.android.hengyu.web.RealmName;
+import com.example.uploadpicdemo.Utils;
+import com.hengyushop.demo.at.AsyncHttp;
+import com.hengyushop.demo.at.BaseActivity;
+import com.loopj.android.http.AsyncHttpResponseHandler;
+import com.zams.www.R;
+
+import org.json.JSONObject;
+
+import java.io.File;
+
 /**
- * ÉêÇëÉÌ¼Ò2
- * 
+ * ç”³è¯·å•†å®¶2
+ *
  * @author Administrator
- * 
+ *
  */
 public class ApplyBusiness2Activity extends BaseActivity implements OnClickListener{
 
@@ -56,10 +44,10 @@ public class ApplyBusiness2Activity extends BaseActivity implements OnClickListe
 	private EditText edt_leibie,edt_sj_jianjie,edt_sj_tsys,edt_sj_fwzh,edt_sj_yyzch,edt_sj_tjr;
 	private ImageView iv_personal_icon,iv_personal_icon1,iv_personal_icon2,iv_personal_icon3;
 	private int zhaopian;
-    private String tupian1 = "";
-    private String tupian2 = "";
-    private String tupian3 = "";
-    private String tupian4 = "";
+	private String tupian1 = "";
+	private String tupian2 = "";
+	private String tupian3 = "";
+	private String tupian4 = "";
 	protected static final int CHOOSE_PICTURE = 0;
 	protected static final int TAKE_PICTURE = 1;
 	private static final int CROP_SMALL_PICTURE = 2;
@@ -80,11 +68,11 @@ public class ApplyBusiness2Activity extends BaseActivity implements OnClickListe
 		spPreferences = getSharedPreferences("longuserset", MODE_PRIVATE);
 		user_name = spPreferences.getString("user", "");
 		user_id = spPreferences.getString("user_id", "");
-		
+
 		sj_name = getIntent().getStringExtra("sj_name");
 		sj_bq = getIntent().getStringExtra("sj_bq");
 		haoma = getIntent().getStringExtra("haoma");
-//		dizhi = getIntent().getStringExtra("dizhi");
+		//		dizhi = getIntent().getStringExtra("dizhi");
 		province = getIntent().getStringExtra("province");
 		city = getIntent().getStringExtra("city");
 		area = getIntent().getStringExtra("area");
@@ -108,7 +96,7 @@ public class ApplyBusiness2Activity extends BaseActivity implements OnClickListe
 		iv_personal_icon1 = (ImageView) findViewById(R.id.iv_personal_icon1);
 		iv_personal_icon2 = (ImageView) findViewById(R.id.iv_personal_icon2);
 		iv_personal_icon3 = (ImageView) findViewById(R.id.iv_personal_icon3);
-		
+
 		iv_fanhui = (ImageView) findViewById(R.id.iv_fanhui);
 		tv_xiabu = (TextView) findViewById(R.id.tv_xiabu);
 		iv_fanhui.setOnClickListener(this);
@@ -122,185 +110,185 @@ public class ApplyBusiness2Activity extends BaseActivity implements OnClickListe
 	@Override
 	public void onClick(View v) {
 		// TODO Auto-generated method stub
-		
+
 		switch (v.getId()) {
-		case R.id.iv_fanhui:
-			finish();
-			break;
-		case R.id.iv_personal_icon:
-			showChoosePicDialog();
-			zhaopian = 1;
-			break;
-		case R.id.iv_personal_icon1:
-			showChoosePicDialog();
-			zhaopian = 2;
-			break;
-		case R.id.iv_personal_icon2:
-			showChoosePicDialog();
-			zhaopian = 3;
-			break;
-		case R.id.iv_personal_icon3:
-			showChoosePicDialog();
-			zhaopian = 4;
-			break;
-		case R.id.tv_xiabu:
-			try {
-			String leibie = edt_leibie.getText().toString().trim();	
-			String sj_jianjie = edt_sj_jianjie.getText().toString().trim();
-			String ts_youshi = edt_sj_tsys.getText().toString().trim();
-			String fwgh = edt_sj_fwzh.getText().toString().trim();
-			String zhucehao = edt_sj_yyzch.getText().toString().trim();
-			String tjr_haoma = edt_sj_tjr.getText().toString().trim();
-			
-			if (leibie.equals("")) {
-				Toast.makeText(ApplyBusiness2Activity.this, "ÇëÌîÐ´ÉÌ¼ÒÀà±ð", 100).show();
-			} else if (sj_jianjie.equals("")) {
-				Toast.makeText(ApplyBusiness2Activity.this, "ÇëÌîÐ´ÉÌ¼Ò¼ò½é", 100).show();
-			} else if (sj_jianjie.length() > 500) {
-				Toast.makeText(ApplyBusiness2Activity.this, "ÄÚÈÝ²»ÄÜ´óÓÚ500×Ö", 100).show();
-			} else if (ts_youshi.equals("")) {
-				Toast.makeText(ApplyBusiness2Activity.this, "ÇëÌîÐ´ÌØÉ«ÓÅÊÆ", 100).show();
-			} else if (ts_youshi.length() > 500) {
-				Toast.makeText(ApplyBusiness2Activity.this, "ÄÚÈÝ²»ÄÜ´óÓÚ500×Ö", 100).show();
-			} else if (fwgh.equals("")) {
-				Toast.makeText(ApplyBusiness2Activity.this, "ÇëÌîÐ´·þÎñ¹¤ºÅ", 100).show();
-			} else if (tupian1.equals("")) {
-				Toast.makeText(ApplyBusiness2Activity.this, "ÇëÉÏ´«ÉÌ¼ÒLogo", 100).show();
-			} else if (tupian2.equals("")) {
-				Toast.makeText(ApplyBusiness2Activity.this, "ÇëÉÏ´«ÉÌ¼Ò×ÊÖÊ", 100).show();
-			} else if (zhucehao.equals("")) {
-				Toast.makeText(ApplyBusiness2Activity.this, "ÇëÌîÐ´ÓªÒµÖ´ÕÕ×¢²áºÅ", 100).show();
-			} else if (tupian3.equals("")) {
-				Toast.makeText(ApplyBusiness2Activity.this, "ÇëÉÏ´«Ë°ÎñµÇ¼ÇÖ¤", 100).show();
-			} else if (tupian4.equals("")) {
-				Toast.makeText(ApplyBusiness2Activity.this, "ÇëÉÏ´«×éÖ¯»ú¹¹´úÂëÖ¤", 100).show();
-			} else if (tjr_haoma.equals("")) {
-				Toast.makeText(ApplyBusiness2Activity.this, "ÇëÌîÐ´ÄúµÄÍÆ¼öÈËºÅÂë", 100).show();
-			} else if (tjr_haoma.length() > 11 || tjr_haoma.length() < 11) {
-				Toast.makeText(ApplyBusiness2Activity.this, "ÊÖ»úºÅÂë²»¶Ô", 100).show();
-			} else{
-				progress.CreateProgress();	
-				String address = dizhi +"¡¢"+xq_dizhi;
-//				Toast.makeText(ApplyBusiness2Activity.this, "Éý¼¶³É¹¦", 100).show();
-				//sj_name,sj_bq,haoma,dizhi,xq_dizhi;
+			case R.id.iv_fanhui:
+				finish();
+				break;
+			case R.id.iv_personal_icon:
+				showChoosePicDialog();
+				zhaopian = 1;
+				break;
+			case R.id.iv_personal_icon1:
+				showChoosePicDialog();
+				zhaopian = 2;
+				break;
+			case R.id.iv_personal_icon2:
+				showChoosePicDialog();
+				zhaopian = 3;
+				break;
+			case R.id.iv_personal_icon3:
+				showChoosePicDialog();
+				zhaopian = 4;
+				break;
+			case R.id.tv_xiabu:
 				try {
-					String strUrlone = RealmName.REALM_NAME_LL
-							
-					+ "/add_user_commpany?user_id="+user_id+"&user_name="+user_name+"&trade_id=1&name="+sj_name+"&content="+sj_jianjie+"&artperson=&contact=" +
-					"&mobile="+haoma+"&tel=&nature="+leibie+"&post_code=&email=&address="+xq_dizhi+"&sort_id=1&logo_url="+tupian1+"&img_url=" +
-					"&seo_title=&seo_keywords=&seo_description=&province="+province+"&city="+city+"&area="+area+"&regtime=&lng="+jingdu+"" +
-					"&lat="+weidu+"&advantage="+ts_youshi+"&idcard_a=&idcard_b=&license="+tupian2+"&accredit=&aptitude=&revenue_card="+tupian3+
-					"&organi_card="+tupian4+"&brand_card=&licence_card=&trade_aptitude=&account_name=&bank_name=&bank_account=" +
-					"&registeredid="+zhucehao+"";
-					
-					
-					System.out.println("===================" + strUrlone);
+					String leibie = edt_leibie.getText().toString().trim();
+					String sj_jianjie = edt_sj_jianjie.getText().toString().trim();
+					String ts_youshi = edt_sj_tsys.getText().toString().trim();
+					String fwgh = edt_sj_fwzh.getText().toString().trim();
+					String zhucehao = edt_sj_yyzch.getText().toString().trim();
+					String tjr_haoma = edt_sj_tjr.getText().toString().trim();
 
-					AsyncHttp.get(strUrlone, new AsyncHttpResponseHandler() {
-						@Override
-						public void onSuccess(int arg0, String arg1) {
-							// TODO Auto-generated method stub
-							super.onSuccess(arg0, arg1);
-							try {
-								JSONObject jsonObject = new JSONObject(arg1);
-								System.out.println("=================1=="
-										+ arg1);
+					if (leibie.equals("")) {
+						Toast.makeText(ApplyBusiness2Activity.this, "è¯·å¡«å†™å•†å®¶ç±»åˆ«", 100).show();
+					} else if (sj_jianjie.equals("")) {
+						Toast.makeText(ApplyBusiness2Activity.this, "è¯·å¡«å†™å•†å®¶ç®€ä»‹", 100).show();
+					} else if (sj_jianjie.length() > 500) {
+						Toast.makeText(ApplyBusiness2Activity.this, "å†…å®¹ä¸èƒ½å¤§äºŽ500å­—", 100).show();
+					} else if (ts_youshi.equals("")) {
+						Toast.makeText(ApplyBusiness2Activity.this, "è¯·å¡«å†™ç‰¹è‰²ä¼˜åŠ¿", 100).show();
+					} else if (ts_youshi.length() > 500) {
+						Toast.makeText(ApplyBusiness2Activity.this, "å†…å®¹ä¸èƒ½å¤§äºŽ500å­—", 100).show();
+					} else if (fwgh.equals("")) {
+						Toast.makeText(ApplyBusiness2Activity.this, "è¯·å¡«å†™æœåŠ¡å·¥å·", 100).show();
+					} else if (tupian1.equals("")) {
+						Toast.makeText(ApplyBusiness2Activity.this, "è¯·ä¸Šä¼ å•†å®¶Logo", 100).show();
+					} else if (tupian2.equals("")) {
+						Toast.makeText(ApplyBusiness2Activity.this, "è¯·ä¸Šä¼ å•†å®¶èµ„è´¨", 100).show();
+					} else if (zhucehao.equals("")) {
+						Toast.makeText(ApplyBusiness2Activity.this, "è¯·å¡«å†™è¥ä¸šæ‰§ç…§æ³¨å†Œå·", 100).show();
+					} else if (tupian3.equals("")) {
+						Toast.makeText(ApplyBusiness2Activity.this, "è¯·ä¸Šä¼ ç¨ŽåŠ¡ç™»è®°è¯", 100).show();
+					} else if (tupian4.equals("")) {
+						Toast.makeText(ApplyBusiness2Activity.this, "è¯·ä¸Šä¼ ç»„ç»‡æœºæž„ä»£ç è¯", 100).show();
+					} else if (tjr_haoma.equals("")) {
+						Toast.makeText(ApplyBusiness2Activity.this, "è¯·å¡«å†™æ‚¨çš„æŽ¨èäººå·ç ", 100).show();
+					} else if (tjr_haoma.length() > 11 || tjr_haoma.length() < 11) {
+						Toast.makeText(ApplyBusiness2Activity.this, "æ‰‹æœºå·ç ä¸å¯¹", 100).show();
+					} else{
+						progress.CreateProgress();
+						String address = dizhi +"ã€"+xq_dizhi;
+						//				Toast.makeText(ApplyBusiness2Activity.this, "å‡çº§æˆåŠŸ", 100).show();
+						//sj_name,sj_bq,haoma,dizhi,xq_dizhi;
+						try {
+							String strUrlone = RealmName.REALM_NAME_LL
 
-								String status = jsonObject.getString("status");
-								System.out.println("status: " + status);
-								String info = jsonObject.getString("info");
-								if (status.equals("y")) {
-									Toast.makeText(ApplyBusiness2Activity.this,info, 200).show();
-									progress.CloseProgress();
-									// finish();
-//									handler.sendEmptyMessage(0);
-								} else if (status.equals("n")) {
-									Toast.makeText(ApplyBusiness2Activity.this,info, 200).show();
-									progress.CloseProgress();
+									+ "/add_user_commpany?user_id="+user_id+"&user_name="+user_name+"&trade_id=1&name="+sj_name+"&content="+sj_jianjie+"&artperson=&contact=" +
+									"&mobile="+haoma+"&tel=&nature="+leibie+"&post_code=&email=&address="+xq_dizhi+"&sort_id=1&logo_url="+tupian1+"&img_url=" +
+									"&seo_title=&seo_keywords=&seo_description=&province="+province+"&city="+city+"&area="+area+"&regtime=&lng="+jingdu+"" +
+									"&lat="+weidu+"&advantage="+ts_youshi+"&idcard_a=&idcard_b=&license="+tupian2+"&accredit=&aptitude=&revenue_card="+tupian3+
+									"&organi_card="+tupian4+"&brand_card=&licence_card=&trade_aptitude=&account_name=&bank_name=&bank_account=" +
+									"&registeredid="+zhucehao+"";
+
+
+							System.out.println("===================" + strUrlone);
+
+							AsyncHttp.get(strUrlone, new AsyncHttpResponseHandler() {
+								@Override
+								public void onSuccess(int arg0, String arg1) {
+									// TODO Auto-generated method stub
+									super.onSuccess(arg0, arg1);
+									try {
+										JSONObject jsonObject = new JSONObject(arg1);
+										System.out.println("=================1=="
+												+ arg1);
+
+										String status = jsonObject.getString("status");
+										System.out.println("status: " + status);
+										String info = jsonObject.getString("info");
+										if (status.equals("y")) {
+											Toast.makeText(ApplyBusiness2Activity.this,info, 200).show();
+											progress.CloseProgress();
+											// finish();
+											//									handler.sendEmptyMessage(0);
+										} else if (status.equals("n")) {
+											Toast.makeText(ApplyBusiness2Activity.this,info, 200).show();
+											progress.CloseProgress();
+										}
+
+									} catch (Exception e) {
+										// TODO: handle exception
+										e.printStackTrace();
+									}
+
 								}
-
-							} catch (Exception e) {
-								// TODO: handle exception
-								e.printStackTrace();
-							}
-
+							}, null);
+						} catch (Exception e1) {
+							// TODO Auto-generated catch block
+							e1.printStackTrace();
 						}
-					}, null);
-				} catch (Exception e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
-			}
-			
-			
-			} catch (Exception e) {
-				// TODO: handle exception
-				e.printStackTrace();
-			}
-			break;
+					}
 
-		default:
-			break;
+
+				} catch (Exception e) {
+					// TODO: handle exception
+					e.printStackTrace();
+				}
+				break;
+
+			default:
+				break;
 		}
 	}
-	
+
 	/**
-	 * ÏÔÊ¾ÐÞ¸ÄÍ·ÏñµÄ¶Ô»°¿ò
+	 * æ˜¾ç¤ºä¿®æ”¹å¤´åƒçš„å¯¹è¯æ¡†
 	 */
 	protected void showChoosePicDialog() {
 		AlertDialog.Builder builder = new AlertDialog.Builder(this);
-		builder.setTitle("ÉèÖÃÍ·Ïñ");
-		String[] items = { "Ñ¡Ôñ±¾µØÕÕÆ¬", "ÅÄÕÕ" };
-		builder.setNegativeButton("È¡Ïû", null);
+		builder.setTitle("è®¾ç½®å¤´åƒ");
+		String[] items = { "é€‰æ‹©æœ¬åœ°ç…§ç‰‡", "æ‹ç…§" };
+		builder.setNegativeButton("å–æ¶ˆ", null);
 		builder.setItems(items, new DialogInterface.OnClickListener() {
 
 			@Override
 			public void onClick(DialogInterface dialog, int which) {
 				switch (which) {
-				case CHOOSE_PICTURE: // Ñ¡Ôñ±¾µØÕÕÆ¬
-					Intent openAlbumIntent = new Intent(Intent.ACTION_GET_CONTENT);
-					openAlbumIntent.setType("image/*");
-					startActivityForResult(openAlbumIntent, CHOOSE_PICTURE);
-					break;
-				case TAKE_PICTURE: // ÅÄÕÕ
-					Intent openCameraIntent = new Intent(
-							MediaStore.ACTION_IMAGE_CAPTURE);
-					tempUri = Uri.fromFile(new File(Environment.getExternalStorageDirectory(), "image.jpg"));
-					// Ö¸¶¨ÕÕÆ¬±£´æÂ·¾¶£¨SD¿¨£©£¬image.jpgÎªÒ»¸öÁÙÊ±ÎÄ¼þ£¬Ã¿´ÎÅÄÕÕºóÕâ¸öÍ¼Æ¬¶¼»á±»Ìæ»»
-					openCameraIntent.putExtra(MediaStore.EXTRA_OUTPUT, tempUri);
-					startActivityForResult(openCameraIntent, TAKE_PICTURE);
-					
-					
-					break;
+					case CHOOSE_PICTURE: // é€‰æ‹©æœ¬åœ°ç…§ç‰‡
+						Intent openAlbumIntent = new Intent(Intent.ACTION_GET_CONTENT);
+						openAlbumIntent.setType("image/*");
+						startActivityForResult(openAlbumIntent, CHOOSE_PICTURE);
+						break;
+					case TAKE_PICTURE: // æ‹ç…§
+						Intent openCameraIntent = new Intent(
+								MediaStore.ACTION_IMAGE_CAPTURE);
+						tempUri = Uri.fromFile(new File(Environment.getExternalStorageDirectory(), "image.jpg"));
+						// æŒ‡å®šç…§ç‰‡ä¿å­˜è·¯å¾„ï¼ˆSDå¡ï¼‰ï¼Œimage.jpgä¸ºä¸€ä¸ªä¸´æ—¶æ–‡ä»¶ï¼Œæ¯æ¬¡æ‹ç…§åŽè¿™ä¸ªå›¾ç‰‡éƒ½ä¼šè¢«æ›¿æ¢
+						openCameraIntent.putExtra(MediaStore.EXTRA_OUTPUT, tempUri);
+						startActivityForResult(openCameraIntent, TAKE_PICTURE);
+
+
+						break;
 				}
 			}
 		});
 		builder.create().show();
 	}
-	
+
 	@Override
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 		super.onActivityResult(requestCode, resultCode, data);
-		if (resultCode == RESULT_OK) { // Èç¹û·µ»ØÂëÊÇ¿ÉÒÔÓÃµÄ
+		if (resultCode == RESULT_OK) { // å¦‚æžœè¿”å›žç æ˜¯å¯ä»¥ç”¨çš„
 			switch (requestCode) {
-			case TAKE_PICTURE:
-				startPhotoZoom(tempUri); // ¿ªÊ¼¶ÔÍ¼Æ¬½øÐÐ²Ã¼ô´¦Àí
-				break;
-			case CHOOSE_PICTURE:
-				startPhotoZoom(data.getData()); // ¿ªÊ¼¶ÔÍ¼Æ¬½øÐÐ²Ã¼ô´¦Àí
-				break;
-			case CROP_SMALL_PICTURE:
-				if (data != null) {
-					setImageToView(data); // ÈÃ¸Õ²ÅÑ¡Ôñ²Ã¼ôµÃµ½µÄÍ¼Æ¬ÏÔÊ¾ÔÚ½çÃæÉÏ
-				}
-				break;
+				case TAKE_PICTURE:
+					startPhotoZoom(tempUri); // å¼€å§‹å¯¹å›¾ç‰‡è¿›è¡Œè£å‰ªå¤„ç†
+					break;
+				case CHOOSE_PICTURE:
+					startPhotoZoom(data.getData()); // å¼€å§‹å¯¹å›¾ç‰‡è¿›è¡Œè£å‰ªå¤„ç†
+					break;
+				case CROP_SMALL_PICTURE:
+					if (data != null) {
+						setImageToView(data); // è®©åˆšæ‰é€‰æ‹©è£å‰ªå¾—åˆ°çš„å›¾ç‰‡æ˜¾ç¤ºåœ¨ç•Œé¢ä¸Š
+					}
+					break;
 			}
 		}
 	}
 
 	/**
-	 * ²Ã¼ôÍ¼Æ¬·½·¨ÊµÏÖ
-	 * 
+	 * è£å‰ªå›¾ç‰‡æ–¹æ³•å®žçŽ°
+	 *
 	 * @param uri
 	 */
 	protected void startPhotoZoom(Uri uri) {
@@ -310,12 +298,12 @@ public class ApplyBusiness2Activity extends BaseActivity implements OnClickListe
 		tempUri = uri;
 		Intent intent = new Intent("com.android.camera.action.CROP");
 		intent.setDataAndType(uri, "image/*");
-		// ÉèÖÃ²Ã¼ô
+		// è®¾ç½®è£å‰ª
 		intent.putExtra("crop", "true");
-		// aspectX aspectY ÊÇ¿í¸ßµÄ±ÈÀý
+		// aspectX aspectY æ˜¯å®½é«˜çš„æ¯”ä¾‹
 		intent.putExtra("aspectX", 1);
 		intent.putExtra("aspectY", 1);
-		// outputX outputY ÊÇ²Ã¼ôÍ¼Æ¬¿í¸ß
+		// outputX outputY æ˜¯è£å‰ªå›¾ç‰‡å®½é«˜
 		intent.putExtra("outputX", 150);
 		intent.putExtra("outputY", 150);
 		intent.putExtra("return-data", true);
@@ -323,31 +311,31 @@ public class ApplyBusiness2Activity extends BaseActivity implements OnClickListe
 	}
 
 	/**
-	 * ±£´æ²Ã¼ôÖ®ºóµÄÍ¼Æ¬Êý¾Ý
-	 * 
+	 * ä¿å­˜è£å‰ªä¹‹åŽçš„å›¾ç‰‡æ•°æ®
+	 *
 	 * @param
-	 * 
+	 *
 	 * @param picdata
 	 */
 	protected void setImageToView(Intent data) {
 		Bundle extras = data.getExtras();
 		if (extras != null) {
 			Bitmap photo = extras.getParcelable("data");
-			System.out.println("Í¼Æ¬µÄÖµ================="+photo);
-//			photo = Utils.toRoundBitmap(photo, tempUri); // Õâ¸öÊ±ºòµÄÍ¼Æ¬ÒÑ¾­±»´¦Àí³ÉÔ²ÐÎµÄÁË
-			System.out.println("Í¼Æ¬µÄÖµ1================="+photo);
-			System.out.println("Í¼Æ¬µÄÖµ2================="+tempUri);
+			System.out.println("å›¾ç‰‡çš„å€¼================="+photo);
+			//			photo = Utils.toRoundBitmap(photo, tempUri); // è¿™ä¸ªæ—¶å€™çš„å›¾ç‰‡å·²ç»è¢«å¤„ç†æˆåœ†å½¢çš„äº†
+			System.out.println("å›¾ç‰‡çš„å€¼1================="+photo);
+			System.out.println("å›¾ç‰‡çš„å€¼2================="+tempUri);
 			if (!photo.equals("")) {
-			if (zhaopian == 1) {
-				System.out.println("Í¼Æ¬µÄÖµ1=================");
-				iv_personal_icon.setImageBitmap(photo);
-			}else if (zhaopian == 2){
-			iv_personal_icon1.setImageBitmap(photo);
-			}else if (zhaopian == 3){
-				iv_personal_icon2.setImageBitmap(photo);
-			}else if (zhaopian == 4){
-				iv_personal_icon3.setImageBitmap(photo);
-			}
+				if (zhaopian == 1) {
+					System.out.println("å›¾ç‰‡çš„å€¼1=================");
+					iv_personal_icon.setImageBitmap(photo);
+				}else if (zhaopian == 2){
+					iv_personal_icon1.setImageBitmap(photo);
+				}else if (zhaopian == 3){
+					iv_personal_icon2.setImageBitmap(photo);
+				}else if (zhaopian == 4){
+					iv_personal_icon3.setImageBitmap(photo);
+				}
 			}else {
 			}
 			uploadPic(photo);
@@ -355,10 +343,10 @@ public class ApplyBusiness2Activity extends BaseActivity implements OnClickListe
 	}
 
 	private void uploadPic(Bitmap bitmap) {
-		// ÉÏ´«ÖÁ·þÎñÆ÷
-		// ... ¿ÉÒÔÔÚÕâÀï°ÑBitmap×ª»»³Éfile£¬È»ºóµÃµ½fileµÄurl£¬×öÎÄ¼þÉÏ´«²Ù×÷
-		// ×¢ÒâÕâÀïµÃµ½µÄÍ¼Æ¬ÒÑ¾­ÊÇÔ²ÐÎÍ¼Æ¬ÁË
-		// bitmapÊÇÃ»ÓÐ×ö¸öÔ²ÐÎ´¦ÀíµÄ£¬µ«ÒÑ¾­±»²Ã¼ôÁË
+		// ä¸Šä¼ è‡³æœåŠ¡å™¨
+		// ... å¯ä»¥åœ¨è¿™é‡ŒæŠŠBitmapè½¬æ¢æˆfileï¼Œç„¶åŽå¾—åˆ°fileçš„urlï¼Œåšæ–‡ä»¶ä¸Šä¼ æ“ä½œ
+		// æ³¨æ„è¿™é‡Œå¾—åˆ°çš„å›¾ç‰‡å·²ç»æ˜¯åœ†å½¢å›¾ç‰‡äº†
+		// bitmapæ˜¯æ²¡æœ‰åšä¸ªåœ†å½¢å¤„ç†çš„ï¼Œä½†å·²ç»è¢«è£å‰ªäº†
 
 		String imagePath = Utils.savePhoto(bitmap, Environment
 				.getExternalStorageDirectory().getAbsolutePath(), String
@@ -374,9 +362,9 @@ public class ApplyBusiness2Activity extends BaseActivity implements OnClickListe
 		}
 		Log.e("imagePath", imagePath+"");
 		if(imagePath != null){
-			// ÄÃ×ÅimagePathÉÏ´«ÁË
+			// æ‹¿ç€imagePathä¸Šä¼ äº†
 			// ...
 		}
-		   //storage/sdcard0/1474193068665.png
+		//storage/sdcard0/1474193068665.png
 	}
 }

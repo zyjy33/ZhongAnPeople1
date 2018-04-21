@@ -59,64 +59,64 @@ public class TuiJianGoodsListActivity extends BaseActivity {
 		setContentView(R.layout.activity_hongbao_list);
 		progress = new DialogProgress(TuiJianGoodsListActivity.this);
 		textView1 = (TextView) findViewById(R.id.textView1);
-		
+
 		textView1.setText(getIntent().getStringExtra("title"));
 		initdata();
-		
+
 		lists = new ArrayList<SpListData>();
 		jdhadapter = new TuiJianGoodsGridViewAdaper(lists, getApplicationContext());
 		gridView.setAdapter(jdhadapter);;
-		
+
 		load_list(true);
 	}
-	
+
 
 	public void onDestroy() {
-		 super.onDestroy(); 
-			System.out.println("GoodsMyGridViewAdaper.type=======1=========="+GoodsMyGridViewAdaper.type);
-			try {
-				
+		super.onDestroy();
+		System.out.println("GoodsMyGridViewAdaper.type=======1=========="+GoodsMyGridViewAdaper.type);
+		try {
+
 			if (TuiJianGoodsGridViewAdaper.type == true) {
 				TuiJianGoodsGridViewAdaper.mAq.clear();
 				TuiJianGoodsGridViewAdaper.type = false;
 			}
-			
+
 			if (lists.size() < 0) {
 				lists.clear();
 			}
-			
+
 			System.out.println("GoodsMyGridViewAdaper.type=======1=========="+GoodsMyGridViewAdaper.type);
-			} catch (Exception e) {
-				// TODO: handle exception
-				e.printStackTrace();
-			}
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
 	};
-	
+
 	Handler handler = new Handler() {
 		public void dispatchMessage(Message msg) {
 			switch (msg.what) {
-			case 1:
-				System.out.println("=====================’‚¿Ô2=="+lists.size());
-				jdhadapter.putData(lists);
-				progress.CloseProgress();
-//				jdhadapter.notifyDataSetChanged();
-				gridView.setOnItemClickListener(new OnItemClickListener() {
-	                
-					@Override
-					public void onItemClick(AdapterView<?> arg0, View arg1,
-							int arg2, long arg3) {
-						// TODO Auto-generated method stub
-						String id = lists.get(arg2).getId();
-						System.out.println("====================="+id);
-						Intent intent = new Intent(TuiJianGoodsListActivity.this,WareInformationActivity.class);
-						intent.putExtra("id", id);
-						startActivity(intent);
-					}
-				});
-				break;
+				case 1:
+					System.out.println("=====================ËøôÈáå2=="+lists.size());
+					jdhadapter.putData(lists);
+					progress.CloseProgress();
+					//				jdhadapter.notifyDataSetChanged();
+					gridView.setOnItemClickListener(new OnItemClickListener() {
 
-			default:
-				break;
+						@Override
+						public void onItemClick(AdapterView<?> arg0, View arg1,
+												int arg2, long arg3) {
+							// TODO Auto-generated method stub
+							String id = lists.get(arg2).getId();
+							System.out.println("====================="+id);
+							Intent intent = new Intent(TuiJianGoodsListActivity.this,WareInformationActivity.class);
+							intent.putExtra("id", id);
+							startActivity(intent);
+						}
+					});
+					break;
+
+				default:
+					break;
 			}
 		};
 	};
@@ -128,7 +128,7 @@ public class TuiJianGoodsListActivity extends BaseActivity {
 		gridView_list = (MyGridView) findViewById(R.id.gridView_list);
 		ImageView iv_fanhui = (ImageView) findViewById(R.id.iv_fanhui);
 		iv_fanhui.setOnClickListener(new OnClickListener() {
-			
+
 			@Override
 			public void onClick(View arg0) {
 				// TODO Auto-generated method stub
@@ -136,19 +136,19 @@ public class TuiJianGoodsListActivity extends BaseActivity {
 			}
 		});
 	}
-	
-//	  <GridView 
-//      android:id="@+id/gridView"
-//      android:layout_width="match_parent"
-//      android:layout_height="match_parent"
-//      android:background="@color/no_color"
-//      android:cacheColorHint="@color/no_color"
-//      android:divider="@color/list_diver"
-//      android:numColumns="2"
-//      android:dividerHeight="1dp">
-	  
+
+	//	  <GridView
+	//      android:id="@+id/gridView"
+	//      android:layout_width="match_parent"
+	//      android:layout_height="match_parent"
+	//      android:background="@color/no_color"
+	//      android:cacheColorHint="@color/no_color"
+	//      android:divider="@color/list_diver"
+	//      android:numColumns="2"
+	//      android:dividerHeight="1dp">
+
 	/**
-	 * …œ¿≠¡–±ÌÀ¢–¬º”‘ÿ
+	 * ‰∏äÊãâÂàóË°®Âà∑Êñ∞Âä†ËΩΩ
 	 */
 	private OnHeaderRefreshListener listHeadListener = new OnHeaderRefreshListener() {
 
@@ -164,9 +164,9 @@ public class TuiJianGoodsListActivity extends BaseActivity {
 			}, 1000);
 		}
 	};
-	
+
 	/**
-	 * œ¬¿≠¡–±ÌÀ¢–¬º”‘ÿ
+	 * ‰∏ãÊãâÂàóË°®Âà∑Êñ∞Âä†ËΩΩ
 	 */
 	private OnFooterRefreshListener listFootListener = new OnFooterRefreshListener() {
 
@@ -179,8 +179,8 @@ public class TuiJianGoodsListActivity extends BaseActivity {
 				public void run() {
 					try {
 						load_list(false);
-					refresh.onFooterRefreshComplete();
-					
+						refresh.onFooterRefreshComplete();
+
 					} catch (Exception e) {
 						// TODO: handle exception
 						e.printStackTrace();
@@ -189,11 +189,11 @@ public class TuiJianGoodsListActivity extends BaseActivity {
 			}, 1000);
 		}
 	};
-	
+
 	/**
-	 * …Ã∆∑¡–±Ì ˝æ›Ω‚Œˆ
+	 * ÂïÜÂìÅÂàóË°®Êï∞ÊçÆËß£Êûê
 	 */
-	
+
 	private int CURRENT_NUM = 1;
 	private final int VIEW_NUM = 10;
 	private void load_list(boolean flag) {
@@ -202,58 +202,58 @@ public class TuiJianGoodsListActivity extends BaseActivity {
 			CURRENT_NUM = 1;
 			lists = new ArrayList<SpListData>();
 		}
-			AsyncHttp.get(RealmName.REALM_NAME_LL+"/get_article_top_list?channel_name=goods&top=100&strwhere=status=0%20and%20is_top=1",
-			new AsyncHttpResponseHandler(){
-							@Override
-							public void onSuccess(int arg0, String arg1) {
-								// TODO Auto-generated method stub
-								super.onSuccess(arg0, arg1);
-//								System.out.println("=====================»˝º∂÷µ"+arg1);
-								try {
-									JSONObject jsonObject = new JSONObject(arg1);
-									String status = jsonObject.getString("status");
-									String info = jsonObject.getString("info");
-									if (status.equals("y")) {
-									JSONArray jsonArray = jsonObject.getJSONArray("data");
-									 len = jsonArray.length();
-									for(int i=0;i<jsonArray.length();i++){
-										JSONObject object = jsonArray.getJSONObject(i);
-										SpListData spList = new SpListData();
-										spList.id = object.getString("id");
-										spList.img_url = object.getString("img_url");
-										spList.title = object.getString("title");
-										spList.market_price = object.getString("market_price");
-										spList.sell_price = object.getString("sell_price");
-										lists.add(spList);
-									}
-									}else {
-										progress.CloseProgress();
-										Toast.makeText(TuiJianGoodsListActivity.this, "√ª”–…Ã∆∑¡À", 200).show();
-									}
-									handler.sendEmptyMessage(1);
-									if (lists.size() > 0) {
-										GoodsMyGridViewAdaper.mAq.clear();
-									}
-									progress.CloseProgress();
-									
-									if(len!=0){
-										CURRENT_NUM =CURRENT_NUM+1;
-									}
-								} catch (JSONException e) {
-									// TODO Auto-generated catch block
-									e.printStackTrace();
+		AsyncHttp.get(RealmName.REALM_NAME_LL+"/get_article_top_list?channel_name=goods&top=100&strwhere=status=0%20and%20is_top=1",
+				new AsyncHttpResponseHandler(){
+					@Override
+					public void onSuccess(int arg0, String arg1) {
+						// TODO Auto-generated method stub
+						super.onSuccess(arg0, arg1);
+						//								System.out.println("=====================‰∏âÁ∫ßÂÄº"+arg1);
+						try {
+							JSONObject jsonObject = new JSONObject(arg1);
+							String status = jsonObject.getString("status");
+							String info = jsonObject.getString("info");
+							if (status.equals("y")) {
+								JSONArray jsonArray = jsonObject.getJSONArray("data");
+								len = jsonArray.length();
+								for(int i=0;i<jsonArray.length();i++){
+									JSONObject object = jsonArray.getJSONObject(i);
+									SpListData spList = new SpListData();
+									spList.id = object.getString("id");
+									spList.img_url = object.getString("img_url");
+									spList.title = object.getString("title");
+									spList.market_price = object.getString("market_price");
+									spList.sell_price = object.getString("sell_price");
+									lists.add(spList);
 								}
+							}else {
+								progress.CloseProgress();
+								Toast.makeText(TuiJianGoodsListActivity.this, "Ê≤°ÊúâÂïÜÂìÅ‰∫Ü", 200).show();
 							}
-							
-							@Override
-								public void onFailure(Throwable arg0,String arg1) {
-									// TODO Auto-generated method stub
-									super.onFailure(arg0, arg1);
-									progress.CloseProgress();
-									System.out.println("arg1====================="+arg1);
-									Toast.makeText(TuiJianGoodsListActivity.this, "¡¥Ω”“Ï≥£", 200).show();
-								}
-						}, TuiJianGoodsListActivity.this);
+							handler.sendEmptyMessage(1);
+							if (lists.size() > 0) {
+								GoodsMyGridViewAdaper.mAq.clear();
+							}
+							progress.CloseProgress();
+
+							if(len!=0){
+								CURRENT_NUM =CURRENT_NUM+1;
+							}
+						} catch (JSONException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+					}
+
+					@Override
+					public void onFailure(Throwable arg0,String arg1) {
+						// TODO Auto-generated method stub
+						super.onFailure(arg0, arg1);
+						progress.CloseProgress();
+						System.out.println("arg1====================="+arg1);
+						Toast.makeText(TuiJianGoodsListActivity.this, "ÈìæÊé•ÂºÇÂ∏∏", 200).show();
+					}
+				}, TuiJianGoodsListActivity.this);
 	}
 
 

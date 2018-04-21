@@ -1,12 +1,5 @@
 package com.hengyushop.demo.home;
 
-import java.util.ArrayList;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
@@ -14,30 +7,27 @@ import android.os.Message;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.Window;
-import android.widget.AdapterView;
-import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ImageView;
 import android.widget.ListView;
 
-import com.android.hengyu.pub.MyJuFenMxAdapter;
-import com.android.hengyu.pub.MyjuTouTiaoAdapter;
-import com.android.hengyu.pub.XinShouGongyeLieAdapter;
 import com.android.hengyu.ui.MyPopupWindowMenu;
 import com.android.hengyu.web.DialogProgress;
 import com.android.hengyu.web.RealmName;
-import com.android.hengyu.web.Webview1;
 import com.hengyushop.dao.WareDao;
 import com.hengyushop.demo.at.AsyncHttp;
 import com.hengyushop.demo.at.BaseActivity;
-import com.hengyushop.entity.CollectWareData;
-import com.hengyushop.entity.GoodsListData;
 import com.hengyushop.entity.MyJuFenData;
-import com.hengyushop.entity.XsgyListData;
 import com.lglottery.www.widget.PullToRefreshView;
 import com.lglottery.www.widget.PullToRefreshView.OnFooterRefreshListener;
 import com.lglottery.www.widget.PullToRefreshView.OnHeaderRefreshListener;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.zams.www.R;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
 
 public class MyJuFenMxActivity extends BaseActivity {
 
@@ -87,7 +77,7 @@ public class MyJuFenMxActivity extends BaseActivity {
 	}
 
 	/**
-	 * ÉÏÀ­ÁĞ±íË¢ĞÂ¼ÓÔØ
+	 * ä¸Šæ‹‰åˆ—è¡¨åˆ·æ–°åŠ è½½
 	 */
 	private OnHeaderRefreshListener listHeadListener = new OnHeaderRefreshListener() {
 
@@ -105,7 +95,7 @@ public class MyJuFenMxActivity extends BaseActivity {
 	};
 
 	/**
-	 * ÏÂÀ­ÁĞ±íË¢ĞÂ¼ÓÔØ
+	 * ä¸‹æ‹‰åˆ—è¡¨åˆ·æ–°åŠ è½½
 	 */
 	private OnFooterRefreshListener listFootListener = new OnFooterRefreshListener() {
 
@@ -138,21 +128,21 @@ public class MyJuFenMxActivity extends BaseActivity {
 	Handler handler = new Handler() {
 		public void dispatchMessage(Message msg) {
 			switch (msg.what) {
-			case 0:
-				list = (ArrayList<MyJuFenData>) msg.obj;
-				// MyJuFenMxAdapter adapter = new
-				// MyJuFenMxAdapter(list,MyJuFenMxActivity.this, imageLoader);
-				// listView.setAdapter(adapter);
-				progress.CloseProgress();
-				break;
+				case 0:
+					list = (ArrayList<MyJuFenData>) msg.obj;
+					// MyJuFenMxAdapter adapter = new
+					// MyJuFenMxAdapter(list,MyJuFenMxActivity.this, imageLoader);
+					// listView.setAdapter(adapter);
+					progress.CloseProgress();
+					break;
 
-			default:
-				break;
+				default:
+					break;
 			}
 		};
 	};
 	/**
-	 * µÚ1¸öÁĞ±íÊı¾İ½âÎö
+	 * ç¬¬1ä¸ªåˆ—è¡¨æ•°æ®è§£æ
 	 */
 	private int RUN_METHOD = -1;
 	private int CURRENT_NUM = 1;
@@ -162,19 +152,19 @@ public class MyJuFenMxActivity extends BaseActivity {
 		RUN_METHOD = 1;
 		list = new ArrayList<MyJuFenData>();
 		if (flag) {
-			// ¼ÆÊıºÍÈİÆ÷ÇåÁã
+			// è®¡æ•°å’Œå®¹å™¨æ¸…é›¶
 			CURRENT_NUM = 0;
 			list = new ArrayList<MyJuFenData>();
 		}
 		AsyncHttp.get(RealmName.REALM_NAME_LL + "/get_user_child_list?user_id="
-				+ user_id + "&user_name=" + user_name + "" + "&page_size="
-				+ VIEW_NUM + "&page_index=" + CURRENT_NUM + "",
+						+ user_id + "&user_name=" + user_name + "" + "&page_size="
+						+ VIEW_NUM + "&page_index=" + CURRENT_NUM + "",
 				new AsyncHttpResponseHandler() {
 					@Override
 					public void onSuccess(int arg0, String arg1) {
 						// TODO Auto-generated method stub
 						super.onSuccess(arg0, arg1);
-						System.out.println("=====================¶ş¼¶Öµ1" + arg1);
+						System.out.println("=====================äºŒçº§å€¼1" + arg1);
 						try {
 							JSONObject jsonObject = new JSONObject(arg1);
 							JSONArray jsonArray = jsonObject
@@ -188,7 +178,7 @@ public class MyJuFenMxActivity extends BaseActivity {
 								data.login_sign = object
 										.getString("login_sign");
 								String user_id = data.login_sign;//
-								System.out.println("¶ş¼¶Öµ2====================="
+								System.out.println("äºŒçº§å€¼2====================="
 										+ user_id);
 								list.add(data);
 							}
@@ -208,26 +198,26 @@ public class MyJuFenMxActivity extends BaseActivity {
 	}
 
 	/**
-	 * µÚ2¸öÁĞ±íÊı¾İ½âÎö
+	 * ç¬¬2ä¸ªåˆ—è¡¨æ•°æ®è§£æ
 	 */
 	private void load_list2(boolean flag) {
 		list = new ArrayList<MyJuFenData>();
 		if (flag) {
-			// ¼ÆÊıºÍÈİÆ÷ÇåÁã
+			// è®¡æ•°å’Œå®¹å™¨æ¸…é›¶
 			CURRENT_NUM = 0;
 			list = new ArrayList<MyJuFenData>();
 		}
 		AsyncHttp
 				.get(RealmName.REALM_NAME_LL
-						+ "/get_article_page_size_list?channel_name=content&category_id=52"
-						+ "&page_size=" + VIEW_NUM + "&page_index="
-						+ CURRENT_NUM + "&strwhere=&orderby=",
+								+ "/get_article_page_size_list?channel_name=content&category_id=52"
+								+ "&page_size=" + VIEW_NUM + "&page_index="
+								+ CURRENT_NUM + "&strwhere=&orderby=",
 						new AsyncHttpResponseHandler() {
 							@Override
 							public void onSuccess(int arg0, String arg1) {
 								// TODO Auto-generated method stub
 								super.onSuccess(arg0, arg1);
-								System.out.println("=====================¶ş¼¶Öµ1"
+								System.out.println("=====================äºŒçº§å€¼1"
 										+ arg1);
 								try {
 									JSONObject jsonObject = new JSONObject(arg1);

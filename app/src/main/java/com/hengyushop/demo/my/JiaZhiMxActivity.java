@@ -41,11 +41,11 @@ import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.zams.www.R;
 
 /**
- * 
- * ¼ÛÖµÃ÷Ï¸
- * 
+ *
+ * ä»·å€¼æ˜ç»†
+ *
  * @author Administrator
- * 
+ *
  */
 public class JiaZhiMxActivity extends BaseActivity implements OnClickListener {
 	private ImageView iv_fanhui, cursor1, cursor2, cursor3, cursor4;
@@ -64,7 +64,7 @@ public class JiaZhiMxActivity extends BaseActivity implements OnClickListener {
 	private int RUN_METHOD = -1;
 	private DialogProgress progress;
 	private ImageView iv_biaoti_1,iv_biaoti_2,iv_biaoti1, iv_biaoti2, iv_biaoti3,
-	iv_biaoti4,iv_biaoti5;
+			iv_biaoti4,iv_biaoti5;
 	MyAssetsBean data;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -84,9 +84,9 @@ public class JiaZhiMxActivity extends BaseActivity implements OnClickListener {
 
 	}
 
-	
+
 	/**
-	 * ¿Ø¼ş³õÊ¼»¯
+	 * æ§ä»¶åˆå§‹åŒ–
 	 */
 	private void Initialize() {
 
@@ -116,10 +116,10 @@ public class JiaZhiMxActivity extends BaseActivity implements OnClickListener {
 			index_item2 = (LinearLayout) findViewById(R.id.index_item2);
 			index_item3 = (LinearLayout) findViewById(R.id.index_item3);
 			index_item4 = (LinearLayout) findViewById(R.id.index_item4);
-//			cursor1 = (ImageView) findViewById(R.id.cursor1);
-//			cursor2 = (ImageView) findViewById(R.id.cursor2);
-//			cursor3 = (ImageView) findViewById(R.id.cursor3);
-//			cursor4 = (ImageView) findViewById(R.id.cursor4);
+			//			cursor1 = (ImageView) findViewById(R.id.cursor1);
+			//			cursor2 = (ImageView) findViewById(R.id.cursor2);
+			//			cursor3 = (ImageView) findViewById(R.id.cursor3);
+			//			cursor4 = (ImageView) findViewById(R.id.cursor4);
 			index_item0.setOnClickListener(this);
 			index_item1.setOnClickListener(this);
 			index_item2.setOnClickListener(this);
@@ -141,7 +141,7 @@ public class JiaZhiMxActivity extends BaseActivity implements OnClickListener {
 			Bitmap bm22 = BitmapFactory.decodeResource(this.getResources(), R.drawable.jz_pt_2);
 			BitmapDrawable bd22 = new BitmapDrawable(this.getResources(), bm22);
 			iv_biaoti_2.setBackgroundDrawable(bd22);
-			
+
 
 			Bitmap bm1 = BitmapFactory.decodeResource(this.getResources(), R.drawable.jz_1);
 			BitmapDrawable bd1 = new BitmapDrawable(this.getResources(), bm1);
@@ -158,7 +158,7 @@ public class JiaZhiMxActivity extends BaseActivity implements OnClickListener {
 			Bitmap bm5 = BitmapFactory.decodeResource(this.getResources(), R.drawable.jz_5);
 			BitmapDrawable bd5 = new BitmapDrawable(this.getResources(), bm5);
 			iv_biaoti5.setBackgroundDrawable(bd5);
-			
+
 		} catch (Exception e) {
 			// TODO: handle exception
 			e.printStackTrace();
@@ -169,34 +169,34 @@ public class JiaZhiMxActivity extends BaseActivity implements OnClickListener {
 	public void onClick(View v) {
 		// TODO Auto-generated method stub
 		switch (v.getId()) {
-		//12 8 13 14 15
-		case R.id.index_item0:
-			fund_id = "12";
-			load_list(true, fund_id);
-			break;
-		case R.id.index_item1:
-			fund_id = "8";
-			load_list(true, fund_id);
-			break;
-		case R.id.index_item2:
-			fund_id = "13";
-			load_list(true, fund_id);
-			break;
-		case R.id.index_item3:
-			fund_id = "14";
-			load_list(true, fund_id);
-			break;
-		case R.id.index_item4:
-			fund_id = "15";
-			load_list(true, fund_id);
-			break;
-		default:
-			break;
+			//12 8 13 14 15
+			case R.id.index_item0:
+				fund_id = "12";
+				load_list(true, fund_id);
+				break;
+			case R.id.index_item1:
+				fund_id = "8";
+				load_list(true, fund_id);
+				break;
+			case R.id.index_item2:
+				fund_id = "13";
+				load_list(true, fund_id);
+				break;
+			case R.id.index_item3:
+				fund_id = "14";
+				load_list(true, fund_id);
+				break;
+			case R.id.index_item4:
+				fund_id = "15";
+				load_list(true, fund_id);
+				break;
+			default:
+				break;
 		}
 	}
 
 	/**
-	 * ÉÏÀ­ÁĞ±íË¢ĞÂ¼ÓÔØ
+	 * ä¸Šæ‹‰åˆ—è¡¨åˆ·æ–°åŠ è½½
 	 */
 	private OnHeaderRefreshListener listHeadListener = new OnHeaderRefreshListener() {
 
@@ -214,7 +214,7 @@ public class JiaZhiMxActivity extends BaseActivity implements OnClickListener {
 	};
 
 	/**
-	 * ÏÂÀ­ÁĞ±íË¢ĞÂ¼ÓÔØ
+	 * ä¸‹æ‹‰åˆ—è¡¨åˆ·æ–°åŠ è½½
 	 */
 	private OnFooterRefreshListener listFootListener = new OnFooterRefreshListener() {
 
@@ -270,23 +270,23 @@ public class JiaZhiMxActivity extends BaseActivity implements OnClickListener {
 	Handler handler = new Handler() {
 		public void dispatchMessage(Message msg) {
 			switch (msg.what) {
-			case 0:
-				adapter.putData(list);
-				// list = (ArrayList<MyAssetsBean>) msg.obj;
-				// adapter = new MyAssetsAdapter(list,
-				// MyAssetsActivity.this,imageLoader);
-				// listView.setAdapter(adapter);
-				// adapter.notifyDataSetChanged();
-				break;
+				case 0:
+					adapter.putData(list);
+					// list = (ArrayList<MyAssetsBean>) msg.obj;
+					// adapter = new MyAssetsAdapter(list,
+					// MyAssetsActivity.this,imageLoader);
+					// listView.setAdapter(adapter);
+					// adapter.notifyDataSetChanged();
+					break;
 
-			default:
-				break;
+				default:
+					break;
 			}
 		};
 	};
 
 	/**
-	 * µÚ1¸öÁĞ±íÊı¾İ½âÎö
+	 * ç¬¬1ä¸ªåˆ—è¡¨æ•°æ®è§£æ
 	 */
 	// private int RUN_METHOD = -1;
 	private int CURRENT_NUM = 1;
@@ -296,7 +296,7 @@ public class JiaZhiMxActivity extends BaseActivity implements OnClickListener {
 		progress.CreateProgress();
 		RUN_METHOD = 1;
 		if (flag) {
-			// ¼ÆÊıºÍÈİÆ÷ÇåÁã
+			// è®¡æ•°å’Œå®¹å™¨æ¸…é›¶
 			System.out.println("=====================flag==" + flag);
 			CURRENT_NUM = 1;
 			list = new ArrayList<MyAssetsBean>();
@@ -305,14 +305,14 @@ public class JiaZhiMxActivity extends BaseActivity implements OnClickListener {
 		String user_id = spPreferences.getString("user_id", "");
 		System.out.println("=====================fund_id--" + fund_id);
 		AsyncHttp.get(RealmName.REALM_NAME_LL + "/get_payrecord_list?user_id="
-				+ user_id + "&user_name=" + user_name + "&fund_id=" + fund_id
-				+ "&page_size=" + VIEW_NUM + "&page_index=" + CURRENT_NUM + "",
+						+ user_id + "&user_name=" + user_name + "&fund_id=" + fund_id
+						+ "&page_size=" + VIEW_NUM + "&page_index=" + CURRENT_NUM + "",
 				new AsyncHttpResponseHandler() {
 					@Override
 					public void onSuccess(int arg0, String arg1) {
 						// TODO Auto-generated method stub
 						super.onSuccess(arg0, arg1);
-						System.out.println("=====================¶ş¼¶Öµ1" + arg1);
+						System.out.println("=====================äºŒçº§å€¼1" + arg1);
 						try {
 							JSONObject object = new JSONObject(arg1);
 							String status = object.getString("status");
@@ -339,7 +339,7 @@ public class JiaZhiMxActivity extends BaseActivity implements OnClickListener {
 								Toast.makeText(JiaZhiMxActivity.this, info, 200)
 										.show();
 							}
-							System.out.println("=====================¶ş¼¶Öµ12");
+							System.out.println("=====================äºŒçº§å€¼12");
 							Message msg = new Message();
 							msg.what = 0;
 							msg.obj = list;
@@ -357,9 +357,9 @@ public class JiaZhiMxActivity extends BaseActivity implements OnClickListener {
 				}, null);
 	}
 
-	
+
 	/**
-	 * Æ½Ì¨×Ü¼ÛÖµ
+	 * å¹³å°æ€»ä»·å€¼
 	 */
 	private void getptzjz() {
 		try {
@@ -367,18 +367,18 @@ public class JiaZhiMxActivity extends BaseActivity implements OnClickListener {
 			AsyncHttp.get(strUrl, new AsyncHttpResponseHandler() {
 				public void onSuccess(int arg0, String arg1) {
 					try {
-						System.out.println("======Æ½Ì¨×Ü¼ÛÖµ=============" + arg1);
+						System.out.println("======å¹³å°æ€»ä»·å€¼=============" + arg1);
 						JSONObject object = new JSONObject(arg1);
 						String status = object.getString("status");
 						if (status.equals("y")) {
 							JSONObject obj = object.getJSONObject("data");
 							String fund_total = obj.getString("fund_total");
 							System.out.println("fund_total==============="+ fund_total);
-//							BigDecimal w = new BigDecimal(fund_total);
-//							double fund_zjz = w.setScale(2, BigDecimal.ROUND_HALF_UP).doubleValue();
-//							System.out.println("fund_zjz==============="+ fund_zjz);
-//							tv_jz_bt_1.setText(String.valueOf(fund_total_1));//Æ½Ì¨×Ü¼ÛÖµ
-							tv_jz_bt_1.setText(fund_total);//Æ½Ì¨×Ü¼ÛÖµ
+							//							BigDecimal w = new BigDecimal(fund_total);
+							//							double fund_zjz = w.setScale(2, BigDecimal.ROUND_HALF_UP).doubleValue();
+							//							System.out.println("fund_zjz==============="+ fund_zjz);
+							//							tv_jz_bt_1.setText(String.valueOf(fund_total_1));//å¹³å°æ€»ä»·å€¼
+							tv_jz_bt_1.setText(fund_total);//å¹³å°æ€»ä»·å€¼
 						} else {
 						}
 					} catch (JSONException e) {
@@ -391,7 +391,7 @@ public class JiaZhiMxActivity extends BaseActivity implements OnClickListener {
 				public void onFailure(Throwable arg0, String arg1) {
 					// TODO Auto-generated method stub
 					super.onFailure(arg0, arg1);
-					NewDataToast.makeText(JiaZhiMxActivity.this, "Á¬½Ó³¬Ê±", false,
+					NewDataToast.makeText(JiaZhiMxActivity.this, "è¿æ¥è¶…æ—¶", false,
 							0).show();
 				}
 			}, getApplicationContext());
@@ -403,7 +403,7 @@ public class JiaZhiMxActivity extends BaseActivity implements OnClickListener {
 	}
 
 	/**
-	 * ÎÒµÄ×Ü¼ÛÖµ
+	 * æˆ‘çš„æ€»ä»·å€¼
 	 */
 	double exp;
 	private void loadguanggao() {
@@ -414,12 +414,12 @@ public class JiaZhiMxActivity extends BaseActivity implements OnClickListener {
 			AsyncHttp.get(strUrl, new AsyncHttpResponseHandler() {
 				public void onSuccess(int arg0, String arg1) {
 					try {
-						System.out.println("======ÎÒµÄ×Ü¼ÛÖµ=============" + arg1);
+						System.out.println("======æˆ‘çš„æ€»ä»·å€¼=============" + arg1);
 						JSONObject object = new JSONObject(arg1);
 						String status = object.getString("status");
 						if (status.equals("y")) {
 							JSONObject obj = object.getJSONObject("data");
-							
+
 							double exp = obj.getDouble("exp");
 							double exp_weal = obj.getDouble("exp_weal");
 							double exp_invest = obj.getDouble("exp_invest");
@@ -430,8 +430,8 @@ public class JiaZhiMxActivity extends BaseActivity implements OnClickListener {
 							BigDecimal w = new BigDecimal(dzongjia);
 							double zong_jz = w.setScale(2, BigDecimal.ROUND_HALF_UP).doubleValue();
 							System.out.println("zong_jz==============="+ zong_jz);
-							
-							tv_jz_bt_2.setText(String.valueOf(zong_jz));//¼ÛÖµ
+
+							tv_jz_bt_2.setText(String.valueOf(zong_jz));//ä»·å€¼
 
 							tv_title_1.setText(String.valueOf(exp_weal));
 							tv_title_2.setText(String.valueOf(exp));
@@ -452,7 +452,7 @@ public class JiaZhiMxActivity extends BaseActivity implements OnClickListener {
 				public void onFailure(Throwable arg0, String arg1) {
 					// TODO Auto-generated method stub
 					super.onFailure(arg0, arg1);
-					NewDataToast.makeText(JiaZhiMxActivity.this, "Á¬½Ó³¬Ê±", false,0).show();
+					NewDataToast.makeText(JiaZhiMxActivity.this, "è¿æ¥è¶…æ—¶", false,0).show();
 				}
 			}, getApplicationContext());
 
@@ -461,48 +461,48 @@ public class JiaZhiMxActivity extends BaseActivity implements OnClickListener {
 			e.printStackTrace();
 		}
 	}
-	
+
 	public void onDestroy() {
-		 super.onDestroy(); 
-		 try {
-			 fund_id = "12";
-			 
-				if (list.size() > 0) {
-					list.clear();
-					list = null;
-				}
-			 
-				BitmapDrawable bd11 = (BitmapDrawable)iv_biaoti_1.getBackground();
-				iv_biaoti_1.setBackgroundResource(0);//±ğÍüÁË°Ñ±³¾°ÉèÎªnull£¬±ÜÃâonDrawË¢ĞÂ±³¾°Ê±ºò³öÏÖused a recycled bitmap´íÎó
-				bd11.setCallback(null);
-				bd11.getBitmap().recycle();
-				BitmapDrawable bd22 = (BitmapDrawable)iv_biaoti_2.getBackground();
-				iv_biaoti_2.setBackgroundResource(0);//±ğÍüÁË°Ñ±³¾°ÉèÎªnull£¬±ÜÃâonDrawË¢ĞÂ±³¾°Ê±ºò³öÏÖused a recycled bitmap´íÎó
-				bd22.setCallback(null);
-				bd22.getBitmap().recycle();
+		super.onDestroy();
+		try {
+			fund_id = "12";
+
+			if (list.size() > 0) {
+				list.clear();
+				list = null;
+			}
+
+			BitmapDrawable bd11 = (BitmapDrawable)iv_biaoti_1.getBackground();
+			iv_biaoti_1.setBackgroundResource(0);//åˆ«å¿˜äº†æŠŠèƒŒæ™¯è®¾ä¸ºnullï¼Œé¿å…onDrawåˆ·æ–°èƒŒæ™¯æ—¶å€™å‡ºç°used a recycled bitmapé”™è¯¯
+			bd11.setCallback(null);
+			bd11.getBitmap().recycle();
+			BitmapDrawable bd22 = (BitmapDrawable)iv_biaoti_2.getBackground();
+			iv_biaoti_2.setBackgroundResource(0);//åˆ«å¿˜äº†æŠŠèƒŒæ™¯è®¾ä¸ºnullï¼Œé¿å…onDrawåˆ·æ–°èƒŒæ™¯æ—¶å€™å‡ºç°used a recycled bitmapé”™è¯¯
+			bd22.setCallback(null);
+			bd22.getBitmap().recycle();
 			BitmapDrawable bd1 = (BitmapDrawable)iv_biaoti1.getBackground();
-			iv_biaoti1.setBackgroundResource(0);//±ğÍüÁË°Ñ±³¾°ÉèÎªnull£¬±ÜÃâonDrawË¢ĞÂ±³¾°Ê±ºò³öÏÖused a recycled bitmap´íÎó
+			iv_biaoti1.setBackgroundResource(0);//åˆ«å¿˜äº†æŠŠèƒŒæ™¯è®¾ä¸ºnullï¼Œé¿å…onDrawåˆ·æ–°èƒŒæ™¯æ—¶å€™å‡ºç°used a recycled bitmapé”™è¯¯
 			bd1.setCallback(null);
 			bd1.getBitmap().recycle();
 			BitmapDrawable bd2 = (BitmapDrawable)iv_biaoti2.getBackground();
-			iv_biaoti2.setBackgroundResource(0);//±ğÍüÁË°Ñ±³¾°ÉèÎªnull£¬±ÜÃâonDrawË¢ĞÂ±³¾°Ê±ºò³öÏÖused a recycled bitmap´íÎó
+			iv_biaoti2.setBackgroundResource(0);//åˆ«å¿˜äº†æŠŠèƒŒæ™¯è®¾ä¸ºnullï¼Œé¿å…onDrawåˆ·æ–°èƒŒæ™¯æ—¶å€™å‡ºç°used a recycled bitmapé”™è¯¯
 			bd2.setCallback(null);
 			bd2.getBitmap().recycle();
 			BitmapDrawable bd3 = (BitmapDrawable)iv_biaoti3.getBackground();
-			iv_biaoti3.setBackgroundResource(0);//±ğÍüÁË°Ñ±³¾°ÉèÎªnull£¬±ÜÃâonDrawË¢ĞÂ±³¾°Ê±ºò³öÏÖused a recycled bitmap´íÎó
+			iv_biaoti3.setBackgroundResource(0);//åˆ«å¿˜äº†æŠŠèƒŒæ™¯è®¾ä¸ºnullï¼Œé¿å…onDrawåˆ·æ–°èƒŒæ™¯æ—¶å€™å‡ºç°used a recycled bitmapé”™è¯¯
 			bd3.setCallback(null);
 			bd3.getBitmap().recycle();
 			BitmapDrawable bd4 = (BitmapDrawable)iv_biaoti4.getBackground();
-			iv_biaoti4.setBackgroundResource(0);//±ğÍüÁË°Ñ±³¾°ÉèÎªnull£¬±ÜÃâonDrawË¢ĞÂ±³¾°Ê±ºò³öÏÖused a recycled bitmap´íÎó
+			iv_biaoti4.setBackgroundResource(0);//åˆ«å¿˜äº†æŠŠèƒŒæ™¯è®¾ä¸ºnullï¼Œé¿å…onDrawåˆ·æ–°èƒŒæ™¯æ—¶å€™å‡ºç°used a recycled bitmapé”™è¯¯
 			bd4.setCallback(null);
 			bd4.getBitmap().recycle();
 			BitmapDrawable bd5 = (BitmapDrawable)iv_biaoti5.getBackground();
-			iv_biaoti5.setBackgroundResource(0);//±ğÍüÁË°Ñ±³¾°ÉèÎªnull£¬±ÜÃâonDrawË¢ĞÂ±³¾°Ê±ºò³öÏÖused a recycled bitmap´íÎó
+			iv_biaoti5.setBackgroundResource(0);//åˆ«å¿˜äº†æŠŠèƒŒæ™¯è®¾ä¸ºnullï¼Œé¿å…onDrawåˆ·æ–°èƒŒæ™¯æ—¶å€™å‡ºç°used a recycled bitmapé”™è¯¯
 			bd5.setCallback(null);
 			bd5.getBitmap().recycle();
-	} catch (Exception e) {
-		// TODO: handle exception
-		e.printStackTrace();
-	}
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
 	};
 }

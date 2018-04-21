@@ -39,11 +39,11 @@ public class HelpActivity extends BaseActivity {
 
 			@Override
 			public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
-					long arg3) {
+									long arg3) {
 				// TODO Auto-generated method stub
 				list_type = list.get(arg2).get("txt");
 				Toast.makeText(getApplicationContext(), list_type, 200).show();
-				if (list_type.equals("Òâ¼û·´À¡")) {
+				if (list_type.equals("æ„è§åé¦ˆ")) {
 					Intent intent = new Intent(HelpActivity.this,
 							HelpSuggestionActivity.class);
 					startActivity(intent);
@@ -55,7 +55,7 @@ public class HelpActivity extends BaseActivity {
 	}
 
 	private void getData() {
-		String[] strType = new String[] { "°ïÖúÖĞĞÄ&¹ØÓÚÎÒÃÇ", "°æÈ¨ÉêÃ÷ÓëÃâÔğÌõ¿î", "Òâ¼û·´À¡" };
+		String[] strType = new String[] { "å¸®åŠ©ä¸­å¿ƒ&å…³äºæˆ‘ä»¬", "ç‰ˆæƒç”³æ˜ä¸å…è´£æ¡æ¬¾", "æ„è§åé¦ˆ" };
 		list = new ArrayList<Map<String, String>>();
 		for (int i = 0; i < strType.length; i++) {
 			Map<String, String> lines = new HashMap<String, String>();
@@ -77,10 +77,10 @@ public class HelpActivity extends BaseActivity {
 		builder.setView(loginView);
 
 		tv = (TextView) loginView.findViewById(R.id.tv_help_content);
-		if (list_type.equals("°ïÖúÖĞĞÄ&¹ØÓÚÎÒÃÇ")) {
-			tv.setText("°ïÖúÖĞĞÄ&¹ØÓÚÎÒÃÇ");
-		} else if (list_type.equals("°æÈ¨ÉêÃ÷ÓëÃâÔğÌõ¿î")) {
-			tv.setText("°æÈ¨ÉêÃ÷ÓëÃâÔğÌõ¿î");
+		if (list_type.equals("å¸®åŠ©ä¸­å¿ƒ&å…³äºæˆ‘ä»¬")) {
+			tv.setText("å¸®åŠ©ä¸­å¿ƒ&å…³äºæˆ‘ä»¬");
+		} else if (list_type.equals("ç‰ˆæƒç”³æ˜ä¸å…è´£æ¡æ¬¾")) {
+			tv.setText("ç‰ˆæƒç”³æ˜ä¸å…è´£æ¡æ¬¾");
 		}
 		builder.create().show();
 	}

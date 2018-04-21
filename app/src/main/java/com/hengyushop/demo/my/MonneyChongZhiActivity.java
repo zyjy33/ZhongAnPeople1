@@ -44,8 +44,8 @@ import com.tencent.mm.sdk.openapi.IWXAPI;
 import com.tencent.mm.sdk.openapi.WXAPIFactory;
 import com.zams.www.R;
 /**
- * 
- * Óà¶î³äÖµ
+ *
+ * ä½™é¢å……å€¼
  * @author Administrator
  *
  */
@@ -70,18 +70,18 @@ public class MonneyChongZhiActivity extends BaseActivity implements OnClickListe
 	String login_sign,pety;
 	public static Handler handlerll;
 	boolean flag = false;
-	
+
 	@Override
 	protected void onResume() {
 		// TODO Auto-generated method stub
 		super.onResume();
-		
+
 		System.out.println("flag=============="+flag);
 		if (flag == true) {
 			userloginqm();
 		}
 	}
-	
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
@@ -89,210 +89,210 @@ public class MonneyChongZhiActivity extends BaseActivity implements OnClickListe
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_yanglao_chongzhi);
 		try {
-			
-			
+
+
 			handlerll = new Handler() {
 				public void dispatchMessage(Message msg) {
 					switch (msg.what) {
-					case 1:
-						finish();
-			            break;
-					default:
-						break;
+						case 1:
+							finish();
+							break;
+						default:
+							break;
 					}
 				}
 			};
-			
-		getWindow().setSoftInputMode( WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
-		api = WXAPIFactory.createWXAPI(MonneyChongZhiActivity.this,null);
-		api.registerApp(Constant.APP_ID);
-		wareDao = new WareDao(getApplicationContext());
-		progress = new DialogProgress(this);
-		
-//		yth = registerData.getHengyuCode();
-//		key = registerData.getUserkey();
-		
-		spPreferences = getSharedPreferences("longuserset", MODE_PRIVATE);
-		user_name = spPreferences.getString("user", "");
-		user_id = spPreferences.getString("user_id", "");
-		pwd = spPreferences.getString("pwd", "");
-		iv_fanhui = (ImageView) findViewById(R.id.iv_fanhui);
-		iv_fanhui.setOnClickListener(this);
-		
-//		loadguanggao();
 
-		textView1 = (TextView) findViewById(R.id.textView1);
-		textView1.setText("Ç®°ü³äÖµ");
-		chongzhi_edit = (EditText) findViewById(R.id.chongzhi_edit);
-		yfje_edit = (TextView) findViewById(R.id.yfje_edit);
-		chongzhi_submit = (Button) findViewById(R.id.chongzhi_submit);
-		yu_pay0 =  (LinearLayout) findViewById(R.id.yu_pay0);
-		yu_pay1 = (LinearLayout) findViewById(R.id.yu_pay1);
-		yu_pay2 = (LinearLayout) findViewById(R.id.yu_pay2);
-		yu_pay_c0 = (CheckBox) findViewById(R.id.yu_pay_c0);
-		yu_pay_c1 = (CheckBox) findViewById(R.id.yu_pay_c1);
-		yu_pay_c2 = (CheckBox) findViewById(R.id.yu_pay_c2);
-		chongzhi_edit.setInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL);
-		/**
-		 * Î¢ĞÅÖ§¸¶
-		 */
-		yu_pay0.setOnClickListener(new OnClickListener() {
-			
-			@Override
-			public void onClick(View arg0) {
-				// TODO Auto-generated method stub
-				if(yu_pay_c1.isChecked()){
-					yu_pay_c1.setChecked(false);
-				}else if(yu_pay_c2.isChecked()){
-					yu_pay_c2.setChecked(false);
-				}
-				yu_pay_c0.setChecked(true);
-			}
-		});
-		yu_pay_c0.setOnClickListener(new OnClickListener() {
-			
-			@Override
-			public void onClick(View arg0) {
-				// TODO Auto-generated method stub
-				if(yu_pay_c1.isChecked()){
-					//µã»÷ÉèÖÃÊÇ·ñÎªµã»÷×´Ì¬
-					yu_pay_c1.setChecked(false);
-				}else if(yu_pay_c2.isChecked()){
-					yu_pay_c2.setChecked(false);
-				}
-				yu_pay_c0.setChecked(true);
-			}
-		});
-		/**
-		 * Ö§¸¶±¦Ö§¸¶
-		 */
-		yu_pay_c1.setOnClickListener(new OnClickListener() {
-			
-			@Override
-			public void onClick(View arg0) {
-				// TODO Auto-generated method stub
-				if(yu_pay_c0.isChecked()){
-					yu_pay_c0.setChecked(false);
-				}else if(yu_pay_c2.isChecked()){
-					yu_pay_c2.setChecked(false);
-				}
-				yu_pay_c1.setChecked(true);
-			}
-		});
-		yu_pay1.setOnClickListener(new OnClickListener() {
-			
-			@Override
-			public void onClick(View arg0) {
-				// TODO Auto-generated method stub
-				if(yu_pay_c0.isChecked()){
-					yu_pay_c0.setChecked(false);
-				}else if(yu_pay_c2.isChecked()){
-					yu_pay_c2.setChecked(false);
-				}
-				yu_pay_c1.setChecked(true);
-			}
-		});
-		/**
-		 * Óà¶îÖ§¸¶
-		 */
-	    yu_pay_c2.setOnClickListener(new OnClickListener() {
-			
-			@Override
-			public void onClick(View arg0) {
-				// TODO Auto-generated method stub
-				if(yu_pay_c0.isChecked()){
-					yu_pay_c0.setChecked(false);
-				}else if(yu_pay_c1.isChecked()){
-					yu_pay_c1.setChecked(false);
-				}
-				yu_pay_c2.setChecked(true);
-			}
-		});
-		yu_pay2.setOnClickListener(new OnClickListener() {
-			
-			@Override
-			public void onClick(View arg0) {
-				// TODO Auto-generated method stub
-				if(yu_pay_c0.isChecked()){
-					yu_pay_c0.setChecked(false);
-				}else if(yu_pay_c1.isChecked()){
-					yu_pay_c1.setChecked(false);
-				}
-				yu_pay_c2.setChecked(true);
-			}
-		});
-		
-		chongzhi_submit.setOnClickListener(new OnClickListener() {
-			
-			@Override
-			public void onClick(View arg0) {
-				String yue = chongzhi_edit.getText().toString();
-				try {
-					Double.parseDouble(yue);
-					double monney = Double.parseDouble(yue);
-//					if (monney >= 100) {
-						
-					if(yu_pay_c0.isChecked()){
-						
-//						processWX(yue);
-						payment_id = "5";
-						System.out.println("payment_id=============="+payment_id);
-						loadweixinzf1(payment_id);
-//						Toast.makeText(getApplicationContext(), "ÔİÊ±ÎŞ·¨Ö§¸¶",200).show();
-					}else if (yu_pay_c1.isChecked()) {
-						
-//						process(yue);
-						payment_id = "3";
-						loadguanggao(payment_id);
-					}else if (yu_pay_c2.isChecked()) {
-						
-//						process(yue);
-						payment_id = "2";
-						loadguanggao(payment_id);
-//						Toast.makeText(getApplicationContext(), "ÔİÊ±ÎŞ·¨Ö§¸¶",200).show();
-					}else{
-						Toast.makeText(getApplicationContext(), "ÇëÑ¡ÔñÖ§¸¶·½Ê½",200).show();
+			getWindow().setSoftInputMode( WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
+			api = WXAPIFactory.createWXAPI(MonneyChongZhiActivity.this,null);
+			api.registerApp(Constant.APP_ID);
+			wareDao = new WareDao(getApplicationContext());
+			progress = new DialogProgress(this);
+
+			//		yth = registerData.getHengyuCode();
+			//		key = registerData.getUserkey();
+
+			spPreferences = getSharedPreferences("longuserset", MODE_PRIVATE);
+			user_name = spPreferences.getString("user", "");
+			user_id = spPreferences.getString("user_id", "");
+			pwd = spPreferences.getString("pwd", "");
+			iv_fanhui = (ImageView) findViewById(R.id.iv_fanhui);
+			iv_fanhui.setOnClickListener(this);
+
+			//		loadguanggao();
+
+			textView1 = (TextView) findViewById(R.id.textView1);
+			textView1.setText("é’±åŒ…å……å€¼");
+			chongzhi_edit = (EditText) findViewById(R.id.chongzhi_edit);
+			yfje_edit = (TextView) findViewById(R.id.yfje_edit);
+			chongzhi_submit = (Button) findViewById(R.id.chongzhi_submit);
+			yu_pay0 =  (LinearLayout) findViewById(R.id.yu_pay0);
+			yu_pay1 = (LinearLayout) findViewById(R.id.yu_pay1);
+			yu_pay2 = (LinearLayout) findViewById(R.id.yu_pay2);
+			yu_pay_c0 = (CheckBox) findViewById(R.id.yu_pay_c0);
+			yu_pay_c1 = (CheckBox) findViewById(R.id.yu_pay_c1);
+			yu_pay_c2 = (CheckBox) findViewById(R.id.yu_pay_c2);
+			chongzhi_edit.setInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL);
+			/**
+			 * å¾®ä¿¡æ”¯ä»˜
+			 */
+			yu_pay0.setOnClickListener(new OnClickListener() {
+
+				@Override
+				public void onClick(View arg0) {
+					// TODO Auto-generated method stub
+					if(yu_pay_c1.isChecked()){
+						yu_pay_c1.setChecked(false);
+					}else if(yu_pay_c2.isChecked()){
+						yu_pay_c2.setChecked(false);
 					}
-					
-//                    }else {
-//					Toast.makeText(getApplicationContext(), "ÇëÊäÈëÕıÈ·µÄ½ğ¶î,²»ÄÜĞ¡ÓÚ100", 200).show();	
-//					}
-				} catch (NumberFormatException e) {
-					e.printStackTrace();
-					Toast.makeText(getApplicationContext(), "ÇëÊäÈë½ğ¶î", 200).show();
+					yu_pay_c0.setChecked(true);
 				}
-				
-				
-			}
-		});
-		
-	} catch (Exception e) {
-		// TODO: handle exception
-		e.printStackTrace();
+			});
+			yu_pay_c0.setOnClickListener(new OnClickListener() {
+
+				@Override
+				public void onClick(View arg0) {
+					// TODO Auto-generated method stub
+					if(yu_pay_c1.isChecked()){
+						//ç‚¹å‡»è®¾ç½®æ˜¯å¦ä¸ºç‚¹å‡»çŠ¶æ€
+						yu_pay_c1.setChecked(false);
+					}else if(yu_pay_c2.isChecked()){
+						yu_pay_c2.setChecked(false);
+					}
+					yu_pay_c0.setChecked(true);
+				}
+			});
+			/**
+			 * æ”¯ä»˜å®æ”¯ä»˜
+			 */
+			yu_pay_c1.setOnClickListener(new OnClickListener() {
+
+				@Override
+				public void onClick(View arg0) {
+					// TODO Auto-generated method stub
+					if(yu_pay_c0.isChecked()){
+						yu_pay_c0.setChecked(false);
+					}else if(yu_pay_c2.isChecked()){
+						yu_pay_c2.setChecked(false);
+					}
+					yu_pay_c1.setChecked(true);
+				}
+			});
+			yu_pay1.setOnClickListener(new OnClickListener() {
+
+				@Override
+				public void onClick(View arg0) {
+					// TODO Auto-generated method stub
+					if(yu_pay_c0.isChecked()){
+						yu_pay_c0.setChecked(false);
+					}else if(yu_pay_c2.isChecked()){
+						yu_pay_c2.setChecked(false);
+					}
+					yu_pay_c1.setChecked(true);
+				}
+			});
+			/**
+			 * ä½™é¢æ”¯ä»˜
+			 */
+			yu_pay_c2.setOnClickListener(new OnClickListener() {
+
+				@Override
+				public void onClick(View arg0) {
+					// TODO Auto-generated method stub
+					if(yu_pay_c0.isChecked()){
+						yu_pay_c0.setChecked(false);
+					}else if(yu_pay_c1.isChecked()){
+						yu_pay_c1.setChecked(false);
+					}
+					yu_pay_c2.setChecked(true);
+				}
+			});
+			yu_pay2.setOnClickListener(new OnClickListener() {
+
+				@Override
+				public void onClick(View arg0) {
+					// TODO Auto-generated method stub
+					if(yu_pay_c0.isChecked()){
+						yu_pay_c0.setChecked(false);
+					}else if(yu_pay_c1.isChecked()){
+						yu_pay_c1.setChecked(false);
+					}
+					yu_pay_c2.setChecked(true);
+				}
+			});
+
+			chongzhi_submit.setOnClickListener(new OnClickListener() {
+
+				@Override
+				public void onClick(View arg0) {
+					String yue = chongzhi_edit.getText().toString();
+					try {
+						Double.parseDouble(yue);
+						double monney = Double.parseDouble(yue);
+						//					if (monney >= 100) {
+
+						if(yu_pay_c0.isChecked()){
+
+							//						processWX(yue);
+							payment_id = "5";
+							System.out.println("payment_id=============="+payment_id);
+							loadweixinzf1(payment_id);
+							//						Toast.makeText(getApplicationContext(), "æš‚æ—¶æ— æ³•æ”¯ä»˜",200).show();
+						}else if (yu_pay_c1.isChecked()) {
+
+							//						process(yue);
+							payment_id = "3";
+							loadguanggao(payment_id);
+						}else if (yu_pay_c2.isChecked()) {
+
+							//						process(yue);
+							payment_id = "2";
+							loadguanggao(payment_id);
+							//						Toast.makeText(getApplicationContext(), "æš‚æ—¶æ— æ³•æ”¯ä»˜",200).show();
+						}else{
+							Toast.makeText(getApplicationContext(), "è¯·é€‰æ‹©æ”¯ä»˜æ–¹å¼",200).show();
+						}
+
+						//                    }else {
+						//					Toast.makeText(getApplicationContext(), "è¯·è¾“å…¥æ­£ç¡®çš„é‡‘é¢,ä¸èƒ½å°äº100", 200).show();
+						//					}
+					} catch (NumberFormatException e) {
+						e.printStackTrace();
+						Toast.makeText(getApplicationContext(), "è¯·è¾“å…¥é‡‘é¢", 200).show();
+					}
+
+
+				}
+			});
+
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
 	}
-	}
-	
+
 	@Override
 	public void onClick(View v) {
 		// TODO Auto-generated method stub
-		
-		switch (v.getId()) {
-		case R.id.iv_fanhui:
-			finish();
-			break;
-		case R.id.tv_xiabu:
-//			finish();
-//			Intent intent = new Intent(ShengJiCkActivity.this,ApplyBusiness2Activity.class);
-//			startActivity(intent);
-			break;
 
-		default:
-			break;
+		switch (v.getId()) {
+			case R.id.iv_fanhui:
+				finish();
+				break;
+			case R.id.tv_xiabu:
+				//			finish();
+				//			Intent intent = new Intent(ShengJiCkActivity.this,ApplyBusiness2Activity.class);
+				//			startActivity(intent);
+				break;
+
+			default:
+				break;
 		}
 	}
-	
+
 	/**
-	 * »ñÈ¡µÇÂ¼Ç©Ãû
+	 * è·å–ç™»å½•ç­¾å
 	 */
 	private void userloginqm() {
 		try{
@@ -312,12 +312,12 @@ public class MonneyChongZhiActivity extends BaseActivity implements OnClickListe
 							String login_sign = data.login_sign;
 							System.out.println("======login_sign============="+login_sign);
 							System.out.println("======recharge_no============="+recharge_no);
-							
-//							if (pety.equals("2")) {
-//								
-//							}else if (pety.equals("3")) {
-								loadguanggaoll(recharge_no,login_sign);
-//							}
+
+							//							if (pety.equals("2")) {
+							//
+							//							}else if (pety.equals("3")) {
+							loadguanggaoll(recharge_no,login_sign);
+							//							}
 						}else{
 						}
 					} catch (JSONException e) {
@@ -326,402 +326,402 @@ public class MonneyChongZhiActivity extends BaseActivity implements OnClickListe
 					}
 				};
 			}, MonneyChongZhiActivity.this);
-			
+
 		} catch (Exception e) {
 			// TODO: handle exception
 			e.printStackTrace();
 		}
 	}
-	
+
 	/**
-	 * ¸üĞÂÖ§¸¶±¦Ö§¸¶ 
-	 * @param login_sign 
-	 * @param payment_id 
+	 * æ›´æ–°æ”¯ä»˜å®æ”¯ä»˜
+	 * @param login_sign
+	 * @param payment_id
 	 */
 	private void loadguanggaoll(String recharge_noll, String login_sign) {
 		try {
 			recharge_no = recharge_noll;
 			System.out.println("recharge_no================================="+recharge_no);
-//			login_sign = spPreferences.getString("login_sign", "");
+			//			login_sign = spPreferences.getString("login_sign", "");
 			System.out.println("login_sign================================="+login_sign);
-//update_user_pension  update_user_amount
-		AsyncHttp.get(RealmName.REALM_NAME_LL
-				+ "/update_user_amount?user_id="+user_id+"&user_name="+user_name+"" +
-						"&recharge_no="+recharge_noll+"&sign="+login_sign+"",
-						
-				new AsyncHttpResponseHandler() {
-					@Override
-					public void onSuccess(int arg0, String arg1) {
-						super.onSuccess(arg0, arg1);
-						try {
-							JSONObject object = new JSONObject(arg1);
-							System.out.println("1================================="+arg1);
-							  String status = object.getString("status");
-							    String info = object.getString("info");
-							    if (status.equals("y")) {
-							    	   progress.CloseProgress();
-//									   loadzhidu(recharge_no);
-//							    	   Toast.makeText(MonneyChongZhiActivity.this, info, 200).show();
-							    	   finish();
-							    }else {
-							    	progress.CloseProgress();
-//									Toast.makeText(MonneyChongZhiActivity.this, info, 200).show();
-								}
-						} catch (JSONException e) {
-							e.printStackTrace();
-						}
-					}
-					
-					@Override
-					public void onFailure(Throwable arg0, String arg1) {
-						// TODO Auto-generated method stub
-						super.onFailure(arg0, arg1);
-						System.out.println("11================================="+arg0);
-						System.out.println("22================================="+arg1);
-						Toast.makeText(MonneyChongZhiActivity.this, "ÍøÂç³¬Ê±Òì³£", 200).show();
-					}
+			//update_user_pension  update_user_amount
+			AsyncHttp.get(RealmName.REALM_NAME_LL
+							+ "/update_user_amount?user_id="+user_id+"&user_name="+user_name+"" +
+							"&recharge_no="+recharge_noll+"&sign="+login_sign+"",
 
-				}, null);
-		
+					new AsyncHttpResponseHandler() {
+						@Override
+						public void onSuccess(int arg0, String arg1) {
+							super.onSuccess(arg0, arg1);
+							try {
+								JSONObject object = new JSONObject(arg1);
+								System.out.println("1================================="+arg1);
+								String status = object.getString("status");
+								String info = object.getString("info");
+								if (status.equals("y")) {
+									progress.CloseProgress();
+									//									   loadzhidu(recharge_no);
+									//							    	   Toast.makeText(MonneyChongZhiActivity.this, info, 200).show();
+									finish();
+								}else {
+									progress.CloseProgress();
+									//									Toast.makeText(MonneyChongZhiActivity.this, info, 200).show();
+								}
+							} catch (JSONException e) {
+								e.printStackTrace();
+							}
+						}
+
+						@Override
+						public void onFailure(Throwable arg0, String arg1) {
+							// TODO Auto-generated method stub
+							super.onFailure(arg0, arg1);
+							System.out.println("11================================="+arg0);
+							System.out.println("22================================="+arg1);
+							Toast.makeText(MonneyChongZhiActivity.this, "ç½‘ç»œè¶…æ—¶å¼‚å¸¸", 200).show();
+						}
+
+					}, null);
+
 		} catch (Exception e) {
 			// TODO: handle exception
 			e.printStackTrace();
 		}
 	}
-	
+
 	/**
-	 * ³äÖµµ¥Éú³É 
-	 * @param payment_id 
+	 * å……å€¼å•ç”Ÿæˆ
+	 * @param payment_id
 	 */
 	private void loadguanggao(String payment_id) {
 		try {
-			progress.CreateProgress();	
-		String amount = chongzhi_edit.getText().toString();
-        System.out.println("==============="+amount);
-        pety = payment_id;
-		AsyncHttp.get(RealmName.REALM_NAME_LL
-				+ "/add_amount_recharge?user_id="+user_id+"&user_name="+user_name+"" +
-						"&amount="+amount+"&fund_id=1&payment_id="+payment_id+"&rebate_item_id=0",
-				new AsyncHttpResponseHandler() {
-					@Override
-					public void onSuccess(int arg0, String arg1) {
-						super.onSuccess(arg0, arg1);
-						try {
-							JSONObject object = new JSONObject(arg1);
-							System.out.println("1================================="+arg1);
-							  String status = object.getString("status");
-							    String info = object.getString("info");
-							    if (status.equals("y")) {
-							    	JSONObject obj = object.getJSONObject("data");
+			progress.CreateProgress();
+			String amount = chongzhi_edit.getText().toString();
+			System.out.println("==============="+amount);
+			pety = payment_id;
+			AsyncHttp.get(RealmName.REALM_NAME_LL
+							+ "/add_amount_recharge?user_id="+user_id+"&user_name="+user_name+"" +
+							"&amount="+amount+"&fund_id=1&payment_id="+payment_id+"&rebate_item_id=0",
+					new AsyncHttpResponseHandler() {
+						@Override
+						public void onSuccess(int arg0, String arg1) {
+							super.onSuccess(arg0, arg1);
+							try {
+								JSONObject object = new JSONObject(arg1);
+								System.out.println("1================================="+arg1);
+								String status = object.getString("status");
+								String info = object.getString("info");
+								if (status.equals("y")) {
+									JSONObject obj = object.getJSONObject("data");
 									AdvertDao1 data = new AdvertDao1();
 									data.recharge_no = obj.getString("recharge_no");
 									recharge_no = data.recharge_no;
 									System.out.println("11================================="+data.recharge_no );
-									  progress.CloseProgress();
-									  if (pety.equals("2")) {
-										  loadYue(recharge_no);
-									  }else if (pety.equals("3")){
-										  loadzhidu(recharge_no);
-									  }
-							    }else {
-							    	progress.CloseProgress();
+									progress.CloseProgress();
+									if (pety.equals("2")) {
+										loadYue(recharge_no);
+									}else if (pety.equals("3")){
+										loadzhidu(recharge_no);
+									}
+								}else {
+									progress.CloseProgress();
 									Toast.makeText(MonneyChongZhiActivity.this, info, 200).show();
 								}
-							
-						} catch (JSONException e) {
-							e.printStackTrace();
-						}
-					}
 
-				}, getApplicationContext());
-		
+							} catch (JSONException e) {
+								e.printStackTrace();
+							}
+						}
+
+					}, getApplicationContext());
+
 		} catch (Exception e) {
 			// TODO: handle exception
 			e.printStackTrace();
 		}
 	}
-	
-	
+
+
 	/**
-	 * ÓÃ»§ÔÚÏß³äÖµ  Ö§¸¶±¦
-	 * @param payment_id 
+	 * ç”¨æˆ·åœ¨çº¿å……å€¼  æ”¯ä»˜å®
+	 * @param payment_id
 	 */
 	private void loadzhidu(String recharge_no) {
 		try {
-			
-      String amount = chongzhi_edit.getText().toString().trim();
-//		String amount = "0.01";
-        
-		AsyncHttp.get(RealmName.REALM_NAME_LL
-				+ "/payment_sign?user_id="+user_id+"&user_name="+user_name+"" +
-						"&total_fee="+amount+"&out_trade_no="+recharge_no+"&payment_type=alipay",
-						
-				new AsyncHttpResponseHandler() {
-					@Override
-					public void onSuccess(int arg0, String arg1) {
-						super.onSuccess(arg0, arg1);
-						try {
-							JSONObject object = new JSONObject(arg1);
-							System.out.println("2================================="+arg1);
-							  String status = object.getString("status");
-							    String info = object.getString("info");
-							    if (status.equals("y")) {
-							    	JSONObject obj = object.getJSONObject("data");
-							    	notify_url = obj.getString("notify_url"); 
-							    	return_url = obj.getString("return_url");
-							    	System.out.println("return_url================================="+return_url);
-							    	progress.CloseProgress();
+
+			String amount = chongzhi_edit.getText().toString().trim();
+			//		String amount = "0.01";
+
+			AsyncHttp.get(RealmName.REALM_NAME_LL
+							+ "/payment_sign?user_id="+user_id+"&user_name="+user_name+"" +
+							"&total_fee="+amount+"&out_trade_no="+recharge_no+"&payment_type=alipay",
+
+					new AsyncHttpResponseHandler() {
+						@Override
+						public void onSuccess(int arg0, String arg1) {
+							super.onSuccess(arg0, arg1);
+							try {
+								JSONObject object = new JSONObject(arg1);
+								System.out.println("2================================="+arg1);
+								String status = object.getString("status");
+								String info = object.getString("info");
+								if (status.equals("y")) {
+									JSONObject obj = object.getJSONObject("data");
+									notify_url = obj.getString("notify_url");
+									return_url = obj.getString("return_url");
+									System.out.println("return_url================================="+return_url);
+									progress.CloseProgress();
 									handler.sendEmptyMessage(1);
-							    }else {
-							    	progress.CloseProgress();
+								}else {
+									progress.CloseProgress();
 									Toast.makeText(MonneyChongZhiActivity.this, info, 200).show();
 								}
-						} catch (JSONException e) {
-							e.printStackTrace();
+							} catch (JSONException e) {
+								e.printStackTrace();
+							}
 						}
-					}
 
-				}, null);
-		
+					}, null);
+
 		} catch (Exception e) {
 			// TODO: handle exception
 			e.printStackTrace();
 		}
 	}
-	
+
 	/**
-	 * ÓÃ»§ÔÚÏß³äÖµ  Óà¶îÖ§¸¶
-	 * @param payment_id 
+	 * ç”¨æˆ·åœ¨çº¿å……å€¼  ä½™é¢æ”¯ä»˜
+	 * @param payment_id
 	 */
 	private void loadYue(String recharge_no) {
 		try {
-			
-		AsyncHttp.get(RealmName.REALM_NAME_LL
-				+ "/payment_balance?user_id="+user_id+"&user_name="+user_name+"" +
-						"&order_no="+recharge_no+"&paypassword="+pwd+"",
-						
-				new AsyncHttpResponseHandler() {
-					@Override
-					public void onSuccess(int arg0, String arg1) {
-						super.onSuccess(arg0, arg1);
-						try {
-							JSONObject object = new JSONObject(arg1);
-							System.out.println("2================================="+arg1);
-							  String status = object.getString("status");
-							    String info = object.getString("info");
-							    if (status.equals("y")) {
-							    	progress.CloseProgress();
-							    	userloginqm();
-							    }else {
-							    	progress.CloseProgress();
+
+			AsyncHttp.get(RealmName.REALM_NAME_LL
+							+ "/payment_balance?user_id="+user_id+"&user_name="+user_name+"" +
+							"&order_no="+recharge_no+"&paypassword="+pwd+"",
+
+					new AsyncHttpResponseHandler() {
+						@Override
+						public void onSuccess(int arg0, String arg1) {
+							super.onSuccess(arg0, arg1);
+							try {
+								JSONObject object = new JSONObject(arg1);
+								System.out.println("2================================="+arg1);
+								String status = object.getString("status");
+								String info = object.getString("info");
+								if (status.equals("y")) {
+									progress.CloseProgress();
+									userloginqm();
+								}else {
+									progress.CloseProgress();
 									Toast.makeText(MonneyChongZhiActivity.this, info, 200).show();
 								}
-						} catch (JSONException e) {
-							e.printStackTrace();
+							} catch (JSONException e) {
+								e.printStackTrace();
+							}
 						}
-					}
 
-				}, null);
-		
+					}, null);
+
 		} catch (Exception e) {
 			// TODO: handle exception
 			e.printStackTrace();
 		}
 	}
-	
+
 	/**
-	 * Éú³É¶©µ¥    Î¢ĞÅÖ§¸¶1  
-	 * @param payment_id 
+	 * ç”Ÿæˆè®¢å•    å¾®ä¿¡æ”¯ä»˜1
+	 * @param payment_id
 	 */
 	private void loadweixinzf1(String payment_id) {
 		try {
-			progress.CreateProgress();	
-		String amount = chongzhi_edit.getText().toString();
-		  String monney = String.valueOf(Double.parseDouble(amount) *100);
-        System.out.println("0==============="+amount);
-        
-		AsyncHttp.get(RealmName.REALM_NAME_LL
-				+ "/add_amount_recharge?user_id="+user_id+"&user_name="+user_name+"" +
-						"&amount="+amount+"&fund_id=1&payment_id="+payment_id+"&rebate_item_id=0",
-				new AsyncHttpResponseHandler() {
-					@Override
-					public void onSuccess(int arg0, String arg1) {
-						super.onSuccess(arg0, arg1);
-						try {
-							JSONObject object = new JSONObject(arg1);
-							System.out.println("0================================="+arg1);
-							  String status = object.getString("status");
-							    String info = object.getString("info");
-							    if (status.equals("y")) {
-							    	JSONObject obj = object.getJSONObject("data");
+			progress.CreateProgress();
+			String amount = chongzhi_edit.getText().toString();
+			String monney = String.valueOf(Double.parseDouble(amount) *100);
+			System.out.println("0==============="+amount);
+
+			AsyncHttp.get(RealmName.REALM_NAME_LL
+							+ "/add_amount_recharge?user_id="+user_id+"&user_name="+user_name+"" +
+							"&amount="+amount+"&fund_id=1&payment_id="+payment_id+"&rebate_item_id=0",
+					new AsyncHttpResponseHandler() {
+						@Override
+						public void onSuccess(int arg0, String arg1) {
+							super.onSuccess(arg0, arg1);
+							try {
+								JSONObject object = new JSONObject(arg1);
+								System.out.println("0================================="+arg1);
+								String status = object.getString("status");
+								String info = object.getString("info");
+								if (status.equals("y")) {
+									JSONObject obj = object.getJSONObject("data");
 									AdvertDao1 data = new AdvertDao1();
 									data.recharge_no = obj.getString("recharge_no");
 									recharge_no = data.recharge_no;
 									System.out.println("0================================="+data.recharge_no );
-									  progress.CloseProgress();
-										loadweixinzf3(recharge_no);
-							    }else {
-							    	progress.CloseProgress();
+									progress.CloseProgress();
+									loadweixinzf3(recharge_no);
+								}else {
+									progress.CloseProgress();
 									Toast.makeText(MonneyChongZhiActivity.this, info, 200).show();
 								}
-							    
-							
-						} catch (JSONException e) {
-							e.printStackTrace();
-						}
-					}
 
-				}, getApplicationContext());
-		
+
+							} catch (JSONException e) {
+								e.printStackTrace();
+							}
+						}
+
+					}, getApplicationContext());
+
 		} catch (Exception e) {
 			// TODO: handle exception
 			e.printStackTrace();
 		}
 	}
-	
-	
+
+
 	/**
-	 * ÓÃ»§ÔÚÏß³äÖµ    Î¢ĞÅÖ§¸¶3
-	 * @param payment_id 
+	 * ç”¨æˆ·åœ¨çº¿å……å€¼    å¾®ä¿¡æ”¯ä»˜3
+	 * @param payment_id
 	 */
 	private void loadweixinzf3(String recharge_no) {
 		try {
-//			String amount = "0.01";
-        String amount = chongzhi_edit.getText().toString().trim();
-        String monney = String.valueOf(Double.parseDouble(amount) *100);
-    	int num1 = 2;
-		int num2 = num1*100;
-		System.out.println("==============="+amount);
-		AsyncHttp.get(RealmName.REALM_NAME_LL
-				+ "/payment_sign?user_id="+user_id+"&user_name="+user_name+"" +
-						"&total_fee="+monney+"&out_trade_no="+recharge_no+"&payment_type=weixin",
-						
-				new AsyncHttpResponseHandler() {
-					@Override
-					public void onSuccess(int arg0, String arg1) {
-						super.onSuccess(arg0, arg1);
-						try {
-							JSONObject object = new JSONObject(arg1);
-							System.out.println("weixin================================="+arg1);
-							String status = object.getString("status");
-							String info = object.getString("info");
-							if(status.equals("y")){
-								  JSONObject jsonObject = object.getJSONObject("data");
-								  partner_id = jsonObject.getString("mch_id");
-								  prepayid = jsonObject.getString("prepay_id"); 
-								  noncestr= jsonObject.getString("nonce_str");
-								  timestamp = jsonObject.getString("timestamp");
-								  
-								  package_="Sign=WXPay";
-								  sign= jsonObject.getString("sign");
-								  System.out.println("weixin================================="+package_);
+			//			String amount = "0.01";
+			String amount = chongzhi_edit.getText().toString().trim();
+			String monney = String.valueOf(Double.parseDouble(amount) *100);
+			int num1 = 2;
+			int num2 = num1*100;
+			System.out.println("==============="+amount);
+			AsyncHttp.get(RealmName.REALM_NAME_LL
+							+ "/payment_sign?user_id="+user_id+"&user_name="+user_name+"" +
+							"&total_fee="+monney+"&out_trade_no="+recharge_no+"&payment_type=weixin",
+
+					new AsyncHttpResponseHandler() {
+						@Override
+						public void onSuccess(int arg0, String arg1) {
+							super.onSuccess(arg0, arg1);
+							try {
+								JSONObject object = new JSONObject(arg1);
+								System.out.println("weixin================================="+arg1);
+								String status = object.getString("status");
+								String info = object.getString("info");
+								if(status.equals("y")){
+									JSONObject jsonObject = object.getJSONObject("data");
+									partner_id = jsonObject.getString("mch_id");
+									prepayid = jsonObject.getString("prepay_id");
+									noncestr= jsonObject.getString("nonce_str");
+									timestamp = jsonObject.getString("timestamp");
+
+									package_="Sign=WXPay";
+									sign= jsonObject.getString("sign");
+									System.out.println("weixin================================="+package_);
 									progress.CloseProgress();
 									handler.sendEmptyMessage(2);
-							}else {
-						    	progress.CloseProgress();
-								Toast.makeText(MonneyChongZhiActivity.this, info, 200).show();
+								}else {
+									progress.CloseProgress();
+									Toast.makeText(MonneyChongZhiActivity.this, info, 200).show();
+								}
+							} catch (JSONException e) {
+								e.printStackTrace();
 							}
-						} catch (JSONException e) {
-							e.printStackTrace();
 						}
-					}
 
-				}, null);
-		
+					}, null);
+
 		} catch (Exception e) {
 			// TODO: handle exception
 			e.printStackTrace();
 		}
 	}
-	
-	
+
+
 	/**
-	 * sign the order info. ¶Ô¶©µ¥ĞÅÏ¢½øĞĞÇ©Ãû
-	 * 
+	 * sign the order info. å¯¹è®¢å•ä¿¡æ¯è¿›è¡Œç­¾å
+	 *
 	 * @param content
-	 *            ´ıÇ©Ãû¶©µ¥ĞÅÏ¢
+	 *            å¾…ç­¾åè®¢å•ä¿¡æ¯
 	 */
 	public String sign(String content) {
 		return SignUtils.sign(content, Common.RSA_PRIVATE);
 	}
 
 	/**
-	 * get the sign type we use. »ñÈ¡Ç©Ãû·½Ê½
-	 * 
+	 * get the sign type we use. è·å–ç­¾åæ–¹å¼
+	 *
 	 */
 	public String getSignType() {
 		return "sign_type=\"RSA\"";
 	}
 
 	/**
-	 * create the order info. ´´½¨¶©µ¥ĞÅÏ¢
-	 * 
+	 * create the order info. åˆ›å»ºè®¢å•ä¿¡æ¯
+	 *
 	 */
 	public String getOrderInfo(String subject, String body, String dingdan) {
-		// Ç©Ô¼ºÏ×÷ÕßÉí·İID
+		// ç­¾çº¦åˆä½œè€…èº«ä»½ID
 		String orderInfo = "partner=" + "\"" + Common.PARTNER + "\"";
 
-		// Ç©Ô¼Âô¼ÒÖ§¸¶±¦ÕËºÅ
+		// ç­¾çº¦å–å®¶æ”¯ä»˜å®è´¦å·
 		orderInfo += "&seller_id=" + "\"" + Common.SELLER + "\"";
 
-		// ÉÌ»§ÍøÕ¾Î¨Ò»¶©µ¥ºÅ
+		// å•†æˆ·ç½‘ç«™å”¯ä¸€è®¢å•å·
 		orderInfo += "&out_trade_no=" + "\"" + dingdan + "\"";
 		System.out.println("======dingdan============="+dingdan);
-		// ÉÌÆ·Ãû³Æ
+		// å•†å“åç§°
 		orderInfo += "&subject=" + "\"" + subject + "\"";
 
-		// ÉÌÆ·ÏêÇé
+		// å•†å“è¯¦æƒ…
 		orderInfo += "&body=" + "\"" + body + "\"";
 
-		// ÉÌÆ·½ğ¶î
+		// å•†å“é‡‘é¢
 		orderInfo += "&total_fee=" + "\"" + chongzhi_edit.getText().toString() + "\"";
-//		orderInfo += "&total_fee=" + "\"" + 0.01 + "\"";
-		
-		// ·şÎñÆ÷Òì²½Í¨ÖªÒ³ÃæÂ·¾¶
+		//		orderInfo += "&total_fee=" + "\"" + 0.01 + "\"";
+
+		// æœåŠ¡å™¨å¼‚æ­¥é€šçŸ¥é¡µé¢è·¯å¾„
 		orderInfo += "&notify_url=" + "\"" + notify_url + "\"";
 		System.out.println("======notify_url============="+notify_url);
-		// ·şÎñ½Ó¿ÚÃû³Æ£¬ ¹Ì¶¨Öµ
+		// æœåŠ¡æ¥å£åç§°ï¼Œ å›ºå®šå€¼
 		orderInfo += "&service=\"mobile.securitypay.pay\"";
 
-		// Ö§¸¶ÀàĞÍ£¬ ¹Ì¶¨Öµ
+		// æ”¯ä»˜ç±»å‹ï¼Œ å›ºå®šå€¼
 		orderInfo += "&payment_type=\"1\"";
 
-		// ²ÎÊı±àÂë£¬ ¹Ì¶¨Öµ
+		// å‚æ•°ç¼–ç ï¼Œ å›ºå®šå€¼
 		orderInfo += "&_input_charset=\"utf-8\"";
 
-		// ÉèÖÃÎ´¸¶¿î½»Ò×µÄ³¬Ê±Ê±¼ä
-		// Ä¬ÈÏ30·ÖÖÓ£¬Ò»µ©³¬Ê±£¬¸Ã±Ê½»Ò×¾Í»á×Ô¶¯±»¹Ø±Õ¡£
-		// È¡Öµ·¶Î§£º1m¡«15d¡£
-		// m-·ÖÖÓ£¬h-Ğ¡Ê±£¬d-Ìì£¬1c-µ±Ìì£¨ÎŞÂÛ½»Ò×ºÎÊ±´´½¨£¬¶¼ÔÚ0µã¹Ø±Õ£©¡£
-		// ¸Ã²ÎÊıÊıÖµ²»½ÓÊÜĞ¡Êıµã£¬Èç1.5h£¬¿É×ª»»Îª90m¡£
+		// è®¾ç½®æœªä»˜æ¬¾äº¤æ˜“çš„è¶…æ—¶æ—¶é—´
+		// é»˜è®¤30åˆ†é’Ÿï¼Œä¸€æ—¦è¶…æ—¶ï¼Œè¯¥ç¬”äº¤æ˜“å°±ä¼šè‡ªåŠ¨è¢«å…³é—­ã€‚
+		// å–å€¼èŒƒå›´ï¼š1mï½15dã€‚
+		// m-åˆ†é’Ÿï¼Œh-å°æ—¶ï¼Œd-å¤©ï¼Œ1c-å½“å¤©ï¼ˆæ— è®ºäº¤æ˜“ä½•æ—¶åˆ›å»ºï¼Œéƒ½åœ¨0ç‚¹å…³é—­ï¼‰ã€‚
+		// è¯¥å‚æ•°æ•°å€¼ä¸æ¥å—å°æ•°ç‚¹ï¼Œå¦‚1.5hï¼Œå¯è½¬æ¢ä¸º90mã€‚
 		orderInfo += "&it_b_pay=\"30m\"";
 
-		// extern_tokenÎª¾­¹ı¿ìµÇÊÚÈ¨»ñÈ¡µ½µÄalipay_open_id,´øÉÏ´Ë²ÎÊıÓÃ»§½«Ê¹ÓÃÊÚÈ¨µÄÕË»§½øĞĞÖ§¸¶
+		// extern_tokenä¸ºç»è¿‡å¿«ç™»æˆæƒè·å–åˆ°çš„alipay_open_id,å¸¦ä¸Šæ­¤å‚æ•°ç”¨æˆ·å°†ä½¿ç”¨æˆæƒçš„è´¦æˆ·è¿›è¡Œæ”¯ä»˜
 		// orderInfo += "&extern_token=" + "\"" + extern_token + "\"";
 
-		// Ö§¸¶±¦´¦ÀíÍêÇëÇóºó£¬µ±Ç°Ò³ÃæÌø×ªµ½ÉÌ»§Ö¸¶¨Ò³ÃæµÄÂ·¾¶£¬¿É¿Õ
-//		 orderInfo += "&return_url=\"m.alipay.com\"";
+		// æ”¯ä»˜å®å¤„ç†å®Œè¯·æ±‚åï¼Œå½“å‰é¡µé¢è·³è½¬åˆ°å•†æˆ·æŒ‡å®šé¡µé¢çš„è·¯å¾„ï¼Œå¯ç©º
+		//		 orderInfo += "&return_url=\"m.alipay.com\"";
 
-		// µ÷ÓÃÒøĞĞ¿¨Ö§¸¶£¬ĞèÅäÖÃ´Ë²ÎÊı£¬²ÎÓëÇ©Ãû£¬ ¹Ì¶¨Öµ £¨ĞèÒªÇ©Ô¼¡¶ÎŞÏßÒøĞĞ¿¨¿ì½İÖ§¸¶¡·²ÅÄÜÊ¹ÓÃ£©
+		// è°ƒç”¨é“¶è¡Œå¡æ”¯ä»˜ï¼Œéœ€é…ç½®æ­¤å‚æ•°ï¼Œå‚ä¸ç­¾åï¼Œ å›ºå®šå€¼ ï¼ˆéœ€è¦ç­¾çº¦ã€Šæ— çº¿é“¶è¡Œå¡å¿«æ·æ”¯ä»˜ã€‹æ‰èƒ½ä½¿ç”¨ï¼‰
 		// orderInfo += "&paymethod=\"expressGateway\"";
-		 
+
 		System.out.println(orderInfo);
 		return orderInfo;
 	}
 	private void ali_pay() {
 		//
-		String orderInfo = getOrderInfo("³äÖµ", "ÃèÊö", recharge_no);
+		String orderInfo = getOrderInfo("å……å€¼", "æè¿°", recharge_no);
 
-		// ¶Ô¶©µ¥×öRSA Ç©Ãû
+		// å¯¹è®¢å•åšRSA ç­¾å
 		String sign = sign(orderInfo);
 		try {
-			// ½öĞè¶Ôsign ×öURL±àÂë
+			// ä»…éœ€å¯¹sign åšURLç¼–ç 
 			sign = URLEncoder.encode(sign, "UTF-8");
 		} catch (UnsupportedEncodingException e) {
 			e.printStackTrace();
 		}
 
-		// ÍêÕûµÄ·ûºÏÖ§¸¶±¦²ÎÊı¹æ·¶µÄ¶©µ¥ĞÅÏ¢
+		// å®Œæ•´çš„ç¬¦åˆæ”¯ä»˜å®å‚æ•°è§„èŒƒçš„è®¢å•ä¿¡æ¯
 		final String payInfo = orderInfo + "&sign=\"" + sign + "\"&"
 				+ getSignType();
 
@@ -729,9 +729,9 @@ public class MonneyChongZhiActivity extends BaseActivity implements OnClickListe
 
 			@Override
 			public void run() {
-				// ¹¹ÔìPayTask ¶ÔÏó
+				// æ„é€ PayTask å¯¹è±¡
 				PayTask alipay = new PayTask(MonneyChongZhiActivity.this);
-				// µ÷ÓÃÖ§¸¶½Ó¿Ú£¬»ñÈ¡Ö§¸¶½á¹û
+				// è°ƒç”¨æ”¯ä»˜æ¥å£ï¼Œè·å–æ”¯ä»˜ç»“æœ
 				String result = alipay.pay(payInfo);
 				Message msg = new Message();
 				msg.what = 5;
@@ -740,19 +740,19 @@ public class MonneyChongZhiActivity extends BaseActivity implements OnClickListe
 			}
 		};
 
-		// ±ØĞëÒì²½µ÷ÓÃ
+		// å¿…é¡»å¼‚æ­¥è°ƒç”¨
 		Thread payThread = new Thread(payRunnable);
 		payThread.start();
 	}
 	private Handler handler = new Handler(){
 		public void dispatchMessage(Message msg) {
 			switch (msg.what) {
-			case 1:
-				ali_pay();
-				break;
-			case 2://Î¢ĞÅÖ§¸¶
-				boolean isPaySupported = api.getWXAppSupportAPI() >= Build.PAY_SUPPORTED_SDK_INT;
-				if(isPaySupported){ 
+				case 1:
+					ali_pay();
+					break;
+				case 2://å¾®ä¿¡æ”¯ä»˜
+					boolean isPaySupported = api.getWXAppSupportAPI() >= Build.PAY_SUPPORTED_SDK_INT;
+					if(isPaySupported){
 						PayReq req = new PayReq();
 						req.appId			= Constant.APP_ID;
 						req.partnerId		= Constant.MCH_ID;
@@ -761,47 +761,47 @@ public class MonneyChongZhiActivity extends BaseActivity implements OnClickListe
 						req.timeStamp		= timestamp;//-1
 						req.packageValue	= package_;
 						req.sign			= sign;//-3
-						// ÔÚÖ§¸¶Ö®Ç°£¬Èç¹ûÓ¦ÓÃÃ»ÓĞ×¢²áµ½Î¢ĞÅ£¬Ó¦¸ÃÏÈµ÷ÓÃIWXMsg.registerApp½«Ó¦ÓÃ×¢²áµ½Î¢ĞÅ
+						// åœ¨æ”¯ä»˜ä¹‹å‰ï¼Œå¦‚æœåº”ç”¨æ²¡æœ‰æ³¨å†Œåˆ°å¾®ä¿¡ï¼Œåº”è¯¥å…ˆè°ƒç”¨IWXMsg.registerAppå°†åº”ç”¨æ³¨å†Œåˆ°å¾®ä¿¡
 						api.registerApp(Constant.APP_ID);
 						flag = api.sendReq(req);
-						System.out.println("Ö§¸¶"+flag);
-				}else {
-					
-				}
-				
-				break;
-			case 5://Ö§¸¶±¦
-				PayResult payResult = new PayResult((String) msg.obj);
-
-				// Ö§¸¶±¦·µ»Ø´Ë´ÎÖ§¸¶½á¹û¼°¼ÓÇ©£¬½¨Òé¶ÔÖ§¸¶±¦Ç©ÃûĞÅÏ¢ÄÃÇ©Ô¼Ê±Ö§¸¶±¦Ìá¹©µÄ¹«Ô¿×öÑéÇ©
-				String resultInfo = payResult.getResult();
-
-				String resultStatus = payResult.getResultStatus();
-				System.out.println(resultInfo + "---" + resultStatus);
-				// ÅĞ¶ÏresultStatus Îª¡°9000¡±Ôò´ú±íÖ§¸¶³É¹¦£¬¾ßÌå×´Ì¬Âë´ú±íº¬Òå¿É²Î¿¼½Ó¿ÚÎÄµµ
-				if (TextUtils.equals(resultStatus, "9000")) {
-					Toast.makeText(MonneyChongZhiActivity.this, "Ö§¸¶³É¹¦",
-							Toast.LENGTH_SHORT).show();
-//					loadguanggaoll(recharge_no);
-					userloginqm();
-				} else {
-					// ÅĞ¶ÏresultStatus Îª·Ç¡°9000¡±Ôò´ú±í¿ÉÄÜÖ§¸¶Ê§°Ü
-					// ¡°8000¡±´ú±íÖ§¸¶½á¹ûÒòÎªÖ§¸¶ÇşµÀÔ­Òò»òÕßÏµÍ³Ô­Òò»¹ÔÚµÈ´ıÖ§¸¶½á¹ûÈ·ÈÏ£¬×îÖÕ½»Ò×ÊÇ·ñ³É¹¦ÒÔ·şÎñ¶ËÒì²½Í¨ÖªÎª×¼£¨Ğ¡¸ÅÂÊ×´Ì¬£©
-					if (TextUtils.equals(resultStatus, "8000")) {
-						Toast.makeText(MonneyChongZhiActivity.this, "Ö§¸¶½á¹ûÈ·ÈÏÖĞ",
-								Toast.LENGTH_SHORT).show();
-
-					} else {
-						// ÆäËûÖµ¾Í¿ÉÒÔÅĞ¶ÏÎªÖ§¸¶Ê§°Ü£¬°üÀ¨ÓÃ»§Ö÷¶¯È¡ÏûÖ§¸¶£¬»òÕßÏµÍ³·µ»ØµÄ´íÎó
-						Toast.makeText(MonneyChongZhiActivity.this, "Ö§¸¶Ê§°Ü",
-								Toast.LENGTH_SHORT).show();
+						System.out.println("æ”¯ä»˜"+flag);
+					}else {
 
 					}
-				}
-				break;
 
-			default:
-				break;
+					break;
+				case 5://æ”¯ä»˜å®
+					PayResult payResult = new PayResult((String) msg.obj);
+
+					// æ”¯ä»˜å®è¿”å›æ­¤æ¬¡æ”¯ä»˜ç»“æœåŠåŠ ç­¾ï¼Œå»ºè®®å¯¹æ”¯ä»˜å®ç­¾åä¿¡æ¯æ‹¿ç­¾çº¦æ—¶æ”¯ä»˜å®æä¾›çš„å…¬é’¥åšéªŒç­¾
+					String resultInfo = payResult.getResult();
+
+					String resultStatus = payResult.getResultStatus();
+					System.out.println(resultInfo + "---" + resultStatus);
+					// åˆ¤æ–­resultStatus ä¸ºâ€œ9000â€åˆ™ä»£è¡¨æ”¯ä»˜æˆåŠŸï¼Œå…·ä½“çŠ¶æ€ç ä»£è¡¨å«ä¹‰å¯å‚è€ƒæ¥å£æ–‡æ¡£
+					if (TextUtils.equals(resultStatus, "9000")) {
+						Toast.makeText(MonneyChongZhiActivity.this, "æ”¯ä»˜æˆåŠŸ",
+								Toast.LENGTH_SHORT).show();
+						//					loadguanggaoll(recharge_no);
+						userloginqm();
+					} else {
+						// åˆ¤æ–­resultStatus ä¸ºéâ€œ9000â€åˆ™ä»£è¡¨å¯èƒ½æ”¯ä»˜å¤±è´¥
+						// â€œ8000â€ä»£è¡¨æ”¯ä»˜ç»“æœå› ä¸ºæ”¯ä»˜æ¸ é“åŸå› æˆ–è€…ç³»ç»ŸåŸå› è¿˜åœ¨ç­‰å¾…æ”¯ä»˜ç»“æœç¡®è®¤ï¼Œæœ€ç»ˆäº¤æ˜“æ˜¯å¦æˆåŠŸä»¥æœåŠ¡ç«¯å¼‚æ­¥é€šçŸ¥ä¸ºå‡†ï¼ˆå°æ¦‚ç‡çŠ¶æ€ï¼‰
+						if (TextUtils.equals(resultStatus, "8000")) {
+							Toast.makeText(MonneyChongZhiActivity.this, "æ”¯ä»˜ç»“æœç¡®è®¤ä¸­",
+									Toast.LENGTH_SHORT).show();
+
+						} else {
+							// å…¶ä»–å€¼å°±å¯ä»¥åˆ¤æ–­ä¸ºæ”¯ä»˜å¤±è´¥ï¼ŒåŒ…æ‹¬ç”¨æˆ·ä¸»åŠ¨å–æ¶ˆæ”¯ä»˜ï¼Œæˆ–è€…ç³»ç»Ÿè¿”å›çš„é”™è¯¯
+							Toast.makeText(MonneyChongZhiActivity.this, "æ”¯ä»˜å¤±è´¥",
+									Toast.LENGTH_SHORT).show();
+
+						}
+					}
+					break;
+
+				default:
+					break;
 			}
 		};
 	};

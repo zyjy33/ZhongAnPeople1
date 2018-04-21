@@ -48,11 +48,11 @@ import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.zams.www.R;
 
 /**
- * 
- * ÎÒµÄ¾ÛÍÅ
- * 
+ *
+ * æˆ‘çš„èšå›¢
+ *
  * @author Administrator
- * 
+ *
  */
 public class MyJuTuanActivity extends BaseActivity implements OnClickListener {
 	private ImageView iv_fanhui, cursor1, cursor2, cursor22, cursor3, cursor4,
@@ -108,25 +108,25 @@ public class MyJuTuanActivity extends BaseActivity implements OnClickListener {
 		// TODO Auto-generated method stub
 		super.onResume();
 		try {
-			System.out.println("×´Ì¬==============" + zhuangtai);
-			// Óà¶îÖ§¸¶¸üĞÂ
+			System.out.println("çŠ¶æ€==============" + zhuangtai);
+			// ä½™é¢æ”¯ä»˜æ›´æ–°
 			if (teby == true) {
 				// userloginqm();
 				// finish();
 			}
 
-			// Î¢ĞÅÖ§¸¶³É¹¦ºó¹Ø±Õ´Ë½çÃæ
+			// å¾®ä¿¡æ”¯ä»˜æˆåŠŸåå…³é—­æ­¤ç•Œé¢
 			// if (zhuangtai == true) {
 			// userloginqm();
 			// }
 
 			String type = getIntent().getStringExtra("num");
 			if (type.equals("1")) {
-				textView1.setText("¶©µ¥¹ÜÀí");
+				textView1.setText("è®¢å•ç®¡ç†");
 			} else if (type.equals("2")) {
-				textView1.setText("ÎÒµÄ¶Ò»»");
+				textView1.setText("æˆ‘çš„å…‘æ¢");
 			} else if (type.equals("3")) {
-				textView1.setText("ÎÒµÄÆ´ÍÅ");
+				textView1.setText("æˆ‘çš„æ‹¼å›¢");
 			}
 
 			load_list(true, strwhere);
@@ -136,29 +136,29 @@ public class MyJuTuanActivity extends BaseActivity implements OnClickListener {
 			e.printStackTrace();
 		}
 	}
-	
-    //µ±Activity±»Ïú»ÙÊ±»áµ÷ÓÃonDestory·½·¨
-    @Override  
-    protected void onDestroy() {  
-        super.onDestroy(); 
-//    	BitmapDrawable bd = (BitmapDrawable)imageView1.getBackground();
-//		imageView1.setBackgroundResource(0);//±ğÍüÁË°Ñ±³¾°ÉèÎªnull£¬±ÜÃâonDrawË¢ĞÂ±³¾°Ê±ºò³öÏÖused a recycled bitmap´íÎó
-//		bd.setCallback(null);
-//		bd.getBitmap().recycle();
-		
-    	if (MyJuTuanOrderAdapter.type == true) {
-    		MyJuTuanOrderAdapter.mAq.clear();
-    		MyJuTuanOrderAdapter.type = false;
+
+	//å½“Activityè¢«é”€æ¯æ—¶ä¼šè°ƒç”¨onDestoryæ–¹æ³•
+	@Override
+	protected void onDestroy() {
+		super.onDestroy();
+		//    	BitmapDrawable bd = (BitmapDrawable)imageView1.getBackground();
+		//		imageView1.setBackgroundResource(0);//åˆ«å¿˜äº†æŠŠèƒŒæ™¯è®¾ä¸ºnullï¼Œé¿å…onDrawåˆ·æ–°èƒŒæ™¯æ—¶å€™å‡ºç°used a recycled bitmapé”™è¯¯
+		//		bd.setCallback(null);
+		//		bd.getBitmap().recycle();
+
+		if (MyJuTuanOrderAdapter.type == true) {
+			MyJuTuanOrderAdapter.mAq.clear();
+			MyJuTuanOrderAdapter.type = false;
 		}
-    	
-    	if (list.size() > 0) {
-    		list.clear();
-    		list = null;
+
+		if (list.size() > 0) {
+			list.clear();
+			list = null;
 		}
-    } 
+	}
 
 	/**
-	 * ¿Ø¼ş³õÊ¼»¯
+	 * æ§ä»¶åˆå§‹åŒ–
 	 */
 	private void Initialize() {
 
@@ -212,51 +212,51 @@ public class MyJuTuanActivity extends BaseActivity implements OnClickListener {
 	public void onClick(View v) {
 		// TODO Auto-generated method stub
 		switch (v.getId()) {
-		case R.id.index_item0:
-			item1();
-			// È«²¿
-			strwhere = "datatype%20in(4,5,7)";
-			System.out.println("=========11============" + strwhere);
-			load_list(true, strwhere);
-			break;
-		case R.id.index_item1:
-			item2();
-			// ´ı¸¶¿î
-			strwhere = "payment_status=1%20and%20datatype%20in(4,5,7)";
-			System.out.println("=========22============" + strwhere);
-			load_list(true, strwhere);
-			break;
-		case R.id.index_item22:
-			item22();
-			// ´ı³ÉÍÅ
-			strwhere = "payment_status=2%20and%20activity_people!=activity_member%20and%20status=2%20and%20datatype%20in(4,5,7)";
-			System.out.println("=========33============" + strwhere);
-			load_list(true, strwhere);
-			break;
-		case R.id.index_item2:
-			item3();
-			// ÒÑ³ÉÍÅ
-			strwhere = "payment_status=2%20and%20activity_people=activity_member%20and%20express_status=1%20and%20status=2%20and%20datatype%20in(4,5,7)";
-			System.out.println("=========33============" + strwhere);
-			load_list(true, strwhere);
-			break;
-		case R.id.index_item3:
-			item4();
-			// ´ıÊÕ»õ
-			strwhere = "payment_status=2%20and%20express_status=2%20and%20status=2%20and%20datatype%20in(4,5,7)";
-			System.out.println("=========55============" + strwhere);
-			load_list(true, strwhere);
-			break;
-		case R.id.index_item4:
-			item5();
-			// ÒÑÍê³É
-			strwhere = "payment_status=2%20and%20express_status=2%20and%20status=3%20and%20datatype%20in(4,5,7)";
-			System.out.println("=========66============" + strwhere);
-			load_list(true, strwhere);
-			break;
+			case R.id.index_item0:
+				item1();
+				// å…¨éƒ¨
+				strwhere = "datatype%20in(4,5,7)";
+				System.out.println("=========11============" + strwhere);
+				load_list(true, strwhere);
+				break;
+			case R.id.index_item1:
+				item2();
+				// å¾…ä»˜æ¬¾
+				strwhere = "payment_status=1%20and%20datatype%20in(4,5,7)";
+				System.out.println("=========22============" + strwhere);
+				load_list(true, strwhere);
+				break;
+			case R.id.index_item22:
+				item22();
+				// å¾…æˆå›¢
+				strwhere = "payment_status=2%20and%20activity_people!=activity_member%20and%20status=2%20and%20datatype%20in(4,5,7)";
+				System.out.println("=========33============" + strwhere);
+				load_list(true, strwhere);
+				break;
+			case R.id.index_item2:
+				item3();
+				// å·²æˆå›¢
+				strwhere = "payment_status=2%20and%20activity_people=activity_member%20and%20express_status=1%20and%20status=2%20and%20datatype%20in(4,5,7)";
+				System.out.println("=========33============" + strwhere);
+				load_list(true, strwhere);
+				break;
+			case R.id.index_item3:
+				item4();
+				// å¾…æ”¶è´§
+				strwhere = "payment_status=2%20and%20express_status=2%20and%20status=2%20and%20datatype%20in(4,5,7)";
+				System.out.println("=========55============" + strwhere);
+				load_list(true, strwhere);
+				break;
+			case R.id.index_item4:
+				item5();
+				// å·²å®Œæˆ
+				strwhere = "payment_status=2%20and%20express_status=2%20and%20status=3%20and%20datatype%20in(4,5,7)";
+				System.out.println("=========66============" + strwhere);
+				load_list(true, strwhere);
+				break;
 
-		default:
-			break;
+			default:
+				break;
 		}
 	}
 
@@ -315,7 +315,7 @@ public class MyJuTuanActivity extends BaseActivity implements OnClickListener {
 	}
 
 	/**
-	 * ÉÏÀ­ÁĞ±íË¢ĞÂ¼ÓÔØ
+	 * ä¸Šæ‹‰åˆ—è¡¨åˆ·æ–°åŠ è½½
 	 */
 	private OnHeaderRefreshListener listHeadListener = new OnHeaderRefreshListener() {
 
@@ -333,7 +333,7 @@ public class MyJuTuanActivity extends BaseActivity implements OnClickListener {
 	};
 
 	/**
-	 * ÏÂÀ­ÁĞ±íË¢ĞÂ¼ÓÔØ
+	 * ä¸‹æ‹‰åˆ—è¡¨åˆ·æ–°åŠ è½½
 	 */
 	private OnFooterRefreshListener listFootListener = new OnFooterRefreshListener() {
 
@@ -366,7 +366,7 @@ public class MyJuTuanActivity extends BaseActivity implements OnClickListener {
 	};
 
 	/**
-	 * µÚ1¸öÁĞ±íÊı¾İ½âÎö
+	 * ç¬¬1ä¸ªåˆ—è¡¨æ•°æ®è§£æ
 	 */
 	private int CURRENT_NUM = 1;
 	private final int VIEW_NUM = 10;
@@ -377,7 +377,7 @@ public class MyJuTuanActivity extends BaseActivity implements OnClickListener {
 			progress.CreateProgress();
 			RUN_METHOD = 1;
 			if (flag) {
-				// ¼ÆÊıºÍÈİÆ÷ÇåÁã
+				// è®¡æ•°å’Œå®¹å™¨æ¸…é›¶
 				CURRENT_NUM = 1;
 				list = new ArrayList<MyOrderData>();
 			}
@@ -388,15 +388,15 @@ public class MyJuTuanActivity extends BaseActivity implements OnClickListener {
 			// "/get_order_groupon_size_list?user_id="+user_id+"" +
 			// "&page_size="+VIEW_NUM+"&page_index="+CURRENT_NUM+"&strwhere="+strwhere+"&orderby=",
 			AsyncHttp.get(RealmName.REALM_NAME_LL
-					+ "/get_order_activity_page_size_list?user_id=" + user_id
-					+ "" + "&page_size=" + VIEW_NUM + "&page_index="
-					+ CURRENT_NUM + "&strwhere=" + strwhere + "&orderby=",
+							+ "/get_order_activity_page_size_list?user_id=" + user_id
+							+ "" + "&page_size=" + VIEW_NUM + "&page_index="
+							+ CURRENT_NUM + "&strwhere=" + strwhere + "&orderby=",
 					new AsyncHttpResponseHandler() {
 						@Override
 						public void onSuccess(int arg0, String arg1) {
 							// TODO Auto-generated method stub
 							super.onSuccess(arg0, arg1);
-							System.out.println("=========Êı¾İ½Ó¿Ú============"
+							System.out.println("=========æ•°æ®æ¥å£============"
 									+ arg1);
 							try {
 								JSONObject object = new JSONObject(arg1);
@@ -508,7 +508,7 @@ public class MyJuTuanActivity extends BaseActivity implements OnClickListener {
 										no_data_no.setVisibility(View.VISIBLE);
 									} else {
 										Toast.makeText(MyJuTuanActivity.this,
-												"Ã»ÓĞ¶©µ¥ÁË", 200).show();
+												"æ²¡æœ‰è®¢å•äº†", 200).show();
 									}
 								}
 
@@ -530,14 +530,14 @@ public class MyJuTuanActivity extends BaseActivity implements OnClickListener {
 								e.printStackTrace();
 							}
 						}
-						
+
 						@Override
 						public void onFailure(Throwable arg0,String arg1) {
 							// TODO Auto-generated method stub
 							super.onFailure(arg0, arg1);
 							progress.CloseProgress();
 							System.out.println("arg1====================="+arg1);
-							Toast.makeText(MyJuTuanActivity.this, "Á´½ÓÒì³£", 200).show();
+							Toast.makeText(MyJuTuanActivity.this, "é“¾æ¥å¼‚å¸¸", 200).show();
 						}
 
 					}, MyJuTuanActivity.this);
@@ -552,92 +552,92 @@ public class MyJuTuanActivity extends BaseActivity implements OnClickListener {
 	Handler handler = new Handler() {
 		public void dispatchMessage(Message msg) {
 			switch (msg.what) {
-			case 0:
-				// list = (ArrayList<MyOrderData>) msg.obj;
-				madapter.putData(list);
-				MyJuTuanOrderAdapter.mAq.clear();
-				// madapter.notifyDataSetChanged();
-				// madapter = new
-				// MyOrderllAdapter(list,MyOrderActivity.this,handler);
-				// my_list.setAdapter(madapter);
-				// progress.CloseProgress();
-				break;
-			case 1:
-				break;
-			case 2:
-				order_no = (String) msg.obj;
-				dialog2();
-				break;
-			case 3:
-				order_no = (String) msg.obj;
-				dialog3();
-				break;
-			case 4:
-				order_no = (String) msg.obj;
-				// Intent intent = new Intent(MyOrderActivity.this,
-				// MyOrderZFActivity.class);
-				// intent.putExtra("order_no",order_no);
-				// startActivity(intent);
+				case 0:
+					// list = (ArrayList<MyOrderData>) msg.obj;
+					madapter.putData(list);
+					MyJuTuanOrderAdapter.mAq.clear();
+					// madapter.notifyDataSetChanged();
+					// madapter = new
+					// MyOrderllAdapter(list,MyOrderActivity.this,handler);
+					// my_list.setAdapter(madapter);
+					// progress.CloseProgress();
+					break;
+				case 1:
+					break;
+				case 2:
+					order_no = (String) msg.obj;
+					dialog2();
+					break;
+				case 3:
+					order_no = (String) msg.obj;
+					dialog3();
+					break;
+				case 4:
+					order_no = (String) msg.obj;
+					// Intent intent = new Intent(MyOrderActivity.this,
+					// MyOrderZFActivity.class);
+					// intent.putExtra("order_no",order_no);
+					// startActivity(intent);
 
-				// CommomConfrim.showSheet(MyOrderActivity.this,new
-				// onDeleteSelect() {
-				//
-				// @Override
-				// public void onClick(int resID) {
-				// // TODO Auto-generated method stub
-				// switch (resID) {
-				// case R.id.item0:
-				// // Óà¶îÖ§¸¶
-				// break;
-				// case R.id.item1:
-				// break;
-				// case R.id.item2:// Ö§¸¶±¦
-				// loadzhidu(order_no);
-				// break;
-				// case R.id.item3:// Î¢ĞÅ
-				// break;
-				// case R.id.item4:
-				//
-				// break;
-				// default:
-				// break;
-				// }
-				// }
-				//
-				// }, cancelListener, null);
+					// CommomConfrim.showSheet(MyOrderActivity.this,new
+					// onDeleteSelect() {
+					//
+					// @Override
+					// public void onClick(int resID) {
+					// // TODO Auto-generated method stub
+					// switch (resID) {
+					// case R.id.item0:
+					// // ä½™é¢æ”¯ä»˜
+					// break;
+					// case R.id.item1:
+					// break;
+					// case R.id.item2:// æ”¯ä»˜å®
+					// loadzhidu(order_no);
+					// break;
+					// case R.id.item3:// å¾®ä¿¡
+					// break;
+					// case R.id.item4:
+					//
+					// break;
+					// default:
+					// break;
+					// }
+					// }
+					//
+					// }, cancelListener, null);
 
-				break;
-			case 5:// Ö§¸¶±¦
-				PayResult payResult = new PayResult((String) msg.obj);
+					break;
+				case 5:// æ”¯ä»˜å®
+					PayResult payResult = new PayResult((String) msg.obj);
 
-				// Ö§¸¶±¦·µ»Ø´Ë´ÎÖ§¸¶½á¹û¼°¼ÓÇ©£¬½¨Òé¶ÔÖ§¸¶±¦Ç©ÃûĞÅÏ¢ÄÃÇ©Ô¼Ê±Ö§¸¶±¦Ìá¹©µÄ¹«Ô¿×öÑéÇ©
-				String resultInfo = payResult.getResult();
+					// æ”¯ä»˜å®è¿”å›æ­¤æ¬¡æ”¯ä»˜ç»“æœåŠåŠ ç­¾ï¼Œå»ºè®®å¯¹æ”¯ä»˜å®ç­¾åä¿¡æ¯æ‹¿ç­¾çº¦æ—¶æ”¯ä»˜å®æä¾›çš„å…¬é’¥åšéªŒç­¾
+					String resultInfo = payResult.getResult();
 
-				String resultStatus = payResult.getResultStatus();
-				System.out.println(resultInfo + "---" + resultStatus);
-				// ÅĞ¶ÏresultStatus Îª¡°9000¡±Ôò´ú±íÖ§¸¶³É¹¦£¬¾ßÌå×´Ì¬Âë´ú±íº¬Òå¿É²Î¿¼½Ó¿ÚÎÄµµ
-				if (TextUtils.equals(resultStatus, "9000")) {
-					Toast.makeText(MyJuTuanActivity.this, "Ö§¸¶³É¹¦",
-							Toast.LENGTH_SHORT).show();
-					userloginqm();
-				} else {
-					// ÅĞ¶ÏresultStatus Îª·Ç¡°9000¡±Ôò´ú±í¿ÉÄÜÖ§¸¶Ê§°Ü
-					// ¡°8000¡±´ú±íÖ§¸¶½á¹ûÒòÎªÖ§¸¶ÇşµÀÔ­Òò»òÕßÏµÍ³Ô­Òò»¹ÔÚµÈ´ıÖ§¸¶½á¹ûÈ·ÈÏ£¬×îÖÕ½»Ò×ÊÇ·ñ³É¹¦ÒÔ·şÎñ¶ËÒì²½Í¨ÖªÎª×¼£¨Ğ¡¸ÅÂÊ×´Ì¬£©
-					if (TextUtils.equals(resultStatus, "8000")) {
-						Toast.makeText(MyJuTuanActivity.this, "Ö§¸¶½á¹ûÈ·ÈÏÖĞ",
+					String resultStatus = payResult.getResultStatus();
+					System.out.println(resultInfo + "---" + resultStatus);
+					// åˆ¤æ–­resultStatus ä¸ºâ€œ9000â€åˆ™ä»£è¡¨æ”¯ä»˜æˆåŠŸï¼Œå…·ä½“çŠ¶æ€ç ä»£è¡¨å«ä¹‰å¯å‚è€ƒæ¥å£æ–‡æ¡£
+					if (TextUtils.equals(resultStatus, "9000")) {
+						Toast.makeText(MyJuTuanActivity.this, "æ”¯ä»˜æˆåŠŸ",
 								Toast.LENGTH_SHORT).show();
-
+						userloginqm();
 					} else {
-						// ÆäËûÖµ¾Í¿ÉÒÔÅĞ¶ÏÎªÖ§¸¶Ê§°Ü£¬°üÀ¨ÓÃ»§Ö÷¶¯È¡ÏûÖ§¸¶£¬»òÕßÏµÍ³·µ»ØµÄ´íÎó
-						Toast.makeText(MyJuTuanActivity.this, "Ö§¸¶Ê§°Ü",
-								Toast.LENGTH_SHORT).show();
+						// åˆ¤æ–­resultStatus ä¸ºéâ€œ9000â€åˆ™ä»£è¡¨å¯èƒ½æ”¯ä»˜å¤±è´¥
+						// â€œ8000â€ä»£è¡¨æ”¯ä»˜ç»“æœå› ä¸ºæ”¯ä»˜æ¸ é“åŸå› æˆ–è€…ç³»ç»ŸåŸå› è¿˜åœ¨ç­‰å¾…æ”¯ä»˜ç»“æœç¡®è®¤ï¼Œæœ€ç»ˆäº¤æ˜“æ˜¯å¦æˆåŠŸä»¥æœåŠ¡ç«¯å¼‚æ­¥é€šçŸ¥ä¸ºå‡†ï¼ˆå°æ¦‚ç‡çŠ¶æ€ï¼‰
+						if (TextUtils.equals(resultStatus, "8000")) {
+							Toast.makeText(MyJuTuanActivity.this, "æ”¯ä»˜ç»“æœç¡®è®¤ä¸­",
+									Toast.LENGTH_SHORT).show();
 
+						} else {
+							// å…¶ä»–å€¼å°±å¯ä»¥åˆ¤æ–­ä¸ºæ”¯ä»˜å¤±è´¥ï¼ŒåŒ…æ‹¬ç”¨æˆ·ä¸»åŠ¨å–æ¶ˆæ”¯ä»˜ï¼Œæˆ–è€…ç³»ç»Ÿè¿”å›çš„é”™è¯¯
+							Toast.makeText(MyJuTuanActivity.this, "æ”¯ä»˜å¤±è´¥",
+									Toast.LENGTH_SHORT).show();
+
+						}
 					}
-				}
-				break;
+					break;
 
-			default:
-				break;
+				default:
+					break;
 			}
 		};
 	};
@@ -651,9 +651,9 @@ public class MyJuTuanActivity extends BaseActivity implements OnClickListener {
 
 	protected void dialog2() {
 		AlertDialog.Builder builder = new Builder(MyJuTuanActivity.this);
-		builder.setMessage("ÊÇ·ñÈ·¶¨È¡Ïû¶©µ¥?");
-		builder.setTitle("ÌáÊ¾");
-		builder.setPositiveButton("È·ÈÏ", new DialogInterface.OnClickListener() {
+		builder.setMessage("æ˜¯å¦ç¡®å®šå–æ¶ˆè®¢å•?");
+		builder.setTitle("æç¤º");
+		builder.setPositiveButton("ç¡®è®¤", new DialogInterface.OnClickListener() {
 
 			@Override
 			public void onClick(DialogInterface dialog, int which) {
@@ -661,7 +661,7 @@ public class MyJuTuanActivity extends BaseActivity implements OnClickListener {
 			}
 		});
 
-		builder.setNegativeButton("È¡Ïû", new DialogInterface.OnClickListener() {
+		builder.setNegativeButton("å–æ¶ˆ", new DialogInterface.OnClickListener() {
 
 			@Override
 			public void onClick(DialogInterface dialog, int which) {
@@ -674,9 +674,9 @@ public class MyJuTuanActivity extends BaseActivity implements OnClickListener {
 
 	protected void dialog3() {
 		AlertDialog.Builder builder = new Builder(MyJuTuanActivity.this);
-		builder.setMessage("ÊÇ·ñÈ·¶¨É¾³ı¶©µ¥?");
-		builder.setTitle("ÌáÊ¾");
-		builder.setPositiveButton("È·ÈÏ", new DialogInterface.OnClickListener() {
+		builder.setMessage("æ˜¯å¦ç¡®å®šåˆ é™¤è®¢å•?");
+		builder.setTitle("æç¤º");
+		builder.setPositiveButton("ç¡®è®¤", new DialogInterface.OnClickListener() {
 
 			@Override
 			public void onClick(DialogInterface dialog, int which) {
@@ -684,7 +684,7 @@ public class MyJuTuanActivity extends BaseActivity implements OnClickListener {
 			}
 		});
 
-		builder.setNegativeButton("È¡Ïû", new DialogInterface.OnClickListener() {
+		builder.setNegativeButton("å–æ¶ˆ", new DialogInterface.OnClickListener() {
 
 			@Override
 			public void onClick(DialogInterface dialog, int which) {
@@ -696,8 +696,8 @@ public class MyJuTuanActivity extends BaseActivity implements OnClickListener {
 	}
 
 	/**
-	 * È·ÈÏ¸¶¿î
-	 * 
+	 * ç¡®è®¤ä»˜æ¬¾
+	 *
 	 * @param order_no
 	 * @param payment_id
 	 */
@@ -718,7 +718,7 @@ public class MyJuTuanActivity extends BaseActivity implements OnClickListener {
 				super.onSuccess(arg0, arg1);
 				try {
 					JSONObject object = new JSONObject(arg1);
-					System.out.println("È·ÈÏ¸¶¿î================================="
+					System.out.println("ç¡®è®¤ä»˜æ¬¾================================="
 							+ arg1);
 					String status = object.getString("status");
 					String info = object.getString("info");
@@ -740,8 +740,8 @@ public class MyJuTuanActivity extends BaseActivity implements OnClickListener {
 	}
 
 	/**
-	 * È¡Ïû¶©µ¥
-	 * 
+	 * å–æ¶ˆè®¢å•
+	 *
 	 * @param order_no
 	 * @param payment_id
 	 */
@@ -754,8 +754,8 @@ public class MyJuTuanActivity extends BaseActivity implements OnClickListener {
 		System.out.println("login_sign================================="
 				+ login_sign);
 		AsyncHttp.get(RealmName.REALM_NAME_LL + "/update_order_cancel?user_id="
-				+ user_id + "&user_name=" + user_name + "" + "&trade_no="
-				+ order_no + "&sign=" + login_sign + "",
+						+ user_id + "&user_name=" + user_name + "" + "&trade_no="
+						+ order_no + "&sign=" + login_sign + "",
 				new AsyncHttpResponseHandler() {
 					@Override
 					public void onSuccess(int arg0, String arg1) {
@@ -763,7 +763,7 @@ public class MyJuTuanActivity extends BaseActivity implements OnClickListener {
 						try {
 							JSONObject object = new JSONObject(arg1);
 							System.out
-									.println("È¡Ïû¶©µ¥================================="
+									.println("å–æ¶ˆè®¢å•================================="
 											+ arg1);
 							String status = object.getString("status");
 							String info = object.getString("info");
@@ -789,8 +789,8 @@ public class MyJuTuanActivity extends BaseActivity implements OnClickListener {
 	}
 
 	/**
-	 * É¾³ı¶©µ¥
-	 * 
+	 * åˆ é™¤è®¢å•
+	 *
 	 * @param order_no
 	 * @param payment_id
 	 */
@@ -803,8 +803,8 @@ public class MyJuTuanActivity extends BaseActivity implements OnClickListener {
 		System.out.println("login_sign================================="
 				+ login_sign);
 		AsyncHttp.get(RealmName.REALM_NAME_LL + "/delete_order?user_id="
-				+ user_id + "&user_name=" + user_name + "" + "&trade_no="
-				+ order_no + "&sign=" + login_sign + "",
+						+ user_id + "&user_name=" + user_name + "" + "&trade_no="
+						+ order_no + "&sign=" + login_sign + "",
 				new AsyncHttpResponseHandler() {
 					@Override
 					public void onSuccess(int arg0, String arg1) {
@@ -812,7 +812,7 @@ public class MyJuTuanActivity extends BaseActivity implements OnClickListener {
 						try {
 							JSONObject object = new JSONObject(arg1);
 							System.out
-									.println("È¡Ïû¶©µ¥================================="
+									.println("å–æ¶ˆè®¢å•================================="
 											+ arg1);
 							String status = object.getString("status");
 							String info = object.getString("info");
@@ -838,7 +838,7 @@ public class MyJuTuanActivity extends BaseActivity implements OnClickListener {
 	}
 
 	/**
-	 * »ñÈ¡µÇÂ¼Ç©Ãû
+	 * è·å–ç™»å½•ç­¾å
 	 */
 	private void userloginqm() {
 		try {
@@ -877,8 +877,8 @@ public class MyJuTuanActivity extends BaseActivity implements OnClickListener {
 	}
 
 	/**
-	 * ¸üĞÂ¶©µ¥
-	 * 
+	 * æ›´æ–°è®¢å•
+	 *
 	 * @param login_sign
 	 * @param payment_id
 	 */
@@ -890,78 +890,78 @@ public class MyJuTuanActivity extends BaseActivity implements OnClickListener {
 			System.out.println("login_sign================================="
 					+ login_sign);
 			AsyncHttp.get(RealmName.REALM_NAME_LL
-					+ "/update_order_payment?user_id=" + user_id
-					+ "&user_name=" + user_name + "" + "&trade_no="
-					+ recharge_noll + "&sign=" + login_sign + "",
+							+ "/update_order_payment?user_id=" + user_id
+							+ "&user_name=" + user_name + "" + "&trade_no="
+							+ recharge_noll + "&sign=" + login_sign + "",
 
-			new AsyncHttpResponseHandler() {
-				@Override
-				public void onSuccess(int arg0, String arg1) {
-					super.onSuccess(arg0, arg1);
-					try {
-						JSONObject object = new JSONObject(arg1);
-						System.out
-								.println("¸üĞÂ¶©µ¥================================="
-										+ arg1);
-						String status = object.getString("status");
-						String info = object.getString("info");
-						if (status.equals("y")) {
-							progress.CloseProgress();
-							JSONObject jsonObject = object
-									.getJSONObject("data");
-							JSONArray jay = jsonObject.getJSONArray("orders");
-							for (int j = 0; j < jay.length(); j++) {
-								JSONObject objc = jay.getJSONObject(j);
-								name = objc.getString("accept_name");
-								province = objc.getString("province");
-								city = objc.getString("city");
-								area = objc.getString("area");
-								user_mobile = objc.getString("mobile");
-								user_address = objc.getString("address");
-								recharge_no = objc.getString("order_no");
-								datetime = objc.getString("add_time");
-								JSONArray jsonArray = objc
-										.getJSONArray("order_goods");
-								for (int i = 0; i < jsonArray.length(); i++) {
-									JSONObject json = jsonArray
-											.getJSONObject(i);
-									article_id = json.getString("article_id");
-									sell_price = json.getString("sell_price");
-									give_pension = json
-											.getString("give_pension");
+					new AsyncHttpResponseHandler() {
+						@Override
+						public void onSuccess(int arg0, String arg1) {
+							super.onSuccess(arg0, arg1);
+							try {
+								JSONObject object = new JSONObject(arg1);
+								System.out
+										.println("æ›´æ–°è®¢å•================================="
+												+ arg1);
+								String status = object.getString("status");
+								String info = object.getString("info");
+								if (status.equals("y")) {
+									progress.CloseProgress();
+									JSONObject jsonObject = object
+											.getJSONObject("data");
+									JSONArray jay = jsonObject.getJSONArray("orders");
+									for (int j = 0; j < jay.length(); j++) {
+										JSONObject objc = jay.getJSONObject(j);
+										name = objc.getString("accept_name");
+										province = objc.getString("province");
+										city = objc.getString("city");
+										area = objc.getString("area");
+										user_mobile = objc.getString("mobile");
+										user_address = objc.getString("address");
+										recharge_no = objc.getString("order_no");
+										datetime = objc.getString("add_time");
+										JSONArray jsonArray = objc
+												.getJSONArray("order_goods");
+										for (int i = 0; i < jsonArray.length(); i++) {
+											JSONObject json = jsonArray
+													.getJSONObject(i);
+											article_id = json.getString("article_id");
+											sell_price = json.getString("sell_price");
+											give_pension = json
+													.getString("give_pension");
+										}
+									}
+									teby = false;
+									// finish();
+									Toast.makeText(MyJuTuanActivity.this, info, 200)
+											.show();
+									Intent intent = new Intent(MyJuTuanActivity.this,
+											ZhiFuOKActivity.class);
+									startActivity(intent);
+								} else {
+									progress.CloseProgress();
+									teby = false;
+									Toast.makeText(MyJuTuanActivity.this, info, 200)
+											.show();
 								}
+							} catch (JSONException e) {
+								e.printStackTrace();
 							}
-							teby = false;
-							// finish();
-							Toast.makeText(MyJuTuanActivity.this, info, 200)
-									.show();
-							Intent intent = new Intent(MyJuTuanActivity.this,
-									ZhiFuOKActivity.class);
-							startActivity(intent);
-						} else {
-							progress.CloseProgress();
-							teby = false;
-							Toast.makeText(MyJuTuanActivity.this, info, 200)
+						}
+
+						@Override
+						public void onFailure(Throwable arg0, String arg1) {
+							// TODO Auto-generated method stub
+							super.onFailure(arg0, arg1);
+							System.out.println("11================================="
+									+ arg0);
+							System.out.println("22================================="
+									+ arg1);
+							Toast.makeText(MyJuTuanActivity.this, "æ›´æ–°è®¢å•ç½‘ç»œè¶…æ—¶å¼‚å¸¸", 200)
 									.show();
 						}
-					} catch (JSONException e) {
-						e.printStackTrace();
-					}
-				}
 
-				@Override
-				public void onFailure(Throwable arg0, String arg1) {
-					// TODO Auto-generated method stub
-					super.onFailure(arg0, arg1);
-					System.out.println("11================================="
-							+ arg0);
-					System.out.println("22================================="
-							+ arg1);
-					Toast.makeText(MyJuTuanActivity.this, "¸üĞÂ¶©µ¥ÍøÂç³¬Ê±Òì³£", 200)
-							.show();
-				}
-
-			}, null);
+					}, null);
 
 		} catch (Exception e) {
 			// TODO: handle exception

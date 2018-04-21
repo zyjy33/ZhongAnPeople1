@@ -1,14 +1,6 @@
 package com.hengyushop.demo.my;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import org.json.JSONArray;
-import org.json.JSONObject;
-
-import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
@@ -34,11 +26,17 @@ import com.lglottery.www.widget.PullToRefreshView.OnHeaderRefreshListener;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.zams.www.R;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
+import java.util.List;
+
 /**
- * ´ıÊÕ»õ
- * 
+ * å¾…æ”¶è´§
+ *
  * @author Administrator
- * 
+ *
  */
 public class ForgoodsFragment extends Fragment implements OnClickListener {
 
@@ -71,7 +69,7 @@ public class ForgoodsFragment extends Fragment implements OnClickListener {
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
-			Bundle savedInstanceState) {
+							 Bundle savedInstanceState) {
 		if (null != parentView) {
 			ViewGroup parent = (ViewGroup) parentView.getParent();
 			if (null != parent) {
@@ -111,19 +109,19 @@ public class ForgoodsFragment extends Fragment implements OnClickListener {
 	Handler handler = new Handler() {
 		public void dispatchMessage(Message msg) {
 			switch (msg.what) {
-			case 0:
-				// madapter = new MyOrderllAdapter(getActivity(), list,handler);
-				// my_list.setAdapter(madapter);
-				break;
+				case 0:
+					// madapter = new MyOrderllAdapter(getActivity(), list,handler);
+					// my_list.setAdapter(madapter);
+					break;
 
-			default:
-				break;
+				default:
+					break;
 			}
 		};
 	};
 
 	/**
-	 * ÉÏÀ­ÁĞ±íË¢ĞÂ¼ÓÔØ
+	 * ä¸Šæ‹‰åˆ—è¡¨åˆ·æ–°åŠ è½½
 	 */
 	private OnHeaderRefreshListener listHeadListener = new OnHeaderRefreshListener() {
 
@@ -141,7 +139,7 @@ public class ForgoodsFragment extends Fragment implements OnClickListener {
 	};
 
 	/**
-	 * ÏÂÀ­ÁĞ±íË¢ĞÂ¼ÓÔØ
+	 * ä¸‹æ‹‰åˆ—è¡¨åˆ·æ–°åŠ è½½
 	 */
 	private OnFooterRefreshListener listFootListener = new OnFooterRefreshListener() {
 
@@ -173,7 +171,7 @@ public class ForgoodsFragment extends Fragment implements OnClickListener {
 		}
 	};
 	/**
-	 * µÚ1¸öÁĞ±íÊı¾İ½âÎö
+	 * ç¬¬1ä¸ªåˆ—è¡¨æ•°æ®è§£æ
 	 */
 	private int CURRENT_NUM = 1;
 	private final int VIEW_NUM = 10;
@@ -185,7 +183,7 @@ public class ForgoodsFragment extends Fragment implements OnClickListener {
 			RUN_METHOD = 1;
 			list = new ArrayList<MyOrderData>();
 			if (flag) {
-				// ¼ÆÊıºÍÈİÆ÷ÇåÁã
+				// è®¡æ•°å’Œå®¹å™¨æ¸…é›¶
 				CURRENT_NUM = 0;
 				list = new ArrayList<MyOrderData>();
 			}
@@ -193,17 +191,17 @@ public class ForgoodsFragment extends Fragment implements OnClickListener {
 			// System.out.println("=========1============"+id);//5897
 			AsyncHttp
 					.get(RealmName.REALM_NAME_LL
-							+ "/get_order_page_size_list?user_id="
-							+ user_id
-							+ ""
-							+ "&page_size=10&page_index=1&strwhere=payment_status = 2 and express_status = 2&orderby=",
+									+ "/get_order_page_size_list?user_id="
+									+ user_id
+									+ ""
+									+ "&page_size=10&page_index=1&strwhere=payment_status = 2 and express_status = 2&orderby=",
 							new AsyncHttpResponseHandler() {
 								@Override
 								public void onSuccess(int arg0, String arg1) {
 									// TODO Auto-generated method stub
 									super.onSuccess(arg0, arg1);
 									System.out
-											.println("=========È«²¿============"
+											.println("=========å…¨éƒ¨============"
 													+ arg1);
 									try {
 
@@ -293,28 +291,28 @@ public class ForgoodsFragment extends Fragment implements OnClickListener {
 	}
 
 	/**
-	 * µÚ2¸öÁĞ±íÊı¾İ½âÎö
+	 * ç¬¬2ä¸ªåˆ—è¡¨æ•°æ®è§£æ
 	 */
 	private void load_list2(boolean flag) {
 		progress.CreateProgress();
 		list = new ArrayList<MyOrderData>();
 		if (flag) {
-			// ¼ÆÊıºÍÈİÆ÷ÇåÁã
+			// è®¡æ•°å’Œå®¹å™¨æ¸…é›¶
 			CURRENT_NUM = 0;
 			list = new ArrayList<MyOrderData>();
 		}
 		AsyncHttp
 				.get(RealmName.REALM_NAME_LL
-						+ "/get_order_page_size_list?user_id="
-						+ user_id
-						+ ""
-						+ "&page_size=10&page_index=1&strwhere=payment_status = 2 and express_status = 2&orderby=",
+								+ "/get_order_page_size_list?user_id="
+								+ user_id
+								+ ""
+								+ "&page_size=10&page_index=1&strwhere=payment_status = 2 and express_status = 2&orderby=",
 						new AsyncHttpResponseHandler() {
 							@Override
 							public void onSuccess(int arg0, String arg1) {
 								// TODO Auto-generated method stub
 								super.onSuccess(arg0, arg1);
-								System.out.println("=========È«²¿============"
+								System.out.println("=========å…¨éƒ¨============"
 										+ arg1);
 								try {
 
@@ -394,16 +392,16 @@ public class ForgoodsFragment extends Fragment implements OnClickListener {
 		// System.out.println("=========1============"+id);//5897
 		AsyncHttp
 				.get(RealmName.REALM_NAME_LL
-						+ "/get_order_page_size_list?user_id="
-						+ user_id
-						+ ""
-						+ "&page_size=10&page_index=1&strwhere=express_status=2&orderby=",
+								+ "/get_order_page_size_list?user_id="
+								+ user_id
+								+ ""
+								+ "&page_size=10&page_index=1&strwhere=express_status=2&orderby=",
 						new AsyncHttpResponseHandler() {
 							@Override
 							public void onSuccess(int arg0, String arg1) {
 								// TODO Auto-generated method stub
 								super.onSuccess(arg0, arg1);
-								System.out.println("=========´ıÊÕ»õ============"
+								System.out.println("=========å¾…æ”¶è´§============"
 										+ arg1);
 								try {
 									JSONObject object = new JSONObject(arg1);
@@ -495,8 +493,8 @@ public class ForgoodsFragment extends Fragment implements OnClickListener {
 	public void onClick(View v) {
 		// TODO Auto-generated method stub
 		switch (v.getId()) {
-		default:
-			break;
+			default:
+				break;
 		}
 
 	}

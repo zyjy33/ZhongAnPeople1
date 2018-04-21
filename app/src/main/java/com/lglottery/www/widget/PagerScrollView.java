@@ -1,34 +1,31 @@
 package com.lglottery.www.widget;
 import android.content.Context;
-import android.os.Handler;
-import android.os.Message;
 import android.util.AttributeSet;
 import android.view.GestureDetector;
 import android.view.GestureDetector.SimpleOnGestureListener;
 import android.view.MotionEvent;
-import android.view.View;
 import android.widget.ScrollView;
 
-public class PagerScrollView extends ScrollView {private GestureDetector mGestureDetector;  
+public class PagerScrollView extends ScrollView {private GestureDetector mGestureDetector;
 
-public PagerScrollView(Context context, AttributeSet attrs) {  
-    super(context, attrs);  
-    mGestureDetector = new GestureDetector(context, new YScrollDetector());  
-}  
+    public PagerScrollView(Context context, AttributeSet attrs) {
+        super(context, attrs);
+        mGestureDetector = new GestureDetector(context, new YScrollDetector());
+    }
 
-@Override  
-public boolean onInterceptTouchEvent(MotionEvent ev) {  
-    return super.onInterceptTouchEvent(ev)  
-            && mGestureDetector.onTouchEvent(ev);  
-}  
+    @Override
+    public boolean onInterceptTouchEvent(MotionEvent ev) {
+        return super.onInterceptTouchEvent(ev)
+                && mGestureDetector.onTouchEvent(ev);
+    }
 
-class YScrollDetector extends SimpleOnGestureListener {  
+    class YScrollDetector extends SimpleOnGestureListener {
 
-    @Override  
-    public boolean onScroll(MotionEvent e1, MotionEvent e2,  
-            float distanceX, float distanceY) {  
-        //Èç¹ûÎÒÃÇ¹ö¶¯¸ü½Ó½üË®Æ½·½Ïò,·µ»Øfalse,ÈÃ×ÓÊÓÍ¼À´´¦ÀíËü 
-        return (Math.abs(distanceY) > Math.abs(distanceX));  
-    }  
-  } 
+        @Override
+        public boolean onScroll(MotionEvent e1, MotionEvent e2,
+                                float distanceX, float distanceY) {
+            //å¦‚æžœæˆ‘ä»¬æ»šåŠ¨æ›´æŽ¥è¿‘æ°´å¹³æ–¹å‘,è¿”å›žfalse,è®©å­è§†å›¾æ¥å¤„ç†å®ƒ
+            return (Math.abs(distanceY) > Math.abs(distanceX));
+        }
+    }
 }

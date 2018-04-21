@@ -71,7 +71,7 @@ public class JuYunshangActivity extends BaseActivity {
 	GoodsListBean bean;
 	private GoodsListAdapter myadapter;
 	private Juyunshanglist2Adapter jysadapter;
-//	private YsjGoodsListAdapter jysadapter;
+	//	private YsjGoodsListAdapter jysadapter;
 	private ListView new_list,listview;
 	private PullToRefreshView refresh;
 	private DialogProgress progress;
@@ -92,10 +92,10 @@ public class JuYunshangActivity extends BaseActivity {
 		jysadapter = new Juyunshanglist2Adapter(lists, getApplicationContext(), imageLoader);
 		new_list.setAdapter(jysadapter);
 		loadCate();
-		
-		
+
+
 	}
-	
+
 	private void Initialize() {
 		myGridView = (MyGridView) findViewById(R.id.mGv);
 		new_list = (ListView) findViewById(R.id.new_list);
@@ -103,10 +103,10 @@ public class JuYunshangActivity extends BaseActivity {
 		refresh.setOnHeaderRefreshListener(listHeadListener);
 		refresh.setOnFooterRefreshListener(listFootListener);
 		gridview = (GridView) findViewById(R.id.gridview);
-		
+
 		ImageView iv_fanhui = (ImageView) findViewById(R.id.iv_fanhui);
 		iv_fanhui.setOnClickListener(new OnClickListener() {
-			
+
 			@Override
 			public void onClick(View arg0) {
 				// TODO Auto-generated method stub
@@ -114,100 +114,100 @@ public class JuYunshangActivity extends BaseActivity {
 			}
 		});
 	}
-	
+
 	Handler handler = new Handler(){
 		public void dispatchMessage(Message msg) {
 			switch (msg.what) {
-			case 0:
-				try {
-					
-				jysadapter.putData(lists);
-				Juyunshanglist2Adapter.mAq.clear();
-				System.out.println("=====================2’‚¿Ô"+lists.size());
-				new_list.setOnItemClickListener(new OnItemClickListener() {
-	                
-					@Override
-					public void onItemClick(AdapterView<?> arg0, View arg1,
-							int arg2, long arg3) {
-						// TODO Auto-generated method stub
-						String id = lists.get(arg2).getId();
-						System.out.println("====================="+id);
-						Intent intent = new Intent(JuYunshangActivity.this,WareInformationActivity.class);
-						intent.putExtra("id", id);
-						startActivity(intent);
+				case 0:
+					try {
+
+						jysadapter.putData(lists);
+						Juyunshanglist2Adapter.mAq.clear();
+						System.out.println("=====================2ËøôÈáå"+lists.size());
+						new_list.setOnItemClickListener(new OnItemClickListener() {
+
+							@Override
+							public void onItemClick(AdapterView<?> arg0, View arg1,
+													int arg2, long arg3) {
+								// TODO Auto-generated method stub
+								String id = lists.get(arg2).getId();
+								System.out.println("====================="+id);
+								Intent intent = new Intent(JuYunshangActivity.this,WareInformationActivity.class);
+								intent.putExtra("id", id);
+								startActivity(intent);
+							}
+						});
+
+						//				jysadapter = new JuyunshanglistAdapter(lists, getApplicationContext(), imageLoader);
+						//				new_list.setAdapter(jysadapter);
+
+						//				jysadapter = new YsjGoodsListAdapter(lists,list_ll,getApplicationContext(), imageLoader);
+						//				new_list.setAdapter(jysadapter);
+
+						//				jysadapter = new JuyunshangAdapter(lists,list_ll, getApplicationContext(), imageLoader);
+						//				new_list.setAdapter(jysadapter);
+
+						//				setListViewHeightBasedOnChildren(new_list);
+
+						//				JysimgerAdapter sAdapter = new JysimgerAdapter(list_ll, getApplicationContext(), imageLoader);
+						//				listview.setAdapter(sAdapter);
+						//				jysadapter.notifyDataSetChanged();
+
+
+					} catch (Exception e) {
+						// TODO: handle exception
+						e.printStackTrace();
 					}
-				});
+					break;
+				case 1:
+					try {
 
-//				jysadapter = new JuyunshanglistAdapter(lists, getApplicationContext(), imageLoader);
-//				new_list.setAdapter(jysadapter);
-				
-//				jysadapter = new YsjGoodsListAdapter(lists,list_ll,getApplicationContext(), imageLoader);
-//				new_list.setAdapter(jysadapter);
-				
-//				jysadapter = new JuyunshangAdapter(lists,list_ll, getApplicationContext(), imageLoader);
-//				new_list.setAdapter(jysadapter);
-				
-//				setListViewHeightBasedOnChildren(new_list);
-				
-//				JysimgerAdapter sAdapter = new JysimgerAdapter(list_ll, getApplicationContext(), imageLoader);
-//				listview.setAdapter(sAdapter);
-//				jysadapter.notifyDataSetChanged();
-				
-				
-				} catch (Exception e) {
-					// TODO: handle exception
-					e.printStackTrace();
-				}
-				break;
-			case 1:
-				try {
-					
-				adapter = new MyAdapter(getApplicationContext(), list);
-				myGridView.setAdapter(adapter);
-				
-				if (list.size()>0) {
-					load_list(id, true);
-				}
-				
-				myGridView.setOnItemClickListener(new OnItemClickListener() {
+						adapter = new MyAdapter(getApplicationContext(), list);
+						myGridView.setAdapter(adapter);
 
-		            @Override
-		            public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
-		            	 INDX =  arg2;
-		            	 System.out.println("=====µ⁄∂˛≤„de ˝æ›====================="+INDX);
-		            	 load_list(INDX, true);
-		            	 
-		            	 adapter.setSeclection(arg2);
-		            	 adapter.notifyDataSetChanged();
-		            }
-		        });
-				} catch (Exception e) {
-					// TODO: handle exception
-					e.printStackTrace();
-				}
-				break;
-			case 2:
-				try {
-				JuyunshangAdapterll jysadapter = new JuyunshangAdapterll(list_ll, getApplicationContext(), imageLoader);
-				gridview.setAdapter(jysadapter);
-				} catch (Exception e) {
-					// TODO: handle exception
-					e.printStackTrace();
-				}
-				break;
-				
+						if (list.size()>0) {
+							load_list(id, true);
+						}
 
-			default:
-				break;
+						myGridView.setOnItemClickListener(new OnItemClickListener() {
+
+							@Override
+							public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
+								INDX =  arg2;
+								System.out.println("=====Á¨¨‰∫åÂ±ÇdeÊï∞ÊçÆ====================="+INDX);
+								load_list(INDX, true);
+
+								adapter.setSeclection(arg2);
+								adapter.notifyDataSetChanged();
+							}
+						});
+					} catch (Exception e) {
+						// TODO: handle exception
+						e.printStackTrace();
+					}
+					break;
+				case 2:
+					try {
+						JuyunshangAdapterll jysadapter = new JuyunshangAdapterll(list_ll, getApplicationContext(), imageLoader);
+						gridview.setAdapter(jysadapter);
+					} catch (Exception e) {
+						// TODO: handle exception
+						e.printStackTrace();
+					}
+					break;
+
+
+				default:
+					break;
 			}
 		};
 	};
-	
-	//¿‡±¡–±Ì
+
+	//Á±ªÂà´ÂàóË°®
 	private void loadCate(){
 		progress.CreateProgress();
 		AsyncHttp.get(RealmName.REALM_NAME_LL+"/get_trade_list?" +
-                "channel_name=trade&parent_id=278", new AsyncHttpResponseHandler(){
+				"channel_name=trade&parent_id=278", new AsyncHttpResponseHandler(){
 			@Override
 			public void onSuccess(int arg0, String arg1) {
 				// TODO Auto-generated method stub
@@ -215,12 +215,12 @@ public class JuYunshangActivity extends BaseActivity {
 				parse(arg1);
 			}
 		}, null);
-    }
-	
-//	ArrayList<ArrayList<WareData>> lists = null;
+	}
+
+	//	ArrayList<ArrayList<WareData>> lists = null;
 	public void parse(String st) {
 		try {
-			System.out.println("¿‡±¡–±Ì=========="+st);
+			System.out.println("Á±ªÂà´ÂàóË°®=========="+st);
 			list = new ArrayList<EnterpriseData>();
 			JSONObject jsonObject = new JSONObject(st);
 			JSONArray jsonArray = jsonObject.getJSONArray("data");
@@ -235,7 +235,7 @@ public class JuYunshangActivity extends BaseActivity {
 				Log.v("data1", data.id + "");
 				list.add(data);
 			}
-			
+
 			inter();
 			handler.sendEmptyMessage(1);
 			progress.CloseProgress();
@@ -244,9 +244,9 @@ public class JuYunshangActivity extends BaseActivity {
 		}
 
 	}
-	
+
 	/**
-	 * µ⁄1∏ˆ¡–±Ì ˝æ›Ω‚Œˆ
+	 * Á¨¨1‰∏™ÂàóË°®Êï∞ÊçÆËß£Êûê
 	 */
 	private int RUN_METHOD = -1;
 	private int CURRENT_NUM = 1;
@@ -254,39 +254,39 @@ public class JuYunshangActivity extends BaseActivity {
 	private void load_list(final int INDX,boolean flag) {
 		RUN_METHOD = 1;
 		if(flag){
-			//º∆ ˝∫Õ»›∆˜«Â¡„
+			//ËÆ°Êï∞ÂíåÂÆπÂô®Ê∏ÖÈõ∂
 			CURRENT_NUM = 1;
 			lists = new ArrayList<GoodsListData>();
 		}
-		
+
 		System.out.println("=====lists====================="+lists.size());
 		System.out.println("=====================001--"+INDX);
 		AsyncHttp.get(RealmName.REALM_NAME_LL+"/get_user_commpany?trade_id="+INDX+"" +
-							"&page_size="+VIEW_NUM+"&page_index="+CURRENT_NUM+"&strwhere=datatype='Supply'&orderby=",
-							 new AsyncHttpResponseHandler(){
-							@Override
-							public void onSuccess(int arg0, String arg1) {
-								// TODO Auto-generated method stub
-								super.onSuccess(arg0, arg1);
-								System.out.println("…Ãº“¡–±Ì=====================∂˛º∂÷µ1"+arg1);
-								try {
-									JSONObject object = new JSONObject(arg1);
-									String status = object.getString("status");
-									String info = object.getString("info");
-									if (status.equals("y")) {
-										JSONArray jsonArray = object.getJSONArray("data");
-										len = jsonArray.length();
-										for (int i = 0; i < jsonArray.length(); i++) {
-											JSONObject object1 = jsonArray.getJSONObject(i);
-											data = new GoodsListData();
-											data.setId(object1.getString("id"));
-											data.setName(object1.getString("name"));
-											data.setImg_url(object1.getString("img_url"));
-											data.setLogo_url(object1.getString("logo_url"));
-											data.setUser_id(object1.getString("user_id"));
-											String article = object1.getString("article");
-											data.setList(new ArrayList<GoodsListBean>());
-											JSONArray ja = new JSONArray(article);
+						"&page_size="+VIEW_NUM+"&page_index="+CURRENT_NUM+"&strwhere=datatype='Supply'&orderby=",
+				new AsyncHttpResponseHandler(){
+					@Override
+					public void onSuccess(int arg0, String arg1) {
+						// TODO Auto-generated method stub
+						super.onSuccess(arg0, arg1);
+						System.out.println("ÂïÜÂÆ∂ÂàóË°®=====================‰∫åÁ∫ßÂÄº1"+arg1);
+						try {
+							JSONObject object = new JSONObject(arg1);
+							String status = object.getString("status");
+							String info = object.getString("info");
+							if (status.equals("y")) {
+								JSONArray jsonArray = object.getJSONArray("data");
+								len = jsonArray.length();
+								for (int i = 0; i < jsonArray.length(); i++) {
+									JSONObject object1 = jsonArray.getJSONObject(i);
+									data = new GoodsListData();
+									data.setId(object1.getString("id"));
+									data.setName(object1.getString("name"));
+									data.setImg_url(object1.getString("img_url"));
+									data.setLogo_url(object1.getString("logo_url"));
+									data.setUser_id(object1.getString("user_id"));
+									String article = object1.getString("article");
+									data.setList(new ArrayList<GoodsListBean>());
+									JSONArray ja = new JSONArray(article);
 									for (int k = 0; k < ja.length(); k++) {
 										bean = new GoodsListBean();
 										JSONObject obt = ja.getJSONObject(k);
@@ -296,129 +296,129 @@ public class JuYunshangActivity extends BaseActivity {
 										bean.setSell_price(obt.getString("sell_price"));
 										bean.setMarket_price(obt.getString("market_price"));
 										String img_url = bean.getImg_url();
-//										System.out.println("=====ƒ⁄»›img_url====================="+img_url);
+										//										System.out.println("=====ÂÜÖÂÆπimg_url====================="+img_url);
 										data.getList().add(bean);
 									}
 									System.out.println("=====lists11====================="+lists.size());
 									lists.add(data);
 									System.out.println("=====lists22====================="+lists.size());
-//									loadCate(data.user_id);
-									}
-									}else {
-										progress.CloseProgress();
-										Toast.makeText(JuYunshangActivity.this, info, 200).show();
-									}
-									System.out.println("=====lists2====================="+lists.size());
-									progress.CloseProgress();
-									handler.sendEmptyMessage(0);
-									
-									if(len!=0){
-										CURRENT_NUM =CURRENT_NUM+1;
-									}
-									
-								} catch (JSONException e) {
-									// TODO Auto-generated catch block
-									e.printStackTrace();
+									//									loadCate(data.user_id);
 								}
-								
+							}else {
+								progress.CloseProgress();
+								Toast.makeText(JuYunshangActivity.this, info, 200).show();
 							}
-						}, null);
+							System.out.println("=====lists2====================="+lists.size());
+							progress.CloseProgress();
+							handler.sendEmptyMessage(0);
+
+							if(len!=0){
+								CURRENT_NUM =CURRENT_NUM+1;
+							}
+
+						} catch (JSONException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+
+					}
+				}, null);
 	}
-	//…Ã∆∑¡–±Ì
+	//ÂïÜÂìÅÂàóË°®
 	ArrayList<shangpingListData> list_num;
 	private void loadCate(String user_id){
-	list_num = new ArrayList<shangpingListData>();
-			System.out.println("◊ﬂµΩ…Ã∆∑¡–±Ì¡À=========="+user_id);
+		list_num = new ArrayList<shangpingListData>();
+		System.out.println("Ëµ∞Âà∞ÂïÜÂìÅÂàóË°®‰∫Ü=========="+user_id);
 		AsyncHttp.get(RealmName.REALM_NAME_LL+"/get_article_top_list?" +
-                "channel_name=goods&top=100&strwhere=user_id="+user_id+"", new AsyncHttpResponseHandler(){
+				"channel_name=goods&top=100&strwhere=user_id="+user_id+"", new AsyncHttpResponseHandler(){
 			@Override
 			public void onSuccess(int arg0, String arg1) {
 				// TODO Auto-generated method stub
 				super.onSuccess(arg0, arg1);
 				try {
-					System.out.println("£®…Ã∆∑¡–±Ì£©=========="+arg1);
+					System.out.println("ÔºàÂïÜÂìÅÂàóË°®Ôºâ=========="+arg1);
 					JSONObject jsonObject = new JSONObject(arg1);
 					String status = jsonObject.getString("status");
 					String info = jsonObject.getString("info");
 					if (status.equals("y")) {
-					JSONArray jsonArray = jsonObject.getJSONArray("data");
-					for (int i = 0; i < jsonArray.length(); i++) {
-						shangpingListData data = new shangpingListData();
-						JSONObject object = jsonArray.getJSONObject(i);
-						data.id = object.getString("id");
-						list_num.add(data);
-					}
-                    }else {
-                    	Toast.makeText(JuYunshangActivity.this, info, 200).show();
+						JSONArray jsonArray = jsonObject.getJSONArray("data");
+						for (int i = 0; i < jsonArray.length(); i++) {
+							shangpingListData data = new shangpingListData();
+							JSONObject object = jsonArray.getJSONObject(i);
+							data.id = object.getString("id");
+							list_num.add(data);
+						}
+					}else {
+						Toast.makeText(JuYunshangActivity.this, info, 200).show();
 					}
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
 			}
 		}, null);
-		
-    }
-	//…Ã∆∑¡–±Ì
-//	private void loadCatell(int user_id){
-//		try {
-//			System.out.println("◊ﬂµΩ…Ã∆∑¡–±Ì¡À=========="+user_id);
-//		AsyncHttp.get(RealmName.REALM_NAME_LL+"/get_article_top_list?" +
-//                "channel_name=goods&top=3&strwhere=user_id="+user_id+"", new AsyncHttpResponseHandler(){
-//			@Override
-//			public void onSuccess(int arg0, String arg1) {
-//				// TODO Auto-generated method stub
-//				super.onSuccess(arg0, arg1);
-//				try {
-//					System.out.println("£®…Ã∆∑¡–±Ì£©=========="+arg1);
-//					list_ll = new ArrayList<shangpingListData>();
-//					JSONObject jsonObject = new JSONObject(arg1);
-//					String datall = jsonObject.getString("data");
-//					System.out.println("…Ã∆∑¡–±Ìde÷µ====================="+datall);
-//					if (!datall.equals("")) {
-//					JSONArray jsonArray = jsonObject.getJSONArray("data");
-//						
-//					System.out.println("jsonArray"+jsonArray.length());
-//					for (int i = 0; i < jsonArray.length(); i++) {
-//						shangpingListData data = new shangpingListData();
-//						JSONObject object = jsonArray.getJSONObject(i);
-//						data.id = object.getString("id");
-//						data.user_id = object.getString("user_id");
-//						data.title = object.getString("title");
-//						data.img_url = object.getString("img_url");
-//						Log.v("data1", data.id + "");
-//						list_ll.add(data);
-//						String  zhoude = data.title;
-////						jysadapter = new JuyunshangAdapter(lists,list_ll, getApplicationContext(), imageLoader);
-////						new_list.setAdapter(jysadapter);
-////						TextView zhouTextView = (TextView) findViewById(R.id.tv_zhou);
-////						zhouTextView.setText(zhoude);
-//					}
-//					
-//					handler.sendEmptyMessage(0);
-//					System.out.println("1”–÷µµ˜”√  ≈‰∆˜==========");
-//                    }else {
-////                    	handler.sendEmptyMessage(2);
-//                    	System.out.println("2ø’÷µµ˜”√  ≈‰∆˜¡À==========");
-//					}
-////					System.out.println("µ˜”√  ≈‰∆˜¡À==========");
-////					handler.sendEmptyMessage(0);
-//					
-//				} catch (Exception e) {
-//					e.printStackTrace();
-//				}
-//			}
-//		}, null);
-//		
-//		} catch (Exception e) {
-//			// TODO: handle exception
-//			e.printStackTrace();
-//		}
-//		
-//    }
-	
-	
+
+	}
+	//ÂïÜÂìÅÂàóË°®
+	//	private void loadCatell(int user_id){
+	//		try {
+	//			System.out.println("Ëµ∞Âà∞ÂïÜÂìÅÂàóË°®‰∫Ü=========="+user_id);
+	//		AsyncHttp.get(RealmName.REALM_NAME_LL+"/get_article_top_list?" +
+	//                "channel_name=goods&top=3&strwhere=user_id="+user_id+"", new AsyncHttpResponseHandler(){
+	//			@Override
+	//			public void onSuccess(int arg0, String arg1) {
+	//				// TODO Auto-generated method stub
+	//				super.onSuccess(arg0, arg1);
+	//				try {
+	//					System.out.println("ÔºàÂïÜÂìÅÂàóË°®Ôºâ=========="+arg1);
+	//					list_ll = new ArrayList<shangpingListData>();
+	//					JSONObject jsonObject = new JSONObject(arg1);
+	//					String datall = jsonObject.getString("data");
+	//					System.out.println("ÂïÜÂìÅÂàóË°®deÂÄº====================="+datall);
+	//					if (!datall.equals("")) {
+	//					JSONArray jsonArray = jsonObject.getJSONArray("data");
+	//
+	//					System.out.println("jsonArray"+jsonArray.length());
+	//					for (int i = 0; i < jsonArray.length(); i++) {
+	//						shangpingListData data = new shangpingListData();
+	//						JSONObject object = jsonArray.getJSONObject(i);
+	//						data.id = object.getString("id");
+	//						data.user_id = object.getString("user_id");
+	//						data.title = object.getString("title");
+	//						data.img_url = object.getString("img_url");
+	//						Log.v("data1", data.id + "");
+	//						list_ll.add(data);
+	//						String  zhoude = data.title;
+	////						jysadapter = new JuyunshangAdapter(lists,list_ll, getApplicationContext(), imageLoader);
+	////						new_list.setAdapter(jysadapter);
+	////						TextView zhouTextView = (TextView) findViewById(R.id.tv_zhou);
+	////						zhouTextView.setText(zhoude);
+	//					}
+	//
+	//					handler.sendEmptyMessage(0);
+	//					System.out.println("1ÊúâÂÄºË∞ÉÁî®ÈÄÇÈÖçÂô®==========");
+	//                    }else {
+	////                    	handler.sendEmptyMessage(2);
+	//                    	System.out.println("2Á©∫ÂÄºË∞ÉÁî®ÈÄÇÈÖçÂô®‰∫Ü==========");
+	//					}
+	////					System.out.println("Ë∞ÉÁî®ÈÄÇÈÖçÂô®‰∫Ü==========");
+	////					handler.sendEmptyMessage(0);
+	//
+	//				} catch (Exception e) {
+	//					e.printStackTrace();
+	//				}
+	//			}
+	//		}, null);
+	//
+	//		} catch (Exception e) {
+	//			// TODO: handle exception
+	//			e.printStackTrace();
+	//		}
+	//
+	//    }
+
+
 	/**
-	 * …œ¿≠¡–±ÌÀ¢–¬º”‘ÿ
+	 * ‰∏äÊãâÂàóË°®Âà∑Êñ∞Âä†ËΩΩ
 	 */
 	private OnHeaderRefreshListener listHeadListener = new OnHeaderRefreshListener() {
 
@@ -434,9 +434,9 @@ public class JuYunshangActivity extends BaseActivity {
 			}, 1000);
 		}
 	};
-	
+
 	/**
-	 * œ¬¿≠¡–±ÌÀ¢–¬º”‘ÿ
+	 * ‰∏ãÊãâÂàóË°®Âà∑Êñ∞Âä†ËΩΩ
 	 */
 	private OnFooterRefreshListener listFootListener = new OnFooterRefreshListener() {
 
@@ -448,16 +448,16 @@ public class JuYunshangActivity extends BaseActivity {
 				@Override
 				public void run() {
 					try {
-						
-//					if(RUN_METHOD==0){
-//						System.out.println("=======3=="+RUN_METHOD);
-//						load_list2(INDX, true);
-//					}else {
+
+						//					if(RUN_METHOD==0){
+						//						System.out.println("=======3=="+RUN_METHOD);
+						//						load_list2(INDX, true);
+						//					}else {
 						System.out.println("=======4=="+INDX);
 						load_list(INDX, false);
-//					}
-					refresh.onFooterRefreshComplete();
-					
+						//					}
+						refresh.onFooterRefreshComplete();
+
 					} catch (Exception e) {
 						// TODO: handle exception
 						e.printStackTrace();
@@ -466,95 +466,95 @@ public class JuYunshangActivity extends BaseActivity {
 			}, 1000);
 		}
 	};
-	
-	/**
-	 * µ⁄“ª∏ˆ¡–±Ì ˝æ›Ω‚Œˆ
-	 */
-//	private void load_list2(final int INDX,boolean flag) {
-//		lists = new ArrayList<GoodsListData>();
-//		if(flag){
-//			//º∆ ˝∫Õ»›∆˜«Â¡„
-//			CURRENT_NUM = 0;
-//			lists = new ArrayList<GoodsListData>();
-//		}
-//		System.out.println("=====================002--"+INDX);
-//			AsyncHttp.get(RealmName.REALM_NAME_LL+"/get_user_commpany?trade_id="+INDX+"" +
-//							"&page_size="+VIEW_NUM+"&page_index="+CURRENT_NUM+"&strwhere=&orderby=",
-//							 new AsyncHttpResponseHandler(){
-//							@Override
-//							public void onSuccess(int arg0, String arg1) {
-//								// TODO Auto-generated method stub
-//								super.onSuccess(arg0, arg1);
-//								System.out.println("=====================∂˛º∂÷µ2"+arg1);
-//								try {
-//									JSONObject jsonObject = new JSONObject(arg1);
-//									JSONArray jsonArray = jsonObject.getJSONArray("data");
-//									 int len = jsonArray.length();
-//									for(int i=0;i<jsonArray.length();i++){
-//										JSONObject object = jsonArray.getJSONObject(i);
-//										GoodsListData spList = new GoodsListData();
-//										spList.user_id = object.getInt("user_id");
-//										spList.trade_title = object.getString("trade_title");
-//										spList.img_url = object.getString("img_url");
-//										spList.name = object.getString("name");
-//										lists.add(spList);
-//											int user_id = spList.user_id ;//
-////											int user_id =  Integer.parseInt(id);
-//											System.out.println("∂˛º∂÷µ2====================="+user_id);
-////											loadCatell(user_id);
-//									}
-//									handler.sendEmptyMessage(0);
-//								} catch (JSONException e) {
-//									// TODO Auto-generated catch block
-//									e.printStackTrace();
-//								}
-//							}
-//						}, null);
-//	}
-	
-	
-	private void inter(){
-		
-		int size = list.size();// ˝æ›◊‹≥§∂»
 
-		//ªÒµ√∆¡ƒªøÌ∂»
+	/**
+	 * Á¨¨‰∏Ä‰∏™ÂàóË°®Êï∞ÊçÆËß£Êûê
+	 */
+	//	private void load_list2(final int INDX,boolean flag) {
+	//		lists = new ArrayList<GoodsListData>();
+	//		if(flag){
+	//			//ËÆ°Êï∞ÂíåÂÆπÂô®Ê∏ÖÈõ∂
+	//			CURRENT_NUM = 0;
+	//			lists = new ArrayList<GoodsListData>();
+	//		}
+	//		System.out.println("=====================002--"+INDX);
+	//			AsyncHttp.get(RealmName.REALM_NAME_LL+"/get_user_commpany?trade_id="+INDX+"" +
+	//							"&page_size="+VIEW_NUM+"&page_index="+CURRENT_NUM+"&strwhere=&orderby=",
+	//							 new AsyncHttpResponseHandler(){
+	//							@Override
+	//							public void onSuccess(int arg0, String arg1) {
+	//								// TODO Auto-generated method stub
+	//								super.onSuccess(arg0, arg1);
+	//								System.out.println("=====================‰∫åÁ∫ßÂÄº2"+arg1);
+	//								try {
+	//									JSONObject jsonObject = new JSONObject(arg1);
+	//									JSONArray jsonArray = jsonObject.getJSONArray("data");
+	//									 int len = jsonArray.length();
+	//									for(int i=0;i<jsonArray.length();i++){
+	//										JSONObject object = jsonArray.getJSONObject(i);
+	//										GoodsListData spList = new GoodsListData();
+	//										spList.user_id = object.getInt("user_id");
+	//										spList.trade_title = object.getString("trade_title");
+	//										spList.img_url = object.getString("img_url");
+	//										spList.name = object.getString("name");
+	//										lists.add(spList);
+	//											int user_id = spList.user_id ;//
+	////											int user_id =  Integer.parseInt(id);
+	//											System.out.println("‰∫åÁ∫ßÂÄº2====================="+user_id);
+	////											loadCatell(user_id);
+	//									}
+	//									handler.sendEmptyMessage(0);
+	//								} catch (JSONException e) {
+	//									// TODO Auto-generated catch block
+	//									e.printStackTrace();
+	//								}
+	//							}
+	//						}, null);
+	//	}
+
+
+	private void inter(){
+
+		int size = list.size();//Êï∞ÊçÆÊÄªÈïøÂ∫¶
+
+		//Ëé∑ÂæóÂ±èÂπïÂÆΩÂ∫¶
 		DisplayMetrics metrics = new DisplayMetrics();
 		getWindowManager().getDefaultDisplay().getMetrics(metrics);
 		int windowWidth = metrics.widthPixels;
 		int itemWidth = windowWidth/5;
 
-		//ªÒµ√∆¡ƒªøÌ∂»“≤ø…“‘’‚—˘–¥
-		//int itemWidth = getWindowManager().getDefaultDisplay().getWidth() / 5;//∆¡ƒªœ‘ æƒ¨»œ ˝¡ø
+		//Ëé∑ÂæóÂ±èÂπïÂÆΩÂ∫¶‰πüÂèØ‰ª•ËøôÊ†∑ÂÜô
+		//int itemWidth = getWindowManager().getDefaultDisplay().getWidth() / 5;//Â±èÂπïÊòæÁ§∫ÈªòËÆ§Êï∞Èáè
 
-		int gridViewWidth = (int)(size * itemWidth);//linearLayoutµƒ◊‹øÌ∂»
+		int gridViewWidth = (int)(size * itemWidth);//linearLayoutÁöÑÊÄªÂÆΩÂ∫¶
 		LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(gridViewWidth,LinearLayout.LayoutParams.MATCH_PARENT);
-		myGridView.setLayoutParams(params);//…Ë÷√GridView≤ºæ÷≤Œ ˝
-		myGridView.setNumColumns(size);//∂ØÃ¨…Ë÷√GridView¡– ˝
+		myGridView.setLayoutParams(params);//ËÆæÁΩÆGridViewÂ∏ÉÂ±ÄÂèÇÊï∞
+		myGridView.setNumColumns(size);//Âä®ÊÄÅËÆæÁΩÆGridViewÂàóÊï∞
 	}
-	public void setListViewHeightBasedOnChildren(ListView listView) {   
-        // ªÒ»°ListView∂‘”¶µƒAdapter   
-        ListAdapter listAdapter = listView.getAdapter();   
-        if (listAdapter == null) {   
-            return;   
-        }   
-   
-        int totalHeight = 0;   
-        for (int i = 0, len = listAdapter.getCount(); i < len; i++) {   
-            // listAdapter.getCount()∑µªÿ ˝æ›œÓµƒ ˝ƒø   
-            View listItem = listAdapter.getView(i, null, listView);   
-            // º∆À„◊”œÓView µƒøÌ∏ﬂ   
-            listItem.measure(0, 0);    
-            // Õ≥º∆À˘”–◊”œÓµƒ◊‹∏ﬂ∂»   
-            totalHeight += listItem.getMeasuredHeight();    
-        }   
-   
-        ViewGroup.LayoutParams params = listView.getLayoutParams();   
-        params.height = totalHeight+ (listView.getDividerHeight() * (listAdapter.getCount() - 1));   
-        // listView.getDividerHeight()ªÒ»°◊”œÓº‰∑÷∏Ù∑˚’º”√µƒ∏ﬂ∂»   
-        // params.height◊Ó∫Ûµ√µΩ’˚∏ˆListViewÕÍ’˚œ‘ æ–Ë“™µƒ∏ﬂ∂»   
-        listView.setLayoutParams(params);   
-    }
-	
+	public void setListViewHeightBasedOnChildren(ListView listView) {
+		// Ëé∑ÂèñListViewÂØπÂ∫îÁöÑAdapter
+		ListAdapter listAdapter = listView.getAdapter();
+		if (listAdapter == null) {
+			return;
+		}
+
+		int totalHeight = 0;
+		for (int i = 0, len = listAdapter.getCount(); i < len; i++) {
+			// listAdapter.getCount()ËøîÂõûÊï∞ÊçÆÈ°πÁöÑÊï∞ÁõÆ
+			View listItem = listAdapter.getView(i, null, listView);
+			// ËÆ°ÁÆóÂ≠êÈ°πView ÁöÑÂÆΩÈ´ò
+			listItem.measure(0, 0);
+			// ÁªüËÆ°ÊâÄÊúâÂ≠êÈ°πÁöÑÊÄªÈ´òÂ∫¶
+			totalHeight += listItem.getMeasuredHeight();
+		}
+
+		ViewGroup.LayoutParams params = listView.getLayoutParams();
+		params.height = totalHeight+ (listView.getDividerHeight() * (listAdapter.getCount() - 1));
+		// listView.getDividerHeight()Ëé∑ÂèñÂ≠êÈ°πÈó¥ÂàÜÈöîÁ¨¶Âç†Áî®ÁöÑÈ´òÂ∫¶
+		// params.heightÊúÄÂêéÂæóÂà∞Êï¥‰∏™ListViewÂÆåÊï¥ÊòæÁ§∫ÈúÄË¶ÅÁöÑÈ´òÂ∫¶
+		listView.setLayoutParams(params);
+	}
+
 	public class MyAdapter extends BaseAdapter {
 
 		private Context mContext;
@@ -564,12 +564,12 @@ public class JuYunshangActivity extends BaseActivity {
 
 		public MyAdapter(Context context, List<EnterpriseData> list){
 			this.List = list;
-//			list.add(null);
+			//			list.add(null);
 			this.mContext = context;
 			mInflater = LayoutInflater.from(context);
 		}
 
-		
+
 		@Override
 		public int getCount() {
 			if (list.size()<1) {
@@ -577,13 +577,13 @@ public class JuYunshangActivity extends BaseActivity {
 			}else{
 				return list.size();
 			}
-			
+
 		}
-		
+
 		public void setSeclection(int position) {
 			clickTemp = position;
 		}
-		
+
 		@Override
 		public Object getItem(int position) {
 			// TODO Auto-generated method stub
@@ -592,52 +592,52 @@ public class JuYunshangActivity extends BaseActivity {
 
 		@Override
 		public long getItemId(int position) {
-//			position = clickTemp
+			//			position = clickTemp
 			return position;
 		}
 
 		@Override
 		public View getView(final int position, View convertView, ViewGroup parent) {
 			try {
-				
-			final ViewHolder holder;
-			if (convertView == null) {
-				holder =  new ViewHolder();
-				convertView = mInflater.inflate(R.layout.jys_leibie_item, null);
-				holder.img = (ImageView) convertView.findViewById(R.id.img);
-				holder.text = (TextView) convertView.findViewById(R.id.tv);
-//				holder.radioButton = (RadioButton) convertView.findViewById(R.id.radioButton);
-				convertView.setTag(holder);
-			} else {
-				holder = (ViewHolder) convertView.getTag();
-			}
-	        System.out.println("÷µ «∂‡…Ÿ========="+position);
-	        
-	        
-			if (position == 0) {
-				holder.text.setText("Õ∆ºˆ");
-				holder.img.setImageResource(R.drawable.tuijian);
-//				image.setImageDrawable(getResources().getDrawable(R.drawable.yourimage);
-			}
-			
-			if (position > 0) {
-			holder.text.setText(list.get(position).title);
-	        mAq.id(holder.img).image(RealmName.REALM_NAME_HTTP+list.get(position).icon_url);
-			}
-			
-//			holder.text.setText(list.get(position).title);
-//	        ImageLoader imageLoader=ImageLoader.getInstance();
-//	        imageLoader.displayImage((String) RealmName.REALM_NAME_HTTP+list.get(position).icon_url,holder.img);
-//	        System.out.println("÷µ «∂‡…Ÿ2=========="+clickTemp);
-			
-			if (clickTemp == position) {
-//				convertView.setBackgroundResource(R.drawable.julegou_xuankuang);//julegou_xuankuang 
-				holder.text.setTextColor(Color.RED);
-			} else {
-//				convertView.setBackgroundColor(Color.TRANSPARENT);
-//				convertView.setBackgroundResource(R.drawable.zangfutiaoli);//julegou_xuankuang 
-				holder.text.setTextColor(Color.GRAY);
-		    }
+
+				final ViewHolder holder;
+				if (convertView == null) {
+					holder =  new ViewHolder();
+					convertView = mInflater.inflate(R.layout.jys_leibie_item, null);
+					holder.img = (ImageView) convertView.findViewById(R.id.img);
+					holder.text = (TextView) convertView.findViewById(R.id.tv);
+					//				holder.radioButton = (RadioButton) convertView.findViewById(R.id.radioButton);
+					convertView.setTag(holder);
+				} else {
+					holder = (ViewHolder) convertView.getTag();
+				}
+				System.out.println("ÂÄºÊòØÂ§öÂ∞ë========="+position);
+
+
+				if (position == 0) {
+					holder.text.setText("Êé®Ëçê");
+					holder.img.setImageResource(R.drawable.tuijian);
+					//				image.setImageDrawable(getResources().getDrawable(R.drawable.yourimage);
+				}
+
+				if (position > 0) {
+					holder.text.setText(list.get(position).title);
+					mAq.id(holder.img).image(RealmName.REALM_NAME_HTTP+list.get(position).icon_url);
+				}
+
+				//			holder.text.setText(list.get(position).title);
+				//	        ImageLoader imageLoader=ImageLoader.getInstance();
+				//	        imageLoader.displayImage((String) RealmName.REALM_NAME_HTTP+list.get(position).icon_url,holder.img);
+				//	        System.out.println("ÂÄºÊòØÂ§öÂ∞ë2=========="+clickTemp);
+
+				if (clickTemp == position) {
+					//				convertView.setBackgroundResource(R.drawable.julegou_xuankuang);//julegou_xuankuang
+					holder.text.setTextColor(Color.RED);
+				} else {
+					//				convertView.setBackgroundColor(Color.TRANSPARENT);
+					//				convertView.setBackgroundResource(R.drawable.zangfutiaoli);//julegou_xuankuang
+					holder.text.setTextColor(Color.GRAY);
+				}
 			} catch (Exception e) {
 				// TODO: handle exception
 				e.printStackTrace();

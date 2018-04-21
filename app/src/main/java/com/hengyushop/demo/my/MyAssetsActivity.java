@@ -39,11 +39,11 @@ import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.zams.www.R;
 
 /**
- * 
- * ÎÒµÄ×Ê²ú
- * 
+ *
+ * æˆ‘çš„èµ„äº§
+ *
  * @author Administrator
- * 
+ *
  */
 public class MyAssetsActivity extends BaseActivity implements OnClickListener {
 	private ImageView iv_fanhui, cursor1, cursor2, cursor3, cursor4;
@@ -62,7 +62,7 @@ public class MyAssetsActivity extends BaseActivity implements OnClickListener {
 	private int RUN_METHOD = -1;
 	private DialogProgress progress;
 	private ImageView iv_biaoti1, iv_biaoti2, iv_biaoti3,
-	iv_biaoti4;
+			iv_biaoti4;
 	MyAssetsBean data;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -79,8 +79,8 @@ public class MyAssetsActivity extends BaseActivity implements OnClickListener {
 		loadguanggao();
 
 		fund_id = "1";
-		
-//		//ÅĞ¶Ï×´Ì¬µ½½çÃæ
+
+		//		//åˆ¤æ–­çŠ¶æ€åˆ°ç•Œé¢
 		String status = getIntent().getStringExtra("status");
 		if (status != null) {
 			if (status.equals("1")) {
@@ -118,9 +118,9 @@ public class MyAssetsActivity extends BaseActivity implements OnClickListener {
 
 	}
 
-	
+
 	/**
-	 * ¿Ø¼ş³õÊ¼»¯
+	 * æ§ä»¶åˆå§‹åŒ–
 	 */
 	private void Initialize() {
 
@@ -182,62 +182,62 @@ public class MyAssetsActivity extends BaseActivity implements OnClickListener {
 	public void onClick(View v) {
 		// TODO Auto-generated method stub
 		switch (v.getId()) {
-		case R.id.index_item0:
-			// index_item0.setVisibility(View.VISIBLE);
-			// index_item1.setVisibility(View.INVISIBLE);
-			// index_item2.setVisibility(View.INVISIBLE);
-			// index_item3.setVisibility(View.INVISIBLE);
-			cursor1.setVisibility(View.VISIBLE);
-			cursor2.setVisibility(View.INVISIBLE);
-			cursor3.setVisibility(View.INVISIBLE);
-			cursor4.setVisibility(View.INVISIBLE);
-			fund_id = "1";
-			load_list(true, fund_id);
-			break;
-		case R.id.index_item1:
-			// index_item0.setVisibility(View.INVISIBLE);
-			// index_item1.setVisibility(View.VISIBLE);
-			// index_item2.setVisibility(View.INVISIBLE);
-			// index_item3.setVisibility(View.INVISIBLE);
-			cursor1.setVisibility(View.INVISIBLE);
-			cursor2.setVisibility(View.VISIBLE);
-			cursor3.setVisibility(View.INVISIBLE);
-			cursor4.setVisibility(View.INVISIBLE);
-			fund_id = "4";
-			load_list(true, fund_id);
-			break;
-		case R.id.index_item2:
-			// index_item0.setVisibility(View.INVISIBLE);
-			// index_item1.setVisibility(View.INVISIBLE);
-			// index_item2.setVisibility(View.VISIBLE);
-			// index_item3.setVisibility(View.INVISIBLE);
-			cursor1.setVisibility(View.INVISIBLE);
-			cursor2.setVisibility(View.INVISIBLE);
-			cursor3.setVisibility(View.VISIBLE);
-			cursor4.setVisibility(View.INVISIBLE);
-			fund_id = "2";
-			load_list(true, fund_id);
-			break;
-		case R.id.index_item3:
-			// index_item0.setVisibility(View.INVISIBLE);
-			// index_item1.setVisibility(View.INVISIBLE);
-			// index_item2.setVisibility(View.INVISIBLE);
-			// index_item3.setVisibility(View.VISIBLE);
-			cursor1.setVisibility(View.INVISIBLE);
-			cursor2.setVisibility(View.INVISIBLE);
-			cursor3.setVisibility(View.INVISIBLE);
-			cursor4.setVisibility(View.VISIBLE);
-			fund_id = "3";
-			load_list(true, fund_id);
-			break;
+			case R.id.index_item0:
+				// index_item0.setVisibility(View.VISIBLE);
+				// index_item1.setVisibility(View.INVISIBLE);
+				// index_item2.setVisibility(View.INVISIBLE);
+				// index_item3.setVisibility(View.INVISIBLE);
+				cursor1.setVisibility(View.VISIBLE);
+				cursor2.setVisibility(View.INVISIBLE);
+				cursor3.setVisibility(View.INVISIBLE);
+				cursor4.setVisibility(View.INVISIBLE);
+				fund_id = "1";
+				load_list(true, fund_id);
+				break;
+			case R.id.index_item1:
+				// index_item0.setVisibility(View.INVISIBLE);
+				// index_item1.setVisibility(View.VISIBLE);
+				// index_item2.setVisibility(View.INVISIBLE);
+				// index_item3.setVisibility(View.INVISIBLE);
+				cursor1.setVisibility(View.INVISIBLE);
+				cursor2.setVisibility(View.VISIBLE);
+				cursor3.setVisibility(View.INVISIBLE);
+				cursor4.setVisibility(View.INVISIBLE);
+				fund_id = "4";
+				load_list(true, fund_id);
+				break;
+			case R.id.index_item2:
+				// index_item0.setVisibility(View.INVISIBLE);
+				// index_item1.setVisibility(View.INVISIBLE);
+				// index_item2.setVisibility(View.VISIBLE);
+				// index_item3.setVisibility(View.INVISIBLE);
+				cursor1.setVisibility(View.INVISIBLE);
+				cursor2.setVisibility(View.INVISIBLE);
+				cursor3.setVisibility(View.VISIBLE);
+				cursor4.setVisibility(View.INVISIBLE);
+				fund_id = "2";
+				load_list(true, fund_id);
+				break;
+			case R.id.index_item3:
+				// index_item0.setVisibility(View.INVISIBLE);
+				// index_item1.setVisibility(View.INVISIBLE);
+				// index_item2.setVisibility(View.INVISIBLE);
+				// index_item3.setVisibility(View.VISIBLE);
+				cursor1.setVisibility(View.INVISIBLE);
+				cursor2.setVisibility(View.INVISIBLE);
+				cursor3.setVisibility(View.INVISIBLE);
+				cursor4.setVisibility(View.VISIBLE);
+				fund_id = "3";
+				load_list(true, fund_id);
+				break;
 
-		default:
-			break;
+			default:
+				break;
 		}
 	}
 
 	/**
-	 * ÉÏÀ­ÁĞ±íË¢ĞÂ¼ÓÔØ
+	 * ä¸Šæ‹‰åˆ—è¡¨åˆ·æ–°åŠ è½½
 	 */
 	private OnHeaderRefreshListener listHeadListener = new OnHeaderRefreshListener() {
 
@@ -255,7 +255,7 @@ public class MyAssetsActivity extends BaseActivity implements OnClickListener {
 	};
 
 	/**
-	 * ÏÂÀ­ÁĞ±íË¢ĞÂ¼ÓÔØ
+	 * ä¸‹æ‹‰åˆ—è¡¨åˆ·æ–°åŠ è½½
 	 */
 	private OnFooterRefreshListener listFootListener = new OnFooterRefreshListener() {
 
@@ -311,23 +311,23 @@ public class MyAssetsActivity extends BaseActivity implements OnClickListener {
 	Handler handler = new Handler() {
 		public void dispatchMessage(Message msg) {
 			switch (msg.what) {
-			case 0:
-				adapter.putData(list);
-				// list = (ArrayList<MyAssetsBean>) msg.obj;
-				// adapter = new MyAssetsAdapter(list,
-				// MyAssetsActivity.this,imageLoader);
-				// listView.setAdapter(adapter);
-				// adapter.notifyDataSetChanged();
-				break;
+				case 0:
+					adapter.putData(list);
+					// list = (ArrayList<MyAssetsBean>) msg.obj;
+					// adapter = new MyAssetsAdapter(list,
+					// MyAssetsActivity.this,imageLoader);
+					// listView.setAdapter(adapter);
+					// adapter.notifyDataSetChanged();
+					break;
 
-			default:
-				break;
+				default:
+					break;
 			}
 		};
 	};
 
 	/**
-	 * µÚ1¸öÁĞ±íÊı¾İ½âÎö
+	 * ç¬¬1ä¸ªåˆ—è¡¨æ•°æ®è§£æ
 	 */
 	// private int RUN_METHOD = -1;
 	private int CURRENT_NUM = 1;
@@ -337,7 +337,7 @@ public class MyAssetsActivity extends BaseActivity implements OnClickListener {
 		progress.CreateProgress();
 		RUN_METHOD = 1;
 		if (flag) {
-			// ¼ÆÊıºÍÈİÆ÷ÇåÁã
+			// è®¡æ•°å’Œå®¹å™¨æ¸…é›¶
 			System.out.println("=====================flag==" + flag);
 			CURRENT_NUM = 1;
 			list = new ArrayList<MyAssetsBean>();
@@ -347,14 +347,14 @@ public class MyAssetsActivity extends BaseActivity implements OnClickListener {
 		// + user_id + "&user_name="+125+"&fund_id=13502883181
 		System.out.println("=====================fund_id--" + fund_id);
 		AsyncHttp.get(RealmName.REALM_NAME_LL + "/get_payrecord_list?user_id="
-				+ user_id + "&user_name=" + user_name + "&fund_id=" + fund_id
-				+ "&page_size=" + VIEW_NUM + "&page_index=" + CURRENT_NUM + "",
+						+ user_id + "&user_name=" + user_name + "&fund_id=" + fund_id
+						+ "&page_size=" + VIEW_NUM + "&page_index=" + CURRENT_NUM + "",
 				new AsyncHttpResponseHandler() {
 					@Override
 					public void onSuccess(int arg0, String arg1) {
 						// TODO Auto-generated method stub
 						super.onSuccess(arg0, arg1);
-						System.out.println("=====================¶ş¼¶Öµ1" + arg1);
+						System.out.println("=====================äºŒçº§å€¼1" + arg1);
 						try {
 							JSONObject object = new JSONObject(arg1);
 							String status = object.getString("status");
@@ -382,7 +382,7 @@ public class MyAssetsActivity extends BaseActivity implements OnClickListener {
 								Toast.makeText(MyAssetsActivity.this, info, 200)
 										.show();
 							}
-							System.out.println("=====================¶ş¼¶Öµ12");
+							System.out.println("=====================äºŒçº§å€¼12");
 							Message msg = new Message();
 							msg.what = 0;
 							msg.obj = list;
@@ -401,64 +401,64 @@ public class MyAssetsActivity extends BaseActivity implements OnClickListener {
 	}
 
 	/**
-	 * µÚ2¸öÁĞ±íÊı¾İ½âÎö
+	 * ç¬¬2ä¸ªåˆ—è¡¨æ•°æ®è§£æ
 	 */
-//	private void load_list2(boolean flag) {
-//		list = new ArrayList<MyAssetsBean>();
-//		if (flag) {
-//			// ¼ÆÊıºÍÈİÆ÷ÇåÁã
-//			CURRENT_NUM = 0;
-//			list = new ArrayList<MyAssetsBean>();
-//		}
-//		AsyncHttp.get(RealmName.REALM_NAME_LL + "/get_payrecord_list?user_id="
-//				+ 125 + "&user_name=13502883181&fund_id=" + 1 + ""
-//				+ "&page_size=" + VIEW_NUM + "&page_index=" + CURRENT_NUM + "",
-//				new AsyncHttpResponseHandler() {
-//					@Override
-//					public void onSuccess(int arg0, String arg1) {
-//						// TODO Auto-generated method stub
-//						super.onSuccess(arg0, arg1);
-//						System.out.println("=====================¶ş¼¶Öµ2" + arg1);
-//						try {
-//							JSONObject object = new JSONObject(arg1);
-//							String status = object.getString("status");
-//							String info = object.getString("info");
-//							if (status.equals("y")) {
-//								JSONArray jsonArray = object
-//										.getJSONArray("data");
-//								len = jsonArray.length();
-//								for (int i = 0; i < jsonArray.length(); i++) {
-//									JSONObject json = jsonArray
-//											.getJSONObject(i);
-//									MyAssetsBean data = new MyAssetsBean();
-//									data.fund = json.getString("fund");
-//									data.income = json.getString("income");
-//									data.user_name = json
-//											.getString("user_name");
-//									data.add_time = json.getString("add_time");
-//									data.remark = json.getString("remark");
-//									list.add(data);
-//								}
-//								refresh.setVisibility(View.VISIBLE);
-//							} else {
-//								refresh.setVisibility(View.GONE);
-//								Toast.makeText(MyAssetsActivity.this, info, 200)
-//										.show();
-//							}
-//							Message msg = new Message();
-//							msg.what = 0;
-//							msg.obj = list;
-//							handler.sendMessage(msg);
-//						} catch (JSONException e) {
-//							// TODO Auto-generated catch block
-//							e.printStackTrace();
-//						}
-//					}
-//				}, null);
-//	}
+	//	private void load_list2(boolean flag) {
+	//		list = new ArrayList<MyAssetsBean>();
+	//		if (flag) {
+	//			// è®¡æ•°å’Œå®¹å™¨æ¸…é›¶
+	//			CURRENT_NUM = 0;
+	//			list = new ArrayList<MyAssetsBean>();
+	//		}
+	//		AsyncHttp.get(RealmName.REALM_NAME_LL + "/get_payrecord_list?user_id="
+	//				+ 125 + "&user_name=13502883181&fund_id=" + 1 + ""
+	//				+ "&page_size=" + VIEW_NUM + "&page_index=" + CURRENT_NUM + "",
+	//				new AsyncHttpResponseHandler() {
+	//					@Override
+	//					public void onSuccess(int arg0, String arg1) {
+	//						// TODO Auto-generated method stub
+	//						super.onSuccess(arg0, arg1);
+	//						System.out.println("=====================äºŒçº§å€¼2" + arg1);
+	//						try {
+	//							JSONObject object = new JSONObject(arg1);
+	//							String status = object.getString("status");
+	//							String info = object.getString("info");
+	//							if (status.equals("y")) {
+	//								JSONArray jsonArray = object
+	//										.getJSONArray("data");
+	//								len = jsonArray.length();
+	//								for (int i = 0; i < jsonArray.length(); i++) {
+	//									JSONObject json = jsonArray
+	//											.getJSONObject(i);
+	//									MyAssetsBean data = new MyAssetsBean();
+	//									data.fund = json.getString("fund");
+	//									data.income = json.getString("income");
+	//									data.user_name = json
+	//											.getString("user_name");
+	//									data.add_time = json.getString("add_time");
+	//									data.remark = json.getString("remark");
+	//									list.add(data);
+	//								}
+	//								refresh.setVisibility(View.VISIBLE);
+	//							} else {
+	//								refresh.setVisibility(View.GONE);
+	//								Toast.makeText(MyAssetsActivity.this, info, 200)
+	//										.show();
+	//							}
+	//							Message msg = new Message();
+	//							msg.what = 0;
+	//							msg.obj = list;
+	//							handler.sendMessage(msg);
+	//						} catch (JSONException e) {
+	//							// TODO Auto-generated catch block
+	//							e.printStackTrace();
+	//						}
+	//					}
+	//				}, null);
+	//	}
 
 	/**
-	 * Öµ
+	 * å€¼
 	 */
 	private void loadguanggao() {
 		try {
@@ -469,7 +469,7 @@ public class MyAssetsActivity extends BaseActivity implements OnClickListener {
 			AsyncHttp.get(strUrl, new AsyncHttpResponseHandler() {
 				public void onSuccess(int arg0, String arg1) {
 					try {
-						System.out.println("======Êä³öÓÃ»§×ÊÁÏ=============" + arg1);
+						System.out.println("======è¾“å‡ºç”¨æˆ·èµ„æ–™=============" + arg1);
 						JSONObject object = new JSONObject(arg1);
 						String status = object.getString("status");
 						if (status.equals("y")) {
@@ -487,11 +487,11 @@ public class MyAssetsActivity extends BaseActivity implements OnClickListener {
 							data.agency_name = obj.getString("agency_name");
 							data.group_name = obj.getString("group_name");
 
-							tv_ticket.setText(data.amount + "Ôª");
-							tv_shop_ticket.setText(data.pension + "Ôª");
-							tv_jifen_ticket.setText(data.packet + "Ôª");
+							tv_ticket.setText(data.amount + "å…ƒ");
+							tv_shop_ticket.setText(data.pension + "å…ƒ");
+							tv_jifen_ticket.setText(data.packet + "å…ƒ");
 							tv_djjifen_ticket.setText(data.point + "");// packet
-																		// point
+							// point
 
 						} else {
 
@@ -506,7 +506,7 @@ public class MyAssetsActivity extends BaseActivity implements OnClickListener {
 				public void onFailure(Throwable arg0, String arg1) {
 					// TODO Auto-generated method stub
 					super.onFailure(arg0, arg1);
-					NewDataToast.makeText(MyAssetsActivity.this, "Á¬½Ó³¬Ê±", false,
+					NewDataToast.makeText(MyAssetsActivity.this, "è¿æ¥è¶…æ—¶", false,
 							0).show();
 				}
 			}, getApplicationContext());
@@ -516,35 +516,35 @@ public class MyAssetsActivity extends BaseActivity implements OnClickListener {
 			e.printStackTrace();
 		}
 	}
-	
+
 	public void onDestroy() {
-		 super.onDestroy(); 
-		 try {
-			
-				if (list.size() > 0) {
-					list.clear();
-					list = null;
-				}
-				
+		super.onDestroy();
+		try {
+
+			if (list.size() > 0) {
+				list.clear();
+				list = null;
+			}
+
 			BitmapDrawable bd1 = (BitmapDrawable)iv_biaoti1.getBackground();
-			iv_biaoti1.setBackgroundResource(0);//±ğÍüÁË°Ñ±³¾°ÉèÎªnull£¬±ÜÃâonDrawË¢ĞÂ±³¾°Ê±ºò³öÏÖused a recycled bitmap´íÎó
+			iv_biaoti1.setBackgroundResource(0);//åˆ«å¿˜äº†æŠŠèƒŒæ™¯è®¾ä¸ºnullï¼Œé¿å…onDrawåˆ·æ–°èƒŒæ™¯æ—¶å€™å‡ºç°used a recycled bitmapé”™è¯¯
 			bd1.setCallback(null);
 			bd1.getBitmap().recycle();
 			BitmapDrawable bd2 = (BitmapDrawable)iv_biaoti2.getBackground();
-			iv_biaoti2.setBackgroundResource(0);//±ğÍüÁË°Ñ±³¾°ÉèÎªnull£¬±ÜÃâonDrawË¢ĞÂ±³¾°Ê±ºò³öÏÖused a recycled bitmap´íÎó
+			iv_biaoti2.setBackgroundResource(0);//åˆ«å¿˜äº†æŠŠèƒŒæ™¯è®¾ä¸ºnullï¼Œé¿å…onDrawåˆ·æ–°èƒŒæ™¯æ—¶å€™å‡ºç°used a recycled bitmapé”™è¯¯
 			bd2.setCallback(null);
 			bd2.getBitmap().recycle();
 			BitmapDrawable bd3 = (BitmapDrawable)iv_biaoti3.getBackground();
-			iv_biaoti3.setBackgroundResource(0);//±ğÍüÁË°Ñ±³¾°ÉèÎªnull£¬±ÜÃâonDrawË¢ĞÂ±³¾°Ê±ºò³öÏÖused a recycled bitmap´íÎó
+			iv_biaoti3.setBackgroundResource(0);//åˆ«å¿˜äº†æŠŠèƒŒæ™¯è®¾ä¸ºnullï¼Œé¿å…onDrawåˆ·æ–°èƒŒæ™¯æ—¶å€™å‡ºç°used a recycled bitmapé”™è¯¯
 			bd3.setCallback(null);
 			bd3.getBitmap().recycle();
 			BitmapDrawable bd4 = (BitmapDrawable)iv_biaoti4.getBackground();
-			iv_biaoti4.setBackgroundResource(0);//±ğÍüÁË°Ñ±³¾°ÉèÎªnull£¬±ÜÃâonDrawË¢ĞÂ±³¾°Ê±ºò³öÏÖused a recycled bitmap´íÎó
+			iv_biaoti4.setBackgroundResource(0);//åˆ«å¿˜äº†æŠŠèƒŒæ™¯è®¾ä¸ºnullï¼Œé¿å…onDrawåˆ·æ–°èƒŒæ™¯æ—¶å€™å‡ºç°used a recycled bitmapé”™è¯¯
 			bd4.setCallback(null);
 			bd4.getBitmap().recycle();
-	} catch (Exception e) {
-		// TODO: handle exception
-		e.printStackTrace();
-	}
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
 	};
 }

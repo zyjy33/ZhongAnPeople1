@@ -43,9 +43,9 @@
 //
 ///**
 // *
-// * ¶©µ¥ÏêÇé
+// * è®¢å•è¯¦æƒ…
 // * @author Administrator
-// * 
+// *
 // */
 //public class MyOrderXqActivity extends BaseActivity implements OnClickListener{
 //
@@ -79,7 +79,7 @@
 //	List<OrderBean> lists;
 //	public static Handler handler;
 //	public static boolean teby = false;
-//	
+//
 //	@Override
 //	protected void onResume() {
 //		// TODO Auto-generated method stub
@@ -88,13 +88,13 @@
 ////		if (list.size() > 0) {
 ////			tv_geshu.setText(list.size());
 ////		}
-//		System.out.println("×´Ì¬==============" + teby);
-//		//Óà¶îÖ§¸¶¸üĞÂ
+//		System.out.println("çŠ¶æ€==============" + teby);
+//		//ä½™é¢æ”¯ä»˜æ›´æ–°
 //		if (teby == true) {
 //			userloginqm();
 //			finish();
 //		}
-//		
+//
 //	}
 //	@Override
 //	protected void onCreate(Bundle savedInstanceState) {
@@ -120,17 +120,17 @@
 ////			tv_fukuan.setOnClickListener(this);
 //			tv_queren_fukuan.setOnClickListener(this);
 //			tv_pingjia.setOnClickListener(this);
-//			
+//
 //			System.out.println("zhou1----------");
 //			iv_fanhui.setOnClickListener(new OnClickListener() {
-//				
+//
 //				@Override
 //				public void onClick(View arg0) {
 //					// TODO Auto-generated method stub
 //					finish();
 //				}
 //			});
-//			
+//
 //			MyOrderData bean = (MyOrderData) getIntent().getSerializableExtra("bean");
 ////			List<MyOrderData> bean = (List<MyOrderData>) getIntent().getSerializableExtra("bean");
 //			list = new ArrayList<MyOrderData>();
@@ -141,32 +141,32 @@
 ////			System.out.println("lists----------"+lists.size());
 //			String zhou = lists.get(0).getGoods_title();
 ////			System.out.println("zhou----------"+zhou);
-//			
+//
 //			mybAdapter = new MyOrderXqAdapter(MyOrderXqActivity.this, list,handler);
 //			my_list.setAdapter(mybAdapter);
 //			MyOrderXqAdapter.mAq.clear();
 ////			String payment_status = getIntent().getStringExtra("payment_status");
 ////			System.out.println("payment_status----------"+payment_status);
-//			
+//
 //			payment_status = list.get(0).getPayment_status();
 //			System.out.println("payment_status============="+payment_status);
 //			express_status = list.get(0).getExpress_status();
 //			System.out.println("express_status============="+express_status);
 //			status = list.get(0).getStatus();
 //			System.out.println("status============="+status);
-//			
+//
 //			System.out.println("zhou3----------");
 //			if (payment_status.equals("1")){
-//				System.out.println("´ı¸¶¿î=============");
+//				System.out.println("å¾…ä»˜æ¬¾=============");
 //				ll_anliu.setVisibility(View.VISIBLE);
 //				tv_queren_fukuan.setVisibility(View.GONE);
 //				tv_pingjia.setVisibility(View.GONE);
 //				tv_fukuan.setVisibility(View.GONE);
 //				tv_shanche.setVisibility(View.VISIBLE);
-////				tv_fukuan.setText("È·ÈÏ¸¶¿î");
+////				tv_fukuan.setText("ç¡®è®¤ä»˜æ¬¾");
 //				zhuangtai = 2;
 //			}else if (payment_status.equals("2") && express_status.equals("1")){
-//				System.out.println("´ı·¢»õ=============");
+//				System.out.println("å¾…å‘è´§=============");
 //				ll_anliu.setVisibility(View.GONE);
 //				zhuangtai = 3;
 //			}else if (payment_status.equals("2") && express_status.equals("2") && status.equals("2")){
@@ -174,20 +174,20 @@
 //				tv_fukuan.setVisibility(View.GONE);
 //				tv_queren_fukuan.setVisibility(View.VISIBLE);
 //				tv_pingjia.setVisibility(View.GONE);
-//				tv_queren_fukuan.setText("È·ÈÏÊÕ»õ");
+//				tv_queren_fukuan.setText("ç¡®è®¤æ”¶è´§");
 //				zhuangtai = 4;
 //			}else if (payment_status.equals("2") && express_status.equals("2") && status.equals("3")){
-//				System.out.println("ÒÑÍê³É=============");
+//				System.out.println("å·²å®Œæˆ=============");
 //				ll_anliu.setVisibility(View.VISIBLE);
 //				tv_fukuan.setVisibility(View.GONE);
 //				tv_queren_fukuan.setVisibility(View.GONE);
 ////				tv_pingjia.setVisibility(View.VISIBLE);
 //				tv_shanche.setVisibility(View.VISIBLE);
-////				tv_pingjia.setText("ÆÀ¼Û");
+////				tv_pingjia.setText("è¯„ä»·");
 //				zhuangtai = 5;
 //			}
-//	    
-//			
+//
+//
 //			handler = new Handler() {
 //				public void dispatchMessage(Message msg) {
 //					switch (msg.what) {
@@ -215,19 +215,19 @@
 //					}
 //				}
 //			};
-//				
+//
 //	    } catch (Exception e) {
 //		// TODO: handle exception
 //		e.printStackTrace();
 //	}
-//	     
+//
 //	}
-//	
-//	
+//
+//
 //	public void initUI() {
-//		
+//
 //	}
-//	
+//
 ////	handler = new Handler() {
 ////		public void dispatchMessage(Message msg) {
 ////			switch (msg.what) {
@@ -254,13 +254,13 @@
 ////			}
 ////		};
 ////	};
-//	
-//	
+//
+//
 //	protected void dialog2() {
 //		AlertDialog.Builder builder = new Builder(MyOrderXqActivity.this);
-//		builder.setMessage("ÊÇ·ñÈ·¶¨È¡Ïû¶©µ¥?");
-//		builder.setTitle("ÌáÊ¾");
-//		builder.setPositiveButton("È·ÈÏ", new DialogInterface.OnClickListener() {
+//		builder.setMessage("æ˜¯å¦ç¡®å®šå–æ¶ˆè®¢å•?");
+//		builder.setTitle("æç¤º");
+//		builder.setPositiveButton("ç¡®è®¤", new DialogInterface.OnClickListener() {
 //
 //			@Override
 //			public void onClick(DialogInterface dialog, int which) {
@@ -268,7 +268,7 @@
 //			}
 //		});
 //
-//		builder.setNegativeButton("È¡Ïû", new DialogInterface.OnClickListener() {
+//		builder.setNegativeButton("å–æ¶ˆ", new DialogInterface.OnClickListener() {
 //
 //			@Override
 //			public void onClick(DialogInterface dialog, int which) {
@@ -278,12 +278,12 @@
 //
 //		builder.create().show();
 //	}
-//	
+//
 //	protected void dialog3() {
 //		AlertDialog.Builder builder = new Builder(MyOrderXqActivity.this);
-//		builder.setMessage("ÊÇ·ñÈ·¶¨É¾³ı¶©µ¥?");
-//		builder.setTitle("ÌáÊ¾");
-//		builder.setPositiveButton("È·ÈÏ", new DialogInterface.OnClickListener() {
+//		builder.setMessage("æ˜¯å¦ç¡®å®šåˆ é™¤è®¢å•?");
+//		builder.setTitle("æç¤º");
+//		builder.setPositiveButton("ç¡®è®¤", new DialogInterface.OnClickListener() {
 //
 //			@Override
 //			public void onClick(DialogInterface dialog, int which) {
@@ -292,7 +292,7 @@
 //			}
 //		});
 //
-//		builder.setNegativeButton("È¡Ïû", new DialogInterface.OnClickListener() {
+//		builder.setNegativeButton("å–æ¶ˆ", new DialogInterface.OnClickListener() {
 //
 //			@Override
 //			public void onClick(DialogInterface dialog, int which) {
@@ -302,14 +302,14 @@
 //
 //		builder.create().show();
 //	}
-//	
+//
 //	/**
-//	 * É¾³ı¶©µ¥
-//	 * @param order_no 
-//	 * @param payment_id 
+//	 * åˆ é™¤è®¢å•
+//	 * @param order_no
+//	 * @param payment_id
 //	 */
 //	public void fukuanok3(String order_no2) {
-//			progress.CreateProgress();	
+//			progress.CreateProgress();
 //			order_no = order_no2;
 //			System.out.println("order_no================================="+order_no);
 //			String login_sign = spPreferences.getString("login_sign", "");
@@ -323,7 +323,7 @@
 //						super.onSuccess(arg0, arg1);
 //						try {
 //							JSONObject object = new JSONObject(arg1);
-//							System.out.println("È¡Ïû¶©µ¥================================="+arg1);
+//							System.out.println("å–æ¶ˆè®¢å•================================="+arg1);
 //							  String status = object.getString("status");
 //							    String info = object.getString("info");
 //							    if (status.equals("y")) {
@@ -337,23 +337,23 @@
 //							    	progress.CloseProgress();
 //									Toast.makeText(MyOrderXqActivity.this, info, 200).show();
 //								}
-//							    
-//							
+//
+//
 //						} catch (JSONException e) {
 //							e.printStackTrace();
 //						}
 //					}
 //
 //				}, MyOrderXqActivity.this);
-//		
+//
 //	}
 //	/**
-//	 * È¡Ïû¶©µ¥
-//	 * @param order_no 
-//	 * @param payment_id 
+//	 * å–æ¶ˆè®¢å•
+//	 * @param order_no
+//	 * @param payment_id
 //	 */
 //	public void fukuanok2(String order_no2) {
-//			progress.CreateProgress();	
+//			progress.CreateProgress();
 //			order_no = order_no2;
 //			System.out.println("order_no================================="+order_no);
 //			String login_sign = spPreferences.getString("login_sign", "");
@@ -367,7 +367,7 @@
 //						super.onSuccess(arg0, arg1);
 //						try {
 //							JSONObject object = new JSONObject(arg1);
-//							System.out.println("È¡Ïû¶©µ¥================================="+arg1);
+//							System.out.println("å–æ¶ˆè®¢å•================================="+arg1);
 //							  String status = object.getString("status");
 //							    String info = object.getString("info");
 //							    if (status.equals("y")) {
@@ -377,21 +377,21 @@
 //							    	progress.CloseProgress();
 //									Toast.makeText(MyOrderXqActivity.this, info, 200).show();
 //								}
-//							    
-//							
+//
+//
 //						} catch (JSONException e) {
 //							e.printStackTrace();
 //						}
 //					}
 //
 //				}, MyOrderXqActivity.this);
-//		
+//
 //	}
 //
 //	@Override
 //	public void onClick(View v) {
 //		// TODO Auto-generated method stub
-//		
+//
 //		switch (v.getId()) {
 //		case R.id.iv_fanhui:
 //			finish();
@@ -413,7 +413,7 @@
 //			startActivity(intent1);
 //			break;
 //		case R.id.tv_pingjia:
-//			
+//
 //			break;
 //		case R.id.tv_shanche:
 //			dialog3();
@@ -422,10 +422,10 @@
 //			break;
 //		}
 //	}
-//	
-//	
+//
+//
 //	/**
-//	 * »ñÈ¡µÇÂ¼Ç©Ãû
+//	 * è·å–ç™»å½•ç­¾å
 //	 */
 //	private void userloginqm() {
 //		try{
@@ -452,17 +452,17 @@
 //					}
 //				};
 //			}, MyOrderXqActivity.this);
-//			
+//
 //		} catch (Exception e) {
 //			// TODO: handle exception
 //			e.printStackTrace();
 //		}
 //	}
-//	
+//
 //	/**
-//	 * ¸üĞÂ¶©µ¥
-//	 * @param login_sign 
-//	 * @param payment_id 
+//	 * æ›´æ–°è®¢å•
+//	 * @param login_sign
+//	 * @param payment_id
 //	 */
 //	private void loadguanggaoll(String recharge_noll, String login_sign) {
 //		try {
@@ -472,14 +472,14 @@
 //		   AsyncHttp.get(RealmName.REALM_NAME_LL
 //				+ "/update_order_payment?user_id="+user_id+"&user_name="+user_name+"" +
 //						"&trade_no="+recharge_noll+"&sign="+login_sign+"",
-//						
+//
 //				new AsyncHttpResponseHandler() {
 //					@Override
 //					public void onSuccess(int arg0, String arg1) {
 //						super.onSuccess(arg0, arg1);
 //						try {
 //							JSONObject object = new JSONObject(arg1);
-//							System.out.println("¸üĞÂ¶©µ¥================================="+arg1);
+//							System.out.println("æ›´æ–°è®¢å•================================="+arg1);
 //							  String status = object.getString("status");
 //							    String info = object.getString("info");
 //							    if (status.equals("y")) {
@@ -496,14 +496,14 @@
 //							e.printStackTrace();
 //						}
 //					}
-//					
+//
 //					@Override
 //					public void onFailure(Throwable arg0, String arg1) {
 //						// TODO Auto-generated method stub
 //						super.onFailure(arg0, arg1);
 //						System.out.println("11================================="+arg0);
 //						System.out.println("22================================="+arg1);
-//						Toast.makeText(MyOrderXqActivity.this, "ÍøÂç³¬Ê±Òì³£", 200).show();
+//						Toast.makeText(MyOrderXqActivity.this, "ç½‘ç»œè¶…æ—¶å¼‚å¸¸", 200).show();
 //					}
 //
 //				}, null);

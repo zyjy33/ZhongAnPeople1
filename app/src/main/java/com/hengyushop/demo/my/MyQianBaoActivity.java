@@ -1,15 +1,11 @@
 package com.hengyushop.demo.my;
 
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.Window;
@@ -27,12 +23,15 @@ import com.hengyushop.entity.UserRegisterllData;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.zams.www.R;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 /**
- * 
- * Óà¶î³äÖµ
- * 
+ *
+ * ä½™é¢å……å€¼
+ *
  * @author Administrator
- * 
+ *
  */
 public class MyQianBaoActivity extends BaseActivity implements OnClickListener {
 	private Button chongzhi_submit;
@@ -75,45 +74,45 @@ public class MyQianBaoActivity extends BaseActivity implements OnClickListener {
 		tv_ticket = (TextView) findViewById(R.id.tv_monney);
 		chongzhi_submit = (Button) findViewById(R.id.chongzhi_submit);
 		yu_pay0 = (LinearLayout) findViewById(R.id.yu_pay0);
-//		yu_pay0.setBackgroundResource(R.drawable.my_qianbao);
+		//		yu_pay0.setBackgroundResource(R.drawable.my_qianbao);
 		Bitmap bm = BitmapFactory.decodeResource(this.getResources(), R.drawable.my_qianbao);
 		BitmapDrawable bd = new BitmapDrawable(this.getResources(), bm);
 		yu_pay0.setBackgroundDrawable(bd);
 		chongzhi_submit.setOnClickListener(this);
 	}
 
-    //µ±Activity±»Ïú»ÙÊ±»áµ÷ÓÃonDestory·½·¨
-    @Override  
-    protected void onDestroy() {  
-        super.onDestroy(); 
-//        MyQianBaoActivity.this.finish();
+	//å½“Activityè¢«é”€æ¯æ—¶ä¼šè°ƒç”¨onDestoryæ–¹æ³•
+	@Override
+	protected void onDestroy() {
+		super.onDestroy();
+		//        MyQianBaoActivity.this.finish();
 		BitmapDrawable bd1 = (BitmapDrawable)yu_pay0.getBackground();
-		yu_pay0.setBackgroundResource(0);//±ğÍüÁË°Ñ±³¾°ÉèÎªnull£¬±ÜÃâonDrawË¢ĞÂ±³¾°Ê±ºò³öÏÖused a recycled bitmap´íÎó
+		yu_pay0.setBackgroundResource(0);//åˆ«å¿˜äº†æŠŠèƒŒæ™¯è®¾ä¸ºnullï¼Œé¿å…onDrawåˆ·æ–°èƒŒæ™¯æ—¶å€™å‡ºç°used a recycled bitmapé”™è¯¯
 		bd1.setCallback(null);
 		bd1.getBitmap().recycle();
-    } 
-    
+	}
+
 	@Override
 	public void onClick(View v) {
 		// TODO Auto-generated method stub
 
 		switch (v.getId()) {
-		case R.id.iv_fanhui:
-			finish();
-			break;
-		case R.id.chongzhi_submit:
-			Intent intent = new Intent(MyQianBaoActivity.this,
-					MonneyChongZhiActivity.class);
-			startActivity(intent);
-			break;
+			case R.id.iv_fanhui:
+				finish();
+				break;
+			case R.id.chongzhi_submit:
+				Intent intent = new Intent(MyQianBaoActivity.this,
+						MonneyChongZhiActivity.class);
+				startActivity(intent);
+				break;
 
-		default:
-			break;
+			default:
+				break;
 		}
 	}
 
 	/**
-	 * »ñÈ¡µÇÂ¼Ç©Ãû
+	 * è·å–ç™»å½•ç­¾å
 	 */
 	private void userloginqm() {
 		try {

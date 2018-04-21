@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 public class One_Person_Bean implements Serializable {
 	/**
-	 * 
+	 *
 	 */
 	private static final long serialVersionUID = 1L;
 	private String YiYuanID;
@@ -101,7 +101,7 @@ public class One_Person_Bean implements Serializable {
 
 	/*
 	 * "LuckDrawBatchOrderNumber": "1", "CurrentGameDone": "0", "ProductItemId":
-	 * "7692", "proName": "TO COOL FOR SCHOOL����Ľ˹��Ĥ", "proFaceImg":
+	 * "7692", "proName": "TO COOL FOR SCHOOL¼¦µ°Ä½Ë¹ÃæÄ¤", "proFaceImg":
 	 * "uploadFiles/2015-02-03/201523163026756778.jpg", "NeedGameUserNum": "38",
 	 * "HasJoinedNum": "7", "HaveTatalJuGouMa"
 	 */

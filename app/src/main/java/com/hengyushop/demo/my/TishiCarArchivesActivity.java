@@ -28,8 +28,8 @@ import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.zams.www.MyOrderConfrimActivity;
 import com.zams.www.R;
 /**
- * Ç®°üÖ§¸¶£¨ÊäÈëÃÜÂë£©
- * @author 
+ * é’±åŒ…æ”¯ä»˜ï¼ˆè¾“å…¥å¯†ç ï¼‰
+ * @author
  *
  */
 public class TishiCarArchivesActivity extends Activity implements OnClickListener{
@@ -56,7 +56,7 @@ public class TishiCarArchivesActivity extends Activity implements OnClickListene
 		spPreferences = getSharedPreferences("longuserset", MODE_PRIVATE);
 		user_name = spPreferences.getString("user", "");
 		user_id = spPreferences.getString("user_id", "");
-//		pwd = spPreferences.getString("pwd", "");
+		//		pwd = spPreferences.getString("pwd", "");
 		progress = new DialogProgress(TishiCarArchivesActivity.this);
 		order_no = getIntent().getStringExtra("order_no");
 		System.out.println("order_no-------------"+order_no);
@@ -65,119 +65,119 @@ public class TishiCarArchivesActivity extends Activity implements OnClickListene
 	}
 
 
-	
+
 	protected void initUI() {
 		zhidupess = (EditText) findViewById(R.id.et_user_pwd);
 		btnConfirm =(TextView) findViewById(R.id.btnConfirm);//
 		btnConfirm.setOnClickListener(this);//
-		btnCancle =(TextView) findViewById(R.id.btnCancle);// 
-//		tv_yue =(TextView) findViewById(R.id.tv_yue);
-//		System.out.println("amount-------------"+amount);
-//		tv_yue.setText("ÄãÊ£ÓàµÄÓà¶îÎª£¤"+amount);
-		
+		btnCancle =(TextView) findViewById(R.id.btnCancle);//
+		//		tv_yue =(TextView) findViewById(R.id.tv_yue);
+		//		System.out.println("amount-------------"+amount);
+		//		tv_yue.setText("ä½ å‰©ä½™çš„ä½™é¢ä¸ºï¿¥"+amount);
+
 		btnCancle.setOnClickListener(this);//
-		
+
 		handler = new Handler() {
 			public void handleMessage(Message msg) {
 				switch (msg.what) {
-				case 8:
-					
+					case 8:
+
 				}
 			}
 		};
 	}
-	
-	
+
+
 	/**
-	 * µã»÷´¥·¢ÊÂ¼ş
+	 * ç‚¹å‡»è§¦å‘äº‹ä»¶
 	 */
 	@Override
 	public void onClick(View v) {
 		// TODO Auto-generated method stub
-		
+
 		intent = new Intent();
 		switch (v.getId()) {
-		case R.id.btnConfirm://È¡Ïû
-//			String yue_fanhui = getIntent().getStringExtra("yue");
-			finish();
-			yue_zhuangtai = "1";
-			break;
-		case R.id.btnCancle://
-			pwd = zhidupess.getText().toString().trim();
-			System.out.println("pwd-------------"+pwd);
-			if (pwd.equals("")) {
-				Toast.makeText(TishiCarArchivesActivity.this, "ÇëÊäÈëÃÜÂë", 200).show();
-			}else{
-				String yue = getIntent().getStringExtra("yue");
-				String jubi = getIntent().getStringExtra("jubi");
-				String order_yue = getIntent().getStringExtra("order_yue");
-				if (yue != null) {
-					userloginqm(); 
-				}else if (jubi != null) {
-					userloginqm(); 
-				}else if (order_yue != null) {
-					userloginqm(); 
-				}else {
-					ShouhuoOK(order_no);
+			case R.id.btnConfirm://å–æ¶ˆ
+				//			String yue_fanhui = getIntent().getStringExtra("yue");
+				finish();
+				yue_zhuangtai = "1";
+				break;
+			case R.id.btnCancle://
+				pwd = zhidupess.getText().toString().trim();
+				System.out.println("pwd-------------"+pwd);
+				if (pwd.equals("")) {
+					Toast.makeText(TishiCarArchivesActivity.this, "è¯·è¾“å…¥å¯†ç ", 200).show();
+				}else{
+					String yue = getIntent().getStringExtra("yue");
+					String jubi = getIntent().getStringExtra("jubi");
+					String order_yue = getIntent().getStringExtra("order_yue");
+					if (yue != null) {
+						userloginqm();
+					}else if (jubi != null) {
+						userloginqm();
+					}else if (order_yue != null) {
+						userloginqm();
+					}else {
+						ShouhuoOK(order_no);
+					}
+
 				}
-				
-			}
-			break;
-	
-		default:
-			break;
+				break;
+
+			default:
+				break;
 		}
 	}
-	
+
 	/**
-	 * ÅĞ¶Ïµ±Ç°¾Û±ÒÓëÓà¶îµÄÖµ
-	 * @param order_no 
+	 * åˆ¤æ–­å½“å‰èšå¸ä¸ä½™é¢çš„å€¼
+	 * @param order_no
 	 */
 	private void useryue() {
-			String strUrlone = RealmName.REALM_NAME_LL + "/get_user_model?username="+user_name+"";
-			AsyncHttp.get(strUrlone, new AsyncHttpResponseHandler() {
-				public void onSuccess(int arg0, String arg1) {
-					try {
-						System.out.println("µ±Ç°¾Û±ÒÓëÓà¶îµÄÖµ-------------"+arg1);
-						JSONObject object = new JSONObject(arg1);
-						String status = object.getString("status");
-						if (status.equals("y")) {
-							JSONObject obj = object.getJSONObject("data");
-							amount = obj.getString("amount");
-							String point = obj.getString("point");
-							String jubi = getIntent().getStringExtra("jubi");
-							String title = getIntent().getStringExtra("title");
-							tv_yue =(TextView) findViewById(R.id.tv_yue);
-							if (title != null) {
-								tv_yue.setText("ÌáÊ¾");
-							}else {
+		String strUrlone = RealmName.REALM_NAME_LL + "/get_user_model?username="+user_name+"";
+		AsyncHttp.get(strUrlone, new AsyncHttpResponseHandler() {
+			public void onSuccess(int arg0, String arg1) {
+				try {
+					System.out.println("å½“å‰èšå¸ä¸ä½™é¢çš„å€¼-------------"+arg1);
+					JSONObject object = new JSONObject(arg1);
+					String status = object.getString("status");
+					if (status.equals("y")) {
+						JSONObject obj = object.getJSONObject("data");
+						amount = obj.getString("amount");
+						String point = obj.getString("point");
+						String jubi = getIntent().getStringExtra("jubi");
+						String title = getIntent().getStringExtra("title");
+						tv_yue =(TextView) findViewById(R.id.tv_yue);
+						if (title != null) {
+							tv_yue.setText("æç¤º");
+						}else {
 							if (jubi != null) {
-								tv_yue.setText("ÄúÊ£ÓàµÄ¸£ÀûÎª£¤"+point);
+								tv_yue.setText("æ‚¨å‰©ä½™çš„ç¦åˆ©ä¸ºï¿¥"+point);
 								System.out.println("point-------------"+point);
 							}else {
-								tv_yue.setText("ÄúÊ£ÓàµÄÓà¶îÎª£¤"+amount);
+								tv_yue.setText("æ‚¨å‰©ä½™çš„ä½™é¢ä¸ºï¿¥"+amount);
 								System.out.println("amount-------------"+amount);
 							}
-							}
-						}else{
 						}
-					} catch (JSONException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
+					}else{
 					}
-				};
-			}, null);
-			
+				} catch (JSONException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			};
+		}, null);
+
 	}
-	
+
 	/**
-	 * »ñÈ¡µÇÂ¼Ç©Ãû
-	 * @param order_no 
+	 * è·å–ç™»å½•ç­¾å
+	 * @param order_no
 	 */
 	private void userloginqm() {
 		try{
-//			SharedPreferences spPreferences = getSharedPreferences("longuserset", MODE_PRIVATE);
-//			String user_name = spPreferences.getString("user", "");
+			//			SharedPreferences spPreferences = getSharedPreferences("longuserset", MODE_PRIVATE);
+			//			String user_name = spPreferences.getString("user", "");
 			String strUrlone = RealmName.REALM_NAME_LL + "/get_user_model?username="+user_name+"";
 			System.out.println("======11============="+strUrlone);
 			AsyncHttp.get(strUrlone, new AsyncHttpResponseHandler() {
@@ -202,139 +202,139 @@ public class TishiCarArchivesActivity extends Activity implements OnClickListene
 					}
 				};
 			}, null);
-			
+
 		} catch (Exception e) {
 			// TODO: handle exception
 			e.printStackTrace();
 		}
 	}
-	
+
 	/**
-	 * Óà¶îÖ§¸¶
-	 * @param login_sign 
-	 * @param payment_id 
+	 * ä½™é¢æ”¯ä»˜
+	 * @param login_sign
+	 * @param payment_id
 	 */
 	private void loadYue(String order_no, String login_sign) {
 		try {
-//		String total_fee = String.valueOf(Double.parseDouble(retailPrice) + Double.parseDouble(String.valueOf(express_fee)));
-//		AsyncHttp.get(RealmName.REALM_NAME_LL
-//				+ "/payment_balance?user_id="+user_id+"&user_name="+user_name+"" +
-//						"&trade_no="+order_no+"&paypassword="+pwd+"&sign="+login_sign+"",
+			//		String total_fee = String.valueOf(Double.parseDouble(retailPrice) + Double.parseDouble(String.valueOf(express_fee)));
+			//		AsyncHttp.get(RealmName.REALM_NAME_LL
+			//				+ "/payment_balance?user_id="+user_id+"&user_name="+user_name+"" +
+			//						"&trade_no="+order_no+"&paypassword="+pwd+"&sign="+login_sign+"",
 			AsyncHttp.get(RealmName.REALM_NAME_HTTP+"/api/payment/balance/index.aspx?action=payment&user_id="+user_id+"&user_name="+user_name+"" +
-					"&user_sign="+login_sign+"&paypassword="+pwd+"&trade_no="+order_no+"",	
-				new AsyncHttpResponseHandler() {
-					@Override
-					public void onSuccess(int arg0, String arg1) {
-						try {
-							JSONObject object = new JSONObject(arg1);
-							System.out.println("2================================="+arg1);
-							  String status = object.getString("status");
-							    String info = object.getString("info");
-							    if (status.equals("y")) {
-							    	progress.CloseProgress();
-//							    	JSONObject jsonObject = object.getJSONObject("data");
-//										JSONArray jay = jsonObject.getJSONArray("orders");
-//										for (int j = 0; j < jay.length(); j++){
-//										   JSONObject objc= jay.getJSONObject(j);
-//										    accept_name = objc.getString("accept_name");
-//										    province = objc.getString("province");
-//											city = objc.getString("city");
-//											area = objc.getString("area");
-//											user_mobile = objc.getString("mobile");
-//											user_address = objc.getString("address");
-//											recharge_no = objc.getString("order_no");
-//											datetime = objc.getString("add_time");
-//											sell_price = objc.getString("payable_amount");
-//											JSONArray jsonArray = objc.getJSONArray("order_goods");
-//											for (int i = 0; i < jsonArray.length(); i++) {
-//												JSONObject json = jsonArray.getJSONObject(i);
-//												article_id = json.getString("article_id");
-////												sell_price = json.getString("sell_price");
-//												give_pension = json.getString("give_pension");
-//											}
-//										}
-//										System.out.println("user_address================================="+user_address);
-//							    	String order_yue = getIntent().getStringExtra("order_yue");
-//							    	String yue = getIntent().getStringExtra("yue");
-//							    	String jubi = getIntent().getStringExtra("jubi");
-//									if (yue != null) {
-//										MyOrderConfrimActivity.teby = true;
-//										System.out.println("yue-------------"+yue);
-//									}
-//									else if (order_yue != null) {
-//										MyOrderXqActivity.teby = true;
-//										System.out.println("order_yue-------------"+order_yue);
-//									}
-//									else if (jubi != null) {
-//										System.out.println("jubi-------------"+jubi);
-//									}else {
-////										MyOrderActivity.teby = true;
-//									}
-//									 order_type = getIntent().getStringExtra("order_type");
-//									 order_type = "1";//Ö§¸¶×´Ì¬
-//									 System.out.println("order_type==============1==================="+order_type);
-									 
-									//»î¶¯Ö§¸¶³É¹¦²»ÏÔÊ¾ÏêÇé
-									 if (BaoMinTiShiActivity.huodong_zf_type.equals("1")) {
-										 BaoMinTiShiActivity.huodong_zf_type = "0";
-//										 huodong_type = "1";//»î¶¯Ö§¸¶³É¹¦Ö®ºóÉèÖÃ²»ÄÜ¼ÌĞø±¨Ãû
-										  Intent intent = new Intent(TishiCarArchivesActivity.this,BaoMinOKActivity.class);
-										  intent.putExtra("img_url",getIntent().getStringExtra("img_url"));
-										  intent.putExtra("hd_title",getIntent().getStringExtra("hd_title"));
-										  intent.putExtra("start_time",getIntent().getStringExtra("start_time"));
-										  intent.putExtra("end_time",getIntent().getStringExtra("end_time"));
-										  intent.putExtra("address",getIntent().getStringExtra("address"));
-										  intent.putExtra("trade_no",getIntent().getStringExtra("order_no"));
-										  intent.putExtra("id",getIntent().getStringExtra("id"));
-										  intent.putExtra("real_name",getIntent().getStringExtra("real_name"));
-										  intent.putExtra("mobile",getIntent().getStringExtra("mobile"));
-										  startActivity(intent);
-										  finish();
+							"&user_sign="+login_sign+"&paypassword="+pwd+"&trade_no="+order_no+"",
+					new AsyncHttpResponseHandler() {
+						@Override
+						public void onSuccess(int arg0, String arg1) {
+							try {
+								JSONObject object = new JSONObject(arg1);
+								System.out.println("2================================="+arg1);
+								String status = object.getString("status");
+								String info = object.getString("info");
+								if (status.equals("y")) {
+									progress.CloseProgress();
+									//							    	JSONObject jsonObject = object.getJSONObject("data");
+									//										JSONArray jay = jsonObject.getJSONArray("orders");
+									//										for (int j = 0; j < jay.length(); j++){
+									//										   JSONObject objc= jay.getJSONObject(j);
+									//										    accept_name = objc.getString("accept_name");
+									//										    province = objc.getString("province");
+									//											city = objc.getString("city");
+									//											area = objc.getString("area");
+									//											user_mobile = objc.getString("mobile");
+									//											user_address = objc.getString("address");
+									//											recharge_no = objc.getString("order_no");
+									//											datetime = objc.getString("add_time");
+									//											sell_price = objc.getString("payable_amount");
+									//											JSONArray jsonArray = objc.getJSONArray("order_goods");
+									//											for (int i = 0; i < jsonArray.length(); i++) {
+									//												JSONObject json = jsonArray.getJSONObject(i);
+									//												article_id = json.getString("article_id");
+									////												sell_price = json.getString("sell_price");
+									//												give_pension = json.getString("give_pension");
+									//											}
+									//										}
+									//										System.out.println("user_address================================="+user_address);
+									//							    	String order_yue = getIntent().getStringExtra("order_yue");
+									//							    	String yue = getIntent().getStringExtra("yue");
+									//							    	String jubi = getIntent().getStringExtra("jubi");
+									//									if (yue != null) {
+									//										MyOrderConfrimActivity.teby = true;
+									//										System.out.println("yue-------------"+yue);
+									//									}
+									//									else if (order_yue != null) {
+									//										MyOrderXqActivity.teby = true;
+									//										System.out.println("order_yue-------------"+order_yue);
+									//									}
+									//									else if (jubi != null) {
+									//										System.out.println("jubi-------------"+jubi);
+									//									}else {
+									////										MyOrderActivity.teby = true;
+									//									}
+									//									 order_type = getIntent().getStringExtra("order_type");
+									//									 order_type = "1";//æ”¯ä»˜çŠ¶æ€
+									//									 System.out.println("order_type==============1==================="+order_type);
+
+									//æ´»åŠ¨æ”¯ä»˜æˆåŠŸä¸æ˜¾ç¤ºè¯¦æƒ…
+									if (BaoMinTiShiActivity.huodong_zf_type.equals("1")) {
+										BaoMinTiShiActivity.huodong_zf_type = "0";
+										//										 huodong_type = "1";//æ´»åŠ¨æ”¯ä»˜æˆåŠŸä¹‹åè®¾ç½®ä¸èƒ½ç»§ç»­æŠ¥å
+										Intent intent = new Intent(TishiCarArchivesActivity.this,BaoMinOKActivity.class);
+										intent.putExtra("img_url",getIntent().getStringExtra("img_url"));
+										intent.putExtra("hd_title",getIntent().getStringExtra("hd_title"));
+										intent.putExtra("start_time",getIntent().getStringExtra("start_time"));
+										intent.putExtra("end_time",getIntent().getStringExtra("end_time"));
+										intent.putExtra("address",getIntent().getStringExtra("address"));
+										intent.putExtra("trade_no",getIntent().getStringExtra("order_no"));
+										intent.putExtra("id",getIntent().getStringExtra("id"));
+										intent.putExtra("real_name",getIntent().getStringExtra("real_name"));
+										intent.putExtra("mobile",getIntent().getStringExtra("mobile"));
+										startActivity(intent);
+										finish();
 									}else {
-									Toast.makeText(TishiCarArchivesActivity.this, info, 200).show();
-//									Intent intent = new Intent(TishiCarArchivesActivity.this,ZhiFuOKActivity.class);
-//									startActivity(intent);
-							    	finish();
+										Toast.makeText(TishiCarArchivesActivity.this, info, 200).show();
+										//									Intent intent = new Intent(TishiCarArchivesActivity.this,ZhiFuOKActivity.class);
+										//									startActivity(intent);
+										finish();
 									}
-							    }else {
-							    	progress.CloseProgress();
+								}else {
+									progress.CloseProgress();
 									Toast.makeText(TishiCarArchivesActivity.this, info, 200).show();
 									finish();
 								}
-							    
-						} catch (JSONException e) {
-							e.printStackTrace();
-						}
-					}
-					
-					@Override
-					public void onFailure(Throwable arg0, String arg1) {
-						// TODO Auto-generated method stub
-						super.onFailure(arg0, arg1);
-						System.out.println("arg0-------------"+arg0);
-						System.out.println("arg1-------------"+arg1);
-						Toast.makeText(TishiCarArchivesActivity.this, "Òì³£", 200).show();
-					}
 
-				}, null);
-		
+							} catch (JSONException e) {
+								e.printStackTrace();
+							}
+						}
+
+						@Override
+						public void onFailure(Throwable arg0, String arg1) {
+							// TODO Auto-generated method stub
+							super.onFailure(arg0, arg1);
+							System.out.println("arg0-------------"+arg0);
+							System.out.println("arg1-------------"+arg1);
+							Toast.makeText(TishiCarArchivesActivity.this, "å¼‚å¸¸", 200).show();
+						}
+
+					}, null);
+
 		} catch (Exception e) {
 			// TODO: handle exception
 			e.printStackTrace();
 		}
 	}
 	/**
-	 * È·ÈÏÊÕ»õ
-	 * @param order_no 
-	 * @param payment_id 
+	 * ç¡®è®¤æ”¶è´§
+	 * @param order_no
+	 * @param payment_id
 	 */
 	public void ShouhuoOK(String order_no) {
-			progress.CreateProgress();	
-			System.out.println("order_no================================="+order_no);
-			System.out.println("login_sign================================="+pwd);
-		    AsyncHttp.get(RealmName.REALM_NAME_LL
-				+ "/update_order_complete?user_id="+user_id+"&user_name="+user_name+"" +
-				"&trade_no="+order_no+"&paypassword="+pwd+"",
+		progress.CreateProgress();
+		System.out.println("order_no================================="+order_no);
+		System.out.println("login_sign================================="+pwd);
+		AsyncHttp.get(RealmName.REALM_NAME_LL
+						+ "/update_order_complete?user_id="+user_id+"&user_name="+user_name+"" +
+						"&trade_no="+order_no+"&paypassword="+pwd+"",
 				new AsyncHttpResponseHandler() {
 					@Override
 					public void onSuccess(int arg0, String arg1) {
@@ -342,28 +342,28 @@ public class TishiCarArchivesActivity extends Activity implements OnClickListene
 						try {
 							JSONObject object = new JSONObject(arg1);
 							System.out.println("arg1================================"+arg1);
-							  String status = object.getString("status");
-							    String info = object.getString("info");
-							    if (status.equals("y")) {
-									  progress.CloseProgress();
-//									  order_type = getIntent().getStringExtra("order_type");
-									  order_type = "2";//È·ÈÏÊÕ»õ×´Ì¬
-									  System.out.println("order_type=============2===================="+order_type);
-									  Toast.makeText(TishiCarArchivesActivity.this, "È·ÈÏ¶©µ¥Íê³É", 200).show();
-									  finish();
-							    }else {
-							    	progress.CloseProgress();
-									Toast.makeText(TishiCarArchivesActivity.this, info, 200).show();
-								}
-							    
-							
+							String status = object.getString("status");
+							String info = object.getString("info");
+							if (status.equals("y")) {
+								progress.CloseProgress();
+								//									  order_type = getIntent().getStringExtra("order_type");
+								order_type = "2";//ç¡®è®¤æ”¶è´§çŠ¶æ€
+								System.out.println("order_type=============2===================="+order_type);
+								Toast.makeText(TishiCarArchivesActivity.this, "ç¡®è®¤è®¢å•å®Œæˆ", 200).show();
+								finish();
+							}else {
+								progress.CloseProgress();
+								Toast.makeText(TishiCarArchivesActivity.this, info, 200).show();
+							}
+
+
 						} catch (JSONException e) {
 							e.printStackTrace();
 						}
 					}
 
 				}, TishiCarArchivesActivity.this);
-		
+
 	}
-	
+
 }

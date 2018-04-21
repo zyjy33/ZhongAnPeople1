@@ -34,11 +34,11 @@ import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.zams.www.R;
 
 /**
- * 
- * ÎÒµÄ·ÛË¿
- * 
+ *
+ * æˆ‘çš„ç²‰ä¸
+ *
  * @author Administrator
- * 
+ *
  */
 public class MyQuanZiActivity extends BaseActivity implements OnClickListener {
 	private ImageView iv_fanhui, cursor1, cursor2, cursor3, cursor4;
@@ -109,7 +109,7 @@ public class MyQuanZiActivity extends BaseActivity implements OnClickListener {
 	// }
 
 	/**
-	 * ¿Ø¼ş³õÊ¼»¯
+	 * æ§ä»¶åˆå§‹åŒ–
 	 */
 	private void Initialize() {
 
@@ -149,77 +149,23 @@ public class MyQuanZiActivity extends BaseActivity implements OnClickListener {
 	public void onClick(View v) {
 		// TODO Auto-generated method stub
 		switch (v.getId()) {
-		case R.id.index_item0:
-			cursor1.setVisibility(View.VISIBLE);
-			cursor2.setVisibility(View.INVISIBLE);
-			// tv_quanzi.setText("¸öÊı");
-			// tv_quanzi_dan.setText("Ãûµ¥");
-			user_group_id = "13";// ÆÕÍ¨»áÔ±
-			load_list();
-			break;
-		case R.id.index_item1:
-			try {
-
-				cursor1.setVisibility(View.INVISIBLE);
-				cursor2.setVisibility(View.VISIBLE);
-				// tv_quanzi.setText("¸öÊı");
-				// tv_quanzi_dan.setText("Ãûµ¥");
-				user_group_id = "12";// ¼ÛÖµ»áÔ±
-				load_list2();
-			} catch (Exception e) {
-				// TODO: handle exception
-				e.printStackTrace();
-			}
-			break;
-
-		default:
-			break;
-		}
-	}
-
-	Handler handler = new Handler() {
-		public void dispatchMessage(Message msg) {
-			switch (msg.what) {
-			case 0:
-				try {
-
-					System.out.println("-------------------------"
-							+ list.size());
-					if (list.size() > 0) {
-						String num = String.valueOf(list.size());
-						tv_ticket.setText(num + "¸ö");
-					} else {
-						tv_ticket.setText("0¸ö");
-					}
-
-					adapter = new MyJuFenMxAdapter(list, list_avatar1,
-							MyQuanZiActivity.this, imageLoader);
-					new_list.setAdapter(adapter);
-					progress.CloseProgress();
-				} catch (Exception e) {
-					// TODO: handle exception
-					e.printStackTrace();
-				}
+			case R.id.index_item0:
+				cursor1.setVisibility(View.VISIBLE);
+				cursor2.setVisibility(View.INVISIBLE);
+				// tv_quanzi.setText("ä¸ªæ•°");
+				// tv_quanzi_dan.setText("åå•");
+				user_group_id = "13";// æ™®é€šä¼šå‘˜
+				load_list();
 				break;
-			case 1:
+			case R.id.index_item1:
 				try {
-					System.out.println("-------------------------"
-							+ list_2.size());
-					if (list_2.size() > 0) {
-						String num = String.valueOf(list_2.size());
-						tv_ticket.setText(num + "¸ö");
-					} else {
-						tv_ticket.setText("0¸ö");
-					}
 
-					adapter = new MyJuFenMxAdapter(list_2, list_avatar2,
-							MyQuanZiActivity.this, imageLoader);
-					new_list.setAdapter(adapter);
-					// MyQuanZiAdapter adapter = new
-					// MyQuanZiAdapter(MyQuanZiActivity.this,list_2);
-					// new_list.setAdapter(adapter);
-					progress.CloseProgress();
-
+					cursor1.setVisibility(View.INVISIBLE);
+					cursor2.setVisibility(View.VISIBLE);
+					// tv_quanzi.setText("ä¸ªæ•°");
+					// tv_quanzi_dan.setText("åå•");
+					user_group_id = "12";// ä»·å€¼ä¼šå‘˜
+					load_list2();
 				} catch (Exception e) {
 					// TODO: handle exception
 					e.printStackTrace();
@@ -228,12 +174,66 @@ public class MyQuanZiActivity extends BaseActivity implements OnClickListener {
 
 			default:
 				break;
+		}
+	}
+
+	Handler handler = new Handler() {
+		public void dispatchMessage(Message msg) {
+			switch (msg.what) {
+				case 0:
+					try {
+
+						System.out.println("-------------------------"
+								+ list.size());
+						if (list.size() > 0) {
+							String num = String.valueOf(list.size());
+							tv_ticket.setText(num + "ä¸ª");
+						} else {
+							tv_ticket.setText("0ä¸ª");
+						}
+
+						adapter = new MyJuFenMxAdapter(list, list_avatar1,
+								MyQuanZiActivity.this, imageLoader);
+						new_list.setAdapter(adapter);
+						progress.CloseProgress();
+					} catch (Exception e) {
+						// TODO: handle exception
+						e.printStackTrace();
+					}
+					break;
+				case 1:
+					try {
+						System.out.println("-------------------------"
+								+ list_2.size());
+						if (list_2.size() > 0) {
+							String num = String.valueOf(list_2.size());
+							tv_ticket.setText(num + "ä¸ª");
+						} else {
+							tv_ticket.setText("0ä¸ª");
+						}
+
+						adapter = new MyJuFenMxAdapter(list_2, list_avatar2,
+								MyQuanZiActivity.this, imageLoader);
+						new_list.setAdapter(adapter);
+						// MyQuanZiAdapter adapter = new
+						// MyQuanZiAdapter(MyQuanZiActivity.this,list_2);
+						// new_list.setAdapter(adapter);
+						progress.CloseProgress();
+
+					} catch (Exception e) {
+						// TODO: handle exception
+						e.printStackTrace();
+					}
+					break;
+
+				default:
+					break;
 			}
 		};
 	};
 
 	/**
-	 * µÚ1¸öÁĞ±íÊı¾İ½âÎö
+	 * ç¬¬1ä¸ªåˆ—è¡¨æ•°æ®è§£æ
 	 */
 	ArrayList list_avatar1;
 
@@ -243,14 +243,14 @@ public class MyQuanZiActivity extends BaseActivity implements OnClickListener {
 		list = new ArrayList<MyJuFenData>();
 
 		AsyncHttp.get(RealmName.REALM_NAME_LL
-				+ "/get_user_child_list_2017?user_id=" + user_id
-				+ "&user_name=" + user_name + "",
+						+ "/get_user_child_list_2017?user_id=" + user_id
+						+ "&user_name=" + user_name + "",
 				new AsyncHttpResponseHandler() {
 					@Override
 					public void onSuccess(int arg0, String arg1) {
 						// TODO Auto-generated method stub
 						super.onSuccess(arg0, arg1);
-						System.out.println("=====================¶ş¼¶Öµ1" + arg1);
+						System.out.println("=====================äºŒçº§å€¼1" + arg1);
 						try {
 							JSONObject jsonObject = new JSONObject(arg1);
 							String status = jsonObject.getString("status");
@@ -278,7 +278,7 @@ public class MyQuanZiActivity extends BaseActivity implements OnClickListener {
 											.getString("group_id");
 									String avatar = data.avatar;//
 									System.out
-											.println("¶ş¼¶Öµ1====================="
+											.println("äºŒçº§å€¼1====================="
 													+ avatar);
 
 									System.out
@@ -299,7 +299,7 @@ public class MyQuanZiActivity extends BaseActivity implements OnClickListener {
 											list_avatar1.add(img_url);
 										} else {
 											System.out
-													.println("================================¿ÕÖµ");
+													.println("================================ç©ºå€¼");
 											list_avatar1.add(avatar);
 										}
 										System.out
@@ -319,7 +319,7 @@ public class MyQuanZiActivity extends BaseActivity implements OnClickListener {
 								handler.sendEmptyMessage(0);
 							} else {
 								progress.CloseProgress();
-								tv_ticket.setText("0¸ö");
+								tv_ticket.setText("0ä¸ª");
 								new_list.setVisibility(View.GONE);
 								Toast.makeText(MyQuanZiActivity.this, info, 200)
 										.show();
@@ -327,7 +327,7 @@ public class MyQuanZiActivity extends BaseActivity implements OnClickListener {
 
 							// if (list.size() > 0) {
 							// String num = String.valueOf(list.size());
-							// tv_ticket.setText(num+"¸ö");
+							// tv_ticket.setText(num+"ä¸ª");
 							// }
 							progress.CloseProgress();
 							load_yanglaojin();
@@ -340,7 +340,7 @@ public class MyQuanZiActivity extends BaseActivity implements OnClickListener {
 	}
 
 	/**
-	 * µÚ2¸öÁĞ±íÊı¾İ½âÎö
+	 * ç¬¬2ä¸ªåˆ—è¡¨æ•°æ®è§£æ
 	 */
 	ArrayList list_avatar2;
 
@@ -351,14 +351,14 @@ public class MyQuanZiActivity extends BaseActivity implements OnClickListener {
 			// System.out.println("list_2.size()====================="+list_2.size());
 			list_2 = new ArrayList<MyJuFenData>();
 			AsyncHttp.get(RealmName.REALM_NAME_LL
-					+ "/get_user_child_list_2017?user_id=" + user_id
-					+ "&user_name=" + user_name + "",
+							+ "/get_user_child_list_2017?user_id=" + user_id
+							+ "&user_name=" + user_name + "",
 					new AsyncHttpResponseHandler() {
 						@Override
 						public void onSuccess(int arg0, String arg1) {
 							// TODO Auto-generated method stub
 							super.onSuccess(arg0, arg1);
-							System.out.println("=====================¶ş¼¶Öµ1"
+							System.out.println("=====================äºŒçº§å€¼1"
 									+ arg1);
 							try {
 								JSONObject jsonObject = new JSONObject(arg1);
@@ -389,7 +389,7 @@ public class MyQuanZiActivity extends BaseActivity implements OnClickListener {
 												.getString("group_id");
 										String avatar = data.avatar;//
 										System.out
-												.println("¶ş¼¶Öµ2====================="
+												.println("äºŒçº§å€¼2====================="
 														+ avatar);
 
 										System.out
@@ -410,13 +410,13 @@ public class MyQuanZiActivity extends BaseActivity implements OnClickListener {
 												list_avatar2.add(img_url);
 											} else {
 												System.out
-														.println("================================¿ÕÖµ");
+														.println("================================ç©ºå€¼");
 												list_avatar2.add(avatar);
 											}
 											System.out
 													.println("list_avatar.size()=================2==============="
 															+ list_avatar2
-																	.size());
+															.size());
 										}
 
 									}
@@ -433,7 +433,7 @@ public class MyQuanZiActivity extends BaseActivity implements OnClickListener {
 									try {
 										progress.CloseProgress();
 										new_list.setVisibility(View.GONE);
-										tv_ticket.setText("0¸ö");
+										tv_ticket.setText("0ä¸ª");
 										Toast.makeText(MyQuanZiActivity.this,
 												info, 200).show();
 									} catch (Exception e) {
@@ -444,7 +444,7 @@ public class MyQuanZiActivity extends BaseActivity implements OnClickListener {
 
 								// if (list_2.size() > 0) {
 								// String num = String.valueOf(list.size());
-								// tv_ticket.setText(num+"¸ö");
+								// tv_ticket.setText(num+"ä¸ª");
 								// }
 
 								// load_yanglaojin();
@@ -470,7 +470,7 @@ public class MyQuanZiActivity extends BaseActivity implements OnClickListener {
 			public void onSuccess(int arg0, String arg1) {
 				// TODO Auto-generated method stub
 				super.onSuccess(arg0, arg1);
-				System.out.println("=====================¶ş¼¶Öµ" + arg1);
+				System.out.println("=====================äºŒçº§å€¼" + arg1);
 				try {
 					JSONObject jsonObject = new JSONObject(arg1);
 					String status = jsonObject.getString("status");

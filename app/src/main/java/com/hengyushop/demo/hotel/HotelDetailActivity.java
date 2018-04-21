@@ -1,14 +1,5 @@
 package com.hengyushop.demo.hotel;
 
-import java.io.ByteArrayInputStream;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.UnsupportedEncodingException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
-import org.xmlpull.v1.XmlPullParser;
-import org.xmlpull.v1.XmlPullParserException;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -31,6 +22,17 @@ import com.ctrip.openapi.java.base.HttpAccessAdapter;
 import com.hengyushop.demo.at.BaseActivity;
 import com.zams.www.R;
 
+import org.xmlpull.v1.XmlPullParser;
+import org.xmlpull.v1.XmlPullParserException;
+
+import java.io.ByteArrayInputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.UnsupportedEncodingException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+
 @SuppressWarnings("deprecation")
 public class HotelDetailActivity extends BaseActivity {
 	private TextView hotel_detail_name;
@@ -48,75 +50,75 @@ public class HotelDetailActivity extends BaseActivity {
 	private Handler handler = new Handler() {
 		public void dispatchMessage(Message msg) {
 			switch (msg.what) {
-			case 0:
-				str = (String) msg.obj;
-				System.out.println(str);
-				InputStreamReader reader;
-				try {
-					reader = new InputStreamReader(new ByteArrayInputStream(
-							str.getBytes("UTF-8")));
-					HotelDetailDo detailDo = parseDetailHotel(reader);
-					hotel_detail_name.setText(detailDo.getHotelName());
-					imagesAdapter = new HotelImagesAdapter(
-							detailDo.getImageDos(), getApplicationContext(),
-							imageLoader);
-					hor_images.setAdapter(imagesAdapter);
-					loadHotelPrice();
-				} catch (UnsupportedEncodingException e) {
-					e.printStackTrace();
-				}
-				break;
-			case 1:
-				// ¼ÓÔØ¼Û¸ñĞÅÏ¢
+				case 0:
+					str = (String) msg.obj;
+					System.out.println(str);
+					InputStreamReader reader;
+					try {
+						reader = new InputStreamReader(new ByteArrayInputStream(
+								str.getBytes("UTF-8")));
+						HotelDetailDo detailDo = parseDetailHotel(reader);
+						hotel_detail_name.setText(detailDo.getHotelName());
+						imagesAdapter = new HotelImagesAdapter(
+								detailDo.getImageDos(), getApplicationContext(),
+								imageLoader);
+						hor_images.setAdapter(imagesAdapter);
+						loadHotelPrice();
+					} catch (UnsupportedEncodingException e) {
+						e.printStackTrace();
+					}
+					break;
+				case 1:
+					// åŠ è½½ä»·æ ¼ä¿¡æ¯
 
-				try {
-					String priceResult = (String) msg.obj;
-					InputStreamReader reader2;
-					reader2 = new InputStreamReader(new ByteArrayInputStream(
-							priceResult.getBytes("UTF-8")));
-					priceLists = parseDetailPrice(reader2);
-					priceAdapter = new HotelPriceAdapter(priceLists,
-							getApplicationContext(), imageLoader, handler);
-					hotel_detail_price.setAdapter(priceAdapter);
-					setListViewHeightBasedOnChildren(hotel_detail_price);
-					hotel_detail_price
-							.setOnItemClickListener(new OnItemClickListener() {
+					try {
+						String priceResult = (String) msg.obj;
+						InputStreamReader reader2;
+						reader2 = new InputStreamReader(new ByteArrayInputStream(
+								priceResult.getBytes("UTF-8")));
+						priceLists = parseDetailPrice(reader2);
+						priceAdapter = new HotelPriceAdapter(priceLists,
+								getApplicationContext(), imageLoader, handler);
+						hotel_detail_price.setAdapter(priceAdapter);
+						setListViewHeightBasedOnChildren(hotel_detail_price);
+						hotel_detail_price
+								.setOnItemClickListener(new OnItemClickListener() {
 
-								@Override
-								public void onItemClick(AdapterView<?> arg0,
-										View arg1, int arg2, long arg3) {
-									try {
-										InputStreamReader reader = new InputStreamReader(
-												new ByteArrayInputStream(str
-														.getBytes("UTF-8")));
-										initPopupWindow(reader,
-												priceLists.get(arg2).getId(),
-												priceLists.get(arg2)
-														.getRoomPrice());
-										showPopupWindow(arg1);
-									} catch (UnsupportedEncodingException e) {
-										e.printStackTrace();
+									@Override
+									public void onItemClick(AdapterView<?> arg0,
+															View arg1, int arg2, long arg3) {
+										try {
+											InputStreamReader reader = new InputStreamReader(
+													new ByteArrayInputStream(str
+															.getBytes("UTF-8")));
+											initPopupWindow(reader,
+													priceLists.get(arg2).getId(),
+													priceLists.get(arg2)
+															.getRoomPrice());
+											showPopupWindow(arg1);
+										} catch (UnsupportedEncodingException e) {
+											e.printStackTrace();
+										}
 									}
-								}
-							});
-				} catch (UnsupportedEncodingException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-				break;
-			case 2:
-				// µã»÷Ô¤¶¨°´Å¥Ö®ºó´¥·¢µÄÊÂ¼ş
-				String plamId = (String) msg.obj;
-				loadCheckPlam(plamId);
-				break;
-			default:
-				break;
+								});
+					} catch (UnsupportedEncodingException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+					break;
+				case 2:
+					// ç‚¹å‡»é¢„å®šæŒ‰é’®ä¹‹åè§¦å‘çš„äº‹ä»¶
+					String plamId = (String) msg.obj;
+					loadCheckPlam(plamId);
+					break;
+				default:
+					break;
 			}
 		};
 	};
 
 	/**
-	 * ¼ì²é·¿¼äÊÇ·ñ¿ÉÔ¤¶¨
+	 * æ£€æŸ¥æˆ¿é—´æ˜¯å¦å¯é¢„å®š
 	 */
 	private void loadCheckPlam(final String planId) {
 		new Thread() {
@@ -135,7 +137,7 @@ public class HotelDetailActivity extends BaseActivity {
 				Message msg = new Message();
 				msg.what = 3;
 				msg.obj = response;
-				System.out.println("¼ì²é·¿¼ä:" + response);
+				System.out.println("æ£€æŸ¥æˆ¿é—´:" + response);
 				handler.sendMessage(msg);
 
 			};
@@ -172,7 +174,7 @@ public class HotelDetailActivity extends BaseActivity {
 		hor_images = (Gallery) findViewById(R.id.hor_images);
 		hotel_detail_name = (TextView) findViewById(R.id.hotel_detail_name);
 		hotel_detail_price = (ListView) findViewById(R.id.hotel_detail_price);
-		hotel_detail_start.setText(bundle.getString("start") + "ĞÇ¼¶");
+		hotel_detail_start.setText(bundle.getString("start") + "æ˜Ÿçº§");
 		hotel_detail_add.setText(bundle.getString("add"));
 	}
 
@@ -189,7 +191,7 @@ public class HotelDetailActivity extends BaseActivity {
 	}
 
 	/**
-	 * ½âÎöÊı¾İ
+	 * è§£ææ•°æ®
 	 */
 	private HotelDetailDo parseDetailHotel(InputStreamReader in) {
 		XmlPullParser parser = Xml.newPullParser();
@@ -201,53 +203,53 @@ public class HotelDetailActivity extends BaseActivity {
 			int event = parser.getEventType();
 			while (event != XmlPullParser.END_DOCUMENT) {
 				switch (event) {
-				case XmlPullParser.START_DOCUMENT:
-					images = new ArrayList<HotelImageDo>();
-					break;
-				case XmlPullParser.START_TAG:
-					if ("HotelDescriptiveContents".equals(parser.getName())) {
-						detailDo = new HotelDetailDo();
+					case XmlPullParser.START_DOCUMENT:
+						images = new ArrayList<HotelImageDo>();
+						break;
+					case XmlPullParser.START_TAG:
+						if ("HotelDescriptiveContents".equals(parser.getName())) {
+							detailDo = new HotelDetailDo();
 
-					}
-					if (detailDo != null) {
-						if ("HotelDescriptiveContent".equals(parser.getName())) {
-							detailDo.setHotelName(parser.getAttributeValue(
-									null, "HotelName"));
 						}
+						if (detailDo != null) {
+							if ("HotelDescriptiveContent".equals(parser.getName())) {
+								detailDo.setHotelName(parser.getAttributeValue(
+										null, "HotelName"));
+							}
 
+							if ("ImageItem".equals(parser.getName())) {
+
+								// æ ‡è®°å¼€å§‹åˆ›å»ºå¯¹è±¡
+								imageDo = new HotelImageDo();
+
+							}
+							if ("URL".equals(parser.getName())) {
+
+								String url = parser.nextText();
+								imageDo.setUrl(url);
+							}
+							if ("Description".equals(parser.getName())) {
+								imageDo.setTag(parser.getAttributeValue(null,
+										"Caption"));
+							}
+
+						}
+						break;
+					case XmlPullParser.END_TAG:
 						if ("ImageItem".equals(parser.getName())) {
-
-							// ±ê¼Ç¿ªÊ¼´´½¨¶ÔÏó
-							imageDo = new HotelImageDo();
-
+							images.add(imageDo);
+							// imageDo = null;
 						}
-						if ("URL".equals(parser.getName())) {
-
-							String url = parser.nextText();
-							imageDo.setUrl(url);
+						if ("MultimediaDescription".equals(parser.getName())) {
+							detailDo.setImageDos(images);
+							System.out.println(detailDo.getImageDos().size());
+							// System.out.println(images.get(0).getUrl());
+							// System.out.println(images.get(1).getUrl());
 						}
-						if ("Description".equals(parser.getName())) {
-							imageDo.setTag(parser.getAttributeValue(null,
-									"Caption"));
-						}
+						break;
 
-					}
-					break;
-				case XmlPullParser.END_TAG:
-					if ("ImageItem".equals(parser.getName())) {
-						images.add(imageDo);
-						// imageDo = null;
-					}
-					if ("MultimediaDescription".equals(parser.getName())) {
-						detailDo.setImageDos(images);
-						System.out.println(detailDo.getImageDos().size());
-						// System.out.println(images.get(0).getUrl());
-						// System.out.println(images.get(1).getUrl());
-					}
-					break;
-
-				default:
-					break;
+					default:
+						break;
 				}
 				event = parser.next();
 			}
@@ -261,7 +263,7 @@ public class HotelDetailActivity extends BaseActivity {
 	}
 
 	/**
-	 * ½âÎö¼Û¸ñÊı¾İ
+	 * è§£æä»·æ ¼æ•°æ®
 	 */
 	private ArrayList<HotelDetialPriceDo> parseDetailPrice(InputStreamReader in) {
 		XmlPullParser parser = Xml.newPullParser();
@@ -273,44 +275,44 @@ public class HotelDetailActivity extends BaseActivity {
 			int event = parser.getEventType();
 			while (event != XmlPullParser.END_DOCUMENT) {
 				switch (event) {
-				case XmlPullParser.START_DOCUMENT:
-					lists = new ArrayList<HotelDetialPriceDo>();
-					break;
-				case XmlPullParser.START_TAG:
-					if ("RatePlan".equals(parser.getName())) {
-						// Õâ¸ö±êÇ©¿ªÊ¼´ú±íÒ»¸ö¶ÔÏóµÄÉú³É
-						priceDo = new HotelDetialPriceDo();
-						priceDo.setId(parser.getAttributeValue(null,
-								"RatePlanCode"));
-					}
-					if (tag == 0) {
-						// ±íÊ¾ÊÇ½âÎö½ôÁÚSellableProductsºóÃæµÄ±êÇ©
-						if ("Description".equals(parser.getName())) {
-							priceDo.setRoomName(parser.getAttributeValue(null,
-									"Name"));
+					case XmlPullParser.START_DOCUMENT:
+						lists = new ArrayList<HotelDetialPriceDo>();
+						break;
+					case XmlPullParser.START_TAG:
+						if ("RatePlan".equals(parser.getName())) {
+							// è¿™ä¸ªæ ‡ç­¾å¼€å§‹ä»£è¡¨ä¸€ä¸ªå¯¹è±¡çš„ç”Ÿæˆ
+							priceDo = new HotelDetialPriceDo();
+							priceDo.setId(parser.getAttributeValue(null,
+									"RatePlanCode"));
 						}
-					}
-					if ("BaseByGuestAmt".equals(parser.getName())) {
-						priceDo.setRoomPrice(parser.getAttributeValue(null,
-								"AmountBeforeTax"));
+						if (tag == 0) {
+							// è¡¨ç¤ºæ˜¯è§£æç´§é‚»SellableProductsåé¢çš„æ ‡ç­¾
+							if ("Description".equals(parser.getName())) {
+								priceDo.setRoomName(parser.getAttributeValue(null,
+										"Name"));
+							}
+						}
+						if ("BaseByGuestAmt".equals(parser.getName())) {
+							priceDo.setRoomPrice(parser.getAttributeValue(null,
+									"AmountBeforeTax"));
 
-					}
+						}
 
-					break;
-				case XmlPullParser.END_TAG:
-					if ("SellableProducts".equals(parser.getName())) {
-						tag = 0;
-					} else {
-						tag = -1;
-					}
-					if ("RatePlan".equals(parser.getName())) {
-						// Èç¹ûÊÇÕâ¸öµÄ½áÊø
-						lists.add(priceDo);
-					}
-					break;
+						break;
+					case XmlPullParser.END_TAG:
+						if ("SellableProducts".equals(parser.getName())) {
+							tag = 0;
+						} else {
+							tag = -1;
+						}
+						if ("RatePlan".equals(parser.getName())) {
+							// å¦‚æœæ˜¯è¿™ä¸ªçš„ç»“æŸ
+							lists.add(priceDo);
+						}
+						break;
 
-				default:
-					break;
+					default:
+						break;
 				}
 				event = parser.next();
 			}
@@ -324,7 +326,7 @@ public class HotelDetailActivity extends BaseActivity {
 	}
 
 	/**
-	 * ¼ÓÔØÊı¾İ
+	 * åŠ è½½æ•°æ®
 	 */
 	private void loadHotelDetail() {
 		new Thread(new Runnable() {
@@ -354,19 +356,19 @@ public class HotelDetailActivity extends BaseActivity {
 	private PopupWindow mPopupWindow;
 
 	private void initPopupWindow(InputStreamReader parseResult, String id,
-			String price) {
+								 String price) {
 		mLayoutInflater = (LayoutInflater) getSystemService(LAYOUT_INFLATER_SERVICE);
 		popView = mLayoutInflater.inflate(R.layout.hotel_price_item, null);
 		mPopupWindow = new PopupWindow(popView, LayoutParams.WRAP_CONTENT,
 				LayoutParams.WRAP_CONTENT);
 		// mPopupWindow.setBackgroundDrawable(new
-		// BitmapDrawable());//±ØĞëÉèÖÃbackground²ÅÄÜÏûÊ§
+		// BitmapDrawable());//å¿…é¡»è®¾ç½®backgroundæ‰èƒ½æ¶ˆå¤±
 		mPopupWindow.setBackgroundDrawable(getResources().getDrawable(
 				R.color.ban_louming));
 		mPopupWindow.setOutsideTouchable(true);
-		// ×Ô¶¨Òå¶¯»­
+		// è‡ªå®šä¹‰åŠ¨ç”»
 		// mPopupWindow.setAnimationStyle(R.style.PopupAnimation);
-		// Ê¹ÓÃÏµÍ³¶¯»­
+		// ä½¿ç”¨ç³»ç»ŸåŠ¨ç”»
 		mPopupWindow.setAnimationStyle(android.R.style.Animation_Toast);
 		mPopupWindow.update();
 		mPopupWindow.setTouchable(true);
@@ -379,37 +381,37 @@ public class HotelDetailActivity extends BaseActivity {
 		TextView v4 = (TextView) popView.findViewById(R.id.v4);
 		TextView v5 = (TextView) popView.findViewById(R.id.v5);
 		TextView v = (TextView) popView.findViewById(R.id.v);
-		v1.setText(doPrice.getQuantity() + "¼ä");
+		v1.setText(doPrice.getQuantity() + "é—´");
 		v2.setText(doPrice.getFloor());
 		v3.setText(doPrice.getBedType() + " (" + doPrice.getSize() + ")");
 		v4.setText(doPrice.getDescribe());
 		v5.setText(price);
-		v0.setText(doPrice.getStandardOccupancy() + "ÈË");
+		v0.setText(doPrice.getStandardOccupancy() + "äºº");
 		v.setText(doPrice.getRoomName());
 
 	}
 
 	/*
-	 * 1 Ë«´² 2 Futon 3 ´ó´² 4 Murphy bed 5 Queen 6 Sofa bed 7 Tatami mats 8 2ÕÅµ¥ÈË´² 9
-	 * µ¥ÈË´² 10 Full 11 Run of the house 12 Dorm bed 501 ´ó´²»òË«´² 502 ´ó´²»òµ¥´² 502 µ¥´²»òË«´²
+	 * 1 åŒåºŠ 2 Futon 3 å¤§åºŠ 4 Murphy bed 5 Queen 6 Sofa bed 7 Tatami mats 8 2å¼ å•äººåºŠ 9
+	 * å•äººåºŠ 10 Full 11 Run of the house 12 Dorm bed 501 å¤§åºŠæˆ–åŒåºŠ 502 å¤§åºŠæˆ–å•åºŠ 502 å•åºŠæˆ–åŒåºŠ
 	 */
 	private void initBedType() {
 		typeMap = new HashMap<String, String>();
-		typeMap.put("1", "Ë«´²");
+		typeMap.put("1", "åŒåºŠ");
 		typeMap.put("2", "Futon");
-		typeMap.put("3", "´ó´²");
+		typeMap.put("3", "å¤§åºŠ");
 		typeMap.put("4", "Murphy bed");
 		typeMap.put("5", "Queen");
 		typeMap.put("6", "Sofa bed");
 		typeMap.put("7", "Tatami mats");
-		typeMap.put("8", "2ÕÅµ¥ÈË´²");
-		typeMap.put("9", "µ¥ÈË´²");
+		typeMap.put("8", "2å¼ å•äººåºŠ");
+		typeMap.put("9", "å•äººåºŠ");
 		typeMap.put("10", "Full");
 		typeMap.put("11", "Run of the house");
 		typeMap.put("12", "Dorm bed");
-		typeMap.put("501", "´ó´²»òË«´²");
-		typeMap.put("502", "´ó´²»òµ¥´²");
-		typeMap.put("503", "µ¥´²»òË«´²");
+		typeMap.put("501", "å¤§åºŠæˆ–åŒåºŠ");
+		typeMap.put("502", "å¤§åºŠæˆ–å•åºŠ");
+		typeMap.put("503", "å•åºŠæˆ–åŒåºŠ");
 
 	}
 
@@ -423,46 +425,46 @@ public class HotelDetailActivity extends BaseActivity {
 			int event = parser.getEventType();
 			while (event != XmlPullParser.END_DOCUMENT) {
 				switch (event) {
-				case XmlPullParser.START_DOCUMENT:
-					priceDo = new HotelPriceItemDo();
-					break;
-				case XmlPullParser.START_TAG:
-					if ("GuestRoom".equals(parser.getName())) {
-						priceDo.setRoomName(parser.getAttributeValue(null,
-								"RoomTypeName"));
-					}
-					if ("TypeRoom".equals(parser.getName())) {
-						String roomCode = parser.getAttributeValue(null,
-								"RoomTypeCode");
-						System.out.println(roomCode + "==>" + hotelCode);
-						if (roomCode.equals(hotelCode)) {
-							System.out.println("???");
-							priceDo.setStandardOccupancy(parser
-									.getAttributeValue(null,
-											"StandardOccupancy"));
-							priceDo.setFloor(parser.getAttributeValue(null,
-									"Floor"));
-							priceDo.setQuantity(parser.getAttributeValue(null,
-									"Quantity"));
-							String bedType = typeMap.get(parser
-									.getAttributeValue(null, "BedTypeCode"));
-							priceDo.setBedType(bedType);
-							priceDo.setSize(parser.getAttributeValue(null,
-									"Size"));
-
-							System.out.println("\\\\" + priceDo.getBedType());
+					case XmlPullParser.START_DOCUMENT:
+						priceDo = new HotelPriceItemDo();
+						break;
+					case XmlPullParser.START_TAG:
+						if ("GuestRoom".equals(parser.getName())) {
+							priceDo.setRoomName(parser.getAttributeValue(null,
+									"RoomTypeName"));
 						}
-					}
-					if ("DescriptiveText".equals(parser.getName())) {
-						priceDo.setDescribe(parser.nextText());
-					}
-					break;
-				case XmlPullParser.END_TAG:
+						if ("TypeRoom".equals(parser.getName())) {
+							String roomCode = parser.getAttributeValue(null,
+									"RoomTypeCode");
+							System.out.println(roomCode + "==>" + hotelCode);
+							if (roomCode.equals(hotelCode)) {
+								System.out.println("???");
+								priceDo.setStandardOccupancy(parser
+										.getAttributeValue(null,
+												"StandardOccupancy"));
+								priceDo.setFloor(parser.getAttributeValue(null,
+										"Floor"));
+								priceDo.setQuantity(parser.getAttributeValue(null,
+										"Quantity"));
+								String bedType = typeMap.get(parser
+										.getAttributeValue(null, "BedTypeCode"));
+								priceDo.setBedType(bedType);
+								priceDo.setSize(parser.getAttributeValue(null,
+										"Size"));
 
-					break;
+								System.out.println("\\\\" + priceDo.getBedType());
+							}
+						}
+						if ("DescriptiveText".equals(parser.getName())) {
+							priceDo.setDescribe(parser.nextText());
+						}
+						break;
+					case XmlPullParser.END_TAG:
 
-				default:
-					break;
+						break;
+
+					default:
+						break;
 				}
 				event = parser.next();
 			}
@@ -479,8 +481,8 @@ public class HotelDetailActivity extends BaseActivity {
 	private void showPopupWindow(View view) {
 		if (!mPopupWindow.isShowing()) {
 			// mPopupWindow.showAsDropDown(view,0,0);
-			// µÚÒ»¸ö²ÎÊıÖ¸¶¨PopupWindowµÄÃªµãview£¬¼´ÒÀ¸½ÔÚÄÄ¸öviewÉÏ¡£
-			// µÚ¶ş¸ö²ÎÊıÖ¸¶¨ÆğÊ¼µãÎªparentµÄÓÒÏÂ½Ç£¬µÚÈı¸ö²ÎÊıÉèÖÃÒÔparentµÄÓÒÏÂ½ÇÎªÔ­µã£¬Ïò×ó¡¢ÉÏ¸÷Æ«ÒÆ10ÏñËØ¡£
+			// ç¬¬ä¸€ä¸ªå‚æ•°æŒ‡å®šPopupWindowçš„é”šç‚¹viewï¼Œå³ä¾é™„åœ¨å“ªä¸ªviewä¸Šã€‚
+			// ç¬¬äºŒä¸ªå‚æ•°æŒ‡å®šèµ·å§‹ç‚¹ä¸ºparentçš„å³ä¸‹è§’ï¼Œç¬¬ä¸‰ä¸ªå‚æ•°è®¾ç½®ä»¥parentçš„å³ä¸‹è§’ä¸ºåŸç‚¹ï¼Œå‘å·¦ã€ä¸Šå„åç§»10åƒç´ ã€‚
 			// int[] location = new int[2];
 			// view.getLocationOnScreen(location);
 			mPopupWindow.showAtLocation(view, Gravity.CENTER, 0, 0);

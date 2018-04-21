@@ -1,12 +1,5 @@
 package com.lglottery.www.adapter;
 
-import java.util.ArrayList;
-
-import com.lglottery.www.common.U;
-import com.lglottery.www.domain.Lglottery_Log;
-import com.nostra13.universalimageloader.core.ImageLoader;
-import com.zams.www.R;
-
 import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,13 +8,20 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.lglottery.www.common.U;
+import com.lglottery.www.domain.Lglottery_Log;
+import com.nostra13.universalimageloader.core.ImageLoader;
+import com.zams.www.R;
+
+import java.util.ArrayList;
+
 public class LglotteryLogAdapter extends BaseAdapter {
 	private Context context;
 	private ArrayList<Lglottery_Log> lists;
 	private ImageLoader imageLoader;
 
 	public LglotteryLogAdapter(Context context, ArrayList<Lglottery_Log> lists,
-			ImageLoader imageLoader) {
+							   ImageLoader imageLoader) {
 		// TODO Auto-generated constructor stub
 		this.context = context;
 		this.lists = lists;
@@ -77,17 +77,17 @@ public class LglotteryLogAdapter extends BaseAdapter {
 				lists.get(position).getId()));
 		String status = lists.get(position).getStatus();
 		switch (Integer.parseInt(status)) {
-		case 0:
-			holder.lglottery_class.setText("Œ¥Ω· ¯");
-			break;
-		case 1:
-			holder.lglottery_name.setText(lists.get(position).getName());
-			imageLoader.displayImage(U.IP + lists.get(position).getImg(),
-					holder.lglottery_img);
-			holder.lglottery_class.setText("“—Ω· ¯");
-			break;
-		default:
-			break;
+			case 0:
+				holder.lglottery_class.setText("Êú™ÁªìÊùü");
+				break;
+			case 1:
+				holder.lglottery_name.setText(lists.get(position).getName());
+				imageLoader.displayImage(U.IP + lists.get(position).getImg(),
+						holder.lglottery_img);
+				holder.lglottery_class.setText("Â∑≤ÁªìÊùü");
+				break;
+			default:
+				break;
 		}
 
 		holder.lglottery_time.setText(lists.get(position).getTime());

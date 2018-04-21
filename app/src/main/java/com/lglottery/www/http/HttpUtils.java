@@ -1,26 +1,26 @@
 package com.lglottery.www.http;
 
+import android.content.Context;
+import android.net.ConnectivityManager;
+
+import com.lglottery.www.common.WLog;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.security.MessageDigest;
 
-import com.lglottery.www.common.WLog;
-
-import android.content.Context;
-import android.net.ConnectivityManager;
-
 public class HttpUtils {
 	/**
-	 * ½«InputStream¶ÔÏó×ª»»³ÉString¶ÔÏó
-	 * 
+	 * å°†InputStreamå¯¹è±¡è½¬æ¢æˆStringå¯¹è±¡
+	 *
 	 * @param in
 	 * @return
 	 * @throws IOException
 	 */
 	/**
-	 * MD5¼ÓÃÜ
+	 * MD5åŠ å¯†
 	 * @param param
 	 * @return
 	 */
@@ -29,13 +29,13 @@ public class HttpUtils {
 				'A', 'B', 'C', 'D', 'E', 'F' };
 		try {
 			byte[] btInput = param.getBytes();
-			// »ñµÃMD5ÕªÒªËã·¨µÄ MessageDigest ¶ÔÏó
+			// è·å¾—MD5æ‘˜è¦ç®—æ³•çš„ MessageDigest å¯¹è±¡
 			MessageDigest mdInst = MessageDigest.getInstance("MD5");
-			// Ê¹ÓÃÖ¸¶¨µÄ×Ö½Ú¸üĞÂÕªÒª
+			// ä½¿ç”¨æŒ‡å®šçš„å­—èŠ‚æ›´æ–°æ‘˜è¦
 			mdInst.update(btInput);
-			// »ñµÃÃÜÎÄ
+			// è·å¾—å¯†æ–‡
 			byte[] md = mdInst.digest();
-			// °ÑÃÜÎÄ×ª»»³ÉÊ®Áù½øÖÆµÄ×Ö·û´®ĞÎÊ½
+			// æŠŠå¯†æ–‡è½¬æ¢æˆåå…­è¿›åˆ¶çš„å­—ç¬¦ä¸²å½¢å¼
 			int j = md.length;
 			char str[] = new char[j * 2];
 			int k = 0;
@@ -52,7 +52,7 @@ public class HttpUtils {
 	}
 	final static int BUFFER_SIZE = 4096;
 	/**
-	 * 2½øÖÆ×ª»»³É×Ö·û
+	 * 2è¿›åˆ¶è½¬æ¢æˆå­—ç¬¦
 	 * @param in
 	 * @param charse
 	 * @return
@@ -65,20 +65,20 @@ public class HttpUtils {
 		try {
 			reader = new InputStreamReader(in, charse);
 			br = new BufferedReader(reader, 2048);
-			// ´´½¨±£´æÎÄ×ÖÊı¾İµÄ¶ÔÏó
+			// åˆ›å»ºä¿å­˜æ–‡å­—æ•°æ®çš„å¯¹è±¡
 
 			String line = br.readLine();
 			while (line != null) {
 				builder.append(line);
 				line = br.readLine();
 			}
-			// ¹Ø±ÕÁ÷
+			// å…³é—­æµ
 		} catch (IOException e) {
-			WLog.v("Òì³£");
+			WLog.v("å¼‚å¸¸");
 			e.printStackTrace();
 		} catch (NullPointerException e) {
 			// TODO: handle exception
-			WLog.v("¿ÕÖ¸ÕëÒì³£");
+			WLog.v("ç©ºæŒ‡é’ˆå¼‚å¸¸");
 		} finally {
 			try {
 				in.close();
@@ -91,14 +91,14 @@ public class HttpUtils {
 				// TODO: handle exception
 			}
 		}
-		// ·µ»ØÎÄ×Ö¶ÔÏó
+		// è¿”å›æ–‡å­—å¯¹è±¡
 		return builder.toString().trim();
 
 	}
 
 	/**
-	 * ¼ì²éÍøÂçÊÇ·ñÁ¬Í¨
-	 * 
+	 * æ£€æŸ¥ç½‘ç»œæ˜¯å¦è¿é€š
+	 *
 	 * @param context
 	 * @return
 	 */
@@ -113,7 +113,7 @@ public class HttpUtils {
 	}
 
 	/**
-	 * ¸ù¾İÊÖ»úµÄ·Ö±æÂÊ´Ó dp µÄµ¥Î» ×ª³ÉÎª px(ÏñËØ)
+	 * æ ¹æ®æ‰‹æœºçš„åˆ†è¾¨ç‡ä» dp çš„å•ä½ è½¬æˆä¸º px(åƒç´ )
 	 */
 	public static int dip2px(Context context, float dpValue) {
 		final float scale = context.getResources().getDisplayMetrics().density;
@@ -121,7 +121,7 @@ public class HttpUtils {
 	}
 
 	/**
-	 * ¸ù¾İÊÖ»úµÄ·Ö±æÂÊ´Ó px(ÏñËØ) µÄµ¥Î» ×ª³ÉÎª dp
+	 * æ ¹æ®æ‰‹æœºçš„åˆ†è¾¨ç‡ä» px(åƒç´ ) çš„å•ä½ è½¬æˆä¸º dp
 	 */
 	public static int px2dip(Context context, float pxValue) {
 		final float scale = context.getResources().getDisplayMetrics().density;

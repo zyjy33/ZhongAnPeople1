@@ -1,11 +1,10 @@
 package com.hengyushop.demo.train;
 
-import java.util.ArrayList;
-import java.util.Map;
-
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+
+import java.util.ArrayList;
 
 public class HczDB {
 	private Context context;
@@ -31,8 +30,8 @@ public class HczDB {
 	}
 
 	/**
-	 * ½âÎöÊı¾İ
-	 * 
+	 * è§£ææ•°æ®
+	 *
 	 * @param like
 	 * @return
 	 */

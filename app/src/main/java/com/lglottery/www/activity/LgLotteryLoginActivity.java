@@ -1,11 +1,10 @@
 package com.lglottery.www.activity;
 
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
-
-import org.json.JSONException;
-import org.json.JSONObject;
+import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
+import android.view.Window;
+import android.widget.Toast;
 
 import com.hengyushop.demo.at.AppManager;
 import com.hengyushop.demo.at.AsyncHttp;
@@ -20,15 +19,12 @@ import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
 import com.zams.www.R;
 
-import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
-import android.view.View;
-import android.view.Window;
-import android.view.View.OnClickListener;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.Toast;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
 
 public class LgLotteryLoginActivity extends BaseActivity {
 	private final int GET_RND_SUCCESS = 0;
@@ -36,52 +32,52 @@ public class LgLotteryLoginActivity extends BaseActivity {
 	private Handler handler = new Handler() {
 		public void dispatchMessage(android.os.Message msg) {
 			switch (msg.what) {
-			case GET_RND_SUCCESS:
-				LoginDomain domain = (LoginDomain) msg.obj;
-				RequestParams params = new RequestParams();
-				params.put("yth", domain.getUserName());
-				params.put(
-						"pwd",
-						HttpUtils.MD5(HttpUtils.MD5(domain.getPassWord())
-								+ domain.getRnd()));
-				WLog.v("ÓĞ");
-				AsyncHttp.post(U.LOTTERY_LOGIN, params,
-						new AsyncHttpResponseHandler() {
-							public void onSuccess(int arg0, String arg1) {
-								System.out.println(arg1);
-								try {
-									JSONObject jsonObject = new JSONObject(arg1);
-									if (jsonObject.getInt("status") == 1) {
-										sharedUtils.clear();
-										sharedUtils.setStringValue("key",
-												jsonObject.getString("key"));
-										sharedUtils.setStringValue("yth",
-												jsonObject.getString("yth"));
-										sharedUtils.setStringValue("username",
-												jsonObject
-														.getString("username"));
-										sharedUtils.setStringValue("phone",
-												jsonObject.getString("phone"));
-										Toast.makeText(getApplicationContext(),
-												"µÇÂ¼³É¹¦!", 100).show();
-										AppManager.getAppManager()
-												.finishActivity();
+				case GET_RND_SUCCESS:
+					LoginDomain domain = (LoginDomain) msg.obj;
+					RequestParams params = new RequestParams();
+					params.put("yth", domain.getUserName());
+					params.put(
+							"pwd",
+							HttpUtils.MD5(HttpUtils.MD5(domain.getPassWord())
+									+ domain.getRnd()));
+					WLog.v("æœ‰");
+					AsyncHttp.post(U.LOTTERY_LOGIN, params,
+							new AsyncHttpResponseHandler() {
+								public void onSuccess(int arg0, String arg1) {
+									System.out.println(arg1);
+									try {
+										JSONObject jsonObject = new JSONObject(arg1);
+										if (jsonObject.getInt("status") == 1) {
+											sharedUtils.clear();
+											sharedUtils.setStringValue("key",
+													jsonObject.getString("key"));
+											sharedUtils.setStringValue("yth",
+													jsonObject.getString("yth"));
+											sharedUtils.setStringValue("username",
+													jsonObject
+															.getString("username"));
+											sharedUtils.setStringValue("phone",
+													jsonObject.getString("phone"));
+											Toast.makeText(getApplicationContext(),
+													"ç™»å½•æˆåŠŸ!", 100).show();
+											AppManager.getAppManager()
+													.finishActivity();
+										}
+									} catch (JSONException e) {
+										e.printStackTrace();
 									}
-								} catch (JSONException e) {
-									e.printStackTrace();
-								}
-							};
+								};
 
-							@SuppressWarnings("deprecation")
-							public void onFinish() {
+								@SuppressWarnings("deprecation")
+								public void onFinish() {
 
-								getPerson();
-							};
-						}, getApplicationContext());
-				break;
+									getPerson();
+								};
+							}, getApplicationContext());
+					break;
 
-			default:
-				break;
+				default:
+					break;
 			}
 		};
 	};
@@ -117,9 +113,9 @@ public class LgLotteryLoginActivity extends BaseActivity {
 									}
 
 								} else {
-									// ±íÊ¾ÓĞ´íÎó
+									// è¡¨ç¤ºæœ‰é”™è¯¯
 									Toast.makeText(getApplicationContext(),
-											"Éí·İÑéÖ¤¹ıÆÚ£¬ÇëÖØĞÂµÇÂ¼!", 200).show();
+											"èº«ä»½éªŒè¯è¿‡æœŸï¼Œè¯·é‡æ–°ç™»å½•!", 200).show();
 									sharedUtils.clear();
 									AppManager.getAppManager().finishActivity();
 								}
@@ -145,7 +141,7 @@ public class LgLotteryLoginActivity extends BaseActivity {
 	}
 
 	/**
-	 * ½M¼şµÄ³õÊ¼»¯
+	 * çµ„ä»¶çš„åˆå§‹åŒ–
 	 */
 	private void init() {
 		personUtil = new SharedUtils(getApplicationContext(),
@@ -162,7 +158,7 @@ public class LgLotteryLoginActivity extends BaseActivity {
 	private void login(final String userName, final String passWord) {
 
 		if (userName.length() != 0 && passWord.length() != 0) {
-			// ¿ÉÒÔÁªÍø
+			// å¯ä»¥è”ç½‘
 			RequestParams params = new RequestParams();
 			WLog.v(userName + "//" + passWord);
 			params.put("yth", userName);
@@ -192,12 +188,12 @@ public class LgLotteryLoginActivity extends BaseActivity {
 				};
 			}, getApplicationContext());
 		} else {
-			Toast.makeText(getApplicationContext(), "Çë¼ì²éµÇÂ¼ĞÅÏ¢", 200).show();
+			Toast.makeText(getApplicationContext(), "è¯·æ£€æŸ¥ç™»å½•ä¿¡æ¯", 200).show();
 		}
 	}
 
 	/**
-	 * µÇÂ¼ÊÂ¼ş
+	 * ç™»å½•äº‹ä»¶
 	 */
 
 	@Override

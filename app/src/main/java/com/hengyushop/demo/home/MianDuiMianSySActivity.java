@@ -10,17 +10,15 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.android.hengyu.web.DialogProgress;
-import com.android.hengyu.web.RealmName;
 import com.ctrip.openapi.java.utils.BitUtil;
 import com.hengyushop.demo.at.BaseActivity;
-import com.nostra13.universalimageloader.core.ImageLoader;
 import com.zams.www.R;
 
 /**
- * Ãæ¶ÔÃæÉ¨Ò»É¨
- * 
+ * é¢å¯¹é¢æ‰«ä¸€æ‰«
+ *
  * @author Administrator
- * 
+ *
  */
 public class MianDuiMianSySActivity extends BaseActivity implements
 		OnClickListener {
@@ -43,10 +41,10 @@ public class MianDuiMianSySActivity extends BaseActivity implements
 			String saoyisao = getIntent().getStringExtra("saoyisao");
 			if (saoyisao != null) {
 				if (saoyisao.equals("1")) {
-					tv_titel.setText("·ÖÏíºÃÓÑÉ¨Ãè£¬Éı¼¶·şÎñ¹ËÎÊ£¡");
+					tv_titel.setText("åˆ†äº«å¥½å‹æ‰«æï¼Œå‡çº§æœåŠ¡é¡¾é—®ï¼");
 				}
 			} else {
-				tv_titel.setText("ºÃÓÑÉ¨ÃèÏÂÔØ£¬Á¢ÏíÓÅ»İ£¡");
+				tv_titel.setText("å¥½å‹æ‰«æä¸‹è½½ï¼Œç«‹äº«ä¼˜æƒ ï¼");
 			}
 
 			intren();
@@ -83,17 +81,17 @@ public class MianDuiMianSySActivity extends BaseActivity implements
 		// TODO Auto-generated method stub
 
 		switch (v.getId()) {
-		case R.id.iv_fanhui:
-			try {
-				finish();
-			} catch (Exception e) {
-				// TODO: handle exception
-				e.printStackTrace();
-			}
-			break;
+			case R.id.iv_fanhui:
+				try {
+					finish();
+				} catch (Exception e) {
+					// TODO: handle exception
+					e.printStackTrace();
+				}
+				break;
 
-		default:
-			break;
+			default:
+				break;
 		}
 	}
 }

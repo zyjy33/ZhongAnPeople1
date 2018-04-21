@@ -41,41 +41,41 @@ public class TrainPersonActivity extends BaseActivity {
 	private Handler handler = new Handler() {
 		public void dispatchMessage(Message msg) {
 			switch (msg.what) {
-			case 1:
-				if (arrayList != null) {
-					map = new HashMap<String, TrainPersonItem>();
-					TrainPersonItemAdapter itemAdapter = new TrainPersonItemAdapter(
-							getApplicationContext(), arrayList, handler);
-					train_persons.setAdapter(itemAdapter);
-				}
-				break;
-			case 0:
-				TrainPersonItem key = (TrainPersonItem) msg.obj;
-				switch (msg.arg1) {
-				case 0:
-					if (map.containsKey(key.getTrainUserContactID())) {
-						System.out.println("É¾µô´æÔÚÏî");
-						map.remove(key.getTrainUserContactID());
+				case 1:
+					if (arrayList != null) {
+						map = new HashMap<String, TrainPersonItem>();
+						TrainPersonItemAdapter itemAdapter = new TrainPersonItemAdapter(
+								getApplicationContext(), arrayList, handler);
+						train_persons.setAdapter(itemAdapter);
 					}
 					break;
-				case 1:
-					if (!map.containsKey(key.getTrainUserContactID())) {
-						System.out.println("Ôö¼ÓÐÂÊýÖµ");
-						map.put(key.getTrainUserContactID(), key);
+				case 0:
+					TrainPersonItem key = (TrainPersonItem) msg.obj;
+					switch (msg.arg1) {
+						case 0:
+							if (map.containsKey(key.getTrainUserContactID())) {
+								System.out.println("åˆ æŽ‰å­˜åœ¨é¡¹");
+								map.remove(key.getTrainUserContactID());
+							}
+							break;
+						case 1:
+							if (!map.containsKey(key.getTrainUserContactID())) {
+								System.out.println("å¢žåŠ æ–°æ•°å€¼");
+								map.put(key.getTrainUserContactID(), key);
+							}
+							break;
+						default:
+							break;
 					}
+					Iterator<String> i = map.keySet().iterator();
+					while (i.hasNext()) {
+						System.out.println("mapçš„å€¼" + i.next());
+
+					}
+
 					break;
 				default:
 					break;
-				}
-				Iterator<String> i = map.keySet().iterator();
-				while (i.hasNext()) {
-					System.out.println("mapµÄÖµ" + i.next());
-
-				}
-
-				break;
-			default:
-				break;
 			}
 		};
 	};
@@ -122,14 +122,14 @@ public class TrainPersonActivity extends BaseActivity {
 		// TODO Auto-generated method stub
 		super.onResume();
 		if (yth == null) {
-			Toast.makeText(getApplicationContext(), "Î´µÇÂ¼!", 200).show();
+			Toast.makeText(getApplicationContext(), "æœªç™»å½•!", 200).show();
 
 		} else {
 			RequestParams params = new RequestParams();
 			// http://wxpalm.com.cn/mi/TrainHandler.ashx?yth=114930899&act=GetTrainUserContacts
 			params.put("yth", yth);
 			AsyncHttp.post(RealmName.REALM_NAME
-					+ "/mi/TrainHandler.ashx?act=GetTrainUserContacts", params,
+							+ "/mi/TrainHandler.ashx?act=GetTrainUserContacts", params,
 					new AsyncHttpResponseHandler() {
 						@Override
 						public void onSuccess(int arg0, String arg1) {

@@ -1,14 +1,5 @@
 package com.lglottery.www.adapter;
 
-import java.util.ArrayList;
-
-import com.android.hengyu.web.RealmName;
-import com.hengyushop.json.LingjiaDo;
-import com.lglottery.www.common.U;
-import com.lglottery.www.domain.Lglottery_Log;
-import com.nostra13.universalimageloader.core.ImageLoader;
-import com.zams.www.R;
-
 import android.content.Context;
 import android.graphics.Paint;
 import android.view.View;
@@ -18,13 +9,20 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.android.hengyu.web.RealmName;
+import com.hengyushop.json.LingjiaDo;
+import com.nostra13.universalimageloader.core.ImageLoader;
+import com.zams.www.R;
+
+import java.util.ArrayList;
+
 public class LingjiaAdapter extends BaseAdapter {
 	private Context context;
 	private ArrayList<LingjiaDo> lists;
 	private ImageLoader imageLoader;
 
 	public LingjiaAdapter(Context context, ArrayList<LingjiaDo> lists,
-			ImageLoader imageLoader) {
+						  ImageLoader imageLoader) {
 		// TODO Auto-generated constructor stub
 		this.context = context;
 		this.lists = lists;
@@ -74,12 +72,12 @@ public class LingjiaAdapter extends BaseAdapter {
 				RealmName.REALM_NAME + "/" + lists.get(position).getImg(),
 				holder.img);
 		holder.text1.setText(lists.get(position).getName());
-		holder.text2.setText(lists.get(position).getPrice() + "‘™+"
-				+ lists.get(position).getJifen() + "æ€±“");
-		holder.text3.setText(0 + "»À“—π∫¬Ú");
+		holder.text2.setText(lists.get(position).getPrice() + "ÂÖÉ+"
+				+ lists.get(position).getJifen() + "ËÅöÂ∏Å");
+		holder.text3.setText(0 + "‰∫∫Â∑≤Ë¥≠‰π∞");
 		holder.text4.getPaint().setFlags(
 				Paint.STRIKE_THRU_TEXT_FLAG | Paint.ANTI_ALIAS_FLAG);
-		holder.text4.setText(" –≥°º€:" + lists.get(position).getGoods());
+		holder.text4.setText("Â∏ÇÂú∫‰ª∑:" + lists.get(position).getGoods());
 		return view;
 	}
 

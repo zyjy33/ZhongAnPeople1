@@ -1,11 +1,5 @@
 package com.hengyushop.movie.adapter;
 
-import java.util.ArrayList;
-
-import com.android.hengyu.web.RealmName;
-import com.nostra13.universalimageloader.core.ImageLoader;
-import com.zams.www.R;
-
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,13 +9,19 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import com.android.hengyu.web.RealmName;
+import com.nostra13.universalimageloader.core.ImageLoader;
+import com.zams.www.R;
+
+import java.util.ArrayList;
+
 public class OneBuyAdapter extends BaseAdapter {
 	private Context context;
 	private ArrayList<OneBuyBean> lists;
 	private ImageLoader imageLoader;
 
 	public OneBuyAdapter(Context context, ArrayList<OneBuyBean> lists,
-			ImageLoader imageLoader) {
+						 ImageLoader imageLoader) {
 		// TODO Auto-generated constructor stub
 		this.context = context;
 		this.lists = lists;
@@ -68,7 +68,7 @@ public class OneBuyAdapter extends BaseAdapter {
 		} else {
 			viewHolder = (ViewHolder) convertView.getTag();
 		}
-		viewHolder.item1.setText("¼ÛÖµ £¤:" + lists.get(arg0).getMarket());
+		viewHolder.item1.setText("ä»·å€¼ ï¿¥:" + lists.get(arg0).getMarket());
 		viewHolder.item2
 				.setProgress((int) (Double.parseDouble(lists.get(arg0)
 						.getJoinNum())

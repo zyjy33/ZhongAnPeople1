@@ -21,8 +21,8 @@ import com.hengyushop.demo.at.AsyncHttp;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.zams.www.R;
 /**
- * ≥ÈΩ±Ω·π˚
- * @author 
+ * ÊäΩÂ•ñÁªìÊûú
+ * @author
  *
  */
 public class ZyZTiShiActivity extends Activity implements OnClickListener{
@@ -43,11 +43,11 @@ public class ZyZTiShiActivity extends Activity implements OnClickListener{
 		initUI();
 	}
 
-	
+
 	protected void initUI() {
 		Button lglottery_pop_closed = (Button) findViewById(R.id.lglottery_pop_closed);
-//		TextView start_f_name = (TextView) findViewById(R.id.start_f_name);
-//		start_f_name.setText(circleBean.getMsg1());
+		//		TextView start_f_name = (TextView) findViewById(R.id.start_f_name);
+		//		start_f_name.setText(circleBean.getMsg1());
 		TextView start_f_name0 = (TextView) findViewById(R.id.start_f_name0);
 		start_f_name0.setText(getIntent().getStringExtra("drawn"));
 		Button ji_xu = (Button) findViewById(R.id.ji_xu);
@@ -65,103 +65,103 @@ public class ZyZTiShiActivity extends Activity implements OnClickListener{
 			}
 		});
 		ji_ls.setOnClickListener(new OnClickListener() {
-			
+
 			@Override
 			public void onClick(View arg0) {
-//				Intent intent = new Intent(ZyZTiShiActivity.this,JulsActivity.class);
-//				startActivity(intent);
-				getjiangxiang(); 
+				//				Intent intent = new Intent(ZyZTiShiActivity.this,JulsActivity.class);
+				//				startActivity(intent);
+				getjiangxiang();
 				finish();
 			}
 		});
 		ji_xu.setOnClickListener(new OnClickListener() {
-			
+
 			@Override
 			public void onClick(View arg0) {
 				// TODO Auto-generated method stub
 				finish();
 			}
 		});
-		
+
 		handler = new Handler() {
 			public void handleMessage(Message msg) {
 				switch (msg.what) {
-				case 8:
-					
+					case 8:
+
 				}
 			}
 		};
 	}
-	
+
 
 	/**
-	 * ±£¥Ê–“‘ÀΩ±–“Ω±œÓ(◊™“ª◊™)
+	 * ‰øùÂ≠òÂπ∏ËøêÂ•ñÂπ∏Â•ñÈ°π(ËΩ¨‰∏ÄËΩ¨)
 	 */
 	private void getjiangxiang() {
-			SharedPreferences spPreferences = getSharedPreferences("longuserset", MODE_PRIVATE);
-			String user_id = spPreferences.getString("user_id", "");
-			String user_name = spPreferences.getString("user", "");
-			String login_sign = spPreferences.getString("login_sign", "");
-			String id = getIntent().getStringExtra("id");
-			
-			String strUrlone = RealmName.REALM_NAME_LL + 
-					"/add_article_activity_award?user_id="+user_id+"&user_name="+user_name+"&award_id="+id+"&sign="+login_sign+"";
-			System.out.println("====== ‰≥ˆ≥ÈΩ±–“Ω±œÓ============="+strUrlone);
-			AsyncHttp.get(strUrlone, new AsyncHttpResponseHandler() {
-				public void onSuccess(int arg0, String arg1) {
-					try {
-						System.out.println("====== ‰≥ˆ≥ÈΩ±–“Ω±œÓ============="+arg1);
-						JSONObject object = new JSONObject(arg1);
-						String status = object.getString("status");
-						String info = object.getString("info");
-						if (status.equals("y")) {
-							Toast.makeText(ZyZTiShiActivity.this, info, 200).show();
-//							JSONObject obct = object.getJSONObject("data");
-//							    id = obct.getString("id");
-//								String title = obct.getString("title");
-//								String drawn = obct.getString("drawn");
-						}else{
-							Toast.makeText(ZyZTiShiActivity.this, info, 200).show();
-						}
-					} catch (JSONException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
+		SharedPreferences spPreferences = getSharedPreferences("longuserset", MODE_PRIVATE);
+		String user_id = spPreferences.getString("user_id", "");
+		String user_name = spPreferences.getString("user", "");
+		String login_sign = spPreferences.getString("login_sign", "");
+		String id = getIntent().getStringExtra("id");
+
+		String strUrlone = RealmName.REALM_NAME_LL +
+				"/add_article_activity_award?user_id="+user_id+"&user_name="+user_name+"&award_id="+id+"&sign="+login_sign+"";
+		System.out.println("======ËæìÂá∫ÊäΩÂ•ñÂπ∏Â•ñÈ°π============="+strUrlone);
+		AsyncHttp.get(strUrlone, new AsyncHttpResponseHandler() {
+			public void onSuccess(int arg0, String arg1) {
+				try {
+					System.out.println("======ËæìÂá∫ÊäΩÂ•ñÂπ∏Â•ñÈ°π============="+arg1);
+					JSONObject object = new JSONObject(arg1);
+					String status = object.getString("status");
+					String info = object.getString("info");
+					if (status.equals("y")) {
+						Toast.makeText(ZyZTiShiActivity.this, info, 200).show();
+						//							JSONObject obct = object.getJSONObject("data");
+						//							    id = obct.getString("id");
+						//								String title = obct.getString("title");
+						//								String drawn = obct.getString("drawn");
+					}else{
+						Toast.makeText(ZyZTiShiActivity.this, info, 200).show();
 					}
-				};
-				
-				@Override
-				public void onFailure(Throwable arg0, String arg1) {
-					// TODO Auto-generated method stub
-					super.onFailure(arg0, arg1);
-					System.out.println("======∑√Œ Ω”ø⁄ ß∞‹============="+arg1);
-//					Toast.makeText(ZhuanYiZhuanActivity.this, "∑√Œ Ω”ø⁄ ß∞‹", 200).show();
+				} catch (JSONException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
 				}
-			}, ZyZTiShiActivity.this);
-			
+			};
+
+			@Override
+			public void onFailure(Throwable arg0, String arg1) {
+				// TODO Auto-generated method stub
+				super.onFailure(arg0, arg1);
+				System.out.println("======ËÆøÈóÆÊé•Âè£Â§±Ë¥•============="+arg1);
+				//					Toast.makeText(ZhuanYiZhuanActivity.this, "ËÆøÈóÆÊé•Âè£Â§±Ë¥•", 200).show();
+			}
+		}, ZyZTiShiActivity.this);
+
 	}
-	
-	
+
+
 	/**
-	 * µ„ª˜¥•∑¢ ¬º˛
+	 * ÁÇπÂáªËß¶Âèë‰∫ã‰ª∂
 	 */
 	@Override
 	public void onClick(View v) {
 		// TODO Auto-generated method stub
-		
+
 		intent = new Intent();
 		switch (v.getId()) {
-		case R.id.btnConfirm://»°œ˚
-			finish();
-			break;
-		case R.id.btnCancle://
-			 finish();
-			break;
-	    
-		default:
-			break;
+			case R.id.btnConfirm://ÂèñÊ∂à
+				finish();
+				break;
+			case R.id.btnCancle://
+				finish();
+				break;
+
+			default:
+				break;
 		}
 	}
-	
-	    
-	
+
+
+
 }

@@ -55,35 +55,35 @@ public class SouSuoSpActivity extends BaseActivity {
 		setContentView(R.layout.activity_xinshougongye);
 		popupWindowMenu = new MyPopupWindowMenu(this);
 		progress = new DialogProgress(SouSuoSpActivity.this);
-//		progress.CreateProgress();
+		//		progress.CreateProgress();
 		TextView textView1 = (TextView) findViewById(R.id.textView1);
 		String strwhere_zhi = getIntent().getStringExtra("strwhere_zhi");
 		if (!strwhere_zhi.equals("")) {
 			textView1.setText(strwhere_zhi);
 		}else {
-			textView1.setText("À—À˜…Ã∆∑");
+			textView1.setText("ÊêúÁ¥¢ÂïÜÂìÅ");
 		}
 		initdata();
-		
+
 		lists = new ArrayList<SpListData>();
 		myadapter = new MySpListAdapter(lists,getApplicationContext(), imageLoader);
 		listView.setAdapter(myadapter);
-		
+
 		load_list(true);
-		
+
 		listView.setOnItemClickListener(new OnItemClickListener() {
 
 			@Override
 			public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
-					long arg3) {
+									long arg3) {
 				// TODO Auto-generated method stub
 				try {
-					
-				System.out.println("=================1="+lists.size());
-				Intent intent= new Intent(SouSuoSpActivity.this,WareInformationActivity.class);
-				intent.putExtra("id", lists.get(arg2).id);
-				startActivity(intent);
-				
+
+					System.out.println("=================1="+lists.size());
+					Intent intent= new Intent(SouSuoSpActivity.this,WareInformationActivity.class);
+					intent.putExtra("id", lists.get(arg2).id);
+					startActivity(intent);
+
 				} catch (Exception e) {
 					// TODO: handle exception
 					e.printStackTrace();
@@ -95,34 +95,34 @@ public class SouSuoSpActivity extends BaseActivity {
 	Handler handler = new Handler() {
 		public void dispatchMessage(Message msg) {
 			switch (msg.what) {
-			case 0:
-				System.out.println("=================5="+lists.size());
-				myadapter.putData(lists);
-				progress.CloseProgress();
-				
-//				listView.setOnItemClickListener(new OnItemClickListener() {
-//
-//					@Override
-//					public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
-//							long arg3) {
-//						// TODO Auto-generated method stub
-//						try {
-//							
-//						System.out.println("=================1="+lists.size());
-//						Intent intent= new Intent(SouSuoSpActivity.this,Webview1.class);
-//						intent.putExtra("list_xsgy", lists.get(arg2).id);
-//						startActivity(intent);
-//						
-//						} catch (Exception e) {
-//							// TODO: handle exception
-//							e.printStackTrace();
-//						}
-//					}
-//				});
-				break;
+				case 0:
+					System.out.println("=================5="+lists.size());
+					myadapter.putData(lists);
+					progress.CloseProgress();
 
-			default:
-				break;
+					//				listView.setOnItemClickListener(new OnItemClickListener() {
+					//
+					//					@Override
+					//					public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
+					//							long arg3) {
+					//						// TODO Auto-generated method stub
+					//						try {
+					//
+					//						System.out.println("=================1="+lists.size());
+					//						Intent intent= new Intent(SouSuoSpActivity.this,Webview1.class);
+					//						intent.putExtra("list_xsgy", lists.get(arg2).id);
+					//						startActivity(intent);
+					//
+					//						} catch (Exception e) {
+					//							// TODO: handle exception
+					//							e.printStackTrace();
+					//						}
+					//					}
+					//				});
+					break;
+
+				default:
+					break;
 			}
 		};
 	};
@@ -131,10 +131,10 @@ public class SouSuoSpActivity extends BaseActivity {
 		refresh.setOnHeaderRefreshListener(listHeadListener);
 		refresh.setOnFooterRefreshListener(listFootListener);
 		listView = (ListView) findViewById(R.id.new_list);
-		
+
 		ImageView iv_fanhui = (ImageView) findViewById(R.id.iv_fanhui);
 		iv_fanhui.setOnClickListener(new OnClickListener() {
-			
+
 			@Override
 			public void onClick(View arg0) {
 				// TODO Auto-generated method stub
@@ -142,9 +142,9 @@ public class SouSuoSpActivity extends BaseActivity {
 			}
 		});
 	}
-	
+
 	/**
-	 * …œ¿≠¡–±ÌÀ¢–¬º”‘ÿ
+	 * ‰∏äÊãâÂàóË°®Âà∑Êñ∞Âä†ËΩΩ
 	 */
 	private OnHeaderRefreshListener listHeadListener = new OnHeaderRefreshListener() {
 
@@ -160,9 +160,9 @@ public class SouSuoSpActivity extends BaseActivity {
 			}, 1000);
 		}
 	};
-	
+
 	/**
-	 * œ¬¿≠¡–±ÌÀ¢–¬º”‘ÿ
+	 * ‰∏ãÊãâÂàóË°®Âà∑Êñ∞Âä†ËΩΩ
 	 */
 	private OnFooterRefreshListener listFootListener = new OnFooterRefreshListener() {
 
@@ -175,8 +175,8 @@ public class SouSuoSpActivity extends BaseActivity {
 				public void run() {
 					try {
 						load_list(false);
-					refresh.onFooterRefreshComplete();
-					
+						refresh.onFooterRefreshComplete();
+
 					} catch (Exception e) {
 						// TODO: handle exception
 						e.printStackTrace();
@@ -185,9 +185,9 @@ public class SouSuoSpActivity extends BaseActivity {
 			}, 1000);
 		}
 	};
-	
+
 	/**
-	 * µ⁄1∏ˆ¡–±Ì ˝æ›Ω‚Œˆ
+	 * Á¨¨1‰∏™ÂàóË°®Êï∞ÊçÆËß£Êûê
 	 */
 	private int CURRENT_NUM = 1;
 	private final int VIEW_NUM = 10;
@@ -195,7 +195,7 @@ public class SouSuoSpActivity extends BaseActivity {
 	private void load_list(boolean flag) {
 		progress.CreateProgress();
 		if(flag){
-			//º∆ ˝∫Õ»›∆˜«Â¡„
+			//ËÆ°Êï∞ÂíåÂÆπÂô®Ê∏ÖÈõ∂
 			CURRENT_NUM = 1;
 			lists = new ArrayList<SpListData>();
 		}
@@ -204,7 +204,7 @@ public class SouSuoSpActivity extends BaseActivity {
 		String home_sousuo = getIntent().getStringExtra("home_sousuo");
 		System.out.println("strwhere_zhi====================="+strwhere_zhi);
 		System.out.println("channel_name====================="+channel_name);
-		
+
 		if (home_sousuo != null) {
 			URL = "/get_article_page_search_all?page_size="+VIEW_NUM+"&page_index="+CURRENT_NUM+"" +
 					"&keyword="+strwhere_zhi+"&orderby=id%20desc";
@@ -212,58 +212,58 @@ public class SouSuoSpActivity extends BaseActivity {
 			URL = "/get_article_page_search_list?channel_name="+channel_name+"&category_id=0&page_size="+VIEW_NUM+"&page_index="+CURRENT_NUM+"" +
 					"&keyword="+strwhere_zhi+"&orderby=id%20desc";
 		}
-		
+
 		AsyncHttp.get(RealmName.REALM_NAME_LL+ URL,
 				new AsyncHttpResponseHandler() {
-							@Override
-							public void onSuccess(int arg0, String arg1) {
-								// TODO Auto-generated method stub
-								super.onSuccess(arg0, arg1);
-								System.out.println("=====================∂˛º∂÷µ1"+arg1);
-								try {
-									JSONObject jsonObject = new JSONObject(arg1);
-									String status = jsonObject.getString("status");
-									String info = jsonObject.getString("info");
-									JSONArray jsonArray = jsonObject.getJSONArray("data");
-									 len = jsonArray.length();
-									 System.out.println("len================"+len);
-									 if (len != 0) {
-									 if (status.equals("y")) {
-									 for(int i=0;i<jsonArray.length();i++){
+					@Override
+					public void onSuccess(int arg0, String arg1) {
+						// TODO Auto-generated method stub
+						super.onSuccess(arg0, arg1);
+						System.out.println("=====================‰∫åÁ∫ßÂÄº1"+arg1);
+						try {
+							JSONObject jsonObject = new JSONObject(arg1);
+							String status = jsonObject.getString("status");
+							String info = jsonObject.getString("info");
+							JSONArray jsonArray = jsonObject.getJSONArray("data");
+							len = jsonArray.length();
+							System.out.println("len================"+len);
+							if (len != 0) {
+								if (status.equals("y")) {
+									for(int i=0;i<jsonArray.length();i++){
 										JSONObject object = jsonArray.getJSONObject(i);
 										SpListData spList = new SpListData();
 										spList.id = object.getString("id");
 										spList.img_url = object.getString("img_url");
 										spList.title = object.getString("title");
-//										spList.market_price = object.getString("market_price");
-//										spList.sell_price = object.getString("sell_price");
-//										spList.cashing_packet = object.getString("cashing_packet");
-										
+										//										spList.market_price = object.getString("market_price");
+										//										spList.sell_price = object.getString("sell_price");
+										//										spList.cashing_packet = object.getString("cashing_packet");
+
 										JSONObject jsot = object.getJSONObject("default_spec_item");
 										spList.market_price = jsot.getString("market_price");
 										spList.sell_price = jsot.getString("sell_price");
 										spList.cashing_packet = jsot.getString("cashing_packet");
 										lists.add(spList);
 									}
-									}else {
-										progress.CloseProgress();
-										Toast.makeText(SouSuoSpActivity.this, info, 200).show();
-									}
-									handler.sendEmptyMessage(0);
-									if(len!=0){
-										CURRENT_NUM =CURRENT_NUM+1;
-									}
+								}else {
 									progress.CloseProgress();
-									}else {
-										progress.CloseProgress();
-										Toast.makeText(SouSuoSpActivity.this, "√ª”–∏√…Ã∆∑£°", 200).show();
-									}
-								} catch (JSONException e) {
-									// TODO Auto-generated catch block
-									e.printStackTrace();
+									Toast.makeText(SouSuoSpActivity.this, info, 200).show();
 								}
+								handler.sendEmptyMessage(0);
+								if(len!=0){
+									CURRENT_NUM =CURRENT_NUM+1;
+								}
+								progress.CloseProgress();
+							}else {
+								progress.CloseProgress();
+								Toast.makeText(SouSuoSpActivity.this, "Ê≤°ÊúâËØ•ÂïÜÂìÅÔºÅ", 200).show();
 							}
-						}, null);
+						} catch (JSONException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+					}
+				}, null);
 	}
 
 

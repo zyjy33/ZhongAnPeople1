@@ -1,41 +1,25 @@
 package com.hengyushop.demo.home;
 
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.android.hengyu.pub.MyOrderllAdapter;
 import com.android.hengyu.web.DialogProgress;
-import com.android.hengyu.web.RealmName;
-import com.hengyushop.demo.at.AsyncHttp;
-import com.hengyushop.demo.home.YangLaoChongZhiActivity;
 import com.hengyushop.demo.my.MyOrderZFActivity;
 import com.hengyushop.demo.my.TishiCarArchivesActivity;
-import com.hengyushop.entity.UserRegisterllData;
-import com.hengyushop.entity.UserSenJiBean;
-import com.loopj.android.http.AsyncHttpResponseHandler;
-import com.nostra13.universalimageloader.core.ImageLoader;
 import com.zams.www.MyOrderConfrimActivity;
-import com.zams.www.PersonCenterActivity;
 import com.zams.www.R;
 
 /**
- * ÌáÊ¾ÑøÀÏ½ğ
- * 
+ * æç¤ºå…»è€é‡‘
+ *
  * @author
- * 
+ *
  */
 public class TishiPensionActivity extends Activity implements OnClickListener {
 	private Intent intent;
@@ -126,7 +110,7 @@ public class TishiPensionActivity extends Activity implements OnClickListener {
 			System.out.println("6=================================");
 			// Toast.makeText(TishiPensionActivity.this, give_pension,
 			// 200).show();
-			textView1.setText("½«½ø" + give_pension + "Ôª");
+			textView1.setText("å°†è¿›" + give_pension + "å…ƒ");
 
 			ImageView iv_fanhui = (ImageView) findViewById(R.id.iv_fanhui1);
 			iv_fanhui.setOnClickListener(this);
@@ -139,7 +123,7 @@ public class TishiPensionActivity extends Activity implements OnClickListener {
 	}
 
 	/**
-	 * µã»÷´¥·¢ÊÂ¼ş
+	 * ç‚¹å‡»è§¦å‘äº‹ä»¶
 	 */
 	@Override
 	public void onClick(View v) {
@@ -147,17 +131,17 @@ public class TishiPensionActivity extends Activity implements OnClickListener {
 
 		intent = new Intent();
 		switch (v.getId()) {
-		case R.id.iv_fanhui1:// È¡Ïû
-			finish();
-			break;
-		case R.id.iv_fanhui3://
-			Intent intent = new Intent(TishiPensionActivity.this,DBFengXiangActivity.class);
-			intent.putExtra("sp_id", article_id);
-			startActivity(intent);
-			finish();
-			break;
-		default:
-			break;
+			case R.id.iv_fanhui1:// å–æ¶ˆ
+				finish();
+				break;
+			case R.id.iv_fanhui3://
+				Intent intent = new Intent(TishiPensionActivity.this,DBFengXiangActivity.class);
+				intent.putExtra("sp_id", article_id);
+				startActivity(intent);
+				finish();
+				break;
+			default:
+				break;
 		}
 	}
 

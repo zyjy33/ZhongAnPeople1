@@ -1,10 +1,5 @@
 package com.hengyushop.demo.home;
 
-import java.util.ArrayList;
-
-import org.json.JSONArray;
-import org.json.JSONObject;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
@@ -34,6 +29,11 @@ import com.lglottery.www.widget.PullToRefreshView.OnHeaderRefreshListener;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.zams.www.R;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
+
 public class QianMingActivity extends BaseActivity {
 
 	private ArrayList<TuiGuangBean> list;
@@ -48,7 +48,7 @@ public class QianMingActivity extends BaseActivity {
 	int len;
 	String id,tv_name;
 	String id2 = "1726";
-	
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
@@ -61,13 +61,13 @@ public class QianMingActivity extends BaseActivity {
 		TextView textView1 = (TextView) findViewById(R.id.textView1);
 		tv_name = getIntent().getStringExtra("tv_name");
 		if (tv_name.equals("1")) {
-			textView1.setText("ƒ„¿¥¥£¨Œ“¿¥ÀÕ");
+			textView1.setText("‰Ω†Êù•Á≠îÔºåÊàëÊù•ÈÄÅ");
 		}else {
-		textView1.setText("Õ∆π„¥´≤•");
+			textView1.setText("Êé®Âπø‰º†Êí≠");
 		}
-		
+
 		initdata();
-		
+
 		list = new ArrayList<TuiGuangBean>();
 		adapter = new TuiGuangListAdapter(getApplicationContext(), list,imageLoader, handler);
 		listView.setAdapter(adapter);
@@ -79,97 +79,97 @@ public class QianMingActivity extends BaseActivity {
 			String id2 = getIntent().getStringExtra("id2");
 			load_listll(true,id2);
 		}
-		
-//		listView.setOnItemClickListener(new OnItemClickListener() {
-//
-//			@Override
-//			public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
-//					long arg3) {
-//				// TODO Auto-generated method stub
-//				try {
-//					
-//				System.out.println("=================1="+list.size());
-//				Intent intent= new Intent(QianMingActivity.this,Webview1.class);
-//				intent.putExtra("list_xsgy", list.get(arg2).id);
-//				startActivity(intent);
-//				
-//				} catch (Exception e) {
-//					// TODO: handle exception
-//					e.printStackTrace();
-//				}
-//			}
-//		});
+
+		//		listView.setOnItemClickListener(new OnItemClickListener() {
+		//
+		//			@Override
+		//			public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
+		//					long arg3) {
+		//				// TODO Auto-generated method stub
+		//				try {
+		//
+		//				System.out.println("=================1="+list.size());
+		//				Intent intent= new Intent(QianMingActivity.this,Webview1.class);
+		//				intent.putExtra("list_xsgy", list.get(arg2).id);
+		//				startActivity(intent);
+		//
+		//				} catch (Exception e) {
+		//					// TODO: handle exception
+		//					e.printStackTrace();
+		//				}
+		//			}
+		//		});
 
 	}
 	Handler handler = new Handler() {
 		public void dispatchMessage(Message msg) {
 			switch (msg.what) {
-			
-			case 0:
-//				TuiGuangBean content = (TuiGuangBean) msg.obj;
-				String id = (String) msg.obj;
-				Intent intent = new Intent(QianMingActivity.this,JuFaFaXunaZheActivity.class);
-				intent.putExtra("id", id);
-				startActivity(intent);
-				break;
-			case 1:
-				String web_id = (String) msg.obj;
-				Intent intent1 = new Intent(QianMingActivity.this,Webview1.class);
-				intent1.putExtra("web_id", web_id);
-				startActivity(intent1);
-				break;
-			case 2:
-				System.out.println("=================5="+list.size());
-				adapter.putData(list);
-				progress.CloseProgress();
-				
-				listView.setOnItemClickListener(new OnItemClickListener() {
 
-					@Override
-					public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
-							long arg3) {
-						// TODO Auto-generated method stub
-						try {
-						Intent intent= new Intent(QianMingActivity.this,JuFaFaXunaZheActivity.class);
-						System.out.println("===list.get(arg2).id)==============="+list.get(arg2).id);
-						intent.putExtra("exam_id", list.get(arg2).id);
-						startActivity(intent);
-						} catch (Exception e) {
-							// TODO: handle exception
-							e.printStackTrace();
+				case 0:
+					//				TuiGuangBean content = (TuiGuangBean) msg.obj;
+					String id = (String) msg.obj;
+					Intent intent = new Intent(QianMingActivity.this,JuFaFaXunaZheActivity.class);
+					intent.putExtra("id", id);
+					startActivity(intent);
+					break;
+				case 1:
+					String web_id = (String) msg.obj;
+					Intent intent1 = new Intent(QianMingActivity.this,Webview1.class);
+					intent1.putExtra("web_id", web_id);
+					startActivity(intent1);
+					break;
+				case 2:
+					System.out.println("=================5="+list.size());
+					adapter.putData(list);
+					progress.CloseProgress();
+
+					listView.setOnItemClickListener(new OnItemClickListener() {
+
+						@Override
+						public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
+												long arg3) {
+							// TODO Auto-generated method stub
+							try {
+								Intent intent= new Intent(QianMingActivity.this,JuFaFaXunaZheActivity.class);
+								System.out.println("===list.get(arg2).id)==============="+list.get(arg2).id);
+								intent.putExtra("exam_id", list.get(arg2).id);
+								startActivity(intent);
+							} catch (Exception e) {
+								// TODO: handle exception
+								e.printStackTrace();
+							}
 						}
-					}
-				});
-				
-				break;
-				
-			case 3:
-				adapter.putData(list);
-				progress.CloseProgress();
-				
-				listView.setOnItemClickListener(new OnItemClickListener() {
+					});
 
-					@Override
-					public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
-							long arg3) {
-						// TODO Auto-generated method stub
-						try {
-							
-						Intent intent= new Intent(QianMingActivity.this,Webview1.class);
-						intent.putExtra("web_id", list.get(arg2).id);
-						startActivity(intent);
-						
-						} catch (Exception e) {
-							// TODO: handle exception
-							e.printStackTrace();
+					break;
+
+				case 3:
+					adapter.putData(list);
+					progress.CloseProgress();
+
+					listView.setOnItemClickListener(new OnItemClickListener() {
+
+						@Override
+						public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
+												long arg3) {
+							// TODO Auto-generated method stub
+							try {
+
+								Intent intent= new Intent(QianMingActivity.this,Webview1.class);
+								intent.putExtra("web_id", list.get(arg2).id);
+								startActivity(intent);
+
+							} catch (Exception e) {
+								// TODO: handle exception
+								e.printStackTrace();
+							}
 						}
-					}
-				});
-				
-				break;
+					});
 
-			default:
-				break;
+					break;
+
+				default:
+					break;
 			}
 		};
 	};
@@ -178,10 +178,10 @@ public class QianMingActivity extends BaseActivity {
 		refresh.setOnHeaderRefreshListener(listHeadListener);
 		refresh.setOnFooterRefreshListener(listFootListener);
 		listView = (ListView) findViewById(R.id.new_list);
-		
+
 		ImageView iv_fanhui = (ImageView) findViewById(R.id.iv_fanhui);
 		iv_fanhui.setOnClickListener(new OnClickListener() {
-			
+
 			@Override
 			public void onClick(View arg0) {
 				// TODO Auto-generated method stub
@@ -189,9 +189,9 @@ public class QianMingActivity extends BaseActivity {
 			}
 		});
 	}
-	
+
 	/**
-	 * …œ¿≠¡–±ÌÀ¢–¬º”‘ÿ
+	 * ‰∏äÊãâÂàóË°®Âà∑Êñ∞Âä†ËΩΩ
 	 */
 	private OnHeaderRefreshListener listHeadListener = new OnHeaderRefreshListener() {
 
@@ -207,9 +207,9 @@ public class QianMingActivity extends BaseActivity {
 			}, 1000);
 		}
 	};
-	
+
 	/**
-	 * œ¬¿≠¡–±ÌÀ¢–¬º”‘ÿ
+	 * ‰∏ãÊãâÂàóË°®Âà∑Êñ∞Âä†ËΩΩ
 	 */
 	private OnFooterRefreshListener listFootListener = new OnFooterRefreshListener() {
 
@@ -226,8 +226,8 @@ public class QianMingActivity extends BaseActivity {
 						}else {
 							load_listll(true,id2);
 						}
-					refresh.onFooterRefreshComplete();
-					
+						refresh.onFooterRefreshComplete();
+
 					} catch (Exception e) {
 						// TODO: handle exception
 						e.printStackTrace();
@@ -236,9 +236,9 @@ public class QianMingActivity extends BaseActivity {
 			}, 1000);
 		}
 	};
-	
+
 	/**
-	 * µ⁄1∏ˆ¡–±Ì ˝æ›Ω‚Œˆ
+	 * Á¨¨1‰∏™ÂàóË°®Êï∞ÊçÆËß£Êûê
 	 */
 	private int RUN_METHOD = -1;
 	private int CURRENT_NUM = 1;
@@ -246,90 +246,90 @@ public class QianMingActivity extends BaseActivity {
 	private void load_list(boolean flag, String id) {
 		RUN_METHOD = 1;
 		if(flag){
-			//º∆ ˝∫Õ»›∆˜«Â¡„
+			//ËÆ°Êï∞ÂíåÂÆπÂô®Ê∏ÖÈõ∂
 			CURRENT_NUM = 1;
 			list = new ArrayList<TuiGuangBean>();
 		}
 		AsyncHttp.get(RealmName.REALM_NAME_LL+"/get_test_exam_list?" +
-                "channel_name=examine&lesson_id="+id+"&page_size="+VIEW_NUM+"&page_index="+CURRENT_NUM+"&strwhere=&orderby=", new AsyncHttpResponseHandler(){
-				
-							@Override
-							public void onSuccess(int arg0, String arg1) {
-								// TODO Auto-generated method stub
-								super.onSuccess(arg0, arg1);
-								System.out.println("=====================∂˛º∂÷µ1"+arg1);
-								try {
-									System.out.println("£®…Ã∆∑¡–±Ì£©=========="+arg1);
-									list = new ArrayList<TuiGuangBean>();
-									JSONObject jsonObject = new JSONObject(arg1);
-									String status = jsonObject.getString("status");
-									if (status.equals("y")) {
-									JSONArray jsonArray = jsonObject.getJSONArray("data");
-									for (int i = 0; i < jsonArray.length(); i++) {
-										TuiGuangBean data = new TuiGuangBean();
-										JSONObject object = jsonArray.getJSONObject(i);
-										data.id = object.getString("id");
-										data.title = object.getString("title");
-										data.subtitle = object.getString("subtitle");
-										data.img_url = object.getString("img_url");
-										data.add_time = object.getString("add_time");
-										Log.v("data1", data.id + "");
-										list.add(data);
-									}
-				                    }else {
-									}
-									handler.sendEmptyMessage(2);
-								} catch (Exception e) {
-									e.printStackTrace();
-								}
-							}
-						}, null);
+				"channel_name=examine&lesson_id="+id+"&page_size="+VIEW_NUM+"&page_index="+CURRENT_NUM+"&strwhere=&orderby=", new AsyncHttpResponseHandler(){
+
+			@Override
+			public void onSuccess(int arg0, String arg1) {
+				// TODO Auto-generated method stub
+				super.onSuccess(arg0, arg1);
+				System.out.println("=====================‰∫åÁ∫ßÂÄº1"+arg1);
+				try {
+					System.out.println("ÔºàÂïÜÂìÅÂàóË°®Ôºâ=========="+arg1);
+					list = new ArrayList<TuiGuangBean>();
+					JSONObject jsonObject = new JSONObject(arg1);
+					String status = jsonObject.getString("status");
+					if (status.equals("y")) {
+						JSONArray jsonArray = jsonObject.getJSONArray("data");
+						for (int i = 0; i < jsonArray.length(); i++) {
+							TuiGuangBean data = new TuiGuangBean();
+							JSONObject object = jsonArray.getJSONObject(i);
+							data.id = object.getString("id");
+							data.title = object.getString("title");
+							data.subtitle = object.getString("subtitle");
+							data.img_url = object.getString("img_url");
+							data.add_time = object.getString("add_time");
+							Log.v("data1", data.id + "");
+							list.add(data);
+						}
+					}else {
+					}
+					handler.sendEmptyMessage(2);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		}, null);
 	}
-	
+
 	/**
-	 * µ⁄2∏ˆ¡–±Ì ˝æ›Ω‚Œˆ
+	 * Á¨¨2‰∏™ÂàóË°®Êï∞ÊçÆËß£Êûê
 	 */
 	private void load_listll(boolean flag, String id) {
 		RUN_METHOD = 1;
 		if(flag){
-			//º∆ ˝∫Õ»›∆˜«Â¡„
+			//ËÆ°Êï∞ÂíåÂÆπÂô®Ê∏ÖÈõ∂
 			CURRENT_NUM = 1;
 			list = new ArrayList<TuiGuangBean>();
 		}
-			AsyncHttp.get(RealmName.REALM_NAME_LL+"/get_article_page_size_list?" +
-	                "channel_name=content&category_id="+id+"&page_size="+VIEW_NUM+"&page_index="+CURRENT_NUM+"&strwhere=&orderby=",
-	                new AsyncHttpResponseHandler(){		
-							@Override
-							public void onSuccess(int arg0, String arg1) {
-								// TODO Auto-generated method stub
-								super.onSuccess(arg0, arg1);
-								System.out.println("=====================∂˛º∂÷µ1"+arg1);
-								try {
-									System.out.println("£®…Ã∆∑¡–±Ì£©=========="+arg1);
-									list = new ArrayList<TuiGuangBean>();
-									JSONObject jsonObject = new JSONObject(arg1);
-									String status = jsonObject.getString("status");
-									if (status.equals("y")) {
-									JSONArray jsonArray = jsonObject.getJSONArray("data");
-									for (int i = 0; i < jsonArray.length(); i++) {
-										TuiGuangBean data = new TuiGuangBean();
-										JSONObject object = jsonArray.getJSONObject(i);
-										data.id = object.getString("id");
-										data.title = object.getString("title");
-										data.subtitle = object.getString("subtitle");
-										data.img_url = object.getString("img_url");
-										data.add_time = object.getString("add_time");
-										Log.v("data1", data.id + "");
-										list.add(data);
-									}
-				                    }else {
-									}
-									handler.sendEmptyMessage(3);
-								} catch (Exception e) {
-									e.printStackTrace();
+		AsyncHttp.get(RealmName.REALM_NAME_LL+"/get_article_page_size_list?" +
+						"channel_name=content&category_id="+id+"&page_size="+VIEW_NUM+"&page_index="+CURRENT_NUM+"&strwhere=&orderby=",
+				new AsyncHttpResponseHandler(){
+					@Override
+					public void onSuccess(int arg0, String arg1) {
+						// TODO Auto-generated method stub
+						super.onSuccess(arg0, arg1);
+						System.out.println("=====================‰∫åÁ∫ßÂÄº1"+arg1);
+						try {
+							System.out.println("ÔºàÂïÜÂìÅÂàóË°®Ôºâ=========="+arg1);
+							list = new ArrayList<TuiGuangBean>();
+							JSONObject jsonObject = new JSONObject(arg1);
+							String status = jsonObject.getString("status");
+							if (status.equals("y")) {
+								JSONArray jsonArray = jsonObject.getJSONArray("data");
+								for (int i = 0; i < jsonArray.length(); i++) {
+									TuiGuangBean data = new TuiGuangBean();
+									JSONObject object = jsonArray.getJSONObject(i);
+									data.id = object.getString("id");
+									data.title = object.getString("title");
+									data.subtitle = object.getString("subtitle");
+									data.img_url = object.getString("img_url");
+									data.add_time = object.getString("add_time");
+									Log.v("data1", data.id + "");
+									list.add(data);
 								}
+							}else {
 							}
-						}, null);
+							handler.sendEmptyMessage(3);
+						} catch (Exception e) {
+							e.printStackTrace();
+						}
+					}
+				}, null);
 	}
 
 }

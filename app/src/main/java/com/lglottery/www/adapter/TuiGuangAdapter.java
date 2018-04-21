@@ -1,12 +1,5 @@
 package com.lglottery.www.adapter;
 
-import java.util.ArrayList;
-
-import com.android.hengyu.web.RealmName;
-import com.lglottery.www.domain.TuiGuangBean;
-import com.nostra13.universalimageloader.core.ImageLoader;
-import com.zams.www.R;
-
 import android.content.Context;
 import android.os.Handler;
 import android.os.Message;
@@ -19,6 +12,13 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.android.hengyu.web.RealmName;
+import com.lglottery.www.domain.TuiGuangBean;
+import com.nostra13.universalimageloader.core.ImageLoader;
+import com.zams.www.R;
+
+import java.util.ArrayList;
+
 public class TuiGuangAdapter extends BaseExpandableListAdapter {
 	private Context context;
 	private ArrayList<TuiGuangBean> lists;
@@ -26,7 +26,7 @@ public class TuiGuangAdapter extends BaseExpandableListAdapter {
 	private Handler handler;
 
 	public TuiGuangAdapter(Context context, ArrayList<TuiGuangBean> lists,
-			ImageLoader imageLoader, Handler handler) {
+						   ImageLoader imageLoader, Handler handler) {
 		this.context = context;
 		this.lists = lists;
 		this.handler = handler;
@@ -46,7 +46,7 @@ public class TuiGuangAdapter extends BaseExpandableListAdapter {
 
 	@Override
 	public View getChildView(final int groupPosition, int childPosition,
-			boolean isLastChild, View convertView, ViewGroup parent) {
+							 boolean isLastChild, View convertView, ViewGroup parent) {
 		ChildHolder holder = new ChildHolder();
 		convertView = LinearLayout.inflate(context,
 				R.layout.ware_infromation_share, null);
@@ -115,7 +115,7 @@ public class TuiGuangAdapter extends BaseExpandableListAdapter {
 
 	@Override
 	public View getGroupView(final int groupPosition, boolean isExpanded,
-			View convertView, ViewGroup parent) {
+							 View convertView, ViewGroup parent) {
 		ViewHolder holder = null;
 		if (convertView == null) {
 			holder = new ViewHolder();
@@ -140,8 +140,8 @@ public class TuiGuangAdapter extends BaseExpandableListAdapter {
 				Message msg = handler.obtainMessage();
 				msg.what = 0;
 				msg.obj = lists.get(groupPosition);
-				// 此处替换成详细信息的内容数据
-				System.out.println("点击");
+				// 姝ゅ鏇挎崲鎴愯缁嗕俊鎭殑鍐呭鏁版嵁
+				System.out.println("鐐瑰嚮");
 				handler.sendMessage(msg);
 			}
 		});

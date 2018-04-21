@@ -22,7 +22,7 @@ public class LglotteryListAdapter extends BaseAdapter {
 	private Handler handler;
 
 	public LglotteryListAdapter(Context context,
-			ArrayList<Lglottery_Item> list, Handler handler) {
+								ArrayList<Lglottery_Item> list, Handler handler) {
 		// TODO Auto-generated constructor stub
 		this.list = list;
 		this.handler = handler;

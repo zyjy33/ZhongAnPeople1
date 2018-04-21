@@ -4,13 +4,12 @@ import android.content.Context;
 import android.os.Handler;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
-import android.widget.NumberPicker.OnScrollListener;
 import android.widget.ScrollView;
 
 public class MyScrollView extends ScrollView {
 	private OnScrollListener onScrollListener;
 	/**
-	 * Ö÷ÒªÊÇÓÃÔÚÓÃ»§ÊÖÖ¸Àë¿ªMyScrollView£¬MyScrollView»¹ÔÚ¼ÌĞø»¬¶¯£¬ÎÒÃÇÓÃÀ´±£´æYµÄ¾àÀë£¬È»ºó×ö±È½Ï
+	 * ä¸»è¦æ˜¯ç”¨åœ¨ç”¨æˆ·æ‰‹æŒ‡ç¦»å¼€MyScrollViewï¼ŒMyScrollViewè¿˜åœ¨ç»§ç»­æ»‘åŠ¨ï¼Œæˆ‘ä»¬ç”¨æ¥ä¿å­˜Yçš„è·ç¦»ï¼Œç„¶ååšæ¯”è¾ƒ
 	 */
 	private int lastScrollY;
 
@@ -27,8 +26,8 @@ public class MyScrollView extends ScrollView {
 	}
 
 	/**
-	 * ÉèÖÃ¹ö¶¯½Ó¿Ú
-	 * 
+	 * è®¾ç½®æ»šåŠ¨æ¥å£
+	 *
 	 * @param onScrollListener
 	 */
 	public void setOnScrollListener(OnScrollListener onScrollListener) {
@@ -36,14 +35,14 @@ public class MyScrollView extends ScrollView {
 	}
 
 	/**
-	 * ÓÃÓÚÓÃ»§ÊÖÖ¸Àë¿ªMyScrollViewµÄÊ±ºò»ñÈ¡MyScrollView¹ö¶¯µÄY¾àÀë£¬È»ºó»Øµ÷¸øonScroll·½·¨ÖĞ
+	 * ç”¨äºç”¨æˆ·æ‰‹æŒ‡ç¦»å¼€MyScrollViewçš„æ—¶å€™è·å–MyScrollViewæ»šåŠ¨çš„Yè·ç¦»ï¼Œç„¶åå›è°ƒç»™onScrollæ–¹æ³•ä¸­
 	 */
 	private Handler handler = new Handler() {
 
 		public void handleMessage(android.os.Message msg) {
 			int scrollY = MyScrollView.this.getScrollY();
 
-			// ´ËÊ±µÄ¾àÀëºÍ¼ÇÂ¼ÏÂµÄ¾àÀë²»ÏàµÈ£¬ÔÚ¸ô5ºÁÃë¸øhandler·¢ËÍÏûÏ¢
+			// æ­¤æ—¶çš„è·ç¦»å’Œè®°å½•ä¸‹çš„è·ç¦»ä¸ç›¸ç­‰ï¼Œåœ¨éš”5æ¯«ç§’ç»™handlerå‘é€æ¶ˆæ¯
 			if (lastScrollY != scrollY) {
 				lastScrollY = scrollY;
 				handler.sendMessageDelayed(handler.obtainMessage(), 5);
@@ -57,10 +56,10 @@ public class MyScrollView extends ScrollView {
 	};
 
 	/**
-	 * ÖØĞ´onTouchEvent£¬ µ±ÓÃ»§µÄÊÖÔÚMyScrollViewÉÏÃæµÄÊ±ºò£¬
-	 * Ö±½Ó½«MyScrollView»¬¶¯µÄY·½Ïò¾àÀë»Øµ÷¸øonScroll·½·¨ÖĞ£¬µ±ÓÃ»§Ì§ÆğÊÖµÄÊ±ºò£¬
-	 * MyScrollView¿ÉÄÜ»¹ÔÚ»¬¶¯£¬ËùÒÔµ±ÓÃ»§Ì§ÆğÊÖÎÒÃÇ¸ô5ºÁÃë¸øhandler·¢ËÍÏûÏ¢£¬ÔÚhandler´¦Àí
-	 * MyScrollView»¬¶¯µÄ¾àÀë
+	 * é‡å†™onTouchEventï¼Œ å½“ç”¨æˆ·çš„æ‰‹åœ¨MyScrollViewä¸Šé¢çš„æ—¶å€™ï¼Œ
+	 * ç›´æ¥å°†MyScrollViewæ»‘åŠ¨çš„Yæ–¹å‘è·ç¦»å›è°ƒç»™onScrollæ–¹æ³•ä¸­ï¼Œå½“ç”¨æˆ·æŠ¬èµ·æ‰‹çš„æ—¶å€™ï¼Œ
+	 * MyScrollViewå¯èƒ½è¿˜åœ¨æ»‘åŠ¨ï¼Œæ‰€ä»¥å½“ç”¨æˆ·æŠ¬èµ·æ‰‹æˆ‘ä»¬éš”5æ¯«ç§’ç»™handlerå‘é€æ¶ˆæ¯ï¼Œåœ¨handlerå¤„ç†
+	 * MyScrollViewæ»‘åŠ¨çš„è·ç¦»
 	 */
 	@Override
 	public boolean onTouchEvent(MotionEvent ev) {
@@ -68,26 +67,26 @@ public class MyScrollView extends ScrollView {
 			onScrollListener.onScroll(lastScrollY = this.getScrollY());
 		}
 		switch (ev.getAction()) {
-		case MotionEvent.ACTION_UP:
-			handler.sendMessageDelayed(handler.obtainMessage(), 5);
-			break;
+			case MotionEvent.ACTION_UP:
+				handler.sendMessageDelayed(handler.obtainMessage(), 5);
+				break;
 		}
 		return super.onTouchEvent(ev);
 	}
 
 	/**
-	 * 
-	 * ¹ö¶¯µÄ»Øµ÷½Ó¿Ú
-	 * 
+	 *
+	 * æ»šåŠ¨çš„å›è°ƒæ¥å£
+	 *
 	 * @author xiaanming
-	 * 
+	 *
 	 */
 	public interface OnScrollListener {
 		/**
-		 * »Øµ÷·½·¨£¬ ·µ»ØMyScrollView»¬¶¯µÄY·½Ïò¾àÀë
-		 * 
+		 * å›è°ƒæ–¹æ³•ï¼Œ è¿”å›MyScrollViewæ»‘åŠ¨çš„Yæ–¹å‘è·ç¦»
+		 *
 		 * @param scrollY
-		 *            ¡¢
+		 *            ã€
 		 */
 		public void onScroll(int scrollY);
 	}

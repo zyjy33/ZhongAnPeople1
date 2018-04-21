@@ -19,7 +19,7 @@ public class TrainItemAdapter extends BaseAdapter {
 	private ImageLoader imageLoader;
 
 	public TrainItemAdapter(Context context, ArrayList<ChePiaoData> list,
-			ImageLoader imageLoader) {
+							ImageLoader imageLoader) {
 		// TODO Auto-generated constructor stub
 		this.context = context;
 		this.list = list;
@@ -110,19 +110,19 @@ public class TrainItemAdapter extends BaseAdapter {
 			imageLoader.displayImage("drawable://" + R.drawable.guo, holder.a1);
 		}
 
-		String business = data.getBusiness();// ÉÌÎñ×ù
-		String best_seat = data.getBest_seat();// ÌØµÈ×ù
-		String one_seat = data.getOne_seat();// Ò»µÈ×ù
-		String two_seat = data.getTwo_seat();// ¶şµÈ×ù
-		String vag_sleeper = data.getVag_sleeper();// ¸ß¼¶Èí×ù
-		String soft_sleeper = data.getSoft_sleeper();// ÈíÎÔ
-		String hard_sleeper = data.getHard_sleeper();// Ó²ÎÔ
-		String soft_seat = data.getSoft_seat();// Èí×ù
-		String hard_seat = data.getHard_seat();// Ó²×ù
-		String none_seat = data.getNone_seat();// ÎŞ×ù
+		String business = data.getBusiness();// å•†åŠ¡åº§
+		String best_seat = data.getBest_seat();// ç‰¹ç­‰åº§
+		String one_seat = data.getOne_seat();// ä¸€ç­‰åº§
+		String two_seat = data.getTwo_seat();// äºŒç­‰åº§
+		String vag_sleeper = data.getVag_sleeper();// é«˜çº§è½¯åº§
+		String soft_sleeper = data.getSoft_sleeper();// è½¯å§
+		String hard_sleeper = data.getHard_sleeper();// ç¡¬å§
+		String soft_seat = data.getSoft_seat();// è½¯åº§
+		String hard_seat = data.getHard_seat();// ç¡¬åº§
+		String none_seat = data.getNone_seat();// æ— åº§
 		if (isHere(business)) {
 			holder.v1.setVisibility(View.VISIBLE);
-			addTextViewValue("ÉÌÎñ×ù", business, holder.v1);
+			addTextViewValue("å•†åŠ¡åº§", business, holder.v1);
 
 		} else {
 			holder.v1.setVisibility(View.GONE);
@@ -130,63 +130,63 @@ public class TrainItemAdapter extends BaseAdapter {
 		// ---------------------------------------
 		if (isHere(best_seat)) {
 			holder.v2.setVisibility(View.VISIBLE);
-			addTextViewValue("ÌØµÈ×ù", best_seat, holder.v2);
+			addTextViewValue("ç‰¹ç­‰åº§", best_seat, holder.v2);
 		} else {
 			holder.v2.setVisibility(View.GONE);
 		}
 		// ---------------------------------------
 		if (isHere(one_seat)) {
 			holder.v3.setVisibility(View.VISIBLE);
-			addTextViewValue("Ò»µÈ×ù", one_seat, holder.v3);
+			addTextViewValue("ä¸€ç­‰åº§", one_seat, holder.v3);
 		} else {
 			holder.v3.setVisibility(View.GONE);
 		}
 		// ---------------------------------------
 		if (isHere(two_seat)) {
 			holder.v4.setVisibility(View.VISIBLE);
-			addTextViewValue("¶şµÈ×ù", two_seat, holder.v4);
+			addTextViewValue("äºŒç­‰åº§", two_seat, holder.v4);
 		} else {
 			holder.v4.setVisibility(View.GONE);
 		}
 		// ---------------------------------------
 		if (isHere(vag_sleeper)) {
 			holder.v5.setVisibility(View.VISIBLE);
-			addTextViewValue("¸ß¼¶ÈíÎÔ", vag_sleeper, holder.v5);
+			addTextViewValue("é«˜çº§è½¯å§", vag_sleeper, holder.v5);
 		} else {
 			holder.v5.setVisibility(View.GONE);
 		}
 		// ---------------------------------------
 		if (isHere(soft_sleeper)) {
 			holder.v6.setVisibility(View.VISIBLE);
-			addTextViewValue("ÈíÎÔ", soft_sleeper, holder.v6);
+			addTextViewValue("è½¯å§", soft_sleeper, holder.v6);
 		} else {
 			holder.v6.setVisibility(View.GONE);
 		}
 		// ---------------------------------------
 		if (isHere(hard_sleeper)) {
 			holder.v7.setVisibility(View.VISIBLE);
-			addTextViewValue("Ó²ÎÔ", hard_sleeper, holder.v7);
+			addTextViewValue("ç¡¬å§", hard_sleeper, holder.v7);
 		} else {
 			holder.v7.setVisibility(View.GONE);
 		}
 		// ---------------------------------------
 		if (isHere(soft_seat)) {
 			holder.v8.setVisibility(View.VISIBLE);
-			addTextViewValue("Èí×ù", soft_seat, holder.v8);
+			addTextViewValue("è½¯åº§", soft_seat, holder.v8);
 		} else {
 			holder.v8.setVisibility(View.GONE);
 		}
 		// ---------------------------------------
 		if (isHere(hard_seat)) {
 			holder.v9.setVisibility(View.VISIBLE);
-			addTextViewValue("Ó²×ù", hard_seat, holder.v9);
+			addTextViewValue("ç¡¬åº§", hard_seat, holder.v9);
 		} else {
 			holder.v9.setVisibility(View.GONE);
 		}
 		// ---------------------------------------
 		if (isHere(none_seat)) {
 			holder.v10.setVisibility(View.VISIBLE);
-			addTextViewValue("ÎŞ×ù", none_seat, holder.v10);
+			addTextViewValue("æ— åº§", none_seat, holder.v10);
 		} else {
 			holder.v10.setVisibility(View.GONE);
 		}
@@ -196,16 +196,16 @@ public class TrainItemAdapter extends BaseAdapter {
 	}
 
 	/**
-	 * 
+	 *
 	 * @param tag
-	 *            Ãû³Æ
+	 *            åç§°
 	 * @param business
-	 *            ±äÁ¿
+	 *            å˜é‡
 	 * @param v
-	 *            ¶ÔÏó
+	 *            å¯¹è±¡
 	 */
 	private void addTextViewValue(String tag, String business, TextView v) {
-		if (!business.equals("ÎŞ")) {
+		if (!business.equals("æ— ")) {
 			String temp = tag + " <font color='green'>" + business + "</font>";
 			v.setText(Html.fromHtml(temp));
 		} else {
@@ -214,8 +214,8 @@ public class TrainItemAdapter extends BaseAdapter {
 	}
 
 	/**
-	 * ÊÇ·ñ´æÔÚ
-	 * 
+	 * æ˜¯å¦å­˜åœ¨
+	 *
 	 * @param temp1
 	 * @param temp2
 	 * @return

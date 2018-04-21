@@ -29,10 +29,10 @@ import com.zams.www.R;
 import com.zijunlin.Zxing.Demo.CaptureActivity;
 
 /**
- * ±®√˚«©µΩ
- * 
+ * Êä•ÂêçÁ≠æÂà∞
+ *
  * @author
- * 
+ *
  */
 public class TishiBaoMinQianDaoActivity extends Activity implements OnClickListener {
 	private TextView btnConfirm, tv_conent, tv_name,tv_nianlin,tv_group_name;//
@@ -46,34 +46,34 @@ public class TishiBaoMinQianDaoActivity extends Activity implements OnClickListe
 	String login_sign, amount;
 	String user_name, user_id, headimgurl, access_token, unionid, area,
 			real_name,birthday,sex,datetime,mobile,nianlin,trade_no,group_name;
-    int shuzi = 0;
+	int shuzi = 0;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_tishi_baomin_qiandao);
 		try {
-		spPreferences = getSharedPreferences("longuserset", MODE_PRIVATE);
-		user_name = spPreferences.getString("user", "");
-//		real_name = spPreferences.getString("real_name", "");
-//		mobile = spPreferences.getString("mobile", "");
-		group_name = spPreferences.getString("group_name", "");
-		user_id = spPreferences.getString("user_id", "");
-		login_sign = spPreferences.getString("login_sign", "");
-//		birthday = spPreferences.getString("birthday", "").substring(0, 4);
-//		sex = spPreferences.getString("sex", "");
-		datetime = spPreferences.getString("datetime", "").substring(0, 4);
-		progress = new DialogProgress(TishiBaoMinQianDaoActivity.this);
-//		int birthday1 = Integer.valueOf(birthday);
-//		int datetime2 = Integer.valueOf(datetime);
-//		System.out.println("birthday1-------------------"+birthday1);
-//		System.out.println("datetime2-------------------"+datetime2);
-//		int age = datetime2 - birthday1;
-//		System.out.println("age/////////////////////"+age);
-//		nianlin = String.valueOf(age);
-//		System.out.println("nianlin////////////////"+nianlin);
-		initUI();
-		load_list();
+			spPreferences = getSharedPreferences("longuserset", MODE_PRIVATE);
+			user_name = spPreferences.getString("user", "");
+			//		real_name = spPreferences.getString("real_name", "");
+			//		mobile = spPreferences.getString("mobile", "");
+			group_name = spPreferences.getString("group_name", "");
+			user_id = spPreferences.getString("user_id", "");
+			login_sign = spPreferences.getString("login_sign", "");
+			//		birthday = spPreferences.getString("birthday", "").substring(0, 4);
+			//		sex = spPreferences.getString("sex", "");
+			datetime = spPreferences.getString("datetime", "").substring(0, 4);
+			progress = new DialogProgress(TishiBaoMinQianDaoActivity.this);
+			//		int birthday1 = Integer.valueOf(birthday);
+			//		int datetime2 = Integer.valueOf(datetime);
+			//		System.out.println("birthday1-------------------"+birthday1);
+			//		System.out.println("datetime2-------------------"+datetime2);
+			//		int age = datetime2 - birthday1;
+			//		System.out.println("age/////////////////////"+age);
+			//		nianlin = String.valueOf(age);
+			//		System.out.println("nianlin////////////////"+nianlin);
+			initUI();
+			load_list();
 		} catch (Exception e) {
 			// TODO: handle exception
 			e.printStackTrace();
@@ -81,49 +81,49 @@ public class TishiBaoMinQianDaoActivity extends Activity implements OnClickListe
 	}
 
 	/**
-	 * ±®√˚«©µΩ
+	 * Êä•ÂêçÁ≠æÂà∞
 	 */
 	private void load_list() {
 		progress.CreateProgress();
 		String trade_no1 = getIntent().getStringExtra("bianma");
 		System.out.println("=========trade_no1============" + trade_no1);
 		AsyncHttp.get(RealmName.REALM_NAME_LL + "/signup_award?sales_id="
-				+ user_id + "&sales_name=" + user_name + "" + "&trade_no="
-				+ trade_no1 + "&sign=" + login_sign + "",
+						+ user_id + "&sales_name=" + user_name + "" + "&trade_no="
+						+ trade_no1 + "&sign=" + login_sign + "",
 				new AsyncHttpResponseHandler() {
 					@Override
 					public void onSuccess(int arg0, String arg1) {
 						// TODO Auto-generated method stub
 						super.onSuccess(arg0, arg1);
-						System.out.println("========= ˝æ›Ω”ø⁄============" + arg1);
+						System.out.println("=========Êï∞ÊçÆÊé•Âè£============" + arg1);
 						try {
 							JSONObject object = new JSONObject(arg1);
 							String status = object.getString("status");
 							String info = object.getString("info");
 							if (status.equals("y")) {
 								JSONObject obj = object.getJSONObject("data");
-//								 JSONArray jsonArray = object.getJSONArray("data");
-//								 for (int i = 0; i < jsonArray.length(); i++) {
-//								 JSONObject obj= jsonArray.getJSONObject(i);
-								 trade_no = obj.getString("trade_no");
-								 real_name = obj.getString("real_name");
-								 mobile = obj.getString("mobile");
-								 sex = obj.getString("sex");
-								 birthday = obj.getString("birthday");
-//								 birthday = obj.getString("birthday").substring(0, 4);
-								 nianlin = obj.getString("age");
-								 String group_name = obj.getString("group_name");
-//								 }
-//								int birthday1 = Integer.valueOf(birthday);
-//								int datetime2 = Integer.valueOf(datetime);
-//								System.out.println("birthday1-------------------"+birthday1);
-//								System.out.println("datetime2-------------------"+datetime2);
-//								nianlin = String.valueOf(datetime2 - birthday1);
-//								System.out.println("nianlin////////////////"+nianlin);
-								
+								//								 JSONArray jsonArray = object.getJSONArray("data");
+								//								 for (int i = 0; i < jsonArray.length(); i++) {
+								//								 JSONObject obj= jsonArray.getJSONObject(i);
+								trade_no = obj.getString("trade_no");
+								real_name = obj.getString("real_name");
+								mobile = obj.getString("mobile");
+								sex = obj.getString("sex");
+								birthday = obj.getString("birthday");
+								//								 birthday = obj.getString("birthday").substring(0, 4);
+								nianlin = obj.getString("age");
+								String group_name = obj.getString("group_name");
+								//								 }
+								//								int birthday1 = Integer.valueOf(birthday);
+								//								int datetime2 = Integer.valueOf(datetime);
+								//								System.out.println("birthday1-------------------"+birthday1);
+								//								System.out.println("datetime2-------------------"+datetime2);
+								//								nianlin = String.valueOf(datetime2 - birthday1);
+								//								System.out.println("nianlin////////////////"+nianlin);
+
 								ll_qiandao_ok.setVisibility(View.VISIBLE);
 								tv_name.setText(real_name + "(" + mobile+ ")");
-								tv_nianlin.setText(sex +"  "+nianlin+"ÀÍ");
+								tv_nianlin.setText(sex +"  "+nianlin+"Â≤Å");
 								tv_group_name.setText(group_name);
 								progress.CloseProgress();
 							} else {
@@ -141,57 +141,57 @@ public class TishiBaoMinQianDaoActivity extends Activity implements OnClickListe
 					public void onFailure(Throwable arg0, String arg1) {
 						// TODO Auto-generated method stub
 						progress.CloseProgress();
-						System.out.println("==========================∑√Œ Ω”ø⁄ ß∞‹£°");
+						System.out.println("==========================ËÆøÈóÆÊé•Âè£Â§±Ë¥•ÔºÅ");
 						System.out.println("==========================" + arg1);
-						Toast.makeText(TishiBaoMinQianDaoActivity.this, "“Ï≥£", 200)
+						Toast.makeText(TishiBaoMinQianDaoActivity.this, "ÂºÇÂ∏∏", 200)
 								.show();
 						super.onFailure(arg0, arg1);
 					}
 
 				}, TishiBaoMinQianDaoActivity.this);
 	}
-	
+
 	/**
-	 * ±®√˚»∑»œ
+	 * Êä•ÂêçÁ°ÆËÆ§
 	 */
 	private void baomingqueren() {
 		try {
-//			progress.CreateProgress();
-//			String id = getIntent().getStringExtra("id");
-		   AsyncHttp.get(RealmName.REALM_NAME_LL
-				+ "/signup_award_confirm?trade_no="+trade_no+"&express_status="+shuzi+"",
-				new AsyncHttpResponseHandler() {
-					@Override
-					public void onSuccess(int arg0, String arg1) {
-						super.onSuccess(arg0, arg1);
-						try {
-							JSONObject object = new JSONObject(arg1);
-							System.out.println("±®√˚»∑»œ================================="+arg1);
-							  String status = object.getString("status");
-							    String info = object.getString("info");
-							    if (status.equals("y")) {
-							    	   progress.CloseProgress();
-//							    	   Toast.makeText(TishiBaoMinQianDaoActivity.this, info, 200).show();
-							    	   finish();
-							    }else {
-							    	progress.CloseProgress();
+			//			progress.CreateProgress();
+			//			String id = getIntent().getStringExtra("id");
+			AsyncHttp.get(RealmName.REALM_NAME_LL
+							+ "/signup_award_confirm?trade_no="+trade_no+"&express_status="+shuzi+"",
+					new AsyncHttpResponseHandler() {
+						@Override
+						public void onSuccess(int arg0, String arg1) {
+							super.onSuccess(arg0, arg1);
+							try {
+								JSONObject object = new JSONObject(arg1);
+								System.out.println("Êä•ÂêçÁ°ÆËÆ§================================="+arg1);
+								String status = object.getString("status");
+								String info = object.getString("info");
+								if (status.equals("y")) {
+									progress.CloseProgress();
+									//							    	   Toast.makeText(TishiBaoMinQianDaoActivity.this, info, 200).show();
+									finish();
+								}else {
+									progress.CloseProgress();
 									Toast.makeText(TishiBaoMinQianDaoActivity.this, info, 200).show();
 								}
-						} catch (JSONException e) {
-							e.printStackTrace();
+							} catch (JSONException e) {
+								e.printStackTrace();
+							}
 						}
-					}
-					
-					@Override
-					public void onFailure(Throwable arg0, String arg1) {
-						// TODO Auto-generated method stub
-						super.onFailure(arg0, arg1);
-						progress.CloseProgress();
-						System.out.println("“Ï≥£================================="+arg1);
-//						Toast.makeText(DianZiPiaoActivity.this, "Õ¯¬Á≥¨ ±“Ï≥£", 200).show();
-					}
-				}, null);
-		
+
+						@Override
+						public void onFailure(Throwable arg0, String arg1) {
+							// TODO Auto-generated method stub
+							super.onFailure(arg0, arg1);
+							progress.CloseProgress();
+							System.out.println("ÂºÇÂ∏∏================================="+arg1);
+							//						Toast.makeText(DianZiPiaoActivity.this, "ÁΩëÁªúË∂ÖÊó∂ÂºÇÂ∏∏", 200).show();
+						}
+					}, null);
+
 		} catch (Exception e) {
 			// TODO: handle exception
 			e.printStackTrace();
@@ -207,15 +207,15 @@ public class TishiBaoMinQianDaoActivity extends Activity implements OnClickListe
 			tv_group_name = (TextView) findViewById(R.id.tv_group_name);
 			ll_qiandao_ok = (LinearLayout) findViewById(R.id.ll_qiandao_ok);
 			btnConfirm.setOnClickListener(this);//
-			 btnCancle =(TextView) findViewById(R.id.btnCancle);
-			 btnCancle.setOnClickListener(this);//
+			btnCancle =(TextView) findViewById(R.id.btnCancle);
+			btnCancle.setOnClickListener(this);//
 			// tv_conent.setText(getIntent().getStringExtra("bianma"));
 			tv_name = (TextView) findViewById(R.id.tv_name);//
 
 			handler = new Handler() {
 				public void handleMessage(Message msg) {
 					switch (msg.what) {
-					case 8:
+						case 8:
 
 					}
 				}
@@ -227,45 +227,45 @@ public class TishiBaoMinQianDaoActivity extends Activity implements OnClickListe
 	}
 
 	/**
-	 * µ„ª˜¥•∑¢ ¬º˛
+	 * ÁÇπÂáªËß¶Âèë‰∫ã‰ª∂
 	 */
 	@Override
 	public void onClick(View v) {
 		// TODO Auto-generated method stub
 		intent = new Intent();
 		switch (v.getId()) {
-		case R.id.btnConfirm:// »∑»œ
-			shuzi = 2;
-			baomingqueren();
-//			finish();
-		    String qiandao1 = getIntent().getStringExtra("qiandao");
-		    System.out.println("qiandao1================================="+qiandao1);
-		    if (qiandao1.equals("1")) {// ‰»Î ÷ª˙∫≈≤È—Ø≈–∂œŒ™1≤ªÃ¯◊™µΩ…®“ª…®ΩÁ√Ê
-				
-			}else {
-			Intent intent = new Intent(TishiBaoMinQianDaoActivity.this,CaptureActivity.class);
-			intent.putExtra("sp_sys", getIntent().getStringExtra("sp_sys"));
-		    startActivity(intent);
-			}
-			break;
-		 case R.id.btnCancle://»°œ˚
-			shuzi = 1;
-			baomingqueren();
-//		    finish();
-		    String qiandao2 = getIntent().getStringExtra("qiandao");
-		    System.out.println("qiandao2================================="+qiandao2);
-		    if (qiandao2.equals("1")) {// ‰»Î ÷ª˙∫≈≤È—Ø≈–∂œŒ™1≤ªÃ¯◊™µΩ…®“ª…®ΩÁ√Ê
-				
-			}else {
-			Intent intent1 = new Intent(TishiBaoMinQianDaoActivity.this,CaptureActivity.class);
-			intent1.putExtra("sp_sys", getIntent().getStringExtra("sp_sys"));
-		    startActivity(intent1);
-			}
-		 break;
-		 
+			case R.id.btnConfirm:// Á°ÆËÆ§
+				shuzi = 2;
+				baomingqueren();
+				//			finish();
+				String qiandao1 = getIntent().getStringExtra("qiandao");
+				System.out.println("qiandao1================================="+qiandao1);
+				if (qiandao1.equals("1")) {//ËæìÂÖ•ÊâãÊú∫Âè∑Êü•ËØ¢Âà§Êñ≠‰∏∫1‰∏çË∑≥ËΩ¨Âà∞Êâ´‰∏ÄÊâ´ÁïåÈù¢
 
-		default:
-			break;
+				}else {
+					Intent intent = new Intent(TishiBaoMinQianDaoActivity.this,CaptureActivity.class);
+					intent.putExtra("sp_sys", getIntent().getStringExtra("sp_sys"));
+					startActivity(intent);
+				}
+				break;
+			case R.id.btnCancle://ÂèñÊ∂à
+				shuzi = 1;
+				baomingqueren();
+				//		    finish();
+				String qiandao2 = getIntent().getStringExtra("qiandao");
+				System.out.println("qiandao2================================="+qiandao2);
+				if (qiandao2.equals("1")) {//ËæìÂÖ•ÊâãÊú∫Âè∑Êü•ËØ¢Âà§Êñ≠‰∏∫1‰∏çË∑≥ËΩ¨Âà∞Êâ´‰∏ÄÊâ´ÁïåÈù¢
+
+				}else {
+					Intent intent1 = new Intent(TishiBaoMinQianDaoActivity.this,CaptureActivity.class);
+					intent1.putExtra("sp_sys", getIntent().getStringExtra("sp_sys"));
+					startActivity(intent1);
+				}
+				break;
+
+
+			default:
+				break;
 		}
 	}
 

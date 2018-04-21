@@ -74,55 +74,55 @@ public class ZhiFuFangShiActivity extends BaseActivity implements
 		public void dispatchMessage(Message msg) {
 
 			switch (msg.what) {
-			case 0:
-				zhiAdapter = new ZhiFufangshiAdapter(getApplicationContext(),
-						list);
-				listView.setAdapter(zhiAdapter);
+				case 0:
+					zhiAdapter = new ZhiFufangshiAdapter(getApplicationContext(),
+							list);
+					listView.setAdapter(zhiAdapter);
 
-				listView.setOnItemClickListener(new OnItemClickListener() {
+					listView.setOnItemClickListener(new OnItemClickListener() {
 
-					@Override
-					public void onItemClick(AdapterView<?> arg0, View arg1,
-							int arg2, long arg3) {
-						// TODO Auto-generated method stub
-						try {
-							express_id = list.get(arg2).getId();
-							title = list.get(arg2).getTitle();
-							express_fee = list.get(arg2).getExpress_fee();
+						@Override
+						public void onItemClick(AdapterView<?> arg0, View arg1,
+												int arg2, long arg3) {
+							// TODO Auto-generated method stub
+							try {
+								express_id = list.get(arg2).getId();
+								title = list.get(arg2).getTitle();
+								express_fee = list.get(arg2).getExpress_fee();
 
-							System.out.println("=====id====================="
-									+ express_id);
-							// zhiAdapter.setSeclection(arg2);
-							// zhiAdapter.notifyDataSetChanged();
-							// Intent intent = new
-							// Intent(ZhiFuFangShiActivity.this,
-							// MyOrderConfrimActivity.class);
-							// intent.putExtra("id", id);
-							// intent.putExtra("title", title);
-							// startActivity(intent);
-							// int position = listView.getCheckedItemPosition();
-							// if(ListView.INVALID_POSITION != position){
-							// Toast.makeText(ZhiFuFangShiActivity.this,list.get(arg2).getTitle(),
-							// 0).show();
-							// }
-							finish();
-						} catch (Exception e) {
-							// TODO: handle exception
-							e.printStackTrace();
+								System.out.println("=====id====================="
+										+ express_id);
+								// zhiAdapter.setSeclection(arg2);
+								// zhiAdapter.notifyDataSetChanged();
+								// Intent intent = new
+								// Intent(ZhiFuFangShiActivity.this,
+								// MyOrderConfrimActivity.class);
+								// intent.putExtra("id", id);
+								// intent.putExtra("title", title);
+								// startActivity(intent);
+								// int position = listView.getCheckedItemPosition();
+								// if(ListView.INVALID_POSITION != position){
+								// Toast.makeText(ZhiFuFangShiActivity.this,list.get(arg2).getTitle(),
+								// 0).show();
+								// }
+								finish();
+							} catch (Exception e) {
+								// TODO: handle exception
+								e.printStackTrace();
+							}
 						}
-					}
-				});
-				break;
-			case 1:
-				break;
-			default:
-				break;
+					});
+					break;
+				case 1:
+					break;
+				default:
+					break;
 			}
 		}
 	};
 
 	/**
-	 * ≈‰ÀÕ∑Ω Ω
+	 * ÈÖçÈÄÅÊñπÂºè
 	 */
 	private void loadWeather() {
 		AsyncHttp.get(RealmName.REALM_NAME_LL + "/get_express_list?top=5",
@@ -131,7 +131,7 @@ public class ZhiFuFangShiActivity extends BaseActivity implements
 					public void onSuccess(int arg0, String arg1) {
 						// TODO Auto-generated method stub
 						super.onSuccess(arg0, arg1);
-						System.out.println(" ‰≥ˆÀ˘”–∆¥Õ≈ªÓ∂Ø¡–±Ì=========" + arg1);
+						System.out.println("ËæìÂá∫ÊâÄÊúâÊãºÂõ¢Ê¥ªÂä®ÂàóË°®=========" + arg1);
 						try {
 							list = new ArrayList<JuTuanGouData>();
 
@@ -173,13 +173,13 @@ public class ZhiFuFangShiActivity extends BaseActivity implements
 	public void onClick(View v) {
 		// TODO Auto-generated method stub
 		switch (v.getId()) {
-		case R.id.item0:
-			break;
-		case R.id.btn_login:
-			finish();
-			break;
-		default:
-			break;
+			case R.id.item0:
+				break;
+			case R.id.btn_login:
+				finish();
+				break;
+			default:
+				break;
 		}
 	}
 

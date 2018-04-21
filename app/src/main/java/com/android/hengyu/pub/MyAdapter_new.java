@@ -23,30 +23,30 @@ public class MyAdapter_new extends BaseAdapter {
 	private List<EnterpriseData> List;
 	private LayoutInflater mInflater;
 	private int clickTemp = 0;
-//	private int clickTemp = -1;
+	//	private int clickTemp = -1;
 	AQuery mAQuery;
 	public MyAdapter_new(Context context, List<EnterpriseData> list){
 		this.List = list;
 		this.mContext = context;
 		mInflater = LayoutInflater.from(context);
 		mAQuery = new AQuery(context);
-//		System.out.println("============="+list.size()+1);
+		//		System.out.println("============="+list.size()+1);
 	}
-	
+
 	@Override
 	public int getCount() {
 		if (List.size()<1) {
 			return 0;
 		}else{
 			return List.size();
-			
+
 		}
 	}
-	
+
 	public void setSeclection(int position) {
 		clickTemp = position;
 	}
-	
+
 	@Override
 	public Object getItem(int position) {
 		// TODO Auto-generated method stub
@@ -66,40 +66,40 @@ public class MyAdapter_new extends BaseAdapter {
 			convertView = mInflater.inflate(R.layout.jys_leibie_item, null);
 			holder.img = (ImageView) convertView.findViewById(R.id.img);
 			holder.text = (TextView) convertView.findViewById(R.id.tv);
-//			holder.radioButton = (RadioButton) convertView.findViewById(R.id.radioButton);
+			//			holder.radioButton = (RadioButton) convertView.findViewById(R.id.radioButton);
 			convertView.setTag(holder);
 		}else {
 			holder = (ViewHolder) convertView.getTag();
 		}
-		
-		 try {
-			
-		 System.out.println("����1======================"+position);
+
+		try {
+
+			System.out.println("个数1======================"+position);
 			if (position == 0) {
-				holder.text.setText("ȫ��");
+				holder.text.setText("全部");
 				holder.img.setImageResource(R.drawable.quanbu);
-//				image.setImageDrawable(getResources().getDrawable(R.drawable.yourimage);
+				//				image.setImageDrawable(getResources().getDrawable(R.drawable.yourimage);
 			}
-		
-    	if (position > 0) {
-			holder.text.setText(List.get(position).title);
-//	        ImageLoader imageLoader=ImageLoader.getInstance();
-//	        imageLoader.displayImage((String) RealmName.REALM_NAME_HTTP+List.get(position).icon_url,holder.img);
-	        mAQuery.id(holder.img).image(RealmName.REALM_NAME_HTTP+List.get(position).icon_url);
+
+			if (position > 0) {
+				holder.text.setText(List.get(position).title);
+				//	        ImageLoader imageLoader=ImageLoader.getInstance();
+				//	        imageLoader.displayImage((String) RealmName.REALM_NAME_HTTP+List.get(position).icon_url,holder.img);
+				mAQuery.id(holder.img).image(RealmName.REALM_NAME_HTTP+List.get(position).icon_url);
 			}
-    	
-		
-		 } catch (Exception e) {
-				// TODO: handle exception
-			 e.printStackTrace();
-			}
+
+
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
 		if (clickTemp == position) {
-//			convertView.setBackgroundResource(R.drawable.julegou_xuankuang);//julegou_xuankuang 
+			//			convertView.setBackgroundResource(R.drawable.julegou_xuankuang);//julegou_xuankuang
 			holder.text.setTextColor(Color.RED);
 		} else {
-//			convertView.setBackgroundResource(R.drawable.zangfutiaoli);//julegou_xuankuang 
+			//			convertView.setBackgroundResource(R.drawable.zangfutiaoli);//julegou_xuankuang
 			holder.text.setTextColor(Color.GRAY);
-	    }
+		}
 		return convertView;
 	}
 

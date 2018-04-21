@@ -3,7 +3,7 @@ package com.lglottery.www.common;
 public class Config {
 	public static final boolean DEVELOPER_MODE = false;
 	/**
-	 * LanucherActivityµÄ³£Á¿
+	 * LanucherActivityçš„å¸¸é‡
 	 */
 	public static final int LANUCHERCHILDA = 0;
 	public static final boolean DEBUG = true;

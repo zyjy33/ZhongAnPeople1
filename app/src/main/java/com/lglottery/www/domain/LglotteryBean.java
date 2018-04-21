@@ -6,13 +6,13 @@ import java.util.Queue;
 
 public class LglotteryBean implements Serializable {
 	/**
-	 * 
+	 *
 	 */
 	private static final long serialVersionUID = 1L;
 	private int tag;
 	private int balance;
 	private int jinbi;
-	private String id;// ß[‘ò½MĞòÌ–
+	private String id;// ÃŸ[â€˜Ã²Â½MÃÃ²ÃŒâ€“
 
 	public int getBalance() {
 		return balance;

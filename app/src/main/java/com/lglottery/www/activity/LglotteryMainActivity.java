@@ -57,18 +57,18 @@ public class LglotteryMainActivity extends BaseActivity {
 		@SuppressWarnings("unchecked")
 		public void dispatchMessage(Message msg) {
 			switch (msg.what) {
-			case 0:
-				ArrayList<Lglottery_Main> lists = (ArrayList<Lglottery_Main>) msg.obj;
-				lglotteryContentAdapter.reloadQueen();
-				lglotteryContentAdapter.putLists(lists);
-				break;
-			case 1:
-				ArrayList<Lglottery_Main> lists1 = (ArrayList<Lglottery_Main>) msg.obj;
-				lglotteryContentAdapter.putLists(lists1);
-				// lglotteryContentAdapter.notifyDataSetChanged();
-				break;
-			default:
-				break;
+				case 0:
+					ArrayList<Lglottery_Main> lists = (ArrayList<Lglottery_Main>) msg.obj;
+					lglotteryContentAdapter.reloadQueen();
+					lglotteryContentAdapter.putLists(lists);
+					break;
+				case 1:
+					ArrayList<Lglottery_Main> lists1 = (ArrayList<Lglottery_Main>) msg.obj;
+					lglotteryContentAdapter.putLists(lists1);
+					// lglotteryContentAdapter.notifyDataSetChanged();
+					break;
+				default:
+					break;
 			}
 		};
 	};
@@ -79,61 +79,61 @@ public class LglotteryMainActivity extends BaseActivity {
 		public void onClick(View view) {
 			// TODO Auto-generated method stub
 			switch (view.getId()) {
-			case R.id.lglottery_pop_closed:
-				if (mPopupWindow.isShowing()) {
-					mPopupWindow.dismiss();
-				}
-
-				break;
-			case R.id.lglottery_main_ok:
-
-				try {
-					if (maps.get("1").size() == 2 && maps.get("2").size() == 2
-							&& maps.get("3").size() == 2) {
-						// Êı¾İÔÚÕâÀï
-						bean.setMaps(maps);
-						Intent realdyIntent = new Intent(
-								LglotteryMainActivity.this,
-								LglotteryRealdyActivity.class);
-						bundle.putSerializable("lglottery_object", bean);
-						realdyIntent.putExtras(bundle);
-						startActivity(realdyIntent);
-					} else {
-						Toast.makeText(getApplicationContext(), "Çë´ÓABCÖĞ¸÷Ñ¡2·İ",
-								200).show();
+				case R.id.lglottery_pop_closed:
+					if (mPopupWindow.isShowing()) {
+						mPopupWindow.dismiss();
 					}
-				} catch (NullPointerException e) {
-					Toast.makeText(getApplicationContext(), "Çë´ÓABCÖĞ¸÷Ñ¡2·İ", 200)
-							.show();
-					e.printStackTrace();
-				}
+
+					break;
+				case R.id.lglottery_main_ok:
+
+					try {
+						if (maps.get("1").size() == 2 && maps.get("2").size() == 2
+								&& maps.get("3").size() == 2) {
+							// æ•°æ®åœ¨è¿™é‡Œ
+							bean.setMaps(maps);
+							Intent realdyIntent = new Intent(
+									LglotteryMainActivity.this,
+									LglotteryRealdyActivity.class);
+							bundle.putSerializable("lglottery_object", bean);
+							realdyIntent.putExtras(bundle);
+							startActivity(realdyIntent);
+						} else {
+							Toast.makeText(getApplicationContext(), "è¯·ä»ABCä¸­å„é€‰2ä»½",
+									200).show();
+						}
+					} catch (NullPointerException e) {
+						Toast.makeText(getApplicationContext(), "è¯·ä»ABCä¸­å„é€‰2ä»½", 200)
+								.show();
+						e.printStackTrace();
+					}
 
 				/*
-				 * //×¢ÊÍµôÒÔÇ°µÄ¿Û½ğ±ÒµÄ·½Ê½ initPopupWindow();
+				 * //æ³¨é‡Šæ‰ä»¥å‰çš„æ‰£é‡‘å¸çš„æ–¹å¼ initPopupWindow();
 				 * showPopupWindow(lglottery_main_content); try {
-				 * System.out.println(maps.size() + "µÄ³¤¶È");
-				 * System.out.println(maps.get("1").size() + "µÄéL¶È"); } catch
+				 * System.out.println(maps.size() + "çš„é•¿åº¦");
+				 * System.out.println(maps.get("1").size() + "çš„é•·åº¦"); } catch
 				 * (NullPointerException e) { // TODO: handle exception }
 				 */
 				/*
 				 * initPopupWindow(); showPopupWindow(lglottery_main_content);
 				 */
-				break;
-			default:
-				break;
+					break;
+				default:
+					break;
 			}
 		}
 	};
 
 	/**
-	 * ÄÃÈ¡½±Æ·
-	 * 
+	 * æ‹¿å–å¥–å“
+	 *
 	 * @param typeId
 	 */
 	private void connect(String typeId) {
 		// LotteryGameGroupId=1&LotteryGameTypeId=3&yth=lemon123
 		RequestParams params = new RequestParams();
-		WLog.v("ÕâÀïĞèÒªĞŞ¸Ä" + bean.getId());
+		WLog.v("è¿™é‡Œéœ€è¦ä¿®æ”¹" + bean.getId());
 		params.put("LotteryGameGroupId", bean.getId());
 		params.put("LotteryGameTypeId", typeId);
 		params.put("yth", sharedUtils.getStringValue("yth"));
@@ -191,20 +191,20 @@ public class LglotteryMainActivity extends BaseActivity {
 
 	private void statusRadioButton(int index) {
 		switch (index) {
-		case R.id.lglottery_main_a:
-			lglottery_main_a.setChecked(true);
-			connect("1");
-			break;
-		case R.id.lglottery_main_b:
-			lglottery_main_b.setChecked(true);
-			connect("2");
-			break;
-		case R.id.lglottery_main_c:
-			lglottery_main_c.setChecked(true);
-			connect("3");
-			break;
-		default:
-			break;
+			case R.id.lglottery_main_a:
+				lglottery_main_a.setChecked(true);
+				connect("1");
+				break;
+			case R.id.lglottery_main_b:
+				lglottery_main_b.setChecked(true);
+				connect("2");
+				break;
+			case R.id.lglottery_main_c:
+				lglottery_main_c.setChecked(true);
+				connect("3");
+				break;
+			default:
+				break;
 		}
 	}
 
@@ -242,7 +242,7 @@ public class LglotteryMainActivity extends BaseActivity {
 
 					@Override
 					public void onItemClick(AdapterView<?> arg0, View arg1,
-							int arg2, long arg3) {
+											int arg2, long arg3) {
 						// TODO Auto-generated method stub
 						lglotteryContentAdapter.setSelectItem(arg2);
 						lglotteryContentAdapter.notifyDataSetChanged();
@@ -290,13 +290,13 @@ public class LglotteryMainActivity extends BaseActivity {
 		mPopupWindow = new PopupWindow(popView, LayoutParams.MATCH_PARENT,
 				LayoutParams.MATCH_PARENT);
 		// mPopupWindow.setBackgroundDrawable(new
-		// BitmapDrawable());//±ØĞëÉèÖÃbackground²ÅÄÜÏûÊ§
+		// BitmapDrawable());//å¿…é¡»è®¾ç½®backgroundæ‰èƒ½æ¶ˆå¤±
 		mPopupWindow.setBackgroundDrawable(getResources().getDrawable(
 				R.color.ban_louming));
 		mPopupWindow.setOutsideTouchable(true);
-		// ×Ô¶¨Òå¶¯»­
+		// è‡ªå®šä¹‰åŠ¨ç”»
 		// mPopupWindow.setAnimationStyle(R.style.PopupAnimation);
-		// Ê¹ÓÃÏµÍ³¶¯»­
+		// ä½¿ç”¨ç³»ç»ŸåŠ¨ç”»
 		mPopupWindow.setAnimationStyle(android.R.style.Animation_Toast);
 		mPopupWindow.update();
 		mPopupWindow.setTouchable(true);
@@ -310,8 +310,8 @@ public class LglotteryMainActivity extends BaseActivity {
 	private void showPopupWindow(View view) {
 		if (!mPopupWindow.isShowing()) {
 			// mPopupWindow.showAsDropDown(view,0,0);
-			// µÚÒ»¸ö²ÎÊıÖ¸¶¨PopupWindowµÄÃªµãview£¬¼´ÒÀ¸½ÔÚÄÄ¸öviewÉÏ¡£
-			// µÚ¶ş¸ö²ÎÊıÖ¸¶¨ÆğÊ¼µãÎªparentµÄÓÒÏÂ½Ç£¬µÚÈı¸ö²ÎÊıÉèÖÃÒÔparentµÄÓÒÏÂ½ÇÎªÔ­µã£¬Ïò×ó¡¢ÉÏ¸÷Æ«ÒÆ10ÏñËØ¡£
+			// ç¬¬ä¸€ä¸ªå‚æ•°æŒ‡å®šPopupWindowçš„é”šç‚¹viewï¼Œå³ä¾é™„åœ¨å“ªä¸ªviewä¸Šã€‚
+			// ç¬¬äºŒä¸ªå‚æ•°æŒ‡å®šèµ·å§‹ç‚¹ä¸ºparentçš„å³ä¸‹è§’ï¼Œç¬¬ä¸‰ä¸ªå‚æ•°è®¾ç½®ä»¥parentçš„å³ä¸‹è§’ä¸ºåŸç‚¹ï¼Œå‘å·¦ã€ä¸Šå„åç§»10åƒç´ ã€‚
 			// int[] location = new int[2];
 			// view.getLocationOnScreen(location);
 			mPopupWindow.showAtLocation(view, Gravity.CENTER, 0, 0);

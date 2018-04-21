@@ -51,10 +51,10 @@ import com.zams.www.R;
 import com.zijunlin.Zxing.Demo.CaptureActivity;
 
 /**
- * œ¬µ•
- * 
+ * ‰∏ãÂçï
+ *
  * @author Administrator
- * 
+ *
  */
 public class QuHuoListActivity extends BaseActivity {
 
@@ -105,8 +105,8 @@ public class QuHuoListActivity extends BaseActivity {
 	// }
 
 	/**
-	 * ¡–±Ì ˝æ›Ω‚Œˆ
-	 * 
+	 * ÂàóË°®Êï∞ÊçÆËß£Êûê
+	 *
 	 * @param content
 	 */
 	private void load_list(String content) {
@@ -114,65 +114,65 @@ public class QuHuoListActivity extends BaseActivity {
 			progress.CloseProgress();
 			list = new ArrayList<ShopCartData>();
 			AsyncHttp.get(RealmName.REALM_NAME_LL
-					+ "/order_goods_accept?accept_no=" + content + "",
+							+ "/order_goods_accept?accept_no=" + content + "",
 
-			new AsyncHttpResponseHandler() {
-				@Override
-				public void onSuccess(int arg0, String arg1) {
-					// TODO Auto-generated method stub
-					super.onSuccess(arg0, arg1);
-					System.out.println("=====================∂˛º∂÷µ11" + arg1);
-					try {
-						JSONObject jsonObject = new JSONObject(arg1);
-						String status = jsonObject.getString("status");
-						String info = jsonObject.getString("info");
-						if (status.equals("y")) {
+					new AsyncHttpResponseHandler() {
+						@Override
+						public void onSuccess(int arg0, String arg1) {
+							// TODO Auto-generated method stub
+							super.onSuccess(arg0, arg1);
+							System.out.println("=====================‰∫åÁ∫ßÂÄº11" + arg1);
 							try {
-								JSONObject jsonobt = jsonObject
-										.getJSONObject("data");
-								data = new ShopCartData();
-								// data.setId(jsonobt.getString("id"));
-								// data.setTitle(jsonobt.getString("title"));
-								// data.setImg_url(jsonobt.getString("img_url"));
-								// data.quantity = jsonobt.getInt("quantity");
-								String order_goods = jsonobt
-										.getString("order_goods");
-								JSONArray ja = new JSONArray(order_goods);
-								for (int j = 0; j < ja.length(); j++) {
-									JSONObject obct = ja.getJSONObject(j);
-									data.setTitle(obct.getString("goods_title"));
-									data.setImg_url(obct.getString("img_url"));
-									// data.goods_id =
-									// obct.getString("goods_id");
-									data.article_id = obct
-											.getString("article_id");
-									data.market_price = obct
-											.getString("market_price");
-									data.sell_price = obct
-											.getString("sell_price");
-									data.quantity = obct.getInt("quantity");
+								JSONObject jsonObject = new JSONObject(arg1);
+								String status = jsonObject.getString("status");
+								String info = jsonObject.getString("info");
+								if (status.equals("y")) {
+									try {
+										JSONObject jsonobt = jsonObject
+												.getJSONObject("data");
+										data = new ShopCartData();
+										// data.setId(jsonobt.getString("id"));
+										// data.setTitle(jsonobt.getString("title"));
+										// data.setImg_url(jsonobt.getString("img_url"));
+										// data.quantity = jsonobt.getInt("quantity");
+										String order_goods = jsonobt
+												.getString("order_goods");
+										JSONArray ja = new JSONArray(order_goods);
+										for (int j = 0; j < ja.length(); j++) {
+											JSONObject obct = ja.getJSONObject(j);
+											data.setTitle(obct.getString("goods_title"));
+											data.setImg_url(obct.getString("img_url"));
+											// data.goods_id =
+											// obct.getString("goods_id");
+											data.article_id = obct
+													.getString("article_id");
+											data.market_price = obct
+													.getString("market_price");
+											data.sell_price = obct
+													.getString("sell_price");
+											data.quantity = obct.getInt("quantity");
+										}
+										list.add(data);
+										System.out
+												.println("====11=====================");
+									} catch (Exception e) {
+										// TODO: handle exception
+										e.printStackTrace();
+									}
+								} else {
+									progress.CloseProgress();
+									Toast.makeText(QuHuoListActivity.this, info, 200)
+											.show();
 								}
-								list.add(data);
-								System.out
-										.println("====11=====================");
-							} catch (Exception e) {
-								// TODO: handle exception
+								System.out.println("=====22=====================");
+								handler.sendEmptyMessage(0);
+
+							} catch (JSONException e) {
+								// TODO Auto-generated catch block
 								e.printStackTrace();
 							}
-						} else {
-							progress.CloseProgress();
-							Toast.makeText(QuHuoListActivity.this, info, 200)
-									.show();
 						}
-						System.out.println("=====22=====================");
-						handler.sendEmptyMessage(0);
-
-					} catch (JSONException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
-				}
-			}, QuHuoListActivity.this);
+					}, QuHuoListActivity.this);
 
 		} catch (Exception e) {
 			// TODO: handle exception
@@ -183,23 +183,23 @@ public class QuHuoListActivity extends BaseActivity {
 	Handler handler = new Handler() {
 		public void dispatchMessage(Message msg) {
 			switch (msg.what) {
-			case 0:
-				try {
+				case 0:
+					try {
 
-					System.out.println("=================5=" + list.size());
-					QuHuoListAdapter adapter = new QuHuoListAdapter(list,
-							QuHuoListActivity.this, imageLoader);
-					listView.setAdapter(adapter);
-					progress.CloseProgress();
+						System.out.println("=================5=" + list.size());
+						QuHuoListAdapter adapter = new QuHuoListAdapter(list,
+								QuHuoListActivity.this, imageLoader);
+						listView.setAdapter(adapter);
+						progress.CloseProgress();
 
-				} catch (Exception e) {
-					// TODO: handle exception
-					e.printStackTrace();
-				}
-				break;
+					} catch (Exception e) {
+						// TODO: handle exception
+						e.printStackTrace();
+					}
+					break;
 
-			default:
-				break;
+				default:
+					break;
 			}
 		};
 	};
@@ -232,8 +232,8 @@ public class QuHuoListActivity extends BaseActivity {
 	}
 
 	/**
-	 * ∑¢ªıÕÍ≥…
-	 * 
+	 * ÂèëË¥ßÂÆåÊàê
+	 *
 	 * @param jsonString2
 	 * @param content
 	 * @param goods_id
@@ -242,15 +242,15 @@ public class QuHuoListActivity extends BaseActivity {
 		try {
 			progress.CloseProgress();
 			AsyncHttp.get(RealmName.REALM_NAME_LL
-					+ "/order_goods_sendout?consigner_id=" + user_id
-					+ "&consigner_name=" + user_name + "&accept_no="
-					+ yanhuo_haoma + "&sign=" + login_sign + "",
+							+ "/order_goods_sendout?consigner_id=" + user_id
+							+ "&consigner_name=" + user_name + "&accept_no="
+							+ yanhuo_haoma + "&sign=" + login_sign + "",
 					new AsyncHttpResponseHandler() {
 						@Override
 						public void onSuccess(int arg0, String arg1) {
 							// TODO Auto-generated method stub
 							super.onSuccess(arg0, arg1);
-							System.out.println("=====================∂˛º∂÷µ11"
+							System.out.println("=====================‰∫åÁ∫ßÂÄº11"
 									+ arg1);
 							try {
 								JSONObject jsonObject = new JSONObject(arg1);

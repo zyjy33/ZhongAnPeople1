@@ -1,10 +1,5 @@
 package com.hengyushop.demo.hotel;
 
-import java.util.ArrayList;
-
-import com.nostra13.universalimageloader.core.ImageLoader;
-import com.zams.www.R;
-
 import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,13 +8,18 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.nostra13.universalimageloader.core.ImageLoader;
+import com.zams.www.R;
+
+import java.util.ArrayList;
+
 public class HotelItemAdapter extends BaseAdapter {
 	private Context context;
 	private ArrayList<HotelItem> list;
 	private ImageLoader imageLoader;
 
 	public HotelItemAdapter(Context context, ArrayList<HotelItem> list,
-			ImageLoader imageLoader) {
+							ImageLoader imageLoader) {
 		this.context = context;
 		this.list = list;
 		this.imageLoader = imageLoader;
@@ -71,7 +71,7 @@ public class HotelItemAdapter extends BaseAdapter {
 		holder.v2.setText(list.get(index).getAddress());
 		holder.v1.setText(list.get(index).getName());
 		imageLoader.displayImage(list.get(index).getImg(), holder.imageView);
-		holder.start.setText(list.get(index).getStart() + "ÐÇ¼¶");
+		holder.start.setText(list.get(index).getStart() + "æ˜Ÿçº§");
 		return view;
 	}
 

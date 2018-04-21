@@ -1,11 +1,14 @@
 package com.lglottery.www.activity;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import android.content.Intent;
+import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
+import android.view.View;
+import android.view.Window;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
+import android.widget.ListView;
 
 import com.hengyushop.demo.at.AsyncHttp;
 import com.hengyushop.demo.at.BaseActivity;
@@ -18,15 +21,13 @@ import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
 import com.zams.www.R;
 
-import android.content.Intent;
-import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
-import android.view.View;
-import android.view.Window;
-import android.widget.AdapterView;
-import android.widget.AdapterView.OnItemClickListener;
-import android.widget.ListView;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 
 public class LglotteryLogActivity extends BaseActivity {
 	private ArrayList<Lglottery_Log> lists;
@@ -37,19 +38,19 @@ public class LglotteryLogActivity extends BaseActivity {
 		@SuppressWarnings("unchecked")
 		public void dispatchMessage(android.os.Message msg) {
 			switch (msg.what) {
-			case 0:
-				lists = (ArrayList<Lglottery_Log>) msg.obj;
-				lglotteryLogAdapter.putList(lists);
-				break;
+				case 0:
+					lists = (ArrayList<Lglottery_Log>) msg.obj;
+					lglotteryLogAdapter.putList(lists);
+					break;
 
-			default:
-				break;
+				default:
+					break;
 			}
 		};
 	};
 
 	/**
-	 * 
+	 *
 	 */
 	private void init() {
 		lists = new ArrayList<Lglottery_Log>();
@@ -64,7 +65,7 @@ public class LglotteryLogActivity extends BaseActivity {
 
 		@Override
 		public void onItemClick(AdapterView<?> adapterView, View view,
-				int position, long arg3) {
+								int position, long arg3) {
 			Intent intent = new Intent(LglotteryLogActivity.this,
 					LglotteryGoActivity.class);
 
@@ -85,7 +86,7 @@ public class LglotteryLogActivity extends BaseActivity {
 	}
 
 	/**
-	 * Á´½Ó
+	 * é“¾æŽ¥
 	 */
 	private void connect() {
 		sharedUtils = new SharedUtils(getApplicationContext(),

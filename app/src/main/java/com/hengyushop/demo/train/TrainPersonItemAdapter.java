@@ -1,9 +1,5 @@
 package com.hengyushop.demo.train;
 
-import java.util.ArrayList;
-
-import com.zams.www.R;
-
 import android.content.Context;
 import android.os.Handler;
 import android.os.Message;
@@ -16,13 +12,17 @@ import android.widget.CompoundButton.OnCheckedChangeListener;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.zams.www.R;
+
+import java.util.ArrayList;
+
 public class TrainPersonItemAdapter extends BaseAdapter {
 	private Context context;
 	private ArrayList<TrainPersonItem> list;
 	private Handler handler;
 
 	public TrainPersonItemAdapter(Context context,
-			ArrayList<TrainPersonItem> list, Handler handler) {
+								  ArrayList<TrainPersonItem> list, Handler handler) {
 		this.context = context;
 		this.list = list;
 		this.handler = handler;
@@ -75,14 +75,14 @@ public class TrainPersonItemAdapter extends BaseAdapter {
 					.setOnCheckedChangeListener(new OnCheckedChangeListener() {
 						@Override
 						public void onCheckedChanged(CompoundButton arg0,
-								boolean arg1) {
+													 boolean arg1) {
 							// TODO Auto-generated method stub
 							TrainPersonItem key = list.get(index);
 							Message msg = new Message();
 							msg.what = 0;
 							msg.obj = key;
 							if (arg1) {
-								msg.arg1 = 1;// 代表添加
+								msg.arg1 = 1;// 浠ｈ〃娣诲姞
 								list.get(index).setFlag(true);
 							} else {
 								msg.arg1 = 0;
@@ -94,7 +94,7 @@ public class TrainPersonItemAdapter extends BaseAdapter {
 						}
 					});
 			if (list.get(index).isFlag()) {
-				// 默认是没有点击的
+				// 榛樿鏄病鏈夌偣鍑荤殑
 				holder.checkedMap.setChecked(true);
 			} else {
 				holder.checkedMap.setChecked(false);

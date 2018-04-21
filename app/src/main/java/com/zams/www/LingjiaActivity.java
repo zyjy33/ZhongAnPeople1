@@ -1,20 +1,11 @@
 package com.zams.www;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import android.content.Intent;
-import android.graphics.Paint;
 import android.os.Handler;
 import android.os.Message;
+import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup.LayoutParams;
-import android.view.View;
 import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
@@ -31,7 +22,14 @@ import com.hengyushop.json.LingjiaDo;
 import com.hengyushop.json.LingjiaDomain;
 import com.lglottery.www.adapter.LingjiaAdapter;
 import com.loopj.android.http.AsyncHttpResponseHandler;
-import com.zams.www.R;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class LingjiaActivity extends BaseActivity {
 	private LinearLayout horiz;
@@ -46,84 +44,84 @@ public class LingjiaActivity extends BaseActivity {
 	private Handler handler = new Handler() {
 		public void dispatchMessage(android.os.Message msg) {
 			switch (msg.what) {
-			case 0:
-				if (lingjias != null) {
-					int len = lingjias.size();
-					horiz.removeAllViews();
-					tvs = new TextView[len];
-					for (int i = 0; i < len; i++) {
+				case 0:
+					if (lingjias != null) {
+						int len = lingjias.size();
+						horiz.removeAllViews();
+						tvs = new TextView[len];
+						for (int i = 0; i < len; i++) {
 
-						TextView textView = new TextView(
-								getApplicationContext());
-						tvs[i] = textView;
-						tvs[i].setId(Integer.parseInt(lingjias.get(i).getId()));
-						tvs[i].setText(lingjias.get(i).getName());
-						tvs[i].setTextSize(20);
-						tvs[i].setTextColor(getResources().getColor(
-								R.color.black));
-						LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
-								LayoutParams.WRAP_CONTENT,
-								LayoutParams.WRAP_CONTENT);
-						params.setMargins(10, 8, 10, 8);
-						tvs[i].setLayoutParams(params);
-						horiz.addView(tvs[i]);
-						final String id = lingjias.get(i).getId();
-						final String cindex = String.valueOf(i);
-						if (i == 0) {
-							load(id);
-							tvs[0].setTextColor(getResources().getColor(
-									R.color.fl));
-						}
-						tvs[i].setOnClickListener(new OnClickListener() {
-							@Override
-							public void onClick(View arg0) {
-								System.out.println("IDºÅÂëÊÇ:" + id);
+							TextView textView = new TextView(
+									getApplicationContext());
+							tvs[i] = textView;
+							tvs[i].setId(Integer.parseInt(lingjias.get(i).getId()));
+							tvs[i].setText(lingjias.get(i).getName());
+							tvs[i].setTextSize(20);
+							tvs[i].setTextColor(getResources().getColor(
+									R.color.black));
+							LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
+									LayoutParams.WRAP_CONTENT,
+									LayoutParams.WRAP_CONTENT);
+							params.setMargins(10, 8, 10, 8);
+							tvs[i].setLayoutParams(params);
+							horiz.addView(tvs[i]);
+							final String id = lingjias.get(i).getId();
+							final String cindex = String.valueOf(i);
+							if (i == 0) {
 								load(id);
-								int width = hor_scrollview.getWidth();
-								System.out.println("¸¸ÀàµÄ³¤¶È:" + width);
-								int childIndex = Integer.parseInt(cindex);
-								if (childIndex != 0 || childIndex != tvs.length) {
-									hor_scrollview.scrollTo(
-											Integer.parseInt(cindex) * 130, 0);
-								}
-								int jen = lingjias.size();
-								for (int j = 0; j < jen; j++) {
-									if (Integer.parseInt(cindex) == j) {
-										tvs[j].setTextColor(getResources()
-												.getColor(R.color.fl));
-									} else {
-										tvs[j].setTextColor(getResources()
-												.getColor(R.color.black));
+								tvs[0].setTextColor(getResources().getColor(
+										R.color.fl));
+							}
+							tvs[i].setOnClickListener(new OnClickListener() {
+								@Override
+								public void onClick(View arg0) {
+									System.out.println("IDå·ç æ˜¯:" + id);
+									load(id);
+									int width = hor_scrollview.getWidth();
+									System.out.println("çˆ¶ç±»çš„é•¿åº¦:" + width);
+									int childIndex = Integer.parseInt(cindex);
+									if (childIndex != 0 || childIndex != tvs.length) {
+										hor_scrollview.scrollTo(
+												Integer.parseInt(cindex) * 130, 0);
+									}
+									int jen = lingjias.size();
+									for (int j = 0; j < jen; j++) {
+										if (Integer.parseInt(cindex) == j) {
+											tvs[j].setTextColor(getResources()
+													.getColor(R.color.fl));
+										} else {
+											tvs[j].setTextColor(getResources()
+													.getColor(R.color.black));
+										}
 									}
 								}
-							}
-						});
+							});
+						}
 					}
-				}
-				break;
-			case 1:
-				final ArrayList<LingjiaDo> list = (ArrayList<LingjiaDo>) msg.obj;
-				adapter = new LingjiaAdapter(getApplicationContext(), list,
-						imageLoader);
-				lis.setAdapter(adapter);
-				lis.setOnItemClickListener(new OnItemClickListener() {
-					@Override
-					public void onItemClick(AdapterView<?> arg0, View arg1,
-							int arg2, long arg3) {
-						// TODO Auto-generated method stub
-						Intent intent = new Intent(LingjiaActivity.this,
-								WareInformationActivity.class);
-						intent.putExtra("id",
-								Integer.parseInt(list.get(arg2).getId()));
-						intent.putExtra("cid", list.get(arg2).getCid());
-						intent.putExtra("fen", list.get(arg2).getJifen());
-						intent.putExtra("tag", "0");
-						startActivity(intent);
-					}
-				});
-				break;
-			default:
-				break;
+					break;
+				case 1:
+					final ArrayList<LingjiaDo> list = (ArrayList<LingjiaDo>) msg.obj;
+					adapter = new LingjiaAdapter(getApplicationContext(), list,
+							imageLoader);
+					lis.setAdapter(adapter);
+					lis.setOnItemClickListener(new OnItemClickListener() {
+						@Override
+						public void onItemClick(AdapterView<?> arg0, View arg1,
+												int arg2, long arg3) {
+							// TODO Auto-generated method stub
+							Intent intent = new Intent(LingjiaActivity.this,
+									WareInformationActivity.class);
+							intent.putExtra("id",
+									Integer.parseInt(list.get(arg2).getId()));
+							intent.putExtra("cid", list.get(arg2).getCid());
+							intent.putExtra("fen", list.get(arg2).getJifen());
+							intent.putExtra("tag", "0");
+							startActivity(intent);
+						}
+					});
+					break;
+				default:
+					break;
 			}
 		};
 	};
@@ -201,7 +199,7 @@ public class LingjiaActivity extends BaseActivity {
 						// TODO Auto-generated method stub
 						super.onSuccess(arg0, arg1);
 
-						System.out.println("½á¹û" + arg1);
+						System.out.println("ç»“æžœ" + arg1);
 						try {
 							JSONObject jsonObject = new JSONObject(arg1);
 							JSONArray jsonArray = jsonObject

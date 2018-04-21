@@ -44,18 +44,18 @@ public class TrainAddPersonActivity extends BaseActivity {
 	private Handler handler = new Handler() {
 		public void dispatchMessage(android.os.Message msg) {
 			switch (msg.what) {
-			case 1:
-				Toast.makeText(getApplicationContext(), "���ӳɹ�!", 200).show();
-				AppManager.getAppManager().finishActivity();
-				break;
+				case 1:
+					Toast.makeText(getApplicationContext(), "Ìí¼Ó³É¹¦!", 200).show();
+					AppManager.getAppManager().finishActivity();
+					break;
 
-			default:
-				break;
+				default:
+					break;
 			}
 		};
 	};
 
-	
+
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -77,7 +77,7 @@ public class TrainAddPersonActivity extends BaseActivity {
 				tempBtn2 = (RadioButton) findViewById(v4
 						.getCheckedRadioButtonId());
 				if (yth == null) {
-					Toast.makeText(getApplicationContext(), "δ��¼!", 200).show();
+					Toast.makeText(getApplicationContext(), "Î´µÇÂ¼!", 200).show();
 				} else {
 					if (tempBtn1 != null && tempBtn2 != null) {
 						RequestParams params = new RequestParams();
@@ -90,10 +90,10 @@ public class TrainAddPersonActivity extends BaseActivity {
 						params.put("yth", yth);
 						AsyncHttp
 								.post(RealmName.REALM_NAME
-										+ "/mi/TrainHandler.ashx?act=InsertTrainUserContact",
+												+ "/mi/TrainHandler.ashx?act=InsertTrainUserContact",
 										params, new AsyncHttpResponseHandler() {
 											public void onSuccess(int arg0,
-													String arg1) {
+																  String arg1) {
 												System.out.println(arg1);
 												try {
 													JSONObject object = new JSONObject(

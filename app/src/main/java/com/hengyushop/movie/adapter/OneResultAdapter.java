@@ -1,19 +1,16 @@
 package com.hengyushop.movie.adapter;
 
-import java.util.ArrayList;
-
-import com.android.hengyu.web.RealmName;
-import com.nostra13.universalimageloader.core.ImageLoader;
-import com.zams.www.R;
-
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.ImageView;
-import android.widget.ProgressBar;
 import android.widget.TextView;
+
+import com.nostra13.universalimageloader.core.ImageLoader;
+import com.zams.www.R;
+
+import java.util.ArrayList;
 
 public class OneResultAdapter extends BaseAdapter {
 	private Context context;
@@ -21,7 +18,7 @@ public class OneResultAdapter extends BaseAdapter {
 	private ImageLoader imageLoader;
 
 	public OneResultAdapter(Context context, ArrayList<OneResultBean> lists,
-			ImageLoader imageLoader) {
+							ImageLoader imageLoader) {
 		// TODO Auto-generated constructor stub
 		this.context = context;
 		this.lists = lists;
@@ -32,7 +29,7 @@ public class OneResultAdapter extends BaseAdapter {
 		this.lists = lists;
 		notifyDataSetChanged();
 	}
-	
+
 	@Override
 	public int getCount() {
 		return lists.size();
@@ -59,7 +56,7 @@ public class OneResultAdapter extends BaseAdapter {
 			viewHolder.item1 = (TextView) convertView.findViewById(R.id.item1);
 			viewHolder.item2 = (TextView) convertView.findViewById(R.id.item2);
 			viewHolder.item0 = (TextView) convertView.findViewById(R.id.item0);
-			 //ÃÌº”µΩ–¬µƒΩÁ√Ê
+			//Ê∑ªÂä†Âà∞Êñ∞ÁöÑÁïåÈù¢
 			convertView.setTag(viewHolder);
 
 		} else {

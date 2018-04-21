@@ -1,17 +1,16 @@
 package com.hengyushop.demo.movie;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
-import com.hengyushop.demo.airplane.AirPlaneBargainActivity;
-import com.zams.www.R;
-
 import android.app.Activity;
 import android.os.Bundle;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
+
+import com.zams.www.R;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class MovieCinemaSelectNearbyActivity extends Activity {
 
@@ -28,9 +27,9 @@ public class MovieCinemaSelectNearbyActivity extends Activity {
 	}
 
 	private void listdata() {
-		String[] type = new String[] { "»ªÒêĞÖµÜÉîÛÚÓ°Ôº", "ÉîÛÚÑÅÍ¼Ó°Ôº  Éß¿Úµã", "ÉîÛÚº£°¶Ó°Ôº",
-				"ÉîÛÚÑÅÍ¼Ó°Ôº", "½ğÒİÉîÛÚ½¨°²µê", "»ªÒêĞÖµÜÉîÛÚÓ°Ôº", "ÉîÛÚÑÅÍ¼Ó°Ôº  Éß¿Úµã", "ÉîÛÚº£°¶Ó°Ôº",
-				"ÉîÛÚÑÅÍ¼Ó°Ôº", "½ğÒİÉîÛÚ½¨°²µê" };
+		String[] type = new String[] { "åè°Šå…„å¼Ÿæ·±åœ³å½±é™¢", "æ·±åœ³é›…å›¾å½±é™¢  è›‡å£ç‚¹", "æ·±åœ³æµ·å²¸å½±é™¢",
+				"æ·±åœ³é›…å›¾å½±é™¢", "é‡‘é€¸æ·±åœ³å»ºå®‰åº—", "åè°Šå…„å¼Ÿæ·±åœ³å½±é™¢", "æ·±åœ³é›…å›¾å½±é™¢  è›‡å£ç‚¹", "æ·±åœ³æµ·å²¸å½±é™¢",
+				"æ·±åœ³é›…å›¾å½±é™¢", "é‡‘é€¸æ·±åœ³å»ºå®‰åº—" };
 		List<Map<String, String>> list = new ArrayList<Map<String, String>>();
 		Map<String, String> lines = null;
 		for (int i = 0; i < type.length; i++) {

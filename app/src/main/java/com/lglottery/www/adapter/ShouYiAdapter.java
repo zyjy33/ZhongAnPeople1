@@ -1,10 +1,5 @@
 package com.lglottery.www.adapter;
 
-import java.util.ArrayList;
-
-import com.android.hengyu.web.RealmName;
-import com.nostra13.universalimageloader.core.ImageLoader;
-import com.zams.www.R;
 import android.content.ContentValues;
 import android.content.Context;
 import android.view.View;
@@ -14,6 +9,12 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.android.hengyu.web.RealmName;
+import com.nostra13.universalimageloader.core.ImageLoader;
+import com.zams.www.R;
+
+import java.util.ArrayList;
+
 public class ShouYiAdapter extends BaseAdapter {
 	private Context context;
 	private ArrayList<ContentValues> lists;
@@ -21,7 +22,7 @@ public class ShouYiAdapter extends BaseAdapter {
 	private String type;
 
 	public ShouYiAdapter(Context context, ArrayList<ContentValues> lists,
-			ImageLoader imageLoader, String type) {
+						 ImageLoader imageLoader, String type) {
 		// TODO Auto-generated constructor stub
 		this.context = context;
 		this.lists = lists;
@@ -70,9 +71,9 @@ public class ShouYiAdapter extends BaseAdapter {
 		}
 
 		if (type.equals("1")) {
-			holder.tag.setText(" ’“Ê");
+			holder.tag.setText("Êî∂Áõä");
 		} else if (type.equals("2")) {
-			holder.tag.setText("∏£¿˚");
+			holder.tag.setText("Á¶èÂà©");
 		}
 		imageLoader.displayImage(RealmName.REALM_NAME
 				+ lists.get(position).getAsString("url"), holder.img);

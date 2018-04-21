@@ -52,10 +52,10 @@ import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.nostra13.universalimageloader.core.ImageLoader;
 
 /**
- * 
- * ‘∆…Ãæ€
+ *
+ * ‰∫ëÂïÜËÅö
  * @author Administrator
- * 
+ *
  */
 public class JuTuanGouXq2Activity extends BaseActivity implements OnClickListener{
 
@@ -74,7 +74,7 @@ public class JuTuanGouXq2Activity extends BaseActivity implements OnClickListene
 	JuTuanGouData bean;
 	private GridView gridView;
 	private ListView new_list,list_tuanjia;
-//	private ListView new_list;
+	//	private ListView new_list;
 	public static boolean fanhui_type = false;
 	JuTuanAdapter arrayadapter;
 	CanTuanAdapter cantuanadapter;
@@ -84,10 +84,10 @@ public class JuTuanGouXq2Activity extends BaseActivity implements OnClickListene
 	String province,city,area,user_address,user_mobile,name,shopping_address_id;
 	private InScrollListView list_shop_cart;
 	String zhuangtai = "100";
-//	TuanchengyuanAdapter adapter;
-//	private MyGridView myGridView;
+	//	TuanchengyuanAdapter adapter;
+	//	private MyGridView myGridView;
 	private MyGridView gridView2;
-//	private MyGridView gridView_tx;
+	//	private MyGridView gridView_tx;
 	View iv_view;
 	String type;
 	String zhifu_wx = "1";
@@ -99,38 +99,38 @@ public class JuTuanGouXq2Activity extends BaseActivity implements OnClickListene
 	private LinearLayout ll_kaituan,ll_qu_kaituan,ll_jutuanjia,ll_jiaguo;
 	public static long day;
 	String stare,orders_no,fx_cs;
-	private long hour = 0;// ±º‰±‰¡ø 
-	private long minute = 0; 
-	private long second = 0; 
-	private long time = 0;//∫¡√ÎŒ™µ•Œª
+	private long hour = 0;//Êó∂Èó¥ÂèòÈáè
+	private long minute = 0;
+	private long second = 0;
+	private long time = 0;//ÊØ´Áßí‰∏∫Âçï‰Ωç
 	private long current_time = 0;
-	private long interval = 10*1000;//√ø¥Œ‘ˆº”ªÚºı…Ÿµƒ∂Ó∂»Œ™10√Î
-	private MyCount count;//∂® ±¿‡∂‘œÛ 
+	private long interval = 10*1000;//ÊØèÊ¨°Â¢ûÂä†ÊàñÂáèÂ∞ëÁöÑÈ¢ùÂ∫¶‰∏∫10Áßí
+	private MyCount count;//ÂÆöÊó∂Á±ªÂØπË±°
 	java.util.Date now;
 	java.util.Date date;
 	long hourl,min,s,zongxs;
 	LinearLayout ll_buju;
 	String fx_shuzi;
 	public static Handler handlerll;
-	        String user_name = "";
-		    String user_name_3 = "";
-		    String weixin = "";
-			String qq = "";
-			String user_name_3_wx = "";
-			String user_name_3_qq = "";
-			String user_name_key = "";
-			
-		public static int fangshi = 0;
-		
-		@Override
-		public void onResume() {
-			// TODO Auto-generated method stub
-			super.onResume();
-//			progress.CloseProgress();
-			
-			
-		}  
-		
+	String user_name = "";
+	String user_name_3 = "";
+	String weixin = "";
+	String qq = "";
+	String user_name_3_wx = "";
+	String user_name_3_qq = "";
+	String user_name_key = "";
+
+	public static int fangshi = 0;
+
+	@Override
+	public void onResume() {
+		// TODO Auto-generated method stub
+		super.onResume();
+		//			progress.CloseProgress();
+
+
+	}
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
@@ -144,234 +144,234 @@ public class JuTuanGouXq2Activity extends BaseActivity implements OnClickListene
 		System.out.println("=======JuTuanGouXqActivity.fx_canshu================"+JuTuanGouXqActivity.fx_canshu);
 		if (!JuJingCaiXqActivity.fx_canshu.equals("")) {
 			fx_cs = JuJingCaiXqActivity.fx_canshu;
-//			JuJingCaiXqActivity.fx_canshu = "";
+			//			JuJingCaiXqActivity.fx_canshu = "";
 		}else {
 			fx_cs = JuTuanGouXqActivity.fx_canshu;
-//			JuTuanGouXqActivity.fx_canshu = "";
+			//			JuTuanGouXqActivity.fx_canshu = "";
 		}
 		System.out.println("=======fx_cs================================"+fx_cs);
-		
+
 		spPreferences = getSharedPreferences("longuserset", MODE_PRIVATE);
 		user_name = spPreferences.getString("user", "");
 		user_id = spPreferences.getString("user_id", "");
 		login_sign = spPreferences.getString("login_sign", "");
-//		System.out.println("=======fx_cs================================"+fx_cs);
-//		System.out.println("=======fx_cs================================"+fx_cs);
-//		if (!JuJingCaiXqActivity.fx_canshu.equals("")) {
-//			fx_cs = JuJingCaiXqActivity.fx_canshu;
-//		}else {
-//			fx_cs = JuTuanGouXqActivity.fx_canshu;
-//		}
-//		System.out.println("=======fx_cs================================"+fx_cs);
-		
+		//		System.out.println("=======fx_cs================================"+fx_cs);
+		//		System.out.println("=======fx_cs================================"+fx_cs);
+		//		if (!JuJingCaiXqActivity.fx_canshu.equals("")) {
+		//			fx_cs = JuJingCaiXqActivity.fx_canshu;
+		//		}else {
+		//			fx_cs = JuTuanGouXqActivity.fx_canshu;
+		//		}
+		//		System.out.println("=======fx_cs================================"+fx_cs);
+
 		fanhui_type = true;
 		try {
-			
-		       handlerll = new Handler() {
-			   		public void handleMessage(Message msg) {
-			   			switch (msg.what) {
-			   			case 2:
-			   				finish();
-			   				break;
-			   			}
-			   		}
-			   	};
-			   	
-//		choujiang = getIntent().getStringExtra("choujiang");
-//		System.out.println("choujiang===================="+choujiang);
-			
-		mAq = new AQuery(this);
-		intren();
-		
-		String orders_no_ll = getIntent().getStringExtra("trade_no");
-		System.out.println("orders_no_ll===================="+orders_no_ll);
-		if (orders_no_ll != null) {
-			orders_no = orders_no_ll;
-//			loadzhonganyl(orders_no);
-//			loadcantuan(orders_no);
-//			loadWeatherxq(orders_no);
-			getjutuanuser(orders_no);
-		}else {
-			SharedPreferences spPreferences = getSharedPreferences("longuserset_id", Context.MODE_PRIVATE);
-			String ct_order_no = spPreferences.getString("ct_order_no", "");
-			orders_no = ct_order_no;
-			System.out.println("orders_no=========22==========="+orders_no);
-//			loadzhongany3(orders_no);
-			System.out.println("jiekou===================="+getIntent().getStringExtra("jiekou"));
-			if (getIntent().getStringExtra("jiekou").equals("1")) {
-				loadWeatherxq(orders_no);
+
+			handlerll = new Handler() {
+				public void handleMessage(Message msg) {
+					switch (msg.what) {
+						case 2:
+							finish();
+							break;
+					}
+				}
+			};
+
+			//		choujiang = getIntent().getStringExtra("choujiang");
+			//		System.out.println("choujiang===================="+choujiang);
+
+			mAq = new AQuery(this);
+			intren();
+
+			String orders_no_ll = getIntent().getStringExtra("trade_no");
+			System.out.println("orders_no_ll===================="+orders_no_ll);
+			if (orders_no_ll != null) {
+				orders_no = orders_no_ll;
+				//			loadzhonganyl(orders_no);
+				//			loadcantuan(orders_no);
+				//			loadWeatherxq(orders_no);
+				getjutuanuser(orders_no);
 			}else {
-				getjutuanxq(orders_no);
+				SharedPreferences spPreferences = getSharedPreferences("longuserset_id", Context.MODE_PRIVATE);
+				String ct_order_no = spPreferences.getString("ct_order_no", "");
+				orders_no = ct_order_no;
+				System.out.println("orders_no=========22==========="+orders_no);
+				//			loadzhongany3(orders_no);
+				System.out.println("jiekou===================="+getIntent().getStringExtra("jiekou"));
+				if (getIntent().getStringExtra("jiekou").equals("1")) {
+					loadWeatherxq(orders_no);
+				}else {
+					getjutuanxq(orders_no);
+				}
 			}
-		}
-		System.out.println("orders_no===================="+orders_no);
-		
-//		orders_no = "G170422134249424918";
-//		loadzhonganyl(orders_no);
-			
+			System.out.println("orders_no===================="+orders_no);
+
+			//		orders_no = "G170422134249424918";
+			//		loadzhonganyl(orders_no);
+
 		} catch (Exception e) {
 			// TODO: handle exception
 			e.printStackTrace();
 		}
-		
+
 		try {
-			
-//		Button fanhui = (Button) findViewById(R.id.fanhui);
-//		fanhui.setOnClickListener(this);
-			
-		ImageView img_shared = (ImageView) findViewById(R.id.img_shared);
-		img_shared.setOnClickListener(new OnClickListener() {
-			@Override
-			public void onClick(View arg0) {
-				// TODO Auto-generated method stub
-				try {
-					if (user_name.equals("")) {
-						Intent intent = new Intent(JuTuanGouXq2Activity.this,UserLoginActivity.class);
-						startActivity(intent);
-					}else {
-						if (UserLoginActivity.wx_fanhui == false) {
-							Intent intent5 = new Intent(JuTuanGouXq2Activity.this,UserLoginActivity.class);
-							startActivity(intent5);
+
+			//		Button fanhui = (Button) findViewById(R.id.fanhui);
+			//		fanhui.setOnClickListener(this);
+
+			ImageView img_shared = (ImageView) findViewById(R.id.img_shared);
+			img_shared.setOnClickListener(new OnClickListener() {
+				@Override
+				public void onClick(View arg0) {
+					// TODO Auto-generated method stub
+					try {
+						if (user_name.equals("")) {
+							Intent intent = new Intent(JuTuanGouXq2Activity.this,UserLoginActivity.class);
+							startActivity(intent);
 						}else {
-						Intent intentll = new Intent(JuTuanGouXq2Activity.this,DBFengXiangActivity.class);
-						intentll.putExtra("ct_id",ct_id);
-						intentll.putExtra("title",data.getTitle());
-						intentll.putExtra("company_id",data.getCompany_id());
-//						intentll.putExtra("img_url", share_img_url);
-						intentll.putExtra("subtitle",data.getSubtitle());
-						intentll.putExtra("img_url", "");
-						intentll.putExtra("fx_shuzi",fx_cs);
-						startActivity(intentll);
+							if (UserLoginActivity.wx_fanhui == false) {
+								Intent intent5 = new Intent(JuTuanGouXq2Activity.this,UserLoginActivity.class);
+								startActivity(intent5);
+							}else {
+								Intent intentll = new Intent(JuTuanGouXq2Activity.this,DBFengXiangActivity.class);
+								intentll.putExtra("ct_id",ct_id);
+								intentll.putExtra("title",data.getTitle());
+								intentll.putExtra("company_id",data.getCompany_id());
+								//						intentll.putExtra("img_url", share_img_url);
+								intentll.putExtra("subtitle",data.getSubtitle());
+								intentll.putExtra("img_url", "");
+								intentll.putExtra("fx_shuzi",fx_cs);
+								startActivity(intentll);
+							}
 						}
+					} catch (Exception e) {
+						// TODO: handle exception
+						e.printStackTrace();
 					}
-				} catch (Exception e) {
-					// TODO: handle exception
-					e.printStackTrace();
 				}
-			}
-		});
+			});
 		} catch (Exception e) {
 			// TODO: handle exception
 			e.printStackTrace();
 		}
 	}
-	
+
 	/**
-	 * øÿº˛≥ı ºªØ
+	 * Êéß‰ª∂ÂàùÂßãÂåñ
 	 */
 	public void intren() {
 		try {
 			list_tuanjia = (ListView) findViewById(R.id.list_tuanjia);
-		gridView2=(MyGridView)findViewById(R.id.gridview2);
-		gridView = (GridView) findViewById(R.id.gridView);
-		iv_img = (ImageView) findViewById(R.id.img_tp);
-		tv_titel = (TextView) findViewById(R.id.tv_titel);
-		tv_price = (TextView) findViewById(R.id.tv_price);
-		tv_jutuan_price = (TextView) findViewById(R.id.tv_jutuan_price);
-		tv_anniu1 = (TextView) findViewById(R.id.tv_anniu1);
-		txt_time = (TextView) findViewById(R.id.tvshowtime); 
-		tv_tuan = (TextView) findViewById(R.id.tv_tuanshu); 
-		tv_kaituan = (TextView) findViewById(R.id.tv_kaituan); 
-		ll_kaituan = (LinearLayout) findViewById(R.id.ll_kaituan);
-		ll_qu_kaituan = (LinearLayout) findViewById(R.id.ll_qu_kaituan);
-		ll_jutuanjia = (LinearLayout) findViewById(R.id.ll_jutuanjia);
-		ll_jiaguo = (LinearLayout) findViewById(R.id.ll_jiaguo);
-		iv_view = findViewById(R.id.iv_view);
-		
-//		myGridView = (MyGridView) findViewById(R.id.mGv);
-//		gridView_tx = (MyGridView) findViewById(R.id.gridView_tx);
-		tv_anniu1.setOnClickListener(this);
-		
-		ImageView iv_fanhui = (ImageView) findViewById(R.id.iv_fanhui);
-		iv_fanhui.setOnClickListener(new OnClickListener() {
-			
-			@Override
-			public void onClick(View arg0) {
-				// TODO Auto-generated method stub
-				finish();
-		    	String type = getIntent().getStringExtra("type");//æ€æ´≤ ◊¥Ã¨
-		    	System.out.println("type-------------"+type);
-//				Intent intent = new Intent(JuTuanGouXq2Activity.this,JuTuanGouXqActivity.class);
-//				intent.putExtra("type",type);//æ€æ´≤ ◊¥Ã¨
-//				startActivity(intent);
-			}
-		});
-		
-		webview = (WebView) findViewById(R.id.webview);
-		webview.getSettings().setJavaScriptEnabled(true);
-		webview.addJavascriptInterface(new JavascriptHandler(), "handler");
-		webview.setWebViewClient(new WebViewClient() {
-			@Override
-			public void onPageFinished(WebView view, String url) {
-			}
-		});
-		
-		
+			gridView2=(MyGridView)findViewById(R.id.gridview2);
+			gridView = (GridView) findViewById(R.id.gridView);
+			iv_img = (ImageView) findViewById(R.id.img_tp);
+			tv_titel = (TextView) findViewById(R.id.tv_titel);
+			tv_price = (TextView) findViewById(R.id.tv_price);
+			tv_jutuan_price = (TextView) findViewById(R.id.tv_jutuan_price);
+			tv_anniu1 = (TextView) findViewById(R.id.tv_anniu1);
+			txt_time = (TextView) findViewById(R.id.tvshowtime);
+			tv_tuan = (TextView) findViewById(R.id.tv_tuanshu);
+			tv_kaituan = (TextView) findViewById(R.id.tv_kaituan);
+			ll_kaituan = (LinearLayout) findViewById(R.id.ll_kaituan);
+			ll_qu_kaituan = (LinearLayout) findViewById(R.id.ll_qu_kaituan);
+			ll_jutuanjia = (LinearLayout) findViewById(R.id.ll_jutuanjia);
+			ll_jiaguo = (LinearLayout) findViewById(R.id.ll_jiaguo);
+			iv_view = findViewById(R.id.iv_view);
+
+			//		myGridView = (MyGridView) findViewById(R.id.mGv);
+			//		gridView_tx = (MyGridView) findViewById(R.id.gridView_tx);
+			tv_anniu1.setOnClickListener(this);
+
+			ImageView iv_fanhui = (ImageView) findViewById(R.id.iv_fanhui);
+			iv_fanhui.setOnClickListener(new OnClickListener() {
+
+				@Override
+				public void onClick(View arg0) {
+					// TODO Auto-generated method stub
+					finish();
+					String type = getIntent().getStringExtra("type");//ËÅöÁ≤æÂΩ©Áä∂ÊÄÅ
+					System.out.println("type-------------"+type);
+					//				Intent intent = new Intent(JuTuanGouXq2Activity.this,JuTuanGouXqActivity.class);
+					//				intent.putExtra("type",type);//ËÅöÁ≤æÂΩ©Áä∂ÊÄÅ
+					//				startActivity(intent);
+				}
+			});
+
+			webview = (WebView) findViewById(R.id.webview);
+			webview.getSettings().setJavaScriptEnabled(true);
+			webview.addJavascriptInterface(new JavascriptHandler(), "handler");
+			webview.setWebViewClient(new WebViewClient() {
+				@Override
+				public void onPageFinished(WebView view, String url) {
+				}
+			});
+
+
 		} catch (Exception e) {
 			// TODO: handle exception
 			e.printStackTrace();
 		}
-		
+
 	}
-	
+
 	class JavascriptHandler {
 		@JavascriptInterface
 		public void getContent(String htmlContent) {
 		}
 	}
-	
+
 	Handler handler = new Handler(){
 		public void dispatchMessage(Message msg) {
 			switch (msg.what) {
-			case 0:
-				final ArrayList<JuTuanGouData> carts = (ArrayList<JuTuanGouData>) msg.obj;
-				tuangoujia = JuTuanAdapter.tuangoujia;
-//				String tuanshu = JuTuanAdapter.tuanshu;
-//				String tuangoujia = (String) msg.obj;
-//				tv_tuangoujia.setText("£§"+tuangoujia);
-//				tv_tuanshu.setText(tuanshu+"»ÀÕ≈ ˝");
-				break;
-			case 1:
-				try {
-					
-				System.out.println("list∏ˆ ˝ «∂‡…Ÿ===================="+list.size());
-				arrayadapter = new JuTuanAdapter(list,getApplicationContext(),handler);
-				list_tuanjia.setAdapter(arrayadapter);
-				setListViewHeightBasedOnChildren(list_tuanjia);
-				list_tuanjia.setOnItemClickListener(new OnItemClickListener() {
-		            @Override
-		            public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
-//		            	 flag = false;
-//		            	 String id = listll.get(arg2).getId();
-//		            	 System.out.println("=====µ⁄∂˛≤„ ˝æ›1====================="+INDX);
-		            	 arrayadapter.setSeclection(arg2);
-		            	 arrayadapter.notifyDataSetChanged();
-		            }
-		        });
-				} catch (Exception e) {
-					// TODO: handle exception
-					e.printStackTrace();
-				}
-		        
-				break;
-			case 2:
-//				adapter = new TuanchengyuanAdapter(list_cy, JuTuanGouXq2Activity.this);
-//				gridView2.setAdapter(adapter);
-				break;
-			case 3:
-				break;	
-              case 5:
-  				break;
-			default:
-				break;
+				case 0:
+					final ArrayList<JuTuanGouData> carts = (ArrayList<JuTuanGouData>) msg.obj;
+					tuangoujia = JuTuanAdapter.tuangoujia;
+					//				String tuanshu = JuTuanAdapter.tuanshu;
+					//				String tuangoujia = (String) msg.obj;
+					//				tv_tuangoujia.setText("Ôø•"+tuangoujia);
+					//				tv_tuanshu.setText(tuanshu+"‰∫∫Âõ¢Êï∞");
+					break;
+				case 1:
+					try {
+
+						System.out.println("list‰∏™Êï∞ÊòØÂ§öÂ∞ë===================="+list.size());
+						arrayadapter = new JuTuanAdapter(list,getApplicationContext(),handler);
+						list_tuanjia.setAdapter(arrayadapter);
+						setListViewHeightBasedOnChildren(list_tuanjia);
+						list_tuanjia.setOnItemClickListener(new OnItemClickListener() {
+							@Override
+							public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
+								//		            	 flag = false;
+								//		            	 String id = listll.get(arg2).getId();
+								//		            	 System.out.println("=====Á¨¨‰∫åÂ±ÇÊï∞ÊçÆ1====================="+INDX);
+								arrayadapter.setSeclection(arg2);
+								arrayadapter.notifyDataSetChanged();
+							}
+						});
+					} catch (Exception e) {
+						// TODO: handle exception
+						e.printStackTrace();
+					}
+
+					break;
+				case 2:
+					//				adapter = new TuanchengyuanAdapter(list_cy, JuTuanGouXq2Activity.this);
+					//				gridView2.setAdapter(adapter);
+					break;
+				case 3:
+					break;
+				case 5:
+					break;
+				default:
+					break;
 			}
 		};
 	};
-	
+
 	/**
-	 *  ‰≥ˆ≥…‘±∂©µ•¡–±Ì
-	 * @param groupon_id 
-	 * @param category_id 
+	 * ËæìÂá∫ÊàêÂëòËÆ¢ÂçïÂàóË°®
+	 * @param groupon_id
+	 * @param category_id
 	 */
 	private void getjutuanuser(String trade_no) {
 		list = new ArrayList<JuTuanGouData>();
@@ -379,92 +379,92 @@ public class JuTuanGouXq2Activity extends BaseActivity implements OnClickListene
 		progress.CreateProgress();
 		AsyncHttp.get(RealmName.REALM_NAME_LL + "/get_article_member_list?trade_no="+trade_no+"&top=10"
 				, new AsyncHttpResponseHandler() {
-			@Override
-			public void onSuccess(int arg0, String arg1) {
-				// TODO Auto-generated method stub
-				super.onSuccess(arg0, arg1);
-				System.out.println(" ‰≥ˆƒ⁄»›œÍ«È========="+arg1);
-				try {
-					JSONObject object = new JSONObject(arg1);
-					String status = object.getString("status");
-					String info = object.getString("info");
-					datetime = object.getString("datetime");
-					if (status.equals("y")) {
-//						JSONObject jsonobt = object.getJSONObject("data");
-						JSONArray jsot_ll = object.getJSONArray("data");
-						for (int k = 0; k < jsot_ll.length(); k++) {
-						JSONObject obj1 = jsot_ll.getJSONObject(k);
-						data = new JuTuanGouData();
-						data.setOrder_no(obj1.getString("order_no"));
-						data.setTrade_no(obj1.getString("trade_no"));
-						data.setCompany_id(obj1.getString("company_id"));
-						JSONArray jsot1 = obj1.getJSONArray("order_goods");
-						for (int q = 0; q < jsot1.length(); q++) {
-							JSONObject jsont = jsot1.getJSONObject(q);
-//							data = new JuTuanGouData();
-//							data.setId(jsont.getString("id"));
-							data.setArticle_title(jsont.getString("article_title"));
-							data.setImg_url(jsont.getString("img_url"));
-							data.setArticle_id(jsont.getString("article_id"));
-							data.setOrder_id(jsont.getString("order_id"));
-							data.setGoods_id(jsont.getString("goods_id"));
-							data.setQuantity(jsont.getString("quantity"));
-							data.setSpec_text(jsont.getString("spec_text"));
-////						data.setShare_img_url(jsont.getString("share_img_url"));
-							data.setForeman_id(jsont.getString("foreman_id"));
-							data.setForeman_name(jsont.getString("foreman_name"));
-							data.setTimer_time(jsont.getString("timer_time"));
-							data.setEnd_time(jsont.getString("end_time"));
-							data.setStart_time(jsont.getString("start_time"));
-							data.setActivity_people(jsont.getInt("activity_people"));
-							data.setActivity_member(jsont.getInt("activity_member"));
-							data.setActivity_price(jsont.getString("activity_price"));
-							data.setSell_price(jsont.getString("sell_price"));
-				    		data.setMarket_price(jsont.getString("market_price"));
-							data.setTimer_time(jsont.getString("timer_time"));
-							data.setEnd_time(jsont.getString("end_time"));
-							data.setStart_time(jsont.getString("start_time"));
-//							data.setGroupon_no(jsont.getString("groupon_no"));
-//							data.setGroupon_item_id(jsont.getString("groupon_item_id"));
-////						data.setOrder_no(jsont.getString("order_no"));
-//				    		end_time = data.getEnd_time();
-							foreman_id = data.getForeman_id();
-							foreman_name = data.getForeman_name();
-//							share_img_url = data.getShare_img_url();
-							timer_time = data.getTimer_time();
-							ct_id = data.getOrder_id();
-//							groupon_no = data.getGroupon_no();
-//							System.out.println("=======groupon_no================================"+groupon_no);
-//							groupon_item_people = data.getGroupon_item_people();
-							ct_tuanshu = String.valueOf(data.getActivity_people()- data.getActivity_member());
-							list_ll.add(data);
-//							gettime();//ø™Õ≈ªÒ»°µπº∆ ±
-							}
-						}
-						
-					}else {
-						Toast.makeText(JuTuanGouXq2Activity.this, info, 200).show();
-					}
-//					System.out.println("=====list_ll.size()====================="+list_ll.size());	
-					intrendata();
-//					handler.sendEmptyMessage(1);
-					getkaituan();
-					gettime();//ø™Õ≈ªÒ»°µπº∆ ±
-					webview.loadUrl(RealmName.REALM_NAME_HTTP + "/mobile/goods/conent-"+data.getArticle_id()+".html");//…Ã∆∑ΩÈ…‹
-					progress.CloseProgress();
-					
-				} catch (JSONException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-			}
+					@Override
+					public void onSuccess(int arg0, String arg1) {
+						// TODO Auto-generated method stub
+						super.onSuccess(arg0, arg1);
+						System.out.println("ËæìÂá∫ÂÜÖÂÆπËØ¶ÊÉÖ========="+arg1);
+						try {
+							JSONObject object = new JSONObject(arg1);
+							String status = object.getString("status");
+							String info = object.getString("info");
+							datetime = object.getString("datetime");
+							if (status.equals("y")) {
+								//						JSONObject jsonobt = object.getJSONObject("data");
+								JSONArray jsot_ll = object.getJSONArray("data");
+								for (int k = 0; k < jsot_ll.length(); k++) {
+									JSONObject obj1 = jsot_ll.getJSONObject(k);
+									data = new JuTuanGouData();
+									data.setOrder_no(obj1.getString("order_no"));
+									data.setTrade_no(obj1.getString("trade_no"));
+									data.setCompany_id(obj1.getString("company_id"));
+									JSONArray jsot1 = obj1.getJSONArray("order_goods");
+									for (int q = 0; q < jsot1.length(); q++) {
+										JSONObject jsont = jsot1.getJSONObject(q);
+										//							data = new JuTuanGouData();
+										//							data.setId(jsont.getString("id"));
+										data.setArticle_title(jsont.getString("article_title"));
+										data.setImg_url(jsont.getString("img_url"));
+										data.setArticle_id(jsont.getString("article_id"));
+										data.setOrder_id(jsont.getString("order_id"));
+										data.setGoods_id(jsont.getString("goods_id"));
+										data.setQuantity(jsont.getString("quantity"));
+										data.setSpec_text(jsont.getString("spec_text"));
+										////						data.setShare_img_url(jsont.getString("share_img_url"));
+										data.setForeman_id(jsont.getString("foreman_id"));
+										data.setForeman_name(jsont.getString("foreman_name"));
+										data.setTimer_time(jsont.getString("timer_time"));
+										data.setEnd_time(jsont.getString("end_time"));
+										data.setStart_time(jsont.getString("start_time"));
+										data.setActivity_people(jsont.getInt("activity_people"));
+										data.setActivity_member(jsont.getInt("activity_member"));
+										data.setActivity_price(jsont.getString("activity_price"));
+										data.setSell_price(jsont.getString("sell_price"));
+										data.setMarket_price(jsont.getString("market_price"));
+										data.setTimer_time(jsont.getString("timer_time"));
+										data.setEnd_time(jsont.getString("end_time"));
+										data.setStart_time(jsont.getString("start_time"));
+										//							data.setGroupon_no(jsont.getString("groupon_no"));
+										//							data.setGroupon_item_id(jsont.getString("groupon_item_id"));
+										////						data.setOrder_no(jsont.getString("order_no"));
+										//				    		end_time = data.getEnd_time();
+										foreman_id = data.getForeman_id();
+										foreman_name = data.getForeman_name();
+										//							share_img_url = data.getShare_img_url();
+										timer_time = data.getTimer_time();
+										ct_id = data.getOrder_id();
+										//							groupon_no = data.getGroupon_no();
+										//							System.out.println("=======groupon_no================================"+groupon_no);
+										//							groupon_item_people = data.getGroupon_item_people();
+										ct_tuanshu = String.valueOf(data.getActivity_people()- data.getActivity_member());
+										list_ll.add(data);
+										//							gettime();//ÂºÄÂõ¢Ëé∑ÂèñÂÄíËÆ°Êó∂
+									}
+								}
 
-		}, null);
+							}else {
+								Toast.makeText(JuTuanGouXq2Activity.this, info, 200).show();
+							}
+							//					System.out.println("=====list_ll.size()====================="+list_ll.size());
+							intrendata();
+							//					handler.sendEmptyMessage(1);
+							getkaituan();
+							gettime();//ÂºÄÂõ¢Ëé∑ÂèñÂÄíËÆ°Êó∂
+							webview.loadUrl(RealmName.REALM_NAME_HTTP + "/mobile/goods/conent-"+data.getArticle_id()+".html");//ÂïÜÂìÅ‰ªãÁªç
+							progress.CloseProgress();
+
+						} catch (JSONException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+					}
+
+				}, null);
 	}
 	/**
-	 *  ‰≥ˆÕ≈≥§∂©µ•¡–±Ì(◊‘º∫µƒÕ≈)
-	 * @param groupon_id 
-	 * @param category_id 
+	 * ËæìÂá∫Âõ¢ÈïøËÆ¢ÂçïÂàóË°®(Ëá™Â∑±ÁöÑÂõ¢)
+	 * @param groupon_id
+	 * @param category_id
 	 */
 	public static String img_url,title,sell_price,article_id,goods_id,price;
 	private void loadWeatherxq(String trade_no) {
@@ -473,568 +473,568 @@ public class JuTuanGouXq2Activity extends BaseActivity implements OnClickListene
 		progress.CreateProgress();
 		AsyncHttp.get(RealmName.REALM_NAME_LL + "/get_order_myselft_list?user_id="+user_id+"&user_name="+user_name+"&trade_no="+trade_no+"&top=1"
 				, new AsyncHttpResponseHandler() {
-			@Override
-			public void onSuccess(int arg0, String arg1) {
-				// TODO Auto-generated method stub
-				super.onSuccess(arg0, arg1);
-				System.out.println(" ‰≥ˆƒ⁄»›œÍ«È========="+arg1);
-				try {
-					JSONObject object = new JSONObject(arg1);
-					String status = object.getString("status");
-					String info = object.getString("info");
-					datetime = object.getString("datetime");
-					if (status.equals("y")) {
-						JSONObject jsonobt = object.getJSONObject("data");
-						JSONObject obj= jsonobt.getJSONObject("article_model");
-						    data = new JuTuanGouData();
-							data.setId(obj.getString("id"));
-							data.setTitle(obj.getString("title"));
-							data.setImg_url(obj.getString("img_url"));
-							data.setAdd_time(obj.getString("add_time"));
-							data.setStart_time(obj.getString("start_time"));
-							data.setUpdate_time(obj.getString("update_time"));
-							data.setCategory_id(obj.getString("category_id"));
-							data.setEnd_time(obj.getString("end_time"));
-							data.setSubtitle(obj.getString("subtitle"));
-							data.setImgs_url(obj.getString("imgs_url"));
-							data.setCompany_id(obj.getString("company_id"));
-							item_id = data.getId();
-//							img_url = data.img_url;
-//							title = data.title;
-							JSONObject jsot = obj.getJSONObject("default_spec_item");
-							data.setGoods_id(jsot.getString("goods_id"));
-							data.setArticle_id(jsot.getString("article_id"));
-							data.setSell_price(jsot.getString("sell_price"));
-//							sell_price = data.sell_price;
-//							article_id = data.article_id;
-//							goods_id = data.goods_id;
-							JSONObject jsoct = jsot.getJSONObject("default_activity_price");
-							data.setPeople(jsoct.getString("people"));
-							data.setPrice(jsoct.getString("price"));
-//							price = data.price;
-							JSONArray jsonArray = jsot.getJSONArray("activity_price");
-							for (int k = 0; k < jsonArray.length(); k++) {
-								JSONObject objet2 = jsonArray.getJSONObject(k);
-								JuTuanGouData data = new JuTuanGouData();
-								data.setGoods_id(objet2.getString("goods_id"));
-								data.setPeople(objet2.getString("people"));
-								data.setPrice(objet2.getString("price"));
-								list.add(data);
-					        }
-							
-//						JSONObject jsonobt = object.getJSONObject("data");
-						JSONArray jsot_ll = jsonobt.getJSONArray("foreman_list");
-						for (int k = 0; k < jsot_ll.length(); k++) {
-						JSONObject obj1 = jsot_ll.getJSONObject(k);
-						data = new JuTuanGouData();
-//						data.setOrder_no(obj1.getString("order_no"));
-//						data.setOrder_no(obj1.getString("order_no"));
-						data.setCompany_id(obj1.getString("company_id"));
-						JSONArray jsot1 = obj1.getJSONArray("order_goods");
-						for (int q = 0; q < jsot1.length(); q++) {
-							JSONObject jsont = jsot1.getJSONObject(q);
-//							data = new JuTuanGouData();
-							data.setArticle_id(jsont.getString("article_id"));
-							data.setOrder_id(jsont.getString("order_id"));
-							data.setGoods_id(jsont.getString("goods_id"));
-							data.setQuantity(jsont.getString("quantity"));
-							
-////						data.setShare_img_url(jsont.getString("share_img_url"));
-							data.setArticle_title(jsont.getString("article_title"));
-							data.setImg_url(jsont.getString("img_url"));
-							data.setForeman_id(jsont.getString("foreman_id"));
-							data.setForeman_name(jsont.getString("foreman_name"));
-							data.setTimer_time(jsont.getString("timer_time"));
-							data.setEnd_time(jsont.getString("end_time"));
-							data.setStart_time(jsont.getString("start_time"));
-							data.setActivity_people(jsont.getInt("activity_people"));
-							data.setActivity_member(jsont.getInt("activity_member"));
-							data.setActivity_price(jsont.getString("activity_price"));
-							data.setSell_price(jsont.getString("sell_price"));
-				    		data.setMarket_price(jsont.getString("market_price"));
-//							data.setGroupon_no(jsont.getString("groupon_no"));
-//							data.setGroupon_item_id(jsont.getString("groupon_item_id"));
-////						data.setOrder_no(jsont.getString("order_no"));
-//				    		end_time = data.getEnd_time();
-							foreman_id = data.getForeman_id();
-							foreman_name = data.getForeman_name();
-//							share_img_url = data.getShare_img_url();
-							timer_time = data.getTimer_time();
-							ct_id = data.getOrder_id();
-							ct_tuanshu = String.valueOf(data.getActivity_people()- data.getActivity_member());
-//							list_ll.add(data);
-							gettime();//ø™Õ≈ªÒ»°µπº∆ ±
-							}
-						}
-						
-					}else {
-						Toast.makeText(JuTuanGouXq2Activity.this, info, 200).show();
-					}
-					System.out.println("=====list.size()====================="+list.size());
-					System.out.println("=====list_ll.size()====================="+list_ll.size());	
-					intrendata();
-					handler.sendEmptyMessage(1);
-					getkaituan();
-//					gettime();//ø™Õ≈ªÒ»°µπº∆ ±
-					webview.loadUrl(RealmName.REALM_NAME_HTTP + "/mobile/goods/conent-"+data.getArticle_id()+".html");//…Ã∆∑ΩÈ…‹
-					progress.CloseProgress();
-					
-				} catch (JSONException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-			}
+					@Override
+					public void onSuccess(int arg0, String arg1) {
+						// TODO Auto-generated method stub
+						super.onSuccess(arg0, arg1);
+						System.out.println("ËæìÂá∫ÂÜÖÂÆπËØ¶ÊÉÖ========="+arg1);
+						try {
+							JSONObject object = new JSONObject(arg1);
+							String status = object.getString("status");
+							String info = object.getString("info");
+							datetime = object.getString("datetime");
+							if (status.equals("y")) {
+								JSONObject jsonobt = object.getJSONObject("data");
+								JSONObject obj= jsonobt.getJSONObject("article_model");
+								data = new JuTuanGouData();
+								data.setId(obj.getString("id"));
+								data.setTitle(obj.getString("title"));
+								data.setImg_url(obj.getString("img_url"));
+								data.setAdd_time(obj.getString("add_time"));
+								data.setStart_time(obj.getString("start_time"));
+								data.setUpdate_time(obj.getString("update_time"));
+								data.setCategory_id(obj.getString("category_id"));
+								data.setEnd_time(obj.getString("end_time"));
+								data.setSubtitle(obj.getString("subtitle"));
+								data.setImgs_url(obj.getString("imgs_url"));
+								data.setCompany_id(obj.getString("company_id"));
+								item_id = data.getId();
+								//							img_url = data.img_url;
+								//							title = data.title;
+								JSONObject jsot = obj.getJSONObject("default_spec_item");
+								data.setGoods_id(jsot.getString("goods_id"));
+								data.setArticle_id(jsot.getString("article_id"));
+								data.setSell_price(jsot.getString("sell_price"));
+								//							sell_price = data.sell_price;
+								//							article_id = data.article_id;
+								//							goods_id = data.goods_id;
+								JSONObject jsoct = jsot.getJSONObject("default_activity_price");
+								data.setPeople(jsoct.getString("people"));
+								data.setPrice(jsoct.getString("price"));
+								//							price = data.price;
+								JSONArray jsonArray = jsot.getJSONArray("activity_price");
+								for (int k = 0; k < jsonArray.length(); k++) {
+									JSONObject objet2 = jsonArray.getJSONObject(k);
+									JuTuanGouData data = new JuTuanGouData();
+									data.setGoods_id(objet2.getString("goods_id"));
+									data.setPeople(objet2.getString("people"));
+									data.setPrice(objet2.getString("price"));
+									list.add(data);
+								}
 
-		}, null);
+								//						JSONObject jsonobt = object.getJSONObject("data");
+								JSONArray jsot_ll = jsonobt.getJSONArray("foreman_list");
+								for (int k = 0; k < jsot_ll.length(); k++) {
+									JSONObject obj1 = jsot_ll.getJSONObject(k);
+									data = new JuTuanGouData();
+									//						data.setOrder_no(obj1.getString("order_no"));
+									//						data.setOrder_no(obj1.getString("order_no"));
+									data.setCompany_id(obj1.getString("company_id"));
+									JSONArray jsot1 = obj1.getJSONArray("order_goods");
+									for (int q = 0; q < jsot1.length(); q++) {
+										JSONObject jsont = jsot1.getJSONObject(q);
+										//							data = new JuTuanGouData();
+										data.setArticle_id(jsont.getString("article_id"));
+										data.setOrder_id(jsont.getString("order_id"));
+										data.setGoods_id(jsont.getString("goods_id"));
+										data.setQuantity(jsont.getString("quantity"));
+
+										////						data.setShare_img_url(jsont.getString("share_img_url"));
+										data.setArticle_title(jsont.getString("article_title"));
+										data.setImg_url(jsont.getString("img_url"));
+										data.setForeman_id(jsont.getString("foreman_id"));
+										data.setForeman_name(jsont.getString("foreman_name"));
+										data.setTimer_time(jsont.getString("timer_time"));
+										data.setEnd_time(jsont.getString("end_time"));
+										data.setStart_time(jsont.getString("start_time"));
+										data.setActivity_people(jsont.getInt("activity_people"));
+										data.setActivity_member(jsont.getInt("activity_member"));
+										data.setActivity_price(jsont.getString("activity_price"));
+										data.setSell_price(jsont.getString("sell_price"));
+										data.setMarket_price(jsont.getString("market_price"));
+										//							data.setGroupon_no(jsont.getString("groupon_no"));
+										//							data.setGroupon_item_id(jsont.getString("groupon_item_id"));
+										////						data.setOrder_no(jsont.getString("order_no"));
+										//				    		end_time = data.getEnd_time();
+										foreman_id = data.getForeman_id();
+										foreman_name = data.getForeman_name();
+										//							share_img_url = data.getShare_img_url();
+										timer_time = data.getTimer_time();
+										ct_id = data.getOrder_id();
+										ct_tuanshu = String.valueOf(data.getActivity_people()- data.getActivity_member());
+										//							list_ll.add(data);
+										gettime();//ÂºÄÂõ¢Ëé∑ÂèñÂÄíËÆ°Êó∂
+									}
+								}
+
+							}else {
+								Toast.makeText(JuTuanGouXq2Activity.this, info, 200).show();
+							}
+							System.out.println("=====list.size()====================="+list.size());
+							System.out.println("=====list_ll.size()====================="+list_ll.size());
+							intrendata();
+							handler.sendEmptyMessage(1);
+							getkaituan();
+							//					gettime();//ÂºÄÂõ¢Ëé∑ÂèñÂÄíËÆ°Êó∂
+							webview.loadUrl(RealmName.REALM_NAME_HTTP + "/mobile/goods/conent-"+data.getArticle_id()+".html");//ÂïÜÂìÅ‰ªãÁªç
+							progress.CloseProgress();
+
+						} catch (JSONException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+					}
+
+				}, null);
 	}
-	
+
 	/**
-	 *  ‰≥ˆÕ≈≥§∂©µ•¡–±Ì
-	 * @param groupon_id 
-	 * @param category_id 
+	 * ËæìÂá∫Âõ¢ÈïøËÆ¢ÂçïÂàóË°®
+	 * @param groupon_id
+	 * @param category_id
 	 */
-//	public static String img_url,title,sell_price,article_id,goods_id,price;
+	//	public static String img_url,title,sell_price,article_id,goods_id,price;
 	private void getjutuanxq(String trade_no) {
 		list = new ArrayList<JuTuanGouData>();
 		list_ll = new ArrayList<JuTuanGouData>();
 		progress.CreateProgress();
 		AsyncHttp.get(RealmName.REALM_NAME_LL + "/get_order_foreman_list?trade_no="+trade_no+"&top=1"
 				, new AsyncHttpResponseHandler() {
-			@Override
-			public void onSuccess(int arg0, String arg1) {
-				// TODO Auto-generated method stub
-				super.onSuccess(arg0, arg1);
-				System.out.println(" ‰≥ˆƒ⁄»›œÍ«È========="+arg1);
-				try {
-					JSONObject object = new JSONObject(arg1);
-					String status = object.getString("status");
-					String info = object.getString("info");
-					datetime = object.getString("datetime");
-					if (status.equals("y")) {
-						JSONObject jsonobt = object.getJSONObject("data");
-						JSONObject obj= jsonobt.getJSONObject("article_model");
-						    data = new JuTuanGouData();
-							data.setId(obj.getString("id"));
-							data.setTitle(obj.getString("title"));
-							data.setImg_url(obj.getString("img_url"));
-							data.setAdd_time(obj.getString("add_time"));
-							data.setStart_time(obj.getString("start_time"));
-							data.setUpdate_time(obj.getString("update_time"));
-							data.setCategory_id(obj.getString("category_id"));
-							data.setEnd_time(obj.getString("end_time"));
-							data.setSubtitle(obj.getString("subtitle"));
-							data.setImgs_url(obj.getString("imgs_url"));
-							data.setCompany_id(obj.getString("company_id"));
-							item_id = data.getId();
-//							img_url = data.img_url;
-//							title = data.title;
-							JSONObject jsot = obj.getJSONObject("default_spec_item");
-							data.setGoods_id(jsot.getString("goods_id"));
-							data.setArticle_id(jsot.getString("article_id"));
-							data.setSell_price(jsot.getString("sell_price"));
-//							sell_price = data.sell_price;
-//							article_id = data.article_id;
-//							goods_id = data.goods_id;
-							JSONObject jsoct = jsot.getJSONObject("default_activity_price");
-							data.setPeople(jsoct.getString("people"));
-							data.setPrice(jsoct.getString("price"));
-//							price = data.price;
-							JSONArray jsonArray = jsot.getJSONArray("activity_price");
-							for (int k = 0; k < jsonArray.length(); k++) {
-								JSONObject objet2 = jsonArray.getJSONObject(k);
-								JuTuanGouData data = new JuTuanGouData();
-								data.setGoods_id(objet2.getString("goods_id"));
-								data.setPeople(objet2.getString("people"));
-								data.setPrice(objet2.getString("price"));
-								list.add(data);
-					        }
-							
-							
-//						JSONObject jsonobt = object.getJSONObject("data");
-						JSONArray jsot_ll = jsonobt.getJSONArray("foreman_list");
-						for (int k = 0; k < jsot_ll.length(); k++) {
-						JSONObject obj1 = jsot_ll.getJSONObject(k);
-						data = new JuTuanGouData();
-//						data.setOrder_no(obj1.getString("order_no"));
-//						data.setOrder_no(obj1.getString("order_no"));
-						data.setCompany_id(obj1.getString("company_id"));
-						JSONArray jsot1 = obj1.getJSONArray("order_goods");
-						for (int q = 0; q < jsot1.length(); q++) {
-							JSONObject jsont = jsot1.getJSONObject(q);
-//							data = new JuTuanGouData();
-							data.setArticle_id(jsont.getString("article_id"));
-							data.setOrder_id(jsont.getString("order_id"));
-							data.setGoods_id(jsont.getString("goods_id"));
-							data.setQuantity(jsont.getString("quantity"));
-							
-////						data.setShare_img_url(jsont.getString("share_img_url"));
-							data.setArticle_title(jsont.getString("article_title"));
-							data.setImg_url(jsont.getString("img_url"));
-							data.setForeman_id(jsont.getString("foreman_id"));
-							data.setForeman_name(jsont.getString("foreman_name"));
-							data.setTimer_time(jsont.getString("timer_time"));
-							data.setEnd_time(jsont.getString("end_time"));
-							data.setStart_time(jsont.getString("start_time"));
-							data.setActivity_people(jsont.getInt("activity_people"));
-							data.setActivity_member(jsont.getInt("activity_member"));
-							data.setActivity_price(jsont.getString("activity_price"));
-							data.setSell_price(jsont.getString("sell_price"));
-				    		data.setMarket_price(jsont.getString("market_price"));
-//							data.setGroupon_no(jsont.getString("groupon_no"));
-//							data.setGroupon_item_id(jsont.getString("groupon_item_id"));
-////						data.setOrder_no(jsont.getString("order_no"));
-//				    		end_time = data.getEnd_time();
-							foreman_id = data.getForeman_id();
-							foreman_name = data.getForeman_name();
-//							share_img_url = data.getShare_img_url();
-							timer_time = data.getTimer_time();
-							ct_id = data.getOrder_id();
-							ct_tuanshu = String.valueOf(data.getActivity_people()- data.getActivity_member());
-//							list_ll.add(data);
-//							gettime();//ø™Õ≈ªÒ»°µπº∆ ±
-							}
-						}
-						
-					}else {
-						Toast.makeText(JuTuanGouXq2Activity.this, info, 200).show();
-					}
-					System.out.println("=====list.size()====================="+list.size());
-					System.out.println("=====list_ll.size()====================="+list_ll.size());	
-					intrendata();
-					handler.sendEmptyMessage(1);
-					getkaituan();
-//					gettime();//ø™Õ≈ªÒ»°µπº∆ ±
-					webview.loadUrl(RealmName.REALM_NAME_HTTP + "/mobile/goods/conent-"+data.getArticle_id()+".html");//…Ã∆∑ΩÈ…‹
-					progress.CloseProgress();
-					
-				} catch (JSONException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-			}
+					@Override
+					public void onSuccess(int arg0, String arg1) {
+						// TODO Auto-generated method stub
+						super.onSuccess(arg0, arg1);
+						System.out.println("ËæìÂá∫ÂÜÖÂÆπËØ¶ÊÉÖ========="+arg1);
+						try {
+							JSONObject object = new JSONObject(arg1);
+							String status = object.getString("status");
+							String info = object.getString("info");
+							datetime = object.getString("datetime");
+							if (status.equals("y")) {
+								JSONObject jsonobt = object.getJSONObject("data");
+								JSONObject obj= jsonobt.getJSONObject("article_model");
+								data = new JuTuanGouData();
+								data.setId(obj.getString("id"));
+								data.setTitle(obj.getString("title"));
+								data.setImg_url(obj.getString("img_url"));
+								data.setAdd_time(obj.getString("add_time"));
+								data.setStart_time(obj.getString("start_time"));
+								data.setUpdate_time(obj.getString("update_time"));
+								data.setCategory_id(obj.getString("category_id"));
+								data.setEnd_time(obj.getString("end_time"));
+								data.setSubtitle(obj.getString("subtitle"));
+								data.setImgs_url(obj.getString("imgs_url"));
+								data.setCompany_id(obj.getString("company_id"));
+								item_id = data.getId();
+								//							img_url = data.img_url;
+								//							title = data.title;
+								JSONObject jsot = obj.getJSONObject("default_spec_item");
+								data.setGoods_id(jsot.getString("goods_id"));
+								data.setArticle_id(jsot.getString("article_id"));
+								data.setSell_price(jsot.getString("sell_price"));
+								//							sell_price = data.sell_price;
+								//							article_id = data.article_id;
+								//							goods_id = data.goods_id;
+								JSONObject jsoct = jsot.getJSONObject("default_activity_price");
+								data.setPeople(jsoct.getString("people"));
+								data.setPrice(jsoct.getString("price"));
+								//							price = data.price;
+								JSONArray jsonArray = jsot.getJSONArray("activity_price");
+								for (int k = 0; k < jsonArray.length(); k++) {
+									JSONObject objet2 = jsonArray.getJSONObject(k);
+									JuTuanGouData data = new JuTuanGouData();
+									data.setGoods_id(objet2.getString("goods_id"));
+									data.setPeople(objet2.getString("people"));
+									data.setPrice(objet2.getString("price"));
+									list.add(data);
+								}
 
-		}, null);
+
+								//						JSONObject jsonobt = object.getJSONObject("data");
+								JSONArray jsot_ll = jsonobt.getJSONArray("foreman_list");
+								for (int k = 0; k < jsot_ll.length(); k++) {
+									JSONObject obj1 = jsot_ll.getJSONObject(k);
+									data = new JuTuanGouData();
+									//						data.setOrder_no(obj1.getString("order_no"));
+									//						data.setOrder_no(obj1.getString("order_no"));
+									data.setCompany_id(obj1.getString("company_id"));
+									JSONArray jsot1 = obj1.getJSONArray("order_goods");
+									for (int q = 0; q < jsot1.length(); q++) {
+										JSONObject jsont = jsot1.getJSONObject(q);
+										//							data = new JuTuanGouData();
+										data.setArticle_id(jsont.getString("article_id"));
+										data.setOrder_id(jsont.getString("order_id"));
+										data.setGoods_id(jsont.getString("goods_id"));
+										data.setQuantity(jsont.getString("quantity"));
+
+										////						data.setShare_img_url(jsont.getString("share_img_url"));
+										data.setArticle_title(jsont.getString("article_title"));
+										data.setImg_url(jsont.getString("img_url"));
+										data.setForeman_id(jsont.getString("foreman_id"));
+										data.setForeman_name(jsont.getString("foreman_name"));
+										data.setTimer_time(jsont.getString("timer_time"));
+										data.setEnd_time(jsont.getString("end_time"));
+										data.setStart_time(jsont.getString("start_time"));
+										data.setActivity_people(jsont.getInt("activity_people"));
+										data.setActivity_member(jsont.getInt("activity_member"));
+										data.setActivity_price(jsont.getString("activity_price"));
+										data.setSell_price(jsont.getString("sell_price"));
+										data.setMarket_price(jsont.getString("market_price"));
+										//							data.setGroupon_no(jsont.getString("groupon_no"));
+										//							data.setGroupon_item_id(jsont.getString("groupon_item_id"));
+										////						data.setOrder_no(jsont.getString("order_no"));
+										//				    		end_time = data.getEnd_time();
+										foreman_id = data.getForeman_id();
+										foreman_name = data.getForeman_name();
+										//							share_img_url = data.getShare_img_url();
+										timer_time = data.getTimer_time();
+										ct_id = data.getOrder_id();
+										ct_tuanshu = String.valueOf(data.getActivity_people()- data.getActivity_member());
+										//							list_ll.add(data);
+										//							gettime();//ÂºÄÂõ¢Ëé∑ÂèñÂÄíËÆ°Êó∂
+									}
+								}
+
+							}else {
+								Toast.makeText(JuTuanGouXq2Activity.this, info, 200).show();
+							}
+							System.out.println("=====list.size()====================="+list.size());
+							System.out.println("=====list_ll.size()====================="+list_ll.size());
+							intrendata();
+							handler.sendEmptyMessage(1);
+							getkaituan();
+							//					gettime();//ÂºÄÂõ¢Ëé∑ÂèñÂÄíËÆ°Êó∂
+							webview.loadUrl(RealmName.REALM_NAME_HTTP + "/mobile/goods/conent-"+data.getArticle_id()+".html");//ÂïÜÂìÅ‰ªãÁªç
+							progress.CloseProgress();
+
+						} catch (JSONException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+					}
+
+				}, null);
 	}
 	/**
-	 * ªÒ»°÷µµΩøÿº˛
+	 * Ëé∑ÂèñÂÄºÂà∞Êéß‰ª∂
 	 */
 	public void intrendata() {
 		try {
-        ImageLoader imLoader = ImageLoader.getInstance();
-        imLoader.displayImage(RealmName.REALM_NAME_HTTP+data.getImg_url(), iv_img);
-	    imLoader.clearMemoryCache();//«Â≥˝ƒ⁄¥Êª∫¥Ê
-//        mAq.id(iv_img).image(RealmName.REALM_NAME_HTTP+data.getImg_url());
-//        mAq.clear();
-		tv_titel.setText(data.getArticle_title());
-		tv_price.setText("‘≠º€£∫"+data.getSell_price());
-		
-//		tv_tuangoujia.setText("£§"+list.get(0).getGroupon_price());
-//		tv_tuanshu.setText(list.get(0).getPeople()+"»ÀÕ≈ ˝");
-		tv_price.getPaint().setFlags(Paint.STRIKE_THRU_TEXT_FLAG | Paint.ANTI_ALIAS_FLAG); // …Ë÷√ –≥°º€Œƒ◊÷µƒ÷–ªÆœﬂ
-		
+			ImageLoader imLoader = ImageLoader.getInstance();
+			imLoader.displayImage(RealmName.REALM_NAME_HTTP+data.getImg_url(), iv_img);
+			imLoader.clearMemoryCache();//Ê∏ÖÈô§ÂÜÖÂ≠òÁºìÂ≠ò
+			//        mAq.id(iv_img).image(RealmName.REALM_NAME_HTTP+data.getImg_url());
+			//        mAq.clear();
+			tv_titel.setText(data.getArticle_title());
+			tv_price.setText("Âéü‰ª∑Ôºö"+data.getSell_price());
+
+			//		tv_tuangoujia.setText("Ôø•"+list.get(0).getGroupon_price());
+			//		tv_tuanshu.setText(list.get(0).getPeople()+"‰∫∫Âõ¢Êï∞");
+			tv_price.getPaint().setFlags(Paint.STRIKE_THRU_TEXT_FLAG | Paint.ANTI_ALIAS_FLAG); // ËÆæÁΩÆÂ∏ÇÂú∫‰ª∑ÊñáÂ≠óÁöÑ‰∏≠ÂàíÁ∫ø
+
 		} catch (Exception e) {
 			// TODO: handle exception
 			e.printStackTrace();
 		}
-		
+
 	}
-	
-	
+
+
 	public void getkaituan() {
 		try {
-			
-		stare = getIntent().getStringExtra("stare");
-//		String ct_id = getIntent().getStringExtra("ct_id");
-		System.out.println("=======stare================================"+stare);
-		System.out.println("=======ct_id================================"+ct_id);
-//		stare = "2";
-		System.out.println("=======ct_tuanshu===========1====================="+ct_tuanshu);
-		if (stare != null) {
-			if (stare.equals("1")) {//≤ŒÕ≈
-				ll_qu_kaituan.setVisibility(View.GONE);
-				ll_jiaguo.setVisibility(View.VISIBLE);
-				ll_kaituan.setVisibility(View.GONE);
-				tv_anniu1.setVisibility(View.VISIBLE);
-				txt_time.setVisibility(View.VISIBLE);
-				ll_jutuanjia.setVisibility(View.GONE);
-				tv_jutuan_price.setVisibility(View.VISIBLE);
-				tv_jutuan_price.setText("æ€Õ≈º€£∫"+data.getActivity_price());
-			} else if (stare.equals("3")) {//≤ŒÕ≈
-				ll_qu_kaituan.setVisibility(View.GONE);
-				ll_jiaguo.setVisibility(View.GONE);
-				ll_kaituan.setVisibility(View.GONE);
-				tv_anniu1.setVisibility(View.GONE);
-				txt_time.setVisibility(View.VISIBLE);
-				txt_time.setText("“—≤ŒÕ≈");
-			} else {//—˚«Î
-				tv_kaituan.setText(datetime);
-				tv_tuan.setText(ct_tuanshu);
-				ll_kaituan.setVisibility(View.VISIBLE);
-				ll_qu_kaituan.setVisibility(View.VISIBLE);
-				tv_anniu1.setVisibility(View.GONE);
-				ll_jiaguo.setVisibility(View.GONE);
-				txt_time.setVisibility(View.VISIBLE);
-				
-//				txt_time.setVisibility(View.VISIBLE);
-//				tv_price.setVisibility(View.GONE);
-//				tv_anniu1.setVisibility(View.GONE);
-//				ll_jutuanjia.setVisibility(View.GONE);
-			}
-			
-//			System.out.println("=======datetime====================="+datetime);
-//			System.out.println("=======timer_time================================"+timer_time);
-			
-//			System.out.println("=======stare===========2====================="+stare);
-			System.out.println("=======ct_id===========1====================="+ct_id);
-			System.out.println("getIntent().getStringExtrafx_shuzi======================" + getIntent().getStringExtra("fx_shuzi"));
-			
+
+			stare = getIntent().getStringExtra("stare");
+			//		String ct_id = getIntent().getStringExtra("ct_id");
+			System.out.println("=======stare================================"+stare);
+			System.out.println("=======ct_id================================"+ct_id);
+			//		stare = "2";
+			System.out.println("=======ct_tuanshu===========1====================="+ct_tuanshu);
 			if (stare != null) {
-				if (stare.equals("1")) {
-					String fx_yes = getIntent().getStringExtra("fx_yes");
-					System.out.println("=======fx_yes===========1====================="+fx_yes);
-					//“ªº¸≤ŒÕ≈÷ß∏∂∫ÛÃ· æ∑÷œÌ
-					if (fx_yes == null) {
+				if (stare.equals("1")) {//ÂèÇÂõ¢
+					ll_qu_kaituan.setVisibility(View.GONE);
+					ll_jiaguo.setVisibility(View.VISIBLE);
+					ll_kaituan.setVisibility(View.GONE);
+					tv_anniu1.setVisibility(View.VISIBLE);
+					txt_time.setVisibility(View.VISIBLE);
+					ll_jutuanjia.setVisibility(View.GONE);
+					tv_jutuan_price.setVisibility(View.VISIBLE);
+					tv_jutuan_price.setText("ËÅöÂõ¢‰ª∑Ôºö"+data.getActivity_price());
+				} else if (stare.equals("3")) {//ÂèÇÂõ¢
+					ll_qu_kaituan.setVisibility(View.GONE);
+					ll_jiaguo.setVisibility(View.GONE);
+					ll_kaituan.setVisibility(View.GONE);
+					tv_anniu1.setVisibility(View.GONE);
+					txt_time.setVisibility(View.VISIBLE);
+					txt_time.setText("Â∑≤ÂèÇÂõ¢");
+				} else {//ÈÇÄËØ∑
+					tv_kaituan.setText(datetime);
+					tv_tuan.setText(ct_tuanshu);
+					ll_kaituan.setVisibility(View.VISIBLE);
+					ll_qu_kaituan.setVisibility(View.VISIBLE);
+					tv_anniu1.setVisibility(View.GONE);
+					ll_jiaguo.setVisibility(View.GONE);
+					txt_time.setVisibility(View.VISIBLE);
+
+					//				txt_time.setVisibility(View.VISIBLE);
+					//				tv_price.setVisibility(View.GONE);
+					//				tv_anniu1.setVisibility(View.GONE);
+					//				ll_jutuanjia.setVisibility(View.GONE);
+				}
+
+				//			System.out.println("=======datetime====================="+datetime);
+				//			System.out.println("=======timer_time================================"+timer_time);
+
+				//			System.out.println("=======stare===========2====================="+stare);
+				System.out.println("=======ct_id===========1====================="+ct_id);
+				System.out.println("getIntent().getStringExtrafx_shuzi======================" + getIntent().getStringExtra("fx_shuzi"));
+
+				if (stare != null) {
+					if (stare.equals("1")) {
+						String fx_yes = getIntent().getStringExtra("fx_yes");
+						System.out.println("=======fx_yes===========1====================="+fx_yes);
+						//‰∏ÄÈîÆÂèÇÂõ¢ÊîØ‰ªòÂêéÊèêÁ§∫ÂàÜ‰∫´
+						if (fx_yes == null) {
+							Intent intent = new Intent(JuTuanGouXq2Activity.this,CanTuanFengXiangActivity.class);
+							intent.putExtra("ct_id",ct_id);
+							intent.putExtra("ct_tuanshu",ct_tuanshu);
+							intent.putExtra("title",data.getArticle_title());
+							//						intent.putExtra("subtitle","");
+							intent.putExtra("subtitle",data.getSubtitle());
+							intent.putExtra("company_id",data.getCompany_id());
+							intent.putExtra("img_url", "");
+							intent.putExtra("fx_shuzi",fx_cs);
+							startActivity(intent);
+						}
+					}else {
 						Intent intent = new Intent(JuTuanGouXq2Activity.this,CanTuanFengXiangActivity.class);
 						intent.putExtra("ct_id",ct_id);
 						intent.putExtra("ct_tuanshu",ct_tuanshu);
 						intent.putExtra("title",data.getArticle_title());
-//						intent.putExtra("subtitle","");
+						//					intent.putExtra("subtitle","");
 						intent.putExtra("subtitle",data.getSubtitle());
 						intent.putExtra("company_id",data.getCompany_id());
 						intent.putExtra("img_url", "");
 						intent.putExtra("fx_shuzi",fx_cs);
+						//					intent.putExtra("datetime",datetime);
+						//					intent.putExtra("timer_time",timer_time);
 						startActivity(intent);
 					}
-				}else {
-					Intent intent = new Intent(JuTuanGouXq2Activity.this,CanTuanFengXiangActivity.class);
-					intent.putExtra("ct_id",ct_id);
-					intent.putExtra("ct_tuanshu",ct_tuanshu);
-					intent.putExtra("title",data.getArticle_title());
-//					intent.putExtra("subtitle","");
-					intent.putExtra("subtitle",data.getSubtitle());
-					intent.putExtra("company_id",data.getCompany_id());
-					intent.putExtra("img_url", "");
-					intent.putExtra("fx_shuzi",fx_cs);
-//					intent.putExtra("datetime",datetime);
-//					intent.putExtra("timer_time",timer_time);
-					startActivity(intent);
 				}
 			}
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
 		}
-	} catch (Exception e) {
-		// TODO: handle exception
-		e.printStackTrace();
 	}
-	}
-	
+
 	public void gettime() {
-		
+
 		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		try {
-//			String end_time = getIntent().getStringExtra("end_time");
-//			String jieshu = "2004-03-26 13:31:40";
-			System.out.println("=====timer_time===================="+timer_time);	
-			System.out.println("=====datetime====================="+datetime);	
+			//			String end_time = getIntent().getStringExtra("end_time");
+			//			String jieshu = "2004-03-26 13:31:40";
+			System.out.println("=====timer_time===================="+timer_time);
+			System.out.println("=====datetime====================="+datetime);
 			now = df.parse(timer_time);
 		} catch (java.text.ParseException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
-		
+
 		try {
-//			String end_time = getIntent().getStringExtra("datetime");
-//			String kaishi = "2004-03-26 13:31:40";
+			//			String end_time = getIntent().getStringExtra("datetime");
+			//			String kaishi = "2004-03-26 13:31:40";
 			date = df.parse(datetime);
 		} catch (java.text.ParseException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
-		
-		   long l=now.getTime()-date.getTime();
-		   long day=l/(24*60*60*1000);
-		   long hourl=(l/(60*60*1000)-day*24);
-		   min=((l/(60*1000))-day*24*60-hour*60);
-		   s=(l/1000-day*24*60*60-hour*60*60-min*60);
-		    
-           long xiaoshi = day*24;
-		   zongxs = xiaoshi;
-		   System.out.println("----------"+xiaoshi+"--"+zongxs);
-		   System.out.println(""+day+"ÃÏ"+hourl+"–° ±"+min+"∑÷"+s+"√Î");
-		   
-//		    time = (hourl * 3600 + min * 60 + s) * 1000; 
-		    time = (zongxs * 3600 + min * 60 + s) * 1000; 
-			System.out.println("time--------------"+time);
-			count = new MyCount(time, 1000);
-			System.out.println("2-------------"+count);
-			count.start();//ø™ ºº∆ ± 
+
+		long l=now.getTime()-date.getTime();
+		long day=l/(24*60*60*1000);
+		long hourl=(l/(60*60*1000)-day*24);
+		min=((l/(60*1000))-day*24*60-hour*60);
+		s=(l/1000-day*24*60*60-hour*60*60-min*60);
+
+		long xiaoshi = day*24;
+		zongxs = xiaoshi;
+		System.out.println("----------"+xiaoshi+"--"+zongxs);
+		System.out.println(""+day+"Â§©"+hourl+"Â∞èÊó∂"+min+"ÂàÜ"+s+"Áßí");
+
+		//		    time = (hourl * 3600 + min * 60 + s) * 1000;
+		time = (zongxs * 3600 + min * 60 + s) * 1000;
+		System.out.println("time--------------"+time);
+		count = new MyCount(time, 1000);
+		System.out.println("2-------------"+count);
+		count.start();//ÂºÄÂßãËÆ°Êó∂
 	}
-	
+
 	@Override
 	public void onClick(View v) {
 		// TODO Auto-generated method stub
-		
+
 		switch (v.getId()) {
-		case R.id.fanhui:
-			finish();
-			break;
-		case R.id.tv_anniu1:
-			getgouwu();
-//			if (!user_name_phone.equals("")) {
-//			Intent intent = new Intent(JuTuanGouXq2Activity.this,JuTuanConfrimActivity.class);
-////			System.out.println("data.user_id================================="+data.user_id);
-////		 	System.out.println("data.user_name================================="+data.user_name);
-////			String groupon_id = getIntent().getStringExtra("id");
-//			intent.putExtra("buy_no",orders_no);
-//			intent.putExtra("title", data.article_title);
-//			intent.putExtra("activity_price", data.activity_price);
-//			intent.putExtra("spec_text",data.spec_text);
-//			intent.putExtra("img_url", data.img_url);
-//			intent.putExtra("ct_tuanshu", ct_tuanshu);
-//			intent.putExtra("foreman_id",foreman_id);
-//			intent.putExtra("foreman_name",foreman_name);
-////			intent.putExtra("foreman_id", data.user_id);
-////			intent.putExtra("foreman_name", data.user_name);
-//			intent.putExtra("stare", "3");
-//			intent.putExtra("type_jutuan","1");//◊¥Ã¨
-//			intent.putExtra("type_wx",zhifu_wx);//÷ß∏∂∑Ω Ω
-//			intent.putExtra("jiekou", getIntent().getStringExtra("jiekou"));//jiekou = getIntent().getStringExtra("type_xq");
-//			startActivity(intent);
-//			} else {
-//				Intent intent = new Intent(JuTuanGouXq2Activity.this,UserLoginActivity.class);
-//				startActivity(intent);
-//				progress.CloseProgress();
-//			}
-			break;
-		default:
-			break;
+			case R.id.fanhui:
+				finish();
+				break;
+			case R.id.tv_anniu1:
+				getgouwu();
+				//			if (!user_name_phone.equals("")) {
+				//			Intent intent = new Intent(JuTuanGouXq2Activity.this,JuTuanConfrimActivity.class);
+				////			System.out.println("data.user_id================================="+data.user_id);
+				////		 	System.out.println("data.user_name================================="+data.user_name);
+				////			String groupon_id = getIntent().getStringExtra("id");
+				//			intent.putExtra("buy_no",orders_no);
+				//			intent.putExtra("title", data.article_title);
+				//			intent.putExtra("activity_price", data.activity_price);
+				//			intent.putExtra("spec_text",data.spec_text);
+				//			intent.putExtra("img_url", data.img_url);
+				//			intent.putExtra("ct_tuanshu", ct_tuanshu);
+				//			intent.putExtra("foreman_id",foreman_id);
+				//			intent.putExtra("foreman_name",foreman_name);
+				////			intent.putExtra("foreman_id", data.user_id);
+				////			intent.putExtra("foreman_name", data.user_name);
+				//			intent.putExtra("stare", "3");
+				//			intent.putExtra("type_jutuan","1");//Áä∂ÊÄÅ
+				//			intent.putExtra("type_wx",zhifu_wx);//ÊîØ‰ªòÊñπÂºè
+				//			intent.putExtra("jiekou", getIntent().getStringExtra("jiekou"));//jiekou = getIntent().getStringExtra("type_xq");
+				//			startActivity(intent);
+				//			} else {
+				//				Intent intent = new Intent(JuTuanGouXq2Activity.this,UserLoginActivity.class);
+				//				startActivity(intent);
+				//				progress.CloseProgress();
+				//			}
+				break;
+			default:
+				break;
 		}
 	}
 	private void getgouwu() {
 		// TODO Auto-generated method stub
-	try {
-		/**
-		 * …Ã∆∑º”»Îπ∫ŒÔ«Âµ•
-		 */
-    AsyncHttp.get(RealmName.REALM_NAME_LL+ "/add_activity_buy?user_id="+user_id+"&user_name="+user_name+"&user_sign="+login_sign+"&" +
-		    "article_id="+data.article_id+"&goods_id="+data.goods_id+"&quantity="+1+"&order_id="+data.order_id+"&people="+data.activity_people+"",
-			new AsyncHttpResponseHandler() {
-				@Override
-				public void onSuccess(int arg0,String arg1) {
-					// TODO Auto-generated method stub
-					super.onSuccess(arg0, arg1);
-					try {
-						JSONObject jsonObject = new JSONObject(arg1);
-						String status = jsonObject.getString("status");
-						System.out.println("π∫ŒÔ«Âµ•================"+arg1);
-						String info = jsonObject.getString("info");
-						if (status.equals("y")) {
-							progress.CloseProgress();
-							JSONObject obj = jsonObject.getJSONObject("data");
-							String buy_no = obj.getString("buy_no");
-//							String count = obj.getString("count");
-							Toast.makeText(JuTuanGouXq2Activity.this, info, 200).show();
-							Intent intent = new Intent(JuTuanGouXq2Activity.this,JuTuanConfrimActivity.class);
-							System.out.println("data.activity_people================"+data.activity_people);
-							intent.putExtra("buy_no",buy_no);
-							intent.putExtra("title", data.article_title);
-							intent.putExtra("activity_price", data.activity_price);
-							intent.putExtra("spec_text",data.spec_text);
-							intent.putExtra("img_url", data.img_url);
-							intent.putExtra("ct_tuanshu", String.valueOf(data.activity_people));
-							intent.putExtra("foreman_id",foreman_id);
-							intent.putExtra("foreman_name",foreman_name);
-							intent.putExtra("stare", "3");
-							intent.putExtra("type_jutuan","1");//◊¥Ã¨
-							intent.putExtra("type_wx",zhifu_wx);//÷ß∏∂∑Ω Ω
-							intent.putExtra("jiekou", getIntent().getStringExtra("jiekou"));//jiekou = getIntent().getStringExtra("type_xq");
-							startActivity(intent);
-						}else {
-							progress.CloseProgress();
-							Toast.makeText(JuTuanGouXq2Activity.this, info, 200).show();
+		try {
+			/**
+			 * ÂïÜÂìÅÂä†ÂÖ•Ë¥≠Áâ©Ê∏ÖÂçï
+			 */
+			AsyncHttp.get(RealmName.REALM_NAME_LL+ "/add_activity_buy?user_id="+user_id+"&user_name="+user_name+"&user_sign="+login_sign+"&" +
+							"article_id="+data.article_id+"&goods_id="+data.goods_id+"&quantity="+1+"&order_id="+data.order_id+"&people="+data.activity_people+"",
+					new AsyncHttpResponseHandler() {
+						@Override
+						public void onSuccess(int arg0,String arg1) {
+							// TODO Auto-generated method stub
+							super.onSuccess(arg0, arg1);
+							try {
+								JSONObject jsonObject = new JSONObject(arg1);
+								String status = jsonObject.getString("status");
+								System.out.println("Ë¥≠Áâ©Ê∏ÖÂçï================"+arg1);
+								String info = jsonObject.getString("info");
+								if (status.equals("y")) {
+									progress.CloseProgress();
+									JSONObject obj = jsonObject.getJSONObject("data");
+									String buy_no = obj.getString("buy_no");
+									//							String count = obj.getString("count");
+									Toast.makeText(JuTuanGouXq2Activity.this, info, 200).show();
+									Intent intent = new Intent(JuTuanGouXq2Activity.this,JuTuanConfrimActivity.class);
+									System.out.println("data.activity_people================"+data.activity_people);
+									intent.putExtra("buy_no",buy_no);
+									intent.putExtra("title", data.article_title);
+									intent.putExtra("activity_price", data.activity_price);
+									intent.putExtra("spec_text",data.spec_text);
+									intent.putExtra("img_url", data.img_url);
+									intent.putExtra("ct_tuanshu", String.valueOf(data.activity_people));
+									intent.putExtra("foreman_id",foreman_id);
+									intent.putExtra("foreman_name",foreman_name);
+									intent.putExtra("stare", "3");
+									intent.putExtra("type_jutuan","1");//Áä∂ÊÄÅ
+									intent.putExtra("type_wx",zhifu_wx);//ÊîØ‰ªòÊñπÂºè
+									intent.putExtra("jiekou", getIntent().getStringExtra("jiekou"));//jiekou = getIntent().getStringExtra("type_xq");
+									startActivity(intent);
+								}else {
+									progress.CloseProgress();
+									Toast.makeText(JuTuanGouXq2Activity.this, info, 200).show();
+								}
+							} catch (JSONException e) {
+								// TODO Auto-generated catch block
+								e.printStackTrace();
+							}
+
 						}
-					} catch (JSONException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
+						@Override
+						public void onFailure(Throwable arg0, String arg1) {
+							// TODO Auto-generated method stub
+							progress.CloseProgress();
+							System.out.println("==========================ËÆøÈóÆÊé•Âè£Â§±Ë¥•ÔºÅ");
+							System.out.println("========================="+arg0);
+							System.out.println("=========================="+arg1);
+							Toast.makeText(JuTuanGouXq2Activity.this, "ÂºÇÂ∏∏", 200).show();
+							super.onFailure(arg0, arg1);
+						}
 
-				}
-				@Override
-				public void onFailure(Throwable arg0, String arg1) {
-					// TODO Auto-generated method stub
-					progress.CloseProgress();
-					System.out.println("==========================∑√Œ Ω”ø⁄ ß∞‹£°");
-					System.out.println("========================="+arg0);
-					System.out.println("=========================="+arg1);
-					Toast.makeText(JuTuanGouXq2Activity.this, "“Ï≥£", 200).show();
-					super.onFailure(arg0, arg1);
-				}
-				
 
-			}, null);
-	} catch (Exception e) {
-		// TODO: handle exception
-		e.printStackTrace();
+					}, null);
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
 	}
-	}
-	
-	
-	// µœ÷º∆ ±π¶ƒ‹µƒ¿‡ 
-	class MyCount extends MyCountdownTimer { 
 
-		public MyCount(long millisInFuture, long countDownInterval) { 
-			super(millisInFuture, countDownInterval); 
-		} 
-		@Override 
-		public void onFinish() { 
-			//√ΩÃÂ∂‘œÛ 
-			txt_time.setText("¥ÀÕ≈“—Ω· ¯"); 
-		} 
-		
-		//∏¸–¬ £”‡ ±º‰ 
-		@Override 
+
+	//ÂÆûÁé∞ËÆ°Êó∂ÂäüËÉΩÁöÑÁ±ª
+	class MyCount extends MyCountdownTimer {
+
+		public MyCount(long millisInFuture, long countDownInterval) {
+			super(millisInFuture, countDownInterval);
+		}
+		@Override
+		public void onFinish() {
+			//Â™í‰ΩìÂØπË±°
+			txt_time.setText("Ê≠§Âõ¢Â∑≤ÁªìÊùü");
+		}
+
+		//Êõ¥Êñ∞Ââ©‰ΩôÊó∂Èó¥
+		@Override
 		public void onTick(long millisUntilFinished, int percent) {
 			current_time = millisUntilFinished;
-//			System.out.println("current_time-------------"+current_time);
-//			long day= (millisUntilFinished / 1000); 
-//			long myhour = (millisUntilFinished / 1000) / 3600; 
-//			long myminute = ((millisUntilFinished / 1000) - myhour * 3600) / 60; 
-//			long mysecond = millisUntilFinished / 1000 - myhour * 3600 - myminute * 60; 
-//			txt_time.setText(" £”‡ ±º‰: "+day+":" + myhour + ":" + myminute + ":" + mysecond); 
-			
-			   long day=current_time/(24*60*60*1000);
-			   long hour=(current_time/(60*60*1000)-day*24);
-			   long min=((current_time/(60*1000))-day*24*60-hour*60);
-			   long s=(current_time/1000-day*24*60*60-hour*60*60-min*60);
-			   
-//			   System.out.println(""+day+"ÃÏ"+hour+"–° ±"+min+"∑÷"+s+"√Î");
-//			   txt_time.setText(" £”‡ ±º‰: "+day+":" + hour + ":" + min + ":" + s); 
-			   txt_time.setText(" £”‡ ±º‰: "+day+"ÃÏ"+hour+"–° ±"+min+"∑÷"+s+"√Î"); 
-		} 
-	} 
-	
-	
-	public static void setListViewHeightBasedOnChildren(ListView listView) {   
-        // ªÒ»°ListView∂‘”¶µƒAdapter   
-        ListAdapter listAdapter = listView.getAdapter();   
-        if (listAdapter == null) {   
-            return;   
-        }   
-   
-        int totalHeight = 0;   
-        for (int i = 0, len = listAdapter.getCount(); i < len; i++) {   
-            // listAdapter.getCount()∑µªÿ ˝æ›œÓµƒ ˝ƒø   
-            View listItem = listAdapter.getView(i, null, listView);   
-            // º∆À„◊”œÓView µƒøÌ∏ﬂ   
-            listItem.measure(0, 0);    
-            // Õ≥º∆À˘”–◊”œÓµƒ◊‹∏ﬂ∂»   
-            totalHeight += listItem.getMeasuredHeight();    
-        }   
-   
-        ViewGroup.LayoutParams params = listView.getLayoutParams();   
-        params.height = totalHeight+ (listView.getDividerHeight() * (listAdapter.getCount() - 1));   
-        listView.getDividerHeight();//ªÒ»°◊”œÓº‰∑÷∏Ù∑˚’º”√µƒ∏ﬂ∂»   
-//         params.height◊Ó∫Ûµ√µΩ’˚∏ˆListViewÕÍ’˚œ‘ æ–Ë“™µƒ∏ﬂ∂»   
-        listView.setLayoutParams(params);   
-    } 
+			//			System.out.println("current_time-------------"+current_time);
+			//			long day= (millisUntilFinished / 1000);
+			//			long myhour = (millisUntilFinished / 1000) / 3600;
+			//			long myminute = ((millisUntilFinished / 1000) - myhour * 3600) / 60;
+			//			long mysecond = millisUntilFinished / 1000 - myhour * 3600 - myminute * 60;
+			//			txt_time.setText("Ââ©‰ΩôÊó∂Èó¥: "+day+":" + myhour + ":" + myminute + ":" + mysecond);
+
+			long day=current_time/(24*60*60*1000);
+			long hour=(current_time/(60*60*1000)-day*24);
+			long min=((current_time/(60*1000))-day*24*60-hour*60);
+			long s=(current_time/1000-day*24*60*60-hour*60*60-min*60);
+
+			//			   System.out.println(""+day+"Â§©"+hour+"Â∞èÊó∂"+min+"ÂàÜ"+s+"Áßí");
+			//			   txt_time.setText("Ââ©‰ΩôÊó∂Èó¥: "+day+":" + hour + ":" + min + ":" + s);
+			txt_time.setText("Ââ©‰ΩôÊó∂Èó¥: "+day+"Â§©"+hour+"Â∞èÊó∂"+min+"ÂàÜ"+s+"Áßí");
+		}
+	}
+
+
+	public static void setListViewHeightBasedOnChildren(ListView listView) {
+		// Ëé∑ÂèñListViewÂØπÂ∫îÁöÑAdapter
+		ListAdapter listAdapter = listView.getAdapter();
+		if (listAdapter == null) {
+			return;
+		}
+
+		int totalHeight = 0;
+		for (int i = 0, len = listAdapter.getCount(); i < len; i++) {
+			// listAdapter.getCount()ËøîÂõûÊï∞ÊçÆÈ°πÁöÑÊï∞ÁõÆ
+			View listItem = listAdapter.getView(i, null, listView);
+			// ËÆ°ÁÆóÂ≠êÈ°πView ÁöÑÂÆΩÈ´ò
+			listItem.measure(0, 0);
+			// ÁªüËÆ°ÊâÄÊúâÂ≠êÈ°πÁöÑÊÄªÈ´òÂ∫¶
+			totalHeight += listItem.getMeasuredHeight();
+		}
+
+		ViewGroup.LayoutParams params = listView.getLayoutParams();
+		params.height = totalHeight+ (listView.getDividerHeight() * (listAdapter.getCount() - 1));
+		listView.getDividerHeight();//Ëé∑ÂèñÂ≠êÈ°πÈó¥ÂàÜÈöîÁ¨¶Âç†Áî®ÁöÑÈ´òÂ∫¶
+		//         params.heightÊúÄÂêéÂæóÂà∞Êï¥‰∏™ListViewÂÆåÊï¥ÊòæÁ§∫ÈúÄË¶ÅÁöÑÈ´òÂ∫¶
+		listView.setLayoutParams(params);
+	}
 
 }

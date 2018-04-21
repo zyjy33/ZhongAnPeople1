@@ -19,8 +19,6 @@
 */
 package com.zams.www;
 
-import java.util.ArrayList;
-
 import android.app.Service;
 import android.content.Intent;
 import android.os.IBinder;
@@ -37,10 +35,12 @@ import com.yzx.listenerInterface.UcsReason;
 import com.yzx.tcp.packet.UcsMessage;
 import com.yzx.tcp.packet.UcsStatus;
 
+import java.util.ArrayList;
+
 
 public class ConnectService extends Service {
 	private final static String TAG = ConnectService.class.getCanonicalName();
-	
+
 	public ConnectService(){
 		super();
 	}
@@ -50,120 +50,120 @@ public class ConnectService extends Service {
 		super.onCreate();
 		Log.d(TAG, "onCreate()");
 		UCSService.init(getApplicationContext(),true);
-		
+
 	}
-	
+
 	@SuppressWarnings("deprecation")
 	@Override
 	public void onStart(Intent intent, int startId) {
 		super.onStart(intent, startId);
-			System.out.println("连接通话服务");
+		System.out.println("è¿žæŽ¥é€šè¯æœåŠ¡");
 		UCSService.addConnectionListener(new ConnectionListener() {
 			@Override
 			public void onConnectionSuccessful() {
-						
-				Log.i("mark", "UCSService 连接成功");
+
+				Log.i("mark", "UCSService è¿žæŽ¥æˆåŠŸ");
 			}
-					
+
 			@Override
 			public void onConnectionFailed(UcsReason arg0) {
-					
-				Log.i("mark", "UCSService 连接失败"+arg0.getReason());
+
+				Log.i("mark", "UCSService è¿žæŽ¥å¤±è´¥"+arg0.getReason());
 			}
 		});
-		 
-		
-	
+
+
+
 		UCSCall.addCallStateListener(new CallStateListener() {
-			
-			//来电，开始响?
+
+			//æ¥ç”µï¼Œå¼€å§‹å“ï¿?
 			@Override
 			public void onIncomingCall(String arg0, String arg1, String arg2) {
-				
-				//true 还震
+
+				//true è¿˜éœ‡ï¿?
 				UCSCall.setSpeakerphone(true);
 				UCSCall.startRinging(true);
-			
+
 			}
-					
-			//只需处理挂机UI
+
+			//åªéœ€å¤„ç†æŒ‚æœºUI
 			@Override
 			public void onHangUp(String arg0, UcsReason arg1) {
-				
+
 				UCSCall.stopRinging();
 			}
-				
-			
-			//呼叫失败 直拨与VOIP
+
+
+			//å‘¼å«å¤±è´¥ ç›´æ‹¨ä¸ŽVOIP
 			@Override
 			public void onDialFailed(String arg0, UcsReason arg1) {
-						
-				Log.i("mark", "呼叫失败");
+
+				Log.i("mark", "å‘¼å«å¤±è´¥");
 			}
-				
-			//两端回拨
+
+			//ä¸¤ç«¯å›žæ‹¨
 			@Override
 			public void onCallBackSuccess() {
-				
-				
+
+
 			}
-					
-			//对端接听
+
+			//å¯¹ç«¯æŽ¥å¬
 			@Override
 			public void onAnswer(String arg0) {
-						
-				Log.i("mark", "对端接听回调"+arg0);
+
+				Log.i("mark", "å¯¹ç«¯æŽ¥å¬å›žè°ƒ"+arg0);
 				UCSCall.setSpeakerphone(false);
 				UCSCall.stopRinging();
-				//回调响应
+				//å›žè°ƒå“åº”
 			}
-			
-			//播放回铃 直播回铃
+
+			//æ’­æ”¾å›žé“ƒ ç›´æ’­å›žé“ƒ
 			@Override
 			public void onAlerting(String arg0) {
-						
+
 			}
-			
+
 		});
-		
+
 		UCSMessage.addMessageListener(new MessageListener() {
-			
+
 			@Override
 			public void onUserState(ArrayList arg0) {
-				
+
 				for(int i=0;i<arg0.size();i++){
 					UcsStatus status = (UcsStatus) arg0.get(i);
 				}
-				
-				
-				
+
+
+
 			}
-			
+
 			@Override
 			public void onSendUcsMessage(UcsReason arg0, UcsMessage arg1) {
-				
+
 			}
-			
+
 			@Override
 			public void onSendFileProgress(int arg0) {
-				
+
 			}
-			
+
 			@Override
 			public void onReceiveUcsMessage(UcsReason arg0, UcsMessage arg1) {
-				
+
 			}
-			
+
 			@Override
 			public void onDownloadAttachedProgress(String arg0, String arg1, int arg2,
-					int arg3) {
-				
+												   int arg3) {
+
 			}
 		});
-		
-		Log.i("mark", "�?��查询状�?");
+
+		Log.i("mark", "ï¿?ï¿½ï¿½æŸ¥è¯¢çŠ¶ï¿½?");
 		new Thread(new Runnable() {
-			
+
 			@Override
 			public void run() {
 				try {
@@ -172,22 +172,22 @@ public class ConnectService extends Service {
 					e.printStackTrace();
 				}
 				UCSMessage.queryUserState(ClientType.CLIENT, "79318000878750");
-				
+
 			}
 		}).start();
-		
+
 	}
-	
+
 	@Override
 	public void onDestroy() {
 		Log.d(TAG, "onDestroy()");
 		super.onDestroy();
-	
+
 	}
 
 	@Override
 	public IBinder onBind(Intent intent) {
 		return null;
 	}
-	
+
 }

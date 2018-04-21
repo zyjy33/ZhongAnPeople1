@@ -45,11 +45,11 @@ import com.zams.www.R;
 import com.zams.www.UserLoginActivity;
 
 /**
- * 
- * ±¸»õ½ğÃ÷Ï¸
- * 
+ *
+ * å¤‡è´§é‡‘æ˜ç»†
+ *
  * @author Administrator
- * 
+ *
  */
 public class BeiHuoJinMxActivity extends BaseActivity implements
 		OnClickListener {
@@ -82,7 +82,7 @@ public class BeiHuoJinMxActivity extends BaseActivity implements
 	}
 
 	/**
-	 * ¿Ø¼ş³õÊ¼»¯
+	 * æ§ä»¶åˆå§‹åŒ–
 	 */
 	private void Initialize() {
 
@@ -130,13 +130,13 @@ public class BeiHuoJinMxActivity extends BaseActivity implements
 		// TODO Auto-generated method stub
 		switch (v.getId()) {
 
-		default:
-			break;
+			default:
+				break;
 		}
 	}
 
 	/**
-	 * ÉÏÀ­ÁĞ±íË¢ĞÂ¼ÓÔØ
+	 * ä¸Šæ‹‰åˆ—è¡¨åˆ·æ–°åŠ è½½
 	 */
 	private OnHeaderRefreshListener listHeadListener = new OnHeaderRefreshListener() {
 
@@ -154,7 +154,7 @@ public class BeiHuoJinMxActivity extends BaseActivity implements
 	};
 
 	/**
-	 * ÏÂÀ­ÁĞ±íË¢ĞÂ¼ÓÔØ
+	 * ä¸‹æ‹‰åˆ—è¡¨åˆ·æ–°åŠ è½½
 	 */
 	private OnFooterRefreshListener listFootListener = new OnFooterRefreshListener() {
 
@@ -211,25 +211,25 @@ public class BeiHuoJinMxActivity extends BaseActivity implements
 	Handler handler = new Handler() {
 		public void dispatchMessage(Message msg) {
 			switch (msg.what) {
-			case 0:
-				list = (ArrayList<MyAssetsBean>) msg.obj;
-				System.out.println("=====================¶ş¼¶Öµ14---"
-						+ list.size());
-				adapter = new MyAssetsAdapter(list, BeiHuoJinMxActivity.this,
-						imageLoader);
-				System.out.println("=====================¶ş¼¶Öµ15");
-				listView.setAdapter(adapter);
-				adapter.notifyDataSetChanged();
-				break;
+				case 0:
+					list = (ArrayList<MyAssetsBean>) msg.obj;
+					System.out.println("=====================äºŒçº§å€¼14---"
+							+ list.size());
+					adapter = new MyAssetsAdapter(list, BeiHuoJinMxActivity.this,
+							imageLoader);
+					System.out.println("=====================äºŒçº§å€¼15");
+					listView.setAdapter(adapter);
+					adapter.notifyDataSetChanged();
+					break;
 
-			default:
-				break;
+				default:
+					break;
 			}
 		};
 	};
 
 	/**
-	 * µÚ1¸öÁĞ±íÊı¾İ½âÎö
+	 * ç¬¬1ä¸ªåˆ—è¡¨æ•°æ®è§£æ
 	 */
 	// private int RUN_METHOD = -1;
 	private int CURRENT_NUM = 1;
@@ -239,7 +239,7 @@ public class BeiHuoJinMxActivity extends BaseActivity implements
 		RUN_METHOD = 1;
 		list = new ArrayList<MyAssetsBean>();
 		if (flag) {
-			// ¼ÆÊıºÍÈİÆ÷ÇåÁã
+			// è®¡æ•°å’Œå®¹å™¨æ¸…é›¶
 			CURRENT_NUM = 0;
 			list = new ArrayList<MyAssetsBean>();
 		}
@@ -248,14 +248,14 @@ public class BeiHuoJinMxActivity extends BaseActivity implements
 		// + user_id + "&user_name="+125+"&fund_id=13502883181
 		System.out.println("=====================fund_id--" + fund_id);
 		AsyncHttp.get(RealmName.REALM_NAME_LL + "/get_payrecord_list?user_id="
-				+ user_id + "&user_name=" + user_name + "&fund_id=" + fund_id
-				+ "&page_size=" + VIEW_NUM + "&page_index=" + CURRENT_NUM + "",
+						+ user_id + "&user_name=" + user_name + "&fund_id=" + fund_id
+						+ "&page_size=" + VIEW_NUM + "&page_index=" + CURRENT_NUM + "",
 				new AsyncHttpResponseHandler() {
 					@Override
 					public void onSuccess(int arg0, String arg1) {
 						// TODO Auto-generated method stub
 						super.onSuccess(arg0, arg1);
-						System.out.println("=====================¶ş¼¶Öµ1" + arg1);
+						System.out.println("=====================äºŒçº§å€¼1" + arg1);
 						try {
 							JSONObject object = new JSONObject(arg1);
 							String status = object.getString("status");
@@ -276,7 +276,7 @@ public class BeiHuoJinMxActivity extends BaseActivity implements
 									data.remark = json.getString("remark");
 									list.add(data);
 									System.out
-											.println("=====================¶ş¼¶Öµ11");
+											.println("=====================äºŒçº§å€¼11");
 								}
 								refresh.setVisibility(View.VISIBLE);
 							} else {
@@ -284,12 +284,12 @@ public class BeiHuoJinMxActivity extends BaseActivity implements
 								Toast.makeText(BeiHuoJinMxActivity.this, info,
 										200).show();
 							}
-							System.out.println("=====================¶ş¼¶Öµ12");
+							System.out.println("=====================äºŒçº§å€¼12");
 							Message msg = new Message();
 							msg.what = 0;
 							msg.obj = list;
 							handler.sendMessage(msg);
-							System.out.println("=====================¶ş¼¶Öµ13");
+							System.out.println("=====================äºŒçº§å€¼13");
 							if (len != 0) {
 								// CURRENT_NUM = CURRENT_NUM + VIEW_NUM;
 								CURRENT_NUM = 1;
@@ -303,26 +303,26 @@ public class BeiHuoJinMxActivity extends BaseActivity implements
 	}
 
 	/**
-	 * µÚ2¸öÁĞ±íÊı¾İ½âÎö
-	 * 
+	 * ç¬¬2ä¸ªåˆ—è¡¨æ•°æ®è§£æ
+	 *
 	 * @param fund_id
 	 */
 	private void load_list2(boolean flag, String fund_id) {
 		list = new ArrayList<MyAssetsBean>();
 		if (flag) {
-			// ¼ÆÊıºÍÈİÆ÷ÇåÁã
+			// è®¡æ•°å’Œå®¹å™¨æ¸…é›¶
 			CURRENT_NUM = 0;
 			list = new ArrayList<MyAssetsBean>();
 		}
 		AsyncHttp.get(RealmName.REALM_NAME_LL + "/get_payrecord_list?user_id="
-				+ 125 + "&user_name=13502883181&fund_id=" + fund_id + ""
-				+ "&page_size=" + VIEW_NUM + "&page_index=" + CURRENT_NUM + "",
+						+ 125 + "&user_name=13502883181&fund_id=" + fund_id + ""
+						+ "&page_size=" + VIEW_NUM + "&page_index=" + CURRENT_NUM + "",
 				new AsyncHttpResponseHandler() {
 					@Override
 					public void onSuccess(int arg0, String arg1) {
 						// TODO Auto-generated method stub
 						super.onSuccess(arg0, arg1);
-						System.out.println("=====================¶ş¼¶Öµ2" + arg1);
+						System.out.println("=====================äºŒçº§å€¼2" + arg1);
 						try {
 							JSONObject object = new JSONObject(arg1);
 							String status = object.getString("status");

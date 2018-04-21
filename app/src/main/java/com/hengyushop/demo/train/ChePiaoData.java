@@ -11,16 +11,16 @@ public class ChePiaoData implements Serializable {
 	private String toTime = null;
 	private String takeTime = null;
 	// private String day_diff = null;
-	private String business = null;// ÉÌÎñ×ù
-	private String best_seat = null;// ÌØµÈ×ù
-	private String one_seat = null;// Ò»µÈ×ù
-	private String two_seat = null;// ¶şµÈ×ù
-	private String vag_sleeper = null;// ¸ß¼¶Èí×ù
-	private String soft_sleeper = null;// ÈíÎÔ
-	private String hard_sleeper = null;// Ó²ÎÔ
-	private String soft_seat = null;// Èí×ù
-	private String hard_seat = null;// Ó²×ù
-	private String none_seat = null;// ÎŞ×ù
+	private String business = null;// å•†åŠ¡åº§
+	private String best_seat = null;// ç‰¹ç­‰åº§
+	private String one_seat = null;// ä¸€ç­‰åº§
+	private String two_seat = null;// äºŒç­‰åº§
+	private String vag_sleeper = null;// é«˜çº§è½¯åº§
+	private String soft_sleeper = null;// è½¯å§
+	private String hard_sleeper = null;// ç¡¬å§
+	private String soft_seat = null;// è½¯åº§
+	private String hard_seat = null;// ç¡¬åº§
+	private String none_seat = null;// æ— åº§
 	private String startStationCode = null;
 	private String endStationCode = null;
 	private String fromStationCode = null;
@@ -30,7 +30,7 @@ public class ChePiaoData implements Serializable {
 	private String to_station_no = null;
 	private String day_difference = null;
 	private String start_train_date = null;
-	
+
 	public String getStart_train_date() {
 		return start_train_date;
 	}
@@ -242,12 +242,12 @@ public class ChePiaoData implements Serializable {
 	/*
 	 * private String startType = null; private String arriveType = null;
 	 * private String price_url = null; private String business_prc =
-	 * null;//ÉÌÎñ×ù¼Û¸ñ private String best_seat_prc = null;//ÌØµÈ×ù¼Û¸ñ private String
-	 * one_seat_prc = null;//Ò»µÈ×ù¼Û¸ñ private String two_seat_prc = null;//¶şµÈ×ù¼Û¸ñ
-	 * private String vag_sleeper_prc = null;//¸ß¼¶Èí×ù¼Û¸ñ private String
-	 * soft_sleeper_prc = null;//ÈíÎÔ¼Û¸ñ private String hard_sleeper_prc =
-	 * null;//Ó²ÎÔ¼Û¸ñ private String soft_seat_prc = null;//Èí×ù private String
-	 * hard_seat_prc = null;//Ó²×ù
+	 * null;//å•†åŠ¡åº§ä»·æ ¼ private String best_seat_prc = null;//ç‰¹ç­‰åº§ä»·æ ¼ private String
+	 * one_seat_prc = null;//ä¸€ç­‰åº§ä»·æ ¼ private String two_seat_prc = null;//äºŒç­‰åº§ä»·æ ¼
+	 * private String vag_sleeper_prc = null;//é«˜çº§è½¯åº§ä»·æ ¼ private String
+	 * soft_sleeper_prc = null;//è½¯å§ä»·æ ¼ private String hard_sleeper_prc =
+	 * null;//ç¡¬å§ä»·æ ¼ private String soft_seat_prc = null;//è½¯åº§ private String
+	 * hard_seat_prc = null;//ç¡¬åº§
 	 */
 
 }

@@ -34,8 +34,8 @@ public class LglotteryContentAdapter extends BaseAdapter {
 	private Map<String, Queue<String>> maps;
 
 	public LglotteryContentAdapter(int longPx, Context context,
-			ArrayList<Lglottery_Main> lists, ImageLoader imageLoader,
-			Handler handler, Map<String, Queue<String>> maps) {
+								   ArrayList<Lglottery_Main> lists, ImageLoader imageLoader,
+								   Handler handler, Map<String, Queue<String>> maps) {
 		this.longPx = longPx;
 		this.context = context;
 		this.lists = lists;
@@ -52,14 +52,14 @@ public class LglotteryContentAdapter extends BaseAdapter {
 	public void add(Queue<String> stack, String i) {
 		Iterator<String> it = stack.iterator();
 		if (!it.hasNext()) {
-			// µÚÒ»´Î
+			// ç¬¬ä¸€æ¬¡
 			System.out.println("?");
 			stack.add(i);
-//			stack.offer(new Integer(i));
+			//			stack.offer(new Integer(i));
 		} else {
 			if (!isContains(it, i)) {
 				//
-				WLog.v("Ìí¼ÓÒ»¸öĞÂÊıÖµ");
+				WLog.v("æ·»åŠ ä¸€ä¸ªæ–°æ•°å€¼");
 				stack.add(i);
 				if (stack.size() > 2) {
 					stack.poll();
@@ -69,15 +69,15 @@ public class LglotteryContentAdapter extends BaseAdapter {
 		}
 		Iterator<String> it1 = stack.iterator();
 		for (int j = 0; j < lists.size(); j++) {
-			// ÍÔ­ËùÓĞÓ›ä›
+			// å¾©åŸæ‰€æœ‰è¨˜éŒ„
 			lists.get(j).setClicked(false);
 		}
 		while (it1.hasNext()) {
 			String k = it1.next();
-			WLog.v("whileµÄÖµ" + k);
+			WLog.v("whileçš„å€¼" + k);
 			for (int j = 0; j < lists.size(); j++) {
 				if (k.equals(j)) {
-					WLog.v("µãÁÁ" + j + "ºÅÎ»");
+					WLog.v("ç‚¹äº®" + j + "å·ä½");
 					lists.get(j).setClicked(true);
 					// this.notifyDataSetChanged();
 				}
@@ -92,8 +92,8 @@ public class LglotteryContentAdapter extends BaseAdapter {
 	}
 
 	/**
-	 * ´æÔÚÕâÑùµÄÊıÖµ
-	 * 
+	 * å­˜åœ¨è¿™æ ·çš„æ•°å€¼
+	 *
 	 * @param it
 	 * @param i
 	 * @return
@@ -102,11 +102,11 @@ public class LglotteryContentAdapter extends BaseAdapter {
 		boolean flag = false;
 		while (it.hasNext()) {
 			if (it.next().equals(i)) {
-				WLog.v(i + "´æÔÚÁË");
-				// ´æÔÚ
+				WLog.v(i + "å­˜åœ¨äº†");
+				// å­˜åœ¨
 				flag = true;
 			} else {
-				WLog.v(i + "²»´æÔÚ");
+				WLog.v(i + "ä¸å­˜åœ¨");
 				flag = false;
 			}
 		}
@@ -114,7 +114,7 @@ public class LglotteryContentAdapter extends BaseAdapter {
 	}
 
 	/**
-	 * ½«µÚ¼¸¸ö¸Ä±äµã»÷×´Ì¬
+	 * å°†ç¬¬å‡ ä¸ªæ”¹å˜ç‚¹å‡»çŠ¶æ€
 	 * @param stack
 	 * @param i
 	 */
@@ -125,33 +125,33 @@ public class LglotteryContentAdapter extends BaseAdapter {
 	 */
 	public void putLists(ArrayList<Lglottery_Main> lists) {
 		try {
-			// ±£Ö¤Êı¾İÓĞÊıÖµ
+			// ä¿è¯æ•°æ®æœ‰æ•°å€¼
 			if (lists.size() != 0) {
 				Iterator<String> iterator = maps.get(lists.get(0).getTypeId())
 						.iterator();
 				while (iterator.hasNext()) {
-					String status = iterator.next();//IDºÅÂë
+					String status = iterator.next();//IDå·ç 
 					WLog.v("status"+status);
 					for(int i=0;i<lists.size();i++){
 						if(lists.get(i).getItemId().equals(status)){
 							lists.get(i).setClicked(true);
 						}
 					}
-					
+
 				}
 			}
 		} catch (NullPointerException e) {
-			WLog.v("¿ÕÖ¸ÕëÒì³£");
+			WLog.v("ç©ºæŒ‡é’ˆå¼‚å¸¸");
 			e.printStackTrace();
 		}
-		WLog.v("Ìí¼ÓÊı¾İ");
+		WLog.v("æ·»åŠ æ•°æ®");
 		this.selectItem = -1;
 		this.lists = lists;
 		this.notifyDataSetChanged();
 	}
 
 	/**
-	 * ÖØÖÃ¶ÓÁĞ
+	 * é‡ç½®é˜Ÿåˆ—
 	 */
 	public void reloadQueen() {
 		stack = new LinkedList<String>();
@@ -207,7 +207,7 @@ public class LglotteryContentAdapter extends BaseAdapter {
 			holder.lglottery_item_cover.setVisibility(View.INVISIBLE);
 		}
 		if (selectItem == position) {
-			WLog.v("µã»÷ÁËÒ»´Î");
+			WLog.v("ç‚¹å‡»äº†ä¸€æ¬¡");
 			add(stack, lists.get(position).getItemId());
 			// LglotteryContentAdapter.this.notifyDataSetChanged();
 		}

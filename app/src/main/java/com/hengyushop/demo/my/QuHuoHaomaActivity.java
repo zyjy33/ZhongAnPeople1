@@ -44,10 +44,10 @@ import com.zams.www.UserRegisterActivity;
 import com.zijunlin.Zxing.Demo.CaptureActivity;
 
 /**
- * È¡»õ
- * 
+ * å–è´§
+ *
  * @author Administrator
- * 
+ *
  */
 public class QuHuoHaomaActivity extends BaseActivity {
 
@@ -83,11 +83,11 @@ public class QuHuoHaomaActivity extends BaseActivity {
 		handler1 = new Handler() {
 			public void dispatchMessage(Message msg) {
 				switch (msg.what) {
-				case 0:
-					finish();
-					break;
-				default:
-					break;
+					case 0:
+						finish();
+						break;
+					default:
+						break;
 				}
 			}
 		};
@@ -105,7 +105,7 @@ public class QuHuoHaomaActivity extends BaseActivity {
 				// TODO Auto-generated method stub
 				String haoma = et_username.getText().toString().trim();
 				if (haoma.equals("")) {
-					Toast.makeText(QuHuoHaomaActivity.this, "ÇëÊäÈëÄúµÄÑé»õÂë", 100)
+					Toast.makeText(QuHuoHaomaActivity.this, "è¯·è¾“å…¥æ‚¨çš„éªŒè´§ç ", 100)
 							.show();
 				} else {
 					// String accept_no = "30150023";
@@ -117,7 +117,7 @@ public class QuHuoHaomaActivity extends BaseActivity {
 					Intent2.putExtra("yanhuo_haoma", haoma);
 					startActivity(Intent2);
 					// }else {
-					// Toast.makeText(QuHuoHaomaActivity.this, "ÊÖ»úºÅÂë²»ÕıÈ·",
+					// Toast.makeText(QuHuoHaomaActivity.this, "æ‰‹æœºå·ç ä¸æ­£ç¡®",
 					// 200).show();
 					// }
 				}
@@ -136,8 +136,8 @@ public class QuHuoHaomaActivity extends BaseActivity {
 	}
 
 	/**
-	 * ÁĞ±íÊı¾İ½âÎö
-	 * 
+	 * åˆ—è¡¨æ•°æ®è§£æ
+	 *
 	 * @param jsonString2
 	 * @param content
 	 * @param goods_id
@@ -147,13 +147,13 @@ public class QuHuoHaomaActivity extends BaseActivity {
 			progress.CloseProgress();
 			list = new ArrayList<ShopCartData>();
 			AsyncHttp.get(RealmName.REALM_NAME_LL
-					+ "/order_goods_accept?accept_no=" + accept_no + "",
+							+ "/order_goods_accept?accept_no=" + accept_no + "",
 					new AsyncHttpResponseHandler() {
 						@Override
 						public void onSuccess(int arg0, String arg1) {
 							// TODO Auto-generated method stub
 							super.onSuccess(arg0, arg1);
-							System.out.println("=====================¶ş¼¶Öµ11"
+							System.out.println("=====================äºŒçº§å€¼11"
 									+ arg1);
 							try {
 								JSONObject jsonObject = new JSONObject(arg1);

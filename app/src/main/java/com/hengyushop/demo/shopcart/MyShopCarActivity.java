@@ -55,35 +55,35 @@ public class MyShopCarActivity extends BaseActivity implements OnClickListener {
 
 	private static final int INITIALIZE = 0;
 	private SharedPreferences spPreferences;
-	private static ListView mListView;// ÁĞ±í
+	private static ListView mListView;// åˆ—è¡¨
 	public static String user_name, user_id;
 	private ListAdapter mListAdapter;// adapter
 	private LinearLayout adv_pager;
 	private LinearLayout list_shops, list_none,ll_xianshi,ll_tjsp;
-	private List<DataBean> mListData = new ArrayList<DataBean>();// Êı¾İ
+	private List<DataBean> mListData = new ArrayList<DataBean>();// æ•°æ®
 
-	private boolean isBatchModel;// ÊÇ·ñ¿ÉÉ¾³ıÄ£Ê½
+	private boolean isBatchModel;// æ˜¯å¦å¯åˆ é™¤æ¨¡å¼
 
 	private RelativeLayout mBottonLayout;
-	private CheckBox mCheckAll; // È«Ñ¡ È«²»Ñ¡
-	private TextView mEdit; // ÇĞ»»µ½É¾³ıÄ£Ê½
+	private CheckBox mCheckAll; // å…¨é€‰ å…¨ä¸é€‰
+	private TextView mEdit; // åˆ‡æ¢åˆ°åˆ é™¤æ¨¡å¼
 
-	private TextView mPriceAll; // ÉÌÆ·×Ü¼Û
+	private TextView mPriceAll; // å•†å“æ€»ä»·
 
-	private TextView mSelectNum; // Ñ¡ÖĞÊıÁ¿
+	private TextView mSelectNum; // é€‰ä¸­æ•°é‡
 
-	private TextView mFavorite; // ÒÆµ½ÊÕ²Ø¼Ğ,·ÖÏí
+	private TextView mFavorite; // ç§»åˆ°æ”¶è—å¤¹,åˆ†äº«
 
-	private TextView mDelete; // É¾³ı ½áËã
+	private TextView mDelete; // åˆ é™¤ ç»“ç®—
 
 	private TextView subtitle;
 
-	private double totalPrice = 0; // ÉÌÆ·×Ü¼Û
+	private double totalPrice = 0; // å•†å“æ€»ä»·
 	public static double dzongjia = 0;
-	/** ÅúÁ¿Ä£Ê½ÏÂ£¬ÓÃÀ´¼ÇÂ¼µ±Ç°Ñ¡ÖĞ×´Ì¬ */
+	/** æ‰¹é‡æ¨¡å¼ä¸‹ï¼Œç”¨æ¥è®°å½•å½“å‰é€‰ä¸­çŠ¶æ€ */
 	private SparseArray<Boolean> mSelectState = new SparseArray<Boolean>();
 	private ImageView back;
-	private boolean flag = true; // È«Ñ¡»òÈ«È¡Ïû
+	private boolean flag = true; // å…¨é€‰æˆ–å…¨å–æ¶ˆ
 	List<DataBean> result;
 	private DialogProgress progress;
 	private AQuery query;
@@ -114,12 +114,12 @@ public class MyShopCarActivity extends BaseActivity implements OnClickListener {
 		// TODO Auto-generated method stub
 		super.onResume();
 		MyShopPingCarActivity.str = null;
-		WareInformationActivity.jdh_type = "";// ¾Û¶Ò»»ÅĞ¶ÏÎª¿Õ
+		WareInformationActivity.jdh_type = "";// èšå…‘æ¢åˆ¤æ–­ä¸ºç©º
 		if (list_id.size() > 0) {
 			list_id.clear();
 		}
 
-		// ¼ÆËã¸öÊıÇå¿Õ
+		// è®¡ç®—ä¸ªæ•°æ¸…ç©º
 		if (list_size.size() > 0) {
 			list_size.clear();
 			mDelete.setText(getResources().getString(R.string.menu_sett) + "("
@@ -175,7 +175,7 @@ public class MyShopCarActivity extends BaseActivity implements OnClickListener {
 							adv_pager.setVisibility(View.VISIBLE);
 							subtitle.setVisibility(View.GONE);
 							mListView.setVisibility(View.GONE);
-							// mPriceAll.setText("£¤"+0.00);
+							// mPriceAll.setText("ï¿¥"+0.00);
 							ll_xianshi.setVisibility(View.GONE);
 						}
 
@@ -195,36 +195,36 @@ public class MyShopCarActivity extends BaseActivity implements OnClickListener {
 			// adv_pager.setVisibility(View.VISIBLE);
 		}
 		totalPrice = 0;
-		mPriceAll.setText("£¤" + totalPrice);
+		mPriceAll.setText("ï¿¥" + totalPrice);
 		mCheckAll.setChecked(false);
 		loadData();
 		System.out.println("result22-------------" + result.size());
 	}
 
 	/**
-	 * ÈÈÏú×¨Çø
+	 * çƒ­é”€ä¸“åŒº
 	 */
 	SpListData spList;
 	private ArrayList<SpListData> lists;
 	private void load_list() {
 		lists = new ArrayList<SpListData>();
 		try {
-		AsyncHttp.get(RealmName.REALM_NAME_LL+ 
-//				"/get_article_page_size_list?channel_name=life&category_id=687&page_size=20&page_index=1&strwhere=&orderby=",
-				 "/get_article_top_list?channel_name=goods&top=5&strwhere=status=0%20and%20is_top=1",
-				new AsyncHttpResponseHandler() {
-							@Override
-							public void onSuccess(int arg0, String arg1) {
-								// TODO Auto-generated method stub
-								super.onSuccess(arg0, arg1);
-								System.out.println("ÈÈÏú×¨Çø====================="+arg1);
-								try {
-									JSONObject jsonObject = new JSONObject(arg1);
-									String status = jsonObject.getString("status");
-									String info = jsonObject.getString("info");
-									if (status.equals("y")) {
+			AsyncHttp.get(RealmName.REALM_NAME_LL+
+							//				"/get_article_page_size_list?channel_name=life&category_id=687&page_size=20&page_index=1&strwhere=&orderby=",
+							"/get_article_top_list?channel_name=goods&top=5&strwhere=status=0%20and%20is_top=1",
+					new AsyncHttpResponseHandler() {
+						@Override
+						public void onSuccess(int arg0, String arg1) {
+							// TODO Auto-generated method stub
+							super.onSuccess(arg0, arg1);
+							System.out.println("çƒ­é”€ä¸“åŒº====================="+arg1);
+							try {
+								JSONObject jsonObject = new JSONObject(arg1);
+								String status = jsonObject.getString("status");
+								String info = jsonObject.getString("info");
+								if (status.equals("y")) {
 									JSONArray jsonArray = jsonObject.getJSONArray("data");
-//									 len = jsonArray.length();
+									//									 len = jsonArray.length();
 									for(int i=1;i<jsonArray.length();i++){
 										JSONObject object = jsonArray.getJSONObject(i);
 										spList = new SpListData();
@@ -236,38 +236,38 @@ public class MyShopCarActivity extends BaseActivity implements OnClickListener {
 										lists.add(spList);
 									}
 									spList = null;
-									}else {
-//										progress.CloseProgress();
-										Toast.makeText(MyShopCarActivity.this, info, 200).show();
-									}
-									System.out.println("lists.size()====================="+lists.size());
-									GouWuCheAGoodsAdaper jdhadapter = new GouWuCheAGoodsAdaper(lists, MyShopCarActivity.this);
-									myGridView.setAdapter(jdhadapter);
-//									GouWuCheAGoodsAdaper.mAq.clear();
-//									setListViewHeightBasedOnChildren(myGridView);
-									myGridView.setOnItemClickListener(new OnItemClickListener() {
-							            @Override
-							            public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
-											System.out.println("====================="+lists.get(arg2).id);
-											Intent intent = new Intent(MyShopCarActivity.this,WareInformationActivity.class);
-											intent.putExtra("id", lists.get(arg2).id);
-											startActivity(intent);
-							            }
-							        });
-//									progress.CloseProgress();
-								} catch (JSONException e) {
-									// TODO Auto-generated catch block
-									e.printStackTrace();
+								}else {
+									//										progress.CloseProgress();
+									Toast.makeText(MyShopCarActivity.this, info, 200).show();
 								}
+								System.out.println("lists.size()====================="+lists.size());
+								GouWuCheAGoodsAdaper jdhadapter = new GouWuCheAGoodsAdaper(lists, MyShopCarActivity.this);
+								myGridView.setAdapter(jdhadapter);
+								//									GouWuCheAGoodsAdaper.mAq.clear();
+								//									setListViewHeightBasedOnChildren(myGridView);
+								myGridView.setOnItemClickListener(new OnItemClickListener() {
+									@Override
+									public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
+										System.out.println("====================="+lists.get(arg2).id);
+										Intent intent = new Intent(MyShopCarActivity.this,WareInformationActivity.class);
+										intent.putExtra("id", lists.get(arg2).id);
+										startActivity(intent);
+									}
+								});
+								//									progress.CloseProgress();
+							} catch (JSONException e) {
+								// TODO Auto-generated catch block
+								e.printStackTrace();
 							}
-						}, null);
+						}
+					}, null);
 		} catch (Exception e) {
 			// TODO: handle exception
 			e.printStackTrace();
 		}
 
 	}
-	
+
 	private void initView() {
 		myGridView = (MyGridView) findViewById(R.id.gridView);
 		back = (ImageView) findViewById(R.id.back);
@@ -285,18 +285,18 @@ public class MyShopCarActivity extends BaseActivity implements OnClickListener {
 		// mListView.setSelector(R.drawable.list_selector);
 		btn_register = (Button) findViewById(R.id.btn_register);
 
-	     ll_tjsp = (LinearLayout)findViewById(R.id.ll_tjsp);
-			ll_tjsp.setOnClickListener(new OnClickListener() {
+		ll_tjsp = (LinearLayout)findViewById(R.id.ll_tjsp);
+		ll_tjsp.setOnClickListener(new OnClickListener() {
 
-				@Override
-				public void onClick(View arg0) {
-					// TODO Auto-generated method stub
-					Intent intent = new Intent(MyShopCarActivity.this,TuiJianSpListActivity.class);
-					startActivity(intent);
-				}
-			});
-			
-		// ¹ºÎï³µÎŞÉÌÆ·È¥¹ä¹ä
+			@Override
+			public void onClick(View arg0) {
+				// TODO Auto-generated method stub
+				Intent intent = new Intent(MyShopCarActivity.this,TuiJianSpListActivity.class);
+				startActivity(intent);
+			}
+		});
+
+		// è´­ç‰©è½¦æ— å•†å“å»é€›é€›
 		btn_register.setOnClickListener(new OnClickListener() {
 
 			@Override
@@ -367,7 +367,7 @@ public class MyShopCarActivity extends BaseActivity implements OnClickListener {
 			Params p = params[0];
 			Result result = new Result();
 			result.op = p.op;
-			try {// Ä£ÄâºÄÊ±
+			try {// æ¨¡æ‹Ÿè€—æ—¶
 				Thread.sleep(500L);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
@@ -382,12 +382,12 @@ public class MyShopCarActivity extends BaseActivity implements OnClickListener {
 			if (result.op == INITIALIZE) {
 				mListData = result.list;
 				query.clear();
-				System.out.println("clear-------------Çå³ıÄÚ´æ");
+				System.out.println("clear-------------æ¸…é™¤å†…å­˜");
 				System.out.println("result2-------------");
 			} else {
 				System.out.println("result3-------------");
 				mListData.addAll(result.list);
-				Toast.makeText(MyShopCarActivity.this, "Ìí¼Ó³É¹¦£¡",
+				Toast.makeText(MyShopCarActivity.this, "æ·»åŠ æˆåŠŸï¼",
 						Toast.LENGTH_SHORT).show();
 			}
 
@@ -419,7 +419,7 @@ public class MyShopCarActivity extends BaseActivity implements OnClickListener {
 
 		@Override
 		public View getView(final int position, View convertView,
-				ViewGroup parent) {
+							ViewGroup parent) {
 			View view = convertView;
 			if (view == null) {
 				try {
@@ -453,21 +453,21 @@ public class MyShopCarActivity extends BaseActivity implements OnClickListener {
 
 			// mListData.get(position).setChoose(true);
 			if (data != null) {
-				// ÅĞ¶ÏÊÇ·ñÑ¡Ôñ
+				// åˆ¤æ–­æ˜¯å¦é€‰æ‹©
 				if (data.isChoose()) {
 					holder.checkBox.setChecked(true);
 				} else {
 					holder.checkBox.setChecked(false);
 				}
 
-				// Ñ¡ÖĞ²Ù×÷
+				// é€‰ä¸­æ“ä½œ
 				// holder.checkBox.setOnClickListener(new
 				// CheckBoxOnClick(data));
-				// ¼õÉÙ²Ù×÷
+				// å‡å°‘æ“ä½œ
 				holder.red.setOnClickListener(new ReduceOnClick(data,
 						holder.carNum));
 
-				// Ôö¼Ó²Ù×÷
+				// å¢åŠ æ“ä½œ
 				holder.add.setOnClickListener(new AddOnclick(data,
 						holder.carNum));
 
@@ -502,7 +502,7 @@ public class MyShopCarActivity extends BaseActivity implements OnClickListener {
 			TextView shopcart_number_btn;
 
 			private AddOnclick(DataBean shopcartEntity,
-					TextView shopcart_number_btn) {
+							   TextView shopcart_number_btn) {
 				this.shopcartEntity = shopcartEntity;
 				this.shopcart_number_btn = shopcart_number_btn;
 
@@ -516,7 +516,7 @@ public class MyShopCarActivity extends BaseActivity implements OnClickListener {
 					int number = Integer.parseInt(numberStr);
 
 					int currentNum = number + 1;
-					// ÉèÖÃÁĞ±í
+					// è®¾ç½®åˆ—è¡¨
 					shopcartEntity.setQuantity(currentNum);
 					holder.carNum.setText("" + currentNum);
 					int cart_id = shopcartEntity.getId();
@@ -530,7 +530,7 @@ public class MyShopCarActivity extends BaseActivity implements OnClickListener {
 						public void onSuccess(int arg0, String arg1) {
 							// TODO Auto-generated method stub
 							System.out
-									.println("==========================·ÃÎÊ½Ó¿Ú³É¹¦£¡"
+									.println("==========================è®¿é—®æ¥å£æˆåŠŸï¼"
 											+ arg1);
 							super.onSuccess(arg0, arg1);
 						}
@@ -548,7 +548,7 @@ public class MyShopCarActivity extends BaseActivity implements OnClickListener {
 			TextView shopcart_number_btn;
 
 			private ReduceOnClick(DataBean shopcartEntity,
-					TextView shopcart_number_btn) {
+								  TextView shopcart_number_btn) {
 				this.shopcartEntity = shopcartEntity;
 				this.shopcart_number_btn = shopcart_number_btn;
 			}
@@ -560,11 +560,11 @@ public class MyShopCarActivity extends BaseActivity implements OnClickListener {
 				if (!TextUtils.isEmpty(numberStr)) {
 					int number = Integer.parseInt(numberStr);
 					if (number == 1) {
-						Toast.makeText(MyShopCarActivity.this, "²»ÄÜÍùÏÂ¼õÉÙÁË", 200)
+						Toast.makeText(MyShopCarActivity.this, "ä¸èƒ½å¾€ä¸‹å‡å°‘äº†", 200)
 								.show();
 					} else {
 						int currentNum = number - 1;
-						// ÉèÖÃÁĞ±í
+						// è®¾ç½®åˆ—è¡¨
 						shopcartEntity.setQuantity(currentNum);
 
 						holder.carNum.setText("" + currentNum);
@@ -572,15 +572,15 @@ public class MyShopCarActivity extends BaseActivity implements OnClickListener {
 						System.out.println("============cart_id=============="
 								+ cart_id);
 						AsyncHttp.get(RealmName.REALM_NAME_LL
-								+ "/cart_goods_update?cart_id=" + cart_id
-								+ "&user_id=" + user_id + "&quantity="
-								+ currentNum + "",
+										+ "/cart_goods_update?cart_id=" + cart_id
+										+ "&user_id=" + user_id + "&quantity="
+										+ currentNum + "",
 								new AsyncHttpResponseHandler() {
 									@Override
 									public void onSuccess(int arg0, String arg1) {
 										// TODO Auto-generated method stub
 										System.out
-												.println("==========================2·ÃÎÊ½Ó¿Ú³É¹¦£¡"
+												.println("==========================2è®¿é—®æ¥å£æˆåŠŸï¼"
 														+ arg1);
 										super.onSuccess(arg0, arg1);
 									}
@@ -600,9 +600,9 @@ public class MyShopCarActivity extends BaseActivity implements OnClickListener {
 
 			// holder.shopName.setText(data.getShopName());
 			holder.content.setText(data.getTitle());
-			holder.price.setText("£¤" + data.getSell_price());
+			holder.price.setText("ï¿¥" + data.getSell_price());
 			holder.carNum.setText(data.getQuantity() + "");
-			holder.tv_size.setText("£¤" + data.getMarket_price());
+			holder.tv_size.setText("ï¿¥" + data.getMarket_price());
 			holder.tv_size.getPaint().setFlags(
 					Paint.STRIKE_THRU_TEXT_FLAG | Paint.ANTI_ALIAS_FLAG);
 
@@ -617,7 +617,7 @@ public class MyShopCarActivity extends BaseActivity implements OnClickListener {
 
 		@Override
 		public void onItemClick(AdapterView<?> parent, View view, int position,
-				long id) {
+								long id) {
 			DataBean bean = mListData.get(position);
 
 			ViewHolder holder = (ViewHolder) view.getTag();
@@ -626,9 +626,9 @@ public class MyShopCarActivity extends BaseActivity implements OnClickListener {
 			boolean selected = !mSelectState.get(_id, false);
 			holder.checkBox.toggle();
 
-			// ½«CheckBoxµÄÑ¡ÖĞ×´¿ö¼ÇÂ¼ÏÂÀ´
+			// å°†CheckBoxçš„é€‰ä¸­çŠ¶å†µè®°å½•ä¸‹æ¥
 			mListData.get(position).setChoose(holder.checkBox.isChecked());
-			// µ÷ÕûÑ¡¶¨ÌõÄ¿
+			// è°ƒæ•´é€‰å®šæ¡ç›®
 			if (holder.checkBox.isChecked() == true) {
 				list_size.add(num);
 				if (zhuangtai == true) {
@@ -657,7 +657,7 @@ public class MyShopCarActivity extends BaseActivity implements OnClickListener {
 			}
 			BigDecimal c = new BigDecimal(totalPrice);
 			dzongjia = c.setScale(2, BigDecimal.ROUND_HALF_UP).doubleValue();
-			mPriceAll.setText("£¤" + dzongjia + "");
+			mPriceAll.setText("ï¿¥" + dzongjia + "");
 			if (mSelectState.size() == mListData.size()) {
 				mCheckAll.setChecked(true);
 			} else {
@@ -678,7 +678,7 @@ public class MyShopCarActivity extends BaseActivity implements OnClickListener {
 		TextView price;
 		TextView add;
 		TextView red;
-		Button button; // ÓÃÓÚÖ´ĞĞÉ¾³ıµÄbutton
+		Button button; // ç”¨äºæ‰§è¡Œåˆ é™¤çš„button
 		View frontView;
 		LinearLayout item_right, item_left;
 
@@ -691,53 +691,76 @@ public class MyShopCarActivity extends BaseActivity implements OnClickListener {
 		// TODO Auto-generated method stub
 		switch (v.getId()) {
 
-		case R.id.subtitle:
-			isBatchModel = !isBatchModel;
-			if (isBatchModel) {
-				mEdit.setText(getResources().getString(R.string.menu_enter));
-				mDelete.setText(getResources().getString(R.string.menu_del));
-				mBottonLayout.setVisibility(View.VISIBLE);
-				mFavorite.setVisibility(View.GONE);
-				BigDecimal c = new BigDecimal(totalPrice);
-				dzongjia = c.setScale(2, BigDecimal.ROUND_HALF_UP)
-						.doubleValue();
-				mPriceAll.setText("£¤" + dzongjia + "");
-				System.out.println("totalPrice1-------------" + totalPrice);
-				mDelete.setText(getResources().getString(R.string.menu_del)
-						+ "(" + list_size.size() + ")");
-				zhuangtai = false;
+			case R.id.subtitle:
+				isBatchModel = !isBatchModel;
+				if (isBatchModel) {
+					mEdit.setText(getResources().getString(R.string.menu_enter));
+					mDelete.setText(getResources().getString(R.string.menu_del));
+					mBottonLayout.setVisibility(View.VISIBLE);
+					mFavorite.setVisibility(View.GONE);
+					BigDecimal c = new BigDecimal(totalPrice);
+					dzongjia = c.setScale(2, BigDecimal.ROUND_HALF_UP)
+							.doubleValue();
+					mPriceAll.setText("ï¿¥" + dzongjia + "");
+					System.out.println("totalPrice1-------------" + totalPrice);
+					mDelete.setText(getResources().getString(R.string.menu_del)
+							+ "(" + list_size.size() + ")");
+					zhuangtai = false;
 
-			} else {
-				mEdit.setText(getResources().getString(R.string.menu_edit));
+				} else {
+					mEdit.setText(getResources().getString(R.string.menu_edit));
 
-				mFavorite.setVisibility(View.GONE);
-				mBottonLayout.setVisibility(View.VISIBLE);
-				mDelete.setText(getResources().getString(R.string.menu_sett));
-				// totalPrice=0;
-				BigDecimal c = new BigDecimal(totalPrice);
-				dzongjia = c.setScale(2, BigDecimal.ROUND_HALF_UP)
-						.doubleValue();
-				mPriceAll.setText("£¤" + dzongjia + "");
-				System.out.println("totalPrice2-------------" + totalPrice);
-				mDelete.setText(getResources().getString(R.string.menu_sett)
-						+ "(" + list_size.size() + ")");
-				zhuangtai = true;
-			}
+					mFavorite.setVisibility(View.GONE);
+					mBottonLayout.setVisibility(View.VISIBLE);
+					mDelete.setText(getResources().getString(R.string.menu_sett));
+					// totalPrice=0;
+					BigDecimal c = new BigDecimal(totalPrice);
+					dzongjia = c.setScale(2, BigDecimal.ROUND_HALF_UP)
+							.doubleValue();
+					mPriceAll.setText("ï¿¥" + dzongjia + "");
+					System.out.println("totalPrice2-------------" + totalPrice);
+					mDelete.setText(getResources().getString(R.string.menu_sett)
+							+ "(" + list_size.size() + ")");
+					zhuangtai = true;
+				}
 
-			break;
+				break;
 
-		case R.id.check_box_all:
-			totalPrice = 0;
-			if (mCheckAll.isChecked()) {
-				list_size.clear();
-				for (int i = 0; i < mListData.size(); i++) {
-					mListData.get(i).setChoose(true);
-					// Èç¹ûÎªÑ¡ÖĞ
-					if (mListData.get(i).isChoose()) {
-						totalPrice = totalPrice
-								+ mListData.get(i).getQuantity()
-								* mListData.get(i).getSell_price();
-						list_size.add(num);
+			case R.id.check_box_all:
+				totalPrice = 0;
+				if (mCheckAll.isChecked()) {
+					list_size.clear();
+					for (int i = 0; i < mListData.size(); i++) {
+						mListData.get(i).setChoose(true);
+						// å¦‚æœä¸ºé€‰ä¸­
+						if (mListData.get(i).isChoose()) {
+							totalPrice = totalPrice
+									+ mListData.get(i).getQuantity()
+									* mListData.get(i).getSell_price();
+							list_size.add(num);
+							if (zhuangtai == true) {
+								mDelete.setText(getResources().getString(
+										R.string.menu_sett)
+										+ "(" + list_size.size() + ")");
+							} else {
+								mDelete.setText(getResources().getString(
+										R.string.menu_del)
+										+ "(" + list_size.size() + ")");
+							}
+						}
+					}
+
+					// åˆ·æ–°
+					mListAdapter.notifyDataSetChanged();
+					// æ˜¾ç¤º
+					BigDecimal c = new BigDecimal(totalPrice);
+					dzongjia = c.setScale(2, BigDecimal.ROUND_HALF_UP)
+							.doubleValue();
+					mPriceAll.setText("ï¿¥" + dzongjia + "");
+				} else {
+					for (int i = 0; i < mListData.size(); i++) {
+						mListData.get(i).setChoose(false);
+						list_size.clear();
 						if (zhuangtai == true) {
 							mDelete.setText(getResources().getString(
 									R.string.menu_sett)
@@ -747,215 +770,192 @@ public class MyShopCarActivity extends BaseActivity implements OnClickListener {
 									R.string.menu_del)
 									+ "(" + list_size.size() + ")");
 						}
+						// // åˆ·æ–°
+						mListAdapter.notifyDataSetChanged();
 					}
+					BigDecimal c = new BigDecimal(totalPrice);
+					dzongjia = c.setScale(2, BigDecimal.ROUND_HALF_UP)
+							.doubleValue();
+					mPriceAll.setText("ï¿¥" + dzongjia + "");
 				}
+				break;
 
-				// Ë¢ĞÂ
-				mListAdapter.notifyDataSetChanged();
-				// ÏÔÊ¾
-				BigDecimal c = new BigDecimal(totalPrice);
-				dzongjia = c.setScale(2, BigDecimal.ROUND_HALF_UP)
-						.doubleValue();
-				mPriceAll.setText("£¤" + dzongjia + "");
-			} else {
-				for (int i = 0; i < mListData.size(); i++) {
-					mListData.get(i).setChoose(false);
-					list_size.clear();
-					if (zhuangtai == true) {
-						mDelete.setText(getResources().getString(
-								R.string.menu_sett)
-								+ "(" + list_size.size() + ")");
-					} else {
-						mDelete.setText(getResources().getString(
-								R.string.menu_del)
-								+ "(" + list_size.size() + ")");
-					}
-					// // Ë¢ĞÂ
-					mListAdapter.notifyDataSetChanged();
-				}
-				BigDecimal c = new BigDecimal(totalPrice);
-				dzongjia = c.setScale(2, BigDecimal.ROUND_HALF_UP)
-						.doubleValue();
-				mPriceAll.setText("£¤" + dzongjia + "");
-			}
-			break;
+			case R.id.tv_cart_buy_or_del:
+				list_num = new ArrayList<Integer>();
+				list_num2 = new ArrayList<Integer>();
+				System.out.println("isBatchModel-------------" + isBatchModel);
+				if (isBatchModel) {
 
-		case R.id.tv_cart_buy_or_del:
-			list_num = new ArrayList<Integer>();
-			list_num2 = new ArrayList<Integer>();
-			System.out.println("isBatchModel-------------" + isBatchModel);
-			if (isBatchModel) {
+					// Iterator it = mListData.iterator();
+					// while (it.hasNext()) {
+					// // å¾—åˆ°å¯¹åº”é›†åˆå…ƒç´ 
+					// DataBean g = (DataBean) it.next();
+					// // åˆ¤æ–­
+					// if (g.isChoose()) {
+					// // ä»é›†åˆä¸­åˆ é™¤ä¸Šä¸€æ¬¡nextæ–¹æ³•è¿”å›çš„å…ƒç´ 
+					// it.remove();
+					// }
+					// }
 
-				// Iterator it = mListData.iterator();
-				// while (it.hasNext()) {
-				// // µÃµ½¶ÔÓ¦¼¯ºÏÔªËØ
-				// DataBean g = (DataBean) it.next();
-				// // ÅĞ¶Ï
-				// if (g.isChoose()) {
-				// // ´Ó¼¯ºÏÖĞÉ¾³ıÉÏÒ»´Înext·½·¨·µ»ØµÄÔªËØ
-				// it.remove();
-				// }
-				// }
-
-				String str1 = "";
-				for (i = 0; i < mListData.size(); i++) {
-					if (mListData.get(i).isChoose()) {
-						System.out.println("i=========================="+i);
-						list_num.add(i);
-						String strUrl = RealmName.REALM_NAME_LL
-								+ "/cart_goods_delete?" + "clear=0&user_id="
-								+ user_id + "&cart_id="
-								+ mListData.get(i).getId();
-						AsyncHttp.get(strUrl, new AsyncHttpResponseHandler() {
-							@Override
-							public void onSuccess(int arg0, String arg1) {
-								// TODO Auto-generated method stub
-								System.out.println("==========================·ÃÎÊ½Ó¿Ú³É¹¦£¡"+ arg1);
-								super.onSuccess(arg0, arg1);
-								try {
-
-									JSONObject object = new JSONObject(arg1);
-									String status = object.getString("status");
-									String info = object.getString("info");
-									if (status.equals("y")) {
-										Toast.makeText(MyShopCarActivity.this,info, 200).show();
-										System.out.println("mListData.size()=========================="+ mListData.size());
-										// ptye = true;
-									 	list_num2.add(i);
-										System.out.println("list_size.size()=========================="+ list_size.size());
-										
-							    		System.out.println("list_num.size()=========================="+list_num.size());
-										System.out.println("list_num2.size()=========================="+list_num2.size());
-										if (list_num.size() == list_num2.size()) {
-											getgouwuche();
-											list_num.clear();
-											list_num2.clear();
-										}
-									} else {
-										Toast.makeText(MyShopCarActivity.this,info, 200).show();
-									}
-								} catch (Exception e) {
-									// TODO: handle exception
-									e.printStackTrace();
-								}
-							}
-
-						}, MyShopCarActivity.this);
-
-					}
-
-				}
-
-				// Ë¢ĞÂ
-//				getgouwuche();
-
-				// ¼ÆËã¸öÊıÇå¿Õ
-				if (list_size.size() > 0) {
-					list_size.clear();
-					mDelete.setText(getResources()
-							.getString(R.string.menu_sett)
-							+ "("
-							+ list_size.size() + ")");
-				}
-
-				// String str1="";
-				// for(int i=0;i<mListData.size();i++){
-				// if (mListData.get(i).isChoose()) {
-				// String fegefu = str1.length()>0?",":"";
-				// str1 = str1+fegefu+String.valueOf(mListData.get(i).getId());
-				// }
-				// }
-				// String strUrl = RealmName.REALM_NAME_LL +
-				// "/cart_goods_delete?"+ "clear=0&user_id=" + user_id+
-				// "&cart_id=" + str1;
-				// AsyncHttp.get(strUrl,new AsyncHttpResponseHandler() {
-				// @Override
-				// public void onSuccess(int arg0, String arg1) {
-				// // TODO Auto-generated method stub
-				// System.out.println("==========================·ÃÎÊ½Ó¿Ú³É¹¦£¡"+arg1);
-				// super.onSuccess(arg0, arg1);
-				// try {
-				//
-				// JSONObject object = new JSONObject(arg1);
-				// String status = object.getString("status");
-				// String info = object.getString("info");
-				// if (status.equals("y")) {
-				// Toast.makeText(MyShopCarActivity.this, info, 200).show();
-				// // Ë¢ĞÂ
-				// getgouwuche();
-				// // mListAdapter.notifyDataSetChanged();
-				// }else {
-				// Toast.makeText(MyShopCarActivity.this, info, 200).show();
-				// }
-				// } catch (Exception e) {
-				// // TODO: handle exception
-				// e.printStackTrace();
-				// }
-				// }
-				//
-				// }, MyShopCarActivity.this);
-
-			} else {
-				String str1 = "";
-				String str2 = "";
-				String str3 = "";
-				System.out.println("totalPrice-------------" + totalPrice);
-				if (totalPrice != 0) {
-					for (int i = 0; i < mListData.size(); i++) {
+					String str1 = "";
+					for (i = 0; i < mListData.size(); i++) {
 						if (mListData.get(i).isChoose()) {
-							// str1 = "";//ÏÈÇå¿Õ
-							// str2 = "";//ÏÈÇå¿Õ
-							// str3 = "";//ÏÈÇå¿Õ
-							String fegefu = str1.length() > 0 ? "," : "";
-							str1 = str1
-									+ fegefu
-									+ String.valueOf(mListData.get(i)
-											.getArticle_id());
-							str2 = str2
-									+ fegefu
-									+ String.valueOf(mListData.get(i)
-											.getGoods_id());
-							str3 = str3
-									+ fegefu
-									+ String.valueOf(mListData.get(i)
-											.getQuantity());
+							System.out.println("i=========================="+i);
+							list_num.add(i);
+							String strUrl = RealmName.REALM_NAME_LL
+									+ "/cart_goods_delete?" + "clear=0&user_id="
+									+ user_id + "&cart_id="
+									+ mListData.get(i).getId();
+							AsyncHttp.get(strUrl, new AsyncHttpResponseHandler() {
+								@Override
+								public void onSuccess(int arg0, String arg1) {
+									// TODO Auto-generated method stub
+									System.out.println("==========================è®¿é—®æ¥å£æˆåŠŸï¼"+ arg1);
+									super.onSuccess(arg0, arg1);
+									try {
+
+										JSONObject object = new JSONObject(arg1);
+										String status = object.getString("status");
+										String info = object.getString("info");
+										if (status.equals("y")) {
+											Toast.makeText(MyShopCarActivity.this,info, 200).show();
+											System.out.println("mListData.size()=========================="+ mListData.size());
+											// ptye = true;
+											list_num2.add(i);
+											System.out.println("list_size.size()=========================="+ list_size.size());
+
+											System.out.println("list_num.size()=========================="+list_num.size());
+											System.out.println("list_num2.size()=========================="+list_num2.size());
+											if (list_num.size() == list_num2.size()) {
+												getgouwuche();
+												list_num.clear();
+												list_num2.clear();
+											}
+										} else {
+											Toast.makeText(MyShopCarActivity.this,info, 200).show();
+										}
+									} catch (Exception e) {
+										// TODO: handle exception
+										e.printStackTrace();
+									}
+								}
+
+							}, MyShopCarActivity.this);
 
 						}
+
 					}
-					System.out.println("str1-------------" + str1);
-					String zhou = str1 + "/" + str2 + "/" + str3;
-					// Toast.makeText(MyShopCarActivity.this, zhou, 200).show();
-					if (str1.equals("")) {
-						Toast.makeText(MyShopCarActivity.this, "ÇëÑ¡ÔñÒªÖ§¸¶µÄÉÌÆ·", 200)
-								.show();
-						// mListAdapter.notifyDataSetChanged();
-					} else {
-						loadgouwuche(str1, str2, str3);
+
+					// åˆ·æ–°
+					//				getgouwuche();
+
+					// è®¡ç®—ä¸ªæ•°æ¸…ç©º
+					if (list_size.size() > 0) {
+						list_size.clear();
+						mDelete.setText(getResources()
+								.getString(R.string.menu_sett)
+								+ "("
+								+ list_size.size() + ")");
 					}
+
+					// String str1="";
+					// for(int i=0;i<mListData.size();i++){
+					// if (mListData.get(i).isChoose()) {
+					// String fegefu = str1.length()>0?",":"";
+					// str1 = str1+fegefu+String.valueOf(mListData.get(i).getId());
+					// }
+					// }
+					// String strUrl = RealmName.REALM_NAME_LL +
+					// "/cart_goods_delete?"+ "clear=0&user_id=" + user_id+
+					// "&cart_id=" + str1;
+					// AsyncHttp.get(strUrl,new AsyncHttpResponseHandler() {
+					// @Override
+					// public void onSuccess(int arg0, String arg1) {
+					// // TODO Auto-generated method stub
+					// System.out.println("==========================è®¿é—®æ¥å£æˆåŠŸï¼"+arg1);
+					// super.onSuccess(arg0, arg1);
+					// try {
+					//
+					// JSONObject object = new JSONObject(arg1);
+					// String status = object.getString("status");
+					// String info = object.getString("info");
+					// if (status.equals("y")) {
+					// Toast.makeText(MyShopCarActivity.this, info, 200).show();
+					// // åˆ·æ–°
+					// getgouwuche();
+					// // mListAdapter.notifyDataSetChanged();
+					// }else {
+					// Toast.makeText(MyShopCarActivity.this, info, 200).show();
+					// }
+					// } catch (Exception e) {
+					// // TODO: handle exception
+					// e.printStackTrace();
+					// }
+					// }
+					//
+					// }, MyShopCarActivity.this);
 
 				} else {
-					Toast.makeText(MyShopCarActivity.this, "ÇëÑ¡ÔñÒªÖ§¸¶µÄÉÌÆ·", 200)
-							.show();
-					mListAdapter.notifyDataSetChanged();
-					return;
-				}
-			}
+					String str1 = "";
+					String str2 = "";
+					String str3 = "";
+					System.out.println("totalPrice-------------" + totalPrice);
+					if (totalPrice != 0) {
+						for (int i = 0; i < mListData.size(); i++) {
+							if (mListData.get(i).isChoose()) {
+								// str1 = "";//å…ˆæ¸…ç©º
+								// str2 = "";//å…ˆæ¸…ç©º
+								// str3 = "";//å…ˆæ¸…ç©º
+								String fegefu = str1.length() > 0 ? "," : "";
+								str1 = str1
+										+ fegefu
+										+ String.valueOf(mListData.get(i)
+										.getArticle_id());
+								str2 = str2
+										+ fegefu
+										+ String.valueOf(mListData.get(i)
+										.getGoods_id());
+								str3 = str3
+										+ fegefu
+										+ String.valueOf(mListData.get(i)
+										.getQuantity());
 
-			break;
-		case R.id.back:
-			// onBackPressed();
-			break;
-		default:
-			break;
+							}
+						}
+						System.out.println("str1-------------" + str1);
+						String zhou = str1 + "/" + str2 + "/" + str3;
+						// Toast.makeText(MyShopCarActivity.this, zhou, 200).show();
+						if (str1.equals("")) {
+							Toast.makeText(MyShopCarActivity.this, "è¯·é€‰æ‹©è¦æ”¯ä»˜çš„å•†å“", 200)
+									.show();
+							// mListAdapter.notifyDataSetChanged();
+						} else {
+							loadgouwuche(str1, str2, str3);
+						}
+
+					} else {
+						Toast.makeText(MyShopCarActivity.this, "è¯·é€‰æ‹©è¦æ”¯ä»˜çš„å•†å“", 200)
+								.show();
+						mListAdapter.notifyDataSetChanged();
+						return;
+					}
+				}
+
+				break;
+			case R.id.back:
+				// onBackPressed();
+				break;
+			default:
+				break;
 		}
 	}
 
 	/**
-	 * ¼ÆËã¼Û¸ñ
+	 * è®¡ç®—ä»·æ ¼
 	 */
 	public void count() {
 
-		totalPrice = 0;// ÈËÃñ±Ò
+		totalPrice = 0;// äººæ°‘å¸
 		if (mListData != null && mListData.size() > 0) {
 			for (int i = 0; i < mListData.size(); i++) {
 				if (mListData.get(i).isChoose()) {
@@ -967,7 +967,7 @@ public class MyShopCarActivity extends BaseActivity implements OnClickListener {
 			}
 			BigDecimal c = new BigDecimal(totalPrice);
 			dzongjia = c.setScale(2, BigDecimal.ROUND_HALF_UP).doubleValue();
-			mPriceAll.setText("£¤" + dzongjia + "");
+			mPriceAll.setText("ï¿¥" + dzongjia + "");
 		}
 
 	}
@@ -996,9 +996,9 @@ public class MyShopCarActivity extends BaseActivity implements OnClickListener {
 			// "/add_shopping_buys?user_id="+user_id+"&user_name="+user_name+
 			// "&article_id="+str1+"&goods_id="+str2+"&quantity="+str3+"",
 			AsyncHttp.get(RealmName.REALM_NAME_LL
-					+ "/add_shopping_buys?user_id=" + user_id + "&user_name="
-					+ user_name + "&user_sign=" + login_sign + "&article_id="
-					+ str1 + "&goods_id=" + str2 + "&quantity=" + str3 + "",
+							+ "/add_shopping_buys?user_id=" + user_id + "&user_name="
+							+ user_name + "&user_sign=" + login_sign + "&article_id="
+							+ str1 + "&goods_id=" + str2 + "&quantity=" + str3 + "",
 					new AsyncHttpResponseHandler() {
 						@Override
 						public void onSuccess(int arg0, String arg1) {
@@ -1007,7 +1007,7 @@ public class MyShopCarActivity extends BaseActivity implements OnClickListener {
 							try {
 								JSONObject jsonObject = new JSONObject(arg1);
 								String status = jsonObject.getString("status");
-								System.out.println("¹ºÎïÇåµ¥================"
+								System.out.println("è´­ç‰©æ¸…å•================"
 										+ arg1);
 								String info = jsonObject.getString("info");
 								if (status.equals("y")) {
@@ -1031,7 +1031,7 @@ public class MyShopCarActivity extends BaseActivity implements OnClickListener {
 									// str.append(s+",");
 									// }
 									// str.delete(str.lastIndexOf(","),str.length());
-									// System.out.println("idÆ´½ÓÖ®ºó---------------"+str);
+									// System.out.println("idæ‹¼æ¥ä¹‹å---------------"+str);
 
 									// Toast.makeText(MyShopCarActivity.this, info,
 									// 200).show();
@@ -1056,7 +1056,7 @@ public class MyShopCarActivity extends BaseActivity implements OnClickListener {
 						public void onFailure(Throwable arg0, String arg1) {
 							// TODO Auto-generated method stub
 							System.out
-									.println("==========================·ÃÎÊ½Ó¿ÚÊ§°Ü£¡");
+									.println("==========================è®¿é—®æ¥å£å¤±è´¥ï¼");
 							System.out.println("========================="
 									+ arg0);
 							System.out.println("=========================="
@@ -1072,7 +1072,7 @@ public class MyShopCarActivity extends BaseActivity implements OnClickListener {
 		}
 	}
 	public static void setListViewHeightBasedOnChildren(ListView listView) {
-		// »ñÈ¡ListView¶ÔÓ¦µÄAdapter
+		// è·å–ListViewå¯¹åº”çš„Adapter
 		ListAdapter listAdapter = (ListAdapter) mListView.getAdapter();
 		if (listAdapter == null) {
 			return;
@@ -1080,19 +1080,19 @@ public class MyShopCarActivity extends BaseActivity implements OnClickListener {
 
 		int totalHeight = 0;
 		for (int i = 0, len = listAdapter.getCount(); i < len; i++) {
-			// listAdapter.getCount()·µ»ØÊı¾İÏîµÄÊıÄ¿
+			// listAdapter.getCount()è¿”å›æ•°æ®é¡¹çš„æ•°ç›®
 			View listItem = listAdapter.getView(i, null, listView);
-			// ¼ÆËã×ÓÏîView µÄ¿í¸ß
+			// è®¡ç®—å­é¡¹View çš„å®½é«˜
 			listItem.measure(0, 0);
-			// Í³¼ÆËùÓĞ×ÓÏîµÄ×Ü¸ß¶È
+			// ç»Ÿè®¡æ‰€æœ‰å­é¡¹çš„æ€»é«˜åº¦
 			totalHeight += listItem.getMeasuredHeight();
 		}
 
 		ViewGroup.LayoutParams params = listView.getLayoutParams();
 		params.height = totalHeight
 				+ (listView.getDividerHeight() * (listAdapter.getCount() - 1));
-		// listView.getDividerHeight()»ñÈ¡×ÓÏî¼ä·Ö¸ô·ûÕ¼ÓÃµÄ¸ß¶È
-		// params.height×îºóµÃµ½Õû¸öListViewÍêÕûÏÔÊ¾ĞèÒªµÄ¸ß¶È
+		// listView.getDividerHeight()è·å–å­é¡¹é—´åˆ†éš”ç¬¦å ç”¨çš„é«˜åº¦
+		// params.heightæœ€åå¾—åˆ°æ•´ä¸ªListViewå®Œæ•´æ˜¾ç¤ºéœ€è¦çš„é«˜åº¦
 		listView.setLayoutParams(params);
 	}
 }

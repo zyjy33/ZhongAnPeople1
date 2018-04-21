@@ -4,11 +4,10 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
 
 public class LineBreakLayout extends ViewGroup {
 	/**
-	 * 不规则布局
+	 * 涓嶈鍒欏竷灞�
 	 */
 
 	private final static String TAG = "LineBreakLayout";

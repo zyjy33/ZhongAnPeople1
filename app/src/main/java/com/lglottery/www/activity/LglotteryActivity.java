@@ -59,26 +59,26 @@ public class LglotteryActivity extends BaseActivity {
 	private Handler handler = new Handler() {
 		public void dispatchMessage(Message msg) {
 			switch (msg.what) {
-			case 0:
-				ArrayList<Lglottery_Item> lglottery_Items = (ArrayList<Lglottery_Item>) msg.obj;
-				lglotteryListAdapter.putList(lglottery_Items);
-				break;
-			case 1:
-				Intent enterIntent1 = new Intent(LglotteryActivity.this,
-						LglotteryEnterActivity.class);
-				Bundle enterBundle1 = new Bundle();
-				Lglottery_Item item = (Lglottery_Item) msg.obj;
-				if (item.isClick()) {
-					enterBundle1.putSerializable("pay_lottery", item);
-					enterIntent1.putExtras(enterBundle1);
-					startActivity(enterIntent1);
-				} else {
-					Toast.makeText(getApplicationContext(), "ÉÏÆÚ³é½±Î´Íê³É!", 200)
-							.show();
-				}
-				break;
-			default:
-				break;
+				case 0:
+					ArrayList<Lglottery_Item> lglottery_Items = (ArrayList<Lglottery_Item>) msg.obj;
+					lglotteryListAdapter.putList(lglottery_Items);
+					break;
+				case 1:
+					Intent enterIntent1 = new Intent(LglotteryActivity.this,
+							LglotteryEnterActivity.class);
+					Bundle enterBundle1 = new Bundle();
+					Lglottery_Item item = (Lglottery_Item) msg.obj;
+					if (item.isClick()) {
+						enterBundle1.putSerializable("pay_lottery", item);
+						enterIntent1.putExtras(enterBundle1);
+						startActivity(enterIntent1);
+					} else {
+						Toast.makeText(getApplicationContext(), "ä¸ŠæœŸæŠ½å¥–æœªå®Œæˆ!", 200)
+								.show();
+					}
+					break;
+				default:
+					break;
 			}
 		};
 	};
@@ -103,7 +103,7 @@ public class LglotteryActivity extends BaseActivity {
 	}
 
 	/**
-	 * ×é¼şÊÂ¼ş
+	 * ç»„ä»¶äº‹ä»¶
 	 */
 	private void init() {
 		iniData();
@@ -134,12 +134,12 @@ public class LglotteryActivity extends BaseActivity {
 	}
 
 	/**
-	 * »ñµÃĞÅÏ¢
+	 * è·å¾—ä¿¡æ¯
 	 */
 	private void connect() {
 		RequestParams params = new RequestParams();
 		params.put("yth", sharedUtils.getStringValue("yth"));
-		System.out.println("³é½±" + U.GET_LOTTERY_ITEM);
+		System.out.println("æŠ½å¥–" + U.GET_LOTTERY_ITEM);
 		AsyncHttp.post(U.GET_LOTTERY_ITEM, params,
 				new AsyncHttpResponseHandler() {
 					@Override
@@ -218,7 +218,7 @@ public class LglotteryActivity extends BaseActivity {
 					lglottery_person_ico);
 		} else {
 			imageLoader.displayImage("drawable://"
-					+ R.drawable.lglottery_login_ico, lglottery_person_ico,
+							+ R.drawable.lglottery_login_ico, lglottery_person_ico,
 					options);
 		}
 
@@ -230,31 +230,31 @@ public class LglotteryActivity extends BaseActivity {
 		public void onClick(View view) {
 			// TODO Auto-generated method stub
 			switch (view.getId()) {
-			case R.id.lglottery_tip:
-				initPopupWindow();
-				showPopupWindow(lglottery_tip);
-				break;
-			case R.id.lglottery_pop_closed:
-				if (mPopupWindow.isShowing()) {
-					mPopupWindow.dismiss();
-				}
-				break;
-			case R.id.lglottery_person_frame:
-				if (sharedUtils.getStringValue("key").length() > 0) {
-					// ±íÊ¾µÇÂ¼³É¹¦
-					Intent intent = new Intent(LglotteryActivity.this,
-							LglotteryPersonActivity.class);
-					startActivity(intent);
-				} else {
-					// ±íÊ¾Î´µÇÂ¼
-					Intent personIntent = new Intent(LglotteryActivity.this,
-							LgLotteryLoginActivity.class);
-					Bundle bundle = getIntent().getExtras();
-					personIntent.putExtras(bundle);
-					startActivityForResult(personIntent, REQUESTCODE_LOGIN);
-				}
+				case R.id.lglottery_tip:
+					initPopupWindow();
+					showPopupWindow(lglottery_tip);
+					break;
+				case R.id.lglottery_pop_closed:
+					if (mPopupWindow.isShowing()) {
+						mPopupWindow.dismiss();
+					}
+					break;
+				case R.id.lglottery_person_frame:
+					if (sharedUtils.getStringValue("key").length() > 0) {
+						// è¡¨ç¤ºç™»å½•æˆåŠŸ
+						Intent intent = new Intent(LglotteryActivity.this,
+								LglotteryPersonActivity.class);
+						startActivity(intent);
+					} else {
+						// è¡¨ç¤ºæœªç™»å½•
+						Intent personIntent = new Intent(LglotteryActivity.this,
+								LgLotteryLoginActivity.class);
+						Bundle bundle = getIntent().getExtras();
+						personIntent.putExtras(bundle);
+						startActivityForResult(personIntent, REQUESTCODE_LOGIN);
+					}
 
-				break;
+					break;
 			/*
 			 * case R.id.lglottery_play1: Intent enterIntent = new
 			 * Intent(LglotteryActivity.this, LglotteryEnterActivity.class);
@@ -268,8 +268,8 @@ public class LglotteryActivity extends BaseActivity {
 			 * enterIntent1.putExtras(enterBundle1);
 			 * startActivity(enterIntent1); break;
 			 */
-			default:
-				break;
+				default:
+					break;
 			}
 		}
 	};
@@ -284,7 +284,7 @@ public class LglotteryActivity extends BaseActivity {
 				Config.LOGIN_STATUS);
 		if (sharedUtils.getStringValue("key").length() == 0) {
 
-			// ±íÊ¾Î´µÇÂ¼
+			// è¡¨ç¤ºæœªç™»å½•
 			Intent personIntent = new Intent(LglotteryActivity.this,
 					LgLotteryLoginActivity.class);
 			Bundle bundle = getIntent().getExtras();
@@ -301,13 +301,13 @@ public class LglotteryActivity extends BaseActivity {
 		mPopupWindow = new PopupWindow(popView, LayoutParams.MATCH_PARENT,
 				LayoutParams.MATCH_PARENT);
 		// mPopupWindow.setBackgroundDrawable(new
-		// BitmapDrawable());//±ØĞëÉèÖÃbackground²ÅÄÜÏûÊ§
+		// BitmapDrawable());//å¿…é¡»è®¾ç½®backgroundæ‰èƒ½æ¶ˆå¤±
 		mPopupWindow.setBackgroundDrawable(getResources().getDrawable(
 				R.color.ban_louming));
 		mPopupWindow.setOutsideTouchable(true);
-		// ×Ô¶¨Òå¶¯»­
+		// è‡ªå®šä¹‰åŠ¨ç”»
 		// mPopupWindow.setAnimationStyle(R.style.PopupAnimation);
-		// Ê¹ÓÃÏµÍ³¶¯»­
+		// ä½¿ç”¨ç³»ç»ŸåŠ¨ç”»
 		mPopupWindow.setAnimationStyle(android.R.style.Animation_Toast);
 		mPopupWindow.update();
 		mPopupWindow.setTouchable(true);
@@ -321,8 +321,8 @@ public class LglotteryActivity extends BaseActivity {
 	private void showPopupWindow(View view) {
 		if (!mPopupWindow.isShowing()) {
 			// mPopupWindow.showAsDropDown(view,0,0);
-			// µÚÒ»¸ö²ÎÊıÖ¸¶¨PopupWindowµÄÃªµãview£¬¼´ÒÀ¸½ÔÚÄÄ¸öviewÉÏ¡£
-			// µÚ¶ş¸ö²ÎÊıÖ¸¶¨ÆğÊ¼µãÎªparentµÄÓÒÏÂ½Ç£¬µÚÈı¸ö²ÎÊıÉèÖÃÒÔparentµÄÓÒÏÂ½ÇÎªÔ­µã£¬Ïò×ó¡¢ÉÏ¸÷Æ«ÒÆ10ÏñËØ¡£
+			// ç¬¬ä¸€ä¸ªå‚æ•°æŒ‡å®šPopupWindowçš„é”šç‚¹viewï¼Œå³ä¾é™„åœ¨å“ªä¸ªviewä¸Šã€‚
+			// ç¬¬äºŒä¸ªå‚æ•°æŒ‡å®šèµ·å§‹ç‚¹ä¸ºparentçš„å³ä¸‹è§’ï¼Œç¬¬ä¸‰ä¸ªå‚æ•°è®¾ç½®ä»¥parentçš„å³ä¸‹è§’ä¸ºåŸç‚¹ï¼Œå‘å·¦ã€ä¸Šå„åç§»10åƒç´ ã€‚
 			int[] location = new int[2];
 			view.getLocationOnScreen(location);
 			mPopupWindow.showAtLocation(view, Gravity.CENTER, 0, 0);

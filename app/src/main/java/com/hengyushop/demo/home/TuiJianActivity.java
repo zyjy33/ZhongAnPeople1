@@ -1,24 +1,16 @@
 package com.hengyushop.demo.home;
 
-import com.hengyushop.demo.airplane.AirPlaneBargainActivity;
-import com.hengyushop.demo.airplane.AirPlaneOnLineActivity;
-import com.hengyushop.demo.airplane.AirPlaneSelectActivity;
+import android.os.Bundle;
+import android.view.Window;
+
 import com.hengyushop.demo.at.BaseActivity;
 import com.zams.www.R;
 
-import android.app.TabActivity;
-import android.content.Intent;
-import android.os.Bundle;
-import android.view.View;
-import android.view.Window;
-import android.widget.TabHost;
-import android.widget.TextView;
-
 /**
- * Õ∆ºˆ
- * 
+ * Êé®Ëçê
+ *
  * @author Administrator
- * 
+ *
  */
 public class TuiJianActivity extends BaseActivity {
 

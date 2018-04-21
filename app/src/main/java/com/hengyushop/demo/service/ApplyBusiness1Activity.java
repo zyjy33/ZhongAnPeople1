@@ -41,25 +41,25 @@ import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.zams.www.R;
 
 /**
- * ÉêÇëÉÌ¼Ò1
- * 
+ * ç”³è¯·å•†å®¶1
+ *
  * @author Administrator
- * 
+ *
  */
 public class ApplyBusiness1Activity extends BaseActivity implements OnClickListener{
 
 	private ImageView iv_fanhui,iv_dingwei;
 	private TextView tv_xiabu,tv_city,tv_dingwei,tv_dianhao,tv_sj_biaoqian;
 	private EditText edt_sj_name,edt_sj_biaoqian,edt_sj_dianhao,edt_sj_xqjd;
-	String dizhi = "Ñ¡ÔñµØÖ·";
+	String dizhi = "é€‰æ‹©åœ°å€";
 	private String cityTxt,cityTxt1,cityTxt2,cityTxt3;
-	private LocationManager locationManager;// Î»ÖÃ¹ÜÀíÀà
-	private String provider;// Î»ÖÃÌá¹©Æ÷
+	private LocationManager locationManager;// ä½ç½®ç®¡ç†ç±»
+	private String provider;// ä½ç½®æä¾›å™¨
 	SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 	public static double jingdu,weidu;
 	private DialogProgress progress;
 	String sj_bq = "";
-	
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
@@ -68,7 +68,7 @@ public class ApplyBusiness1Activity extends BaseActivity implements OnClickListe
 		setContentView(R.layout.activity_sq1_shangjia);
 		getWindow().setSoftInputMode( WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
 		progress = new DialogProgress(ApplyBusiness1Activity.this);
-//		loadWeather();
+		//		loadWeather();
 		initUI();
 		userloginqm();
 	}
@@ -77,12 +77,12 @@ public class ApplyBusiness1Activity extends BaseActivity implements OnClickListe
 	protected void onResume() {
 		// TODO Auto-generated method stub
 		super.onResume();
-		
+
 		sj_bq = MerchantsLabelActivity.str;
 		System.out.println("sj_bq-------1-----"+sj_bq);
 		if (!sj_bq.equals("")) {
 			tv_sj_biaoqian.setText(sj_bq);
-//			MerchantsLabelActivity.str = "";
+			//			MerchantsLabelActivity.str = "";
 		}
 		else {
 			tv_sj_biaoqian.setText("");
@@ -91,7 +91,7 @@ public class ApplyBusiness1Activity extends BaseActivity implements OnClickListe
 	private void initUI() {
 		// TODO Auto-generated method stub
 		edt_sj_name = (EditText) findViewById(R.id.edt_sj_name);
-//		edt_sj_biaoqian = (EditText) findViewById(R.id.edt_sj_biaoqian);
+		//		edt_sj_biaoqian = (EditText) findViewById(R.id.edt_sj_biaoqian);
 		edt_sj_dianhao = (EditText) findViewById(R.id.edt_sj_dianhao);
 		edt_sj_xqjd = (EditText) findViewById(R.id.edt_sj_xqjd);
 		tv_sj_biaoqian = (TextView) findViewById(R.id.tv_sj_biaoqian);
@@ -110,104 +110,104 @@ public class ApplyBusiness1Activity extends BaseActivity implements OnClickListe
 	@Override
 	public void onClick(View v) {
 		// TODO Auto-generated method stub
-		
+
 		switch (v.getId()) {
-		case R.id.iv_fanhui:
-			finish();
-			break;
-		case R.id.tv_sj_biaoqian:
-			sj_bq = "";
-			Intent intent1 = new Intent(ApplyBusiness1Activity.this,MerchantsLabelActivity.class);
-			startActivity(intent1);
-			break;
-		case R.id.tv_dingwei:
-//			Intent intent1 = new Intent(ApplyBusiness1Activity.this,BaiduActivity.class);
-//			Intent intent1 = new Intent(ApplyBusiness1Activity.this,BaiduActivity.class);
-//			startActivity(intent1);
-			progress.CreateProgress();	
-			dingwei();
-			break;
-		case R.id.tv_city:
-			View view = dialogm();
-			final MyAlertDialog dialog1 = new MyAlertDialog(
-					ApplyBusiness1Activity.this).builder()
-					// .setTitle(tv_chengshi.getText().toString())
-					.setTitle(dizhi.toString()).setView(view)
-					.setNegativeButton("È¡Ïû", new OnClickListener() {
-						@Override
-						public void onClick(View v) {
+			case R.id.iv_fanhui:
+				finish();
+				break;
+			case R.id.tv_sj_biaoqian:
+				sj_bq = "";
+				Intent intent1 = new Intent(ApplyBusiness1Activity.this,MerchantsLabelActivity.class);
+				startActivity(intent1);
+				break;
+			case R.id.tv_dingwei:
+				//			Intent intent1 = new Intent(ApplyBusiness1Activity.this,BaiduActivity.class);
+				//			Intent intent1 = new Intent(ApplyBusiness1Activity.this,BaiduActivity.class);
+				//			startActivity(intent1);
+				progress.CreateProgress();
+				dingwei();
+				break;
+			case R.id.tv_city:
+				View view = dialogm();
+				final MyAlertDialog dialog1 = new MyAlertDialog(
+						ApplyBusiness1Activity.this).builder()
+						// .setTitle(tv_chengshi.getText().toString())
+						.setTitle(dizhi.toString()).setView(view)
+						.setNegativeButton("å–æ¶ˆ", new OnClickListener() {
+							@Override
+							public void onClick(View v) {
 
+							}
+						});
+				dialog1.setPositiveButton("ç¡®å®š", new OnClickListener() {
+					@Override
+					public void onClick(View v) {
+						// Toast.makeText(getApplicationContext(), cityTxt,
+						// 1).show();
+						tv_city.setText(cityTxt);
+					}
+				});
+				dialog1.show();
+
+				break;
+			case R.id.tv_xiabu:
+				String sj_name = edt_sj_name.getText().toString().trim();
+				//			String sj_bq = edt_sj_biaoqian.getText().toString().trim();
+				String haoma = edt_sj_dianhao.getText().toString().trim();
+				String dizhi = tv_city.getText().toString().trim();
+				String xq_dizhi = edt_sj_xqjd.getText().toString().trim();
+				String dingwei = tv_dingwei.getText().toString().trim();
+				System.out.println("sj_bq------------"+sj_bq);
+				if (sj_name.equals("")) {
+					Toast.makeText(ApplyBusiness1Activity.this, "è¯·å¡«å†™å•†å®¶åç§°", 100).show();
+				} else if (sj_bq.equals("")) {
+					Toast.makeText(ApplyBusiness1Activity.this, "è¯·å¡«å†™å•†å®¶æ ‡ç­¾", 100).show();
+				} else if (haoma.equals("")) {
+					Toast.makeText(ApplyBusiness1Activity.this, "è¯·å¡«å†™æ‰‹æœºå·ç ", 100).show();
+					//		    } else if (haoma.length() > 11 || haoma.length() < 11) {
+					//			    Toast.makeText(ApplyBusiness1Activity.this, "æ‰‹æœºå·ç ä¸å¯¹", 100).show();
+				} else{
+					if(Validator.isMobile(haoma)){
+						if (dizhi.equals("")) {
+							Toast.makeText(ApplyBusiness1Activity.this, "è¯·å¡«å†™åœ°å€", 100).show();
+						} else if (xq_dizhi.equals("")) {
+							Toast.makeText(ApplyBusiness1Activity.this, "è¯·å¡«å†™è¯¦ç»†è¡—é“åœ°å€", 100).show();
+						} else if (dingwei.equals("")) {
+							Toast.makeText(ApplyBusiness1Activity.this, "å•†å®¶æœªå®šä½", 100).show();
+						} else{
+
+							Intent intent = new Intent(ApplyBusiness1Activity.this,ApplyBusiness2Activity.class);
+							intent.putExtra("sj_name", sj_name);
+							intent.putExtra("sj_bq", sj_bq);
+							intent.putExtra("haoma", haoma);
+							intent.putExtra("province", cityTxt1);
+							intent.putExtra("city", cityTxt2);
+							intent.putExtra("area", cityTxt3);
+							intent.putExtra("xq_dizhi", xq_dizhi);
+							intent.putExtra("jingdu", jingdu);
+							intent.putExtra("weidu", weidu);
+							System.out.println("jingdu------------"+jingdu);
+							System.out.println("weidu------------"+weidu);
+							startActivity(intent);
 						}
-					});
-			dialog1.setPositiveButton("È·¶¨", new OnClickListener() {
-				@Override
-				public void onClick(View v) {
-					// Toast.makeText(getApplicationContext(), cityTxt,
-					// 1).show();
-					tv_city.setText(cityTxt);
-				}
-			});
-			dialog1.show();
 
-			break;
-		case R.id.tv_xiabu:
-			String sj_name = edt_sj_name.getText().toString().trim();
-//			String sj_bq = edt_sj_biaoqian.getText().toString().trim();
-			String haoma = edt_sj_dianhao.getText().toString().trim();
-			String dizhi = tv_city.getText().toString().trim();
-			String xq_dizhi = edt_sj_xqjd.getText().toString().trim();
-			String dingwei = tv_dingwei.getText().toString().trim();
-			System.out.println("sj_bq------------"+sj_bq);
-			if (sj_name.equals("")) {
-				Toast.makeText(ApplyBusiness1Activity.this, "ÇëÌîĞ´ÉÌ¼ÒÃû³Æ", 100).show();
-			} else if (sj_bq.equals("")) {
-				Toast.makeText(ApplyBusiness1Activity.this, "ÇëÌîĞ´ÉÌ¼Ò±êÇ©", 100).show();
-			} else if (haoma.equals("")) {
-				Toast.makeText(ApplyBusiness1Activity.this, "ÇëÌîĞ´ÊÖ»úºÅÂë", 100).show();
-//		    } else if (haoma.length() > 11 || haoma.length() < 11) {
-//			    Toast.makeText(ApplyBusiness1Activity.this, "ÊÖ»úºÅÂë²»¶Ô", 100).show();
-			} else{
-				if(Validator.isMobile(haoma)){
-				if (dizhi.equals("")) {
-				Toast.makeText(ApplyBusiness1Activity.this, "ÇëÌîĞ´µØÖ·", 100).show();
-			} else if (xq_dizhi.equals("")) {
-				Toast.makeText(ApplyBusiness1Activity.this, "ÇëÌîĞ´ÏêÏ¸½ÖµÀµØÖ·", 100).show();
-			} else if (dingwei.equals("")) {
-				Toast.makeText(ApplyBusiness1Activity.this, "ÉÌ¼ÒÎ´¶¨Î»", 100).show();
-			} else{
-			
-			Intent intent = new Intent(ApplyBusiness1Activity.this,ApplyBusiness2Activity.class);
-			intent.putExtra("sj_name", sj_name);
-			intent.putExtra("sj_bq", sj_bq);
-			intent.putExtra("haoma", haoma);
-			intent.putExtra("province", cityTxt1);
-			intent.putExtra("city", cityTxt2);
-			intent.putExtra("area", cityTxt3);
-			intent.putExtra("xq_dizhi", xq_dizhi);
-			intent.putExtra("jingdu", jingdu);
-			intent.putExtra("weidu", weidu);
-			System.out.println("jingdu------------"+jingdu);
-			System.out.println("weidu------------"+weidu);
-			startActivity(intent);
-			}
-			
-			}else {
-				showToast("ÑéÖ¤ÊÖ»úºÅÊ§°Ü!");
-			}
-			}	
-//			Intent intent = new Intent(ApplyBusiness1Activity.this,ApplyBusiness2Activity.class);
-//			startActivity(intent);
-			break;
-		default:
-			break;
+					}else {
+						showToast("éªŒè¯æ‰‹æœºå·å¤±è´¥!");
+					}
+				}
+				//			Intent intent = new Intent(ApplyBusiness1Activity.this,ApplyBusiness2Activity.class);
+				//			startActivity(intent);
+				break;
+			default:
+				break;
 		}
 	}
-	
+
 	private void showToast(String text){
 		Toast.makeText(this, text, Toast.LENGTH_SHORT).show();
 	}
 	/**
-	 * Ñ¡Ôñ³ÇÊĞ
+	 * é€‰æ‹©åŸå¸‚
 	 * @return
 	 */
 	private View dialogm() {
@@ -224,21 +224,21 @@ public class ApplyBusiness1Activity extends BaseActivity implements OnClickListe
 				.findViewById(R.id.wheelcity_city);
 		city.setVisibleItems(0);
 
-		// µØÇøÑ¡Ôñ
+		// åœ°åŒºé€‰æ‹©
 		final WheelView ccity = (WheelView) contentView
 				.findViewById(R.id.wheelcity_ccity);
-		ccity.setVisibleItems(0);// ²»ÏŞ³ÇÊĞ
+		ccity.setVisibleItems(0);// ä¸é™åŸå¸‚
 
 		country.addChangingListener(new OnWheelChangedListener() {
 			public void onChanged(WheelView wheel, int oldValue, int newValue) {
 				updateCities(city, cities, newValue);
 				cityTxt = AddressData.PROVINCES[country.getCurrentItem()]
-						+ "¡¢"
+						+ "ã€"
 						+ AddressData.CITIES[country.getCurrentItem()][city
-								.getCurrentItem()]
-						+ "¡¢"
+						.getCurrentItem()]
+						+ "ã€"
 						+ AddressData.COUNTIES[country.getCurrentItem()][city
-								.getCurrentItem()][ccity.getCurrentItem()];
+						.getCurrentItem()][ccity.getCurrentItem()];
 				cityTxt1 = AddressData.PROVINCES[country.getCurrentItem()];
 			}
 		});
@@ -248,32 +248,32 @@ public class ApplyBusiness1Activity extends BaseActivity implements OnClickListe
 				updatecCities(ccity, ccities, country.getCurrentItem(),
 						newValue);
 				cityTxt = AddressData.PROVINCES[country.getCurrentItem()]
-						+ "¡¢"
+						+ "ã€"
 						+ AddressData.CITIES[country.getCurrentItem()][city
-								.getCurrentItem()]
-						+ "¡¢"
+						.getCurrentItem()]
+						+ "ã€"
 						+ AddressData.COUNTIES[country.getCurrentItem()][city
-								.getCurrentItem()][ccity.getCurrentItem()];
+						.getCurrentItem()][ccity.getCurrentItem()];
 				cityTxt2 = AddressData.CITIES[country.getCurrentItem()][city
-				                        								.getCurrentItem()];
+						.getCurrentItem()];
 			}
 		});
 
 		ccity.addChangingListener(new OnWheelChangedListener() {
 			public void onChanged(WheelView wheel, int oldValue, int newValue) {
 				cityTxt = AddressData.PROVINCES[country.getCurrentItem()]
-						+ "¡¢"
+						+ "ã€"
 						+ AddressData.CITIES[country.getCurrentItem()][city
-								.getCurrentItem()]
-						+ "¡¢"
+						.getCurrentItem()]
+						+ "ã€"
 						+ AddressData.COUNTIES[country.getCurrentItem()][city
-								.getCurrentItem()][ccity.getCurrentItem()];
+						.getCurrentItem()][ccity.getCurrentItem()];
 				cityTxt3 = AddressData.COUNTIES[country.getCurrentItem()][city
-					                          								.getCurrentItem()][ccity.getCurrentItem()];
+						.getCurrentItem()][ccity.getCurrentItem()];
 			}
 		});
 
-		country.setCurrentItem(1);// ÉèÖÃ±±¾©
+		country.setCurrentItem(1);// è®¾ç½®åŒ—äº¬
 		city.setCurrentItem(1);
 		ccity.setCurrentItem(1);
 		return contentView;
@@ -294,7 +294,7 @@ public class ApplyBusiness1Activity extends BaseActivity implements OnClickListe
 	 * Updates the ccity wheel
 	 */
 	private void updatecCities(WheelView city, String ccities[][][], int index,
-			int index2) {
+							   int index2) {
 		ArrayWheelAdapter<String> adapter = new ArrayWheelAdapter<String>(this,
 				ccities[index][index2]);
 		adapter.setTextSize(18);
@@ -336,49 +336,49 @@ public class ApplyBusiness1Activity extends BaseActivity implements OnClickListe
 
 	private void dingwei() {
 		// TODO Auto-generated method stub
-		// »ñµÃLocationManagerµÄÊµÀı
-				locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+		// è·å¾—LocationManagerçš„å®ä¾‹
+		locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
 
-				// »ñÈ¡ËùÓĞ¿ÉÓÃµÄÎ»ÖÃÌá¹©Æ÷
-				List<String> providerList = locationManager.getProviders(true);
-				if (providerList.contains(LocationManager.GPS_PROVIDER)) {
-					//ÓÅÏÈÊ¹ÓÃgps
-					provider = LocationManager.GPS_PROVIDER;
-				} else if (providerList.contains(LocationManager.NETWORK_PROVIDER)) {
-					provider = LocationManager.NETWORK_PROVIDER;
-				} else {
-					// Ã»ÓĞ¿ÉÓÃµÄÎ»ÖÃÌá¹©Æ÷
-//					Toast.makeText(ApplyBusiness1Activity.this, "Ã»ÓĞÎ»ÖÃÌá¹©Æ÷¿É¹©Ê¹ÓÃ", Toast.LENGTH_LONG).show();
-					Toast.makeText(ApplyBusiness1Activity.this, "ÉèÖÃÖĞÎ´ÔÊĞíÎ»ÖÃ·ÃÎÊÈ¨ÏŞ", Toast.LENGTH_LONG).show();
-					return;
-				}
+		// è·å–æ‰€æœ‰å¯ç”¨çš„ä½ç½®æä¾›å™¨
+		List<String> providerList = locationManager.getProviders(true);
+		if (providerList.contains(LocationManager.GPS_PROVIDER)) {
+			//ä¼˜å…ˆä½¿ç”¨gps
+			provider = LocationManager.GPS_PROVIDER;
+		} else if (providerList.contains(LocationManager.NETWORK_PROVIDER)) {
+			provider = LocationManager.NETWORK_PROVIDER;
+		} else {
+			// æ²¡æœ‰å¯ç”¨çš„ä½ç½®æä¾›å™¨
+			//					Toast.makeText(ApplyBusiness1Activity.this, "æ²¡æœ‰ä½ç½®æä¾›å™¨å¯ä¾›ä½¿ç”¨", Toast.LENGTH_LONG).show();
+			Toast.makeText(ApplyBusiness1Activity.this, "è®¾ç½®ä¸­æœªå…è®¸ä½ç½®è®¿é—®æƒé™", Toast.LENGTH_LONG).show();
+			return;
+		}
 
-				Location location = locationManager.getLastKnownLocation(provider);
-				System.out.println();
-				if (location != null) {
-					// ÏÔÊ¾µ±Ç°Éè±¸µÄÎ»ÖÃĞÅÏ¢
-					String firstInfo = "µÚÒ»´ÎÇëÇóµÄĞÅÏ¢";
-					showLocation(location, firstInfo);
-				} else {
-					progress.CloseProgress();
-//					String info = "ÎŞ·¨»ñµÃµ±Ç°Î»ÖÃ";
-//					Toast.makeText(this, info, 1).show();
-//					positionText.setText(info);
-					Toast.makeText(ApplyBusiness1Activity.this, "ÒÑ¶¨Î»µ±Ç°µØÖ·", 100).show();
-					jingdu = 113.94716677;
-					weidu = 22.5567556;
-					tv_dingwei.setText("ÒÑ¶¨Î»");//ÎŞ·¨»ñµÃµ±Ç°Î»ÖÃÊ±£¬ÔİÊ±ÏÈµ÷ÓÃÉîÛÚ¾­Î³¶È
-					iv_dingwei.setVisibility(View.INVISIBLE);
-				}
+		Location location = locationManager.getLastKnownLocation(provider);
+		System.out.println();
+		if (location != null) {
+			// æ˜¾ç¤ºå½“å‰è®¾å¤‡çš„ä½ç½®ä¿¡æ¯
+			String firstInfo = "ç¬¬ä¸€æ¬¡è¯·æ±‚çš„ä¿¡æ¯";
+			showLocation(location, firstInfo);
+		} else {
+			progress.CloseProgress();
+			//					String info = "æ— æ³•è·å¾—å½“å‰ä½ç½®";
+			//					Toast.makeText(this, info, 1).show();
+			//					positionText.setText(info);
+			Toast.makeText(ApplyBusiness1Activity.this, "å·²å®šä½å½“å‰åœ°å€", 100).show();
+			jingdu = 113.94716677;
+			weidu = 22.5567556;
+			tv_dingwei.setText("å·²å®šä½");//æ— æ³•è·å¾—å½“å‰ä½ç½®æ—¶ï¼Œæš‚æ—¶å…ˆè°ƒç”¨æ·±åœ³ç»çº¬åº¦
+			iv_dingwei.setVisibility(View.INVISIBLE);
+		}
 
-				// ¸üĞÂµ±Ç°Î»ÖÃ
-				locationManager.requestLocationUpdates(provider, 10 * 1000, 1,
-						locationListener);
+		// æ›´æ–°å½“å‰ä½ç½®
+		locationManager.requestLocationUpdates(provider, 10 * 1000, 1,
+				locationListener);
 	}
 	protected void onDestroy() {
 		super.onDestroy();
 		if (locationManager != null) {
-			// ¹Ø±Õ³ÌĞòÊ±½«¼àÌıÆ÷ÒÆ³ı
+			// å…³é—­ç¨‹åºæ—¶å°†ç›‘å¬å™¨ç§»é™¤
 			locationManager.removeUpdates(locationListener);
 		}
 
@@ -400,35 +400,35 @@ public class ApplyBusiness1Activity extends BaseActivity implements OnClickListe
 		}
 		@Override
 		public void onLocationChanged(Location location) {
-			// Éè±¸Î»ÖÃ·¢Éú¸Ä±äÊ±£¬Ö´ĞĞÕâÀïµÄ´úÂë
-			String changeInfo = "¸ô10ÃëË¢ĞÂµÄÌáÊ¾£º\n Ê±¼ä£º" + sdf.format(new Date())
-					+ ",\nµ±Ç°µÄ¾­¶ÈÊÇ£º" + location.getLongitude() + ",\n µ±Ç°µÄÎ³¶ÈÊÇ£º"
+			// è®¾å¤‡ä½ç½®å‘ç”Ÿæ”¹å˜æ—¶ï¼Œæ‰§è¡Œè¿™é‡Œçš„ä»£ç 
+			String changeInfo = "éš”10ç§’åˆ·æ–°çš„æç¤ºï¼š\n æ—¶é—´ï¼š" + sdf.format(new Date())
+					+ ",\nå½“å‰çš„ç»åº¦æ˜¯ï¼š" + location.getLongitude() + ",\n å½“å‰çš„çº¬åº¦æ˜¯ï¼š"
 					+ location.getLatitude();
 			showLocation(location, changeInfo);
 		}
 	};
 
 	/**
-	 * ÏÔÊ¾µ±Ç°Éè±¸µÄÎ»ÖÃĞÅÏ¢
-	 * 
+	 * æ˜¾ç¤ºå½“å‰è®¾å¤‡çš„ä½ç½®ä¿¡æ¯
+	 *
 	 * @param location
 	 */
 	private void showLocation(Location location, String changeInfo) {
 		// TODO Auto-generated method stub
-		String currentLocation = "µ±Ç°µÄ¾­¶ÈÊÇ£º" + location.getLongitude() + ",\n"
-				+ "µ±Ç°µÄÎ³¶ÈÊÇ£º" + location.getLatitude();
+		String currentLocation = "å½“å‰çš„ç»åº¦æ˜¯ï¼š" + location.getLongitude() + ",\n"
+				+ "å½“å‰çš„çº¬åº¦æ˜¯ï¼š" + location.getLatitude();
 		jingdu = location.getLongitude();
 		weidu = location.getLatitude();
-		
+
 		progress.CloseProgress();
-		
+
 		System.out.println("jingdu------------"+jingdu);
 		System.out.println("weidu------------"+weidu);
-		Toast.makeText(ApplyBusiness1Activity.this, "ÒÑ¶¨Î»µ±Ç°Î»ÖÃ", 100).show();
-		tv_dingwei.setText("ÒÑ¶¨Î»");
+		Toast.makeText(ApplyBusiness1Activity.this, "å·²å®šä½å½“å‰ä½ç½®", 100).show();
+		tv_dingwei.setText("å·²å®šä½");
 		iv_dingwei.setVisibility(View.INVISIBLE);
-		
-//		tipInfo.setText(changeInfo);
+
+		//		tipInfo.setText(changeInfo);
 	}
 
 	@Override
@@ -439,7 +439,7 @@ public class ApplyBusiness1Activity extends BaseActivity implements OnClickListe
 	}
 
 	/**
-	 * Êä³öÕ¾µãÅäÖÃ
+	 * è¾“å‡ºç«™ç‚¹é…ç½®
 	 */
 	private void userloginqm() {
 		try{
@@ -457,7 +457,7 @@ public class ApplyBusiness1Activity extends BaseActivity implements OnClickListe
 						if (status.equals("y")) {
 							JSONObject obj = object.getJSONObject("data");
 							String webtel = obj.getString("webtel");
-							tv_dianhao.setText("¿Í·şµç»°£º "+webtel);
+							tv_dianhao.setText("å®¢æœç”µè¯ï¼š "+webtel);
 						}else{
 						}
 					} catch (JSONException e) {
@@ -466,7 +466,7 @@ public class ApplyBusiness1Activity extends BaseActivity implements OnClickListe
 					}
 				};
 			}, ApplyBusiness1Activity.this);
-			
+
 		} catch (Exception e) {
 			// TODO: handle exception
 			e.printStackTrace();
