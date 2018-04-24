@@ -68,6 +68,7 @@ import java.util.ArrayList;
  * @author Administrator
  *
  */
+@SuppressWarnings("ResourceType")
 public class MainDuiMianPromoteActivity extends BaseActivity implements
 		OnClickListener {
 	private ImageView iv_fanhui, cursor1, cursor2, cursor3, cursor4;
@@ -577,8 +578,7 @@ public class MainDuiMianPromoteActivity extends BaseActivity implements
 						// bitmap_fx =
 						// BitmapFactory.decodeResource(getResources(),R.drawable.ysj_haibao2);
 						// // bitmap为只读的
-						InputStream is = this.getResources().openRawResource(
-								R.drawable.ysj_hb2);
+						InputStream is = this.getResources().openRawResource(R.drawable.ysj_hb2);
 						BitmapFactory.Options options = new BitmapFactory.Options();
 						options.inJustDecodeBounds = false;
 						options.inSampleSize = 2; // width，hight设为原来的十分一

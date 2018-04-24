@@ -138,7 +138,6 @@
                 android:background="@color/all_c1c1c1" />
                  
              <LinearLayout
-                android:id="@+id/img_btn_address"
                 android:layout_width="match_parent"
                 android:layout_height="45dp"
                 android:background="@color/white" >

@@ -256,7 +256,6 @@
                         </LinearLayout>
                     </LinearLayout>
                     <LinearLayout
-                        android:id="@+id/ll_sp2"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_marginRight="5dp"
@@ -266,14 +265,12 @@
                         android:padding="5dp" >
 
                         <ImageView
-                            android:id="@+id/iv_imagr2"
                             android:layout_width="match_parent"
                             android:layout_height="150dp"
                             android:background="@drawable/zsz2"
                             android:scaleType="fitXY" />
 
                         <TextView
-                            android:id="@+id/tv_text2"
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="5dp"
@@ -295,7 +292,6 @@
                                 android:orientation="vertical" >
 
                                 <TextView
-                                    android:id="@+id/tv_jiaguo2"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_marginTop="2dp"
@@ -304,7 +300,6 @@
                                     android:textSize="10sp" />
 
                                 <TextView
-                                    android:id="@+id/tv_scj2"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_marginTop="2dp"
@@ -322,7 +317,6 @@
                                 android:orientation="vertical" >
 
                                 <TextView
-                                    android:id="@+id/tv_goumai2"
                                     android:layout_width="50dp"
                                     android:layout_height="25dp"
                                     android:background="@drawable/bg_red_3_5_zsz"

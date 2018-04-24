@@ -194,6 +194,7 @@ public class UserLoginActivity extends BaseActivity implements OnClickListener {
 	}
 
 	public void userxinxill(String ACCESS_TOKEN, String openid){
+
 		try{
 			access_token = ACCESS_TOKEN;
 			String accessTokenUrl = "https://api.weixin.qq.com/sns/userinfo?access_token="+ACCESS_TOKEN+"&openid="+openid+"";

@@ -53,6 +53,7 @@ import com.zams.www.R;
  * @author Administrator
  *
  */
+@SuppressWarnings("ResourceType")
 public class MianDuiMianFxhbActivity extends BaseActivity implements OnClickListener{
 	private ImageView iv_fanhui,iv_qr_image1,iv_touxiang,iv_touxiang2;
 	private TextView tv_xiabu;

@@ -73,7 +73,7 @@ import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.tencent.mm.sdk.openapi.IWXAPI;
 import com.tencent.mm.sdk.openapi.WXAPIFactory;
 
-
+@SuppressWarnings("ResourceType")
 public class MainFragment extends BaseActivity {
 	private RadioButton main_bottom_rtn0, main_bottom_rtn1, main_bottom_rtn2,
 			main_bottom_rtn3, main_bottom_rtn4;

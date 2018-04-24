@@ -328,7 +328,6 @@
                     android:gravity="right|bottom"
                     android:orientation="horizontal" >
         			<TextView 
-        			    android:id="@+id/yunfei"
         			    android:layout_width="wrap_content"
         			    android:layout_height="wrap_content"
         			    />
@@ -344,14 +343,12 @@
                      -->
             </LinearLayout>
             <LinearLayout
-                            android:id="@+id/ll"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:background="@color/heise"
                             android:orientation="horizontal" >
 
                             <TextView
-                                android:id="@+id/tv_kaituan_ts"
                                 android:layout_width="wrap_content"
                                 android:layout_height="match_parent"
                                 android:layout_margin="10dp"
@@ -482,7 +479,6 @@
                     android:gravity="right|bottom"
                     android:orientation="horizontal" >
         			<TextView 
-        			    android:id="@+id/yunfei"
         			    android:layout_width="wrap_content"
         			    android:layout_height="wrap_content"
         			           android:textSize="15sp"

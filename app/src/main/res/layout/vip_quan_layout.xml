@@ -2,14 +2,14 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" >
+    android:orientation="vertical">
 
     <RelativeLayout
         android:id="@+id/rl_title"
         android:layout_width="match_parent"
         android:layout_height="45dp"
         android:layout_gravity="center"
-        android:background="@drawable/title" >
+        android:background="@drawable/title">
 
         <TextView
             android:id="@+id/VIP特权"
@@ -24,14 +24,14 @@
 
     <RelativeLayout
         android:id="@+id/item1"
-          android:clickable="true"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="25dp"
         android:layout_marginRight="25dp"
         android:layout_marginTop="30dp"
         android:background="@drawable/tb_mid"
-        android:padding="8dp" >
+        android:clickable="true"
+        android:padding="8dp">
 
         <ImageView
             android:id="@+id/imageView0"
@@ -48,7 +48,7 @@
             android:layout_marginRight="3dp"
             android:layout_toLeftOf="@+id/imageView1"
             android:layout_toRightOf="@+id/imageView0"
-            android:orientation="vertical" >
+            android:orientation="vertical">
 
             <TextView
                 android:layout_width="match_parent"
@@ -82,12 +82,12 @@
         android:layout_marginLeft="25dp"
         android:layout_marginRight="25dp"
         android:layout_marginTop="10dp"
-        android:clickable="true"
         android:background="@drawable/tb_mid"
-        android:padding="8dp" >
+        android:clickable="true"
+        android:padding="8dp">
 
         <ImageView
-            android:id="@+id/imageView0"
+            android:id="@+id/imageView2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
@@ -99,9 +99,9 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="3dp"
             android:layout_marginRight="3dp"
-            android:layout_toLeftOf="@+id/imageView1"
-            android:layout_toRightOf="@+id/imageView0"
-            android:orientation="vertical" >
+            android:layout_toLeftOf="@+id/imageView3"
+            android:layout_toRightOf="@+id/imageView2"
+            android:orientation="vertical">
 
             <TextView
                 android:layout_width="match_parent"
@@ -120,7 +120,7 @@
         </LinearLayout>
 
         <ImageView
-            android:id="@+id/imageView1"
+            android:id="@+id/imageView3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
@@ -136,10 +136,10 @@
         android:layout_marginRight="25dp"
         android:layout_marginTop="10dp"
         android:background="@drawable/tb_mid"
-        android:padding="8dp" >
+        android:padding="8dp">
 
         <ImageView
-            android:id="@+id/imageView0"
+            android:id="@+id/imageView4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
@@ -151,9 +151,9 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="3dp"
             android:layout_marginRight="3dp"
-            android:layout_toLeftOf="@+id/imageView1"
-            android:layout_toRightOf="@+id/imageView0"
-            android:orientation="vertical" >
+            android:layout_toLeftOf="@+id/imageView5"
+            android:layout_toRightOf="@+id/imageView4"
+            android:orientation="vertical">
 
             <TextView
                 android:layout_width="match_parent"
@@ -172,7 +172,7 @@
         </LinearLayout>
 
         <ImageView
-            android:id="@+id/imageView1"
+            android:id="@+id/imageView5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"

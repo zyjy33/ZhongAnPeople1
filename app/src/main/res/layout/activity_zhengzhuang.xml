@@ -281,7 +281,6 @@
                         </LinearLayout>
 
                         <ImageView
-                            android:id="@+id/iv_jyh4"
                             android:layout_width="10dp"
                             android:layout_height="10dp"
                             android:layout_gravity="center_vertical"
@@ -506,7 +505,6 @@
                         </LinearLayout>
 
                         <ImageView
-                            android:id="@+id/iv_jyh4"
                             android:layout_width="10dp"
                             android:layout_height="10dp"
                             android:layout_gravity="center_vertical"
@@ -561,7 +559,6 @@
                         </LinearLayout>
 
                         <ImageView
-                            android:id="@+id/iv_jyh4"
                             android:layout_width="10dp"
                             android:layout_height="10dp"
                             android:layout_gravity="center_vertical"
@@ -615,7 +612,6 @@
                         </LinearLayout>
 
                         <ImageView
-                            android:id="@+id/iv_jyh4"
                             android:layout_width="10dp"
                             android:layout_height="10dp"
                             android:layout_gravity="center_vertical"

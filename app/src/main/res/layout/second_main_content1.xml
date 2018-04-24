@@ -28,7 +28,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/white"
-        android:orientation="vertical" >            -->
+        android:orientation="vertical" >
+            -->
 
             <com.lglottery.www.widget.PagerScrollView
                 android:id="@+id/home_main_scrool"
@@ -483,7 +484,6 @@
             android:scaleType="fitXY" />
 
         <TextView
-            android:id="@+id/tv_biaoti"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
@@ -493,14 +493,12 @@
             android:textSize="12sp" />
 
         <LinearLayout
-                       android:id="@+id/ll_kedikou"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_marginTop="5dp"
                 android:orientation="horizontal"
                 >
                  <ImageView
-            android:id="@+id/img_ware"
             android:layout_width="12dp"
             android:layout_height="12dp"
              android:layout_marginTop="2dp"
@@ -540,7 +538,6 @@
             android:scaleType="fitXY" />
 
         <TextView
-            android:id="@+id/tv_biaoti"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
@@ -550,14 +547,12 @@
             android:textSize="12sp" />
 
         <LinearLayout
-                       android:id="@+id/ll_kedikou"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_marginTop="5dp"
                 android:orientation="horizontal"
                 >
                  <ImageView
-            android:id="@+id/img_ware"
             android:layout_width="12dp"
             android:layout_height="12dp"
              android:layout_marginTop="2dp"
@@ -1005,7 +1000,6 @@
                         android:visibility="gone" >
 
                         <com.hengyushop.demo.wec.MyGridView
-                            android:id="@+id/gridView"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:cacheColorHint="#00000000"
