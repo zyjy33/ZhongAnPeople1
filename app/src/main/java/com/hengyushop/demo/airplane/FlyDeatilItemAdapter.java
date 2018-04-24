@@ -19,7 +19,7 @@ public class FlyDeatilItemAdapter extends BaseAdapter {
 
 	public FlyDeatilItemAdapter(Context context,
 			ArrayList<FlyDetailPop> detailPops) {
-		// TODO Auto-generated constructor stub
+
 		this.context = context;
 		this.detailPops = detailPops;
 	}
@@ -43,19 +43,19 @@ public class FlyDeatilItemAdapter extends BaseAdapter {
 
 	@Override
 	public Object getItem(int arg0) {
-		// TODO Auto-generated method stub
+
 		return detailPops.get(arg0);
 	}
 
 	@Override
 	public long getItemId(int arg0) {
-		// TODO Auto-generated method stub
+
 		return arg0;
 	}
 
 	@Override
 	public View getView(final int index, View view, ViewGroup arg2) {
-		// TODO Auto-generated method stub ViewHolder holder = null;
+		  ViewHolder holder = null;
 		ViewHolder holder = null;
 		if (view == null) {
 			holder = new ViewHolder();

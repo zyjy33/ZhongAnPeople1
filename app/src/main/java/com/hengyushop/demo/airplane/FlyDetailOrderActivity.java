@@ -95,7 +95,7 @@ public class FlyDetailOrderActivity extends BaseActivity {
 		/*
 		 * mPopupWindow.setOnDismissListener(new OnDismissListener() {
 		 *
-		 * @Override public void onDismiss() { // TODO Auto-generated method
+		 * @Override public void onDismiss() {   method
 		 * stub
 		 *
 		 * } });
@@ -135,7 +135,7 @@ public class FlyDetailOrderActivity extends BaseActivity {
 		/*
 		 * mPopupWindow.setOnDismissListener(new OnDismissListener() {
 		 *
-		 * @Override public void onDismiss() { // TODO Auto-generated method
+		 * @Override public void onDismiss() {   method
 		 * stub
 		 *
 		 * } });
@@ -157,7 +157,7 @@ public class FlyDetailOrderActivity extends BaseActivity {
 			 */
 			@Override
 			public void onClick(View view) {
-				// TODO Auto-generated method stub
+
 				RequestParams params = new RequestParams();
 				params.put("imei", Common.IMEI);
 				params.put("PolicyOrderId", bean.getPolicyOrderId());
@@ -182,7 +182,7 @@ public class FlyDetailOrderActivity extends BaseActivity {
 		login_close_button.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View arg0) {
-				// TODO Auto-generated method stub
+
 				if (mPopupWindow != null && mPopupWindow.isShowing()) {
 					mPopupWindow.dismiss();
 				}
@@ -227,7 +227,7 @@ public class FlyDetailOrderActivity extends BaseActivity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
+
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		super.onCreate(savedInstanceState);
 
@@ -248,7 +248,7 @@ public class FlyDetailOrderActivity extends BaseActivity {
 	private OnClickListener clickListener = new OnClickListener() {
 		@Override
 		public void onClick(View view) {
-			// TODO Auto-generated method stub
+
 			switch (view.getId()) {
 
 				case R.id.fly_order_check:

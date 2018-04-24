@@ -51,7 +51,7 @@ public class ActivityBeiFen extends BaseActivity implements OnClickListener {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
+
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.detail_dianping);
@@ -69,7 +69,7 @@ public class ActivityBeiFen extends BaseActivity implements OnClickListener {
 			iv_fanhui.setOnClickListener(this);
 
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 
@@ -77,7 +77,7 @@ public class ActivityBeiFen extends BaseActivity implements OnClickListener {
 
 	@Override
 	public void onClick(View v) {
-		// TODO Auto-generated method stub
+
 
 		switch (v.getId()) {
 		case R.id.iv_fanhui:

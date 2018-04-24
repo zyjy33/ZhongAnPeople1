@@ -18,7 +18,7 @@ public class FinanceManageActivity extends BaseActivity implements OnClickListen
 	private MyPopupWindowMenu popupWindowMenu;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
+
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.financemanage);
 		popupWindowMenu = new MyPopupWindowMenu(this);
@@ -43,7 +43,7 @@ public class FinanceManageActivity extends BaseActivity implements OnClickListen
 	}
 	@Override
 	public void onClick(View v) {
-		// TODO Auto-generated method stub
+
 		switch (v.getId()) {
 			case R.id.jubi_info:
 				Intent intent0 = new Intent(FinanceManageActivity.this,

@@ -75,7 +75,7 @@ public class MobilePhoneActivity extends BaseActivity implements
 
 			@Override
 			public void onClick(View arg0) {
-				// TODO Auto-generated method stub
+
 				finish();
 			}
 		});
@@ -120,7 +120,7 @@ public class MobilePhoneActivity extends BaseActivity implements
 									try {
 										Thread.sleep(1000);
 									} catch (InterruptedException e) {
-										// TODO Auto-generated catch block
+
 										e.printStackTrace();
 									}
 
@@ -160,7 +160,7 @@ public class MobilePhoneActivity extends BaseActivity implements
 			get_yz.setOnClickListener(this);
 
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 	}
@@ -169,7 +169,7 @@ public class MobilePhoneActivity extends BaseActivity implements
 	public void onClick(View v) {
 		try {
 
-			// TODO Auto-generated method stub
+
 			switch (v.getId()) {
 				case R.id.get_yz:
 					phone = userphone.getText().toString().trim();
@@ -429,7 +429,7 @@ public class MobilePhoneActivity extends BaseActivity implements
 													@Override
 													public void onSuccess(int arg0,
 																		  String arg1) {
-														// TODO Auto-generated
+
 														// method stub
 														super.onSuccess(arg0, arg1);
 														try {
@@ -583,7 +583,7 @@ public class MobilePhoneActivity extends BaseActivity implements
 																}
 															}
 														} catch (JSONException e) {
-															// TODO Auto-generated
+
 															// catch block
 															e.printStackTrace();
 														}
@@ -593,7 +593,7 @@ public class MobilePhoneActivity extends BaseActivity implements
 													public void onFailure(
 															Throwable arg0,
 															String arg1) {
-														// TODO Auto-generated
+
 														// method stub
 														super.onFailure(arg0, arg1);
 														System.out
@@ -622,7 +622,7 @@ public class MobilePhoneActivity extends BaseActivity implements
 					break;
 			}
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 	}

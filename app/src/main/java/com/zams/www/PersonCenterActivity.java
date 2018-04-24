@@ -128,7 +128,6 @@ public class PersonCenterActivity extends BaseActivity implements OnClickListene
 
     @Override
     protected void onResume() {
-        // TODO Auto-generated method stub
         super.onResume();
         userloginqm();
     }
@@ -170,7 +169,6 @@ public class PersonCenterActivity extends BaseActivity implements OnClickListene
 
                 @Override
                 public void onClick(View arg0) {
-                    // TODO Auto-generated method stub
                 }
             });
 
@@ -179,7 +177,6 @@ public class PersonCenterActivity extends BaseActivity implements OnClickListene
 
                 @Override
                 public void onClick(View arg0) {
-                    // TODO Auto-generated method stub
                     finish();
                 }
             });
@@ -209,7 +206,6 @@ public class PersonCenterActivity extends BaseActivity implements OnClickListene
             //		});
 
         } catch (Exception e) {
-            // TODO: handle exception
             e.printStackTrace();
         }
     }
@@ -314,7 +310,6 @@ public class PersonCenterActivity extends BaseActivity implements OnClickListene
 
 
                             } catch (Exception e) {
-                                // TODO: handle exception
                                 e.printStackTrace();
                             }
 
@@ -359,7 +354,6 @@ public class PersonCenterActivity extends BaseActivity implements OnClickListene
 
                         }
                     } catch (JSONException e) {
-                        // TODO Auto-generated catch block
                         e.printStackTrace();
                     }
                 }
@@ -367,7 +361,6 @@ public class PersonCenterActivity extends BaseActivity implements OnClickListene
                 ;
             }, PersonCenterActivity.this);
         } catch (Exception e) {
-            // TODO: handle exception
             e.printStackTrace();
         }
     }
@@ -394,13 +387,11 @@ public class PersonCenterActivity extends BaseActivity implements OnClickListene
 
     @Override
     public void onClick(View arg0) {
-        // TODO Auto-generated method stub
         switch (arg0.getId()) {
             case R.id.ll_update:
                 new Thread() {
                     @Override
                     public void run() {
-                        // TODO Auto-generated method stub
                         super.run();
                         /**
                          * 版本2
@@ -623,10 +614,8 @@ public class PersonCenterActivity extends BaseActivity implements OnClickListene
                                 try {
                                     client.upload(time + ".jpg", fis, 0, 0, null);
                                 } catch (FTPDataTransferException e) {
-                                    // TODO Auto-generated catch block
                                     e.printStackTrace();
                                 } catch (FTPAbortedException e) {
-                                    // TODO Auto-generated catch block
                                     e.printStackTrace();
                                 }
                                 fis.close();
@@ -654,14 +643,12 @@ public class PersonCenterActivity extends BaseActivity implements OnClickListene
                 }.start();
 
             } catch (Exception e) {
-                // TODO: handle exception
                 e.printStackTrace();
             }
         }
     }
 
     private void gettouxiang() {
-        // TODO Auto-generated method stub
         String imgUrl = "/upload/phone/" + yth + "/" + time + ".jpg";
         System.out.println("imgUrl--------------------------" + imgUrl);
         Editor editor = spPreferences.edit();
@@ -686,7 +673,6 @@ public class PersonCenterActivity extends BaseActivity implements OnClickListene
                         Toast.makeText(PersonCenterActivity.this, "上传失败", Toast.LENGTH_SHORT).show();
                     }
                 } catch (JSONException e) {
-                    // TODO Auto-generated catch block
                     e.printStackTrace();
                 }
             }
@@ -837,7 +823,6 @@ public class PersonCenterActivity extends BaseActivity implements OnClickListene
                 return "";
             }
         } catch (Exception e) {
-            // TODO: handle exception
             Log.e("VersionInfo", "Exception", e);
         }
         return versionName;
@@ -893,69 +878,68 @@ public class PersonCenterActivity extends BaseActivity implements OnClickListene
     private PopupWindow mPopupWindow;
     private WheelViewll bank_item;
 
-    private void initPopupWindow() {
-        mLayoutInflater = (LayoutInflater) getSystemService(LAYOUT_INFLATER_SERVICE);
-        popView = mLayoutInflater.inflate(R.layout.chose_payment, null);
-        mPopupWindow = new PopupWindow(popView, LayoutParams.MATCH_PARENT,
-                LayoutParams.WRAP_CONTENT);
-        // mPopupWindow.setBackgroundDrawable(new
-        // BitmapDrawable());//必须设置background才能消失
-        mPopupWindow.setBackgroundDrawable(getResources().getDrawable(
-                R.color.grey));
-        mPopupWindow.setOutsideTouchable(true);
-        // 自定义动画
-        // mPopupWindow.setAnimationStyle(R.style.PopupAnimation);
-        // 使用系统动画
-        mPopupWindow.setAnimationStyle(android.R.style.Animation_Toast);
-        mPopupWindow.update();
-        mPopupWindow.setTouchable(true);
-        mPopupWindow.setFocusable(true);
-        bank_item = (WheelViewll) popView.findViewById(R.id.bank_item);
-        Button cancle = (Button) popView.findViewById(R.id.cancle);
-        Button sure = (Button) popView.findViewById(R.id.sure);
-        String[] name = new String[2];
-        name[0] = "登录密码";
-        name[1] = "支付密码";
-        ArrayWheelAdapterll<String> bankAdapter = new ArrayWheelAdapterll<String>(
-                name);
-        bank_item.setAdapter(bankAdapter);
-
-        cancle.setOnClickListener(new OnClickListener() {
-
-            @Override
-            public void onClick(View arg0) {
-                // TODO Auto-generated method stub
-
-
-                dissPop();
-            }
-        });
-        sure.setOnClickListener(new OnClickListener() {
-
-            @Override
-            public void onClick(View arg0) {
-
-                int index = bank_item.getCurrentItem();
-                Intent intent = new Intent(PersonCenterActivity.this,
-                        ModPassActivity.class);
-                intent.putExtra("tag", index);
-                startActivity(intent);
-
-                dissPop();
-            }
-        });
-    }
-
-    private void showPopupWindow(View view) {
-        if (!mPopupWindow.isShowing()) {
-            // mPopupWindow.showAsDropDown(view,0,0);
-            // 第一个参数指定PopupWindow的锚点view，即依附在哪个view上。
-            // 第二个参数指定起始点为parent的右下角，第三个参数设置以parent的右下角为原点，向左、上各偏移10像素。
-            // int[] location = new int[2];
-            // view.getLocationOnScreen(location);
-            mPopupWindow.showAtLocation(view, Gravity.BOTTOM, 0, 0);
-        }
-    }
+//    private void initPopupWindow() {
+//        mLayoutInflater = (LayoutInflater) getSystemService(LAYOUT_INFLATER_SERVICE);
+//        popView = mLayoutInflater.inflate(R.layout.chose_payment, null);
+//        mPopupWindow = new PopupWindow(popView, LayoutParams.MATCH_PARENT,
+//                LayoutParams.WRAP_CONTENT);
+//        // mPopupWindow.setBackgroundDrawable(new
+//        // BitmapDrawable());//必须设置background才能消失
+//        mPopupWindow.setBackgroundDrawable(getResources().getDrawable(
+//                R.color.grey));
+//        mPopupWindow.setOutsideTouchable(true);
+//        // 自定义动画
+//        // mPopupWindow.setAnimationStyle(R.style.PopupAnimation);
+//        // 使用系统动画
+//        mPopupWindow.setAnimationStyle(android.R.style.Animation_Toast);
+//        mPopupWindow.update();
+//        mPopupWindow.setTouchable(true);
+//        mPopupWindow.setFocusable(true);
+//        bank_item = (WheelViewll) popView.findViewById(R.id.bank_item);
+//        Button cancle = (Button) popView.findViewById(R.id.cancle);
+//        Button sure = (Button) popView.findViewById(R.id.sure);
+//        String[] name = new String[2];
+//        name[0] = "登录密码";
+//        name[1] = "支付密码";
+//        ArrayWheelAdapterll<String> bankAdapter = new ArrayWheelAdapterll<String>(
+//                name);
+//        bank_item.setAdapter(bankAdapter);
+//
+//        cancle.setOnClickListener(new OnClickListener() {
+//
+//            @Override
+//            public void onClick(View arg0) {
+//
+//
+//                dissPop();
+//            }
+//        });
+//        sure.setOnClickListener(new OnClickListener() {
+//
+//            @Override
+//            public void onClick(View arg0) {
+//
+//                int index = bank_item.getCurrentItem();
+//                Intent intent = new Intent(PersonCenterActivity.this,
+//                        ModPassActivity.class);
+//                intent.putExtra("tag", index);
+//                startActivity(intent);
+//
+//                dissPop();
+//            }
+//        });
+//    }
+//
+//    private void showPopupWindow(View view) {
+//        if (!mPopupWindow.isShowing()) {
+//            // mPopupWindow.showAsDropDown(view,0,0);
+//            // 第一个参数指定PopupWindow的锚点view，即依附在哪个view上。
+//            // 第二个参数指定起始点为parent的右下角，第三个参数设置以parent的右下角为原点，向左、上各偏移10像素。
+//            // int[] location = new int[2];
+//            // view.getLocationOnScreen(location);
+//            mPopupWindow.showAtLocation(view, Gravity.BOTTOM, 0, 0);
+//        }
+//    }
 
     private void dissPop() {
         if (mPopupWindow != null && mPopupWindow.isShowing()) {
@@ -1111,7 +1095,6 @@ public class PersonCenterActivity extends BaseActivity implements OnClickListene
                     }, null);
 
         } catch (Exception e) {
-            // TODO: handle exception
             e.printStackTrace();
         }
     }

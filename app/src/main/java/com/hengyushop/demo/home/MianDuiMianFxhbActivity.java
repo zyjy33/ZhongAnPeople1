@@ -78,7 +78,7 @@ public class MianDuiMianFxhbActivity extends BaseActivity implements OnClickList
 	public static  boolean zhuangtai = true;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
+
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_mainduimian_fxhb);
@@ -178,7 +178,7 @@ public class MianDuiMianFxhbActivity extends BaseActivity implements OnClickList
 						ll_zhuti.setBackgroundResource(R.drawable.zams_haibao1);
 						//					Toast.makeText(MianDuiMianFxhbActivity.this, "2", 200).show();
 					} catch (Exception e) {
-						// TODO: handle exception
+
 						e.printStackTrace();
 					}
 				}
@@ -211,7 +211,7 @@ public class MianDuiMianFxhbActivity extends BaseActivity implements OnClickList
 			//	        canvas.drawBitmap(ic_luncher, new Matrix(), paint);
 			//			softshareWxChat();
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 	}
@@ -219,7 +219,7 @@ public class MianDuiMianFxhbActivity extends BaseActivity implements OnClickList
 
 	@Override
 	public void onClick(View v) {
-		// TODO Auto-generated method stub
+
 
 		switch (v.getId()) {
 			case R.id.iv_fanhui:
@@ -238,7 +238,7 @@ public class MianDuiMianFxhbActivity extends BaseActivity implements OnClickList
 					//			finish();
 
 				} catch (Exception e) {
-					// TODO: handle exception
+
 					e.printStackTrace();
 				}
 				break;
@@ -249,7 +249,7 @@ public class MianDuiMianFxhbActivity extends BaseActivity implements OnClickList
 
 	//	@Override
 	//	protected void onDestroy() {
-	//		// TODO Auto-generated method stub
+	//
 	//		super.onDestroy();
 	//	}
 
@@ -290,7 +290,7 @@ public class MianDuiMianFxhbActivity extends BaseActivity implements OnClickList
 						bitmap_fx =BitmapFactory.decodeStream(is,null,options);
 						zhoull();
 					} catch (Exception e) {
-						// TODO: handle exception
+
 						e.printStackTrace();
 					}
 				}
@@ -308,7 +308,7 @@ public class MianDuiMianFxhbActivity extends BaseActivity implements OnClickList
 
 			System.out.println("bitmap_fx1=============="+bitmap_fx);
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 	}
@@ -319,7 +319,7 @@ public class MianDuiMianFxhbActivity extends BaseActivity implements OnClickList
 	}
 
 	//	private void zhou() {
-	//		// TODO Auto-generated method stub
+	//
 	//		 System.out.println("bitmap_fx1=============="+bitmap_fx);
 	//
 	//	        alterBitmap = Bitmap.createBitmap(bitmap_fx.getWidth(),bitmap_fx.getHeight(), bitmap_fx.getConfig());
@@ -357,7 +357,7 @@ public class MianDuiMianFxhbActivity extends BaseActivity implements OnClickList
 	//	        bitMap2 = Bitmap.createBitmap(bitMap2, 0, 0, width2, height2, matrix2, true);
 	//	        canvas.drawBitmap(bitMap2, 430, 280, null);
 	//	    	  } catch (Exception e) {
-	//					// TODO: handle exception
+	//
 	//	    		  e.printStackTrace();
 	//			  }
 	//	       }else {
@@ -411,7 +411,7 @@ public class MianDuiMianFxhbActivity extends BaseActivity implements OnClickList
 	//	}
 
 	private void zhoull() {
-		// TODO Auto-generated method stub
+
 		System.out.println("bitmap_fx1=============="+bitmap_fx);
 
 		alterBitmap = Bitmap.createBitmap(bitmap_fx.getWidth(),bitmap_fx.getHeight(), bitmap_fx.getConfig());
@@ -446,7 +446,7 @@ public class MianDuiMianFxhbActivity extends BaseActivity implements OnClickList
 				bitMap2 = Bitmap.createBitmap(bitMap2, 0, 0, width2, height2, matrix2, true);
 				canvas.drawBitmap(bitMap2, 205, 130, null);
 			} catch (Exception e) {
-				// TODO: handle exception
+
 				e.printStackTrace();
 			}
 		}else {
@@ -499,7 +499,7 @@ public class MianDuiMianFxhbActivity extends BaseActivity implements OnClickList
 	}
 
 	//	private void yuanban() {
-	//		// TODO Auto-generated method stub
+	//
 	//		 	Bitmap alterBitmap = Bitmap.createBitmap(bitmap_fx.getWidth(),bitmap_fx.getHeight(), bitmap_fx.getConfig());
 	//	        Canvas canvas = new Canvas(alterBitmap);
 	//	        Paint paint = new Paint();
@@ -564,7 +564,7 @@ public class MianDuiMianFxhbActivity extends BaseActivity implements OnClickList
 	//	        bitMap2 = Bitmap.createBitmap(bitMap2, 0, 0, width2, height2, matrix2, true);
 	//	        canvas.drawBitmap(bitMap2, 540, 350, null);
 	//	    	  } catch (Exception e) {
-	//					// TODO: handle exception
+	//
 	//	    		  e.printStackTrace();
 	//			  }
 	//	       }

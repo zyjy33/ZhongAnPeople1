@@ -39,7 +39,7 @@ public class FindPasswordTwoActivity extends BaseActivity implements
 
 	@Override
 	public void onClick(View v) {
-		// TODO Auto-generated method stub
+
 		switch (v.getId()) {
 			case R.id.btn_find_pwd_next:
 				Intent intent = new Intent(FindPasswordTwoActivity.this,

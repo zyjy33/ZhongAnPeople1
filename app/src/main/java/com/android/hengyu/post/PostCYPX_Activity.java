@@ -72,7 +72,7 @@ public class PostCYPX_Activity extends BaseActivity {
 		AsyncHttp.post_1(RealmName.REALM_NAME+"/mi/getData.ashx", params,new AsyncHttpResponseHandler(){
 			@Override
 			public void onSuccess(int arg0, String arg1) {
-				// TODO Auto-generated method stub
+
 				super.onSuccess(arg0, arg1);
 				parse(arg1);
 			}
@@ -90,7 +90,7 @@ public class PostCYPX_Activity extends BaseActivity {
 						@Override
 						public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
 												long arg3) {
-							// TODO Auto-generated method stub
+
 							Intent intent = new Intent(PostCYPX_Activity.this,
 									PostCyDetail.class);
 							intent.putExtra("ob", list.get(arg2));
@@ -127,7 +127,7 @@ public class PostCYPX_Activity extends BaseActivity {
 			handler.sendMessage(msg);
 
 		} catch (JSONException e) {
-			// TODO Auto-generated catch block
+
 			e.printStackTrace();
 		}
 	}

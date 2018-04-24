@@ -23,7 +23,7 @@ public class HotelPriceAdapter extends BaseAdapter {
 
 	public HotelPriceAdapter(ArrayList<HotelDetialPriceDo> lists,
 			Context context, ImageLoader imageLoader, Handler handler) {
-		// TODO Auto-generated constructor stub
+
 		this.context = context;
 		this.imageLoader = imageLoader;
 		this.lists = lists;
@@ -42,13 +42,13 @@ public class HotelPriceAdapter extends BaseAdapter {
 
 	@Override
 	public long getItemId(int arg0) {
-		// TODO Auto-generated method stub
+
 		return arg0;
 	}
 
 	@Override
 	public View getView(final int arg0, View view, ViewGroup arg2) {
-		// TODO Auto-generated method stub
+
 		ViewHolder holder = null;
 		if (view == null) {
 			holder = new ViewHolder();

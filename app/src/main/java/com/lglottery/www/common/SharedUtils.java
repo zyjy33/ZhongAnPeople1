@@ -15,7 +15,7 @@ public class SharedUtils {
 	private static final String NAME = "name", NUMBER = "number",
 			SORT_KEY = "sort_key",CON_TYPE = "con_type",CLIENT = "client";
 	public SharedUtils(Context context, String NAME) {
-		// TODO Auto-generated constructor stub
+
 		preferences = context.getSharedPreferences(NAME, Context.MODE_PRIVATE);
 		editor = preferences.edit();
 	}

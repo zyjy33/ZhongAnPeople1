@@ -63,23 +63,23 @@ public class TuanchengyuanAdapterll extends BaseAdapter {
 	}
 
 	public int getCount() {
-		// TODO Auto-generated method stub
+
 		return datadz2.size();
 	}
 
 	public Object getItem(int position) {
-		// TODO Auto-generated method stub
+
 		return datadz2.get(position);
 		// return position;
 	}
 
 	public long getItemId(int position) {
-		// TODO Auto-generated method stub
+
 		return position;
 	}
 
 	public View getView(final int position, View convertView, ViewGroup parent) {
-		// TODO Auto-generated method stub
+
 		if (convertView == null) {
 			convertView = LinearLayout.inflate(context,
 					R.layout.tuan_chengyuan_itemll, null);
@@ -188,7 +188,7 @@ public class TuanchengyuanAdapterll extends BaseAdapter {
 			// }
 
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 

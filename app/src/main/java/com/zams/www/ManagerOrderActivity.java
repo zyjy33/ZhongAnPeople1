@@ -22,7 +22,7 @@ public class ManagerOrderActivity extends BaseActivity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
+
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.manager_order_layout);
@@ -37,7 +37,7 @@ public class ManagerOrderActivity extends BaseActivity {
 
 		@Override
 		public void onClick(View view) {
-			// TODO Auto-generated method stub
+
 			switch (view.getId()) {
 			case R.id.btn1:
 				int index0 = 0;

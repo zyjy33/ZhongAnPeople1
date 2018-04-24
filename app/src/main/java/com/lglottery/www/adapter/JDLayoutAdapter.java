@@ -24,7 +24,7 @@ public class JDLayoutAdapter extends BaseAdapter {
 
 	public JDLayoutAdapter(Context context, ArrayList<JDbean> list,
 						   ImageLoader imageLoader, double lat, double log) {
-		// TODO Auto-generated constructor stub
+
 		this.context = context;
 		this.list = list;
 		this.imageLoader = imageLoader;
@@ -39,25 +39,25 @@ public class JDLayoutAdapter extends BaseAdapter {
 
 	@Override
 	public int getCount() {
-		// TODO Auto-generated method stub
+
 		return list.size();
 	}
 
 	@Override
 	public Object getItem(int arg0) {
-		// TODO Auto-generated method stub
+
 		return list.get(arg0);
 	}
 
 	@Override
 	public long getItemId(int arg0) {
-		// TODO Auto-generated method stub
+
 		return arg0;
 	}
 
 	@Override
 	public View getView(int index, View view, ViewGroup arg2) {
-		// TODO Auto-generated method stub
+
 		final ViewHolder holder;
 		if (view == null || view.getTag(R.drawable.icon + index) == null) {
 			holder = new ViewHolder();

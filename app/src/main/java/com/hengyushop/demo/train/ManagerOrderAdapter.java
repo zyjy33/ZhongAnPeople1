@@ -22,7 +22,7 @@ public class ManagerOrderAdapter extends BaseAdapter {
 
 	public ManagerOrderAdapter(ArrayList<ManagerTrainDo> lists,
 							   Context context, Handler handler) {
-		// TODO Auto-generated constructor stub
+
 		this.lists = lists;
 		this.context = context;
 		this.handler = handler;
@@ -30,25 +30,25 @@ public class ManagerOrderAdapter extends BaseAdapter {
 
 	@Override
 	public int getCount() {
-		// TODO Auto-generated method stub
+
 		return lists.size();
 	}
 
 	@Override
 	public Object getItem(int arg0) {
-		// TODO Auto-generated method stub
+
 		return lists.get(arg0);
 	}
 
 	@Override
 	public long getItemId(int arg0) {
-		// TODO Auto-generated method stub
+
 		return 0;
 	}
 
 	@Override
 	public View getView(final int arg0, View view, ViewGroup arg2) {
-		// TODO Auto-generated method stub
+
 		ViewHolder holder = null;
 		if (view == null) {
 			holder = new ViewHolder();
@@ -78,7 +78,7 @@ public class ManagerOrderAdapter extends BaseAdapter {
 
 				@Override
 				public void onClick(View view) {
-					// TODO Auto-generated method stub
+
 					Message msg = new Message();
 					msg.what = 1;
 					msg.obj = lists.get(arg0).getOrderNum();

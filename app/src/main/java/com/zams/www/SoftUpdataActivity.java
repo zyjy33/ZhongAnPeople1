@@ -62,7 +62,7 @@ public class SoftUpdataActivity extends BaseActivity {
 	private String image_url;
 
 	private void setImage() {
-		// TODO Auto-generated method stub
+
 		// 使用intent调用系统提供的相册功能，使用startActivityForResult是为了获取用户选择的图片
 		Intent getAlbum = new Intent(Intent.ACTION_GET_CONTENT);
 		getAlbum.setType(IMAGE_TYPE);
@@ -114,15 +114,15 @@ public class SoftUpdataActivity extends BaseActivity {
 						} catch (FTPIllegalReplyException e) {
 							e.printStackTrace();
 						} catch (FTPException e) {
-							// TODO Auto-generated catch block
+
 							e.printStackTrace();
 						} catch (FTPDataTransferException e) {
-							// TODO Auto-generated catch block
+
 							e.printStackTrace();
 						} catch (FTPAbortedException e) {
 							e.printStackTrace();
 						} catch (IOException e) {
-							// TODO Auto-generated catch block
+
 							e.printStackTrace();
 						}
 
@@ -264,7 +264,7 @@ public class SoftUpdataActivity extends BaseActivity {
 									params, new AsyncHttpResponseHandler() {
 										public void onSuccess(int arg0,
 															  String arg1) {
-											// TODO Auto-generated method
+											  method
 											super.onSuccess(arg0, arg1);
 											System.out.println(arg1);
 											try {
@@ -311,7 +311,7 @@ public class SoftUpdataActivity extends BaseActivity {
 												}
 												handler.sendEmptyMessage(0);
 											} catch (JSONException e) {
-												// TODO Auto-generated catch
+												  catch
 												// block
 												e.printStackTrace();
 											}

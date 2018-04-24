@@ -83,7 +83,7 @@ public class MyJuFenActivity extends BaseActivity implements OnClickListener {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
+
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_my_jufen);
@@ -106,7 +106,7 @@ public class MyJuFenActivity extends BaseActivity implements OnClickListener {
 
 	// @Override
 	// protected void onResume() {
-	// // TODO Auto-generated method stub
+	//
 	// super.onResume();
 	// TextView tv_geshu = (TextView) findViewById(R.id.tv_geshu);
 	// if (list.size() > 0) {
@@ -132,7 +132,7 @@ public class MyJuFenActivity extends BaseActivity implements OnClickListener {
 			btn_settle_accounts.setOnClickListener(this);
 
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 
@@ -146,7 +146,7 @@ public class MyJuFenActivity extends BaseActivity implements OnClickListener {
 	//
 	// @Override
 	// public void onHeaderRefresh(PullToRefreshView view) {
-	// // TODO Auto-generated method stub
+	//
 	// refresh.postDelayed(new Runnable() {
 	//
 	// @Override
@@ -165,7 +165,7 @@ public class MyJuFenActivity extends BaseActivity implements OnClickListener {
 	//
 	// @Override
 	// public void onFooterRefresh(PullToRefreshView view) {
-	// // TODO Auto-generated method stub
+	//
 	// refresh.postDelayed(new Runnable() {
 	//
 	// @Override
@@ -180,7 +180,7 @@ public class MyJuFenActivity extends BaseActivity implements OnClickListener {
 	// refresh.onFooterRefreshComplete();
 	//
 	// } catch (Exception e) {
-	// // TODO: handle exception
+	//
 	// e.printStackTrace();
 	// }
 	// }
@@ -210,7 +210,7 @@ public class MyJuFenActivity extends BaseActivity implements OnClickListener {
 						progress.CloseProgress();
 
 					} catch (Exception e) {
-						// TODO: handle exception
+
 						e.printStackTrace();
 					}
 					break;
@@ -246,7 +246,7 @@ public class MyJuFenActivity extends BaseActivity implements OnClickListener {
 				new AsyncHttpResponseHandler() {
 					@Override
 					public void onSuccess(int arg0, String arg1) {
-						// TODO Auto-generated method stub
+
 						super.onSuccess(arg0, arg1);
 						System.out.println("=====================二级值1" + arg1);
 						try {
@@ -311,14 +311,14 @@ public class MyJuFenActivity extends BaseActivity implements OnClickListener {
 							}
 							progress.CloseProgress();
 						} catch (JSONException e) {
-							// TODO Auto-generated catch block
+
 							e.printStackTrace();
 						}
 					}
 
 					@Override
 					public void onFailure(Throwable arg0, String arg1) {
-						// TODO Auto-generated method stub
+
 						progress.CloseProgress();
 						System.out.println("==========================访问接口失败！");
 						Toast.makeText(MyJuFenActivity.this, "访问接口失败", 200)
@@ -336,7 +336,7 @@ public class MyJuFenActivity extends BaseActivity implements OnClickListener {
 				+ "&fund_id=2&expenses_id=6", new AsyncHttpResponseHandler() {
 			@Override
 			public void onSuccess(int arg0, String arg1) {
-				// TODO Auto-generated method stub
+
 				super.onSuccess(arg0, arg1);
 				System.out.println("=====================二级值1" + arg1);
 				try {
@@ -353,7 +353,7 @@ public class MyJuFenActivity extends BaseActivity implements OnClickListener {
 						progress.CloseProgress();
 					}
 				} catch (JSONException e) {
-					// TODO Auto-generated catch block
+
 					e.printStackTrace();
 				}
 			}
@@ -362,7 +362,7 @@ public class MyJuFenActivity extends BaseActivity implements OnClickListener {
 
 	@Override
 	public void onClick(View v) {
-		// TODO Auto-generated method stub
+
 
 		switch (v.getId()) {
 			case R.id.iv_fanhui:
@@ -429,7 +429,7 @@ public class MyJuFenActivity extends BaseActivity implements OnClickListener {
 			});
 
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 
@@ -458,7 +458,7 @@ public class MyJuFenActivity extends BaseActivity implements OnClickListener {
 
 			@Override
 			public void onClick(View v) {
-				// TODO Auto-generated method stub
+
 				pop.dismiss();
 				con(17, 1);
 			}
@@ -467,7 +467,7 @@ public class MyJuFenActivity extends BaseActivity implements OnClickListener {
 		btn_sms.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				// TODO Auto-generated method stub
+
 				pop.dismiss();
 				// con(18, 0);
 				Toast.makeText(MyJuFenActivity.this, "抱歉，暂时不支持", 200).show();
@@ -498,7 +498,7 @@ public class MyJuFenActivity extends BaseActivity implements OnClickListener {
 				softshareWxFriend(zhou);
 			}
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 	}

@@ -47,7 +47,7 @@ public abstract class BaseActivity extends ActivityGroup {
 	 */
 	@Override
 	protected void onResume() {
-		// TODO Auto-generated method stub
+
 		// getWindow().getDecorView().setSystemUiVisibility(View.GONE);
 		/**
 		 * 设置为横屏

@@ -97,7 +97,7 @@ public class MyOrderZFActivity extends BaseActivity implements OnClickListener {
 
 	@Override
 	protected void onResume() {
-		// TODO Auto-generated method stub
+
 		super.onResume();
 
 		System.out.println("flag状态==============" + flag);
@@ -117,7 +117,7 @@ public class MyOrderZFActivity extends BaseActivity implements OnClickListener {
 
 	@Override
 	public void onClick(View v) {
-		// TODO Auto-generated method stub
+
 		switch (v.getId()) {
 			case R.id.item0:
 				// 余额支付
@@ -165,7 +165,7 @@ public class MyOrderZFActivity extends BaseActivity implements OnClickListener {
 	}
 
 	private void getzhou() {
-		// TODO Auto-generated method stub
+
 		try {
 			// recharge_no = recharge_no3;
 			System.out.println("订单===================" + recharge_no);
@@ -208,7 +208,7 @@ public class MyOrderZFActivity extends BaseActivity implements OnClickListener {
 					}, null);
 
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 	}
@@ -251,7 +251,7 @@ public class MyOrderZFActivity extends BaseActivity implements OnClickListener {
 								// Toast.makeText(MyOrderConfrimActivity.this,
 								// "支付true", Toast.LENGTH_SHORT).show();
 							} catch (Exception e) {
-								// TODO: handle exception
+
 								e.printStackTrace();
 							}
 						} else {
@@ -259,7 +259,7 @@ public class MyOrderZFActivity extends BaseActivity implements OnClickListener {
 							// Toast.LENGTH_SHORT).show();
 						}
 					} catch (Exception e) {
-						// TODO: handle exception
+
 						e.printStackTrace();
 					}
 
@@ -351,7 +351,7 @@ public class MyOrderZFActivity extends BaseActivity implements OnClickListener {
 			}, null);
 
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 	}
@@ -421,7 +421,7 @@ public class MyOrderZFActivity extends BaseActivity implements OnClickListener {
 					}, null);
 
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 	}
@@ -452,14 +452,14 @@ public class MyOrderZFActivity extends BaseActivity implements OnClickListener {
 
 						}
 					} catch (JSONException e) {
-						// TODO Auto-generated catch block
+
 						e.printStackTrace();
 					}
 				};
 			}, MyOrderZFActivity.this);
 
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 	}
@@ -579,7 +579,7 @@ public class MyOrderZFActivity extends BaseActivity implements OnClickListener {
 
 						@Override
 						public void onFailure(Throwable arg0, String arg1) {
-							// TODO Auto-generated method stub
+
 							super.onFailure(arg0, arg1);
 							System.out.println("支付异常================================="
 									+ arg0);
@@ -593,7 +593,7 @@ public class MyOrderZFActivity extends BaseActivity implements OnClickListener {
 					}, null);
 
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 	}
@@ -637,7 +637,7 @@ public class MyOrderZFActivity extends BaseActivity implements OnClickListener {
 			payThread.start();
 
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 
 		}

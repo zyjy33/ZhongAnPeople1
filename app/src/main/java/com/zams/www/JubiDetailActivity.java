@@ -54,7 +54,7 @@ public class JubiDetailActivity extends BaseActivity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
+
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.ticket_shop_detail);
@@ -103,7 +103,7 @@ public class JubiDetailActivity extends BaseActivity {
 			msg.obj = list;
 			handler.sendMessage(msg);
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 	}

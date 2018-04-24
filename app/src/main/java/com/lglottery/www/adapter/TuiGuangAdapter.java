@@ -61,7 +61,7 @@ public class TuiGuangAdapter extends BaseExpandableListAdapter {
 
 			@Override
 			public void onClick(View arg0) {
-				// TODO Auto-generated method stub
+
 				Message msg = handler.obtainMessage();
 				msg.what = 2;
 				msg.obj = lists.get(groupPosition);
@@ -72,7 +72,7 @@ public class TuiGuangAdapter extends BaseExpandableListAdapter {
 
 			@Override
 			public void onClick(View arg0) {
-				// TODO Auto-generated method stub
+
 				Message msg = handler.obtainMessage();
 				msg.what = 3;
 				msg.obj = lists.get(groupPosition);
@@ -83,7 +83,7 @@ public class TuiGuangAdapter extends BaseExpandableListAdapter {
 
 			@Override
 			public void onClick(View arg0) {
-				// TODO Auto-generated method stub
+
 				Message msg = handler.obtainMessage();
 				msg.what = 4;
 				msg.obj = lists.get(groupPosition);

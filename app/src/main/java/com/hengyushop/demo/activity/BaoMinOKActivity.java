@@ -36,7 +36,7 @@ public class BaoMinOKActivity extends BaseActivity {
 	private SharedPreferences spPreferences;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
+
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_baomin_ok);
@@ -79,7 +79,7 @@ public class BaoMinOKActivity extends BaseActivity {
 
 				@Override
 				public void onClick(View arg0) {
-					// TODO Auto-generated method stub
+
 					finish();
 				}
 			});
@@ -98,7 +98,7 @@ public class BaoMinOKActivity extends BaseActivity {
 
 				@Override
 				public void onClick(View arg0) {
-					// TODO Auto-generated method stub
+
 					Intent intent = new Intent(BaoMinOKActivity.this, DianZiPiaoActivity.class);
 					intent.putExtra("hd_title",getIntent().getStringExtra("hd_title"));
 					intent.putExtra("start_time",getIntent().getStringExtra("start_time"));
@@ -113,7 +113,7 @@ public class BaoMinOKActivity extends BaseActivity {
 				}
 			});
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 	}
@@ -154,7 +154,7 @@ public class BaoMinOKActivity extends BaseActivity {
 
 						@Override
 						public void onFailure(Throwable arg0, String arg1) {
-							// TODO Auto-generated method stub
+
 							super.onFailure(arg0, arg1);
 							progress.CloseProgress();
 							System.out.println("异常================================="+arg1);
@@ -163,7 +163,7 @@ public class BaoMinOKActivity extends BaseActivity {
 					}, null);
 
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 	}

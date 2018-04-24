@@ -36,7 +36,7 @@ public class MyCollectWareAdapter extends BaseAdapter {
 
 	public MyCollectWareAdapter(Context contextr,
 								ArrayList<CollectWareData> list, int mRightWidth, Handler handler) {
-		// TODO Auto-generated constructor stub
+
 		this.context = contextr;
 		this.list = list;
 		aQuery = new AQuery(contextr);
@@ -45,22 +45,22 @@ public class MyCollectWareAdapter extends BaseAdapter {
 	}
 
 	public int getCount() {
-		// TODO Auto-generated method stub
+
 		return list.size();
 	}
 
 	public Object getItem(int position) {
-		// TODO Auto-generated method stub
+
 		return position;
 	}
 
 	public long getItemId(int position) {
-		// TODO Auto-generated method stub
+
 		return position;
 	}
 
 	public View getView(final int position, View convertView, ViewGroup parent) {
-		// TODO Auto-generated method stub
+
 		if (convertView == null) {
 			convertView = LinearLayout.inflate(context,
 					R.layout.listitem_collect_ware, null);
@@ -159,7 +159,7 @@ public class MyCollectWareAdapter extends BaseAdapter {
 					RealmName.REALM_NAME_HTTP + list.get(position).img_url);
 
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 		return convertView;

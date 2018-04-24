@@ -70,14 +70,14 @@ public class ApplyBusinessActivity extends BaseActivity implements
 
 	@Override
 	protected void onResume() {
-		// TODO Auto-generated method stub
+
 		super.onResume();
 		// loadguanggao();
 	}
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
+
 		super.onCreate(savedInstanceState);
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.activity_shenqing_shangjia);// activity_shenqing_shangjia
@@ -100,7 +100,7 @@ public class ApplyBusinessActivity extends BaseActivity implements
 		//
 		// @Override
 		// public void onClick(View arg0) {
-		// // TODO Auto-generated method stub
+		//
 		// finish();
 		// }
 		// });
@@ -111,13 +111,13 @@ public class ApplyBusinessActivity extends BaseActivity implements
 
 			@Override
 			public void onClick(View arg0) {
-				// TODO Auto-generated method stub
+
 				try {
 					Intent intent = new Intent(ApplyBusinessActivity.this,
 							ApplyBusiness1Activity.class);
 					startActivity(intent);
 				} catch (Exception e) {
-					// TODO: handle exception
+
 					e.printStackTrace();
 				}
 			}
@@ -209,7 +209,7 @@ public class ApplyBusinessActivity extends BaseActivity implements
 
 	public void onPageScrollStateChanged(int arg0) {
 
-		// TODO Auto-generated method stub
+
 
 	}
 
@@ -217,7 +217,7 @@ public class ApplyBusinessActivity extends BaseActivity implements
 
 	public void onPageScrolled(int arg0, float arg1, int arg2) {
 
-		// TODO Auto-generated method stub
+
 
 	}
 
@@ -271,7 +271,7 @@ public class ApplyBusinessActivity extends BaseActivity implements
 		@Override
 		public void finishUpdate(View arg0) {
 
-			// TODO Auto-generated method stub
+
 
 		}
 
@@ -315,14 +315,14 @@ public class ApplyBusinessActivity extends BaseActivity implements
 		@Override
 		public void restoreState(Parcelable arg0, ClassLoader arg1) {
 
-			// TODO Auto-generated method stub
+
 
 		}
 
 		@Override
 		public Parcelable saveState() {
 
-			// TODO Auto-generated method stub
+
 
 			return null;
 
@@ -331,7 +331,7 @@ public class ApplyBusinessActivity extends BaseActivity implements
 		@Override
 		public void startUpdate(View arg0) {
 
-			// TODO Auto-generated method stub
+
 
 		}
 
@@ -387,7 +387,7 @@ public class ApplyBusinessActivity extends BaseActivity implements
 
 						@Override
 						public void onFailure(Throwable arg0, String arg1) {
-							// TODO Auto-generated method stub
+
 							super.onFailure(arg0, arg1);
 							System.out.println("======输出1=============" + arg0);
 							System.out.println("======输出2=============" + arg1);
@@ -396,13 +396,13 @@ public class ApplyBusinessActivity extends BaseActivity implements
 					}, null);
 
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 	}
 
 	private void getzhou() {
-		// TODO Auto-generated method stub
+
 		views = new ArrayList<View>();
 
 		LinearLayout.LayoutParams mParams = new LinearLayout.LayoutParams(
@@ -467,7 +467,7 @@ public class ApplyBusinessActivity extends BaseActivity implements
 			}
 
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 

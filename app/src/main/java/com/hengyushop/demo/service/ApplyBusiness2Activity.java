@@ -59,7 +59,7 @@ public class ApplyBusiness2Activity extends BaseActivity implements OnClickListe
 	double weidu,jingdu;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
+
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_sq2_shangjia);
@@ -85,7 +85,7 @@ public class ApplyBusiness2Activity extends BaseActivity implements OnClickListe
 	}
 
 	private void initUI() {
-		// TODO Auto-generated method stub
+
 		edt_leibie = (EditText) findViewById(R.id.edt_leibie);
 		edt_sj_jianjie = (EditText) findViewById(R.id.edt_sj_jianjie);
 		edt_sj_tsys = (EditText) findViewById(R.id.edt_sj_tsys);
@@ -109,7 +109,7 @@ public class ApplyBusiness2Activity extends BaseActivity implements OnClickListe
 
 	@Override
 	public void onClick(View v) {
-		// TODO Auto-generated method stub
+
 
 		switch (v.getId()) {
 			case R.id.iv_fanhui:
@@ -187,7 +187,7 @@ public class ApplyBusiness2Activity extends BaseActivity implements OnClickListe
 							AsyncHttp.get(strUrlone, new AsyncHttpResponseHandler() {
 								@Override
 								public void onSuccess(int arg0, String arg1) {
-									// TODO Auto-generated method stub
+
 									super.onSuccess(arg0, arg1);
 									try {
 										JSONObject jsonObject = new JSONObject(arg1);
@@ -208,21 +208,21 @@ public class ApplyBusiness2Activity extends BaseActivity implements OnClickListe
 										}
 
 									} catch (Exception e) {
-										// TODO: handle exception
+
 										e.printStackTrace();
 									}
 
 								}
 							}, null);
 						} catch (Exception e1) {
-							// TODO Auto-generated catch block
+
 							e1.printStackTrace();
 						}
 					}
 
 
 				} catch (Exception e) {
-					// TODO: handle exception
+
 					e.printStackTrace();
 				}
 				break;

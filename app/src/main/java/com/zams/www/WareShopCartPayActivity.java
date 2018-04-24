@@ -88,7 +88,7 @@ public class WareShopCartPayActivity extends BaseActivity {
 	}
 	@Override
 	protected void onResume() {
-		// TODO Auto-generated method stub
+
 		super.onResume();
 		UserRegisterData registerData = wareDao.findIsLoginHengyuCode();
 		yth = registerData.getHengyuCode();
@@ -125,7 +125,7 @@ public class WareShopCartPayActivity extends BaseActivity {
 		AsyncHttp.post_1( str2, params,new AsyncHttpResponseHandler(){
 			@Override
 			public void onSuccess(int arg0, String arg1) {
-				// TODO Auto-generated method stub
+
 				super.onSuccess(arg0, arg1);
 
 				try {
@@ -149,10 +149,10 @@ public class WareShopCartPayActivity extends BaseActivity {
 					msg.obj = data2;
 					handler.sendMessage(msg);
 				} catch (NumberFormatException e) {
-					// TODO Auto-generated catch block
+
 					e.printStackTrace();
 				} catch (JSONException e) {
-					// TODO Auto-generated catch block
+
 					e.printStackTrace();
 				}
 
@@ -168,7 +168,7 @@ public class WareShopCartPayActivity extends BaseActivity {
 		btn_pay.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View arg0) {
-				// TODO Auto-generated method stub
+
 				paypwd = et_paypwd.getText().toString();
 				if ("".equals(paypwd)) {
 					Toast.makeText(getApplicationContext(), "请输入支付密码!", 200)
@@ -210,7 +210,7 @@ public class WareShopCartPayActivity extends BaseActivity {
 										handler.sendMessage(message);
 									}
 								} catch (JSONException e) {
-									// TODO Auto-generated catch block
+
 									e.printStackTrace();
 								}
 								Intent intent = new Intent(

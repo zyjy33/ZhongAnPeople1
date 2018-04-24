@@ -29,7 +29,7 @@ public class TrainInformationActivity extends BaseActivity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
+
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.train_information);
@@ -87,7 +87,7 @@ public class TrainInformationActivity extends BaseActivity {
 				new AsyncHttpResponseHandler() {
 					@Override
 					public void onSuccess(int arg0, String arg1) {
-						// TODO Auto-generated method stub
+
 						super.onSuccess(arg0, arg1);
 						getBean(arg1);
 					}

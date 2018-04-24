@@ -128,7 +128,7 @@ public class TuiGuang2Activity extends BaseActivity{
 
 			@Override
 			public void onClick(View arg0) {
-				// TODO Auto-generated method stub
+
 				Intent intent40 = new Intent(TuiGuang2Activity.this,
 						JifenMainActivity.class);
 				startActivity(intent40);
@@ -138,7 +138,7 @@ public class TuiGuang2Activity extends BaseActivity{
 
 			@Override
 			public void onClick(View arg0) {
-				// TODO Auto-generated method stub
+
 				Intent intent42 = new Intent(TuiGuang2Activity.this,
 						CircleActivity.class);
 				startActivity(intent42);
@@ -148,7 +148,7 @@ public class TuiGuang2Activity extends BaseActivity{
 
 			@Override
 			public void onClick(View arg0) {
-				// TODO Auto-generated method stub
+
 				Intent intent41 = new Intent(TuiGuang2Activity.this,
 						GuaGuaActivity.class);
 				startActivity(intent41);

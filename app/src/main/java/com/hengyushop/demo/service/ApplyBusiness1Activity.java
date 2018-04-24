@@ -62,7 +62,7 @@ public class ApplyBusiness1Activity extends BaseActivity implements OnClickListe
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
+
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_sq1_shangjia);
@@ -75,7 +75,7 @@ public class ApplyBusiness1Activity extends BaseActivity implements OnClickListe
 
 	@Override
 	protected void onResume() {
-		// TODO Auto-generated method stub
+
 		super.onResume();
 
 		sj_bq = MerchantsLabelActivity.str;
@@ -89,7 +89,7 @@ public class ApplyBusiness1Activity extends BaseActivity implements OnClickListe
 		}
 	}
 	private void initUI() {
-		// TODO Auto-generated method stub
+
 		edt_sj_name = (EditText) findViewById(R.id.edt_sj_name);
 		//		edt_sj_biaoqian = (EditText) findViewById(R.id.edt_sj_biaoqian);
 		edt_sj_dianhao = (EditText) findViewById(R.id.edt_sj_dianhao);
@@ -109,7 +109,7 @@ public class ApplyBusiness1Activity extends BaseActivity implements OnClickListe
 	}
 	@Override
 	public void onClick(View v) {
-		// TODO Auto-generated method stub
+
 
 		switch (v.getId()) {
 			case R.id.iv_fanhui:
@@ -335,7 +335,7 @@ public class ApplyBusiness1Activity extends BaseActivity implements OnClickListe
 	}
 
 	private void dingwei() {
-		// TODO Auto-generated method stub
+
 		// 获得LocationManager的实例
 		locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
 
@@ -388,15 +388,15 @@ public class ApplyBusiness1Activity extends BaseActivity implements OnClickListe
 
 		@Override
 		public void onStatusChanged(String provider, int status, Bundle extras) {
-			// TODO Auto-generated method stub
+
 		}
 		@Override
 		public void onProviderEnabled(String provider) {
-			// TODO Auto-generated method stub
+
 		}
 		@Override
 		public void onProviderDisabled(String provider) {
-			// TODO Auto-generated method stub
+
 		}
 		@Override
 		public void onLocationChanged(Location location) {
@@ -414,7 +414,7 @@ public class ApplyBusiness1Activity extends BaseActivity implements OnClickListe
 	 * @param location
 	 */
 	private void showLocation(Location location, String changeInfo) {
-		// TODO Auto-generated method stub
+
 		String currentLocation = "当前的经度是：" + location.getLongitude() + ",\n"
 				+ "当前的纬度是：" + location.getLatitude();
 		jingdu = location.getLongitude();
@@ -461,14 +461,14 @@ public class ApplyBusiness1Activity extends BaseActivity implements OnClickListe
 						}else{
 						}
 					} catch (JSONException e) {
-						// TODO Auto-generated catch block
+
 						e.printStackTrace();
 					}
 				};
 			}, ApplyBusiness1Activity.this);
 
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 	}

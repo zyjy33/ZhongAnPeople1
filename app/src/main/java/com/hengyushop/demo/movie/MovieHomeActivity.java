@@ -23,7 +23,7 @@ public class MovieHomeActivity extends Activity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
+
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.movie_home);
@@ -37,7 +37,7 @@ public class MovieHomeActivity extends Activity {
 			@Override
 			public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
 									long arg3) {
-				// TODO Auto-generated method stub
+
 				Intent intent = new Intent(getApplicationContext(),
 						MovieDetailActivity.class);
 				startActivity(intent);

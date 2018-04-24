@@ -88,7 +88,7 @@ public class EditUserAddressActivity extends BaseActivity {
 			innidade();
 
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 	}
@@ -192,7 +192,7 @@ public class EditUserAddressActivity extends BaseActivity {
 					try {
 
 					} catch (Exception e) {
-						// TODO: handle exception
+
 						e.printStackTrace();
 					}
 					is_default = 1;
@@ -209,7 +209,7 @@ public class EditUserAddressActivity extends BaseActivity {
 
 			@Override
 			public void onClick(View arg0) {
-				// TODO Auto-generated method stub
+
 				View view = dialogm();
 				final MyAlertDialog dialog1 = new MyAlertDialog(
 						EditUserAddressActivity.this).builder()
@@ -235,7 +235,7 @@ public class EditUserAddressActivity extends BaseActivity {
 
 			@Override
 			public void onClick(View arg0) {
-				// TODO Auto-generated method stub
+
 				finish();
 			}
 		});
@@ -244,7 +244,7 @@ public class EditUserAddressActivity extends BaseActivity {
 
 			@Override
 			public void onClick(View v) {
-				// TODO Auto-generated method stub
+
 				try {
 
 					name = et_username.getText().toString();
@@ -325,7 +325,7 @@ public class EditUserAddressActivity extends BaseActivity {
 										handler.sendMessage(message2);
 									}
 								} catch (JSONException e) {
-									// TODO Auto-generated catch block
+
 									e.printStackTrace();
 								}
 							};
@@ -339,7 +339,7 @@ public class EditUserAddressActivity extends BaseActivity {
 						}, null);
 					}
 				} catch (Exception e) {
-					// TODO: handle exception
+
 					e.printStackTrace();
 				}
 			}
@@ -477,7 +477,7 @@ public class EditUserAddressActivity extends BaseActivity {
 
 	@Override
 	public boolean onKeyDown(int keyCode, KeyEvent event) {
-		// TODO Auto-generated method stub
+
 		if (keyCode == KeyEvent.KEYCODE_BACK) {
 			AppManager.getAppManager().finishActivity();
 		}

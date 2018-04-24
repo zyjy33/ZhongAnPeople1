@@ -46,7 +46,7 @@ public class CommomConfrim {
 
 			@Override
 			public void onClick(View v) {
-				// TODO Auto-generated method stub
+
 				actionSheetSelected.onClick(R.id.item0);
 				dlg.dismiss();
 			}
@@ -55,7 +55,7 @@ public class CommomConfrim {
 
 			@Override
 			public void onClick(View v) {
-				// TODO Auto-generated method stub
+
 				actionSheetSelected.onClick(R.id.item1);
 				dlg.dismiss();
 			}
@@ -64,7 +64,7 @@ public class CommomConfrim {
 
 			@Override
 			public void onClick(View v) {
-				// TODO Auto-generated method stub
+
 				actionSheetSelected.onClick(R.id.item2);
 				dlg.dismiss();
 			}
@@ -73,7 +73,7 @@ public class CommomConfrim {
 
 			@Override
 			public void onClick(View v) {
-				// TODO Auto-generated method stub
+
 				actionSheetSelected.onClick(R.id.item3);
 				dlg.dismiss();
 			}
@@ -83,7 +83,7 @@ public class CommomConfrim {
 
 			@Override
 			public void onClick(View v) {
-				// TODO Auto-generated method stub
+
 				// actionSheetSelected.onClick(object);
 				dlg.dismiss();
 			}

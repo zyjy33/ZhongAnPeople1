@@ -134,20 +134,20 @@ public class MyQuanZiActivity extends BaseActivity implements OnClickListener {
 
 				@Override
 				public void onClick(View arg0) {
-					// TODO Auto-generated method stub
+
 					finish();
 				}
 			});
 
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 	}
 
 	@Override
 	public void onClick(View v) {
-		// TODO Auto-generated method stub
+
 		switch (v.getId()) {
 			case R.id.index_item0:
 				cursor1.setVisibility(View.VISIBLE);
@@ -167,7 +167,7 @@ public class MyQuanZiActivity extends BaseActivity implements OnClickListener {
 					user_group_id = "12";// 价值会员
 					load_list2();
 				} catch (Exception e) {
-					// TODO: handle exception
+
 					e.printStackTrace();
 				}
 				break;
@@ -197,7 +197,7 @@ public class MyQuanZiActivity extends BaseActivity implements OnClickListener {
 						new_list.setAdapter(adapter);
 						progress.CloseProgress();
 					} catch (Exception e) {
-						// TODO: handle exception
+
 						e.printStackTrace();
 					}
 					break;
@@ -221,7 +221,7 @@ public class MyQuanZiActivity extends BaseActivity implements OnClickListener {
 						progress.CloseProgress();
 
 					} catch (Exception e) {
-						// TODO: handle exception
+
 						e.printStackTrace();
 					}
 					break;
@@ -248,7 +248,7 @@ public class MyQuanZiActivity extends BaseActivity implements OnClickListener {
 				new AsyncHttpResponseHandler() {
 					@Override
 					public void onSuccess(int arg0, String arg1) {
-						// TODO Auto-generated method stub
+
 						super.onSuccess(arg0, arg1);
 						System.out.println("=====================二级值1" + arg1);
 						try {
@@ -332,7 +332,7 @@ public class MyQuanZiActivity extends BaseActivity implements OnClickListener {
 							progress.CloseProgress();
 							load_yanglaojin();
 						} catch (JSONException e) {
-							// TODO Auto-generated catch block
+
 							e.printStackTrace();
 						}
 					}
@@ -356,7 +356,7 @@ public class MyQuanZiActivity extends BaseActivity implements OnClickListener {
 					new AsyncHttpResponseHandler() {
 						@Override
 						public void onSuccess(int arg0, String arg1) {
-							// TODO Auto-generated method stub
+
 							super.onSuccess(arg0, arg1);
 							System.out.println("=====================二级值1"
 									+ arg1);
@@ -437,7 +437,7 @@ public class MyQuanZiActivity extends BaseActivity implements OnClickListener {
 										Toast.makeText(MyQuanZiActivity.this,
 												info, 200).show();
 									} catch (Exception e) {
-										// TODO: handle exception
+
 										e.printStackTrace();
 									}
 								}
@@ -450,14 +450,14 @@ public class MyQuanZiActivity extends BaseActivity implements OnClickListener {
 								// load_yanglaojin();
 								progress.CloseProgress();
 							} catch (JSONException e) {
-								// TODO Auto-generated catch block
+
 								e.printStackTrace();
 							}
 						}
 					}, null);
 
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 	}
@@ -468,7 +468,7 @@ public class MyQuanZiActivity extends BaseActivity implements OnClickListener {
 				+ "&fund_id=2&expenses_id=6", new AsyncHttpResponseHandler() {
 			@Override
 			public void onSuccess(int arg0, String arg1) {
-				// TODO Auto-generated method stub
+
 				super.onSuccess(arg0, arg1);
 				System.out.println("=====================二级值" + arg1);
 				try {
@@ -486,7 +486,7 @@ public class MyQuanZiActivity extends BaseActivity implements OnClickListener {
 					}
 					progress.CloseProgress();
 				} catch (JSONException e) {
-					// TODO Auto-generated catch block
+
 					e.printStackTrace();
 				}
 			}

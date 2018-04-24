@@ -51,7 +51,7 @@ public class QianMingActivity extends BaseActivity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
+
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_xinshougongye);
@@ -85,7 +85,7 @@ public class QianMingActivity extends BaseActivity {
 		//			@Override
 		//			public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
 		//					long arg3) {
-		//				// TODO Auto-generated method stub
+		//
 		//				try {
 		//
 		//				System.out.println("=================1="+list.size());
@@ -94,7 +94,7 @@ public class QianMingActivity extends BaseActivity {
 		//				startActivity(intent);
 		//
 		//				} catch (Exception e) {
-		//					// TODO: handle exception
+		//
 		//					e.printStackTrace();
 		//				}
 		//			}
@@ -128,14 +128,14 @@ public class QianMingActivity extends BaseActivity {
 						@Override
 						public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
 												long arg3) {
-							// TODO Auto-generated method stub
+
 							try {
 								Intent intent= new Intent(QianMingActivity.this,JuFaFaXunaZheActivity.class);
 								System.out.println("===list.get(arg2).id)==============="+list.get(arg2).id);
 								intent.putExtra("exam_id", list.get(arg2).id);
 								startActivity(intent);
 							} catch (Exception e) {
-								// TODO: handle exception
+
 								e.printStackTrace();
 							}
 						}
@@ -152,7 +152,7 @@ public class QianMingActivity extends BaseActivity {
 						@Override
 						public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
 												long arg3) {
-							// TODO Auto-generated method stub
+
 							try {
 
 								Intent intent= new Intent(QianMingActivity.this,Webview1.class);
@@ -160,7 +160,7 @@ public class QianMingActivity extends BaseActivity {
 								startActivity(intent);
 
 							} catch (Exception e) {
-								// TODO: handle exception
+
 								e.printStackTrace();
 							}
 						}
@@ -184,7 +184,7 @@ public class QianMingActivity extends BaseActivity {
 
 			@Override
 			public void onClick(View arg0) {
-				// TODO Auto-generated method stub
+
 				finish();
 			}
 		});
@@ -197,7 +197,7 @@ public class QianMingActivity extends BaseActivity {
 
 		@Override
 		public void onHeaderRefresh(PullToRefreshView view) {
-			// TODO Auto-generated method stub
+
 			refresh.postDelayed(new Runnable() {
 
 				@Override
@@ -215,7 +215,7 @@ public class QianMingActivity extends BaseActivity {
 
 		@Override
 		public void onFooterRefresh(PullToRefreshView view) {
-			// TODO Auto-generated method stub
+
 			refresh.postDelayed(new Runnable() {
 
 				@Override
@@ -229,7 +229,7 @@ public class QianMingActivity extends BaseActivity {
 						refresh.onFooterRefreshComplete();
 
 					} catch (Exception e) {
-						// TODO: handle exception
+
 						e.printStackTrace();
 					}
 				}
@@ -255,7 +255,7 @@ public class QianMingActivity extends BaseActivity {
 
 			@Override
 			public void onSuccess(int arg0, String arg1) {
-				// TODO Auto-generated method stub
+
 				super.onSuccess(arg0, arg1);
 				System.out.println("=====================二级值1"+arg1);
 				try {
@@ -301,7 +301,7 @@ public class QianMingActivity extends BaseActivity {
 				new AsyncHttpResponseHandler(){
 					@Override
 					public void onSuccess(int arg0, String arg1) {
-						// TODO Auto-generated method stub
+
 						super.onSuccess(arg0, arg1);
 						System.out.println("=====================二级值1"+arg1);
 						try {

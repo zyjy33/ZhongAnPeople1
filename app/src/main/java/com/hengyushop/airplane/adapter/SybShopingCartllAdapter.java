@@ -71,20 +71,20 @@ public class SybShopingCartllAdapter extends BaseAdapter {
 
 	@Override
 	public int getCount() {
-		// TODO Auto-generated method stub
+
 		return list.size();
 	}
 
 	@Override
 	public Object getItem(int position) {
-		// TODO Auto-generated method stub
+
 
 		return position;
 	}
 
 	@Override
 	public long getItemId(int position) {
-		// TODO Auto-generated method stub
+
 		return position;
 	}
 
@@ -111,7 +111,7 @@ public class SybShopingCartllAdapter extends BaseAdapter {
 
 	@Override
 	public View getView(final int position, View convertView, ViewGroup parent) {
-		// TODO Auto-generated method stub
+
 		try {
 			ViewHolder holder = null;
 			if (convertView == null) {
@@ -192,7 +192,7 @@ public class SybShopingCartllAdapter extends BaseAdapter {
 				// System.out.println("===总计======="+a);
 
 			} catch (Exception e) {
-				// TODO: handle exception
+
 				e.printStackTrace();
 			}
 
@@ -200,7 +200,7 @@ public class SybShopingCartllAdapter extends BaseAdapter {
 
 				@Override
 				public void onClick(View v) {
-					// TODO Auto-generated method stub
+
 					int orderid = Integer.parseInt(list.get(position).getId());
 					Message message = new Message();
 					message.what = 400;
@@ -225,7 +225,7 @@ public class SybShopingCartllAdapter extends BaseAdapter {
 						message2.obj = total_c;
 						handler.sendMessage(message2);
 					} catch (Exception e) {
-						// TODO: handle exception
+
 						e.printStackTrace();
 					}
 				}
@@ -245,7 +245,7 @@ public class SybShopingCartllAdapter extends BaseAdapter {
 						message2.obj = total_c;
 						handler.sendMessage(message2);
 					} catch (Exception e) {
-						// TODO: handle exception
+
 						e.printStackTrace();
 					}
 				}
@@ -289,7 +289,7 @@ public class SybShopingCartllAdapter extends BaseAdapter {
 			// handler.sendMessage(message);
 			//
 			// } catch (Exception e) {
-			// // TODO: handle exception
+			//
 			// e.printStackTrace();
 			// }
 			// }
@@ -338,7 +338,7 @@ public class SybShopingCartllAdapter extends BaseAdapter {
 			// //
 			// // @Override
 			// // public int compare(Object arg0, Object arg1) {
-			// // // TODO Auto-generated method stub
+			// //
 			// //
 			// // return 0;
 			// // }
@@ -374,7 +374,7 @@ public class SybShopingCartllAdapter extends BaseAdapter {
 			// // Collections.sort(listl,new Comparator<String>(){
 			// // @Override
 			// // public int compare(String arg0, String arg1) {
-			// // // TODO Auto-generated method stub
+			// //
 			// // return arg0.geto.compareTo(arg1.getOrder());;
 			// // }
 			// // });
@@ -395,7 +395,7 @@ public class SybShopingCartllAdapter extends BaseAdapter {
 			// 根据isSelected来设置checkbox的选中状况
 			// holder.cb.setChecked(getIsSelected().get(position));
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 
@@ -439,7 +439,7 @@ public class SybShopingCartllAdapter extends BaseAdapter {
 					new AsyncHttpResponseHandler() {
 						@Override
 						public void onSuccess(int arg0, String arg1) {
-							// TODO Auto-generated method stub
+
 							// System.out.println("==========================访问接口成功！"+arg1);
 							super.onSuccess(arg0, arg1);
 						}
@@ -447,7 +447,7 @@ public class SybShopingCartllAdapter extends BaseAdapter {
 					}, context);
 
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 	}
@@ -475,7 +475,7 @@ public class SybShopingCartllAdapter extends BaseAdapter {
 						new AsyncHttpResponseHandler() {
 							@Override
 							public void onSuccess(int arg0, String arg1) {
-								// TODO Auto-generated method stub
+
 								// System.out.println("==========================2访问接口成功！"+arg1);
 								super.onSuccess(arg0, arg1);
 							}
@@ -486,7 +486,7 @@ public class SybShopingCartllAdapter extends BaseAdapter {
 			}
 
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 	}

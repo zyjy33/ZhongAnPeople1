@@ -45,7 +45,7 @@ public class DialogCang {
 	private ArrayList<FlyCangItem> listCangItems = new ArrayList<FlyCangItem>();
 
 	public DialogCang(Context context, Handler handler, Bundle bundle) {
-		// TODO Auto-generated constructor stub
+
 		this.context = context;
 		this.handler = handler;
 		this.bundle = bundle;
@@ -107,7 +107,7 @@ public class DialogCang {
 
 	private void parse(String arg1) {
 
-		// TODO Auto-generated method stub
+
 		ArrayList<FlyCangItem> tempItems = new ArrayList<FlyCangItem>();
 		try {
 			JSONObject jsonObject = new JSONObject(arg1);
@@ -131,7 +131,7 @@ public class DialogCang {
 			msg.obj = tempItems;
 			cangHandler.sendMessage(msg);
 		} catch (JSONException e) {
-			// TODO Auto-generated catch block
+
 			e.printStackTrace();
 		}
 
@@ -141,7 +141,7 @@ public class DialogCang {
 
 		@Override
 		public void onClick(View arg0) {
-			// TODO Auto-generated method stub
+
 			switch (arg0.getId()) {
 				case R.id.exit_dialog:
 					closeDialog();

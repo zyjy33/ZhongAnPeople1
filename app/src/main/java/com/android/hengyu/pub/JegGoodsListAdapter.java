@@ -33,7 +33,7 @@ public class JegGoodsListAdapter extends BaseAdapter {
 	public JegGoodsListAdapter(ArrayList<GoodsListData> lists,
 							   ArrayList<shangpingListData> lists_ll, Context context,
 							   ImageLoader loader) {
-		// TODO Auto-generated constructor stub
+
 		try {
 			this.context = context;
 			this.lists = lists;
@@ -42,26 +42,26 @@ public class JegGoodsListAdapter extends BaseAdapter {
 			this.inflater = LayoutInflater.from(context);
 
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 	}
 
 	@Override
 	public int getCount() {
-		// TODO Auto-generated method stub
+
 		return lists.size();
 	}
 
 	@Override
 	public long getItemId(int position) {
-		// TODO Auto-generated method stub
+
 		return position;
 	}
 
 	@Override
 	public Object getItem(int position) {
-		// TODO Auto-generated method stub
+
 		return position;
 	}
 
@@ -88,7 +88,7 @@ public class JegGoodsListAdapter extends BaseAdapter {
 				// loadCatell(zhou);
 
 			} catch (Exception e) {
-				// TODO: handle exception
+
 				e.printStackTrace();
 			}
 
@@ -97,7 +97,7 @@ public class JegGoodsListAdapter extends BaseAdapter {
 			// @Override
 			// public boolean onItemLongClick(AdapterView<?> arg0, View arg1,int
 			// arg2, long arg3) {
-			// // TODO Auto-generated method stub-
+			//  -
 			// // System.out.println("=====================1");
 			// Intent intent = new
 			// Intent(context,WareInformationActivity.class);
@@ -113,7 +113,7 @@ public class JegGoodsListAdapter extends BaseAdapter {
 				@Override
 				public void onItemClick(AdapterView<?> arg0, View arg1,
 										int arg2, long arg3) {
-					// TODO Auto-generated method stub
+
 					try {
 
 						Intent intent = new Intent(context,
@@ -122,7 +122,7 @@ public class JegGoodsListAdapter extends BaseAdapter {
 						intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 						context.startActivity(intent);
 					} catch (Exception e) {
-						// TODO: handle exception
+
 						e.printStackTrace();
 					}
 				}
@@ -175,24 +175,24 @@ public class JegGoodsListAdapter extends BaseAdapter {
 
 				@Override
 				public long getItemId(int position) {
-					// TODO Auto-generated method stub
+
 					return position;
 				}
 
 				@Override
 				public Object getItem(int position) {
-					// TODO Auto-generated method stub
+
 					return position;
 				}
 
 				@Override
 				public int getCount() {
-					// TODO Auto-generated method stub
+
 					return lists_ll.size();
 				}
 			});
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 
@@ -210,7 +210,7 @@ public class JegGoodsListAdapter extends BaseAdapter {
 	// AsyncHttpResponseHandler(){
 	// @Override
 	// public void onSuccess(int arg0, String arg1) {
-	// // TODO Auto-generated method stub
+	//
 	// super.onSuccess(arg0, arg1);
 	// try {
 	// System.out.println("值2=========="+arg1);
@@ -235,7 +235,7 @@ public class JegGoodsListAdapter extends BaseAdapter {
 	// }, null);
 	//
 	// } catch (Exception e) {
-	// // TODO: handle exception
+	//
 	// e.printStackTrace();
 	// }
 	//

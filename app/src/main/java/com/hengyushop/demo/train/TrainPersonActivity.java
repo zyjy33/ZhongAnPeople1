@@ -82,7 +82,7 @@ public class TrainPersonActivity extends BaseActivity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
+
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.train_person_layout);
@@ -105,7 +105,7 @@ public class TrainPersonActivity extends BaseActivity {
 
 			@Override
 			public void onClick(View arg0) {
-				// TODO Auto-generated method stub
+
 				Intent intent = new Intent();
 				MapSer ser = new MapSer();
 				ser.setMap(map);
@@ -119,7 +119,7 @@ public class TrainPersonActivity extends BaseActivity {
 
 	@Override
 	protected void onResume() {
-		// TODO Auto-generated method stub
+
 		super.onResume();
 		if (yth == null) {
 			Toast.makeText(getApplicationContext(), "未登录!", 200).show();
@@ -133,7 +133,7 @@ public class TrainPersonActivity extends BaseActivity {
 					new AsyncHttpResponseHandler() {
 						@Override
 						public void onSuccess(int arg0, String arg1) {
-							// TODO Auto-generated method stub
+
 							super.onSuccess(arg0, arg1);
 							parse(arg1);
 							handler.sendEmptyMessage(1);
@@ -161,7 +161,7 @@ public class TrainPersonActivity extends BaseActivity {
 				arrayList.add(item);
 			}
 		} catch (JSONException e) {
-			// TODO Auto-generated catch block
+
 			e.printStackTrace();
 		}
 

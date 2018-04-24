@@ -45,7 +45,7 @@ public class One_PersonActivity extends BaseActivity {
 
 						@Override
 						public void onCheckedChanged(RadioGroup arg0, int arg1) {
-							// TODO Auto-generated method stub
+
 							switch (arg1) {
 								case R.id.order_item0:
 									adapter.putData(lists);
@@ -83,7 +83,7 @@ public class One_PersonActivity extends BaseActivity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
+
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.one_person_layout);
@@ -162,7 +162,7 @@ public class One_PersonActivity extends BaseActivity {
 							handler.sendMessage(msg);
 
 						} catch (JSONException e) {
-							// TODO Auto-generated catch block
+
 							e.printStackTrace();
 						}
 

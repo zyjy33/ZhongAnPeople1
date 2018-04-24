@@ -14,7 +14,7 @@ public class ComboDB {
 	private SQLiteDatabase db;
 
 	public ComboDB(Context context) {
-		// TODO Auto-generated constructor stub
+
 		db = context.openOrCreateDatabase(Common.DB_NAME, Context.MODE_PRIVATE,
 				null);
 	}

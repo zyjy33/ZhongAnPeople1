@@ -41,7 +41,7 @@ public class HttpUtils {
 			// WLog.v("异常");
 			e.printStackTrace();
 		} catch (NullPointerException e) {
-			// TODO: handle exception
+
 			// WLog.v("空指针异常");
 		} finally {
 			try {
@@ -49,10 +49,10 @@ public class HttpUtils {
 				reader.close();
 				br.close();
 			} catch (NullPointerException e) {
-				// TODO Auto-generated catch block
+
 				e.printStackTrace();
 			} catch (IOException e2) {
-				// TODO: handle exception
+
 			}
 		}
 		// 返回文字对象

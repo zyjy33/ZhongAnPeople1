@@ -47,26 +47,26 @@ public class TuiGuang2Adapter extends BaseAdapter {
 
 	@Override
 	public int getCount() {
-		// TODO Auto-generated method stub
+
 		return lists.size();
 	}
 
 	@Override
 	public Object getItem(int arg0) {
-		// TODO Auto-generated method stub
+
 		return lists.get(arg0);
 	}
 
 	@Override
 	public long getItemId(int arg0) {
-		// TODO Auto-generated method stub
+
 		return arg0;
 	}
 
 	@Override
 	public View getView(final int groupPosition, View convertView,
 			ViewGroup arg2) {
-		// TODO Auto-generated method stub
+
 
 		ViewHolder holder = null;
 		if (convertView == null) {
@@ -104,7 +104,7 @@ public class TuiGuang2Adapter extends BaseAdapter {
 				}
 			});
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 		return convertView;

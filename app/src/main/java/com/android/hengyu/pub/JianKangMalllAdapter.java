@@ -61,19 +61,19 @@ public class JianKangMalllAdapter extends BaseAdapter {
 
 	@Override
 	public Object getItem(int position) {
-		// TODO Auto-generated method stub
+
 		return list.get(position);
 	}
 
 	@Override
 	public long getItemId(int position) {
-		// TODO Auto-generated method stub
+
 		return position;
 	}
 
 	@Override
 	public View getView(final int position, View convertView, ViewGroup patent) {
-		// TODO Auto-generated method stub
+
 		try {
 			convertView = inflater.inflate(R.layout.zayl_item_telie, null);
 			TextView tv_letter = (TextView) convertView
@@ -113,7 +113,7 @@ public class JianKangMalllAdapter extends BaseAdapter {
 
 				@Override
 				public void onClick(View arg0) {
-					// TODO Auto-generated method stub
+
 					try {
 
 						String id = list.get(position).getId();
@@ -143,7 +143,7 @@ public class JianKangMalllAdapter extends BaseAdapter {
 							context.startActivity(intent);
 						}
 					} catch (Exception e) {
-						// TODO: handle exception
+
 						e.printStackTrace();
 					}
 				}
@@ -166,7 +166,7 @@ public class JianKangMalllAdapter extends BaseAdapter {
 						@Override
 						public void onItemClick(AdapterView<?> arg0, View arg1,
 								int arg2, long arg3) {
-							// TODO Auto-generated method stub
+
 							try {
 								String id = list.get(position).getList().get(arg2).getId();
 								System.out.println("=====id====================="+ id);
@@ -176,7 +176,7 @@ public class JianKangMalllAdapter extends BaseAdapter {
 								context.startActivity(intent);
 
 							} catch (Exception e) {
-								// TODO: handle exception
+
 								e.printStackTrace();
 							}
 						}
@@ -184,7 +184,7 @@ public class JianKangMalllAdapter extends BaseAdapter {
 					addview.addView(vi);
 
 				} catch (Exception e) {
-					// TODO: handle exception
+
 					e.printStackTrace();
 				}
 			}
@@ -193,7 +193,7 @@ public class JianKangMalllAdapter extends BaseAdapter {
 			gridview.setAdapter(MyAdapter2);
 
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 

@@ -104,7 +104,7 @@ public class RechargeMobileActivity extends BaseActivity {
 	class MyHandler extends Handler {
 		@Override
 		public void handleMessage(Message msg) {
-			// TODO Auto-generated method stub
+
 			switch (msg.what) {
 				case 10:
 					sp_mobile_money.setSelection(0);
@@ -411,7 +411,7 @@ public class RechargeMobileActivity extends BaseActivity {
 			@Override
 			public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
 									long arg3) {
-				// TODO Auto-generated method stub
+
 				et_number.setText(listPerson.get(arg2).getAsString(NUMBER).replaceAll(" ", ""));
 				mPopupWindow.dismiss();
 
@@ -665,7 +665,7 @@ public class RechargeMobileActivity extends BaseActivity {
 
 			@Override
 			public void onClick(View arg0) {
-				// TODO Auto-generated method stub
+
 				type = "1";
 				warn();
 			}
@@ -674,7 +674,7 @@ public class RechargeMobileActivity extends BaseActivity {
 
 			@Override
 			public void onClick(View arg0) {
-				// TODO Auto-generated method stub
+
 				type = "";
 				warn();
 			}
@@ -683,7 +683,7 @@ public class RechargeMobileActivity extends BaseActivity {
 
 			@Override
 			public void onClick(View arg0) {
-				// TODO Auto-generated method stub
+
 				type = "2";
 				warn();
 			}
@@ -692,7 +692,7 @@ public class RechargeMobileActivity extends BaseActivity {
 
 			@Override
 			public void onClick(View arg0) {
-				// TODO Auto-generated method stub
+
 				type="5";
 				//				warn();
 				Toast.makeText(getApplicationContext(), "待接入", 200).show();
@@ -724,7 +724,7 @@ public class RechargeMobileActivity extends BaseActivity {
 
 			@Override
 			public void afterTextChanged(Editable s) {
-				// TODO Auto-generated method stub
+
 				mobile_number = et_number.getText().toString();
 			}
 		});
@@ -804,7 +804,7 @@ public class RechargeMobileActivity extends BaseActivity {
 											handler.sendMessage(message);
 										}
 									} catch (JSONException e) {
-										// TODO Auto-generated catch block
+
 										e.printStackTrace();
 									}
 
@@ -826,7 +826,7 @@ public class RechargeMobileActivity extends BaseActivity {
 
 			@Override
 			public void onNothingSelected(AdapterView<?> arg0) {
-				// TODO Auto-generated method stub
+
 
 			}
 		});
@@ -870,7 +870,7 @@ public class RechargeMobileActivity extends BaseActivity {
 											@Override
 											public void onSuccess(int arg0,
 																  String arg1) {
-												// TODO Auto-generated method
+												  method
 												// stub
 												super.onSuccess(arg0, arg1);
 												System.out.println(arg1);
@@ -882,7 +882,7 @@ public class RechargeMobileActivity extends BaseActivity {
 
 													handler.sendEmptyMessage(1);
 												} catch (JSONException e) {
-													// TODO Auto-generated catch
+													  catch
 													// block
 													e.printStackTrace();
 												}
@@ -906,7 +906,7 @@ public class RechargeMobileActivity extends BaseActivity {
 											@Override
 											public void onSuccess(int arg0,
 																  String arg1) {
-												// TODO Auto-generated method
+												  method
 												// stub
 												super.onSuccess(arg0, arg1);
 												System.out.println(arg1);
@@ -954,7 +954,7 @@ public class RechargeMobileActivity extends BaseActivity {
 													}
 													handler.sendEmptyMessage(0);
 												} catch (JSONException e) {
-													// TODO Auto-generated catch
+													  catch
 													// block
 													e.printStackTrace();
 												}
@@ -979,7 +979,7 @@ public class RechargeMobileActivity extends BaseActivity {
 											@Override
 											public void onSuccess(int arg0,
 																  String arg1) {
-												// TODO Auto-generated method
+												  method
 												// stub
 												super.onSuccess(arg0, arg1);
 												System.out.println(arg1);
@@ -998,7 +998,7 @@ public class RechargeMobileActivity extends BaseActivity {
 
 													handler.sendEmptyMessage(5);
 												} catch (JSONException e) {
-													// TODO Auto-generated catch
+													  catch
 													// block
 													e.printStackTrace();
 												}

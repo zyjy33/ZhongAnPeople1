@@ -59,7 +59,7 @@ public class TicketAttornActivity extends BaseActivity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
+
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.ticket_cession);
@@ -84,7 +84,7 @@ public class TicketAttornActivity extends BaseActivity {
 
 			@Override
 			public void onClick(View v) {
-				// TODO Auto-generated method stub
+
 				toname = et_to_name.getText().toString();
 				number = et_cession_num.getText().toString();
 				paypassword = et_paypassword.getText().toString();
@@ -107,7 +107,7 @@ public class TicketAttornActivity extends BaseActivity {
 				AsyncHttp.get(strUrl, new AsyncHttpResponseHandler(){
 					@Override
 					public void onSuccess(int arg0, String arg1) {
-						// TODO Auto-generated method stub
+
 						super.onSuccess(arg0, arg1);
 
 						try {
@@ -119,7 +119,7 @@ public class TicketAttornActivity extends BaseActivity {
 							message.obj = msg;
 							handler.sendMessage(message);
 						} catch (JSONException e) {
-							// TODO Auto-generated catch block
+
 							e.printStackTrace();
 						}
 

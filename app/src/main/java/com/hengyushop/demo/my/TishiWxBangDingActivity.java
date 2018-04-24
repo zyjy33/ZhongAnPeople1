@@ -50,7 +50,7 @@ public class TishiWxBangDingActivity extends Activity implements OnClickListener
 	String oauth_name;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
+
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_tishi_weixin);
 		//		spPreferences = getSharedPreferences("longuserset", MODE_PRIVATE);
@@ -93,7 +93,7 @@ public class TishiWxBangDingActivity extends Activity implements OnClickListener
 	 */
 	@Override
 	public void onClick(View v) {
-		// TODO Auto-generated method stub
+
 
 		intent = new Intent();
 		switch (v.getId()) {
@@ -241,14 +241,14 @@ public class TishiWxBangDingActivity extends Activity implements OnClickListener
 						//								 finish();
 						//							}
 					} catch (JSONException e) {
-						// TODO Auto-generated catch block
+
 						e.printStackTrace();
 					}
 				};
 			}, TishiWxBangDingActivity.this);
 
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 	}

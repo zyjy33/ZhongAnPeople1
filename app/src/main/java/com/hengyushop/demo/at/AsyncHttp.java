@@ -52,7 +52,7 @@ public class AsyncHttp {
 		// new Thread(){
 		// @Override
 		// public void run() {
-		// // TODO Auto-generated method stub
+		//
 		// super.run();
 		// PostBean bean = new PostBean();
 		// bean.setUrl(url);

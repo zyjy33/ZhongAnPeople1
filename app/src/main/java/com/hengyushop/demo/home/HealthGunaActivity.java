@@ -134,7 +134,7 @@ public class HealthGunaActivity extends BaseActivity implements OnClickListener 
 				zaylAdapter.type = false;
 			}
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 
@@ -167,20 +167,20 @@ public class HealthGunaActivity extends BaseActivity implements OnClickListener 
 
 				@Override
 				public void onClick(View arg0) {
-					// TODO Auto-generated method stub
+
 					finish();
 				}
 			});
 
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 	}
 
 	@Override
 	public void onClick(View v) {
-		// TODO Auto-generated method stub
+
 		switch (v.getId()) {
 			case R.id.index_item0:
 				cursor1.setVisibility(View.VISIBLE);
@@ -255,7 +255,7 @@ public class HealthGunaActivity extends BaseActivity implements OnClickListener 
 //						@Override
 //						public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
 //								long arg3) {
-//							// TODO Auto-generated method stub
+//
 //							try {
 //							String id = list_llsc.get(arg2).getId();
 //									 System.out.println("=====id====================="+id);
@@ -264,13 +264,13 @@ public class HealthGunaActivity extends BaseActivity implements OnClickListener 
 //							startActivity(intent);
 //
 //							} catch (Exception e) {
-//								// TODO: handle exception
+//
 //								e.printStackTrace();
 //							}
 //						}
 //					});
 //				} catch (Exception e) {
-//					// TODO Auto-generated catch block
+//
 //					e.printStackTrace();
 //				}
 //				break;
@@ -294,7 +294,7 @@ public class HealthGunaActivity extends BaseActivity implements OnClickListener 
 //					@Override
 //					public void onItemClick(AdapterView<?> arg0, View arg1,
 //							int arg2, long arg3) {
-//						// TODO Auto-generated method stub
+//
 //						System.out.println("arg2====================="+arg2);
 //						String id = list.get(arg2).getId();
 //						System.out.println("====================="+id);
@@ -317,7 +317,7 @@ public class HealthGunaActivity extends BaseActivity implements OnClickListener 
 //				});
 
 					} catch (Exception e) {
-						// TODO: handle exception
+
 						e.printStackTrace();
 					}
 					break;
@@ -336,7 +336,7 @@ public class HealthGunaActivity extends BaseActivity implements OnClickListener 
 				, new AsyncHttpResponseHandler() {
 					@Override
 					public void onSuccess(int arg0, String arg1) {
-						// TODO Auto-generated method stub
+
 						super.onSuccess(arg0, arg1);
 //				System.out.println("=======列表数据================================"+arg1);
 						try {
@@ -373,7 +373,7 @@ public class HealthGunaActivity extends BaseActivity implements OnClickListener 
 										}
 										list.add(data);
 									} catch (Exception e) {
-										// TODO: handle exception
+
 										e.printStackTrace();
 									}
 
@@ -393,7 +393,7 @@ public class HealthGunaActivity extends BaseActivity implements OnClickListener 
 							}
 							load_gridview();
 						} catch (JSONException e) {
-							// TODO Auto-generated catch block
+
 							e.printStackTrace();
 						}
 					}
@@ -408,7 +408,7 @@ public class HealthGunaActivity extends BaseActivity implements OnClickListener 
 //				, new AsyncHttpResponseHandler() {
 //			@Override
 //			public void onSuccess(int arg0, String arg1) {
-//				// TODO Auto-generated method stub
+//
 //				super.onSuccess(arg0, arg1);
 //				System.out.println("=======列表数据================================"+arg1);
 //				try {
@@ -443,14 +443,14 @@ public class HealthGunaActivity extends BaseActivity implements OnClickListener 
 ////
 ////						data_sc1.getList().add(bean_sc2);
 //////						} catch (Exception e) {
-//////							// TODO: handle exception
+//////
 //////							e.printStackTrace();
 //////						}
 ////					   }
 //					list_sc1.add(data_sc1);
 //
 //					} catch (Exception e) {
-//						// TODO: handle exception
+//
 //						e.printStackTrace();
 //					}
 //					}
@@ -465,14 +465,14 @@ public class HealthGunaActivity extends BaseActivity implements OnClickListener 
 //						Toast.makeText(HealthGunaActivity.this, info, 200).show();
 //					}
 //				} catch (JSONException e) {
-//					// TODO Auto-generated catch block
+//
 //					e.printStackTrace();
 //				}
 //			}
 //
 //		}, null);
 //		} catch (Exception e) {
-//			// TODO: handle exception
+//
 //			e.printStackTrace();
 //		}
 //	}
@@ -489,7 +489,7 @@ public class HealthGunaActivity extends BaseActivity implements OnClickListener 
 				new AsyncHttpResponseHandler() {
 					@Override
 					public void onSuccess(int arg0, String arg1) {
-						// TODO Auto-generated method stub
+
 						super.onSuccess(arg0, arg1);
 						System.out.println("症状==================================" + arg1);
 						try {
@@ -522,7 +522,7 @@ public class HealthGunaActivity extends BaseActivity implements OnClickListener 
 							progress.CloseProgress();
 //							loadzhengzhuang();
 						} catch (JSONException e) {
-							// TODO Auto-generated catch block
+
 							e.printStackTrace();
 						}
 					}
@@ -540,7 +540,7 @@ public class HealthGunaActivity extends BaseActivity implements OnClickListener 
 				new AsyncHttpResponseHandler() {
 					@Override
 					public void onSuccess(int arg0,String arg1) {
-						// TODO Auto-generated method stub
+
 						super.onSuccess(arg0, arg1);
 						System.out.println("=====规格数据====================="+arg1);
 
@@ -617,7 +617,7 @@ public class HealthGunaActivity extends BaseActivity implements OnClickListener 
 							}
 
 						} catch (JSONException e) {
-							// TODO Auto-generated catch block
+
 							e.printStackTrace();
 						}
 
@@ -646,7 +646,7 @@ public class HealthGunaActivity extends BaseActivity implements OnClickListener 
 //				new AsyncHttpResponseHandler() {
 //			@Override
 //			public void onSuccess(int arg0, String arg1) {
-//				// TODO Auto-generated method stub
+//
 //				super.onSuccess(arg0, arg1);
 //				System.out.println("=======列表数据================================");
 //				try {
@@ -675,7 +675,7 @@ public class HealthGunaActivity extends BaseActivity implements OnClickListener 
 //					handler.sendEmptyMessage(1);
 //
 //				} catch (JSONException e) {
-//					// TODO Auto-generated catch block
+//
 //					e.printStackTrace();
 //				}
 //			}

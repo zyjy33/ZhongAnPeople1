@@ -193,7 +193,7 @@ public class SymptomsJieShaoActivity extends BaseActivity implements OnClickList
 											startActivity(intent);
 
 										} catch (Exception e) {
-											// TODO: handle exception
+
 											e.printStackTrace();
 										}
 									}
@@ -348,7 +348,7 @@ public class SymptomsJieShaoActivity extends BaseActivity implements OnClickList
 
 
 			} catch (Exception e) {
-				// TODO: handle exception
+
 				e.printStackTrace();
 			}
 			ImageView iv_fanhui = (ImageView) findViewById(R.id.iv_fanhui);
@@ -356,20 +356,20 @@ public class SymptomsJieShaoActivity extends BaseActivity implements OnClickList
 
 				@Override
 				public void onClick(View arg0) {
-					// TODO Auto-generated method stub
+
 					finish();
 				}
 			});
 
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 	}
 
 	@Override
 	public void onClick(View v) {
-		// TODO Auto-generated method stub
+
 		switch (v.getId()) {
 			case R.id.ll_buju1:
 				if (zhuantai1 == false) {

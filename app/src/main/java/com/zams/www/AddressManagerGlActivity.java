@@ -62,7 +62,7 @@ public class AddressManagerGlActivity extends BaseActivity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
+
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.address_manager);
@@ -85,7 +85,7 @@ public class AddressManagerGlActivity extends BaseActivity {
 			// getuseraddress();
 
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 
@@ -94,7 +94,7 @@ public class AddressManagerGlActivity extends BaseActivity {
 
 			@Override
 			public void onClick(View arg0) {
-				// TODO Auto-generated method stub
+
 				finish();
 			}
 		});
@@ -103,7 +103,7 @@ public class AddressManagerGlActivity extends BaseActivity {
 
 			@Override
 			public void onClick(View arg0) {
-				// TODO Auto-generated method stub
+
 				int index = 1;
 				Intent intent = new Intent(AddressManagerGlActivity.this,
 						AddUserAddressActivity.class);
@@ -117,7 +117,7 @@ public class AddressManagerGlActivity extends BaseActivity {
 			@Override
 			public boolean onItemLongClick(AdapterView<?> arg0, View arg1,
 										   int arg2, long arg3) {
-				// TODO Auto-generated method stub
+
 				ID = list.get(arg2).id;
 				dialog(ID);
 				return false;
@@ -127,7 +127,7 @@ public class AddressManagerGlActivity extends BaseActivity {
 
 	@Override
 	protected void onResume() {
-		// TODO Auto-generated method stub
+
 		super.onResume();
 		getuseraddress();
 	}
@@ -144,7 +144,7 @@ public class AddressManagerGlActivity extends BaseActivity {
 				new AsyncHttpResponseHandler() {
 					@Override
 					public void onSuccess(int arg0, String arg1) {
-						// TODO Auto-generated method stub
+
 						super.onSuccess(arg0, arg1);
 						try {
 							JSONObject jsonObject = new JSONObject(arg1);
@@ -186,7 +186,7 @@ public class AddressManagerGlActivity extends BaseActivity {
 							}
 
 						} catch (JSONException e) {
-							// TODO Auto-generated catch block
+
 							progress.CloseProgress();
 							e.printStackTrace();
 						}
@@ -217,7 +217,7 @@ public class AddressManagerGlActivity extends BaseActivity {
 									@Override
 									public void onItemClick(AdapterView<?> arg0,
 															View arg1, int arg2, long arg3) {
-										// TODO Auto-generated method stub
+
 										if (getIntent().hasExtra("order_confrim")) {
 											// 表示是来自订单确认
 											// Intent intent = new Intent();
@@ -248,7 +248,7 @@ public class AddressManagerGlActivity extends BaseActivity {
 								});
 
 					} catch (Exception e) {
-						// TODO: handle exception
+
 						e.printStackTrace();
 					}
 					break;
@@ -281,7 +281,7 @@ public class AddressManagerGlActivity extends BaseActivity {
 				AsyncHttp.get(strUrl, new AsyncHttpResponseHandler() {
 					@Override
 					public void onSuccess(int arg0, String arg1) {
-						// TODO Auto-generated method stub
+
 						System.out.println("====================" + arg1);
 						progress.CloseProgress();
 						super.onSuccess(arg0, arg1);
@@ -293,7 +293,7 @@ public class AddressManagerGlActivity extends BaseActivity {
 
 					@Override
 					public void onFailure(Throwable arg0, String arg1) {
-						// TODO Auto-generated method stub
+
 						super.onFailure(arg0, arg1);
 						System.out.println("1====================" + arg0);
 						System.out.println("2====================" + arg1);

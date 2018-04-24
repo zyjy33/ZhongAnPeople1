@@ -70,7 +70,7 @@ public class JDActivity extends BaseActivity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
+
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.jd_activity);
@@ -105,7 +105,7 @@ public class JDActivity extends BaseActivity {
 
 					@Override
 					public void onItemSelected(AdapterView<?> arg0, View arg1,
-											   int arg2, long arg3) { // TODO Auto-generated
+											   int arg2, long arg3) {
 						city = new JDB(getApplicationContext())
 								.getProvince("select name from TongChengLY_CityList where provinceId =(select provinceId from TongChengLY_ProvinceList where name='"
 										+ province.get(arg2) + "')");
@@ -168,7 +168,7 @@ public class JDActivity extends BaseActivity {
 				new AsyncHttpResponseHandler() {
 					@Override
 					public void onSuccess(int arg0, String arg1) {
-						// TODO Auto-generated method stub
+
 						super.onSuccess(arg0, arg1);
 						try {
 							JSONObject jsonObject = new JSONObject(arg1);

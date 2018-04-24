@@ -30,7 +30,7 @@ public class GouwucheAdapter extends BaseAdapter {
 	TextView tv;
 
 	public GouwucheAdapter(ImageLoader imageLoader) {
-		// TODO Auto-generated constructor stub
+
 		this.imageLoader = imageLoader;
 	}
 
@@ -43,13 +43,13 @@ public class GouwucheAdapter extends BaseAdapter {
 
 	@Override
 	public int getCount() {
-		// TODO Auto-generated method stub
+
 		return datatb1.size();
 	}
 
 	@Override
 	public Object getItem(int position) {
-		// TODO Auto-generated method stub
+
 		return datatb1.get(position);
 	}
 
@@ -59,7 +59,7 @@ public class GouwucheAdapter extends BaseAdapter {
 
 	@Override
 	public long getItemId(int position) {
-		// TODO Auto-generated method stub
+
 		return position;
 	}
 
@@ -67,7 +67,7 @@ public class GouwucheAdapter extends BaseAdapter {
 	public View getView(int position, View convertView, ViewGroup parent) {
 		try {
 
-			// TODO: handle exception
+
 			if (convertView == null) {
 				convertView = LayoutInflater.from(mContext).inflate(
 						R.layout.gridview_item0, parent, false);
@@ -126,7 +126,7 @@ public class GouwucheAdapter extends BaseAdapter {
 
 			tv.setText((String) datatb1.get(position));
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 		return convertView;

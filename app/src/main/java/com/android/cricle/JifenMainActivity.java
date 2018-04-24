@@ -91,7 +91,6 @@ public class JifenMainActivity extends BaseActivity {
 
 							@Override
 							public void onClick(View arg0) {
-								// TODO Auto-generated method stub
 								click();
 							}
 						});
@@ -207,7 +206,6 @@ public class JifenMainActivity extends BaseActivity {
 
 			@Override
 			public void onClick(View arg0) {
-				// TODO Auto-generated method stub
 				mPopupWindow.dismiss();
 			}
 		});

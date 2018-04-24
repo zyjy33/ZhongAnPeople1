@@ -88,7 +88,7 @@ public class GoodCheckActivity extends BaseActivity {
 				new AsyncHttpResponseHandler() {
 					@Override
 					public void onSuccess(int arg0, String arg1) {
-						// TODO Auto-generated method stub
+
 						super.onSuccess(arg0, arg1);
 						System.out.println(arg1);
 						parseDataToUI(arg1);
@@ -209,7 +209,7 @@ public class GoodCheckActivity extends BaseActivity {
 			}
 
 		} catch (JSONException e) {
-			// TODO Auto-generated catch block
+
 			e.printStackTrace();
 		}
 		addSubmit();
@@ -323,7 +323,7 @@ public class GoodCheckActivity extends BaseActivity {
 					new AsyncHttpResponseHandler() {
 						@Override
 						public void onSuccess(int arg0, String arg1) {
-							// TODO Auto-generated method stub
+
 							super.onSuccess(arg0, arg1);
 							System.out.println(arg1);
 							try {
@@ -334,7 +334,7 @@ public class GoodCheckActivity extends BaseActivity {
 								msg.obj = smg;
 								handler.sendMessage(msg);
 							} catch (JSONException e) {
-								// TODO Auto-generated catch block
+
 								e.printStackTrace();
 							}
 						}
@@ -474,7 +474,7 @@ public class GoodCheckActivity extends BaseActivity {
 
 				@Override
 				public void onCheckedChanged(CompoundButton arg0, boolean arg1) {
-					// TODO Auto-generated method stub
+
 					if (arg1) {
 						arrayList.add(button);
 					} else {
@@ -530,7 +530,7 @@ public class GoodCheckActivity extends BaseActivity {
 			@Override
 			public void onRatingChanged(RatingBar ratingBar, float rating,
 										boolean fromUser) {
-				// TODO Auto-generated method stub
+
 				textView.setText(list.get((int) rating - 1).getContent());
 				System.out.println("button-->"
 						+ list.get((int) rating - 1).getContent());
@@ -570,7 +570,7 @@ public class GoodCheckActivity extends BaseActivity {
 			editTextData.setOnClickListener(new OnClickListener() {
 				@Override
 				public void onClick(View arg0) {
-					// TODO Auto-generated method stub
+
 					dialogView = (CalendarPickerView) getLayoutInflater()
 							.inflate(R.layout.dialog, null, false);
 					final Calendar nextYear = Calendar.getInstance();
@@ -642,20 +642,20 @@ public class GoodCheckActivity extends BaseActivity {
 				@Override
 				public void onTextChanged(CharSequence arg0, int arg1,
 										  int arg2, int arg3) {
-					// TODO Auto-generated method stub
+
 
 				}
 
 				@Override
 				public void beforeTextChanged(CharSequence arg0, int arg1,
 											  int arg2, int arg3) {
-					// TODO Auto-generated method stub
+
 
 				}
 
 				@Override
 				public void afterTextChanged(Editable arg0) {
-					// TODO Auto-generated method stub
+
 					vDo.setContent(arg0.toString());
 					editText.setTag(vDo);
 					if (arrayList.contains(editText)) {
@@ -681,20 +681,20 @@ public class GoodCheckActivity extends BaseActivity {
 				@Override
 				public void onTextChanged(CharSequence s, int start,
 										  int before, int count) {
-					// TODO Auto-generated method stub
+
 
 				}
 
 				@Override
 				public void beforeTextChanged(CharSequence s, int start,
 											  int count, int after) {
-					// TODO Auto-generated method stub
+
 
 				}
 
 				@Override
 				public void afterTextChanged(Editable s) {
-					// TODO Auto-generated method stub
+
 					vDo.setContent(s.toString());
 					editText.setTag(vDo);
 					if (arrayList.contains(editText)) {

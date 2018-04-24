@@ -17,7 +17,7 @@ public class MyBaiduApp extends Application {
     public static final String strKey = "2621E561945597BBE213F4208E2CAAB74DA1B57F";
     @Override
     public void onCreate() {
-        // TODO Auto-generated method stub
+
         super.onCreate();
         mInstance = this;
         initEngineManager(this);

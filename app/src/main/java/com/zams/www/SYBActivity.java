@@ -107,7 +107,7 @@ public class SYBActivity extends BaseActivity{
 
 	//	@Override
 	//	protected void onResume() {
-	//		// TODO Auto-generated method stub
+	//
 	//		super.onResume();
 	//	}
 	public void inter() {
@@ -142,14 +142,14 @@ public class SYBActivity extends BaseActivity{
 
 				@Override
 				public void onClick(View arg0) {
-					// TODO Auto-generated method stub
+
 					int num = Integer.parseInt(market_information_seps_num
 							.getText().toString());
 					market_information_seps_num.setText(String.valueOf(num + 1));
 				}
 			});
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 
@@ -159,7 +159,7 @@ public class SYBActivity extends BaseActivity{
 
 				@Override
 				public void onClick(View arg0) {
-					// TODO Auto-generated method stub
+
 					int num = Integer.parseInt(market_information_seps_num
 							.getText().toString());
 					if (num != 1) {
@@ -172,7 +172,7 @@ public class SYBActivity extends BaseActivity{
 			});
 
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 
@@ -239,7 +239,7 @@ public class SYBActivity extends BaseActivity{
 								}
 							}
 						} catch (Exception e) {
-							// TODO: handle exception
+
 							e.printStackTrace();
 						}
 					}
@@ -272,7 +272,7 @@ public class SYBActivity extends BaseActivity{
 				"&article_id="+article_id+"&goods_id="+goods_id+"&quantity="+geshu+"",new AsyncHttpResponseHandler() {
 			@Override
 			public void onSuccess(int arg0,String arg1) {
-				// TODO Auto-generated method stub
+
 				super.onSuccess(arg0, arg1);
 				try {
 					JSONObject jsonObject = new JSONObject(arg1);
@@ -282,14 +282,14 @@ public class SYBActivity extends BaseActivity{
 					Toast.makeText(getApplicationContext(), info, 200).show();
 					finish();
 				} catch (JSONException e) {
-					// TODO Auto-generated catch block
+
 					e.printStackTrace();
 				}
 
 			}
 			@Override
 			public void onFailure(Throwable arg0, String arg1) {
-				// TODO Auto-generated method stub
+
 				System.out.println("==========================访问接口失败！");
 				System.out.println("========================="+arg0);
 				System.out.println("=========================="+arg1);
@@ -312,7 +312,7 @@ public class SYBActivity extends BaseActivity{
 				new AsyncHttpResponseHandler() {
 					@Override
 					public void onSuccess(int arg0,String arg1) {
-						// TODO Auto-generated method stub
+
 						super.onSuccess(arg0, arg1);
 						System.out.println("=====规格数据====================="+arg1);
 						Message msg = new Message();
@@ -450,7 +450,7 @@ public class SYBActivity extends BaseActivity{
 
 
 		} catch (JSONException e) {
-			// TODO Auto-generated catch block
+
 			e.printStackTrace();
 		}
 	}
@@ -497,7 +497,7 @@ public class SYBActivity extends BaseActivity{
 		private ImageLoader imageLoader;
 
 		public GuiGeListviewAdapter (ImageLoader imageLoader) {
-			// TODO Auto-generated constructor stub
+
 			this.imageLoader = imageLoader;
 		}
 
@@ -519,7 +519,7 @@ public class SYBActivity extends BaseActivity{
 				this.context = context;
 				Log.i("data1", data1+"");
 			} catch (Exception e) {
-				// TODO: handle exception
+
 				e.printStackTrace();
 			}
 		}
@@ -576,7 +576,7 @@ public class SYBActivity extends BaseActivity{
 		}
 		@Override
 		public View getView(int position, View convertView, ViewGroup parent) {
-			// TODO Auto-generated method stub
+
 			try {
 
 				ViewHolder1 holder1 = null;
@@ -663,7 +663,7 @@ public class SYBActivity extends BaseActivity{
 									}
 									System.out.println("11/////////////////////////////////////////////////");
 								} catch (Exception e) {
-									// TODO: handle exception
+
 									e.printStackTrace();
 								}
 							}
@@ -700,13 +700,13 @@ public class SYBActivity extends BaseActivity{
 										}
 										System.out.println("22/////////////////////////////////////////////////");
 									} catch (Exception e) {
-										// TODO: handle exception
+
 										e.printStackTrace();
 									}
 								}
 							});
 						} catch (Exception e) {
-							// TODO: handle exception
+
 							e.printStackTrace();
 						}
 						break;
@@ -750,7 +750,7 @@ public class SYBActivity extends BaseActivity{
 
 									//						}
 								} catch (Exception e) {
-									// TODO: handle exception
+
 									e.printStackTrace();
 								}
 							}
@@ -761,7 +761,7 @@ public class SYBActivity extends BaseActivity{
 				}
 
 			} catch (Exception e) {
-				// TODO: handle exception
+
 				e.printStackTrace();
 			}
 			return convertView;

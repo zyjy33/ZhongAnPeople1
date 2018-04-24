@@ -30,7 +30,7 @@ public class MianDuiMianSySActivity extends BaseActivity implements
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
+
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_mainduimian_sys);
@@ -49,7 +49,7 @@ public class MianDuiMianSySActivity extends BaseActivity implements
 
 			intren();
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 	}
@@ -71,21 +71,21 @@ public class MianDuiMianSySActivity extends BaseActivity implements
 			iv_fanhui.setOnClickListener(this);
 
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 	}
 
 	@Override
 	public void onClick(View v) {
-		// TODO Auto-generated method stub
+
 
 		switch (v.getId()) {
 			case R.id.iv_fanhui:
 				try {
 					finish();
 				} catch (Exception e) {
-					// TODO: handle exception
+
 					e.printStackTrace();
 				}
 				break;

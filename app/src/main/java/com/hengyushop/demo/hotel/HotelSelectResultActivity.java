@@ -137,10 +137,10 @@ public class HotelSelectResultActivity extends BaseActivity {
 				event = parser.next();
 			}
 		} catch (XmlPullParserException e) {
-			// TODO Auto-generated catch block
+
 			e.printStackTrace();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
+
 			e.printStackTrace();
 		}
 		return hotelItems;
@@ -148,7 +148,7 @@ public class HotelSelectResultActivity extends BaseActivity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
+
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.hotel_select_result);
@@ -174,7 +174,7 @@ public class HotelSelectResultActivity extends BaseActivity {
 
 			@Override
 			public void run() {
-				// TODO Auto-generated method stub
+
 				Bundle bundle = getIntent().getExtras();
 				String city = bundle.getString("city");
 				HttpAccessAdapter httpAdapter = new HttpAccessAdapter();

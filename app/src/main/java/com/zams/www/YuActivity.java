@@ -52,7 +52,7 @@ public class YuActivity extends BaseActivity{
 	private String key;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
+
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.yu_chongzhi);
@@ -73,7 +73,7 @@ public class YuActivity extends BaseActivity{
 
 			@Override
 			public void onClick(View arg0) {
-				// TODO Auto-generated method stub
+
 				if(yu_pay_c1.isChecked()){
 					yu_pay_c1.setChecked(false);
 				}
@@ -84,7 +84,7 @@ public class YuActivity extends BaseActivity{
 
 			@Override
 			public void onClick(View arg0) {
-				// TODO Auto-generated method stub
+
 				if(yu_pay_c1.isChecked()){
 					//点击设置是否为点击状态
 					yu_pay_c1.setChecked(false);
@@ -96,7 +96,7 @@ public class YuActivity extends BaseActivity{
 
 			@Override
 			public void onClick(View arg0) {
-				// TODO Auto-generated method stub
+
 				if(yu_pay_c0.isChecked()){
 					yu_pay_c0.setChecked(false);
 				}
@@ -107,7 +107,7 @@ public class YuActivity extends BaseActivity{
 
 			@Override
 			public void onClick(View arg0) {
-				// TODO Auto-generated method stub
+
 				if(yu_pay_c0.isChecked()){
 					yu_pay_c0.setChecked(false);
 				}
@@ -154,7 +154,7 @@ public class YuActivity extends BaseActivity{
 		AsyncHttp.post(RealmName.REALM_NAME+"/mi/receiveOrderInfo_business.ashx", params, new AsyncHttpResponseHandler(){
 			@Override
 			public void onSuccess(int arg0, String arg1) {
-				// TODO Auto-generated method stub
+
 				super.onSuccess(arg0, arg1);
 				try {
 					JSONObject object = new JSONObject(arg1);
@@ -162,7 +162,7 @@ public class YuActivity extends BaseActivity{
 					handler.sendEmptyMessage(1);
 					System.out.println(orderSerialNumber);
 				} catch (JSONException e) {
-					// TODO Auto-generated catch block
+
 					e.printStackTrace();
 				}
 			}
@@ -183,9 +183,9 @@ public class YuActivity extends BaseActivity{
 		AsyncHttp.post(RealmName.REALM_NAME+"/mi/receiveOrderInfo_business.ashx", params, new AsyncHttpResponseHandler(){
 			@Override
 			public void onSuccess(int arg0, String arg1) {
-				// TODO Auto-generated method stub
 
-				// TODO Auto-generated method stub
+
+
 				super.onSuccess(arg0, arg1);
 				try {
 					JSONObject jsonObject = new JSONObject(arg1);
@@ -200,7 +200,7 @@ public class YuActivity extends BaseActivity{
 						handler.sendEmptyMessage(2);
 					}
 				} catch (JSONException e) {
-					// TODO Auto-generated catch block
+
 					e.printStackTrace();
 				}
 

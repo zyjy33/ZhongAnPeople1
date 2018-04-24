@@ -23,7 +23,7 @@ public class LglotteryListAdapter extends BaseAdapter {
 
 	public LglotteryListAdapter(Context context,
 								ArrayList<Lglottery_Item> list, Handler handler) {
-		// TODO Auto-generated constructor stub
+
 		this.list = list;
 		this.handler = handler;
 		this.context = context;
@@ -36,25 +36,25 @@ public class LglotteryListAdapter extends BaseAdapter {
 
 	@Override
 	public int getCount() {
-		// TODO Auto-generated method stub
+
 		return list.size();
 	}
 
 	@Override
 	public Object getItem(int arg0) {
-		// TODO Auto-generated method stub
+
 		return null;
 	}
 
 	@Override
 	public long getItemId(int arg0) {
-		// TODO Auto-generated method stub
+
 		return arg0;
 	}
 
 	@Override
 	public View getView(final int position, View view, ViewGroup arg2) {
-		// TODO Auto-generated method stub
+
 		final ViewHolder holder;
 		if (view == null) {
 			holder = new ViewHolder();
@@ -74,7 +74,7 @@ public class LglotteryListAdapter extends BaseAdapter {
 
 			@Override
 			public void onClick(View arg0) {
-				// TODO Auto-generated method stub
+
 				Message msg = new Message();
 				msg.obj = list.get(position);
 				msg.what = 1;

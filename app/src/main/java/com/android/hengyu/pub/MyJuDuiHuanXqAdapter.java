@@ -61,13 +61,13 @@ public class MyJuDuiHuanXqAdapter extends BaseAdapter {
 
 	@Override
 	public Object getItem(int position) {
-		// TODO Auto-generated method stub
+
 		return list.get(position);
 	}
 
 	@Override
 	public long getItemId(int position) {
-		// TODO Auto-generated method stub
+
 		return position;
 	}
 
@@ -95,7 +95,7 @@ public class MyJuDuiHuanXqAdapter extends BaseAdapter {
 
 	@Override
 	public View getView(final int position, View convertView, ViewGroup patent) {
-		// TODO Auto-generated method stub
+
 		ViewHolder holder = null;
 		holder = new ViewHolder();
 		if (convertView == null) {
@@ -163,7 +163,7 @@ public class MyJuDuiHuanXqAdapter extends BaseAdapter {
 					}
 
 				} catch (Exception e) {
-					// TODO: handle exception
+
 					e.printStackTrace();
 				}
 
@@ -204,7 +204,7 @@ public class MyJuDuiHuanXqAdapter extends BaseAdapter {
 						holder.tv_zongjia.setText("￥"+list.get(position).getExchange_price_total());
 
 					} catch (Exception e) {
-						// TODO: handle exception
+
 						e.printStackTrace();
 					}
 
@@ -246,7 +246,7 @@ public class MyJuDuiHuanXqAdapter extends BaseAdapter {
 
 
 			} catch (Exception e) {
-				// TODO: handle exception
+
 				e.printStackTrace();
 			}
 

@@ -165,7 +165,7 @@ public class NewWareMallActivity extends BaseActivity implements
 				@Override
 				public boolean onEditorAction(TextView arg0, int arg1,
 											  KeyEvent arg2) {
-					// TODO Auto-generated method stub
+
 					if (arg1 == EditorInfo.IME_ACTION_SEARCH) {
 
 						// Toast.makeText(NewWare.this,"呵呵",Toast.LENGTH_SHORT).show();
@@ -186,7 +186,7 @@ public class NewWareMallActivity extends BaseActivity implements
 				img_shared.setBackgroundResource(R.drawable.liebiao_pl);
 				gridView_list = (MyGridView) findViewById(R.id.gridView_list);
 			} catch (Exception e) {
-				// TODO: handle exception
+
 				e.printStackTrace();
 			}
 			img_shared.setOnClickListener(new OnClickListener() {
@@ -220,7 +220,7 @@ public class NewWareMallActivity extends BaseActivity implements
 										getApplicationContext());
 								gridView_list.setAdapter(jdhadapter);
 							} catch (Exception e) {
-								// TODO: handle exception
+
 								e.printStackTrace();
 							}
 						} else {
@@ -235,12 +235,12 @@ public class NewWareMallActivity extends BaseActivity implements
 										NewWareMallActivity.this, imageLoader);
 								new_list.setAdapter(myadapter);
 							} catch (Exception e) {
-								// TODO: handle exception
+
 								e.printStackTrace();
 							}
 						}
 					} catch (Exception e) {
-						// TODO: handle exception
+
 						e.printStackTrace();
 					}
 
@@ -248,7 +248,7 @@ public class NewWareMallActivity extends BaseActivity implements
 			});
 
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 		lists = new ArrayList<SpListData>();
@@ -272,7 +272,7 @@ public class NewWareMallActivity extends BaseActivity implements
 
 			@Override
 			public void onClick(View arg0) {
-				// TODO Auto-generated method stub
+
 				finish();
 			}
 		});
@@ -280,13 +280,13 @@ public class NewWareMallActivity extends BaseActivity implements
 	}
 
 	// public void uncaughtException(Thread arg0, Throwable arg1) {
-	// // TODO Auto-generated method stub
+	//
 	// //在此处理异常， arg1即为捕获到的异常
 	// Log.i("AAA", "uncaughtException   " + arg1);
 	// }
 	@Override
 	public void onResume() {
-		// TODO Auto-generated method stub
+
 		super.onResume();
 		// loadWeather();
 		if (LieBiaoActivity.title_id != null) {
@@ -337,7 +337,7 @@ public class NewWareMallActivity extends BaseActivity implements
 						@Override
 						public void onItemClick(AdapterView<?> arg0, View arg1,
 												int arg2, long arg3) {
-							// TODO Auto-generated method stub
+
 							String id = lists.get(arg2).getId();
 							System.out.println("=====================" + id);
 							Intent intent = new Intent(NewWareMallActivity.this,WareInformationActivity.class);
@@ -360,7 +360,7 @@ public class NewWareMallActivity extends BaseActivity implements
 						@Override
 						public void onItemClick(AdapterView<?> arg0, View arg1,
 												int arg2, long arg3) {
-							// TODO Auto-generated method stub
+
 							String id = lists.get(arg2).getId();
 							System.out.println("=====================" + id);
 							Intent intent = new Intent(NewWareMallActivity.this,
@@ -390,7 +390,7 @@ public class NewWareMallActivity extends BaseActivity implements
 								new AsyncHttpResponseHandler() {
 									@Override
 									public void onSuccess(int arg0, String arg1) {
-										// TODO Auto-generated method stub
+
 										super.onSuccess(arg0, arg1);
 										formatWeatherll(arg1);
 
@@ -456,7 +456,6 @@ public class NewWareMallActivity extends BaseActivity implements
 																		public void onSuccess(
 																				int arg0,
 																				String arg1) {
-																			// TODO
 																			// Auto-generated
 																			// method
 																			// stub
@@ -509,13 +508,13 @@ public class NewWareMallActivity extends BaseActivity implements
 											}
 
 										} catch (Exception e) {
-											// TODO Auto-generated catch block
+
 											e.printStackTrace();
 										}
 									}
 								});
 					} catch (Exception e) {
-						// TODO Auto-generated catch block
+
 						e.printStackTrace();
 					}
 					break;
@@ -526,7 +525,7 @@ public class NewWareMallActivity extends BaseActivity implements
 						@Override
 						public void onItemClick(AdapterView<?> arg0, View arg1,
 												int arg2, long arg3) {
-							// TODO Auto-generated method stub
+
 							Intent intent = new Intent(NewWareMallActivity.this,
 									WareInformationActivity.class);
 							intent.putExtra("id", datas.get(arg2).id);
@@ -548,7 +547,7 @@ public class NewWareMallActivity extends BaseActivity implements
 				new AsyncHttpResponseHandler() {
 					@Override
 					public void onSuccess(int arg0, String arg1) {
-						// TODO Auto-generated method stub
+
 						super.onSuccess(arg0, arg1);
 						formatWeather(arg1);
 					}
@@ -579,7 +578,7 @@ public class NewWareMallActivity extends BaseActivity implements
 			// System.out.println("=======22==");
 			// handler.sendEmptyMessage(100);
 		} catch (JSONException e) {
-			// TODO Auto-generated catch block
+
 			e.printStackTrace();
 		}
 
@@ -656,7 +655,7 @@ public class NewWareMallActivity extends BaseActivity implements
 				// arrayadapter.notifyDataSetChanged();
 				//
 				// } catch (Exception e) {
-				// // TODO: handle exception
+				//
 				// }
 				// }
 				// });
@@ -669,7 +668,7 @@ public class NewWareMallActivity extends BaseActivity implements
 			}
 
 		} catch (JSONException e) {
-			// TODO Auto-generated catch block
+
 			e.printStackTrace();
 		}
 	}
@@ -681,7 +680,7 @@ public class NewWareMallActivity extends BaseActivity implements
 
 		@Override
 		public void onHeaderRefresh(PullToRefreshView view) {
-			// TODO Auto-generated method stub
+
 			refresh.postDelayed(new Runnable() {
 
 				@Override
@@ -699,7 +698,7 @@ public class NewWareMallActivity extends BaseActivity implements
 
 		@Override
 		public void onFooterRefresh(PullToRefreshView view) {
-			// TODO Auto-generated method stub
+
 			refresh.postDelayed(new Runnable() {
 
 				@Override
@@ -710,7 +709,7 @@ public class NewWareMallActivity extends BaseActivity implements
 						refresh.onFooterRefreshComplete();
 
 					} catch (Exception e) {
-						// TODO: handle exception
+
 						e.printStackTrace();
 					}
 				}
@@ -741,7 +740,7 @@ public class NewWareMallActivity extends BaseActivity implements
 				new AsyncHttpResponseHandler() {
 					@Override
 					public void onSuccess(int arg0, String arg1) {
-						// TODO Auto-generated method stub
+
 						super.onSuccess(arg0, arg1);
 						// System.out.println("=====================三级值"+arg1);
 						try {
@@ -793,7 +792,7 @@ public class NewWareMallActivity extends BaseActivity implements
 							}
 							progress.CloseProgress();
 						} catch (JSONException e) {
-							// TODO Auto-generated catch block
+
 							e.printStackTrace();
 						}
 					}
@@ -802,7 +801,7 @@ public class NewWareMallActivity extends BaseActivity implements
 
 	@Override
 	public void onClick(View v) {
-		// TODO Auto-generated method stub
+
 
 	}
 
@@ -837,7 +836,7 @@ public class NewWareMallActivity extends BaseActivity implements
 
 		@Override
 		public Object getItem(int position) {
-			// TODO Auto-generated method stub
+
 			return List_lb.get(position);
 		}
 
@@ -896,7 +895,7 @@ public class NewWareMallActivity extends BaseActivity implements
 				}
 
 			} catch (Exception e) {
-				// TODO: handle exception
+
 				e.printStackTrace();
 			}
 			return convertView;
@@ -967,7 +966,7 @@ public class NewWareMallActivity extends BaseActivity implements
 				mPopupWindow.showAtLocation(view, Gravity.CENTER, 0, 0);
 
 			} catch (Exception e) {
-				// TODO: handle exception
+
 				e.printStackTrace();
 			}
 		}
@@ -1002,7 +1001,7 @@ public class NewWareMallActivity extends BaseActivity implements
 			myGridView.setNumColumns(size);// 动态设置GridView列数
 
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 	}
@@ -1022,7 +1021,7 @@ public class NewWareMallActivity extends BaseActivity implements
 				new AsyncHttpResponseHandler() {
 					@Override
 					public void onSuccess(int arg0, String arg1) {
-						// TODO Auto-generated method stub
+
 						super.onSuccess(arg0, arg1);
 						parse2(arg1);
 					}
@@ -1060,7 +1059,7 @@ public class NewWareMallActivity extends BaseActivity implements
 				CURRENT_NUM = CURRENT_NUM + VIEW_NUM;
 			}
 		} catch (JSONException e) {
-			// TODO Auto-generated catch block
+
 			e.printStackTrace();
 		}
 	}

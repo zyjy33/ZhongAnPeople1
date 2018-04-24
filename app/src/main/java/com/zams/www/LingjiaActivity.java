@@ -108,7 +108,7 @@ public class LingjiaActivity extends BaseActivity {
 						@Override
 						public void onItemClick(AdapterView<?> arg0, View arg1,
 												int arg2, long arg3) {
-							// TODO Auto-generated method stub
+
 							Intent intent = new Intent(LingjiaActivity.this,
 									WareInformationActivity.class);
 							intent.putExtra("id",
@@ -135,7 +135,7 @@ public class LingjiaActivity extends BaseActivity {
 				new AsyncHttpResponseHandler() {
 					@Override
 					public void onSuccess(int arg0, String arg1) {
-						// TODO Auto-generated method stub
+
 						super.onSuccess(arg0, arg1);
 						try {
 							JSONObject jsonObject = new JSONObject(arg1);
@@ -163,7 +163,7 @@ public class LingjiaActivity extends BaseActivity {
 							msg.obj = list;
 							handler.sendMessage(msg);
 						} catch (JSONException e) {
-							// TODO Auto-generated catch block
+
 							e.printStackTrace();
 						}
 					}
@@ -189,14 +189,14 @@ public class LingjiaActivity extends BaseActivity {
 
 					@Override
 					public void onFailure(Throwable arg0) {
-						// TODO Auto-generated method stub
+
 						super.onFailure(arg0);
 						System.out.println(arg0);
 					}
 
 					@Override
 					public void onSuccess(int arg0, String arg1) {
-						// TODO Auto-generated method stub
+
 						super.onSuccess(arg0, arg1);
 
 						System.out.println("结果" + arg1);
@@ -220,7 +220,7 @@ public class LingjiaActivity extends BaseActivity {
 							msg.what = 0;
 							handler.sendMessage(msg);
 						} catch (JSONException e) {
-							// TODO Auto-generated catch block
+
 							e.printStackTrace();
 						}
 

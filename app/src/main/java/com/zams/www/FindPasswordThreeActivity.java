@@ -34,7 +34,7 @@ public class FindPasswordThreeActivity extends BaseActivity implements
 
 	@Override
 	public void onClick(View v) {
-		// TODO Auto-generated method stub
+
 
 	}
 

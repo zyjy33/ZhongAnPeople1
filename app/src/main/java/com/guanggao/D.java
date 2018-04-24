@@ -15,11 +15,11 @@ public class D extends BaseActivity{
 		 /*CountDownTimer timer = new CountDownTimer(3000,100) {
 			@Override
 			public void onTick(long arg0) {
-				// TODO Auto-generated method stub
+
 			}
 			@Override
 			public void onFinish() {
-				// TODO Auto-generated method stub
+
 				AppManager.getAppManager().finishAllActivity();
 			}
 		};

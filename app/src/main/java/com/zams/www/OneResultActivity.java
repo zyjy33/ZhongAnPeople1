@@ -48,7 +48,7 @@ public class OneResultActivity extends BaseActivity{
 	private TextView jiexiao;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
+
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.one_result_activity);

@@ -28,7 +28,7 @@ public class HelpActivity extends BaseActivity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
+
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.hengyu_help);
@@ -40,7 +40,7 @@ public class HelpActivity extends BaseActivity {
 			@Override
 			public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
 									long arg3) {
-				// TODO Auto-generated method stub
+
 				list_type = list.get(arg2).get("txt");
 				Toast.makeText(getApplicationContext(), list_type, 200).show();
 				if (list_type.equals("意见反馈")) {

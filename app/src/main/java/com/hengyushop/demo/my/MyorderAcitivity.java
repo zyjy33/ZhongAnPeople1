@@ -59,7 +59,7 @@ public class MyorderAcitivity extends FragmentActivity{
 
 		@Override
 		public void onClick(View v) {
-			// TODO Auto-generated method stub
+
 			intent = new Intent();
 			switch (v.getId()) {
 //		  case R.id.bt_left:// 返回
@@ -71,8 +71,8 @@ public class MyorderAcitivity extends FragmentActivity{
 }
 //	@Override
 //	public void onClick(View v) {
-//		// TODO Auto-generated method stub
-//	// TODO Auto-generated method stub
+//
+//
 //		
 //		intent = new Intent();
 //		switch (v.getId()) {
@@ -101,13 +101,13 @@ public class MyorderAcitivity extends FragmentActivity{
 			
 			@Override
 			public void onClick(View arg0) {
-				// TODO Auto-generated method stub
+
 				finish();
 			}
 		});
 		
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 	}
@@ -135,7 +135,7 @@ public class MyorderAcitivity extends FragmentActivity{
 		viewPager.setCurrentItem(0);
 		viewPager.setOnPageChangeListener(new MyOnPageChangeListener());
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 	}
@@ -177,7 +177,7 @@ public class MyorderAcitivity extends FragmentActivity{
 		yiwancheng.setOnClickListener(new MyOnClickListener(4));
 //		button.setOnClickListener(new MyOnItemClickListener());
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 	}

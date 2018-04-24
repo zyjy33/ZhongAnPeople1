@@ -24,7 +24,7 @@ public class YangHuzsAdapter extends BaseAdapter {
 	private ImageLoader imageLoader;
 
 	public YangHuzsAdapter(ImageLoader imageLoader) {
-		// TODO Auto-generated constructor stub
+
 		this.imageLoader = imageLoader;
 	}
 
@@ -37,19 +37,19 @@ public class YangHuzsAdapter extends BaseAdapter {
 
 	@Override
 	public int getCount() {
-		// TODO Auto-generated method stub
+
 		return datatb1.size();
 	}
 
 	@Override
 	public Object getItem(int position) {
-		// TODO Auto-generated method stub
+
 		return datatb1.get(position);
 	}
 
 	@Override
 	public long getItemId(int position) {
-		// TODO Auto-generated method stub
+
 		return position;
 	}
 

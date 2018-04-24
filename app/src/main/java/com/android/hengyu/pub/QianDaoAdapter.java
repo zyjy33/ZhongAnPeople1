@@ -27,7 +27,7 @@ public class QianDaoAdapter extends BaseAdapter {
 	public static String trade_no,article_id;
 	public QianDaoAdapter(ArrayList<XsgyListData> list,
 						  Context context, Handler handler) {
-		// TODO Auto-generated constructor stub
+
 		this.context = context;
 		this.handler = handler;
 		this.list = list;
@@ -40,22 +40,22 @@ public class QianDaoAdapter extends BaseAdapter {
 	//	}
 
 	public int getCount() {
-		// TODO Auto-generated method stub
+
 		return list.size();
 	}
 
 	public Object getItem(int position) {
-		// TODO Auto-generated method stub
+
 		return position;
 	}
 
 	public long getItemId(int position) {
-		// TODO Auto-generated method stub
+
 		return position;
 	}
 
 	public View getView(final int position, View convertView, ViewGroup parent) {
-		// TODO Auto-generated method stub
+
 		if (convertView == null) {
 			// convertView =
 			// LinearLayout.inflate(context,R.layout.listitem_xsgy, null);
@@ -77,7 +77,7 @@ public class QianDaoAdapter extends BaseAdapter {
 
 			@Override
 			public void onClick(View arg0) {
-				// TODO Auto-generated method stub
+
 				System.out.println("list.get(position).trade_no================================="+list.get(position).trade_no);
 				//					baomingqueren(list.get(position).trade_no);
 				//			    	Intent intent = new Intent(context,TishiBaoMinQianDaoActivity.class);
@@ -135,7 +135,7 @@ public class QianDaoAdapter extends BaseAdapter {
 	//
 	//					@Override
 	//					public void onFailure(Throwable arg0, String arg1) {
-	//						// TODO Auto-generated method stub
+	//
 	//						super.onFailure(arg0, arg1);
 	//						System.out.println("异常================================="+arg1);
 	////						Toast.makeText(DianZiPiaoActivity.this, "异常", 200).show();
@@ -143,7 +143,7 @@ public class QianDaoAdapter extends BaseAdapter {
 	//				}, null);
 	//
 	//		} catch (Exception e) {
-	//			// TODO: handle exception
+	//
 	//			e.printStackTrace();
 	//		}
 	//	}
@@ -179,7 +179,7 @@ public class QianDaoAdapter extends BaseAdapter {
 	//
 	//					@Override
 	//					public void onFailure(Throwable arg0, String arg1) {
-	//						// TODO Auto-generated method stub
+	//
 	//						super.onFailure(arg0, arg1);
 	//						System.out.println("异常================================="+arg1);
 	////						Toast.makeText(DianZiPiaoActivity.this, "网络超时异常", 200).show();
@@ -187,7 +187,7 @@ public class QianDaoAdapter extends BaseAdapter {
 	//				}, null);
 	//
 	//		} catch (Exception e) {
-	//			// TODO: handle exception
+	//
 	//			e.printStackTrace();
 	//		}
 	//	}

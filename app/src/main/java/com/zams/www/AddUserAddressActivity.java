@@ -87,7 +87,7 @@ public class AddUserAddressActivity extends BaseActivity {
 	SlipButton sb;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
+
 		try {
 
 			super.onCreate(savedInstanceState);
@@ -114,7 +114,7 @@ public class AddUserAddressActivity extends BaseActivity {
 
 			//			spinnerData();
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 	}
@@ -204,7 +204,7 @@ public class AddUserAddressActivity extends BaseActivity {
 					try {
 
 					} catch (Exception e) {
-						// TODO: handle exception
+
 						e.printStackTrace();
 					}
 					is_default = 1;
@@ -221,7 +221,7 @@ public class AddUserAddressActivity extends BaseActivity {
 
 			@Override
 			public void onClick(View arg0) {
-				// TODO Auto-generated method stub
+
 				View view = dialogm();
 				final MyAlertDialog dialog1 = new MyAlertDialog(
 						AddUserAddressActivity.this).builder()
@@ -247,7 +247,7 @@ public class AddUserAddressActivity extends BaseActivity {
 
 			@Override
 			public void onClick(View arg0) {
-				// TODO Auto-generated method stub
+
 				finish();
 			}
 		});
@@ -257,7 +257,7 @@ public class AddUserAddressActivity extends BaseActivity {
 
 			@Override
 			public void onClick(View v) {
-				// TODO Auto-generated method stub
+
 				name = et_username.getText().toString();
 				phone = et_userphone.getText().toString();
 				address = et_address.getText().toString();
@@ -319,7 +319,7 @@ public class AddUserAddressActivity extends BaseActivity {
 									handler.sendMessage(message2);
 								}
 							} catch (JSONException e) {
-								// TODO Auto-generated catch block
+
 								e.printStackTrace();
 							}
 						};
@@ -478,7 +478,7 @@ public class AddUserAddressActivity extends BaseActivity {
 			@Override
 			public void onItemSelected(AdapterView<?> arg0, View arg1,
 									   int arg2, long arg3) {
-				// TODO Auto-generated method stub
+
 
 				sheng = al_sheng.get(arg2);
 				cityDao = new CityDao(AddUserAddressActivity.this);
@@ -500,7 +500,7 @@ public class AddUserAddressActivity extends BaseActivity {
 
 			@Override
 			public void onNothingSelected(AdapterView<?> arg0) {
-				// TODO Auto-generated method stub
+
 			}
 		});
 
@@ -509,7 +509,7 @@ public class AddUserAddressActivity extends BaseActivity {
 			@Override
 			public void onItemSelected(AdapterView<?> arg0, View arg1,
 									   int arg2, long arg3) {
-				// TODO Auto-generated method stub
+
 				shi = al_shi.get(arg2);
 				cityDao = new CityDao(AddUserAddressActivity.this);
 				CityData cityData = cityDao.findCityCode(shi);
@@ -528,7 +528,7 @@ public class AddUserAddressActivity extends BaseActivity {
 
 			@Override
 			public void onNothingSelected(AdapterView<?> arg0) {
-				// TODO Auto-generated method stub
+
 			}
 		});
 		sp_xian.setOnItemSelectedListener(new OnItemSelectedListener() {
@@ -536,7 +536,7 @@ public class AddUserAddressActivity extends BaseActivity {
 			@Override
 			public void onItemSelected(AdapterView<?> arg0, View arg1,
 									   int arg2, long arg3) {
-				// TODO Auto-generated method stub
+
 				xian = al_xian.get(arg2);
 				cityDao = new CityDao(AddUserAddressActivity.this);
 				CityData cityData = cityDao.findAreaCode(xian);
@@ -545,7 +545,7 @@ public class AddUserAddressActivity extends BaseActivity {
 
 			@Override
 			public void onNothingSelected(AdapterView<?> arg0) {
-				// TODO Auto-generated method stub
+
 			}
 		});
 
@@ -553,7 +553,7 @@ public class AddUserAddressActivity extends BaseActivity {
 
 	@Override
 	public boolean onKeyDown(int keyCode, KeyEvent event) {
-		// TODO Auto-generated method stub
+
 		if (keyCode == KeyEvent.KEYCODE_BACK) {
 			AppManager.getAppManager().finishActivity();
 		}

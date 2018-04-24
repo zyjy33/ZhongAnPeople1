@@ -119,7 +119,6 @@ public class WideMarketActivity extends BaseActivity {
 		 * OnItemSelectedListener() {
 		 *
 		 * @Override public void onItemSelected(AdapterView<?> arg0, View arg1,
-		 * int arg2, long arg3) { PRO_NAME = province.get(arg2); // TODO
 		 * Auto-generated method stub city = new CityDB(getApplicationContext())
 		 * .getProvince(
 		 * "select name from city where provinceId =(select code from province where name='"
@@ -132,7 +131,6 @@ public class WideMarketActivity extends BaseActivity {
 		 * }
 		 *
 		 * @Override public void onNothingSelected(AdapterView<?> arg0) { //
-		 * TODO Auto-generated method stub
 		 *
 		 * } });
 		 */
@@ -142,7 +140,7 @@ public class WideMarketActivity extends BaseActivity {
 					@Override
 					public void onItemSelected(AdapterView<?> arg0, View arg1,
 											   int arg2, long arg3) {
-						// TODO Auto-generated method stub
+
 						CITY_CODE = new CityDB(getApplicationContext())
 								.getName("select code from city where name='"
 										+ city.get(arg2) + "'");
@@ -178,7 +176,7 @@ public class WideMarketActivity extends BaseActivity {
 			AsyncHttp.post_1(url, params, new AsyncHttpResponseHandler() {
 				@Override
 				public void onSuccess(int arg0, String arg1) {
-					// TODO Auto-generated method stub
+
 					super.onSuccess(arg0, arg1);
 					parse(arg1);
 

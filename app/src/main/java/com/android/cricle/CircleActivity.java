@@ -130,7 +130,6 @@ public class CircleActivity extends BaseActivity {
 
 		@Override
 		public void onClick(View arg0) {
-			// TODO Auto-generated method stub
 			switch (arg0.getId()) {
 				case R.id.circle_tip:
 
@@ -265,7 +264,6 @@ public class CircleActivity extends BaseActivity {
 
 			@Override
 			public void onClick(View arg0) {
-				// TODO Auto-generated method stub
 				if (mPopupWindow.isShowing()) {
 					mPopupWindow.dismiss();
 				}
@@ -284,7 +282,6 @@ public class CircleActivity extends BaseActivity {
 
 			@Override
 			public void onClick(View arg0) {
-				// TODO Auto-generated method stub
 				if (mPopupWindow.isShowing()) {
 					mPopupWindow.dismiss();
 				}
@@ -294,7 +291,6 @@ public class CircleActivity extends BaseActivity {
 
 			@Override
 			public void onDismiss() {
-				// TODO Auto-generated method stub
 				layout.removeAllViews();
 				claert = new Circleview(CircleActivity.this, screnWidth, x, y,
 						handler);
@@ -332,14 +328,12 @@ public class CircleActivity extends BaseActivity {
 
 	@Override
 	protected void onResume() {
-		// TODO Auto-generated method stub
 		super.onResume();
 		wareDao = new WareDao(getApplicationContext());
 		try {
 			registerData = wareDao.findIsLoginHengyuCode();
 			yth = registerData.getHengyuCode().toString();
 		} catch (NullPointerException e) {
-			// TODO: handle exception
 			NewDataToast.makeText(getApplicationContext(), "未登录", false, 0)
 					.show();
 			AppManager.getAppManager().finishActivity();

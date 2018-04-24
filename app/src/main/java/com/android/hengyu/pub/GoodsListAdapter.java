@@ -26,7 +26,7 @@ public class GoodsListAdapter extends BaseAdapter {
 	private LayoutInflater inflater;
 	public GoodsListAdapter(ArrayList<GoodsListData> lists,ArrayList<shangpingListData> lists_ll,
 							Context context,ImageLoader loader) {
-		// TODO Auto-generated constructor stub
+
 		try {
 
 			this.context = context;
@@ -36,7 +36,7 @@ public class GoodsListAdapter extends BaseAdapter {
 			this.inflater = LayoutInflater.from(context);
 
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 	}
@@ -46,23 +46,23 @@ public class GoodsListAdapter extends BaseAdapter {
 	}
 
 	public int getCount() {
-		// TODO Auto-generated method stub
+
 		// return list.size();
 		return lists.size();
 	}
 
 	public Object getItem(int position) {
-		// TODO Auto-generated method stub
+
 		return position;
 	}
 
 	public long getItemId(int position) {
-		// TODO Auto-generated method stub
+
 		return position;
 	}
 
 	public View getView(final int position, View convertView, ViewGroup patent) {
-		// TODO Auto-generated method stub
+
 		try {
 			ViewHolder holder = null;
 			holder = new ViewHolder();
@@ -91,7 +91,7 @@ public class GoodsListAdapter extends BaseAdapter {
 				//			@Override
 				//			public void onItemClick(AdapterView<?> arg0, View arg1,
 				//					int arg2, long arg3) {
-				//				// TODO Auto-generated method stub
+				//
 				////				myadapter.setSeclection(arg2);
 				////				myadapter.notifyDataSetChanged();
 				////				String id = lists.get(arg2).getId();
@@ -104,7 +104,7 @@ public class GoodsListAdapter extends BaseAdapter {
 				//				context.startActivity(intent);
 				//
 				//				} catch (Exception e) {
-				//					// TODO: handle exception
+				//
 				//					e.printStackTrace();
 				//				}
 				//
@@ -118,7 +118,7 @@ public class GoodsListAdapter extends BaseAdapter {
 				holder = (ViewHolder) convertView.getTag();
 			}
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 

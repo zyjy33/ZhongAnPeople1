@@ -93,13 +93,13 @@ public class MainFragment extends BaseActivity {
 	public static boolean panduan = false;
 	@Override
 	public void onBackPressed() {
-		// TODO Auto-generated method stub
+
 		super.onBackPressed();
 	}
 	public static Handler handlerll;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
+
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.main_fragment_activity);
@@ -177,7 +177,7 @@ public class MainFragment extends BaseActivity {
 	UserRegisterllData data;
 	Editor editor;
 	private void getUserxinxi(String user_name) {
-		// TODO Auto-generated method stub
+
 		try{
 
 			String strUrlone = RealmName.REALM_NAME_LL + "/get_user_model?username="+user_name+"";
@@ -228,21 +228,21 @@ public class MainFragment extends BaseActivity {
 						}else{
 						}
 					} catch (JSONException e) {
-						// TODO Auto-generated catch block
+
 						e.printStackTrace();
 					}
 				};
 
 				@Override
 				public void onFailure(Throwable arg0, String arg1) {
-					// TODO Auto-generated method stub
+
 					super.onFailure(arg0, arg1);
 					NewDataToast.makeText(MainFragment.this, "连接超时", false, 0).show();
 				}
 			}, MainFragment.this);
 
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 	}
@@ -258,7 +258,7 @@ public class MainFragment extends BaseActivity {
 				return "";
 			}
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			Log.e("VersionInfo", "Exception", e);
 		}
 		return versionName;
@@ -337,7 +337,7 @@ public class MainFragment extends BaseActivity {
 				}
 			}
 		} catch (JSONException e) {
-			// TODO Auto-generated catch block
+
 			e.printStackTrace();
 		}
 	}
@@ -389,7 +389,7 @@ public class MainFragment extends BaseActivity {
 						handler.sendEmptyMessage(-2);//版本更新
 					}
 				} catch (Exception e) {
-					// TODO: handle exception
+
 					e.printStackTrace();
 				}
 			} else {
@@ -400,17 +400,17 @@ public class MainFragment extends BaseActivity {
 							handler.sendEmptyMessage(-2);//版本更新
 						}
 					} catch (Exception e) {
-						// TODO: handle exception
+
 						e.printStackTrace();
 					}
 				} catch (Exception e) {
-					// TODO: handle exception
+
 					e.printStackTrace();
 				}
 			}
 
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 	}
@@ -649,7 +649,7 @@ public class MainFragment extends BaseActivity {
 
 		@Override
 		public void onCheckedChanged(RadioGroup arg0, int arg1) {
-			// TODO Auto-generated method stub
+
 			FragmentTransaction transaction = manager.beginTransaction();
 			Fragment fragment = getFragment(arg1);
 			transaction.replace(R.id.main_content, fragment);
@@ -709,7 +709,7 @@ public class MainFragment extends BaseActivity {
 
 	@Override
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-		// TODO Auto-generated method stub
+
 		super.onActivityResult(requestCode, resultCode, data);
 		System.out.println("返回值:"+requestCode);
 		switch (requestCode) {
@@ -823,10 +823,10 @@ public class MainFragment extends BaseActivity {
 				fos.close();
 				is.close();
 			} catch (FileNotFoundException e) {
-				// TODO Auto-generated catch block
+
 				e.printStackTrace();
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
+
 				e.printStackTrace();
 			}
 		}
@@ -854,10 +854,10 @@ public class MainFragment extends BaseActivity {
 				fos.close();
 				is.close();
 			} catch (FileNotFoundException e) {
-				// TODO Auto-generated catch block
+
 				e.printStackTrace();
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
+
 				e.printStackTrace();
 			}
 		}
@@ -885,10 +885,10 @@ public class MainFragment extends BaseActivity {
 				fos.close();
 				is.close();
 			} catch (FileNotFoundException e) {
-				// TODO Auto-generated catch block
+
 				e.printStackTrace();
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
+
 				e.printStackTrace();
 			}
 		}

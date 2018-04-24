@@ -64,7 +64,7 @@ public class WareInformationDetailsActivity extends BaseActivity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
+
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.ware_infromation_detail);
@@ -88,7 +88,7 @@ public class WareInformationDetailsActivity extends BaseActivity {
 		AsyncHttp.post_1(strUrl, params, new AsyncHttpResponseHandler() {
 			@Override
 			public void onSuccess(int arg0, String arg1) {
-				// TODO Auto-generated method stub
+
 				super.onSuccess(arg0, arg1);
 				parse(arg1);
 			}
@@ -111,7 +111,7 @@ public class WareInformationDetailsActivity extends BaseActivity {
 				handler.sendMessage(message);
 			}
 		} catch (Exception e) {
-			// TODO: handle exception
+
 		}
 
 	}

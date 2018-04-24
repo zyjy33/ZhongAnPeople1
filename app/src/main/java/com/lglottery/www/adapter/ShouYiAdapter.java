@@ -23,7 +23,7 @@ public class ShouYiAdapter extends BaseAdapter {
 
 	public ShouYiAdapter(Context context, ArrayList<ContentValues> lists,
 						 ImageLoader imageLoader, String type) {
-		// TODO Auto-generated constructor stub
+
 		this.context = context;
 		this.lists = lists;
 		this.imageLoader = imageLoader;
@@ -47,13 +47,13 @@ public class ShouYiAdapter extends BaseAdapter {
 
 	@Override
 	public long getItemId(int arg0) {
-		// TODO Auto-generated method stub
+
 		return arg0;
 	}
 
 	@Override
 	public View getView(int position, View view, ViewGroup arg2) {
-		// TODO Auto-generated method stub
+
 		final ViewHolder holder;
 		if (view == null) {
 			holder = new ViewHolder();

@@ -103,7 +103,7 @@ public class WareClassifyTwoActivity extends BaseActivity implements
 			@Override
 			public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
 									long arg3) {
-				// TODO Auto-generated method stub
+
 				String typename = list.get(arg2).productTypeName;
 				int id = waredao.findbyTypeName(typename).ID;
 				Intent intent = new Intent(WareClassifyTwoActivity.this,
@@ -117,7 +117,7 @@ public class WareClassifyTwoActivity extends BaseActivity implements
 
 	@Override
 	public void onClick(View v) {
-		// TODO Auto-generated method stub
+
 
 	}
 

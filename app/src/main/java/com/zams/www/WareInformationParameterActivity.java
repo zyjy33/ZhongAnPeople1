@@ -69,7 +69,7 @@ public class WareInformationParameterActivity extends BaseActivity {
 		AsyncHttp.post_1(strUrl, params, new AsyncHttpResponseHandler() {
 			@Override
 			public void onSuccess(int arg0, String arg1) {
-				// TODO Auto-generated method stub
+
 				super.onSuccess(arg0, arg1);
 				try {
 

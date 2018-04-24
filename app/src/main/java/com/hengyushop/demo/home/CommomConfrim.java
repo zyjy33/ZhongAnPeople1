@@ -71,7 +71,7 @@ public class CommomConfrim extends Activity {
 
 			@Override
 			public void onClick(View arg0) {
-				// TODO Auto-generated method stub
+
 				dlg.dismiss();
 			}
 		});
@@ -86,7 +86,7 @@ public class CommomConfrim extends Activity {
 				new AsyncHttpResponseHandler() {
 					@Override
 					public void onSuccess(int arg0, String arg1) {
-						// TODO Auto-generated method stub
+
 						super.onSuccess(arg0, arg1);
 						data2 = new ArrayList();
 						data_id2 = new ArrayList();
@@ -172,7 +172,7 @@ public class CommomConfrim extends Activity {
 							}
 
 						} catch (JSONException e) {
-							// TODO Auto-generated catch block
+
 							e.printStackTrace();
 						}
 					}
@@ -202,7 +202,7 @@ public class CommomConfrim extends Activity {
 				new AsyncHttpResponseHandler() {
 					@Override
 					public void onSuccess(int arg0, String arg1) {
-						// TODO Auto-generated method stub
+
 						super.onSuccess(arg0, arg1);
 						data2 = new ArrayList();
 						data_id2 = new ArrayList();
@@ -277,7 +277,7 @@ public class CommomConfrim extends Activity {
 							}
 
 						} catch (JSONException e) {
-							// TODO Auto-generated catch block
+
 							e.printStackTrace();
 						}
 					}

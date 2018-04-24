@@ -80,7 +80,7 @@ public class YangLaoChongZhiActivity extends BaseActivity implements
 
 	@Override
 	protected void onResume() {
-		// TODO Auto-generated method stub
+
 		super.onResume();
 		System.out.println("11==============" + zhifu);
 		// if (zhifu == 3) {
@@ -93,7 +93,7 @@ public class YangLaoChongZhiActivity extends BaseActivity implements
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
+
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_yanglao_chongzhi);
@@ -136,7 +136,7 @@ public class YangLaoChongZhiActivity extends BaseActivity implements
 
 			@Override
 			public void onClick(View arg0) {
-				// TODO Auto-generated method stub
+
 				if (yu_pay_c1.isChecked()) {
 					yu_pay_c1.setChecked(false);
 				} else if (yu_pay_c2.isChecked()) {
@@ -149,7 +149,7 @@ public class YangLaoChongZhiActivity extends BaseActivity implements
 
 			@Override
 			public void onClick(View arg0) {
-				// TODO Auto-generated method stub
+
 				if (yu_pay_c1.isChecked()) {
 					// 点击设置是否为点击状态
 					yu_pay_c1.setChecked(false);
@@ -166,7 +166,7 @@ public class YangLaoChongZhiActivity extends BaseActivity implements
 
 			@Override
 			public void onClick(View arg0) {
-				// TODO Auto-generated method stub
+
 				if (yu_pay_c0.isChecked()) {
 					yu_pay_c0.setChecked(false);
 				} else if (yu_pay_c2.isChecked()) {
@@ -179,7 +179,7 @@ public class YangLaoChongZhiActivity extends BaseActivity implements
 
 			@Override
 			public void onClick(View arg0) {
-				// TODO Auto-generated method stub
+
 				if (yu_pay_c0.isChecked()) {
 					yu_pay_c0.setChecked(false);
 				} else if (yu_pay_c2.isChecked()) {
@@ -195,7 +195,7 @@ public class YangLaoChongZhiActivity extends BaseActivity implements
 
 			@Override
 			public void onClick(View arg0) {
-				// TODO Auto-generated method stub
+
 				if (yu_pay_c0.isChecked()) {
 					yu_pay_c0.setChecked(false);
 				} else if (yu_pay_c1.isChecked()) {
@@ -208,7 +208,7 @@ public class YangLaoChongZhiActivity extends BaseActivity implements
 
 			@Override
 			public void onClick(View arg0) {
-				// TODO Auto-generated method stub
+
 				if (yu_pay_c0.isChecked()) {
 					yu_pay_c0.setChecked(false);
 				} else if (yu_pay_c1.isChecked()) {
@@ -273,7 +273,7 @@ public class YangLaoChongZhiActivity extends BaseActivity implements
 
 	@Override
 	public void onClick(View v) {
-		// TODO Auto-generated method stub
+
 
 		switch (v.getId()) {
 			case R.id.iv_fanhui:
@@ -320,14 +320,14 @@ public class YangLaoChongZhiActivity extends BaseActivity implements
 						} else {
 						}
 					} catch (JSONException e) {
-						// TODO Auto-generated catch block
+
 						e.printStackTrace();
 					}
 				};
 			}, YangLaoChongZhiActivity.this);
 
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 	}
@@ -391,7 +391,7 @@ public class YangLaoChongZhiActivity extends BaseActivity implements
 			}, getApplicationContext());
 
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 	}
@@ -437,7 +437,7 @@ public class YangLaoChongZhiActivity extends BaseActivity implements
 					}, null);
 
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 	}
@@ -487,7 +487,7 @@ public class YangLaoChongZhiActivity extends BaseActivity implements
 
 						@Override
 						public void onFailure(Throwable arg0, String arg1) {
-							// TODO Auto-generated method stub
+
 							super.onFailure(arg0, arg1);
 							System.out.println("11================================="
 									+ arg0);
@@ -500,7 +500,7 @@ public class YangLaoChongZhiActivity extends BaseActivity implements
 					}, null);
 
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 	}
@@ -550,7 +550,7 @@ public class YangLaoChongZhiActivity extends BaseActivity implements
 					}, null);
 
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 	}
@@ -604,7 +604,7 @@ public class YangLaoChongZhiActivity extends BaseActivity implements
 			}, getApplicationContext());
 
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 	}
@@ -665,7 +665,7 @@ public class YangLaoChongZhiActivity extends BaseActivity implements
 					}, null);
 
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 	}
@@ -682,7 +682,7 @@ public class YangLaoChongZhiActivity extends BaseActivity implements
 	// params, new AsyncHttpResponseHandler(){
 	// @Override
 	// public void onSuccess(int arg0, String arg1) {
-	// // TODO Auto-generated method stub
+	//
 	// super.onSuccess(arg0, arg1);
 	// try {
 	// JSONObject object = new JSONObject(arg1);
@@ -690,7 +690,7 @@ public class YangLaoChongZhiActivity extends BaseActivity implements
 	// handler.sendEmptyMessage(1);
 	// System.out.println(orderSerialNumber);
 	// } catch (JSONException e) {
-	// // TODO Auto-generated catch block
+	//
 	// e.printStackTrace();
 	// }
 	// }
@@ -710,9 +710,9 @@ public class YangLaoChongZhiActivity extends BaseActivity implements
 				new AsyncHttpResponseHandler() {
 					@Override
 					public void onSuccess(int arg0, String arg1) {
-						// TODO Auto-generated method stub
 
-						// TODO Auto-generated method stub
+
+
 						super.onSuccess(arg0, arg1);
 						try {
 							JSONObject jsonObject = new JSONObject(arg1);
@@ -728,7 +728,7 @@ public class YangLaoChongZhiActivity extends BaseActivity implements
 								handler.sendEmptyMessage(2);
 							}
 						} catch (JSONException e) {
-							// TODO Auto-generated catch block
+
 							e.printStackTrace();
 						}
 

@@ -59,13 +59,13 @@ public class ServiceGuangGaoActivity extends BaseActivity {
 
 			@Override
 			public void onClick(View arg0) {
-				// TODO Auto-generated method stub
+
 				try {
 					Intent intent = new Intent(ServiceGuangGaoActivity.this,
 							ApplyBusiness1Activity.class);
 					startActivity(intent);
 				} catch (Exception e) {
-					// TODO: handle exception
+
 					e.printStackTrace();
 				}
 			}
@@ -139,7 +139,7 @@ public class ServiceGuangGaoActivity extends BaseActivity {
 					advPager.setData(urls, new MyPosterOnClick() {
 						@Override
 						public void onMyclick(int position) {
-							// TODO Auto-generated method stub
+
 							// Message msg = new Message();
 							// msg.what = 13;
 							// msg.obj = tempss.get(position).getId();
@@ -166,7 +166,7 @@ public class ServiceGuangGaoActivity extends BaseActivity {
 
 	@Override
 	protected void onStart() {
-		// TODO Auto-generated method stub
+
 		super.onStart();
 
 	}

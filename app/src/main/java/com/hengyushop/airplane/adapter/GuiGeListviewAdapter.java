@@ -36,7 +36,7 @@ public class GuiGeListviewAdapter extends BaseAdapter {
 	private ImageLoader imageLoader;
 
 	public GuiGeListviewAdapter(ImageLoader imageLoader) {
-		// TODO Auto-generated constructor stub
+
 		this.imageLoader = imageLoader;
 	}
 
@@ -57,7 +57,7 @@ public class GuiGeListviewAdapter extends BaseAdapter {
 			this.context = context;
 			Log.i("data1", data1 + "");
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 	}
@@ -116,7 +116,7 @@ public class GuiGeListviewAdapter extends BaseAdapter {
 
 	@Override
 	public View getView(int position, View convertView, ViewGroup parent) {
-		// TODO Auto-generated method stub
+
 		try {
 
 			ViewHolder1 holder1 = null;
@@ -223,13 +223,13 @@ public class GuiGeListviewAdapter extends BaseAdapter {
 											System.out.println("id====="
 													+ data_id1.size());
 										} catch (Exception e) {
-											// TODO: handle exception
+
 											e.printStackTrace();
 										}
 									}
 								});
 					} catch (Exception e) {
-						// TODO: handle exception
+
 						e.printStackTrace();
 					}
 					break;
@@ -265,7 +265,7 @@ public class GuiGeListviewAdapter extends BaseAdapter {
 			// System.out.println("拼接的值1========="+zhouString);
 
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 		return convertView;

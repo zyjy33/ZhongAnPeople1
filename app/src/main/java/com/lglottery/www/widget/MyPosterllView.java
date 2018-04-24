@@ -72,7 +72,7 @@ public class MyPosterllView extends FrameLayout {
 	public MyPosterllView(Context context, AttributeSet attrs) {
 		super(context, attrs);
 		this.context = context;
-		// TODO Auto-generated constructor stub
+
 		LayoutInflater inflater = LayoutInflater.from(context);
 		inflater.inflate(R.layout.common_viewpager, this, true);
 		listener = new PageChangeListener();
@@ -195,7 +195,7 @@ public class MyPosterllView extends FrameLayout {
 				imgView.setOnClickListener(new OnClickListener() {
 					@Override
 					public void onClick(View v) {
-						// TODO Auto-generated method stub
+
 						clickListener.onMyclick(position);
 					}
 				});
@@ -296,7 +296,7 @@ public class MyPosterllView extends FrameLayout {
 	private Handler handler = new Handler() {
 		@Override
 		public void handleMessage(Message msg) {
-			// TODO Auto-generated method stub
+
 			super.handleMessage(msg);
 			rightScroll();
 		}
@@ -306,7 +306,7 @@ public class MyPosterllView extends FrameLayout {
 	 * 清空数据，内存回收
 	 */
 	public void clearMemory() {
-		// TODO Auto-generated method stub
+
 
 		clickListener = null;
 		context = null;
@@ -453,7 +453,7 @@ public class MyPosterllView extends FrameLayout {
 	// @Override
 	// public void onClick(View v)
 	// {
-	// // TODO Auto-generated method stub
+	//
 	// switch(v.getId())
 	// {
 	// case R.id.showNextPageBtn:
@@ -470,7 +470,7 @@ public class MyPosterllView extends FrameLayout {
 
 	// @Override
 	// public void clearMemory() {
-	// // TODO Auto-generated method stub
+	//
 	//
 	// }
 

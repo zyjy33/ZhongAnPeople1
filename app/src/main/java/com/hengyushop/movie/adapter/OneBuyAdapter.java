@@ -22,7 +22,7 @@ public class OneBuyAdapter extends BaseAdapter {
 
 	public OneBuyAdapter(Context context, ArrayList<OneBuyBean> lists,
 						 ImageLoader imageLoader) {
-		// TODO Auto-generated constructor stub
+
 		this.context = context;
 		this.lists = lists;
 		this.imageLoader = imageLoader;

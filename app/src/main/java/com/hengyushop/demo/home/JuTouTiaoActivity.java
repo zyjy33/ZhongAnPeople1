@@ -58,7 +58,7 @@ public class JuTouTiaoActivity extends BaseActivity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
+
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_jutoutiao);
@@ -83,7 +83,7 @@ public class JuTouTiaoActivity extends BaseActivity {
 			@Override
 			public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
 									long arg3) {
-				// TODO Auto-generated method stub
+
 				try {
 
 					System.out.println("=================1="
@@ -93,7 +93,7 @@ public class JuTouTiaoActivity extends BaseActivity {
 					intent.putExtra("web_id", list.get(arg2).id_ll);
 					startActivity(intent);
 				} catch (Exception e) {
-					// TODO: handle exception
+
 					e.printStackTrace();
 				}
 			}
@@ -104,7 +104,7 @@ public class JuTouTiaoActivity extends BaseActivity {
 
 			@Override
 			public void onClick(View arg0) {
-				// TODO Auto-generated method stub
+
 				finish();
 			}
 		});
@@ -121,7 +121,7 @@ public class JuTouTiaoActivity extends BaseActivity {
 		AsyncHttp.get(strUrl, new AsyncHttpResponseHandler() {
 			@Override
 			public void onSuccess(int arg0, String arg1) {
-				// TODO Auto-generated method stub
+
 				super.onSuccess(arg0, arg1);
 				parse(arg1);
 			}
@@ -152,7 +152,7 @@ public class JuTouTiaoActivity extends BaseActivity {
 			msg.obj = list;
 			handler.sendMessage(msg);
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 	}

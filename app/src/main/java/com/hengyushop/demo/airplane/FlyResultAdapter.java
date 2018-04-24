@@ -21,7 +21,7 @@ public class FlyResultAdapter extends BaseAdapter {
 
 	public FlyResultAdapter(Context context, ArrayList<FlyResult> results,
 							Handler handler) {
-		// TODO Auto-generated constructor stub
+
 		this.results = results;
 		this.context = context;
 		this.handler = handler;
@@ -29,7 +29,7 @@ public class FlyResultAdapter extends BaseAdapter {
 
 	@Override
 	public int getCount() {
-		// TODO Auto-generated method stub
+
 		return results.size();
 	}
 
@@ -50,7 +50,7 @@ public class FlyResultAdapter extends BaseAdapter {
 
 	@Override
 	public View getView(final int index, View view, ViewGroup arg2) {
-		// TODO Auto-generated method stub
+
 		ViewHolder holder = null;
 		if (view == null) {
 			holder = new ViewHolder();
@@ -85,7 +85,7 @@ public class FlyResultAdapter extends BaseAdapter {
 
 			@Override
 			public void onClick(View v) {
-				// TODO Auto-generated method stub
+
 				Message msg = new Message();
 				msg.what = 2;
 				msg.obj = results.get(index);

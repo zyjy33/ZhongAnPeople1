@@ -61,7 +61,7 @@ public class BaoMinTiShiActivity extends Activity implements OnClickListener{
 	private String bm_tishi = "";
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
+
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_baomin_tishi);
 		progress = new DialogProgress(BaoMinTiShiActivity.this);
@@ -120,7 +120,7 @@ public class BaoMinTiShiActivity extends Activity implements OnClickListener{
 	}
 
 	private void getUserxinxi(String user_name) {
-		// TODO Auto-generated method stub
+
 		String strUrlone = RealmName.REALM_NAME_LL + "/get_user_model?username="+user_name+"";
 		AsyncHttp.get(strUrlone, new AsyncHttpResponseHandler() {
 			public void onSuccess(int arg0, String arg1) {
@@ -134,7 +134,7 @@ public class BaoMinTiShiActivity extends Activity implements OnClickListener{
 					}else{
 					}
 				} catch (JSONException e) {
-					// TODO Auto-generated catch block
+
 					e.printStackTrace();
 				}
 			};
@@ -146,7 +146,7 @@ public class BaoMinTiShiActivity extends Activity implements OnClickListener{
 	 */
 	@Override
 	public void onClick(View v) {
-		// TODO Auto-generated method stub
+
 
 		intent = new Intent();
 		switch (v.getId()) {
@@ -190,7 +190,7 @@ public class BaoMinTiShiActivity extends Activity implements OnClickListener{
 					//				if(Validator.isMobile(mobile)){
 					//					try {
 					//						} catch (Exception e) {
-					//							// TODO: handle exception
+					//
 					//							e.printStackTrace();
 					//						}
 					//				}else {
@@ -212,14 +212,14 @@ public class BaoMinTiShiActivity extends Activity implements OnClickListener{
 	 * @param sur_api
 	 */
 	private void getjianche_activity_2() {
-		// TODO Auto-generated method stub
+
 		// progress.CreateProgress();
 		AsyncHttp.get(RealmName.REALM_NAME_LL + "/check_order_signup?mobile="
 						+ mobile + "&article_id=" + getIntent().getStringExtra("id") + "",
 				new AsyncHttpResponseHandler() {
 					@Override
 					public void onSuccess(int arg0, String arg1) {
-						// TODO Auto-generated method stub
+
 						super.onSuccess(arg0, arg1);
 						try {
 							JSONObject jsonObject = new JSONObject(arg1);
@@ -262,7 +262,7 @@ public class BaoMinTiShiActivity extends Activity implements OnClickListener{
 								}
 							}
 						} catch (JSONException e) {
-							// TODO Auto-generated catch block
+
 							e.printStackTrace();
 						}
 
@@ -270,7 +270,7 @@ public class BaoMinTiShiActivity extends Activity implements OnClickListener{
 
 					@Override
 					public void onFailure(Throwable arg0, String arg1) {
-						// TODO Auto-generated method stub
+
 						progress.CloseProgress();
 						System.out.println("==========================" + arg1);
 						Toast.makeText(BaoMinTiShiActivity.this, "异常", 200).show();
@@ -289,7 +289,7 @@ public class BaoMinTiShiActivity extends Activity implements OnClickListener{
 	 * @param kou_hongbao
 	 */
 	private void getguowuqingdan() {
-		// TODO Auto-generated method stub
+
 		try {
 			progress.CreateProgress();
 			System.out.println("real_name==========================！"
@@ -307,7 +307,7 @@ public class BaoMinTiShiActivity extends Activity implements OnClickListener{
 					new AsyncHttpResponseHandler() {
 						@Override
 						public void onSuccess(int arg0, String arg1) {
-							// TODO Auto-generated method stub
+
 							super.onSuccess(arg0, arg1);
 							try {
 								JSONObject jsonObject = new JSONObject(arg1);
@@ -323,7 +323,7 @@ public class BaoMinTiShiActivity extends Activity implements OnClickListener{
 									try {
 										loadusertijiao(buy_no);//提交用户订单
 									} catch (Exception e) {
-										// TODO: handle exception
+
 										e.printStackTrace();
 									}
 								} else {
@@ -355,7 +355,7 @@ public class BaoMinTiShiActivity extends Activity implements OnClickListener{
 									}
 								}
 							} catch (JSONException e) {
-								// TODO Auto-generated catch block
+
 								e.printStackTrace();
 							}
 
@@ -363,7 +363,7 @@ public class BaoMinTiShiActivity extends Activity implements OnClickListener{
 
 						@Override
 						public void onFailure(Throwable arg0, String arg1) {
-							// TODO Auto-generated method stub
+
 							progress.CloseProgress();
 							System.out.println("=========================="+ arg1);
 							Toast.makeText(BaoMinTiShiActivity.this, "异常",200).show();
@@ -372,7 +372,7 @@ public class BaoMinTiShiActivity extends Activity implements OnClickListener{
 
 					}, BaoMinTiShiActivity.this);
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 	}
@@ -433,7 +433,7 @@ public class BaoMinTiShiActivity extends Activity implements OnClickListener{
 											startActivity(intent);
 											finish();
 										} catch (Exception e) {
-											// TODO: handle exception
+
 											e.printStackTrace();
 										}
 									} else {
@@ -455,7 +455,7 @@ public class BaoMinTiShiActivity extends Activity implements OnClickListener{
 									}
 
 								} catch (Exception e) {
-									// TODO: handle exception
+
 									e.printStackTrace();
 								}
 							} else {
@@ -485,7 +485,7 @@ public class BaoMinTiShiActivity extends Activity implements OnClickListener{
 						} catch (Exception e) {
 
 
-							// TODO: handle exception
+
 							e.printStackTrace();
 						}
 
@@ -497,7 +497,7 @@ public class BaoMinTiShiActivity extends Activity implements OnClickListener{
 			}, getApplicationContext());
 
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 	}
@@ -511,7 +511,7 @@ public class BaoMinTiShiActivity extends Activity implements OnClickListener{
 	//	String trade_no;
 	// String total_amount;
 	//	private void getjianche(String trade_no_ll) {
-	//		// TODO Auto-generated method stub
+	//
 	//		// progress.CreateProgress();
 	//		trade_no = trade_no_ll;
 	//		// total_amount = total_amount_ll;
@@ -521,7 +521,7 @@ public class BaoMinTiShiActivity extends Activity implements OnClickListener{
 	//				new AsyncHttpResponseHandler() {
 	//					@Override
 	//					public void onSuccess(int arg0, String arg1) {
-	//						// TODO Auto-generated method stub
+	//
 	//						super.onSuccess(arg0, arg1);
 	//						try {
 	//							JSONObject jsonObject = new JSONObject(arg1);
@@ -559,7 +559,7 @@ public class BaoMinTiShiActivity extends Activity implements OnClickListener{
 	//									startActivity(intent);
 	//									finish();
 	//								} catch (Exception e) {
-	//									// TODO: handle exception
+	//
 	//									e.printStackTrace();
 	//								}
 	//								} else {
@@ -586,13 +586,13 @@ public class BaoMinTiShiActivity extends Activity implements OnClickListener{
 	//								}
 	//
 	//								} catch (Exception e) {
-	//									// TODO: handle exception
+	//
 	//									e.printStackTrace();
 	//								}
 	//
 	//							}
 	//						} catch (JSONException e) {
-	//							// TODO Auto-generated catch block
+	//
 	//							e.printStackTrace();
 	//						}
 	//
@@ -600,7 +600,7 @@ public class BaoMinTiShiActivity extends Activity implements OnClickListener{
 	//
 	//					@Override
 	//					public void onFailure(Throwable arg0, String arg1) {
-	//						// TODO Auto-generated method stub
+	//
 	//						progress.CloseProgress();
 	//						System.out.println("==========================访问接口失败！");
 	//						System.out.println("==========================" + arg1);

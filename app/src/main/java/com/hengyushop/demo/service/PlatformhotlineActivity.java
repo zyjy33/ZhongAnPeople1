@@ -31,7 +31,7 @@ public class PlatformhotlineActivity extends Activity implements OnClickListener
 	ImageView iv_guanxi;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
+
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_pingtai_rexian);
 		spPreferences = getSharedPreferences("longuserset", MODE_PRIVATE);
@@ -51,7 +51,7 @@ public class PlatformhotlineActivity extends Activity implements OnClickListener
 			iv_guanxi.setBackgroundResource(R.drawable.limitbuy_esoterica_close);
 			iv_guanxi.setOnClickListener(this);
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 	}
@@ -61,7 +61,7 @@ public class PlatformhotlineActivity extends Activity implements OnClickListener
 	 */
 	@Override
 	public void onClick(View v) {
-		// TODO Auto-generated method stub
+
 		intent = new Intent();
 		switch (v.getId()) {
 			case R.id.iv_guanxi:// 取消

@@ -87,7 +87,7 @@ public class BaiduActivity extends Activity {
 			@Override
 			public void onClickMapPoi(MapPoi mapPoiInfo) {
 
-				// TODO Auto-generated method stub
+
 				String title = "";
 				if (mapPoiInfo != null) {
 					title = mapPoiInfo.strText;
@@ -135,7 +135,7 @@ public class BaiduActivity extends Activity {
 
 			@Override
 			public void onMapAnimationFinish() {
-				// TODO Auto-generated method stub
+
 
 			}
 		};
@@ -165,43 +165,43 @@ public class BaiduActivity extends Activity {
 
 		@Override
 		public void onGetBusDetailResult(MKBusLineResult arg0, int arg1) {
-			// TODO Auto-generated method stub
+
 
 		}
 
 		@Override
 		public void onGetDrivingRouteResult(MKDrivingRouteResult arg0, int arg1) {
-			// TODO Auto-generated method stub
+
 
 		}
 
 		@Override
 		public void onGetPoiDetailSearchResult(int arg0, int arg1) {
-			// TODO Auto-generated method stub
+
 
 		}
 
 		@Override
 		public void onGetPoiResult(MKPoiResult arg0, int arg1, int arg2) {
-			// TODO Auto-generated method stub
+
 
 		}
 
 		@Override
 		public void onGetSuggestionResult(MKSuggestionResult arg0, int arg1) {
-			// TODO Auto-generated method stub
+
 
 		}
 
 		@Override
 		public void onGetTransitRouteResult(MKTransitRouteResult arg0, int arg1) {
-			// TODO Auto-generated method stub
+
 
 		}
 
 		@Override
 		public void onGetWalkingRouteResult(MKWalkingRouteResult arg0, int arg1) {
-			// TODO Auto-generated method stub
+
 
 		}
 

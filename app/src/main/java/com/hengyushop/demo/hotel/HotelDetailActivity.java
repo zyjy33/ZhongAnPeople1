@@ -102,7 +102,7 @@ public class HotelDetailActivity extends BaseActivity {
 									}
 								});
 					} catch (UnsupportedEncodingException e) {
-						// TODO Auto-generated catch block
+
 						e.printStackTrace();
 					}
 					break;
@@ -180,7 +180,7 @@ public class HotelDetailActivity extends BaseActivity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
+
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.hotel_detail);

@@ -111,7 +111,7 @@ public class ModPassActivity extends BaseActivity implements OnClickListener {
 
 				@Override
 				public void onClick(View arg0) {
-					// TODO Auto-generated method stub
+
 					finish();
 				}
 			});
@@ -124,7 +124,7 @@ public class ModPassActivity extends BaseActivity implements OnClickListener {
 			denglu.setOnClickListener(this);
 
 		} catch (Exception e) {
-			// TODO: handle exception
+
 
 			e.printStackTrace();
 		}
@@ -158,7 +158,7 @@ public class ModPassActivity extends BaseActivity implements OnClickListener {
 		//
 		// @Override
 		// public void onClick(View arg0) {
-		// // TODO Auto-generated method stub
+		//
 		// oldP = v1.getText().toString();
 		// newP1 = v2.getText().toString();
 		// newP2 = v3.getText().toString();
@@ -187,7 +187,7 @@ public class ModPassActivity extends BaseActivity implements OnClickListener {
 		// new AsyncHttpResponseHandler() {
 		// @Override
 		// public void onSuccess(int arg0, String arg1) {
-		// // TODO Auto-generated method stub
+		//
 		// super.onSuccess(arg0, arg1);
 		// try {
 		// JSONObject jsonObject = new JSONObject(
@@ -209,7 +209,7 @@ public class ModPassActivity extends BaseActivity implements OnClickListener {
 		// // handler.sendEmptyMessage(0);
 		// }
 		// } catch (JSONException e) {
-		// // TODO Auto-generated catch block
+		//
 		// e.printStackTrace();
 		// }
 		//
@@ -228,7 +228,7 @@ public class ModPassActivity extends BaseActivity implements OnClickListener {
 
 	@Override
 	public void onClick(View v) {
-		// TODO Auto-generated method stub
+
 		switch (v.getId()) {
 			case R.id.wenhao:// 找回密码
 				System.out.println("=================type_num==" + type_num);

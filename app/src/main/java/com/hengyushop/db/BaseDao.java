@@ -47,12 +47,12 @@ public class BaseDao extends SQLiteOpenHelper {
 	public BaseDao(Context context, String name, CursorFactory factory,
 			int version) {
 		super(context, name, factory, 1);
-		// TODO Auto-generated constructor stub
+
 	}
 
 	@Override
 	public void onCreate(SQLiteDatabase db) {
-		// TODO Auto-generated method stub
+
 		db.execSQL(sql);
 		db.execSQL(sql2);
 		db.execSQL(sql3);
@@ -63,7 +63,7 @@ public class BaseDao extends SQLiteOpenHelper {
 
 	@Override
 	public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-		// TODO Auto-generated method stub
+
 		db.execSQL("drop table if exists wide");
 		db.execSQL("drop table if exists status");
 		db.execSQL("drop table if exists users");

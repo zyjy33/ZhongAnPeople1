@@ -44,7 +44,7 @@ public class WareInformationServerActivity extends BaseActivity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
+
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.ware_infromation_server);
 		popupWindowMenu = new MyPopupWindowMenu(this);
@@ -65,7 +65,7 @@ public class WareInformationServerActivity extends BaseActivity {
 		AsyncHttp.post_1(strUrl, params, new AsyncHttpResponseHandler(){
 			@Override
 			public void onSuccess(int arg0, String arg1) {
-				// TODO Auto-generated method stub
+
 				super.onSuccess(arg0, arg1);
 				parse(arg1);
 			}
@@ -86,7 +86,7 @@ public class WareInformationServerActivity extends BaseActivity {
 				handler.sendMessage(message);
 			}
 		} catch (Exception e) {
-			// TODO: handle exception
+
 		}
 
 	}

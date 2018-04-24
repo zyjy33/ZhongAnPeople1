@@ -157,7 +157,7 @@ public class JuJingCaiXqActivity extends BaseActivity implements OnClickListener
 	public static boolean taocan_type = false;//判断商品套餐价格
 	@Override
 	public void onResume() {
-		// TODO Auto-generated method stub
+
 		super.onResume();
 		JuTuanGouXqActivity.type_xq = false;//聚团详情销售属性不显示
 		JuTuanGouXqActivity.type_spec_item = false;//聚团详情销售属性不显示
@@ -187,7 +187,7 @@ public class JuJingCaiXqActivity extends BaseActivity implements OnClickListener
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
+
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_jutuangou_title);//activity_jutuangou_title activity_jutuangou_xq
@@ -221,7 +221,7 @@ public class JuJingCaiXqActivity extends BaseActivity implements OnClickListener
 
 				@Override
 				public void onClick(View arg0) {
-					// TODO Auto-generated method stub
+
 					System.out.println("iv_fanhui====================");
 					finish();
 				}
@@ -232,7 +232,7 @@ public class JuJingCaiXqActivity extends BaseActivity implements OnClickListener
 
 				@Override
 				public void onClick(View arg0) {
-					// TODO Auto-generated method stub
+
 					try {
 						if (user_name_phone.equals("")) {
 							Intent intent = new Intent(JuJingCaiXqActivity.this,UserLoginActivity.class);
@@ -268,13 +268,13 @@ public class JuJingCaiXqActivity extends BaseActivity implements OnClickListener
 						}
 //				}
 					} catch (Exception e) {
-						// TODO: handle exception
+
 						e.printStackTrace();
 					}
 				}
 			});
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 	}
@@ -334,7 +334,7 @@ public class JuJingCaiXqActivity extends BaseActivity implements OnClickListener
 
 
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 
@@ -388,7 +388,7 @@ public class JuJingCaiXqActivity extends BaseActivity implements OnClickListener
 								String time = timer_time;
 								now = df.parse(time);
 							} catch (java.text.ParseException e1) {
-								// TODO Auto-generated catch block
+
 								e1.printStackTrace();
 							}
 
@@ -398,7 +398,7 @@ public class JuJingCaiXqActivity extends BaseActivity implements OnClickListener
 								date = df.parse(time);
 								time_Current = date.getTime();
 							} catch (java.text.ParseException e1) {
-								// TODO Auto-generated catch block
+
 								e1.printStackTrace();
 							}
 
@@ -410,7 +410,7 @@ public class JuJingCaiXqActivity extends BaseActivity implements OnClickListener
 						}
 
 					} catch (Exception e) {
-						// TODO: handle exception
+
 						e.printStackTrace();
 					}
 					break;
@@ -424,7 +424,7 @@ public class JuJingCaiXqActivity extends BaseActivity implements OnClickListener
 						setListViewHeightBasedOnChildren(new_list);
 
 					} catch (Exception e) {
-						// TODO: handle exception
+
 						e.printStackTrace();
 					}
 					break;
@@ -481,7 +481,7 @@ public class JuJingCaiXqActivity extends BaseActivity implements OnClickListener
 				, new AsyncHttpResponseHandler() {
 					@Override
 					public void onSuccess(int arg0, String arg1) {
-						// TODO Auto-generated method stub
+
 						super.onSuccess(arg0, arg1);
 						System.out.println("输出内容详情========="+arg1);
 						try {
@@ -675,7 +675,7 @@ public class JuJingCaiXqActivity extends BaseActivity implements OnClickListener
 									gridView2.setAdapter(adapter);
 								}
 							} catch (Exception e) {
-								// TODO: handle exception
+
 								e.printStackTrace();
 							}
 							intrendata();
@@ -683,7 +683,7 @@ public class JuJingCaiXqActivity extends BaseActivity implements OnClickListener
 							webview.loadUrl(RealmName.REALM_NAME_HTTP+"/mobile/goods/conent-"+data.article_id+".html");//商品介绍
 							progress.CloseProgress();
 						} catch (JSONException e) {
-							// TODO Auto-generated catch block
+
 							e.printStackTrace();
 						}
 					}
@@ -722,7 +722,7 @@ public class JuJingCaiXqActivity extends BaseActivity implements OnClickListener
 					Paint.STRIKE_THRU_TEXT_FLAG | Paint.ANTI_ALIAS_FLAG); // 设置市场价文字的中划线
 
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 
@@ -739,7 +739,7 @@ public class JuJingCaiXqActivity extends BaseActivity implements OnClickListener
 				, new AsyncHttpResponseHandler() {
 					@Override
 					public void onSuccess(int arg0, String arg1) {
-						// TODO Auto-generated method stub
+
 						super.onSuccess(arg0, arg1);
 						System.out.println("=======输出团成员================================"+arg1);
 						try {
@@ -783,7 +783,7 @@ public class JuJingCaiXqActivity extends BaseActivity implements OnClickListener
 									}
 
 								} catch (Exception e) {
-									// TODO: handle exception
+
 									e.printStackTrace();
 								}
 
@@ -792,7 +792,7 @@ public class JuJingCaiXqActivity extends BaseActivity implements OnClickListener
 							}
 
 						} catch (JSONException e) {
-							// TODO Auto-generated catch block
+
 							e.printStackTrace();
 						}
 					}
@@ -806,7 +806,7 @@ public class JuJingCaiXqActivity extends BaseActivity implements OnClickListener
 //			ll_qu_kaituan.setVisibility(View.VISIBLE);
 //			new_list.setVisibility(View.GONE);
 //			System.out.println("=====================模拟测试===============");
-//			// TODO Auto-generated method stub
+//
 //			String data_tx = "http://wx.qlogo.cn/mmopen/Zw5SzXToEzuCtHFRb2IVVZemJzJx4cLibMpDIE2y4kA1lgPfbhe2rO851s5G72B2U1Wz6cGe8Eb7B4AbtibiaUaSRBeH1XqqMiam/0";
 ////			if (data_tx.contains("http")) {
 ////				list_data2.add(data_tx);
@@ -836,7 +836,7 @@ public class JuJingCaiXqActivity extends BaseActivity implements OnClickListener
 //				gridView2.setAdapter(adapter);
 //			}
 //			} catch (Exception e) {
-//				// TODO: handle exception
+//
 //				e.printStackTrace();
 //			}
 //
@@ -886,7 +886,7 @@ public class JuJingCaiXqActivity extends BaseActivity implements OnClickListener
 
 	@Override
 	public void onClick(View v) {
-		// TODO Auto-generated method stub
+
 
 		switch (v.getId()) {
 			case R.id.fanhui:
@@ -930,7 +930,7 @@ public class JuJingCaiXqActivity extends BaseActivity implements OnClickListener
 								"&user_id="+user_id+"&tags=", new AsyncHttpResponseHandler() {
 							@Override
 							public void onSuccess(int arg0, String arg1) {
-								// TODO Auto-generated method stub
+
 								super.onSuccess(arg0, arg1);
 								try {
 									JSONObject jsonObject = new JSONObject(arg1);
@@ -945,7 +945,7 @@ public class JuJingCaiXqActivity extends BaseActivity implements OnClickListener
 										Toast.makeText(getApplicationContext(), info, 200).show();
 									}
 								} catch (JSONException e) {
-									// TODO Auto-generated catch block
+
 									e.printStackTrace();
 								}
 
@@ -965,7 +965,7 @@ public class JuJingCaiXqActivity extends BaseActivity implements OnClickListener
 									"&user_id="+user_id+"&tags=", new AsyncHttpResponseHandler() {
 								@Override
 								public void onSuccess(int arg0, String arg1) {
-									// TODO Auto-generated method stub
+
 									super.onSuccess(arg0, arg1);
 									try {
 										JSONObject jsonObject = new JSONObject(arg1);
@@ -980,7 +980,7 @@ public class JuJingCaiXqActivity extends BaseActivity implements OnClickListener
 											Toast.makeText(getApplicationContext(), info, Toast.LENGTH_SHORT).show();
 										}
 									} catch (JSONException e) {
-										// TODO Auto-generated catch block
+
 										e.printStackTrace();
 									}
 
@@ -993,7 +993,7 @@ public class JuJingCaiXqActivity extends BaseActivity implements OnClickListener
 						}
 
 					} catch (Exception e) {
-						// TODO: handle exception
+
 						e.printStackTrace();
 					}
 
@@ -1011,7 +1011,7 @@ public class JuJingCaiXqActivity extends BaseActivity implements OnClickListener
 				CommomConfrim.showSheet(JuJingCaiXqActivity.this, new onDeleteSelect() {
 					@Override
 					public void onClick(String resID) {
-						// TODO Auto-generated method stub
+
 
 					}
 				}, data.id);
@@ -1046,7 +1046,7 @@ public class JuJingCaiXqActivity extends BaseActivity implements OnClickListener
 				CommomConfrim.showSheet(JuJingCaiXqActivity.this, new onDeleteSelect() {
 					@Override
 					public void onClick(String resID) {
-						// TODO Auto-generated method stub
+
 
 					}
 				}, data.id);
@@ -1143,7 +1143,7 @@ public class JuJingCaiXqActivity extends BaseActivity implements OnClickListener
 //			startActivity(intent);
 
 				} catch (Exception e) {
-					// TODO: handle exception
+
 					e.printStackTrace();
 				}
 //			} else {
@@ -1172,7 +1172,7 @@ public class JuJingCaiXqActivity extends BaseActivity implements OnClickListener
 //			timer_time = "2017-05-16 08:03:05";
 			now_1 = df.parse(timer_time);
 		} catch (java.text.ParseException e1) {
-			// TODO Auto-generated catch block
+
 			e1.printStackTrace();
 		}
 		try {
@@ -1180,7 +1180,7 @@ public class JuJingCaiXqActivity extends BaseActivity implements OnClickListener
 //			datetime = "2017-05-14 17:23:15";
 			date_1 = df.parse(datetime);
 		} catch (java.text.ParseException e1) {
-			// TODO Auto-generated catch block
+
 			e1.printStackTrace();
 		}
 
@@ -1204,7 +1204,7 @@ public class JuJingCaiXqActivity extends BaseActivity implements OnClickListener
 			count.start();//开始计时
 
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 	}
@@ -1221,7 +1221,7 @@ public class JuJingCaiXqActivity extends BaseActivity implements OnClickListener
 					"&article_id="+data.article_id+"&goods_id="+data.goods_id+"&quantity="+1+"",new AsyncHttpResponseHandler() {
 				@Override
 				public void onSuccess(int arg0,String arg1) {
-					// TODO Auto-generated method stub
+
 					super.onSuccess(arg0, arg1);
 					try {
 						JSONObject jsonObject = new JSONObject(arg1);
@@ -1250,14 +1250,14 @@ public class JuJingCaiXqActivity extends BaseActivity implements OnClickListener
 							Toast.makeText(JuJingCaiXqActivity.this, info, Toast.LENGTH_SHORT).show();
 						}
 					} catch (JSONException e) {
-						// TODO Auto-generated catch block
+
 						e.printStackTrace();
 					}
 					progress.CloseProgress();
 				}
 				@Override
 				public void onFailure(Throwable arg0, String arg1) {
-					// TODO Auto-generated method stub
+
 					System.out.println("==========================访问接口失败！");
 					System.out.println("========================="+arg0);
 					System.out.println("=========================="+arg1);
@@ -1268,7 +1268,7 @@ public class JuJingCaiXqActivity extends BaseActivity implements OnClickListener
 			}, getApplicationContext());
 
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 	}
@@ -1336,7 +1336,7 @@ public class JuJingCaiXqActivity extends BaseActivity implements OnClickListener
 						handler.sendMessage(msg);
 
 					} catch (Exception e) {
-						// TODO: handle exception
+
 						e.printStackTrace();
 					}
 				}else {
@@ -1345,7 +1345,7 @@ public class JuJingCaiXqActivity extends BaseActivity implements OnClickListener
 
 
 			} catch (Exception e) {
-				// TODO: handle exception
+
 				e.printStackTrace();
 			}
 

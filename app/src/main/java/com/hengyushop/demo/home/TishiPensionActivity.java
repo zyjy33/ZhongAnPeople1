@@ -32,7 +32,7 @@ public class TishiPensionActivity extends Activity implements OnClickListener {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
+
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_tishi_pension);
 		spPreferences = getSharedPreferences("longuserset", MODE_PRIVATE);
@@ -65,7 +65,7 @@ public class TishiPensionActivity extends Activity implements OnClickListener {
 					TishiCarArchivesActivity.give_pension = null;
 					TishiCarArchivesActivity.article_id = null;
 				} catch (Exception e) {
-					// TODO: handle exception
+
 					e.printStackTrace();
 				}
 			} else if (MyOrderConfrimActivity.accept_name1 != null) {
@@ -84,7 +84,7 @@ public class TishiPensionActivity extends Activity implements OnClickListener {
 					MyOrderConfrimActivity.give_pension1 = null;
 					MyOrderConfrimActivity.article_id1 = null;
 				} catch (Exception e) {
-					// TODO: handle exception
+
 					e.printStackTrace();
 				}
 			} else if (MyOrderZFActivity.accept_name != null) {
@@ -103,7 +103,7 @@ public class TishiPensionActivity extends Activity implements OnClickListener {
 					MyOrderZFActivity.give_pension = null;
 					MyOrderZFActivity.article_id = null;
 				} catch (Exception e) {
-					// TODO: handle exception
+
 					e.printStackTrace();
 				}
 			}
@@ -117,7 +117,7 @@ public class TishiPensionActivity extends Activity implements OnClickListener {
 			ImageView iv_fanhui3 = (ImageView) findViewById(R.id.iv_fanhui3);
 			iv_fanhui3.setOnClickListener(this);
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 	}
@@ -127,7 +127,7 @@ public class TishiPensionActivity extends Activity implements OnClickListener {
 	 */
 	@Override
 	public void onClick(View v) {
-		// TODO Auto-generated method stub
+
 
 		intent = new Intent();
 		switch (v.getId()) {

@@ -79,7 +79,7 @@ public class JulsActivity extends BaseActivity {
 
 					@Override
 					public void onSuccess(int arg0, String arg1) {
-						// TODO Auto-generated method stub
+
 						super.onSuccess(arg0, arg1);
 						ArrayList<Lglottery_Log> list = new ArrayList<Lglottery_Log>();
 						try {
@@ -103,7 +103,7 @@ public class JulsActivity extends BaseActivity {
 													.getString("LuckDrawTime")
 													.replaceAll("/", "-"))));
 								} catch (ParseException e) {
-									// TODO Auto-generated catch block
+
 									e.printStackTrace();
 								}
 								// String sta =

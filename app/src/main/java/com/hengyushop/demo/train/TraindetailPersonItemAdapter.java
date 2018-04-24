@@ -51,7 +51,7 @@ public class TraindetailPersonItemAdapter extends BaseAdapter {
 
 	@Override
 	public View getView(final int index, View view, ViewGroup arg2) {
-		// TODO Auto-generated method stub ViewHolder holder = null;
+		  ViewHolder holder = null;
 		ViewHolder holder = null;
 		if (view == null) {
 			holder = new ViewHolder();
@@ -72,7 +72,7 @@ public class TraindetailPersonItemAdapter extends BaseAdapter {
 			
 			@Override
 			public void onClick(View arg0) {
-				// TODO Auto-generated method stub
+
 				Message msg = new Message();
 				msg.what = 4;
 				msg.arg1 = index;

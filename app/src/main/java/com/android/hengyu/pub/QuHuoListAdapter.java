@@ -24,7 +24,7 @@ public class QuHuoListAdapter extends BaseAdapter {
 	public static String jiaguo;
 
 	public QuHuoListAdapter(ArrayList<ShopCartData> list, Context context,ImageLoader loader) {
-		// TODO Auto-generated constructor stub
+
 		this.context = context;
 		this.list = list;
 		this.loader = loader;
@@ -37,22 +37,22 @@ public class QuHuoListAdapter extends BaseAdapter {
 
 
 	public int getCount() {
-		// TODO Auto-generated method stub
+
 		return list.size();
 	}
 
 	public Object getItem(int position) {
-		// TODO Auto-generated method stub
+
 		return position;
 	}
 
 	public long getItemId(int position) {
-		// TODO Auto-generated method stub
+
 		return position;
 	}
 
 	public View getView(int position, View convertView, ViewGroup parent) {
-		// TODO Auto-generated method stub
+
 		if (convertView == null) {
 			convertView = LinearLayout.inflate(context,R.layout.listitem_xiadan, null);
 		}

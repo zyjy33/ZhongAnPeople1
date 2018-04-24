@@ -124,7 +124,7 @@ public class JuTuanGouXq2Activity extends BaseActivity implements OnClickListene
 
 	@Override
 	public void onResume() {
-		// TODO Auto-generated method stub
+
 		super.onResume();
 		//			progress.CloseProgress();
 
@@ -133,7 +133,7 @@ public class JuTuanGouXq2Activity extends BaseActivity implements OnClickListene
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
+
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_jutuangou_xq_2);//activity_jutuangou_xq_2 activity_jutuangou_title2
@@ -210,7 +210,7 @@ public class JuTuanGouXq2Activity extends BaseActivity implements OnClickListene
 			//		loadzhonganyl(orders_no);
 
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 
@@ -223,7 +223,7 @@ public class JuTuanGouXq2Activity extends BaseActivity implements OnClickListene
 			img_shared.setOnClickListener(new OnClickListener() {
 				@Override
 				public void onClick(View arg0) {
-					// TODO Auto-generated method stub
+
 					try {
 						if (user_name.equals("")) {
 							Intent intent = new Intent(JuTuanGouXq2Activity.this,UserLoginActivity.class);
@@ -245,13 +245,13 @@ public class JuTuanGouXq2Activity extends BaseActivity implements OnClickListene
 							}
 						}
 					} catch (Exception e) {
-						// TODO: handle exception
+
 						e.printStackTrace();
 					}
 				}
 			});
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 	}
@@ -287,7 +287,7 @@ public class JuTuanGouXq2Activity extends BaseActivity implements OnClickListene
 
 				@Override
 				public void onClick(View arg0) {
-					// TODO Auto-generated method stub
+
 					finish();
 					String type = getIntent().getStringExtra("type");//聚精彩状态
 					System.out.println("type-------------"+type);
@@ -308,7 +308,7 @@ public class JuTuanGouXq2Activity extends BaseActivity implements OnClickListene
 
 
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 
@@ -349,7 +349,7 @@ public class JuTuanGouXq2Activity extends BaseActivity implements OnClickListene
 							}
 						});
 					} catch (Exception e) {
-						// TODO: handle exception
+
 						e.printStackTrace();
 					}
 
@@ -381,7 +381,7 @@ public class JuTuanGouXq2Activity extends BaseActivity implements OnClickListene
 				, new AsyncHttpResponseHandler() {
 					@Override
 					public void onSuccess(int arg0, String arg1) {
-						// TODO Auto-generated method stub
+
 						super.onSuccess(arg0, arg1);
 						System.out.println("输出内容详情========="+arg1);
 						try {
@@ -454,7 +454,7 @@ public class JuTuanGouXq2Activity extends BaseActivity implements OnClickListene
 							progress.CloseProgress();
 
 						} catch (JSONException e) {
-							// TODO Auto-generated catch block
+
 							e.printStackTrace();
 						}
 					}
@@ -475,7 +475,7 @@ public class JuTuanGouXq2Activity extends BaseActivity implements OnClickListene
 				, new AsyncHttpResponseHandler() {
 					@Override
 					public void onSuccess(int arg0, String arg1) {
-						// TODO Auto-generated method stub
+
 						super.onSuccess(arg0, arg1);
 						System.out.println("输出内容详情========="+arg1);
 						try {
@@ -580,7 +580,7 @@ public class JuTuanGouXq2Activity extends BaseActivity implements OnClickListene
 							progress.CloseProgress();
 
 						} catch (JSONException e) {
-							// TODO Auto-generated catch block
+
 							e.printStackTrace();
 						}
 					}
@@ -602,7 +602,7 @@ public class JuTuanGouXq2Activity extends BaseActivity implements OnClickListene
 				, new AsyncHttpResponseHandler() {
 					@Override
 					public void onSuccess(int arg0, String arg1) {
-						// TODO Auto-generated method stub
+
 						super.onSuccess(arg0, arg1);
 						System.out.println("输出内容详情========="+arg1);
 						try {
@@ -708,7 +708,7 @@ public class JuTuanGouXq2Activity extends BaseActivity implements OnClickListene
 							progress.CloseProgress();
 
 						} catch (JSONException e) {
-							// TODO Auto-generated catch block
+
 							e.printStackTrace();
 						}
 					}
@@ -733,7 +733,7 @@ public class JuTuanGouXq2Activity extends BaseActivity implements OnClickListene
 			tv_price.getPaint().setFlags(Paint.STRIKE_THRU_TEXT_FLAG | Paint.ANTI_ALIAS_FLAG); // 设置市场价文字的中划线
 
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 
@@ -822,7 +822,7 @@ public class JuTuanGouXq2Activity extends BaseActivity implements OnClickListene
 				}
 			}
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 	}
@@ -837,7 +837,7 @@ public class JuTuanGouXq2Activity extends BaseActivity implements OnClickListene
 			System.out.println("=====datetime====================="+datetime);
 			now = df.parse(timer_time);
 		} catch (java.text.ParseException e1) {
-			// TODO Auto-generated catch block
+
 			e1.printStackTrace();
 		}
 
@@ -846,7 +846,7 @@ public class JuTuanGouXq2Activity extends BaseActivity implements OnClickListene
 			//			String kaishi = "2004-03-26 13:31:40";
 			date = df.parse(datetime);
 		} catch (java.text.ParseException e1) {
-			// TODO Auto-generated catch block
+
 			e1.printStackTrace();
 		}
 
@@ -871,7 +871,7 @@ public class JuTuanGouXq2Activity extends BaseActivity implements OnClickListene
 
 	@Override
 	public void onClick(View v) {
-		// TODO Auto-generated method stub
+
 
 		switch (v.getId()) {
 			case R.id.fanhui:
@@ -910,7 +910,7 @@ public class JuTuanGouXq2Activity extends BaseActivity implements OnClickListene
 		}
 	}
 	private void getgouwu() {
-		// TODO Auto-generated method stub
+
 		try {
 			/**
 			 * 商品加入购物清单
@@ -920,7 +920,7 @@ public class JuTuanGouXq2Activity extends BaseActivity implements OnClickListene
 					new AsyncHttpResponseHandler() {
 						@Override
 						public void onSuccess(int arg0,String arg1) {
-							// TODO Auto-generated method stub
+
 							super.onSuccess(arg0, arg1);
 							try {
 								JSONObject jsonObject = new JSONObject(arg1);
@@ -953,14 +953,14 @@ public class JuTuanGouXq2Activity extends BaseActivity implements OnClickListene
 									Toast.makeText(JuTuanGouXq2Activity.this, info, 200).show();
 								}
 							} catch (JSONException e) {
-								// TODO Auto-generated catch block
+
 								e.printStackTrace();
 							}
 
 						}
 						@Override
 						public void onFailure(Throwable arg0, String arg1) {
-							// TODO Auto-generated method stub
+
 							progress.CloseProgress();
 							System.out.println("==========================访问接口失败！");
 							System.out.println("========================="+arg0);
@@ -972,7 +972,7 @@ public class JuTuanGouXq2Activity extends BaseActivity implements OnClickListene
 
 					}, null);
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 	}

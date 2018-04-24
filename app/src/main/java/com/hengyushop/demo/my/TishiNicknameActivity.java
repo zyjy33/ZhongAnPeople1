@@ -45,7 +45,7 @@ public class TishiNicknameActivity extends Activity implements OnClickListener{
 	public static String yue_zhuangtai;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
+
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_tishi_gender);
 		spPreferences = getSharedPreferences("longuserset", MODE_PRIVATE);
@@ -80,7 +80,7 @@ public class TishiNicknameActivity extends Activity implements OnClickListener{
 	 */
 	@Override
 	public void onClick(View v) {
-		// TODO Auto-generated method stub
+
 
 		intent = new Intent();
 		switch (v.getId()) {
@@ -123,7 +123,7 @@ public class TishiNicknameActivity extends Activity implements OnClickListener{
 					}else{
 					}
 				} catch (JSONException e) {
-					// TODO Auto-generated catch block
+
 					e.printStackTrace();
 				}
 			};
@@ -164,7 +164,7 @@ public class TishiNicknameActivity extends Activity implements OnClickListener{
 					}, null);
 
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 	}

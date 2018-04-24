@@ -19,32 +19,32 @@ public class MyAddressManagerAdapter extends BaseAdapter {
 
 	public MyAddressManagerAdapter(Context context,
 								   ArrayList<UserAddressData> list) {
-		// TODO Auto-generated constructor stub
+
 		this.context = context;
 		this.list = list;
 	}
 
 	@Override
 	public int getCount() {
-		// TODO Auto-generated method stub
+
 		return list.size();
 	}
 
 	@Override
 	public Object getItem(int arg0) {
-		// TODO Auto-generated method stub
+
 		return arg0;
 	}
 
 	@Override
 	public long getItemId(int arg0) {
-		// TODO Auto-generated method stub
+
 		return arg0;
 	}
 
 	@Override
 	public View getView(int position, View convertView, ViewGroup parent) {
-		// TODO Auto-generated method stub
+
 		if (convertView == null) {
 			convertView = RelativeLayout.inflate(context,
 					R.layout.listitem_address, null);

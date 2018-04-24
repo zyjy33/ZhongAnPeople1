@@ -22,7 +22,7 @@ public class FlyCangAdapter extends BaseAdapter {
 
 	public FlyCangAdapter(Context context,
 						  ArrayList<FlyCangItem> listCangItems, Handler handler) {
-		// TODO Auto-generated constructor stub
+
 		this.context = context;
 		this.listCangItems = listCangItems;
 		this.handler = handler;
@@ -50,13 +50,13 @@ public class FlyCangAdapter extends BaseAdapter {
 
 	@Override
 	public long getItemId(int arg0) {
-		// TODO Auto-generated method stub
+
 		return arg0;
 	}
 
 	@Override
 	public View getView(int index, View view, ViewGroup arg2) {
-		// TODO Auto-generated method stub
+
 		ViewHolder holder;
 		if (view == null) {
 			holder = new ViewHolder();

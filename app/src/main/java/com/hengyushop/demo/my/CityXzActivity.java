@@ -59,7 +59,7 @@ public class CityXzActivity extends BaseActivity implements OnClickListener, OnW
 
 	@Override
 	public void onChanged(WheelView wheel, int oldValue, int newValue) {
-		// TODO Auto-generated method stub
+
 		if (wheel == mViewProvince) {
 			updateCities();
 		} else if (wheel == mViewCity) {

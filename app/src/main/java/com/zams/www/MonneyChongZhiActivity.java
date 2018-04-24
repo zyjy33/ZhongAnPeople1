@@ -72,7 +72,7 @@
 //
 //	@Override
 //	protected void onResume() {
-//		// TODO Auto-generated method stub
+//
 //		super.onResume();
 //
 //		System.out.println("flag=============="+flag);
@@ -83,7 +83,7 @@
 //
 //	@Override
 //	protected void onCreate(Bundle savedInstanceState) {
-//		// TODO Auto-generated method stub
+//
 //		requestWindowFeature(Window.FEATURE_NO_TITLE);
 //		super.onCreate(savedInstanceState);
 //		setContentView(R.layout.activity_yanglao_chongzhi);
@@ -139,7 +139,7 @@
 //
 //			@Override
 //			public void onClick(View arg0) {
-//				// TODO Auto-generated method stub
+//
 //				if(yu_pay_c1.isChecked()){
 //					yu_pay_c1.setChecked(false);
 //				}else if(yu_pay_c2.isChecked()){
@@ -152,7 +152,7 @@
 //
 //			@Override
 //			public void onClick(View arg0) {
-//				// TODO Auto-generated method stub
+//
 //				if(yu_pay_c1.isChecked()){
 //					//点击设置是否为点击状态
 //					yu_pay_c1.setChecked(false);
@@ -169,7 +169,7 @@
 //
 //			@Override
 //			public void onClick(View arg0) {
-//				// TODO Auto-generated method stub
+//
 //				if(yu_pay_c0.isChecked()){
 //					yu_pay_c0.setChecked(false);
 //				}else if(yu_pay_c2.isChecked()){
@@ -182,7 +182,7 @@
 //
 //			@Override
 //			public void onClick(View arg0) {
-//				// TODO Auto-generated method stub
+//
 //				if(yu_pay_c0.isChecked()){
 //					yu_pay_c0.setChecked(false);
 //				}else if(yu_pay_c2.isChecked()){
@@ -198,7 +198,7 @@
 //
 //			@Override
 //			public void onClick(View arg0) {
-//				// TODO Auto-generated method stub
+//
 //				if(yu_pay_c0.isChecked()){
 //					yu_pay_c0.setChecked(false);
 //				}else if(yu_pay_c1.isChecked()){
@@ -211,7 +211,7 @@
 //
 //			@Override
 //			public void onClick(View arg0) {
-//				// TODO Auto-generated method stub
+//
 //				if(yu_pay_c0.isChecked()){
 //					yu_pay_c0.setChecked(false);
 //				}else if(yu_pay_c1.isChecked()){
@@ -266,14 +266,14 @@
 //		});
 //
 //	} catch (Exception e) {
-//		// TODO: handle exception
+//
 //		e.printStackTrace();
 //	}
 //	}
 //
 //	@Override
 //	public void onClick(View v) {
-//		// TODO Auto-generated method stub
+//
 //
 //		switch (v.getId()) {
 //		case R.id.iv_fanhui:
@@ -320,14 +320,14 @@
 //						}else{
 //						}
 //					} catch (JSONException e) {
-//						// TODO Auto-generated catch block
+//
 //						e.printStackTrace();
 //					}
 //				};
 //			}, MonneyChongZhiActivity.this);
 //
 //		} catch (Exception e) {
-//			// TODO: handle exception
+//
 //			e.printStackTrace();
 //		}
 //	}
@@ -373,7 +373,7 @@
 //
 //					@Override
 //					public void onFailure(Throwable arg0, String arg1) {
-//						// TODO Auto-generated method stub
+//
 //						super.onFailure(arg0, arg1);
 //						System.out.println("11================================="+arg0);
 //						System.out.println("22================================="+arg1);
@@ -383,7 +383,7 @@
 //				}, null);
 //
 //		} catch (Exception e) {
-//			// TODO: handle exception
+//
 //			e.printStackTrace();
 //		}
 //	}
@@ -435,7 +435,7 @@
 //				}, getApplicationContext());
 //
 //		} catch (Exception e) {
-//			// TODO: handle exception
+//
 //			e.printStackTrace();
 //		}
 //	}
@@ -483,7 +483,7 @@
 //				}, null);
 //
 //		} catch (Exception e) {
-//			// TODO: handle exception
+//
 //			e.printStackTrace();
 //		}
 //	}
@@ -523,7 +523,7 @@
 //				}, null);
 //
 //		} catch (Exception e) {
-//			// TODO: handle exception
+//
 //			e.printStackTrace();
 //		}
 //	}
@@ -573,7 +573,7 @@
 //				}, getApplicationContext());
 //
 //		} catch (Exception e) {
-//			// TODO: handle exception
+//
 //			e.printStackTrace();
 //		}
 //	}
@@ -628,7 +628,7 @@
 //				}, null);
 //
 //		} catch (Exception e) {
-//			// TODO: handle exception
+//
 //			e.printStackTrace();
 //		}
 //	}

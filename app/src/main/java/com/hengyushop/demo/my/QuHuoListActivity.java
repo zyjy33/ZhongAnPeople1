@@ -71,7 +71,7 @@ public class QuHuoListActivity extends BaseActivity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
+
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_quhuo_list);
@@ -98,7 +98,7 @@ public class QuHuoListActivity extends BaseActivity {
 
 	// @Override
 	// protected void onResume() {
-	// // TODO Auto-generated method stub
+	//
 	// super.onResume();
 	//
 	//
@@ -119,7 +119,7 @@ public class QuHuoListActivity extends BaseActivity {
 					new AsyncHttpResponseHandler() {
 						@Override
 						public void onSuccess(int arg0, String arg1) {
-							// TODO Auto-generated method stub
+
 							super.onSuccess(arg0, arg1);
 							System.out.println("=====================二级值11" + arg1);
 							try {
@@ -156,7 +156,7 @@ public class QuHuoListActivity extends BaseActivity {
 										System.out
 												.println("====11=====================");
 									} catch (Exception e) {
-										// TODO: handle exception
+
 										e.printStackTrace();
 									}
 								} else {
@@ -168,14 +168,14 @@ public class QuHuoListActivity extends BaseActivity {
 								handler.sendEmptyMessage(0);
 
 							} catch (JSONException e) {
-								// TODO Auto-generated catch block
+
 								e.printStackTrace();
 							}
 						}
 					}, QuHuoListActivity.this);
 
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 	}
@@ -193,7 +193,7 @@ public class QuHuoListActivity extends BaseActivity {
 						progress.CloseProgress();
 
 					} catch (Exception e) {
-						// TODO: handle exception
+
 						e.printStackTrace();
 					}
 					break;
@@ -214,7 +214,7 @@ public class QuHuoListActivity extends BaseActivity {
 
 			@Override
 			public void onClick(View arg0) {
-				// TODO Auto-generated method stub
+
 
 				load_dingdan();
 			}
@@ -224,7 +224,7 @@ public class QuHuoListActivity extends BaseActivity {
 
 			@Override
 			public void onClick(View arg0) {
-				// TODO Auto-generated method stub
+
 				finish();
 			}
 		});
@@ -248,7 +248,7 @@ public class QuHuoListActivity extends BaseActivity {
 					new AsyncHttpResponseHandler() {
 						@Override
 						public void onSuccess(int arg0, String arg1) {
-							// TODO Auto-generated method stub
+
 							super.onSuccess(arg0, arg1);
 							System.out.println("=====================二级值11"
 									+ arg1);
@@ -287,14 +287,14 @@ public class QuHuoListActivity extends BaseActivity {
 								}
 
 							} catch (JSONException e) {
-								// TODO Auto-generated catch block
+
 								e.printStackTrace();
 							}
 						}
 					}, QuHuoListActivity.this);
 
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 	}

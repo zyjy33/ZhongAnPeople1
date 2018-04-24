@@ -20,7 +20,7 @@ public class WareDao {
 	BaseDao helper = null;
 
 	public WareDao(Context context) {
-		// TODO Auto-generated constructor stub
+
 		helper = new BaseDao(context, "productname.db", null, 30);
 	}
 

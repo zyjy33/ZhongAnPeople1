@@ -81,7 +81,7 @@ public class DBFengXiangActivity extends BaseActivity implements OnClickListener
 	String data_pt;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
+
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_fenxiang_time);
@@ -135,7 +135,7 @@ public class DBFengXiangActivity extends BaseActivity implements OnClickListener
 
 				@Override
 				public void onClick(View v) {
-					// TODO Auto-generated method stub
+
 					finish();
 					con(17, 1);
 				}
@@ -145,7 +145,7 @@ public class DBFengXiangActivity extends BaseActivity implements OnClickListener
 			btn_sms.setOnClickListener(new OnClickListener() {
 				@Override
 				public void onClick(View v) {
-					// TODO Auto-generated method stub
+
 					finish();
 					con(18, 0);
 				}
@@ -155,7 +155,7 @@ public class DBFengXiangActivity extends BaseActivity implements OnClickListener
 //		iv_fanhui.setOnClickListener(this);
 
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 
@@ -300,7 +300,7 @@ public class DBFengXiangActivity extends BaseActivity implements OnClickListener
 			}
 			//http://183.62.138.31:1010/mobile/news/conent-103.html?cid=0&unionid=&openid=&shareid=7260&from=android
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 	}
@@ -453,7 +453,7 @@ public class DBFengXiangActivity extends BaseActivity implements OnClickListener
 
 	@Override
 	public void onClick(View v) {
-		// TODO Auto-generated method stub
+
 
 		switch (v.getId()) {
 			case R.id.iv_fanhui:

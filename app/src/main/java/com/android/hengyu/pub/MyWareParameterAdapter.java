@@ -20,32 +20,32 @@ public class MyWareParameterAdapter extends BaseAdapter {
 
 	public MyWareParameterAdapter(ArrayList<WareParameterData> list,
 			Context context) {
-		// TODO Auto-generated constructor stub
+
 		this.list = list;
 		this.context = context;
 	}
 
 	@Override
 	public int getCount() {
-		// TODO Auto-generated method stub
+
 		return list.size();
 	}
 
 	@Override
 	public Object getItem(int arg0) { 
-		// TODO Auto-generated method stub
+
 		return arg0;
 	}
 
 	@Override
 	public long getItemId(int arg0) {
-		// TODO Auto-generated method stub
+
 		return arg0;
 	}
 
 	@Override
 	public View getView(int position, View convertView, ViewGroup parent) {
-		// TODO Auto-generated method stub
+
 		if (convertView == null) {
 			convertView = LinearLayout.inflate(context,
 					R.layout.listiten_ware_parameter, null);

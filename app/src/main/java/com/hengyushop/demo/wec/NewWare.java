@@ -161,7 +161,7 @@ public class NewWare extends BaseActivity implements OnClickListener{
 
 				@Override
 				public boolean onEditorAction(TextView arg0, int arg1, KeyEvent arg2) {
-					// TODO Auto-generated method stub
+
 					if(arg1 == EditorInfo.IME_ACTION_SEARCH)
 					{
 						//	                    Toast.makeText(NewWare.this,"呵呵",Toast.LENGTH_SHORT).show();
@@ -182,7 +182,7 @@ public class NewWare extends BaseActivity implements OnClickListener{
 				img_shared.setBackgroundResource(R.drawable.liebiao_pl);
 				gridView_list = (MyGridView) findViewById(R.id.gridView_list);
 			} catch (Exception e) {
-				// TODO: handle exception
+
 				e.printStackTrace();
 			}
 			img_shared.setOnClickListener(new OnClickListener() {
@@ -216,7 +216,7 @@ public class NewWare extends BaseActivity implements OnClickListener{
 									@Override
 									public void onItemClick(AdapterView<?> arg0, View arg1,
 															int arg2, long arg3) {
-										// TODO Auto-generated method stub
+
 										String id = lists.get(arg2).getId();
 										System.out.println("====================="+id);
 										Intent intent = new Intent(NewWare.this,WareInformationActivity.class);
@@ -226,7 +226,7 @@ public class NewWare extends BaseActivity implements OnClickListener{
 								});
 
 							} catch (Exception e) {
-								// TODO: handle exception
+
 								e.printStackTrace();
 							}
 						} else {
@@ -240,12 +240,12 @@ public class NewWare extends BaseActivity implements OnClickListener{
 								myadapter = new MySpListAdapter(lists,NewWare.this, imageLoader);
 								new_list.setAdapter(myadapter);
 							} catch (Exception e) {
-								// TODO: handle exception
+
 								e.printStackTrace();
 							}
 						}
 					} catch (Exception e) {
-						// TODO: handle exception
+
 						e.printStackTrace();
 					}
 
@@ -253,7 +253,7 @@ public class NewWare extends BaseActivity implements OnClickListener{
 			});
 
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 		lists = new ArrayList<SpListData>();
@@ -276,7 +276,7 @@ public class NewWare extends BaseActivity implements OnClickListener{
 
 			@Override
 			public void onClick(View arg0) {
-				// TODO Auto-generated method stub
+
 				finish();
 			}
 		});
@@ -284,13 +284,13 @@ public class NewWare extends BaseActivity implements OnClickListener{
 	}
 
 	// 	public void uncaughtException(Thread arg0, Throwable arg1) {
-	//		// TODO Auto-generated method stub
+	//
 	//		 //在此处理异常， arg1即为捕获到的异常
 	//        Log.i("AAA", "uncaughtException   " + arg1);
 	//	}
 	@Override
 	public void onResume() {
-		// TODO Auto-generated method stub
+
 		super.onResume();
 		//		loadWeather();
 		if (LieBiaoActivity.title_id != null) {
@@ -340,7 +340,7 @@ public class NewWare extends BaseActivity implements OnClickListener{
 						@Override
 						public void onItemClick(AdapterView<?> arg0, View arg1,
 												int arg2, long arg3) {
-							// TODO Auto-generated method stub
+
 							String id = lists.get(arg2).getId();
 							System.out.println("====================="+id);
 							Intent intent = new Intent(NewWare.this,WareInformationActivity.class);
@@ -363,7 +363,7 @@ public class NewWare extends BaseActivity implements OnClickListener{
 					//					@Override
 					//					public void onItemClick(AdapterView<?> arg0, View arg1,
 					//							int arg2, long arg3) {
-					//						// TODO Auto-generated method stub
+					//
 					//						String id = lists.get(arg2).getId();
 					//						System.out.println("====================="+id);
 					//						Intent intent = new Intent(NewWare.this,WareInformationActivity.class);
@@ -389,7 +389,7 @@ public class NewWare extends BaseActivity implements OnClickListener{
 								"channel_name="+channel_name+"&parent_id="+INDX+"",new AsyncHttpResponseHandler() {
 							@Override
 							public void onSuccess(int arg0,String arg1) {
-								// TODO Auto-generated method stub
+
 								super.onSuccess(arg0, arg1);
 								formatWeatherll(arg1);
 
@@ -431,7 +431,7 @@ public class NewWare extends BaseActivity implements OnClickListener{
 													"channel_name="+channel_name+"&parent_id="+INDX+"",new AsyncHttpResponseHandler() {
 												@Override
 												public void onSuccess(int arg0,String arg1) {
-													// TODO Auto-generated method stub
+
 													super.onSuccess(arg0, arg1);
 													quanbu_id = arg1;
 													formatWeatherll(arg1);
@@ -470,13 +470,13 @@ public class NewWare extends BaseActivity implements OnClickListener{
 									}
 
 								} catch (Exception e) {
-									// TODO Auto-generated catch block
+
 									e.printStackTrace();
 								}
 							}
 						});
 					} catch (Exception e) {
-						// TODO Auto-generated catch block
+
 						e.printStackTrace();
 					}
 					break;
@@ -487,7 +487,7 @@ public class NewWare extends BaseActivity implements OnClickListener{
 						@Override
 						public void onItemClick(AdapterView<?> arg0, View arg1,
 												int arg2, long arg3) {
-							// TODO Auto-generated method stub
+
 							Intent intent = new Intent(NewWare.this,WareInformationActivity.class);
 							intent.putExtra("id", datas.get(arg2).id);
 							startActivity(intent);
@@ -506,7 +506,7 @@ public class NewWare extends BaseActivity implements OnClickListener{
 		AsyncHttp.get(RealmName.REALM_NAME_LL+ "/get_category_child_list?channel_name="+channel_name+"&parent_id=0",new AsyncHttpResponseHandler() {
 			@Override
 			public void onSuccess(int arg0, String arg1) {
-				// TODO Auto-generated method stub
+
 				super.onSuccess(arg0, arg1);
 				formatWeather(arg1);
 			}
@@ -537,7 +537,7 @@ public class NewWare extends BaseActivity implements OnClickListener{
 			//			System.out.println("=======22==");
 			//			handler.sendEmptyMessage(100);
 		} catch (JSONException e) {
-			// TODO Auto-generated catch block
+
 			e.printStackTrace();
 		}
 
@@ -590,7 +590,7 @@ public class NewWare extends BaseActivity implements OnClickListener{
 			}
 
 		} catch (JSONException e) {
-			// TODO Auto-generated catch block
+
 			e.printStackTrace();
 		}
 	}
@@ -603,7 +603,7 @@ public class NewWare extends BaseActivity implements OnClickListener{
 
 		@Override
 		public void onHeaderRefresh(PullToRefreshView view) {
-			// TODO Auto-generated method stub
+
 			refresh.postDelayed(new Runnable() {
 
 				@Override
@@ -621,7 +621,7 @@ public class NewWare extends BaseActivity implements OnClickListener{
 
 		@Override
 		public void onFooterRefresh(PullToRefreshView view) {
-			// TODO Auto-generated method stub
+
 			refresh.postDelayed(new Runnable() {
 
 				@Override
@@ -632,7 +632,7 @@ public class NewWare extends BaseActivity implements OnClickListener{
 						refresh.onFooterRefreshComplete();
 
 					} catch (Exception e) {
-						// TODO: handle exception
+
 						e.printStackTrace();
 					}
 				}
@@ -661,7 +661,7 @@ public class NewWare extends BaseActivity implements OnClickListener{
 				new AsyncHttpResponseHandler(){
 					@Override
 					public void onSuccess(int arg0, String arg1) {
-						// TODO Auto-generated method stub
+
 						super.onSuccess(arg0, arg1);
 						//								System.out.println("=====================三级值"+arg1);
 						try {
@@ -707,7 +707,7 @@ public class NewWare extends BaseActivity implements OnClickListener{
 							}
 							progress.CloseProgress();
 						} catch (JSONException e) {
-							// TODO Auto-generated catch block
+
 							e.printStackTrace();
 						}
 					}
@@ -717,7 +717,7 @@ public class NewWare extends BaseActivity implements OnClickListener{
 
 	@Override
 	public void onClick(View v) {
-		// TODO Auto-generated method stub
+
 
 	}
 
@@ -757,7 +757,7 @@ public class NewWare extends BaseActivity implements OnClickListener{
 
 		@Override
 		public Object getItem(int position) {
-			// TODO Auto-generated method stub
+
 			return List_lb.get(position);
 		}
 
@@ -812,7 +812,7 @@ public class NewWare extends BaseActivity implements OnClickListener{
 				}
 
 			} catch (Exception e) {
-				// TODO: handle exception
+
 				e.printStackTrace();
 			}
 			return convertView;
@@ -856,7 +856,7 @@ public class NewWare extends BaseActivity implements OnClickListener{
 			myGridView.setNumColumns(size);//动态设置GridView列数
 
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 	}

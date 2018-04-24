@@ -125,7 +125,7 @@ public class LglotteryActivity extends BaseActivity {
 				.setOnLongClickListener(new OnLongClickListener() {
 					@Override
 					public boolean onLongClick(View v) {
-						// TODO Auto-generated method stub
+
 						sharedUtils.clear();
 						return true;
 					}
@@ -199,7 +199,7 @@ public class LglotteryActivity extends BaseActivity {
 
 	@Override
 	protected void onResume() {
-		// TODO Auto-generated method stub
+
 		super.onResume();
 		lglottery_person_dai.setText(getString(R.string.person_view_dai,
 				personUtil.getValue("shopPassTicket")));
@@ -228,7 +228,7 @@ public class LglotteryActivity extends BaseActivity {
 
 		@Override
 		public void onClick(View view) {
-			// TODO Auto-generated method stub
+
 			switch (view.getId()) {
 				case R.id.lglottery_tip:
 					initPopupWindow();
@@ -276,7 +276,7 @@ public class LglotteryActivity extends BaseActivity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
+
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.lglottery_activity);

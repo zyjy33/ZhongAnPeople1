@@ -51,7 +51,7 @@ public class GoodsMyGridViewAdaper extends BaseAdapter {
 
 	@Override
 	public Object getItem(int position) {
-		// TODO Auto-generated method stub
+
 		return list.get(position);
 	}
 
@@ -102,7 +102,7 @@ public class GoodsMyGridViewAdaper extends BaseAdapter {
 			type = true;
 			//        mAq.clear();
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 		return convertView;

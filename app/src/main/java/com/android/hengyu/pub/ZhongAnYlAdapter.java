@@ -57,19 +57,19 @@ public class ZhongAnYlAdapter extends BaseAdapter {
 
 	@Override
 	public Object getItem(int position) {
-		// TODO Auto-generated method stub
+
 		return list.get(position);
 	}
 
 	@Override
 	public long getItemId(int position) {
-		// TODO Auto-generated method stub
+
 		return position;
 	}
 
 	@Override
 	public View getView(final int position, View convertView, ViewGroup patent) {
-		// TODO Auto-generated method stub
+
 		try {
 			convertView = inflater.inflate(R.layout.zayl_item_telie, null);
 			TextView tv_letter = (TextView) convertView
@@ -109,7 +109,7 @@ public class ZhongAnYlAdapter extends BaseAdapter {
 
 				@Override
 				public void onClick(View arg0) {
-					// TODO Auto-generated method stub
+
 					try {
 
 						String id = list.get(position).getId();
@@ -122,7 +122,7 @@ public class ZhongAnYlAdapter extends BaseAdapter {
 						intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 						context.startActivity(intent);
 					} catch (Exception e) {
-						// TODO: handle exception
+
 						e.printStackTrace();
 					}
 				}
@@ -145,7 +145,7 @@ public class ZhongAnYlAdapter extends BaseAdapter {
 						@Override
 						public void onItemClick(AdapterView<?> arg0, View arg1,
 								int arg2, long arg3) {
-							// TODO Auto-generated method stub
+
 							try {
 								String id = list.get(position).getList()
 										.get(arg2).getId();
@@ -159,7 +159,7 @@ public class ZhongAnYlAdapter extends BaseAdapter {
 								context.startActivity(intent);
 
 							} catch (Exception e) {
-								// TODO: handle exception
+
 								e.printStackTrace();
 							}
 						}
@@ -167,7 +167,7 @@ public class ZhongAnYlAdapter extends BaseAdapter {
 					addview.addView(vi);
 
 				} catch (Exception e) {
-					// TODO: handle exception
+
 					e.printStackTrace();
 				}
 			}
@@ -177,7 +177,7 @@ public class ZhongAnYlAdapter extends BaseAdapter {
 			MyAdapter2.notifyDataSetChanged();
 
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 

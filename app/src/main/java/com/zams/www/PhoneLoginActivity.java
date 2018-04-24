@@ -146,14 +146,14 @@ public class PhoneLoginActivity extends BaseActivity implements OnClickListener 
 
 			initdata();
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 	}
 
 	@Override
 	protected void onResume() {
-		// TODO Auto-generated method stub
+
 		super.onResume();
 		spPreferences = getSharedPreferences("longuserset", MODE_PRIVATE);
 		user_name = spPreferences.getString("user", "");
@@ -241,14 +241,14 @@ public class PhoneLoginActivity extends BaseActivity implements OnClickListener 
 
 									}
 								} catch (JSONException e) {
-									// TODO Auto-generated catch block
+
 									e.printStackTrace();
 								}
 							};
 
 							@Override
 							public void onFailure(Throwable arg0, String arg1) {
-								// TODO Auto-generated method stub
+
 								super.onFailure(arg0, arg1);
 								NewDataToast.makeText(PhoneLoginActivity.this,
 										"连接超时", false, 0).show();
@@ -256,7 +256,7 @@ public class PhoneLoginActivity extends BaseActivity implements OnClickListener 
 						}, PhoneLoginActivity.this);
 
 					} catch (Exception e) {
-						// TODO: handle exception
+
 						e.printStackTrace();
 					}
 					break;
@@ -281,7 +281,7 @@ public class PhoneLoginActivity extends BaseActivity implements OnClickListener 
 						strUrltwo = RealmName.REALM_NAME + "/mi/login.ashx?yth="
 								+ processParam(name) + "&pwd=" + mi + "&msisdn=";
 					} catch (UnsupportedEncodingException e) {
-						// TODO Auto-generated catch block
+
 						e.printStackTrace();
 					}
 
@@ -308,14 +308,14 @@ public class PhoneLoginActivity extends BaseActivity implements OnClickListener 
 									handler.sendEmptyMessage(0);
 								}
 							} catch (JSONException e) {
-								// TODO Auto-generated catch block
+
 								e.printStackTrace();
 							}
 						};
 
 						@Override
 						public void onFailure(Throwable arg0, String arg1) {
-							// TODO Auto-generated method stub
+
 							super.onFailure(arg0, arg1);
 							NewDataToast.makeText(PhoneLoginActivity.this, "连接超时",
 									false, 0).show();
@@ -343,7 +343,7 @@ public class PhoneLoginActivity extends BaseActivity implements OnClickListener 
 				return "";
 			}
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			Log.e("VersionInfo", "Exception", e);
 		}
 		return versionName;
@@ -486,7 +486,6 @@ public class PhoneLoginActivity extends BaseActivity implements OnClickListener 
 	}
 
 	/*
-	 * @Override public boolean onKeyDown(int keyCode, KeyEvent event) { // TODO
 	 * Auto-generated method stub this.setResult(0);
 	 * AppManager.getAppManager().finishActivity(); return true;
 	 *
@@ -551,7 +550,7 @@ public class PhoneLoginActivity extends BaseActivity implements OnClickListener 
 
 			@Override
 			public void onClick(View arg0) {
-				// TODO Auto-generated method stub
+
 				finish();
 			}
 		});
@@ -565,7 +564,7 @@ public class PhoneLoginActivity extends BaseActivity implements OnClickListener 
 
 	@Override
 	public void onClick(View v) {
-		// TODO Auto-generated method stub
+
 		switch (v.getId()) {
 			case R.id.img_weixin_login:// 微信登录
 				// Intent intent = new
@@ -610,7 +609,7 @@ public class PhoneLoginActivity extends BaseActivity implements OnClickListener 
 								// params, new AsyncHttpResponseHandler(){
 								@Override
 								public void onSuccess(int arg0, String arg1) {
-									// TODO Auto-generated method stub
+
 									super.onSuccess(arg0, arg1);
 									try {
 										JSONObject jsonObject = new JSONObject(arg1);
@@ -707,19 +706,19 @@ public class PhoneLoginActivity extends BaseActivity implements OnClickListener 
 										// }
 
 									} catch (Exception e) {
-										// TODO: handle exception
+
 										e.printStackTrace();
 									}
 
 								}
 							}, PhoneLoginActivity.this);
 						} catch (Exception e1) {
-							// TODO Auto-generated catch block
+
 							e1.printStackTrace();
 						}
 					}
 				} catch (Exception e1) {
-					// TODO Auto-generated catch block
+
 					e1.printStackTrace();
 				}
 				break;

@@ -105,7 +105,7 @@ public class MyOrderConfrimActivityll extends BaseActivity {
 	private String partner_id,prepayid,noncestr,timestamp,package_,sign;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
+
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		popupWindowMenu = new MyPopupWindowMenu(this);
 		progress = new DialogProgress(MyOrderConfrimActivityll.this);
@@ -152,7 +152,7 @@ public class MyOrderConfrimActivityll extends BaseActivity {
 			}
 
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 	}
@@ -178,7 +178,7 @@ public class MyOrderConfrimActivityll extends BaseActivity {
 
 				@Override
 				public void onClick(View arg0) {
-					// TODO Auto-generated method stub
+
 					finish();
 				}
 			});
@@ -213,7 +213,7 @@ public class MyOrderConfrimActivityll extends BaseActivity {
 			});
 
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 
@@ -221,14 +221,14 @@ public class MyOrderConfrimActivityll extends BaseActivity {
 
 			@Override
 			public void onClick(View arg0) {
-				// TODO Auto-generated method stub
+
 
 				CommomConfrim.showSheet(MyOrderConfrimActivityll.this,
 						new onDeleteSelect() {
 
 							@Override
 							public void onClick(int resID) {
-								// TODO Auto-generated method stub
+
 								switch (resID) {
 									case R.id.item0:
 										// 余额支付
@@ -260,7 +260,7 @@ public class MyOrderConfrimActivityll extends BaseActivity {
 
 	//	@Override
 	//	protected void onResume() {
-	//		// TODO Auto-generated method stub
+	//
 	//		super.onResume();
 	//		getuseraddress();
 	//	}
@@ -279,7 +279,7 @@ public class MyOrderConfrimActivityll extends BaseActivity {
 				+ user_id + "", new AsyncHttpResponseHandler() {
 			@Override
 			public void onSuccess(int arg0, String arg1) {
-				// TODO Auto-generated method stub
+
 				super.onSuccess(arg0, arg1);
 				try {
 					JSONObject jsonObject = new JSONObject(arg1);
@@ -311,7 +311,7 @@ public class MyOrderConfrimActivityll extends BaseActivity {
 					// progress.CloseProgress();
 					handler.sendEmptyMessage(0);
 				} catch (JSONException e) {
-					// TODO Auto-generated catch block
+
 					e.printStackTrace();
 				}
 
@@ -340,7 +340,7 @@ public class MyOrderConfrimActivityll extends BaseActivity {
 				+ "", new AsyncHttpResponseHandler() {
 			@Override
 			public void onSuccess(int arg0, String arg1) {
-				// TODO Auto-generated method stub
+
 				super.onSuccess(arg0, arg1);
 				try {
 					JSONObject jsonObject = new JSONObject(arg1);
@@ -380,7 +380,7 @@ public class MyOrderConfrimActivityll extends BaseActivity {
 					}
 
 				} catch (JSONException e) {
-					// TODO Auto-generated catch block
+
 					progress.CloseProgress();
 					e.printStackTrace();
 				}
@@ -441,7 +441,7 @@ public class MyOrderConfrimActivityll extends BaseActivity {
 						//				list_shop_cart.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
 
 					} catch (Exception e) {
-						// TODO: handle exception
+
 						e.printStackTrace();
 					}
 					break;
@@ -466,14 +466,14 @@ public class MyOrderConfrimActivityll extends BaseActivity {
 								boolean flag = api.sendReq(req);
 								System.out.println("支付"+flag);
 							} catch (Exception e) {
-								// TODO: handle exception
+
 								e.printStackTrace();
 							}
 						}else {
 
 						}
 					} catch (Exception e) {
-						// TODO: handle exception
+
 						e.printStackTrace();
 					}
 
@@ -555,7 +555,7 @@ public class MyOrderConfrimActivityll extends BaseActivity {
 					}, getApplicationContext());
 
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 	}
@@ -599,7 +599,7 @@ public class MyOrderConfrimActivityll extends BaseActivity {
 	//
 	//					@Override
 	//					public void onFailure(Throwable arg0, String arg1) {
-	//						// TODO Auto-generated method stub
+	//
 	//						super.onFailure(arg0, arg1);
 	//						System.out.println("11================================="+arg0);
 	//						System.out.println("22================================="+arg1);
@@ -609,7 +609,7 @@ public class MyOrderConfrimActivityll extends BaseActivity {
 	//				}, null);
 	//
 	//		} catch (Exception e) {
-	//			// TODO: handle exception
+	//
 	//			e.printStackTrace();
 	//		}
 	//	}
@@ -651,7 +651,7 @@ public class MyOrderConfrimActivityll extends BaseActivity {
 					}, null);
 
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 	}
@@ -700,7 +700,7 @@ public class MyOrderConfrimActivityll extends BaseActivity {
 					}, getApplicationContext());
 
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 	}
@@ -743,7 +743,7 @@ public class MyOrderConfrimActivityll extends BaseActivity {
 	//
 	//					@Override
 	//					public void onFailure(Throwable arg0, String arg1) {
-	//						// TODO Auto-generated method stub
+	//
 	//						super.onFailure(arg0, arg1);
 	//						System.out.println("11================================="+arg0);
 	//						System.out.println("22================================="+arg1);
@@ -753,7 +753,7 @@ public class MyOrderConfrimActivityll extends BaseActivity {
 	//				}, null);
 	//
 	//		} catch (Exception e) {
-	//			// TODO: handle exception
+	//
 	//			e.printStackTrace();
 	//		}
 	//	}
@@ -804,7 +804,7 @@ public class MyOrderConfrimActivityll extends BaseActivity {
 					}, null);
 
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 	}
@@ -847,7 +847,7 @@ public class MyOrderConfrimActivityll extends BaseActivity {
 			payThread.start();
 
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 
 		}

@@ -104,7 +104,7 @@ public class UserRegisterActivity extends BaseActivity implements
 
 			@Override
 			public void onClick(View arg0) {
-				// TODO Auto-generated method stub
+
 				finish();
 			}
 		});
@@ -156,7 +156,7 @@ public class UserRegisterActivity extends BaseActivity implements
 									try {
 										Thread.sleep(1000);
 									} catch (InterruptedException e) {
-										// TODO Auto-generated catch block
+
 										e.printStackTrace();
 									}
 
@@ -241,14 +241,14 @@ public class UserRegisterActivity extends BaseActivity implements
 					// params,new AsyncHttpResponseHandler(){
 					@Override
 					public void onSuccess(int arg0, String arg1) {
-						// TODO Auto-generated method stub
+
 						super.onSuccess(arg0, arg1);
 						try {
 							JSONObject object = new JSONObject(arg1);
 							lglottery_pop_closed.setText(object
 									.getString("msg"));
 						} catch (JSONException e) {
-							// TODO Auto-generated catch block
+
 							e.printStackTrace();
 						}
 					}
@@ -316,7 +316,7 @@ public class UserRegisterActivity extends BaseActivity implements
 			// regise_tip.setText(Html.fromHtml(" <u>用户协议</u> "));
 			regise_tip.setOnClickListener(this);
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 	}
@@ -334,7 +334,7 @@ public class UserRegisterActivity extends BaseActivity implements
 	// @Override
 	// public void onItemSelected(AdapterView<?> arg0, View arg1,
 	// int arg2, long arg3) {
-	// // TODO Auto-generated method stub
+	//
 	// sheng = al_sheng.get(arg2);
 	// cityDao = new CityDao(UserRegisterActivity.this);
 	// CityData cityData = cityDao.findShengCode(sheng);
@@ -355,7 +355,7 @@ public class UserRegisterActivity extends BaseActivity implements
 	//
 	// @Override
 	// public void onNothingSelected(AdapterView<?> arg0) {
-	// // TODO Auto-generated method stub
+	//
 	// }
 	// });
 	//
@@ -364,7 +364,7 @@ public class UserRegisterActivity extends BaseActivity implements
 	// @Override
 	// public void onItemSelected(AdapterView<?> arg0, View arg1,
 	// int arg2, long arg3) {
-	// // TODO Auto-generated method stub
+	//
 	// shi = al_shi.get(arg2);
 	// cityDao = new CityDao(UserRegisterActivity.this);
 	// CityData cityData = cityDao.findCityCode(shi);
@@ -383,7 +383,7 @@ public class UserRegisterActivity extends BaseActivity implements
 	//
 	// @Override
 	// public void onNothingSelected(AdapterView<?> arg0) {
-	// // TODO Auto-generated method stub
+	//
 	// }
 	// });
 	// sp_xian.setOnItemSelectedListener(new OnItemSelectedListener() {
@@ -391,7 +391,7 @@ public class UserRegisterActivity extends BaseActivity implements
 	// @Override
 	// public void onItemSelected(AdapterView<?> arg0, View arg1,
 	// int arg2, long arg3) {
-	// // TODO Auto-generated method stub
+	//
 	// xian = al_xian.get(arg2);
 	// cityDao = new CityDao(UserRegisterActivity.this);
 	// CityData cityData = cityDao.findAreaCode(xian);
@@ -400,7 +400,7 @@ public class UserRegisterActivity extends BaseActivity implements
 	//
 	// @Override
 	// public void onNothingSelected(AdapterView<?> arg0) {
-	// // TODO Auto-generated method stub
+	//
 	// }
 	// });
 	//
@@ -416,7 +416,7 @@ public class UserRegisterActivity extends BaseActivity implements
 	public void onClick(View v) {
 		try {
 
-			// TODO Auto-generated method stub
+
 			switch (v.getId()) {
 				case R.id.regise_tip:
 					// initPopupWindow();
@@ -608,7 +608,7 @@ public class UserRegisterActivity extends BaseActivity implements
 													@Override
 													public void onSuccess(int arg0,
 																		  String arg1) {
-														// TODO Auto-generated
+
 														// method stub
 														super.onSuccess(arg0, arg1);
 														try {
@@ -687,7 +687,7 @@ public class UserRegisterActivity extends BaseActivity implements
 																}
 															}
 														} catch (JSONException e) {
-															// TODO Auto-generated
+
 															// catch block
 															e.printStackTrace();
 														}
@@ -711,7 +711,7 @@ public class UserRegisterActivity extends BaseActivity implements
 					break;
 			}
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 	}

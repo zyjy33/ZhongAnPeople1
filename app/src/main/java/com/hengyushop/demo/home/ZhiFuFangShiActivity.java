@@ -63,7 +63,7 @@ public class ZhiFuFangShiActivity extends BaseActivity implements
 
 	@Override
 	protected void onResume() {
-		// TODO Auto-generated method stub
+
 		super.onResume();
 
 	}
@@ -84,7 +84,7 @@ public class ZhiFuFangShiActivity extends BaseActivity implements
 						@Override
 						public void onItemClick(AdapterView<?> arg0, View arg1,
 												int arg2, long arg3) {
-							// TODO Auto-generated method stub
+
 							try {
 								express_id = list.get(arg2).getId();
 								title = list.get(arg2).getTitle();
@@ -107,7 +107,7 @@ public class ZhiFuFangShiActivity extends BaseActivity implements
 								// }
 								finish();
 							} catch (Exception e) {
-								// TODO: handle exception
+
 								e.printStackTrace();
 							}
 						}
@@ -129,7 +129,7 @@ public class ZhiFuFangShiActivity extends BaseActivity implements
 				new AsyncHttpResponseHandler() {
 					@Override
 					public void onSuccess(int arg0, String arg1) {
-						// TODO Auto-generated method stub
+
 						super.onSuccess(arg0, arg1);
 						System.out.println("输出所有拼团活动列表=========" + arg1);
 						try {
@@ -161,7 +161,7 @@ public class ZhiFuFangShiActivity extends BaseActivity implements
 										200).show();
 							}
 						} catch (JSONException e) {
-							// TODO Auto-generated catch block
+
 							e.printStackTrace();
 						}
 					}
@@ -171,7 +171,7 @@ public class ZhiFuFangShiActivity extends BaseActivity implements
 
 	@Override
 	public void onClick(View v) {
-		// TODO Auto-generated method stub
+
 		switch (v.getId()) {
 			case R.id.item0:
 				break;

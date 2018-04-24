@@ -119,7 +119,7 @@ public class ChuGouDetailActivity extends BaseActivity {
 		click1.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View arg0) {
-				// TODO Auto-generated method stub
+
 				AsyncHttp.post_1(url, params, new AsyncHttpResponseHandler() {
 
 					@Override

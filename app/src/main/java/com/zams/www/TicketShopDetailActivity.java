@@ -54,7 +54,7 @@ public class TicketShopDetailActivity extends BaseActivity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
+
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.ticket_shop_detail);
@@ -74,7 +74,7 @@ public class TicketShopDetailActivity extends BaseActivity {
 		AsyncHttp.post_1(str2, params, new AsyncHttpResponseHandler() {
 			@Override
 			public void onSuccess(int arg0, String arg1) {
-				// TODO Auto-generated method stub
+
 				super.onSuccess(arg0, arg1);
 				parse(arg1);
 			}
@@ -103,7 +103,7 @@ public class TicketShopDetailActivity extends BaseActivity {
 			msg.obj = list;
 			handler.sendMessage(msg);
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 	}

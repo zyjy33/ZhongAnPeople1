@@ -54,7 +54,7 @@ public class QianDaoListActivity extends BaseActivity {
 	//15220072931
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
+
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		getWindow().setSoftInputMode(
 				WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
@@ -72,7 +72,7 @@ public class QianDaoListActivity extends BaseActivity {
 		//			@Override
 		//			public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
 		//					long arg3) {
-		//				// TODO Auto-generated method stub
+		//
 		//				try {
 		//
 		//				System.out.println("=================1="+list.size());
@@ -81,7 +81,7 @@ public class QianDaoListActivity extends BaseActivity {
 		//				startActivity(intent);
 		//
 		//				} catch (Exception e) {
-		//					// TODO: handle exception
+		//
 		//					e.printStackTrace();
 		//				}
 		//			}
@@ -98,7 +98,7 @@ public class QianDaoListActivity extends BaseActivity {
 
 	@Override
 	protected void onResume() {
-		// TODO Auto-generated method stub
+
 		super.onResume();
 		System.out.println("trade_no====================="+QianDaoAdapter.trade_no);
 		if (QianDaoAdapter.trade_no != null) {
@@ -117,7 +117,7 @@ public class QianDaoListActivity extends BaseActivity {
 			}
 
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 	};
@@ -135,7 +135,7 @@ public class QianDaoListActivity extends BaseActivity {
 
 			@Override
 			public void onClick(View arg0) {
-				// TODO Auto-generated method stub
+
 				finish();
 			}
 		});
@@ -144,7 +144,7 @@ public class QianDaoListActivity extends BaseActivity {
 
 			@Override
 			public void onClick(View arg0) {
-				// TODO Auto-generated method stub
+
 				shoujihao = et_user_yz.getText().toString().trim();
 				if (shoujihao.equals("")) {
 					Toast.makeText(QianDaoListActivity.this, "请输入手机号码", 200).show();
@@ -166,7 +166,7 @@ public class QianDaoListActivity extends BaseActivity {
 				new AsyncHttpResponseHandler(){
 					@Override
 					public void onSuccess(int arg0, String arg1) {
-						// TODO Auto-generated method stub
+
 						super.onSuccess(arg0, arg1);
 						System.out.println("=====================二级值1"+arg1);
 						try {
@@ -205,14 +205,14 @@ public class QianDaoListActivity extends BaseActivity {
 							handler.sendMessage(msg);
 
 						} catch (JSONException e) {
-							// TODO Auto-generated catch block
+
 							e.printStackTrace();
 						}
 					}
 
 					@Override
 					public void onFailure(Throwable arg0,String arg1) {
-						// TODO Auto-generated method stub
+
 						super.onFailure(arg0, arg1);
 						Toast.makeText(QianDaoListActivity.this, "加载异常", 2000).show();
 					}
@@ -238,7 +238,7 @@ public class QianDaoListActivity extends BaseActivity {
 					//					@Override
 					//					public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
 					//							long arg3) {
-					//						// TODO Auto-generated method stub
+					//
 					//						try {
 					//
 					//						System.out.println("=================1="+list.size());
@@ -247,7 +247,7 @@ public class QianDaoListActivity extends BaseActivity {
 					//						startActivity(intent);
 					//
 					//						} catch (Exception e) {
-					//							// TODO: handle exception
+					//
 					//							e.printStackTrace();
 					//						}
 					//					}
@@ -312,7 +312,7 @@ public class QianDaoListActivity extends BaseActivity {
 
 						@Override
 						public void onFailure(Throwable arg0, String arg1) {
-							// TODO Auto-generated method stub
+
 							super.onFailure(arg0, arg1);
 							progress.CloseProgress();
 							System.out.println("异常================================="+arg1);
@@ -321,7 +321,7 @@ public class QianDaoListActivity extends BaseActivity {
 					}, null);
 
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 	}
@@ -342,7 +342,7 @@ public class QianDaoListActivity extends BaseActivity {
 				new AsyncHttpResponseHandler() {
 					@Override
 					public void onSuccess(int arg0, String arg1) {
-						// TODO Auto-generated method stub
+
 						super.onSuccess(arg0, arg1);
 						System.out.println("=========数据接口============" + arg1);
 						try {
@@ -362,14 +362,14 @@ public class QianDaoListActivity extends BaseActivity {
 								Toast.makeText(QianDaoListActivity.this, info, 200).show();
 							}
 						} catch (Exception e) {
-							// TODO: handle exception
+
 							e.printStackTrace();
 						}
 					}
 
 					@Override
 					public void onFailure(Throwable arg0, String arg1) {
-						// TODO Auto-generated method stub
+
 						progress.CloseProgress();
 						System.out.println("==========================访问接口失败！");
 						System.out.println("==========================" + arg1);

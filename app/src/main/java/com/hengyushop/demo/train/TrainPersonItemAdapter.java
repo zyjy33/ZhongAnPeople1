@@ -53,7 +53,7 @@ public class TrainPersonItemAdapter extends BaseAdapter {
 
 	@Override
 	public View getView(final int index, View view, ViewGroup arg2) {
-		// TODO Auto-generated method stub ViewHolder holder = null;
+		  ViewHolder holder = null;
 		ViewHolder holder = null;
 		if (view == null) {
 			holder = new ViewHolder();
@@ -76,7 +76,7 @@ public class TrainPersonItemAdapter extends BaseAdapter {
 						@Override
 						public void onCheckedChanged(CompoundButton arg0,
 													 boolean arg1) {
-							// TODO Auto-generated method stub
+
 							TrainPersonItem key = list.get(index);
 							Message msg = new Message();
 							msg.what = 0;

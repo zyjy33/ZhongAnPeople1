@@ -92,14 +92,14 @@ public class LgLotteryLoginActivity extends BaseActivity {
 					new AsyncHttpResponseHandler() {
 						@Override
 						public void onStart() {
-							// TODO Auto-generated method stub
+
 							super.onStart();
 							// showDialog(Config.SHOW_LOADING);
 						}
 
 						@Override
 						public void onSuccess(int arg0, String arg1) {
-							// TODO Auto-generated method stub
+
 							super.onSuccess(arg0, arg1);
 							WLog.v(arg1);
 							try {
@@ -121,7 +121,7 @@ public class LgLotteryLoginActivity extends BaseActivity {
 								}
 
 							} catch (JSONException e) {
-								// TODO Auto-generated catch block
+
 								e.printStackTrace();
 							}
 							// for()
@@ -130,7 +130,7 @@ public class LgLotteryLoginActivity extends BaseActivity {
 
 						@Override
 						public void onFinish() {
-							// TODO Auto-generated method stub
+
 							super.onFinish();
 							// dismissDialog(Config.SHOW_LOADING);
 							// removeDialog(Config.SHOW_LOADING);

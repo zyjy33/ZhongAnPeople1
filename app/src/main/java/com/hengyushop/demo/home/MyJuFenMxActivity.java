@@ -44,7 +44,7 @@ public class MyJuFenMxActivity extends BaseActivity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
+
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_my_jufen_mx);
@@ -70,7 +70,7 @@ public class MyJuFenMxActivity extends BaseActivity {
 
 			@Override
 			public void onClick(View arg0) {
-				// TODO Auto-generated method stub
+
 				finish();
 			}
 		});
@@ -83,7 +83,7 @@ public class MyJuFenMxActivity extends BaseActivity {
 
 		@Override
 		public void onHeaderRefresh(PullToRefreshView view) {
-			// TODO Auto-generated method stub
+
 			refresh.postDelayed(new Runnable() {
 
 				@Override
@@ -101,7 +101,7 @@ public class MyJuFenMxActivity extends BaseActivity {
 
 		@Override
 		public void onFooterRefresh(PullToRefreshView view) {
-			// TODO Auto-generated method stub
+
 			refresh.postDelayed(new Runnable() {
 
 				@Override
@@ -117,7 +117,7 @@ public class MyJuFenMxActivity extends BaseActivity {
 						refresh.onFooterRefreshComplete();
 
 					} catch (Exception e) {
-						// TODO: handle exception
+
 						e.printStackTrace();
 					}
 				}
@@ -162,7 +162,7 @@ public class MyJuFenMxActivity extends BaseActivity {
 				new AsyncHttpResponseHandler() {
 					@Override
 					public void onSuccess(int arg0, String arg1) {
-						// TODO Auto-generated method stub
+
 						super.onSuccess(arg0, arg1);
 						System.out.println("=====================二级值1" + arg1);
 						try {
@@ -190,7 +190,7 @@ public class MyJuFenMxActivity extends BaseActivity {
 								CURRENT_NUM = CURRENT_NUM + VIEW_NUM;
 							}
 						} catch (JSONException e) {
-							// TODO Auto-generated catch block
+
 							e.printStackTrace();
 						}
 					}
@@ -215,7 +215,7 @@ public class MyJuFenMxActivity extends BaseActivity {
 						new AsyncHttpResponseHandler() {
 							@Override
 							public void onSuccess(int arg0, String arg1) {
-								// TODO Auto-generated method stub
+
 								super.onSuccess(arg0, arg1);
 								System.out.println("=====================二级值1"
 										+ arg1);
@@ -239,7 +239,7 @@ public class MyJuFenMxActivity extends BaseActivity {
 									msg.obj = list;
 									handler.sendMessage(msg);
 								} catch (JSONException e) {
-									// TODO Auto-generated catch block
+
 									e.printStackTrace();
 								}
 							}

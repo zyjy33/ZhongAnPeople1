@@ -59,7 +59,7 @@ public class ZhongAnYlActivity extends BaseActivity implements OnClickListener {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
+
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_zhonganyanglao);
@@ -89,7 +89,7 @@ public class ZhongAnYlActivity extends BaseActivity implements OnClickListener {
 			bd4.setCallback(null);
 			bd4.getBitmap().recycle();
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 	};
@@ -129,7 +129,7 @@ public class ZhongAnYlActivity extends BaseActivity implements OnClickListener {
 			// @Override
 			// public void onItemClick(AdapterView<?> arg0, View arg1,int arg2,
 			// long arg3) {
-			// // TODO Auto-generated method stub
+			//
 			// Intent intent=new Intent(context, Webview1.class);
 			// intent.putExtra("yanghu_list",data0.get(arg2)+"");
 			// startActivity(intent);
@@ -137,7 +137,7 @@ public class ZhongAnYlActivity extends BaseActivity implements OnClickListener {
 			// });
 
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 
@@ -176,7 +176,7 @@ public class ZhongAnYlActivity extends BaseActivity implements OnClickListener {
 									@Override
 									public void onItemClick(AdapterView<?> arg0,
 															View arg1, int arg2, long arg3) {
-										// TODO Auto-generated method stub
+
 										String id = list.get(arg2).getId();
 										System.out.println("====================="
 												+ id);
@@ -191,7 +191,7 @@ public class ZhongAnYlActivity extends BaseActivity implements OnClickListener {
 								});
 
 					} catch (Exception e) {
-						// TODO: handle exception
+
 						e.printStackTrace();
 					}
 					break;
@@ -209,7 +209,7 @@ public class ZhongAnYlActivity extends BaseActivity implements OnClickListener {
 				new AsyncHttpResponseHandler() {
 					@Override
 					public void onSuccess(int arg0, String arg1) {
-						// TODO Auto-generated method stub
+
 						super.onSuccess(arg0, arg1);
 						System.out
 								.println("=======列表数据================================"
@@ -260,14 +260,14 @@ public class ZhongAnYlActivity extends BaseActivity implements OnClickListener {
 
 											data.getList().add(bean);
 											// } catch (Exception e) {
-											// // TODO: handle exception
+											//
 											// e.printStackTrace();
 											// }
 										}
 										list.add(data);
 
 									} catch (Exception e) {
-										// TODO: handle exception
+
 										e.printStackTrace();
 									}
 								}
@@ -284,7 +284,7 @@ public class ZhongAnYlActivity extends BaseActivity implements OnClickListener {
 										200).show();
 							}
 						} catch (JSONException e) {
-							// TODO Auto-generated catch block
+
 							e.printStackTrace();
 						}
 					}
@@ -300,7 +300,7 @@ public class ZhongAnYlActivity extends BaseActivity implements OnClickListener {
 	// , new AsyncHttpResponseHandler() {
 	// @Override
 	// public void onSuccess(int arg0, String arg1) {
-	// // TODO Auto-generated method stub
+	//
 	// super.onSuccess(arg0, arg1);
 	// parse(arg1);
 	// }
@@ -351,7 +351,7 @@ public class ZhongAnYlActivity extends BaseActivity implements OnClickListener {
 	// new AsyncHttpResponseHandler() {
 	// @Override
 	// public void onSuccess(int arg0, String arg1) {
-	// // TODO Auto-generated method stub
+	//
 	// super.onSuccess(arg0, arg1);
 	// // System.out.println("=======详情数据=="+arg1);
 	// System.out.println("=======列表数据================================");
@@ -382,7 +382,7 @@ public class ZhongAnYlActivity extends BaseActivity implements OnClickListener {
 	// progress.CloseProgress();
 	// // handler.sendEmptyMessage(1);
 	// } catch (Exception e) {
-	// // TODO: handle exception
+	//
 	// e.printStackTrace();
 	// }
 	// }
@@ -394,7 +394,7 @@ public class ZhongAnYlActivity extends BaseActivity implements OnClickListener {
 	// Toast.makeText(ZhongAnYlActivity.this, info, 200).show();
 	// }
 	// } catch (JSONException e) {
-	// // TODO Auto-generated catch block
+	//
 	// e.printStackTrace();
 	// }
 	// }
@@ -429,7 +429,7 @@ public class ZhongAnYlActivity extends BaseActivity implements OnClickListener {
 
 	@Override
 	public void onClick(View v) {
-		// TODO Auto-generated method stub
+
 
 		switch (v.getId()) {
 			case R.id.iv_fanhui:

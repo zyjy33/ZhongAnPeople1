@@ -50,7 +50,7 @@ public class TishiCarArchivesActivity extends Activity implements OnClickListene
 	public static String huodong_type = "0";
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
+
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_tishi_carxing);
 		spPreferences = getSharedPreferences("longuserset", MODE_PRIVATE);
@@ -93,7 +93,7 @@ public class TishiCarArchivesActivity extends Activity implements OnClickListene
 	 */
 	@Override
 	public void onClick(View v) {
-		// TODO Auto-generated method stub
+
 
 		intent = new Intent();
 		switch (v.getId()) {
@@ -162,7 +162,7 @@ public class TishiCarArchivesActivity extends Activity implements OnClickListene
 					}else{
 					}
 				} catch (JSONException e) {
-					// TODO Auto-generated catch block
+
 					e.printStackTrace();
 				}
 			};
@@ -197,14 +197,14 @@ public class TishiCarArchivesActivity extends Activity implements OnClickListene
 						}else{
 						}
 					} catch (JSONException e) {
-						// TODO Auto-generated catch block
+
 						e.printStackTrace();
 					}
 				};
 			}, null);
 
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 	}
@@ -309,7 +309,7 @@ public class TishiCarArchivesActivity extends Activity implements OnClickListene
 
 						@Override
 						public void onFailure(Throwable arg0, String arg1) {
-							// TODO Auto-generated method stub
+
 							super.onFailure(arg0, arg1);
 							System.out.println("arg0-------------"+arg0);
 							System.out.println("arg1-------------"+arg1);
@@ -319,7 +319,7 @@ public class TishiCarArchivesActivity extends Activity implements OnClickListene
 					}, null);
 
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 	}

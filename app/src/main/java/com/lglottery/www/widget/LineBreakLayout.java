@@ -17,12 +17,12 @@ public class LineBreakLayout extends ViewGroup {
 
 	public LineBreakLayout(Context context) {
 		super(context);
-		// TODO Auto-generated constructor stub
+
 	}
 
 	public LineBreakLayout(Context context, AttributeSet attrs) {
 		super(context, attrs);
-		// TODO Auto-generated constructor stub
+
 	}
 
 	@Override

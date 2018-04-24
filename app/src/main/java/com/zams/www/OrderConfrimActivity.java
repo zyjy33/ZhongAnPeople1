@@ -97,7 +97,7 @@ public class OrderConfrimActivity extends BaseActivity {
 	private InScrollListView list_shop_cart;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
+
 		try {
 			requestWindowFeature(Window.FEATURE_NO_TITLE);
 			super.onCreate(savedInstanceState);
@@ -201,7 +201,7 @@ public class OrderConfrimActivity extends BaseActivity {
 	Handler handler = new Handler() {
 		@Override
 		public void dispatchMessage(Message msg) {
-			// TODO Auto-generated method stub
+
 			switch (msg.what) {
 				case -1:
 
@@ -616,7 +616,7 @@ public class OrderConfrimActivity extends BaseActivity {
 
 	private void pay() {
 
-		// TODO Auto-generated method stub
+
 
 		if (checkedAddressId == 0) {
 			Toast.makeText(getApplicationContext(), "请完善必要信息!", Toast.LENGTH_SHORT).show();
@@ -656,7 +656,7 @@ public class OrderConfrimActivity extends BaseActivity {
 
 			@Override
 			public void onSuccess(int arg0, String arg1) {
-				// TODO Auto-generated method stub
+
 				super.onSuccess(arg0, arg1);
 				progress.CloseProgress();
 				System.out.println(arg1);
@@ -809,13 +809,13 @@ public class OrderConfrimActivity extends BaseActivity {
 
 			@Override
 			public void onClick(View arg0) {
-				// TODO Auto-generated method stub
+
 
 				CommomConfrim.showSheet(OrderConfrimActivity.this, new onDeleteSelect() {
 
 					@Override
 					public void onClick(int resID) {
-						// TODO Auto-generated method stub
+
 						switch (resID) {
 							case R.id.item0:
 								//余额支付
@@ -845,7 +845,7 @@ public class OrderConfrimActivity extends BaseActivity {
 									AsyncHttp.get(url, new AsyncHttpResponseHandler(){
 										@Override
 										public void onSuccess(String arg0) {
-											// TODO Auto-generated method stub
+
 											super.onSuccess(arg0);
 											try {
 												JSONObject object = new JSONObject(arg0);
@@ -895,7 +895,7 @@ public class OrderConfrimActivity extends BaseActivity {
 									AsyncHttp.get(url, new AsyncHttpResponseHandler(){
 										@Override
 										public void onSuccess(String arg0) {
-											// TODO Auto-generated method stub
+
 											super.onSuccess(arg0);
 											try {
 												JSONObject object = new JSONObject(arg0);
@@ -944,7 +944,7 @@ public class OrderConfrimActivity extends BaseActivity {
 									AsyncHttp.get(url, new AsyncHttpResponseHandler(){
 										@Override
 										public void onSuccess(String arg0) {
-											// TODO Auto-generated method stub
+
 											super.onSuccess(arg0);
 											try {
 												JSONObject object = new JSONObject(arg0);
@@ -993,7 +993,7 @@ public class OrderConfrimActivity extends BaseActivity {
 									AsyncHttp.get(url, new AsyncHttpResponseHandler(){
 										@Override
 										public void onSuccess(String arg0) {
-											// TODO Auto-generated method stub
+
 											super.onSuccess(arg0);
 											try {
 												JSONObject object = new JSONObject(arg0);
@@ -1090,7 +1090,7 @@ public class OrderConfrimActivity extends BaseActivity {
 			handler.sendMessage(message);
 
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 	}
@@ -1123,14 +1123,14 @@ public class OrderConfrimActivity extends BaseActivity {
 			AsyncHttp.get(strUrl, new AsyncHttpResponseHandler() {
 				@Override
 				public void onSuccess(int arg0, String arg1) {
-					// TODO Auto-generated method stub
+
 					System.out.println("============11"+arg1);
 					super.onSuccess(arg0, arg1);
 					parse(arg1);
 				}
 			}, null);
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 	}
@@ -1145,7 +1145,7 @@ public class OrderConfrimActivity extends BaseActivity {
 				try {
 					getJsonString(null);
 				} catch (Exception e) {
-					// TODO Auto-generated catch block
+
 					e.printStackTrace();
 				}
 
@@ -1180,7 +1180,7 @@ public class OrderConfrimActivity extends BaseActivity {
 		AsyncHttp.post_1(deleteUrl, params, new AsyncHttpResponseHandler() {
 			@Override
 			public void onSuccess(int arg0, String arg1) {
-				// TODO Auto-generated method stub
+
 				super.onSuccess(arg0, arg1);
 				handler.sendEmptyMessage(4);
 			}

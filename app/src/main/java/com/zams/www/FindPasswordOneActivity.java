@@ -65,7 +65,7 @@ public class FindPasswordOneActivity extends BaseActivity {
 			public void onClick(View arg0) {
 				String phone = et_user_phone.getText().toString();
 				String yz = et_user_yz.getText().toString();
-				// TODO Auto-generated method stub
+
 				String pass1 = et_user_pwd.getText().toString();//输入新密码
 				String ys_pass = et_useryanshi_pwd.getText().toString();//输入原始密码
 
@@ -107,7 +107,7 @@ public class FindPasswordOneActivity extends BaseActivity {
 								//								}
 								finish();
 							} catch (JSONException e) {
-								// TODO Auto-generated catch block
+
 								e.printStackTrace();
 							}
 						};

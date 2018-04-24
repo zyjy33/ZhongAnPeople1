@@ -111,7 +111,7 @@ public class MyShopCarActivity extends BaseActivity implements OnClickListener {
 
 	@Override
 	public void onResume() {
-		// TODO Auto-generated method stub
+
 		super.onResume();
 		MyShopPingCarActivity.str = null;
 		WareInformationActivity.jdh_type = "";// 聚兑换判断为空
@@ -129,7 +129,7 @@ public class MyShopCarActivity extends BaseActivity implements OnClickListener {
 	}
 
 	private void getgouwuche() {
-		// TODO Auto-generated method stub
+
 		// progress.CreateProgress();
 		result = new ArrayList<DataBean>();
 		user_id = spPreferences.getString("user_id", "");
@@ -140,7 +140,7 @@ public class MyShopCarActivity extends BaseActivity implements OnClickListener {
 					+ user_id + "", new AsyncHttpResponseHandler() {
 				@Override
 				public void onSuccess(int arg0, String arg1) {
-					// TODO Auto-generated method stub
+
 					super.onSuccess(arg0, arg1);
 					try {
 						JSONObject jsonObject = new JSONObject(arg1);
@@ -182,7 +182,7 @@ public class MyShopCarActivity extends BaseActivity implements OnClickListener {
 						// refreshListView();
 						progress.CloseProgress();
 					} catch (JSONException e) {
-						// TODO Auto-generated catch block
+
 						e.printStackTrace();
 					}
 
@@ -215,7 +215,7 @@ public class MyShopCarActivity extends BaseActivity implements OnClickListener {
 					new AsyncHttpResponseHandler() {
 						@Override
 						public void onSuccess(int arg0, String arg1) {
-							// TODO Auto-generated method stub
+
 							super.onSuccess(arg0, arg1);
 							System.out.println("热销专区====================="+arg1);
 							try {
@@ -256,13 +256,13 @@ public class MyShopCarActivity extends BaseActivity implements OnClickListener {
 								});
 								//									progress.CloseProgress();
 							} catch (JSONException e) {
-								// TODO Auto-generated catch block
+
 								e.printStackTrace();
 							}
 						}
 					}, null);
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 
@@ -290,7 +290,7 @@ public class MyShopCarActivity extends BaseActivity implements OnClickListener {
 
 			@Override
 			public void onClick(View arg0) {
-				// TODO Auto-generated method stub
+
 				Intent intent = new Intent(MyShopCarActivity.this,TuiJianSpListActivity.class);
 				startActivity(intent);
 			}
@@ -301,7 +301,7 @@ public class MyShopCarActivity extends BaseActivity implements OnClickListener {
 
 			@Override
 			public void onClick(View arg0) {
-				// TODO Auto-generated method stub
+
 				user_id = spPreferences.getString("user_id", "");
 				if (user_id.equals("")) {
 					Intent intentll = new Intent(MyShopCarActivity.this,
@@ -440,7 +440,7 @@ public class MyShopCarActivity extends BaseActivity implements OnClickListener {
 					holder.red = (TextView) view.findViewById(R.id.tv_reduce);
 					holder.frontView = view.findViewById(R.id.item_left);
 				} catch (Exception e) {
-					// TODO: handle exception
+
 					e.printStackTrace();
 				}
 				view.setTag(holder);
@@ -528,7 +528,7 @@ public class MyShopCarActivity extends BaseActivity implements OnClickListener {
 							+ "", new AsyncHttpResponseHandler() {
 						@Override
 						public void onSuccess(int arg0, String arg1) {
-							// TODO Auto-generated method stub
+
 							System.out
 									.println("==========================访问接口成功！"
 											+ arg1);
@@ -578,7 +578,7 @@ public class MyShopCarActivity extends BaseActivity implements OnClickListener {
 								new AsyncHttpResponseHandler() {
 									@Override
 									public void onSuccess(int arg0, String arg1) {
-										// TODO Auto-generated method stub
+
 										System.out
 												.println("==========================2访问接口成功！"
 														+ arg1);
@@ -688,7 +688,7 @@ public class MyShopCarActivity extends BaseActivity implements OnClickListener {
 	int i;
 	@Override
 	public void onClick(View v) {
-		// TODO Auto-generated method stub
+
 		switch (v.getId()) {
 
 			case R.id.subtitle:
@@ -809,7 +809,7 @@ public class MyShopCarActivity extends BaseActivity implements OnClickListener {
 							AsyncHttp.get(strUrl, new AsyncHttpResponseHandler() {
 								@Override
 								public void onSuccess(int arg0, String arg1) {
-									// TODO Auto-generated method stub
+
 									System.out.println("==========================访问接口成功！"+ arg1);
 									super.onSuccess(arg0, arg1);
 									try {
@@ -835,7 +835,7 @@ public class MyShopCarActivity extends BaseActivity implements OnClickListener {
 											Toast.makeText(MyShopCarActivity.this,info, 200).show();
 										}
 									} catch (Exception e) {
-										// TODO: handle exception
+
 										e.printStackTrace();
 									}
 								}
@@ -871,7 +871,7 @@ public class MyShopCarActivity extends BaseActivity implements OnClickListener {
 					// AsyncHttp.get(strUrl,new AsyncHttpResponseHandler() {
 					// @Override
 					// public void onSuccess(int arg0, String arg1) {
-					// // TODO Auto-generated method stub
+					//
 					// System.out.println("==========================访问接口成功！"+arg1);
 					// super.onSuccess(arg0, arg1);
 					// try {
@@ -888,7 +888,7 @@ public class MyShopCarActivity extends BaseActivity implements OnClickListener {
 					// Toast.makeText(MyShopCarActivity.this, info, 200).show();
 					// }
 					// } catch (Exception e) {
-					// // TODO: handle exception
+					//
 					// e.printStackTrace();
 					// }
 					// }
@@ -1002,7 +1002,7 @@ public class MyShopCarActivity extends BaseActivity implements OnClickListener {
 					new AsyncHttpResponseHandler() {
 						@Override
 						public void onSuccess(int arg0, String arg1) {
-							// TODO Auto-generated method stub
+
 							super.onSuccess(arg0, arg1);
 							try {
 								JSONObject jsonObject = new JSONObject(arg1);
@@ -1046,7 +1046,7 @@ public class MyShopCarActivity extends BaseActivity implements OnClickListener {
 								}
 								progress.CloseProgress();
 							} catch (JSONException e) {
-								// TODO Auto-generated catch block
+
 								e.printStackTrace();
 							}
 
@@ -1054,7 +1054,7 @@ public class MyShopCarActivity extends BaseActivity implements OnClickListener {
 
 						@Override
 						public void onFailure(Throwable arg0, String arg1) {
-							// TODO Auto-generated method stub
+
 							System.out
 									.println("==========================访问接口失败！");
 							System.out.println("========================="
@@ -1067,7 +1067,7 @@ public class MyShopCarActivity extends BaseActivity implements OnClickListener {
 					}, MyShopCarActivity.this);
 
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 	}

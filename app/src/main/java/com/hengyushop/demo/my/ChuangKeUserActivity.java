@@ -188,7 +188,7 @@ public class ChuangKeUserActivity extends BaseActivity implements
 
 				@Override
 				public void onClick(View arg0) {
-					// TODO Auto-generated method stub
+
 					Intent intent4 = new Intent(ChuangKeUserActivity.this,
 							Webview1.class);
 					intent4.putExtra("ylsc_id", "5977");
@@ -260,7 +260,7 @@ public class ChuangKeUserActivity extends BaseActivity implements
 			// iv_mianduimian.setOnClickListener(this);
 
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 
@@ -268,7 +268,7 @@ public class ChuangKeUserActivity extends BaseActivity implements
 
 	// @Override
 	// protected void onResume() {
-	// // TODO Auto-generated method stub
+	//
 	// super.onResume();
 	// System.out.println("======haoma============"+haoma);
 	// }
@@ -315,14 +315,14 @@ public class ChuangKeUserActivity extends BaseActivity implements
 
 						}
 					} catch (JSONException e) {
-						// TODO Auto-generated catch block
+
 						e.printStackTrace();
 					}
 				};
 			}, getApplicationContext());
 
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 	}
@@ -352,7 +352,7 @@ public class ChuangKeUserActivity extends BaseActivity implements
 
 					}
 				} catch (JSONException e) {
-					// TODO Auto-generated catch block
+
 					e.printStackTrace();
 				}
 			};
@@ -385,7 +385,7 @@ public class ChuangKeUserActivity extends BaseActivity implements
 
 					}
 				} catch (JSONException e) {
-					// TODO Auto-generated catch block
+
 					e.printStackTrace();
 				}
 			};
@@ -417,7 +417,7 @@ public class ChuangKeUserActivity extends BaseActivity implements
 
 					}
 				} catch (JSONException e) {
-					// TODO Auto-generated catch block
+
 					e.printStackTrace();
 				}
 			};
@@ -426,7 +426,7 @@ public class ChuangKeUserActivity extends BaseActivity implements
 	}
 
 	private void panduan() {
-		// TODO Auto-generated method stub
+
 		try {
 
 			// int yue = Integer.parseInt(reserves1);
@@ -554,14 +554,14 @@ public class ChuangKeUserActivity extends BaseActivity implements
 			}
 
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 	}
 
 	@Override
 	public void onClick(View v) {
-		// TODO Auto-generated method stub
+
 		switch (v.getId()) {
 			case R.id.fanhui:
 				finish();
@@ -594,7 +594,7 @@ public class ChuangKeUserActivity extends BaseActivity implements
 						// Intent(ChuangKeUserActivity.this,DBFengXiangActivity.class);
 						// startActivity(intentll);
 					} catch (Exception e) {
-						// TODO: handle exception
+
 						e.printStackTrace();
 					}
 				}
@@ -635,7 +635,7 @@ public class ChuangKeUserActivity extends BaseActivity implements
 					}
 
 				} catch (Exception e) {
-					// TODO: handle exception
+
 					e.printStackTrace();
 				}
 				break;
@@ -702,7 +702,7 @@ public class ChuangKeUserActivity extends BaseActivity implements
 					}, null);
 
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 	}

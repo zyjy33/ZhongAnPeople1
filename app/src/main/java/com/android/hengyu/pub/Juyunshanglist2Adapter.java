@@ -64,19 +64,19 @@ public class Juyunshanglist2Adapter extends BaseAdapter {
 
 	@Override
 	public Object getItem(int position) {
-		// TODO Auto-generated method stub
+
 		return list.get(position);
 	}
 
 	@Override
 	public long getItemId(int position) {
-		// TODO Auto-generated method stub
+
 		return position;
 	}
 
 	@Override
 	public View getView(final int position, View convertView, ViewGroup patent) {
-		// TODO Auto-generated method stub
+
 		try {
 
 			convertView = inflater.inflate(R.layout.tuijian_yunshangju_time, null);
@@ -96,7 +96,7 @@ public class Juyunshanglist2Adapter extends BaseAdapter {
 
 				@Override
 				public void onClick(View arg0) {
-					// TODO Auto-generated method stub
+
 					try {
 						//					String id = String.valueOf(JuYunshangActivity.INDX);
 						String id = list.get(position).getUser_id();
@@ -109,7 +109,7 @@ public class Juyunshanglist2Adapter extends BaseAdapter {
 						intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 						context.startActivity(intent);
 					} catch (Exception e) {
-						// TODO: handle exception
+
 						e.printStackTrace();
 					}
 				}
@@ -148,7 +148,7 @@ public class Juyunshanglist2Adapter extends BaseAdapter {
 
 					@Override
 					public void onClick(View arg0) {
-						// TODO Auto-generated method stub
+
 						try {
 							String id = list.get(position).getList().get(p).getId();
 							System.out.println("=====id================"+id);
@@ -157,7 +157,7 @@ public class Juyunshanglist2Adapter extends BaseAdapter {
 							intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 							context.startActivity(intent);
 						} catch (Exception e) {
-							// TODO: handle exception
+
 							e.printStackTrace();
 						}
 					}
@@ -167,7 +167,7 @@ public class Juyunshanglist2Adapter extends BaseAdapter {
 			}
 
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 

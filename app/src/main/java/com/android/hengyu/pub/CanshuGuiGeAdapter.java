@@ -29,7 +29,7 @@ public class CanshuGuiGeAdapter extends BaseAdapter {
 	private SharedPreferences spPreferences;
 
 	public CanshuGuiGeAdapter(ArrayList<GuigeData> list_ll,ArrayList<GuigeData> lists_lb,Context context) {//ArrayList<shangpingListData> lists_ll,
-		// TODO Auto-generated constructor stub
+
 		try {
 			this.context = context;
 			this.lists = list_ll;
@@ -37,7 +37,7 @@ public class CanshuGuiGeAdapter extends BaseAdapter {
 			this.inflater = LayoutInflater.from(context);
 
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 	}
@@ -49,19 +49,19 @@ public class CanshuGuiGeAdapter extends BaseAdapter {
 
 	@Override
 	public int getCount() {
-		// TODO Auto-generated method stub
+
 		return lists.size();
 	}
 
 	@Override
 	public long getItemId(int position) {
-		// TODO Auto-generated method stub
+
 		return position;
 	}
 
 	@Override
 	public Object getItem(int position) {
-		// TODO Auto-generated method stub
+
 		return position;
 	}
 	@Override
@@ -83,7 +83,7 @@ public class CanshuGuiGeAdapter extends BaseAdapter {
 						.println("=====================位置1" + position);
 
 			} catch (Exception e) {
-				// TODO: handle exception
+
 				e.printStackTrace();
 			}
 
@@ -118,7 +118,7 @@ public class CanshuGuiGeAdapter extends BaseAdapter {
 			////					        imageLoader.displayImage(RealmName.REALM_NAME_HTTP+ lists_ll.get(position).img_url,iv);
 			//
 			//					} catch (Exception e) {
-			//						// TODO: handle exception
+			//
 			//						e.printStackTrace();
 			//					}
 			//					return inflate;
@@ -126,19 +126,19 @@ public class CanshuGuiGeAdapter extends BaseAdapter {
 			//
 			//				@Override
 			//				public long getItemId(int position) {
-			//					// TODO Auto-generated method stub
+			//
 			//					return position;
 			//				}
 			//
 			//				@Override
 			//				public Object getItem(int position) {
-			//					// TODO Auto-generated method stub
+			//
 			//					return position;
 			//				}
 			//
 			//				@Override
 			//				public int getCount() {
-			//					// TODO Auto-generated method stub
+			//
 			//					return lists_lb.size();
 			//				}
 			//			});
@@ -148,7 +148,7 @@ public class CanshuGuiGeAdapter extends BaseAdapter {
 
 
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 		//YangHuzsAdapter

@@ -15,7 +15,7 @@ public class VipQuanActivity extends BaseActivity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
+
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.vip_quan_layout);
@@ -25,7 +25,7 @@ public class VipQuanActivity extends BaseActivity {
 
 			@Override
 			public void onClick(View arg0) {
-				// TODO Auto-generated method stub
+
 				Intent intent = new Intent(VipQuanActivity.this,
 						SoftUpdataActivity.class);
 				startActivity(intent);

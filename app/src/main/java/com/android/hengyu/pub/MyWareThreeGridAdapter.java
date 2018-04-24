@@ -23,7 +23,7 @@ public class MyWareThreeGridAdapter extends BaseAdapter {
 
 	public MyWareThreeGridAdapter(ArrayList<WareClassifyThreeData> list,
 			Context context, ImageLoader loader) {
-		// TODO Auto-generated constructor stub
+
 		this.context = context;
 		this.list = list;
 		this.loader = loader;
@@ -31,25 +31,25 @@ public class MyWareThreeGridAdapter extends BaseAdapter {
 
 	@Override
 	public int getCount() {
-		// TODO Auto-generated method stub
+
 		return list.size();
 	}
 
 	@Override
 	public Object getItem(int arg0) {
-		// TODO Auto-generated method stub
+
 		return arg0;
 	}
 
 	@Override
 	public long getItemId(int arg0) {
-		// TODO Auto-generated method stub
+
 		return arg0;
 	}
 
 	@Override
 	public View getView(int position, View convertView, ViewGroup parent) {
-		// TODO Auto-generated method stub
+
 		if (convertView == null) {
 			convertView = LinearLayout.inflate(context,
 					R.layout.griditem_menu_classify_three, null);

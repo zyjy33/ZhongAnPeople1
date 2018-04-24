@@ -148,7 +148,7 @@ public class WareInformationActivityl extends BaseActivity implements
 
 	// @Override
 	// public void onResume() {
-	// // TODO Auto-generated method stub
+	//
 	// super.onResume();
 	//
 	// list_id.clear();
@@ -169,7 +169,7 @@ public class WareInformationActivityl extends BaseActivity implements
 
 			@Override
 			public void onClick(View arg0) {
-				// TODO Auto-generated method stub
+
 				finish();
 			}
 		});
@@ -201,7 +201,7 @@ public class WareInformationActivityl extends BaseActivity implements
 		// }
 		//
 		// } catch (Exception e) {
-		// // TODO: handle exception
+		//
 		// e.printStackTrace();
 		// }
 
@@ -238,7 +238,7 @@ public class WareInformationActivityl extends BaseActivity implements
 					.findViewById(R.id.img_btn_tencent);
 
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 		// 微博
@@ -262,7 +262,7 @@ public class WareInformationActivityl extends BaseActivity implements
 
 			@Override
 			public void onClick(View v) {
-				// TODO Auto-generated method stub
+
 				pop.dismiss();
 				con(17, 1);
 			}
@@ -271,7 +271,7 @@ public class WareInformationActivityl extends BaseActivity implements
 		btn_sms.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				// TODO Auto-generated method stub
+
 				pop.dismiss();
 				con(18, 0);
 			}
@@ -299,7 +299,7 @@ public class WareInformationActivityl extends BaseActivity implements
 			handler.sendMessage(msg);
 
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 
@@ -315,7 +315,7 @@ public class WareInformationActivityl extends BaseActivity implements
 				+ jdh_id + "", new AsyncHttpResponseHandler() {
 			@Override
 			public void onSuccess(int arg0, String arg1) {
-				// TODO Auto-generated method stub
+
 				super.onSuccess(arg0, arg1);
 				System.out.println("=========解析数据============" + arg1);
 				formaJuDuiHuan(arg1);
@@ -360,7 +360,7 @@ public class WareInformationActivityl extends BaseActivity implements
 				Toast.makeText(WareInformationActivityl.this, info, 200).show();
 			}
 		} catch (JSONException e) {
-			// TODO Auto-generated catch block
+
 			e.printStackTrace();
 		}
 	}
@@ -377,7 +377,7 @@ public class WareInformationActivityl extends BaseActivity implements
 				+ id + "", new AsyncHttpResponseHandler() {
 			@Override
 			public void onSuccess(int arg0, String arg1) {
-				// TODO Auto-generated method stub
+
 				super.onSuccess(arg0, arg1);
 				System.out.println("=========解析数据============" + arg1);
 				Message msg = new Message();
@@ -491,7 +491,7 @@ public class WareInformationActivityl extends BaseActivity implements
 						}
 					}
 				} catch (Exception e) {
-					// TODO: handle exception
+
 					e.printStackTrace();
 				}
 
@@ -509,7 +509,7 @@ public class WareInformationActivityl extends BaseActivity implements
 				Toast.makeText(WareInformationActivityl.this, info, 200).show();
 			}
 		} catch (JSONException e) {
-			// TODO Auto-generated catch block
+
 			e.printStackTrace();
 		}
 	}
@@ -537,7 +537,7 @@ public class WareInformationActivityl extends BaseActivity implements
 								new MyPosterOnClick() {
 									@Override
 									public void onMyclick(int position) {
-										// TODO Auto-generated method stub
+
 										// Message msg = new Message();
 										// msg.what = 13;
 										// msg.obj = tempss.get(position).getId();
@@ -578,14 +578,14 @@ public class WareInformationActivityl extends BaseActivity implements
 			System.out.println("微信註冊" + flag);
 
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 	}
 
 	@Override
 	protected void onPause() {
-		// TODO Auto-generated method stub
+
 		super.onPause();
 		market_information_images.puseExecutorService();
 	}
@@ -700,7 +700,7 @@ public class WareInformationActivityl extends BaseActivity implements
 
 												}
 											} catch (Exception e) {
-												// TODO: handle exception
+
 												e.printStackTrace();
 											}
 										} else {
@@ -777,7 +777,7 @@ public class WareInformationActivityl extends BaseActivity implements
 
 												}
 											} catch (Exception e) {
-												// TODO: handle exception
+
 												e.printStackTrace();
 											}
 										} else {
@@ -823,7 +823,7 @@ public class WareInformationActivityl extends BaseActivity implements
 						//
 						// @Override
 						// public void onMyclick(int position) {
-						// // TODO Auto-generated method stub
+						//
 						//
 						// }
 						// }, true, imageLoader, false);
@@ -833,7 +833,7 @@ public class WareInformationActivityl extends BaseActivity implements
 						//
 						// @Override
 						// public void onMyclick(int position) {
-						// // TODO Auto-generated method stub
+						//
 						//
 						// }
 						// }, true, imageLoader, true);
@@ -841,7 +841,7 @@ public class WareInformationActivityl extends BaseActivity implements
 
 						progress.CloseProgress();
 					} catch (Exception e) {
-						// TODO Auto-generated catch block
+
 						e.printStackTrace();
 					}
 					break;
@@ -861,7 +861,7 @@ public class WareInformationActivityl extends BaseActivity implements
 								WareClassifyTwoActivity.class);
 						AppManager.getAppManager().finishActivity(NewWare.class);
 					} catch (ConcurrentModificationException e) {
-						// TODO: handle exception
+
 
 					}
 					setResult(3, new Intent(WareInformationActivityl.this,
@@ -916,7 +916,7 @@ public class WareInformationActivityl extends BaseActivity implements
 					} else {
 					}
 				} catch (JSONException e) {
-					// TODO Auto-generated catch block
+
 					e.printStackTrace();
 				}
 			};
@@ -934,7 +934,7 @@ public class WareInformationActivityl extends BaseActivity implements
 	// // AsyncHttp.post_1(str2, params, new AsyncHttpResponseHandler() {
 	// // @Override
 	// // public void onSuccess(int arg0, String arg1) {
-	// // // TODO Auto-generated method stub
+	// //
 	// // super.onSuccess(arg0, arg1);
 	// // UserRegisterData data2 = null;
 	// // try {
@@ -948,7 +948,7 @@ public class WareInformationActivityl extends BaseActivity implements
 	// // data2.avatarimageURL = object2.getString("avatarimageURL");
 	// // data2.credits = object2.getString("credits");
 	// // } catch (JSONException e) {
-	// // // TODO Auto-generated catch block
+	// //
 	// // e.printStackTrace();
 	// // }
 	// // Message msg = new Message();
@@ -979,7 +979,7 @@ public class WareInformationActivityl extends BaseActivity implements
 					new AsyncHttpResponseHandler() {
 						@Override
 						public void onSuccess(int arg0, String arg1) {
-							// TODO Auto-generated method stub
+
 							super.onSuccess(arg0, arg1);
 							try {
 								JSONObject jsonObject = new JSONObject(arg1);
@@ -1007,7 +1007,7 @@ public class WareInformationActivityl extends BaseActivity implements
 											info, 200).show();
 								}
 							} catch (JSONException e) {
-								// TODO Auto-generated catch block
+
 								e.printStackTrace();
 							}
 
@@ -1015,7 +1015,7 @@ public class WareInformationActivityl extends BaseActivity implements
 
 						@Override
 						public void onFailure(Throwable arg0, String arg1) {
-							// TODO Auto-generated method stub
+
 							System.out
 									.println("==========================访问接口失败！");
 							System.out.println("========================="
@@ -1028,7 +1028,7 @@ public class WareInformationActivityl extends BaseActivity implements
 					}, getApplicationContext());
 
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 	}
@@ -1039,7 +1039,7 @@ public class WareInformationActivityl extends BaseActivity implements
 				+ "channel_name=goods", new AsyncHttpResponseHandler() {
 			@Override
 			public void onSuccess(int arg0, String arg1) {
-				// TODO Auto-generated method stub
+
 				super.onSuccess(arg0, arg1);
 				Message msg = new Message();
 				msg.what = 0;
@@ -1086,7 +1086,7 @@ public class WareInformationActivityl extends BaseActivity implements
 
 			@Override
 			public void onClick(View arg0) {
-				// TODO Auto-generated method stub
+
 
 				try {
 					if (!nickname.equals("")) {
@@ -1121,7 +1121,7 @@ public class WareInformationActivityl extends BaseActivity implements
 						}
 					}
 				} catch (Exception e) {
-					// TODO: handle exception
+
 					e.printStackTrace();
 				}
 			}
@@ -1176,7 +1176,7 @@ public class WareInformationActivityl extends BaseActivity implements
 
 			@Override
 			public void onClick(View arg0) {
-				// TODO Auto-generated method stub
+
 				finish();
 			}
 		});
@@ -1186,7 +1186,7 @@ public class WareInformationActivityl extends BaseActivity implements
 
 			@Override
 			public void onClick(View arg0) {
-				// TODO Auto-generated method stub
+
 				System.out.println("点击");
 				if (!nickname.equals("")) {
 					if (!user_name.equals("")) {
@@ -1224,7 +1224,7 @@ public class WareInformationActivityl extends BaseActivity implements
 
 			@Override
 			public void onClick(View arg0) {
-				// TODO Auto-generated method stub
+
 				// Intent intent = new
 				// Intent(WareInformationActivity.this,WareInformationDetailsActivity.class);
 				// Bundle bundle = new Bundle();
@@ -1255,7 +1255,7 @@ public class WareInformationActivityl extends BaseActivity implements
 				// onDeleteSelect() {
 				// @Override
 				// public void onClick(String resID) {
-				// // TODO Auto-generated method stub
+				//
 				// }
 				// }, lists.get(0).id);
 				//
@@ -1267,7 +1267,7 @@ public class WareInformationActivityl extends BaseActivity implements
 				// }
 				//
 				// } catch (Exception e) {
-				// // TODO Auto-generated catch block
+				//
 				// e.printStackTrace();
 				// }
 
@@ -1279,7 +1279,7 @@ public class WareInformationActivityl extends BaseActivity implements
 									new onDeleteSelect() {
 										@Override
 										public void onClick(String resID) {
-											// TODO Auto-generated method stub
+
 										}
 									}, lists.get(0).id);
 							progress.CloseProgress();
@@ -1297,7 +1297,7 @@ public class WareInformationActivityl extends BaseActivity implements
 									new onDeleteSelect() {
 										@Override
 										public void onClick(String resID) {
-											// TODO Auto-generated method stub
+
 										}
 									}, lists.get(0).id);
 							progress.CloseProgress();
@@ -1311,7 +1311,7 @@ public class WareInformationActivityl extends BaseActivity implements
 					}
 
 				} catch (Exception e) {
-					// TODO Auto-generated catch block
+
 					e.printStackTrace();
 				}
 
@@ -1324,7 +1324,7 @@ public class WareInformationActivityl extends BaseActivity implements
 			public void onClick(View arg0) {
 				// initPopupWindow(rads, 0);
 				// showPopupWindow(btn_add_shop_cart);
-				// TODO Auto-generated method stub
+
 				Intent intent = new Intent(WareInformationActivityl.this,
 						SYBActivity.class);
 				intent.putExtra("proName", proName);
@@ -1342,7 +1342,7 @@ public class WareInformationActivityl extends BaseActivity implements
 		//
 		// @Override
 		// public void onClick(View arg0) {
-		// // TODO Auto-generated method stub
+		//
 		// Intent intent=new Intent(WareInformationActivity.this,
 		// SYBActivity.class);
 		// intent.putExtra("proName", proName);
@@ -1442,7 +1442,7 @@ public class WareInformationActivityl extends BaseActivity implements
 
 	@Override
 	public void onClick(View v) {
-		// TODO Auto-generated method stub
+
 		switch (v.getId()) {
 
 			// 商品详情
@@ -1486,7 +1486,7 @@ public class WareInformationActivityl extends BaseActivity implements
 								.show();
 					}
 				} catch (Exception e) {
-					// TODO: handle exception
+
 					e.printStackTrace();
 				}
 				break;
@@ -1506,7 +1506,7 @@ public class WareInformationActivityl extends BaseActivity implements
 								+ "&tags=", new AsyncHttpResponseHandler() {
 							@Override
 							public void onSuccess(int arg0, String arg1) {
-								// TODO Auto-generated method stub
+
 								super.onSuccess(arg0, arg1);
 								try {
 									JSONObject jsonObject = new JSONObject(arg1);
@@ -1516,7 +1516,7 @@ public class WareInformationActivityl extends BaseActivity implements
 									Toast.makeText(getApplicationContext(), info,
 											200).show();
 								} catch (JSONException e) {
-									// TODO Auto-generated catch block
+
 									e.printStackTrace();
 								}
 
@@ -1546,7 +1546,7 @@ public class WareInformationActivityl extends BaseActivity implements
 								+ "&tags=", new AsyncHttpResponseHandler() {
 							@Override
 							public void onSuccess(int arg0, String arg1) {
-								// TODO Auto-generated method stub
+
 								super.onSuccess(arg0, arg1);
 								try {
 									JSONObject jsonObject = new JSONObject(arg1);
@@ -1556,7 +1556,7 @@ public class WareInformationActivityl extends BaseActivity implements
 									Toast.makeText(getApplicationContext(), info,
 											200).show();
 								} catch (JSONException e) {
-									// TODO Auto-generated catch block
+
 									e.printStackTrace();
 								}
 
@@ -1631,7 +1631,7 @@ public class WareInformationActivityl extends BaseActivity implements
 				new AsyncHttpResponseHandler() {
 					@Override
 					public void onSuccess(int arg0, String arg1) {
-						// TODO Auto-generated method stub
+
 						super.onSuccess(arg0, arg1);
 						System.out.println("=====规格数据====================="
 								+ arg1);
@@ -1679,7 +1679,7 @@ public class WareInformationActivityl extends BaseActivity implements
 							// adapter.notifyDataSetChanged();
 
 						} catch (JSONException e) {
-							// TODO Auto-generated catch block
+
 							e.printStackTrace();
 						}
 					}

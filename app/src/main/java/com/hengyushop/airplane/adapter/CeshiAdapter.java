@@ -35,19 +35,19 @@
 //
 //	@Override
 //	public int getCount() {
-//		// TODO Auto-generated method stub
+//
 //		return data_tm.size();
 //	}
 //
 //	@Override
 //	public Object getItem(int position) {
-//		// TODO Auto-generated method stub
+//
 //		return data_tm.get(position);
 //	}
 //
 //	@Override
 //	public long getItemId(int position) {
-//		// TODO Auto-generated method stub
+//
 //		return position;
 //	}
 //
@@ -60,7 +60,7 @@
 //	private ViewHolder viewHolder;
 //	@Override
 //	public View getView(int position, View convertView, ViewGroup parent) {
-//		// TODO Auto-generated method stub
+//
 //		if(convertView==null){
 //			convertView=LinearLayout.inflate(context, R.layout.yhzhishi_listview, null);
 //			viewHolder = new ViewHolder();

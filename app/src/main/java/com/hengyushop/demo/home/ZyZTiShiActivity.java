@@ -37,7 +37,7 @@ public class ZyZTiShiActivity extends Activity implements OnClickListener{
 	String user_name,user_id,headimgurl,access_token,sex,unionid,area,real_name;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
+
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.circle_tip_text);
 		initUI();
@@ -60,7 +60,7 @@ public class ZyZTiShiActivity extends Activity implements OnClickListener{
 
 			@Override
 			public void onClick(View arg0) {
-				// TODO Auto-generated method stub
+
 				finish();
 			}
 		});
@@ -78,7 +78,7 @@ public class ZyZTiShiActivity extends Activity implements OnClickListener{
 
 			@Override
 			public void onClick(View arg0) {
-				// TODO Auto-generated method stub
+
 				finish();
 			}
 		});
@@ -124,14 +124,14 @@ public class ZyZTiShiActivity extends Activity implements OnClickListener{
 						Toast.makeText(ZyZTiShiActivity.this, info, 200).show();
 					}
 				} catch (JSONException e) {
-					// TODO Auto-generated catch block
+
 					e.printStackTrace();
 				}
 			};
 
 			@Override
 			public void onFailure(Throwable arg0, String arg1) {
-				// TODO Auto-generated method stub
+
 				super.onFailure(arg0, arg1);
 				System.out.println("======访问接口失败============="+arg1);
 				//					Toast.makeText(ZhuanYiZhuanActivity.this, "访问接口失败", 200).show();
@@ -146,7 +146,7 @@ public class ZyZTiShiActivity extends Activity implements OnClickListener{
 	 */
 	@Override
 	public void onClick(View v) {
-		// TODO Auto-generated method stub
+
 
 		intent = new Intent();
 		switch (v.getId()) {

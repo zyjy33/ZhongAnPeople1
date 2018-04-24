@@ -32,7 +32,7 @@ public class ChuGouInActivity extends BaseActivity {
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
+
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.chugou_in);

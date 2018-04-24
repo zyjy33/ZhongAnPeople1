@@ -29,7 +29,7 @@ public class ComboListAdapter extends BaseAdapter {
 	public ComboListAdapter(Context context,
 							ArrayList<ComboListDomain> listDomains, ImageLoader imageLoader,
 							Handler handler) {
-		// TODO Auto-generated constructor stub
+
 		this.context = context;
 		this.listDomains = listDomains;
 		this.imageLoader = imageLoader;
@@ -46,25 +46,25 @@ public class ComboListAdapter extends BaseAdapter {
 
 	@Override
 	public int getCount() {
-		// TODO Auto-generated method stub
+
 		return listDomains.size();
 	}
 
 	@Override
 	public Object getItem(int arg0) {
-		// TODO Auto-generated method stub
+
 		return listDomains.get(arg0);
 	}
 
 	@Override
 	public long getItemId(int arg0) {
-		// TODO Auto-generated method stub
+
 		return arg0;
 	}
 
 	@Override
 	public View getView(int index, View view, ViewGroup arg2) {
-		// TODO Auto-generated method stub
+
 		final ViewHolder holder;
 		int len = listDomains.get(index).getDomains().size();
 		if (view == null || view.getTag(R.drawable.icon + index) == null) {

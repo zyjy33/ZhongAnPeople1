@@ -92,7 +92,7 @@ public class JuFaFaXunaZheActivity extends BaseActivity implements OnClickListen
 //	};
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
+
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.acticity_ceshi_xuanzhe);
@@ -165,7 +165,7 @@ public class JuFaFaXunaZheActivity extends BaseActivity implements OnClickListen
 
 			@Override
 			public void onClick(View arg0) {
-				// TODO Auto-generated method stub
+
 				dialoglogin();
 			}
 		});
@@ -178,7 +178,7 @@ public class JuFaFaXunaZheActivity extends BaseActivity implements OnClickListen
 				"exam_id="+exam_id2+"", new AsyncHttpResponseHandler(){
 			@Override
 			public void onSuccess(int arg0, String arg1) {
-				// TODO Auto-generated method stub
+
 				super.onSuccess(arg0, arg1);
 				try {
 //						System.out.println("arg1=========="+arg1);
@@ -203,7 +203,7 @@ public class JuFaFaXunaZheActivity extends BaseActivity implements OnClickListen
 
 			@Override
 			public void onFailure(Throwable arg0, String arg1) {
-				// TODO Auto-generated method stub
+
 				super.onFailure(arg0, arg1);
 				Toast.makeText(JuFaFaXunaZheActivity.this, "加载异常", 200).show();
 				progress.CloseProgress();
@@ -257,7 +257,7 @@ public class JuFaFaXunaZheActivity extends BaseActivity implements OnClickListen
 						listView.setAdapter(myAdapter);
 
 					} catch (Exception e) {
-						// TODO: handle exception
+
 						e.printStackTrace();
 					}
 					break;
@@ -279,7 +279,7 @@ public class JuFaFaXunaZheActivity extends BaseActivity implements OnClickListen
 
 			@Override
 			public void onSuccess(int arg0, String arg1) {
-				// TODO Auto-generated method stub
+
 				super.onSuccess(arg0, arg1);
 //								System.out.println("=====================二级值1"+arg1);
 				try {
@@ -349,7 +349,7 @@ public class JuFaFaXunaZheActivity extends BaseActivity implements OnClickListen
 			}
 			@Override
 			public void onFailure(Throwable arg0, String arg1) {
-				// TODO Auto-generated method stub
+
 				super.onFailure(arg0, arg1);
 				Toast.makeText(JuFaFaXunaZheActivity.this, "加载异常", 200).show();
 				progress.CloseProgress();
@@ -359,7 +359,7 @@ public class JuFaFaXunaZheActivity extends BaseActivity implements OnClickListen
 
 	@Override
 	public void onClick(View v) {
-		// TODO Auto-generated method stub
+
 		switch (v.getId()) {
 			case R.id.tv_shangyiti:
 //			if (datatype.contains("多选题")) {
@@ -516,7 +516,7 @@ public class JuFaFaXunaZheActivity extends BaseActivity implements OnClickListen
 				}
 
 			} catch (Exception e) {
-				// TODO: handle exception
+
 			}
 		}
 
@@ -533,7 +533,7 @@ public class JuFaFaXunaZheActivity extends BaseActivity implements OnClickListen
 					"answer_list="+str+"&exam_id="+exam_id+"&user_id="+user_id+"&user_name="+user_name+"", new AsyncHttpResponseHandler(){
 				@Override
 				public void onSuccess(int arg0, String arg1) {
-					// TODO Auto-generated method stub
+
 					super.onSuccess(arg0, arg1);
 					try {
 						System.out.println("arg1=========="+arg1);
@@ -554,7 +554,7 @@ public class JuFaFaXunaZheActivity extends BaseActivity implements OnClickListen
 			}, null);
 
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 	}
@@ -612,19 +612,19 @@ public class JuFaFaXunaZheActivity extends BaseActivity implements OnClickListen
 
 		@Override
 		public int getCount() {
-			// TODO Auto-generated method stub
+
 			return myList.size();
 		}
 
 		@Override
 		public Object getItem(int arg0) {
-			// TODO Auto-generated method stub
+
 			return myList.get(arg0);
 		}
 
 		@Override
 		public long getItemId(int arg0) {
-			// TODO Auto-generated method stub
+
 			return arg0;
 		}
 
@@ -652,7 +652,7 @@ public class JuFaFaXunaZheActivity extends BaseActivity implements OnClickListen
 							@Override
 							public void onCheckedChanged(CompoundButton buttonView,
 														 boolean isChecked) {
-								// TODO Auto-generated method stub
+
 								if (isChecked) {
 									checkPosition(position);
 								} else {
@@ -664,12 +664,12 @@ public class JuFaFaXunaZheActivity extends BaseActivity implements OnClickListen
 
 					@Override
 					public void onClick(View v) {
-						// TODO Auto-generated method stub
+
 						checkPosition(position);
 					}
 				});
 			} catch (Exception e) {
-				// TODO: handle exception
+
 				e.printStackTrace();
 			}
 			return convertView;

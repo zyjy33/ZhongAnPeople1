@@ -53,7 +53,7 @@ public class MainDuiMianActivity extends BaseActivity implements
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
+
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_mianduimianll);
@@ -68,7 +68,7 @@ public class MainDuiMianActivity extends BaseActivity implements
 
 	// @Override
 	// protected void onResume() {
-	// // TODO Auto-generated method stub
+	//
 	// super.onResume();
 	// getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
 	// }
@@ -160,7 +160,7 @@ public class MainDuiMianActivity extends BaseActivity implements
 									tv_geshu.setText(geshu);
 								}
 							} catch (Exception e) {
-								// TODO: handle exception
+
 								e.printStackTrace();
 							}
 							mEditText.setText("");
@@ -182,14 +182,14 @@ public class MainDuiMianActivity extends BaseActivity implements
 			});
 
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 
 	}
 
 	private void zhou() {
-		// TODO Auto-generated method stub
+
 		try {
 
 			TextView tv_geshu = (TextView) findViewById(R.id.tv_geshu);
@@ -199,14 +199,14 @@ public class MainDuiMianActivity extends BaseActivity implements
 				tv_geshu.setText(geshu);
 			}
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 	}
 
 	@Override
 	public void onClick(View v) {
-		// TODO Auto-generated method stub
+
 
 		switch (v.getId()) {
 			case R.id.iv_fanhui:
@@ -232,19 +232,19 @@ public class MainDuiMianActivity extends BaseActivity implements
 
 		@Override
 		public int getCount() {
-			// TODO Auto-generated method stub
+
 			return list.size();
 		}
 
 		@Override
 		public Object getItem(int position) {
-			// TODO Auto-generated method stub
+
 			return list.get(position);
 		}
 
 		@Override
 		public long getItemId(int position) {
-			// TODO Auto-generated method stub
+
 			return position;
 		}
 
@@ -266,7 +266,7 @@ public class MainDuiMianActivity extends BaseActivity implements
 
 					@Override
 					public void onClick(View arg0) {
-						// TODO Auto-generated method stub
+
 						// list.clear();
 						list.remove(position);
 						System.out.println("=============" + list.size());
@@ -282,7 +282,7 @@ public class MainDuiMianActivity extends BaseActivity implements
 								mImageView.setVisibility(View.GONE);
 							}
 						} catch (Exception e) {
-							// TODO: handle exception
+
 							e.printStackTrace();
 						}
 						adapter.notifyDataSetChanged();

@@ -41,7 +41,7 @@ public class OneAllActivity extends BaseActivity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
+
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.one_all_layout);
@@ -96,7 +96,7 @@ public class OneAllActivity extends BaseActivity {
 									handler.sendMessage(msg);
 								}
 							} catch (JSONException e) {
-								// TODO Auto-generated catch block
+
 								e.printStackTrace();
 							}
 						}

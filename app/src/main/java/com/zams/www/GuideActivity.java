@@ -82,7 +82,7 @@ public class GuideActivity extends BaseActivity {
 	 * 判断是否有广告
 	 */
 	private void getgaoguan() {
-		// TODO Auto-generated method stub
+
 
 		AsyncHttp.get(RealmName.REALM_NAME_LL+ "/?advert_id=15",new AsyncHttpResponseHandler() {
 			@Override
@@ -107,7 +107,7 @@ public class GuideActivity extends BaseActivity {
 			}
 			@Override
 			public void onFailure(Throwable arg0, String arg1) {
-				// TODO Auto-generated method stub
+
 				super.onFailure(arg0, arg1);
 				System.out.println("异常-----------------" + arg1);
 				Intent intent = new Intent(GuideActivity.this,MainFragment.class);
@@ -143,7 +143,7 @@ public class GuideActivity extends BaseActivity {
 
 	// @Override
 	// protected void onStart() {
-	// // TODO Auto-generated method stub
+	//
 	// super.onStart();
 	// //获得得到页面的引用对象
 	// LayoutInflater inflater = getLayoutInflater();
@@ -171,21 +171,21 @@ public class GuideActivity extends BaseActivity {
 	// }
 	// @Override
 	// public int getItemPosition(Object object) {
-	// // TODO Auto-generated method stub
+	//
 	// return super.getItemPosition(object);
 	// }
 	// @Override
 	// public void destroyItem(View arg0, int arg1, Object arg2) {
-	// // TODO Auto-generated method stub
+	//
 	// ((ViewPager) arg0).removeView(pageViews.get(arg1));
 	// }
 	// @Override
 	// public Object instantiateItem(View arg0, int arg1) {
-	// // TODO Auto-generated method stub
+	//
 	// ((ViewPager) arg0).addView(pageViews.get(arg1));
 	// pageViews.get(4).setOnClickListener(new OnClickListener() {
 	// public void onClick(View v) {
-	// // TODO Auto-generated method stub
+	//
 	//
 	// Intent intent = new Intent(GuideActivity.this,MainFragment.class);
 	// startActivity(intent);
@@ -201,30 +201,30 @@ public class GuideActivity extends BaseActivity {
 	// }
 	// @Override
 	// public void restoreState(Parcelable arg0, ClassLoader arg1) {
-	// // TODO Auto-generated method stub
+	//
 	// }
 	// @Override
 	// public Parcelable saveState() {
-	// // TODO Auto-generated method stub
+	//
 	// return null;
 	// }
 	// @Override
 	// public void startUpdate(View arg0) {
-	// // TODO Auto-generated method stub
+	//
 	// }
 	// @Override
 	// public void finishUpdate(View arg0) {
-	// // TODO Auto-generated method stub
+	//
 	// }
 	// }
 	// /** 指引页面改监听器 */
 	// class GuidePageChangeListener implements OnPageChangeListener {
 	// public void onPageScrollStateChanged(int arg0) {
-	// // TODO Auto-generated method stub
+	//
 	//
 	// }
 	// public void onPageScrolled(int arg0, float arg1, int arg2) {
-	// // TODO Auto-generated method stub
+	//
 	// }
 	// public void onPageSelected(int arg0) {
 	// }

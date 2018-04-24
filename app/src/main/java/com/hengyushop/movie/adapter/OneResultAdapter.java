@@ -19,7 +19,7 @@ public class OneResultAdapter extends BaseAdapter {
 
 	public OneResultAdapter(Context context, ArrayList<OneResultBean> lists,
 							ImageLoader imageLoader) {
-		// TODO Auto-generated constructor stub
+
 		this.context = context;
 		this.lists = lists;
 		this.imageLoader = imageLoader;

@@ -26,7 +26,7 @@ public class GoodsDetailsActivity extends BaseActivity implements
 
 	@Override
 	public void onClick(View arg0) {
-		// TODO Auto-generated method stub
+
 
 	}
 }

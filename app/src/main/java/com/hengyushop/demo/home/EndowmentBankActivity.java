@@ -64,7 +64,7 @@ public class EndowmentBankActivity extends BaseActivity implements
 	public static AQuery mAq;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
+
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_ylyx_title);// endowment_bank_activity
@@ -83,19 +83,19 @@ public class EndowmentBankActivity extends BaseActivity implements
 			// loadlilv();
 
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 	}
 
 	// public void uncaughtException(Thread arg0, Throwable arg1) {
-	// // TODO Auto-generated method stub
+	//
 	// //在此处理异常， arg1即为捕获到的异常
 	// Log.i("AAA", "uncaughtException   " + arg1);
 	// }
 	@Override
 	protected void onResume() {
-		// TODO Auto-generated method stub
+
 		super.onResume();
 		spPreferences = getSharedPreferences("longuserset", MODE_PRIVATE);
 		Initialize();
@@ -139,7 +139,7 @@ public class EndowmentBankActivity extends BaseActivity implements
 			index_item2.setOnClickListener(this);
 
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 	}
@@ -178,7 +178,7 @@ public class EndowmentBankActivity extends BaseActivity implements
 
 						}
 					} catch (JSONException e) {
-						// TODO Auto-generated catch block
+
 						e.printStackTrace();
 					}
 				};
@@ -217,7 +217,7 @@ public class EndowmentBankActivity extends BaseActivity implements
 
 						}
 					} catch (JSONException e) {
-						// TODO Auto-generated catch block
+
 						e.printStackTrace();
 					}
 				};
@@ -271,14 +271,14 @@ public class EndowmentBankActivity extends BaseActivity implements
 							// }
 
 						} catch (Exception e) {
-							// TODO: handle exception
+
 							e.printStackTrace();
 						}
 					} else {
 
 					}
 				} catch (JSONException e) {
-					// TODO Auto-generated catch block
+
 					e.printStackTrace();
 				}
 			};
@@ -320,7 +320,7 @@ public class EndowmentBankActivity extends BaseActivity implements
 
 						@Override
 						public void onFailure(Throwable arg0, String arg1) {
-							// TODO Auto-generated method stub
+
 							super.onFailure(arg0, arg1);
 							System.out.println("======输出112============="
 									+ arg0);
@@ -331,7 +331,7 @@ public class EndowmentBankActivity extends BaseActivity implements
 					}, null);
 
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 	}
@@ -351,7 +351,7 @@ public class EndowmentBankActivity extends BaseActivity implements
 
 	@Override
 	public void onClick(View v) {
-		// TODO Auto-generated method stub
+
 		switch (v.getId()) {
 			case R.id.index_item0:
 				try {
@@ -372,7 +372,7 @@ public class EndowmentBankActivity extends BaseActivity implements
 					intent.putExtra("pensions5", list2.get(49).pensions);
 					startActivity(intent);
 				} catch (Exception e) {
-					// TODO: handle exception
+
 					e.printStackTrace();
 				}
 				break;

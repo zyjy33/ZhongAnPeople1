@@ -105,7 +105,7 @@ public class MyJuDuiHuanActivity extends BaseActivity implements
 
 	@Override
 	public void onResume() {
-		// TODO Auto-generated method stub
+
 		super.onResume();
 		try {
 			System.out.println("状态==============" + zhuangtai);
@@ -162,7 +162,7 @@ public class MyJuDuiHuanActivity extends BaseActivity implements
 			}
 
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 	}
@@ -229,20 +229,20 @@ public class MyJuDuiHuanActivity extends BaseActivity implements
 
 				@Override
 				public void onClick(View arg0) {
-					// TODO Auto-generated method stub
+
 					finish();
 				}
 			});
 
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 	}
 
 	@Override
 	public void onClick(View v) {
-		// TODO Auto-generated method stub
+
 		switch (v.getId()) {
 			case R.id.index_item0:
 				// List<Double> list0 = MyOrderllAdapter.list_monney;
@@ -361,7 +361,7 @@ public class MyJuDuiHuanActivity extends BaseActivity implements
 
 		@Override
 		public void onHeaderRefresh(PullToRefreshView view) {
-			// TODO Auto-generated method stub
+
 			refresh.postDelayed(new Runnable() {
 
 				@Override
@@ -379,7 +379,7 @@ public class MyJuDuiHuanActivity extends BaseActivity implements
 
 		@Override
 		public void onFooterRefresh(PullToRefreshView view) {
-			// TODO Auto-generated method stub
+
 			refresh.postDelayed(new Runnable() {
 
 				@Override
@@ -397,7 +397,7 @@ public class MyJuDuiHuanActivity extends BaseActivity implements
 						refresh.onFooterRefreshComplete();
 
 					} catch (Exception e) {
-						// TODO: handle exception
+
 						e.printStackTrace();
 					}
 				}
@@ -429,7 +429,7 @@ public class MyJuDuiHuanActivity extends BaseActivity implements
 				new AsyncHttpResponseHandler() {
 					@Override
 					public void onSuccess(int arg0, String arg1) {
-						// TODO Auto-generated method stub
+
 						super.onSuccess(arg0, arg1);
 						System.out.println("=========数据接口============" + arg1);
 						try {
@@ -547,7 +547,7 @@ public class MyJuDuiHuanActivity extends BaseActivity implements
 							// handler.sendEmptyMessage(0);
 							progress.CloseProgress();
 						} catch (Exception e) {
-							// TODO: handle exception
+
 							e.printStackTrace();
 						}
 					}
@@ -589,7 +589,7 @@ public class MyJuDuiHuanActivity extends BaseActivity implements
 					//
 					// @Override
 					// public void onClick(int resID) {
-					// // TODO Auto-generated method stub
+					//
 					// switch (resID) {
 					// case R.id.item0:
 					// // 余额支付
@@ -871,14 +871,14 @@ public class MyJuDuiHuanActivity extends BaseActivity implements
 						} else {
 						}
 					} catch (JSONException e) {
-						// TODO Auto-generated catch block
+
 						e.printStackTrace();
 					}
 				};
 			}, MyJuDuiHuanActivity.this);
 
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 	}
@@ -959,7 +959,7 @@ public class MyJuDuiHuanActivity extends BaseActivity implements
 
 						@Override
 						public void onFailure(Throwable arg0, String arg1) {
-							// TODO Auto-generated method stub
+
 							super.onFailure(arg0, arg1);
 							System.out.println("11================================="
 									+ arg0);
@@ -972,7 +972,7 @@ public class MyJuDuiHuanActivity extends BaseActivity implements
 					}, null);
 
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 	}

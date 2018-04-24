@@ -54,7 +54,7 @@ public class ZhongAnYlListActivity extends BaseActivity implements OnClickListen
 	ZhongAnYlBean bean;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
+
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_zhonganyanglao_time);
@@ -86,7 +86,7 @@ public class ZhongAnYlListActivity extends BaseActivity implements OnClickListen
 			tv_titel.setText(title);
 
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 
@@ -109,7 +109,7 @@ public class ZhongAnYlListActivity extends BaseActivity implements OnClickListen
 							@Override
 							public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
 													long arg3) {
-								// TODO Auto-generated method stub
+
 								try {
 									String id = list.get(arg2).getId();
 									System.out.println("=====id====================="+id);
@@ -118,14 +118,14 @@ public class ZhongAnYlListActivity extends BaseActivity implements OnClickListen
 									startActivity(intent);
 
 								} catch (Exception e) {
-									// TODO: handle exception
+
 									e.printStackTrace();
 								}
 							}
 						});
 
 					} catch (Exception e) {
-						// TODO: handle exception
+
 						e.printStackTrace();
 					}
 					break;
@@ -145,7 +145,7 @@ public class ZhongAnYlListActivity extends BaseActivity implements OnClickListen
 				new AsyncHttpResponseHandler() {
 					@Override
 					public void onSuccess(int arg0, String arg1) {
-						// TODO Auto-generated method stub
+
 						super.onSuccess(arg0, arg1);
 						System.out.println("=======列表数据================================");
 						try {
@@ -174,14 +174,14 @@ public class ZhongAnYlListActivity extends BaseActivity implements OnClickListen
 								Toast.makeText(ZhongAnYlListActivity.this, info, 200).show();
 							}
 						} catch (JSONException e) {
-							// TODO Auto-generated catch block
+
 							e.printStackTrace();
 						}
 					}
 
 					@Override
 					public void onFailure(Throwable arg0, String arg1) {
-						// TODO Auto-generated method stub
+
 						super.onFailure(arg0, arg1);
 						progress.CloseProgress();
 						Toast.makeText(ZhongAnYlListActivity.this, "接口异常", 200).show();
@@ -217,7 +217,7 @@ public class ZhongAnYlListActivity extends BaseActivity implements OnClickListen
 
 	@Override
 	public void onClick(View v) {
-		// TODO Auto-generated method stub
+
 
 		switch (v.getId()) {
 			case R.id.iv_fanhui:

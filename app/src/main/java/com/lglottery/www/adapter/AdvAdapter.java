@@ -60,7 +60,7 @@ public class AdvAdapter extends PagerAdapter {
 
 			@Override
 			public void onClick(View arg0) {
-				// TODO Auto-generated method stub
+
 				System.out.println("shijian");
 				Message msg = new Message();
 				msg.what = 13;

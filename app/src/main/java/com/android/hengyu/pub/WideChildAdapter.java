@@ -81,7 +81,7 @@ public class WideChildAdapter extends BaseAdapter {
 
 				@Override
 				public void onClick(View arg0) {
-					// TODO Auto-generated method stub
+
 					try {
 						System.out.println("=arg2============" + position);
 						System.out.println("=getTitle============"
@@ -116,7 +116,7 @@ public class WideChildAdapter extends BaseAdapter {
 						// msg.obj = items;
 						// handler.sendMessage(msg);
 					} catch (Exception e) {
-						// TODO: handle exception
+
 						e.printStackTrace();
 					}
 

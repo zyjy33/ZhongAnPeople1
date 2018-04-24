@@ -114,20 +114,20 @@ public class BeiHuoJinMxActivity extends BaseActivity implements
 
 				@Override
 				public void onClick(View arg0) {
-					// TODO Auto-generated method stub
+
 					finish();
 				}
 			});
 
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 	}
 
 	@Override
 	public void onClick(View v) {
-		// TODO Auto-generated method stub
+
 		switch (v.getId()) {
 
 			default:
@@ -142,7 +142,7 @@ public class BeiHuoJinMxActivity extends BaseActivity implements
 
 		@Override
 		public void onHeaderRefresh(PullToRefreshView view) {
-			// TODO Auto-generated method stub
+
 			refresh.postDelayed(new Runnable() {
 
 				@Override
@@ -160,7 +160,7 @@ public class BeiHuoJinMxActivity extends BaseActivity implements
 
 		@Override
 		public void onFooterRefresh(PullToRefreshView view) {
-			// TODO Auto-generated method stub
+
 			refresh.postDelayed(new Runnable() {
 
 				@Override
@@ -178,7 +178,7 @@ public class BeiHuoJinMxActivity extends BaseActivity implements
 						refresh.onFooterRefreshComplete();
 
 					} catch (Exception e) {
-						// TODO: handle exception
+
 						e.printStackTrace();
 					}
 				}
@@ -191,7 +191,7 @@ public class BeiHuoJinMxActivity extends BaseActivity implements
 	//
 	// @Override
 	// public void onFooterRefresh(PullToRefreshView view) {
-	// // TODO Auto-generated method stub
+	//
 	// refresh.postDelayed(new Runnable() {
 	//
 	// @Override
@@ -253,7 +253,7 @@ public class BeiHuoJinMxActivity extends BaseActivity implements
 				new AsyncHttpResponseHandler() {
 					@Override
 					public void onSuccess(int arg0, String arg1) {
-						// TODO Auto-generated method stub
+
 						super.onSuccess(arg0, arg1);
 						System.out.println("=====================二级值1" + arg1);
 						try {
@@ -295,7 +295,7 @@ public class BeiHuoJinMxActivity extends BaseActivity implements
 								CURRENT_NUM = 1;
 							}
 						} catch (JSONException e) {
-							// TODO Auto-generated catch block
+
 							e.printStackTrace();
 						}
 					}
@@ -320,7 +320,7 @@ public class BeiHuoJinMxActivity extends BaseActivity implements
 				new AsyncHttpResponseHandler() {
 					@Override
 					public void onSuccess(int arg0, String arg1) {
-						// TODO Auto-generated method stub
+
 						super.onSuccess(arg0, arg1);
 						System.out.println("=====================二级值2" + arg1);
 						try {
@@ -354,7 +354,7 @@ public class BeiHuoJinMxActivity extends BaseActivity implements
 							msg.obj = list;
 							handler.sendMessage(msg);
 						} catch (JSONException e) {
-							// TODO Auto-generated catch block
+
 							e.printStackTrace();
 						}
 					}

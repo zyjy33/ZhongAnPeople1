@@ -63,13 +63,13 @@ public class MyJuTuanOrderXqAdapter extends BaseAdapter {
 
 	@Override
 	public Object getItem(int position) {
-		// TODO Auto-generated method stub
+
 		return list.get(position);
 	}
 
 	@Override
 	public long getItemId(int position) {
-		// TODO Auto-generated method stub
+
 		return position;
 	}
 
@@ -97,7 +97,7 @@ public class MyJuTuanOrderXqAdapter extends BaseAdapter {
 
 	@Override
 	public View getView(final int position, View convertView, ViewGroup patent) {
-		// TODO Auto-generated method stub
+
 		ViewHolder holder = null;
 		holder = new ViewHolder();
 		if (convertView == null) {
@@ -156,7 +156,7 @@ public class MyJuTuanOrderXqAdapter extends BaseAdapter {
 					//			}
 
 				} catch (Exception e) {
-					// TODO: handle exception
+
 					e.printStackTrace();
 				}
 
@@ -203,7 +203,7 @@ public class MyJuTuanOrderXqAdapter extends BaseAdapter {
 						//							  intent3.putExtra("company_id",list.get(0).getCompany_id());
 						//							  context.startActivity(intent3);
 						//							} catch (Exception e) {
-						//								// TODO: handle exception
+						//
 						//								e.printStackTrace();
 						//							}
 						//
@@ -234,7 +234,7 @@ public class MyJuTuanOrderXqAdapter extends BaseAdapter {
 						holder.tv_zongjia.setText("￥"+list.get(position).getList().get(i).getGoods_price());//
 
 					} catch (Exception e) {
-						// TODO: handle exception
+
 						e.printStackTrace();
 					}
 
@@ -273,7 +273,7 @@ public class MyJuTuanOrderXqAdapter extends BaseAdapter {
 
 
 			} catch (Exception e) {
-				// TODO: handle exception
+
 				e.printStackTrace();
 			}
 

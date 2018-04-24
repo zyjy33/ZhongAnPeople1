@@ -18,7 +18,7 @@ public class SdkSystemException extends Exception {
 	 * 
 	 */
 	public SdkSystemException() {
-		// TODO Auto-generated constructor stub
+
 	}
 
 	/**
@@ -26,7 +26,7 @@ public class SdkSystemException extends Exception {
 	 */
 	public SdkSystemException(String arg0) {
 		super(arg0);
-		// TODO Auto-generated constructor stub
+
 	}
 
 	/**
@@ -34,7 +34,7 @@ public class SdkSystemException extends Exception {
 	 */
 	public SdkSystemException(Throwable arg0) {
 		super(arg0);
-		// TODO Auto-generated constructor stub
+
 	}
 
 	/**

@@ -194,7 +194,7 @@ public class WareClassifyFourActivity extends BaseActivity implements
 				+ "/mi/getdata.ashx", strUrlPrice, new AsyncHttpResponseHandler(){
 			@Override
 			public void onSuccess(int arg0, String arg1) {
-				// TODO Auto-generated method stub
+
 				super.onSuccess(arg0, arg1);
 				parse(arg1);
 			}
@@ -214,7 +214,7 @@ public class WareClassifyFourActivity extends BaseActivity implements
 				+ "/mi/getdata.ashx", strSalesVolume, new AsyncHttpResponseHandler(){
 			@Override
 			public void onSuccess(int arg0, String arg1) {
-				// TODO Auto-generated method stub
+
 				super.onSuccess(arg0, arg1);
 				parse2(arg1);
 			}
@@ -233,7 +233,7 @@ public class WareClassifyFourActivity extends BaseActivity implements
 				+ "/mi/getdata.ashx", strUrlTime, new AsyncHttpResponseHandler(){
 			@Override
 			public void onSuccess(int arg0, String arg1) {
-				// TODO Auto-generated method stub
+
 				super.onSuccess(arg0, arg1);
 				parse3(arg1);
 			}
@@ -260,7 +260,7 @@ public class WareClassifyFourActivity extends BaseActivity implements
 			msg.obj = list;
 			handler.sendMessage(msg);
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 	}
@@ -285,7 +285,7 @@ public class WareClassifyFourActivity extends BaseActivity implements
 			msg.obj = list2;
 			handler.sendMessage(msg);
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 	}
@@ -310,7 +310,7 @@ public class WareClassifyFourActivity extends BaseActivity implements
 			msg.obj = list3;
 			handler.sendMessage(msg);
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 	}
@@ -327,7 +327,7 @@ public class WareClassifyFourActivity extends BaseActivity implements
 			@Override
 			public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
 									long arg3) {
-				// TODO Auto-generated method stub
+
 				int wareId = list.get(arg2).id;
 				Intent intent = new Intent(WareClassifyFourActivity.this,
 						WareInformationActivity.class);
@@ -339,7 +339,7 @@ public class WareClassifyFourActivity extends BaseActivity implements
 			@Override
 			public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
 									long arg3) {
-				// TODO Auto-generated method stub
+
 				int wareId = list2.get(arg2).id;
 				Intent intent = new Intent(WareClassifyFourActivity.this,
 						WareInformationActivity.class);
@@ -351,7 +351,7 @@ public class WareClassifyFourActivity extends BaseActivity implements
 			@Override
 			public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
 									long arg3) {
-				// TODO Auto-generated method stub
+
 				int wareId = list3.get(arg2).id;
 				Intent intent = new Intent(WareClassifyFourActivity.this,
 						WareInformationActivity.class);
@@ -363,7 +363,7 @@ public class WareClassifyFourActivity extends BaseActivity implements
 
 	@Override
 	public void onClick(View v) {
-		// TODO Auto-generated method stub
+
 
 	}
 

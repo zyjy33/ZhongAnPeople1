@@ -42,7 +42,7 @@ public class ComboMainActivity extends BaseActivity {
 
 		@Override
 		public void onClick(View arg0) {
-			// TODO Auto-generated method stub
+
 			switch (arg0.getId()) {
 				case R.id.main_item0:
 					Intent intent = new Intent(ComboMainActivity.this,

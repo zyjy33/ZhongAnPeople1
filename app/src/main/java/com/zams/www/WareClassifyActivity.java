@@ -111,7 +111,7 @@ public class WareClassifyActivity extends BaseActivity implements OnClickListene
 			@Override
 			public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
 									long arg3) {
-				// TODO Auto-generated method stub
+
 				String typename = list.get(arg2).productTypeName;
 				int id = waredao.findbyTypeName(typename).ID;
 
@@ -222,7 +222,7 @@ public class WareClassifyActivity extends BaseActivity implements OnClickListene
 
 	@Override
 	public void onClick(View v) {
-		// TODO Auto-generated method stub
+
 
 	}
 

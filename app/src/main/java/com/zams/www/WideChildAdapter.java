@@ -66,7 +66,7 @@ public class WideChildAdapter extends BaseAdapter {
 
 			@Override
 			public void onClick(View arg0) {
-				// TODO Auto-generated method stub
+
 				Message msg = new Message();
 				msg.what = 1;
 				msg.obj = holder.category_textview;

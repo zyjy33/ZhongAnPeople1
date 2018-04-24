@@ -100,7 +100,7 @@ public class PayActivity extends BaseActivity {
 
 			@Override
 			public void onClick(View v) {
-				// TODO Auto-generated method stub
+
 				String trade_no = bundle.getString("trade_no");
 				UmpPayInfoBean infoBean = new UmpPayInfoBean();
 				boolean flag = UmpayQuickPay.requestPayWithBind(
@@ -175,7 +175,7 @@ public class PayActivity extends BaseActivity {
 				Toast.makeText(getApplicationContext(), "支付失败", 200).show();
 			}
 		} catch (JSONException e) {
-			// TODO Auto-generated catch block
+
 			e.printStackTrace();
 		}
 	}
@@ -189,7 +189,7 @@ public class PayActivity extends BaseActivity {
 
 			@Override
 			public void onClick(View arg0) {
-				// TODO Auto-generated method stub
+
 				showDialog(1);
 			}
 		});
@@ -206,7 +206,7 @@ public class PayActivity extends BaseActivity {
 						params, new AsyncHttpResponseHandler() {
 							@Override
 							public void onSuccess(String arg0) {
-								// TODO Auto-generated method stub
+
 								super.onSuccess(arg0);
 								System.out.println(arg0);
 							}
@@ -421,7 +421,7 @@ public class PayActivity extends BaseActivity {
 
 			@Override
 			public void onClick(View arg0) {
-				// TODO Auto-generated method stub
+
 				dissPop();
 			}
 		});

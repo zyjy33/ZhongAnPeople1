@@ -50,7 +50,7 @@ public class JD_detailActivity extends BaseActivity {
 							params, new AsyncHttpResponseHandler() {
 								@Override
 								public void onSuccess(int arg0, String arg1) {
-									// TODO Auto-generated method stub
+
 									System.out.println(arg1);
 									super.onSuccess(arg0, arg1);
 									try {

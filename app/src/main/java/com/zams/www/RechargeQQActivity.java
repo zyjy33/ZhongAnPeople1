@@ -147,7 +147,7 @@ public class RechargeQQActivity extends BaseActivity implements OnClickListener 
 			@Override
 			public void onItemSelected(AdapterView<?> arg0, View arg1,
 									   int arg2, long arg3) {
-				// TODO Auto-generated method stub
+
 				business = al_type.get(arg2);
 				if (!business.equals("请输入充值类型") && !number.equals("请输入充值数量")) {
 					getAllMoney();
@@ -156,7 +156,7 @@ public class RechargeQQActivity extends BaseActivity implements OnClickListener 
 
 			@Override
 			public void onNothingSelected(AdapterView<?> arg0) {
-				// TODO Auto-generated method stub
+
 
 			}
 		});
@@ -165,7 +165,7 @@ public class RechargeQQActivity extends BaseActivity implements OnClickListener 
 			@Override
 			public void onItemSelected(AdapterView<?> arg0, View arg1,
 									   int arg2, long arg3) {
-				// TODO Auto-generated method stub
+
 				number = qq_money.get(arg2);
 				if (!number.equals("请输入充值数量") && !business.equals("请输入充值类型")) {
 					getAllMoney();
@@ -174,7 +174,7 @@ public class RechargeQQActivity extends BaseActivity implements OnClickListener 
 
 			@Override
 			public void onNothingSelected(AdapterView<?> arg0) {
-				// TODO Auto-generated method stub
+
 
 			}
 		});
@@ -198,7 +198,7 @@ public class RechargeQQActivity extends BaseActivity implements OnClickListener 
 		AsyncHttp.post_1(strUrl, params,new AsyncHttpResponseHandler(){
 			@Override
 			public void onSuccess(int arg0, String arg1) {
-				// TODO Auto-generated method stub
+
 				super.onSuccess(arg0, arg1);
 
 				// System.out.println(httpToServer.getJsonString(strUrl));
@@ -213,7 +213,7 @@ public class RechargeQQActivity extends BaseActivity implements OnClickListener 
 						handler.sendMessage(message);
 					}
 				} catch (JSONException e) {
-					// TODO Auto-generated catch block
+
 					e.printStackTrace();
 				}
 
@@ -223,7 +223,7 @@ public class RechargeQQActivity extends BaseActivity implements OnClickListener 
 
 	@Override
 	public void onClick(View v) {
-		// TODO Auto-generated method stub
+
 		switch (v.getId()) {
 			case R.id.btn_qq:
 				if (business.equals("请输入充值类型") || number.equals("请输入充值数量")) {

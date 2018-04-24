@@ -58,13 +58,13 @@ public class LglotteryGoActivity extends BaseActivity {
 		AsyncHttp.post(U.LOTTERY_GO, params, new AsyncHttpResponseHandler() {
 			@Override
 			public void onStart() {
-				// TODO Auto-generated method stub
+
 				super.onStart();
 			}
 
 			@Override
 			public void onSuccess(int arg0, String arg1) {
-				// TODO Auto-generated method stub
+
 				super.onSuccess(arg0, arg1);
 				WLog.v("抽奖结果" + arg1);
 				try {
@@ -126,14 +126,14 @@ public class LglotteryGoActivity extends BaseActivity {
 
 					}
 				} catch (JSONException e) {
-					// TODO Auto-generated catch block
+
 					e.printStackTrace();
 				}
 			}
 
 			@Override
 			public void onFinish() {
-				// TODO Auto-generated method stub
+
 				super.onFinish();
 			}
 		}, getApplicationContext());
@@ -244,7 +244,7 @@ public class LglotteryGoActivity extends BaseActivity {
 	private OnClickListener clickListener = new OnClickListener() {
 		@Override
 		public void onClick(View view) {
-			// TODO Auto-generated method stub
+
 			switch (view.getId()) {
 				case R.id.lglottery_lottery_view:
 					if (parentLists.size() != 3) {
@@ -389,7 +389,7 @@ public class LglotteryGoActivity extends BaseActivity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
+
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.lglottery_lottery_activity);
@@ -407,7 +407,7 @@ public class LglotteryGoActivity extends BaseActivity {
 		 * .getViewTreeObserver(); observer.addOnPreDrawListener(new
 		 * ViewTreeObserver.OnPreDrawListener() {
 		 * 
-		 * @Override public boolean onPreDraw() { // TODO Auto-generated method
+		 * @Override public boolean onPreDraw() {   method
 		 * stub HEIGHT = lglottery_lottery_content.getMeasuredHeight() / 3;
 		 * handler.sendEmptyMessage(0); return true; } });
 		 */

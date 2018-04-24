@@ -24,7 +24,7 @@ public class YihuaCallListAdapter extends BaseAdapter {
 	public YihuaCallListAdapter(Context context,
 								ArrayList<YiHuaCall> listDomains, ImageLoader imageLoader,
 								Handler handler) {
-		// TODO Auto-generated constructor stub
+
 		this.context = context;
 		this.listDomains = listDomains;
 		this.imageLoader = imageLoader;
@@ -41,7 +41,7 @@ public class YihuaCallListAdapter extends BaseAdapter {
 
 	@Override
 	public int getCount() {
-		// TODO Auto-generated method stub
+
 		return listDomains.size();
 	}
 

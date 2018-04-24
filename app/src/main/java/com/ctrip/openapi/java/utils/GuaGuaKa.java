@@ -104,7 +104,7 @@ public class GuaGuaKa extends View
 			mBackPint.setTextSize(40);
 			mBackPint.getTextBounds(mText, 0, mText.length(), mTextBound);
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 	}
@@ -124,7 +124,7 @@ public class GuaGuaKa extends View
 				canvas.drawBitmap(mBitmap, 0, 0, null);
 			}
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 

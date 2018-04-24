@@ -170,7 +170,7 @@ public class IndividualCenterActivity extends Fragment implements
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 							 Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
+
 		layout = inflater.inflate(R.layout.individual_center, null);
 		popupWindowMenu = new MyPopupWindowMenu(getActivity());
 		progress = new DialogProgress(getActivity());
@@ -224,7 +224,7 @@ public class IndividualCenterActivity extends Fragment implements
 			}
 
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 	};
@@ -290,7 +290,7 @@ public class IndividualCenterActivity extends Fragment implements
 			//		System.out.println("GouWuCheAGoodsAdaper.type=======2==============="+ GouWuCheAGoodsAdaper.type);
 
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 	}
@@ -309,7 +309,7 @@ public class IndividualCenterActivity extends Fragment implements
 	//	}
 
 	private void getjianche() {
-		// TODO Auto-generated method stub
+
 		spPreferences_login = getActivity().getSharedPreferences(
 				"longuserset_login", Context.MODE_PRIVATE);
 
@@ -446,7 +446,7 @@ public class IndividualCenterActivity extends Fragment implements
 					}
 					getuserxinxi();
 				} catch (JSONException e) {
-					// TODO Auto-generated catch block
+
 					e.printStackTrace();
 				}
 
@@ -456,7 +456,7 @@ public class IndividualCenterActivity extends Fragment implements
 	}
 
 	private void getuserxinxi() {
-		// TODO Auto-generated method stub
+
 
 		try {
 
@@ -533,7 +533,7 @@ public class IndividualCenterActivity extends Fragment implements
 						}
 
 					} catch (Exception e) {
-						// TODO: handle exception
+
 						e.printStackTrace();
 					}
 				}
@@ -559,7 +559,7 @@ public class IndividualCenterActivity extends Fragment implements
 			}
 
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 	}
@@ -661,7 +661,7 @@ public class IndividualCenterActivity extends Fragment implements
 	}
 
 	private TextView findViewById(int tvWeixinName) {
-		// TODO Auto-generated method stub
+
 		return null;
 	}
 
@@ -669,7 +669,7 @@ public class IndividualCenterActivity extends Fragment implements
 	 * 数据清空
 	 */
 	private void setinten() {
-		// TODO Auto-generated method stub
+
 		tv_ticket.setText("0");
 		tv_shop_ticket.setText("0");
 		tv_jifen_ticket.setText("0");
@@ -881,7 +881,7 @@ public class IndividualCenterActivity extends Fragment implements
 											}
 											userpanduan(data.login_sign);
 										} catch (Exception e) {
-											// TODO: handle exception
+
 											e.printStackTrace();
 										}
 										data = null;
@@ -890,14 +890,14 @@ public class IndividualCenterActivity extends Fragment implements
 
 									}
 								} catch (JSONException e) {
-									// TODO Auto-generated catch block
+
 									e.printStackTrace();
 								}
 							};
 
 							@Override
 							public void onFailure(Throwable arg0, String arg1) {
-								// TODO Auto-generated method stub
+
 								super.onFailure(arg0, arg1);
 								NewDataToast.makeText(context, "连接超时", false, 0).show();
 								//							Toast.makeText(context,"连接超时, 200).show();
@@ -905,7 +905,7 @@ public class IndividualCenterActivity extends Fragment implements
 						}, context);
 
 					} catch (Exception e) {
-						// TODO: handle exception
+
 						e.printStackTrace();
 					}
 
@@ -1034,14 +1034,14 @@ public class IndividualCenterActivity extends Fragment implements
 
 						}
 					} catch (JSONException e) {
-						// TODO Auto-generated catch block
+
 						e.printStackTrace();
 					}
 				};
 			}, context);
 
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 	}
@@ -1182,7 +1182,7 @@ public class IndividualCenterActivity extends Fragment implements
 			ll_saoyisao_qd.setOnClickListener(this);
 			img_btn_daizhuce.setOnClickListener(this);
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 	}
@@ -1320,7 +1320,7 @@ public class IndividualCenterActivity extends Fragment implements
 						}
 
 					} catch (Exception e) {
-						// TODO: handle exception
+
 						e.printStackTrace();
 					}
 
@@ -1349,7 +1349,7 @@ public class IndividualCenterActivity extends Fragment implements
 							startActivity(intent);
 						}
 					} catch (Exception e) {
-						// TODO: handle exception
+
 						e.printStackTrace();
 					}
 				}
@@ -1402,7 +1402,7 @@ public class IndividualCenterActivity extends Fragment implements
 							startActivity(intentll);
 
 						} catch (Exception e) {
-							// TODO: handle exception
+
 							e.printStackTrace();
 						}
 					}
@@ -2017,10 +2017,10 @@ public class IndividualCenterActivity extends Fragment implements
 											client.upload(time + ".jpg", fis,
 													0, 0, null);
 										} catch (FTPDataTransferException e) {
-											// TODO Auto-generated catch block
+
 											e.printStackTrace();
 										} catch (FTPAbortedException e) {
-											// TODO Auto-generated catch block
+
 											e.printStackTrace();
 										}
 										fis.close();
@@ -2073,10 +2073,10 @@ public class IndividualCenterActivity extends Fragment implements
 						// try {
 						// client.upload(time + ".jpg", fis, 0, 0, null);
 						// } catch (FTPDataTransferException e) {
-						// // TODO Auto-generated catch block
+						//
 						// e.printStackTrace();
 						// } catch (FTPAbortedException e) {
-						// // TODO Auto-generated catch block
+						//
 						// e.printStackTrace();
 						// }
 						// fis.close();
@@ -2103,7 +2103,7 @@ public class IndividualCenterActivity extends Fragment implements
 						// }.start();
 
 					} catch (Exception e) {
-						// TODO: handle exception
+
 						e.printStackTrace();
 					}
 
@@ -2141,7 +2141,7 @@ public class IndividualCenterActivity extends Fragment implements
 	}
 
 	private void gettouxiang() {
-		// TODO Auto-generated method stub
+
 		String imgUrl = "/upload/phone/" + yth + "/" + time + ".jpg";
 		System.out.println("imgUrl--------------------------" + imgUrl);
 		Editor editor = spPreferences.edit();
@@ -2166,7 +2166,7 @@ public class IndividualCenterActivity extends Fragment implements
 						Toast.makeText(context, "上传失败", 200).show();
 					}
 				} catch (JSONException e) {
-					// TODO Auto-generated catch block
+
 					e.printStackTrace();
 				}
 			};
@@ -2326,10 +2326,10 @@ public class IndividualCenterActivity extends Fragment implements
 									client.upload(time + ".jpg", fis, 0, 0,
 											null);
 								} catch (FTPDataTransferException e) {
-									// TODO Auto-generated catch block
+
 									e.printStackTrace();
 								} catch (FTPAbortedException e) {
-									// TODO Auto-generated catch block
+
 									e.printStackTrace();
 								}
 								fis.close();
@@ -2358,7 +2358,7 @@ public class IndividualCenterActivity extends Fragment implements
 				}.start();
 
 			} catch (Exception e) {
-				// TODO: handle exception
+
 				e.printStackTrace();
 			}
 		}
@@ -2386,7 +2386,7 @@ public class IndividualCenterActivity extends Fragment implements
 				new AsyncHttpResponseHandler() {
 					@Override
 					public void onSuccess(int arg0, String arg1) {
-						// TODO Auto-generated method stub
+
 						super.onSuccess(arg0, arg1);
 						// System.out.println("=========数据接口============"+arg1);
 						try {
@@ -2444,7 +2444,7 @@ public class IndividualCenterActivity extends Fragment implements
 							}
 							//							load_list1();
 						} catch (Exception e) {
-							// TODO: handle exception
+
 							e.printStackTrace();
 						}
 					}
@@ -2480,7 +2480,7 @@ public class IndividualCenterActivity extends Fragment implements
 	// }
 	//
 	// private void setImage() {
-	// // TODO Auto-generated method stub
+	//
 	// // 使用intent调用系统提供的相册功能，使用startActivityForResult是为了获取用户选择的图片
 	// Intent getAlbum = new Intent(Intent.ACTION_GET_CONTENT);
 	// getAlbum.setType(IMAGE_TYPE);
@@ -2553,10 +2553,10 @@ public class IndividualCenterActivity extends Fragment implements
 	// try {
 	// client.upload(time + ".jpg", fis, 0, 0, null);
 	// } catch (FTPDataTransferException e) {
-	// // TODO Auto-generated catch block
+	//
 	// e.printStackTrace();
 	// } catch (FTPAbortedException e) {
-	// // TODO Auto-generated catch block
+	//
 	// e.printStackTrace();
 	// }
 	//
@@ -2592,7 +2592,7 @@ public class IndividualCenterActivity extends Fragment implements
 	// }
 	//
 	// } catch (Exception e) {
-	// // TODO: handle exception
+	//
 	// e.printStackTrace();
 	// }
 	// }

@@ -149,7 +149,7 @@ public class JuTuanConfrimActivity extends BaseActivity {
 
 	@Override
 	protected void onResume() {
-		// TODO Auto-generated method stub
+
 		super.onResume();
 		try {
 			System.out.println("flag=======微信支付成功后关闭此界面=======" + flag);
@@ -242,7 +242,7 @@ public class JuTuanConfrimActivity extends BaseActivity {
 			// }
 
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 	}
@@ -251,7 +251,7 @@ public class JuTuanConfrimActivity extends BaseActivity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
+
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		popupWindowMenu = new MyPopupWindowMenu(this);
 		progress = new DialogProgress(JuTuanConfrimActivity.this);
@@ -309,7 +309,7 @@ public class JuTuanConfrimActivity extends BaseActivity {
 
 				@Override
 				public void onClick(View arg0) {
-					// TODO Auto-generated method stub
+
 					finish();
 
 				}
@@ -429,7 +429,7 @@ public class JuTuanConfrimActivity extends BaseActivity {
 			});
 
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 
@@ -440,7 +440,7 @@ public class JuTuanConfrimActivity extends BaseActivity {
 
 			@Override
 			public void onClick(View arg0) {
-				// TODO Auto-generated method stub
+
 				yu_pay_c1.setChecked(false);
 				yu_pay_c0.setChecked(true);
 				type = "5";
@@ -451,7 +451,7 @@ public class JuTuanConfrimActivity extends BaseActivity {
 
 			@Override
 			public void onClick(View arg0) {
-				// TODO Auto-generated method stub
+
 				// 点击设置是否为点击状态
 				yu_pay_c1.setChecked(false);
 				yu_pay_c0.setChecked(true);
@@ -466,7 +466,7 @@ public class JuTuanConfrimActivity extends BaseActivity {
 
 			@Override
 			public void onClick(View arg0) {
-				// TODO Auto-generated method stub
+
 				yu_pay_c0.setChecked(false);
 				yu_pay_c1.setChecked(true);
 				type = "3";
@@ -477,7 +477,7 @@ public class JuTuanConfrimActivity extends BaseActivity {
 
 			@Override
 			public void onClick(View arg0) {
-				// TODO Auto-generated method stub
+
 				yu_pay_c0.setChecked(false);
 				yu_pay_c1.setChecked(true);
 				type = "3";
@@ -492,7 +492,7 @@ public class JuTuanConfrimActivity extends BaseActivity {
 
 			@Override
 			public void onClick(View arg0) {
-				// TODO Auto-generated method stub
+
 
 				System.out.println("name======11========" + user_accept_name);
 				if (user_accept_name == null) {
@@ -503,7 +503,7 @@ public class JuTuanConfrimActivity extends BaseActivity {
 						System.out.println("type======结算方式========" + type);
 						loadtuangou(type, kou_hongbao);// 提交聚团订单
 					} catch (Exception e) {
-						// TODO: handle exception
+
 						e.printStackTrace();
 					}
 				}
@@ -543,14 +543,14 @@ public class JuTuanConfrimActivity extends BaseActivity {
 						} else {
 						}
 					} catch (JSONException e) {
-						// TODO Auto-generated catch block
+
 						e.printStackTrace();
 					}
 				};
 			}, JuTuanConfrimActivity.this);
 
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 	}
@@ -570,7 +570,7 @@ public class JuTuanConfrimActivity extends BaseActivity {
 						@Override
 						public void onSuccess(int arg0, String arg1) {
 
-							// TODO Auto-generated method stub
+
 							super.onSuccess(arg0, arg1);
 							try {
 								JSONObject jsonObject = new JSONObject(arg1);
@@ -629,7 +629,7 @@ public class JuTuanConfrimActivity extends BaseActivity {
 								}
 
 							} catch (JSONException e) {
-								// TODO Auto-generated catch block
+
 								progress.CloseProgress();
 								e.printStackTrace();
 							}
@@ -638,7 +638,7 @@ public class JuTuanConfrimActivity extends BaseActivity {
 					}, getApplicationContext());
 
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 
@@ -675,7 +675,7 @@ public class JuTuanConfrimActivity extends BaseActivity {
 		AsyncHttp.get(url, new AsyncHttpResponseHandler() {
 			@Override
 			public void onSuccess(int arg0, String arg1) {
-				// TODO Auto-generated method stub
+
 				super.onSuccess(arg0, arg1);
 				System.out.println("=====================二级值1" + arg1);
 				try {
@@ -778,7 +778,7 @@ public class JuTuanConfrimActivity extends BaseActivity {
 
 								list.add(data);
 							} catch (Exception e) {
-								// TODO: handle exception
+
 								e.printStackTrace();
 							}
 						}
@@ -796,7 +796,7 @@ public class JuTuanConfrimActivity extends BaseActivity {
 						CURRENT_NUM = 1;
 					}
 				} catch (JSONException e) {
-					// TODO Auto-generated catch block
+
 					e.printStackTrace();
 				}
 			}
@@ -874,7 +874,7 @@ public class JuTuanConfrimActivity extends BaseActivity {
 	// }
 	//
 	// } catch (Exception e) {
-	// // TODO: handle exception
+	//
 	// e.printStackTrace();
 	// }
 	//
@@ -887,7 +887,7 @@ public class JuTuanConfrimActivity extends BaseActivity {
 	// }, getApplicationContext());
 	//
 	// } catch (Exception e) {
-	// // TODO: handle exception
+	//
 	// e.printStackTrace();
 	// }
 	// }
@@ -1024,20 +1024,20 @@ public class JuTuanConfrimActivity extends BaseActivity {
 									Toast.LENGTH_SHORT).show();
 
 						} catch (Exception e) {
-							// TODO: handle exception
+
 							e.printStackTrace();
 						}
 					}
 
 				} catch (Exception e) {
-					// TODO: handle exception
+
 					e.printStackTrace();
 				}
 			}
 
 			@Override
 			public void onFailure(Throwable arg0, String arg1) {
-				// TODO Auto-generated method stub
+
 				super.onFailure(arg0, arg1);
 				System.out
 						.println("11=================================" + arg0);
@@ -1080,7 +1080,7 @@ public class JuTuanConfrimActivity extends BaseActivity {
 						// list_shop_cart.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
 
 					} catch (Exception e) {
-						// TODO: handle exception
+
 						e.printStackTrace();
 					}
 					break;
@@ -1117,7 +1117,7 @@ public class JuTuanConfrimActivity extends BaseActivity {
 								// "支付true", Toast.LENGTH_SHORT).show();
 
 							} catch (Exception e) {
-								// TODO: handle exception
+
 								e.printStackTrace();
 							}
 						} else {
@@ -1126,7 +1126,7 @@ public class JuTuanConfrimActivity extends BaseActivity {
 							finish();
 						}
 					} catch (Exception e) {
-						// TODO: handle exception
+
 						e.printStackTrace();
 					}
 
@@ -1266,7 +1266,7 @@ public class JuTuanConfrimActivity extends BaseActivity {
 
 						@Override
 						public void onFailure(Throwable arg0, String arg1) {
-							// TODO Auto-generated method stub
+
 							super.onFailure(arg0, arg1);
 							System.out
 									.println("11================================="
@@ -1281,7 +1281,7 @@ public class JuTuanConfrimActivity extends BaseActivity {
 					}, null);
 
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 	}
@@ -1368,7 +1368,7 @@ public class JuTuanConfrimActivity extends BaseActivity {
 
 						@Override
 						public void onFailure(Throwable arg0, String arg1) {
-							// TODO Auto-generated method stub
+
 							super.onFailure(arg0, arg1);
 							System.out
 									.println("11================================="
@@ -1383,7 +1383,7 @@ public class JuTuanConfrimActivity extends BaseActivity {
 					}, null);
 
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 	}
@@ -1434,7 +1434,7 @@ public class JuTuanConfrimActivity extends BaseActivity {
 			}, null);
 
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 	}
@@ -1501,7 +1501,7 @@ public class JuTuanConfrimActivity extends BaseActivity {
 					}, null);
 
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 	}
@@ -1545,7 +1545,7 @@ public class JuTuanConfrimActivity extends BaseActivity {
 			payThread.start();
 
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 
 		}

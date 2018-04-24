@@ -160,7 +160,7 @@ public class HomeActivity extends Fragment implements OnClickListener {
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 							 Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
+
 		try {
 			layout = inflater.inflate(R.layout.hengyu_home, null);
 			progress = new DialogProgress(getActivity());
@@ -188,7 +188,7 @@ public class HomeActivity extends Fragment implements OnClickListener {
 				@Override
 				public boolean onEditorAction(TextView arg0, int arg1,
 											  KeyEvent arg2) {
-					// TODO Auto-generated method stub
+
 					if (arg1 == EditorInfo.IME_ACTION_SEARCH) {
 
 						// Toast.makeText(getActivity(),"呵呵",Toast.LENGTH_SHORT).show();
@@ -220,7 +220,7 @@ public class HomeActivity extends Fragment implements OnClickListener {
 			//			load_list();
 			load_P();// 商品详情
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 		return layout;
@@ -250,7 +250,7 @@ public class HomeActivity extends Fragment implements OnClickListener {
 	SharedPreferences spPreferences_login;
 	@Override
 	public void onResume() {
-		// TODO Auto-generated method stub
+
 		super.onResume();
 		try {
 
@@ -264,14 +264,14 @@ public class HomeActivity extends Fragment implements OnClickListener {
 				getuserxinxi();
 			}
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 	}
 
 
 	private void getjianche() {
-		// TODO Auto-generated method stub
+
 		spPreferences_login = getActivity()
 				.getSharedPreferences("longuserset_login", Context.MODE_PRIVATE);
 		nickname = spPreferences_login.getString("nickname", "");
@@ -402,7 +402,7 @@ public class HomeActivity extends Fragment implements OnClickListener {
 					}
 					getuserxinxi();
 				} catch (JSONException e) {
-					// TODO Auto-generated catch block
+
 					e.printStackTrace();
 				}
 
@@ -412,7 +412,7 @@ public class HomeActivity extends Fragment implements OnClickListener {
 	}
 
 	private void getuserxinxi() {
-		// TODO Auto-generated method stub
+
 		try {
 
 			spPreferences = getActivity().getSharedPreferences("longuserset",
@@ -438,7 +438,7 @@ public class HomeActivity extends Fragment implements OnClickListener {
 			System.out.println("======group_id======1=======" + group_id);
 
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 		// 扫一扫
@@ -496,7 +496,7 @@ public class HomeActivity extends Fragment implements OnClickListener {
 					new AsyncHttpResponseHandler() {
 						@Override
 						public void onSuccess(int arg0, String arg1) {
-							// TODO Auto-generated method stub
+
 							super.onSuccess(arg0, arg1);
 							System.out.println("热销专区====================="+arg1);
 							try {
@@ -546,13 +546,13 @@ public class HomeActivity extends Fragment implements OnClickListener {
 								//							            }
 								//							        });
 							} catch (JSONException e) {
-								// TODO Auto-generated catch block
+
 								e.printStackTrace();
 							}
 						}
 					}, null);
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 
@@ -567,7 +567,7 @@ public class HomeActivity extends Fragment implements OnClickListener {
 	//					+ 909 + "", new AsyncHttpResponseHandler() {
 	//				@Override
 	//				public void onSuccess(int arg0, String arg1) {
-	//					// TODO Auto-generated method stub
+	//
 	//					super.onSuccess(arg0, arg1);
 	//					System.out.println("输出所有拼团活动列表=========" + arg1);
 	//					try {
@@ -607,14 +607,14 @@ public class HomeActivity extends Fragment implements OnClickListener {
 	//						new_list.setAdapter(juJingCaiAdapter);
 	//						setListViewHeightBasedOnChildren(new_list);
 	//					} catch (JSONException e) {
-	//						// TODO Auto-generated catch block
+	//
 	//						e.printStackTrace();
 	//					}
 	//				}
 	//
 	//			}, getActivity());
 	//		} catch (Exception e) {
-	//			// TODO: handle exception
+	//
 	//			e.printStackTrace();
 	//		}
 	//	}
@@ -630,7 +630,7 @@ public class HomeActivity extends Fragment implements OnClickListener {
 		AsyncHttp.get(strUrl, new AsyncHttpResponseHandler() {
 			@Override
 			public void onSuccess(int arg0, String arg1) {
-				// TODO Auto-generated method stub
+
 				super.onSuccess(arg0, arg1);
 				parse1(arg1);
 			}
@@ -664,7 +664,7 @@ public class HomeActivity extends Fragment implements OnClickListener {
 
 			}
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 	}
@@ -682,14 +682,14 @@ public class HomeActivity extends Fragment implements OnClickListener {
 						new AsyncHttpResponseHandler() {
 							@Override
 							public void onSuccess(int arg0, String arg1) {
-								// TODO Auto-generated method stub
+
 								super.onSuccess(arg0, arg1);
 								parse2(arg1);
 							}
 
 							@Override
 							public void onFailure(Throwable arg0, String arg1) {
-								// TODO Auto-generated method stub
+
 								super.onFailure(arg0, arg1);
 								try {
 
@@ -699,7 +699,7 @@ public class HomeActivity extends Fragment implements OnClickListener {
 									// Toast.makeText(getActivity(), "超时异常",
 									// 200).show();
 								} catch (Exception e) {
-									// TODO: handle exception
+
 									e.printStackTrace();
 								}
 							}
@@ -755,7 +755,7 @@ public class HomeActivity extends Fragment implements OnClickListener {
 			progress.CloseProgress();
 
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 	}
@@ -961,7 +961,7 @@ public class HomeActivity extends Fragment implements OnClickListener {
 			//
 			//			@Override
 			//			public void onClick(View arg0) {
-			//				// TODO Auto-generated method stub
+			//
 			//				Intent intent = new Intent(getActivity(),HongBaoZqListActivity.class);
 			//				intent.putExtra("channel_name", "life");
 			//				startActivity(intent);
@@ -973,7 +973,7 @@ public class HomeActivity extends Fragment implements OnClickListener {
 			zams_hbzq_1.setOnClickListener(new OnClickListener() {
 				@Override
 				public void onClick(View arg0) {
-					// TODO Auto-generated method stub
+
 					Intent intent = new Intent(getActivity(),HongBaoZqListActivity.class);
 					intent.putExtra("category_id", "2932");
 					intent.putExtra("type_zhi", "0");
@@ -986,7 +986,7 @@ public class HomeActivity extends Fragment implements OnClickListener {
 			zams_hbzq_2.setOnClickListener(new OnClickListener() {
 				@Override
 				public void onClick(View arg0) {
-					// TODO Auto-generated method stub
+
 					Intent intent = new Intent(getActivity(),HongBaoZqListActivity.class);
 					intent.putExtra("category_id", "681");
 					intent.putExtra("type_zhi", "1");
@@ -998,7 +998,7 @@ public class HomeActivity extends Fragment implements OnClickListener {
 			zams_hbzq_3.setOnClickListener(new OnClickListener() {
 				@Override
 				public void onClick(View arg0) {
-					// TODO Auto-generated method stub
+
 					Intent intent = new Intent(getActivity(),HongBaoZqListActivity.class);
 					intent.putExtra("category_id", "870");
 					intent.putExtra("type_zhi", "2");
@@ -1010,7 +1010,7 @@ public class HomeActivity extends Fragment implements OnClickListener {
 
 				@Override
 				public void onClick(View arg0) {
-					// TODO Auto-generated method stub
+
 					//TuiJianSpListActivity TuiJianGoodsListActivity
 					Intent intent = new Intent(getActivity(),TuiJianSpListActivity.class);
 					intent.putExtra("title", "推荐商品");
@@ -1023,7 +1023,7 @@ public class HomeActivity extends Fragment implements OnClickListener {
 
 				@Override
 				public void onClick(View arg0) {
-					// TODO Auto-generated method stub
+
 					// Message msg = new Message();
 					// msg.what = 30;
 					// msg.arg1 = datas.get(0).id;
@@ -1040,7 +1040,7 @@ public class HomeActivity extends Fragment implements OnClickListener {
 
 				@Override
 				public void onClick(View arg0) {
-					// TODO Auto-generated method stub
+
 					String id = Integer.toString(datas.get(2).id);
 					System.out.println("=====================" + id);
 					Intent intent30 = new Intent(getActivity(),
@@ -1053,7 +1053,7 @@ public class HomeActivity extends Fragment implements OnClickListener {
 			//
 			//			@Override
 			//			public void onClick(View arg0) {
-			//				// TODO Auto-generated method stub
+			//
 			//				String id = Integer.toString(datas.get(3).id);
 			//				System.out.println("=====================" + id);
 			//				Intent intent30 = new Intent(getActivity(),
@@ -1066,7 +1066,7 @@ public class HomeActivity extends Fragment implements OnClickListener {
 
 				@Override
 				public void onClick(View arg0) {
-					// TODO Auto-generated method stub
+
 					String id = Integer.toString(datas.get(3).id);
 					System.out.println("=====================" + id);
 					Intent intent30 = new Intent(getActivity(),
@@ -1165,7 +1165,7 @@ public class HomeActivity extends Fragment implements OnClickListener {
 
 				@Override
 				public boolean onTouch(View arg0, MotionEvent arg1) {
-					// TODO Auto-generated method stub
+
 					switch (arg1.getAction()) {
 						case MotionEvent.ACTION_MOVE:
 							System.out.println("滑动" + arg0.getScrollY());
@@ -1204,7 +1204,7 @@ public class HomeActivity extends Fragment implements OnClickListener {
 
 				@Override
 				public void onClick(View arg0) {
-					// TODO Auto-generated method stub
+
 					Intent intent = new Intent(getActivity(),
 							JuTouTiaoActivity.class);
 					startActivity(intent);
@@ -1216,7 +1216,7 @@ public class HomeActivity extends Fragment implements OnClickListener {
 
 				@Override
 				public void onClick(View arg0) {
-					// TODO Auto-generated method stub
+
 					Intent intent = new Intent(getActivity(),
 							JuTouTiaoActivity.class);
 					startActivity(intent);
@@ -1236,7 +1236,7 @@ public class HomeActivity extends Fragment implements OnClickListener {
 
 				@Override
 				public void onClick(View arg0) {
-					// TODO Auto-generated method stub
+
 					String xinshougl = "zhi";
 					Intent intent = new Intent(getActivity(),
 							XinshouGyActivity.class);
@@ -1246,7 +1246,7 @@ public class HomeActivity extends Fragment implements OnClickListener {
 			});
 			// format();
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 	}
@@ -1254,7 +1254,7 @@ public class HomeActivity extends Fragment implements OnClickListener {
 	ArrayList<AdvertDao1> images = null;
 	AdvertDao1 ada;
 	private void getguangao() {
-		// TODO Auto-generated method stub
+
 		// 广告滚动
 		advPager = (MyPosterView) layout.findViewById(R.id.adv_pagerll);
 		AsyncHttp.get(RealmName.REALM_NAME_LL
@@ -1350,7 +1350,7 @@ public class HomeActivity extends Fragment implements OnClickListener {
 					advPager.setData(urls, new MyPosterOnClick() {
 						@Override
 						public void onMyclick(int position) {
-							// TODO Auto-generated method stub
+
 							// Message msg = new Message();
 							// msg.what = 13;
 							// msg.obj = tempss.get(position).getId();
@@ -1539,7 +1539,7 @@ public class HomeActivity extends Fragment implements OnClickListener {
 						startActivity(intent13);
 
 					} catch (Exception e) {
-						// TODO: handle exception
+
 						e.printStackTrace();
 					}
 					break;
@@ -1566,7 +1566,7 @@ public class HomeActivity extends Fragment implements OnClickListener {
 										FenXiangActivity.class);
 								startActivity(intentll);
 							} catch (Exception e) {
-								// TODO: handle exception
+
 								e.printStackTrace();
 							}
 						}
@@ -1643,7 +1643,7 @@ public class HomeActivity extends Fragment implements OnClickListener {
 							//
 							// @Override
 							// public void onClick(View arg0) {
-							// // TODO Auto-generated method stub
+							//
 							// // Message msg = new Message();
 							// // msg.what = 30;
 							// // msg.arg1 = datas.get(0).id;
@@ -1661,7 +1661,7 @@ public class HomeActivity extends Fragment implements OnClickListener {
 							//
 							// @Override
 							// public void onClick(View arg0) {
-							// // TODO Auto-generated method stub
+							//
 							// String id = Integer.toString(datas.get(2).id);
 							// System.out.println("====================="+id);
 							// Intent intent30 = new
@@ -1675,7 +1675,7 @@ public class HomeActivity extends Fragment implements OnClickListener {
 							//
 							// @Override
 							// public void onClick(View arg0) {
-							// // TODO Auto-generated method stub
+							//
 							// String id = Integer.toString(datas.get(3).id);
 							// System.out.println("====================="+id);
 							// Intent intent30 = new
@@ -1688,7 +1688,7 @@ public class HomeActivity extends Fragment implements OnClickListener {
 							//
 							// @Override
 							// public void onClick(View arg0) {
-							// // TODO Auto-generated method stub
+							//
 							// String id = Integer.toString(datas.get(4).id);
 							// System.out.println("====================="+id);
 							// Intent intent30 = new
@@ -1754,7 +1754,7 @@ public class HomeActivity extends Fragment implements OnClickListener {
 							// });
 
 						} catch (Exception e) {
-							// TODO: handle exception
+
 							e.printStackTrace();
 						}
 
@@ -1772,7 +1772,7 @@ public class HomeActivity extends Fragment implements OnClickListener {
 					// // ll_sp1.setOnClickListener(new OnClickListener() {
 					// // @Override
 					// // public void onClick(View arg0) {
-					// // // TODO Auto-generated method stub
+					// //
 					// // String id = Integer.toString(datas.get(0).id);
 					// // System.out.println("====================="+id);
 					// // Intent intent = new
@@ -1786,7 +1786,7 @@ public class HomeActivity extends Fragment implements OnClickListener {
 					// tv_goumai1.setOnClickListener(new OnClickListener() {
 					// @Override
 					// public void onClick(View arg0) {
-					// // TODO Auto-generated method stub
+					//
 					// // Intent intent = new
 					// Intent(getActivity(),MyOrderConfrimActivity.class);
 					// // intent.putExtra("proName", datas.get(0).title);
@@ -1819,7 +1819,7 @@ public class HomeActivity extends Fragment implements OnClickListener {
 					// // ll_sp2.setOnClickListener(new OnClickListener() {
 					// // @Override
 					// // public void onClick(View arg0) {
-					// // // TODO Auto-generated method stub
+					// //
 					// // String id = Integer.toString(datas.get(1).id);
 					// // System.out.println("====================="+id);
 					// // Intent intent = new
@@ -1832,7 +1832,7 @@ public class HomeActivity extends Fragment implements OnClickListener {
 					// tv_goumai2.setOnClickListener(new OnClickListener() {
 					// @Override
 					// public void onClick(View arg0) {
-					// // TODO Auto-generated method stub
+					//
 					// // Intent intent = new
 					// Intent(getActivity(),MyOrderConfrimActivity.class);
 					// // intent.putExtra("proName", datas.get(1).title);
@@ -1861,7 +1861,7 @@ public class HomeActivity extends Fragment implements OnClickListener {
 					// // ll_sp3.setOnClickListener(new OnClickListener() {
 					// // @Override
 					// // public void onClick(View arg0) {
-					// // // TODO Auto-generated method stub
+					// //
 					// // String id = Integer.toString(datas.get(2).id);
 					// // System.out.println("====================="+id);
 					// // Intent intent = new
@@ -1874,7 +1874,7 @@ public class HomeActivity extends Fragment implements OnClickListener {
 					// tv_goumai3.setOnClickListener(new OnClickListener() {
 					// @Override
 					// public void onClick(View arg0) {
-					// // TODO Auto-generated method stub
+					//
 					// // Intent intent = new
 					// Intent(getActivity(),MyOrderConfrimActivity.class);
 					// // intent.putExtra("proName", datas.get(2).title);
@@ -1903,7 +1903,7 @@ public class HomeActivity extends Fragment implements OnClickListener {
 					// // ll_sp4.setOnClickListener(new OnClickListener() {
 					// // @Override
 					// // public void onClick(View arg0) {
-					// // // TODO Auto-generated method stub
+					// //
 					// // String id = Integer.toString(datas.get(3).id);
 					// // System.out.println("====================="+id);
 					// // Intent intent = new
@@ -1916,7 +1916,7 @@ public class HomeActivity extends Fragment implements OnClickListener {
 					// tv_goumai4.setOnClickListener(new OnClickListener() {
 					// @Override
 					// public void onClick(View arg0) {
-					// // TODO Auto-generated method stub
+					//
 					// // Intent intent = new
 					// Intent(getActivity(),MyOrderConfrimActivity.class);
 					// // intent.putExtra("proName", datas.get(3).title);
@@ -1958,7 +1958,7 @@ public class HomeActivity extends Fragment implements OnClickListener {
 					new AsyncHttpResponseHandler() {
 						@Override
 						public void onSuccess(int arg0, String arg1) {
-							// TODO Auto-generated method stub
+
 							super.onSuccess(arg0, arg1);
 							try {
 								JSONObject jsonObject = new JSONObject(arg1);
@@ -1985,7 +1985,7 @@ public class HomeActivity extends Fragment implements OnClickListener {
 											.show();
 								}
 							} catch (JSONException e) {
-								// TODO Auto-generated catch block
+
 								e.printStackTrace();
 							}
 
@@ -1993,7 +1993,7 @@ public class HomeActivity extends Fragment implements OnClickListener {
 
 						@Override
 						public void onFailure(Throwable arg0, String arg1) {
-							// TODO Auto-generated method stub
+
 							System.out
 									.println("==========================访问接口失败！");
 							System.out.println("========================="
@@ -2006,14 +2006,14 @@ public class HomeActivity extends Fragment implements OnClickListener {
 					}, getActivity());
 
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 	}
 
 	@Override
 	public void onClick(View arg0) {
-		// TODO Auto-generated method stub
+
 		switch (arg0.getId()) {
 			case R.id.index_item0:
 				handler.sendEmptyMessage(0);
@@ -2119,7 +2119,7 @@ public class HomeActivity extends Fragment implements OnClickListener {
 					MyPosterView.mQuery.clear();
 					MyPosterView.type = false;
 				} catch (Exception e) {
-					// TODO: handle exception
+
 					e.printStackTrace();
 				}
 			}
@@ -2176,7 +2176,7 @@ public class HomeActivity extends Fragment implements OnClickListener {
 			bd8.setCallback(null);
 			bd8.getBitmap().recycle();
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 		System.out.println("HomeActivity.type=======2=========="+ HomeActivity.type);

@@ -12,7 +12,7 @@ public class SharedUtils {
 	private SharedPreferences.Editor editor;
 
 	public SharedUtils(Context context, String NAME) {
-		// TODO Auto-generated constructor stub
+
 		preferences = context.getSharedPreferences(NAME, Context.MODE_PRIVATE);
 		editor = preferences.edit();
 	}

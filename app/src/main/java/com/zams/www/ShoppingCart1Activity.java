@@ -65,7 +65,7 @@
 //
 //	@Override
 //	protected void onCreate(Bundle savedInstanceState) {
-//		// TODO Auto-generated method stub
+//
 //		requestWindowFeature(Window.FEATURE_NO_TITLE);
 //		super.onCreate(savedInstanceState);
 //		setContentView(R.layout.shopping_cart);
@@ -210,9 +210,9 @@
 //
 //								@Override
 //								public void onClick(View arg0) {
-//									// TODO Auto-generated method stub
 //
-//									// TODO Auto-generated method stub
+//
+//
 //									if (countNum(carts)>0) {
 //										int jf = (int) Double
 //												.parseDouble(registerData
@@ -286,7 +286,7 @@
 //						 */
 //						@Override
 //						public void afterTextChanged(Editable arg0) {
-//							// TODO Auto-generated method stub
+//
 //							// tv_amount_jf.setText(arg0);
 //							String result = arg0.toString();
 //							double price = Double.parseDouble(countTotal(carts));
@@ -379,7 +379,7 @@
 //				new AsyncHttpResponseHandler() {
 //					@Override
 //					public void onSuccess(int arg0, String arg1) {
-//						// TODO Auto-generated method stub
+//
 //						super.onSuccess(arg0, arg1);
 //						try {
 //							/*
@@ -475,7 +475,7 @@
 //							msg.obj = lists;
 //							handler.sendMessage(msg);
 //						} catch (JSONException e) {
-//							// TODO Auto-generated catch block
+//
 //							e.printStackTrace();
 //						}
 //
@@ -510,10 +510,10 @@
 //			// data.jf = 2;
 //			data.imgurl = object.getString("proFaceImg");
 //		} catch (NumberFormatException e) {
-//			// TODO Auto-generated catch block
+//
 //			e.printStackTrace();
 //		} catch (JSONException e) {
-//			// TODO Auto-generated catch block
+//
 //			e.printStackTrace();
 //		}
 //		return data;
@@ -529,7 +529,7 @@
 //		AsyncHttp.post_1(str2, params, new AsyncHttpResponseHandler() {
 //			@Override
 //			public void onSuccess(int arg0, String arg1) {
-//				// TODO Auto-generated method stub
+//
 //				super.onSuccess(arg0, arg1);
 //				UserRegisterData data2 = null;
 //				try {
@@ -543,7 +543,7 @@
 //					data2.avatarimageURL = object2.getString("avatarimageURL");
 //					data2.credits = object2.getString("credits");
 //				} catch (JSONException e) {
-//					// TODO Auto-generated catch block
+//
 //					e.printStackTrace();
 //				}
 //				Message msg = new Message();

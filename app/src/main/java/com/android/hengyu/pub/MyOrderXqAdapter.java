@@ -63,13 +63,13 @@ public class MyOrderXqAdapter extends BaseAdapter {
 
 	@Override
 	public Object getItem(int position) {
-		// TODO Auto-generated method stub
+
 		return list.get(position);
 	}
 
 	@Override
 	public long getItemId(int position) {
-		// TODO Auto-generated method stub
+
 		return position;
 	}
 
@@ -98,7 +98,7 @@ public class MyOrderXqAdapter extends BaseAdapter {
 
 	@Override
 	public View getView(final int position, View convertView, ViewGroup patent) {
-		// TODO Auto-generated method stub
+
 		ViewHolder holder = null;
 		holder = new ViewHolder();
 		if (convertView == null) {
@@ -213,7 +213,7 @@ public class MyOrderXqAdapter extends BaseAdapter {
 					// }
 
 				} catch (Exception e) {
-					// TODO: handle exception
+
 					e.printStackTrace();
 				}
 
@@ -307,7 +307,7 @@ public class MyOrderXqAdapter extends BaseAdapter {
 								.getSell_price());//
 
 					} catch (Exception e) {
-						// TODO: handle exception
+
 						e.printStackTrace();
 					}
 
@@ -336,7 +336,7 @@ public class MyOrderXqAdapter extends BaseAdapter {
 				holder.tv_heji.setText("合计:￥" + heji_zongjia);
 
 			} catch (Exception e) {
-				// TODO: handle exception
+
 				e.printStackTrace();
 			}
 

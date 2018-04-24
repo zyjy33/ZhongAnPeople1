@@ -77,7 +77,7 @@ public class LglotteryMainActivity extends BaseActivity {
 
 		@Override
 		public void onClick(View view) {
-			// TODO Auto-generated method stub
+
 			switch (view.getId()) {
 				case R.id.lglottery_pop_closed:
 					if (mPopupWindow.isShowing()) {
@@ -113,7 +113,7 @@ public class LglotteryMainActivity extends BaseActivity {
 				 * showPopupWindow(lglottery_main_content); try {
 				 * System.out.println(maps.size() + "的长度");
 				 * System.out.println(maps.get("1").size() + "的長度"); } catch
-				 * (NullPointerException e) { // TODO: handle exception }
+				 * (NullPointerException e) {   }
 				 */
 				/*
 				 * initPopupWindow(); showPopupWindow(lglottery_main_content);
@@ -181,7 +181,7 @@ public class LglotteryMainActivity extends BaseActivity {
 					@SuppressWarnings("deprecation")
 					@Override
 					public void onFinish() {
-						// TODO Auto-generated method stub
+
 						super.onFinish();
 						// dismissDialog(Config.SHOW_LOADING);
 
@@ -243,7 +243,7 @@ public class LglotteryMainActivity extends BaseActivity {
 					@Override
 					public void onItemClick(AdapterView<?> arg0, View arg1,
 											int arg2, long arg3) {
-						// TODO Auto-generated method stub
+
 						lglotteryContentAdapter.setSelectItem(arg2);
 						lglotteryContentAdapter.notifyDataSetChanged();
 					}
@@ -271,7 +271,7 @@ public class LglotteryMainActivity extends BaseActivity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
+
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.lglottery_main_activity);
@@ -320,7 +320,7 @@ public class LglotteryMainActivity extends BaseActivity {
 
 	@Override
 	protected void onResume() {
-		// TODO Auto-generated method stub
+
 		super.onResume();
 		handler.sendEmptyMessage(2);
 	}

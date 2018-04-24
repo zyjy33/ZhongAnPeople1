@@ -84,7 +84,7 @@ public class One_JiexiaoActivity extends BaseActivity {
 
 			@Override
 			public void onClick(View arg0) {
-				// TODO Auto-generated method stub
+
 				Intent intent = new Intent(One_JiexiaoActivity.this,
 						OneResultActivity.class);
 				intent.putExtra("id", getIntent().getStringExtra("id"));

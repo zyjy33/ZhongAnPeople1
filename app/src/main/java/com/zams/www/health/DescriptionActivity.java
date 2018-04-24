@@ -82,7 +82,7 @@ public class DescriptionActivity extends BaseActivity implements View.OnClickLis
 
                             @Override
                             public void onFailure(Throwable arg0, String arg1) {
-                                // TODO Auto-generated method stub
+
                                 super.onFailure(arg0, arg1);
                             }
 

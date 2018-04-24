@@ -63,7 +63,7 @@ public class JiangKangMallListActivity extends BaseActivity implements OnClickLi
 	ZhongAnYlBean bean;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
+
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_zhonganyanglao_time);
@@ -85,7 +85,7 @@ public class JiangKangMallListActivity extends BaseActivity implements OnClickLi
 			tv_titel.setText(title);
 
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 
@@ -109,7 +109,7 @@ public class JiangKangMallListActivity extends BaseActivity implements OnClickLi
 							@Override
 							public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
 													long arg3) {
-								// TODO Auto-generated method stub
+
 								try {
 									String id = list.get(arg2).getId();
 									System.out.println("=====id====================="+id);
@@ -118,14 +118,14 @@ public class JiangKangMallListActivity extends BaseActivity implements OnClickLi
 									startActivity(intent);
 
 								} catch (Exception e) {
-									// TODO: handle exception
+
 									e.printStackTrace();
 								}
 							}
 						});
 
 					} catch (Exception e) {
-						// TODO: handle exception
+
 						e.printStackTrace();
 					}
 					break;
@@ -148,7 +148,7 @@ public class JiangKangMallListActivity extends BaseActivity implements OnClickLi
 				new AsyncHttpResponseHandler() {
 					@Override
 					public void onSuccess(int arg0, String arg1) {
-						// TODO Auto-generated method stub
+
 						super.onSuccess(arg0, arg1);
 						System.out.println("=======列表数据================================"+arg1);
 						try {
@@ -176,7 +176,7 @@ public class JiangKangMallListActivity extends BaseActivity implements OnClickLi
 								Toast.makeText(JiangKangMallListActivity.this, info, 200).show();
 							}
 						} catch (JSONException e) {
-							// TODO Auto-generated catch block
+
 							e.printStackTrace();
 						}
 					}
@@ -209,7 +209,7 @@ public class JiangKangMallListActivity extends BaseActivity implements OnClickLi
 
 	@Override
 	public void onClick(View v) {
-		// TODO Auto-generated method stub
+
 
 		switch (v.getId()) {
 			case R.id.iv_fanhui:

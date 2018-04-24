@@ -54,7 +54,7 @@ public class GuaYiGuaActivity extends Activity implements OnClickListener
 	ImageView iv_fanhui;
 	@Override
 	protected void onResume() {
-		// TODO Auto-generated method stub
+
 		super.onResume();
 //		getjiangxiangxq();
 //		getjiangxiang();
@@ -85,7 +85,7 @@ public class GuaYiGuaActivity extends Activity implements OnClickListener
 //		start.setOnClickListener(new OnClickListener() {
 //			@Override
 //			public void onClick(View arg0) {
-//				// TODO Auto-generated method stub
+//
 //				getjiangxiang();
 ////				int jifen = Integer.valueOf(point);
 ////				System.out.println("jifen=================="+jifen);
@@ -101,7 +101,7 @@ public class GuaYiGuaActivity extends Activity implements OnClickListener
 //
 //			@Override
 //			public void onClick(View arg0) {
-//				// TODO Auto-generated method stub
+//
 //				initPopupWindow();
 //				showPopupWindow(gua_jiang);
 //			}
@@ -111,7 +111,7 @@ public class GuaYiGuaActivity extends Activity implements OnClickListener
 //		iv_fanhui.setOnClickListener(new OnClickListener() {
 //			@Override
 //			public void onClick(View arg0) {
-//				// TODO Auto-generated method stub
+//
 //				finish();
 //			}
 //		});
@@ -159,7 +159,7 @@ public class GuaYiGuaActivity extends Activity implements OnClickListener
 //		getguizhe();
 	}
 	private void getintner2() {
-		// TODO Auto-generated method stub
+
 		setContentView(R.layout.activity_guayigua);
 		start_layout = (RelativeLayout) findViewById(R.id.index_layout);
 		start = (Button) findViewById(R.id.start);
@@ -180,7 +180,7 @@ public class GuaYiGuaActivity extends Activity implements OnClickListener
 //
 //			@Override
 //			public void onClick(View arg0) {
-//				// TODO Auto-generated method stub
+//
 //				getjiangxiang();
 ////				int jifen = Integer.valueOf(point);
 ////				System.out.println("jifen=================="+jifen);
@@ -196,7 +196,7 @@ public class GuaYiGuaActivity extends Activity implements OnClickListener
 //
 //			@Override
 //			public void onClick(View arg0) {
-//				// TODO Auto-generated method stub
+//
 //				initPopupWindow();
 //				showPopupWindow(gua_jiang);
 //			}
@@ -206,7 +206,7 @@ public class GuaYiGuaActivity extends Activity implements OnClickListener
 //		iv_fanhui.setOnClickListener(new OnClickListener() {
 //			@Override
 //			public void onClick(View arg0) {
-//				// TODO Auto-generated method stub
+//
 //				finish();
 //			}
 //		});
@@ -214,7 +214,7 @@ public class GuaYiGuaActivity extends Activity implements OnClickListener
 	}
 
 	private void getintner() {
-		// TODO Auto-generated method stub
+
 		setContentView(R.layout.activity_guayigua);
 		start_layout = (RelativeLayout) findViewById(R.id.index_layout);
 		start = (Button) findViewById(R.id.start);
@@ -236,7 +236,7 @@ public class GuaYiGuaActivity extends Activity implements OnClickListener
 //
 //			@Override
 //			public void onClick(View arg0) {
-//				// TODO Auto-generated method stub
+//
 //				getjiangxiang();
 ////				int jifen = Integer.valueOf(point);
 ////				System.out.println("jifen=================="+jifen);
@@ -252,7 +252,7 @@ public class GuaYiGuaActivity extends Activity implements OnClickListener
 //
 //			@Override
 //			public void onClick(View arg0) {
-//				// TODO Auto-generated method stub
+//
 //				initPopupWindow();
 //				showPopupWindow(gua_jiang);
 //			}
@@ -262,7 +262,7 @@ public class GuaYiGuaActivity extends Activity implements OnClickListener
 //		iv_fanhui.setOnClickListener(new OnClickListener() {
 //			@Override
 //			public void onClick(View arg0) {
-//				// TODO Auto-generated method stub
+//
 //				finish();
 //			}
 //		});
@@ -274,7 +274,7 @@ public class GuaYiGuaActivity extends Activity implements OnClickListener
 	 */
 	@Override
 	public void onClick(View v) {
-		// TODO Auto-generated method stub
+
 
 		intent = new Intent();
 		switch (v.getId()) {
@@ -322,14 +322,14 @@ public class GuaYiGuaActivity extends Activity implements OnClickListener
 			closed.setOnClickListener(new OnClickListener() {
 				@Override
 				public void onClick(View arg0) {
-					// TODO Auto-generated method stub
+
 					if (mPopupWindow.isShowing()) {
 						mPopupWindow.dismiss();
 					}
 				}
 			});
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 
@@ -372,7 +372,7 @@ public class GuaYiGuaActivity extends Activity implements OnClickListener
 //						editor.commit();
 //						getjiangxiang(login_sign);
 				} catch (JSONException e) {
-					// TODO Auto-generated catch block
+
 					e.printStackTrace();
 				}
 			};
@@ -432,7 +432,7 @@ public class GuaYiGuaActivity extends Activity implements OnClickListener
 //								GuaYiGuaAdapter adapter = new GuaYiGuaAdapter(list_data2,GuaYiGuaActivity.this);
 //								list_tuanjia.setAdapter(adapter);
 						} catch (Exception e) {
-							// TODO: handle exception
+
 							e.printStackTrace();
 						}
 					}else{
@@ -442,14 +442,14 @@ public class GuaYiGuaActivity extends Activity implements OnClickListener
 
 
 				} catch (JSONException e) {
-					// TODO Auto-generated catch block
+
 					e.printStackTrace();
 				}
 			};
 
 			@Override
 			public void onFailure(Throwable arg0, String arg1) {
-				// TODO Auto-generated method stub
+
 				super.onFailure(arg0, arg1);
 				System.out.println("======访问接口失败============="+arg1);
 //					Toast.makeText(ZhuanYiZhuanActivity.this, "访问接口失败", 200).show();
@@ -501,7 +501,7 @@ public class GuaYiGuaActivity extends Activity implements OnClickListener
 //						System.out.println("drawn-----------------------------------"+drawn);
 
 				} catch (JSONException e) {
-					// TODO Auto-generated catch block
+
 					e.printStackTrace();
 				}
 			};
@@ -509,7 +509,7 @@ public class GuaYiGuaActivity extends Activity implements OnClickListener
 
 			@Override
 			public void onFailure(Throwable arg0, String arg1) {
-				// TODO Auto-generated method stub
+
 				super.onFailure(arg0, arg1);
 				System.out.println("======访问接口失败============="+arg1);
 //					Toast.makeText(ZhuanYiZhuanActivity.this, "访问接口失败", 200).show();
@@ -547,14 +547,14 @@ public class GuaYiGuaActivity extends Activity implements OnClickListener
 ////							Toast.makeText(ZhuanYiZhuanActivity.this, info, 200).show();
 //						}
 //					} catch (JSONException e) {
-//						// TODO Auto-generated catch block
+//
 //						e.printStackTrace();
 //					}
 //				};
 //
 //				@Override
 //				public void onFailure(Throwable arg0, String arg1) {
-//					// TODO Auto-generated method stub
+//
 //					super.onFailure(arg0, arg1);
 //					System.out.println("======访问接口失败============="+arg1);
 ////					Toast.makeText(ZhuanYiZhuanActivity.this, "访问接口失败", 200).show();

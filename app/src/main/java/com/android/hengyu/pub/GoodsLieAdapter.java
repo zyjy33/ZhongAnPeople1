@@ -26,7 +26,7 @@ public class GoodsLieAdapter extends BaseAdapter {
 
 	public GoodsLieAdapter(ArrayList data1, ArrayList data2, Context context,
 						   ImageLoader loader) {
-		// TODO Auto-generated constructor stub
+
 		this.context = context;
 		this.data1 = data1;
 		this.data2 = data2;
@@ -36,22 +36,22 @@ public class GoodsLieAdapter extends BaseAdapter {
 	}
 
 	public int getCount() {
-		// TODO Auto-generated method stub
+
 		return data1.size();
 	}
 
 	public Object getItem(int position) {
-		// TODO Auto-generated method stub
+
 		return data1.get(position);
 	}
 
 	public long getItemId(int position) {
-		// TODO Auto-generated method stub
+
 		return position;
 	}
 
 	public View getView(int position, View convertView, ViewGroup parent) {
-		// TODO Auto-generated method stub
+
 		if (convertView == null) {
 			convertView = LinearLayout.inflate(context, R.layout.goods_item,
 					null);

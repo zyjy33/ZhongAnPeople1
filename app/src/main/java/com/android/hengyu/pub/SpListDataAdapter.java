@@ -21,30 +21,30 @@ public class SpListDataAdapter extends BaseAdapter {
 
 	public SpListDataAdapter(ArrayList<shangpingListData> lists,
 							 Context context, ImageLoader loader) {
-		// TODO Auto-generated constructor stub
+
 		this.context = context;
 		this.lists = lists;
 		this.loader = loader;
 	}
 
 	public int getCount() {
-		// TODO Auto-generated method stub
+
 		// return list.size();
 		return lists.size();
 	}
 
 	public Object getItem(int position) {
-		// TODO Auto-generated method stub
+
 		return position;
 	}
 
 	public long getItemId(int position) {
-		// TODO Auto-generated method stub
+
 		return position;
 	}
 
 	public View getView(int position, View convertView, ViewGroup parent) {
-		// TODO Auto-generated method stub
+
 		if (convertView == null) {
 			convertView = LinearLayout.inflate(context, R.layout.goods_list_ll,
 					null);

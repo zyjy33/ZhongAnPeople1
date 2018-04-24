@@ -79,7 +79,7 @@ public class ZhongAnMinShenXqActivity extends BaseActivity implements
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
+
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_zams_xq);// activity_zams_xq
@@ -99,14 +99,14 @@ public class ZhongAnMinShenXqActivity extends BaseActivity implements
 			loadWeather();
 			// getuseraddress();
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 	}
 
 	@Override
 	protected void onResume() {
-		// TODO Auto-generated method stub
+
 		super.onResume();
 	}
 
@@ -132,7 +132,7 @@ public class ZhongAnMinShenXqActivity extends BaseActivity implements
 
 			System.out.println("ZamsHuoDong2Adapter.type=======1=========="+ZamsHuoDong2Adapter.type);
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 	};
@@ -174,7 +174,7 @@ public class ZhongAnMinShenXqActivity extends BaseActivity implements
 
 				@Override
 				public void onClick(View arg0) {
-					// TODO Auto-generated method stub
+
 					try {
 						Intent intentll = new Intent(ZhongAnMinShenXqActivity.this,DBFengXiangActivity.class);
 						intentll.putExtra("activity_id", activity_id);
@@ -183,14 +183,14 @@ public class ZhongAnMinShenXqActivity extends BaseActivity implements
 						intentll.putExtra("img_url", xqdata.imgs_url);
 						startActivity(intentll);
 					} catch (Exception e) {
-						// TODO: handle exception
+
 						e.printStackTrace();
 					}
 				}
 			});
 
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 	}
@@ -242,7 +242,7 @@ public class ZhongAnMinShenXqActivity extends BaseActivity implements
 						// }
 
 					} catch (Exception e) {
-						// TODO: handle exception
+
 						e.printStackTrace();
 					}
 					break;
@@ -263,7 +263,7 @@ public class ZhongAnMinShenXqActivity extends BaseActivity implements
 				+ id + "", new AsyncHttpResponseHandler() {
 			@Override
 			public void onSuccess(int arg0, String arg1) {
-				// TODO Auto-generated method stub
+
 				super.onSuccess(arg0, arg1);
 				System.out.println("=========报名人数解析数据============" + arg1);
 				try {
@@ -271,7 +271,7 @@ public class ZhongAnMinShenXqActivity extends BaseActivity implements
 					record = object.getString("data");
 					//					tv_activity_num.setText("已报名"+record+"名/剩余可报名人数"+stock_quantity+"人");
 				} catch (JSONException e) {
-					// TODO Auto-generated catch block
+
 					e.printStackTrace();
 				}
 			}
@@ -287,7 +287,7 @@ public class ZhongAnMinShenXqActivity extends BaseActivity implements
 		AsyncHttp.get(RealmName.REALM_NAME_LL + "/get_article_id_content?id="+ id + "", new AsyncHttpResponseHandler() {
 			@Override
 			public void onSuccess(int arg0, String arg1) {
-				// TODO Auto-generated method stub
+
 				super.onSuccess(arg0, arg1);
 				System.out.println("=========解析数据============" + arg1);
 				formatWeather(arg1);
@@ -358,7 +358,7 @@ public class ZhongAnMinShenXqActivity extends BaseActivity implements
 						category_title = obj.getString("category_title");
 					}
 				} catch (Exception e) {
-					// TODO: handle exception
+
 					e.printStackTrace();
 				}
 				tv_activity_num.setText("已报名"+record+"名/剩余可报名人数"+stock_quantity+"人");
@@ -368,13 +368,13 @@ public class ZhongAnMinShenXqActivity extends BaseActivity implements
 					try {
 						now_1 = df.parse(xqdata.end_time);
 					} catch (java.text.ParseException e1) {
-						// TODO Auto-generated catch block
+
 						e1.printStackTrace();
 					}
 					try {
 						date_1 = df.parse(datetime);
 					} catch (java.text.ParseException e1) {
-						// TODO Auto-generated catch block
+
 						e1.printStackTrace();
 					}
 					long end_time = now_1.getTime();
@@ -404,7 +404,7 @@ public class ZhongAnMinShenXqActivity extends BaseActivity implements
 					}
 
 				} catch (Exception e) {
-					// TODO: handle exception
+
 					e.printStackTrace();
 				}
 				lists.add(xqdata);
@@ -416,7 +416,7 @@ public class ZhongAnMinShenXqActivity extends BaseActivity implements
 				Toast.makeText(ZhongAnMinShenXqActivity.this, info, 200).show();
 			}
 		} catch (JSONException e) {
-			// TODO Auto-generated catch block
+
 			e.printStackTrace();
 		}
 	}
@@ -424,7 +424,7 @@ public class ZhongAnMinShenXqActivity extends BaseActivity implements
 	String sur_api = "";
 	@Override
 	public void onClick(View v) {
-		// TODO Auto-generated method stub
+
 		switch (v.getId()) {
 			case R.id.fanhui:
 				finish();
@@ -437,13 +437,13 @@ public class ZhongAnMinShenXqActivity extends BaseActivity implements
 					try {
 						now_1 = df.parse(xqdata.end_time);
 					} catch (java.text.ParseException e1) {
-						// TODO Auto-generated catch block
+
 						e1.printStackTrace();
 					}
 					try {
 						date_1 = df.parse(datetime);
 					} catch (java.text.ParseException e1) {
-						// TODO Auto-generated catch block
+
 						e1.printStackTrace();
 					}
 					long end_time = now_1.getTime();
@@ -460,7 +460,7 @@ public class ZhongAnMinShenXqActivity extends BaseActivity implements
 					}
 
 				} catch (Exception e) {
-					// TODO: handle exception
+
 					e.printStackTrace();
 				}
 				break;
@@ -472,7 +472,7 @@ public class ZhongAnMinShenXqActivity extends BaseActivity implements
 						new AsyncHttpResponseHandler() {
 							@Override
 							public void onSuccess(int arg0, String arg1) {
-								// TODO Auto-generated method stub
+
 								super.onSuccess(arg0, arg1);
 								try {
 									JSONObject jsonObject = new JSONObject(arg1);
@@ -482,7 +482,7 @@ public class ZhongAnMinShenXqActivity extends BaseActivity implements
 									Toast.makeText(getApplicationContext(), info,
 											200).show();
 								} catch (JSONException e) {
-									// TODO Auto-generated catch block
+
 									e.printStackTrace();
 								}
 
@@ -496,13 +496,13 @@ public class ZhongAnMinShenXqActivity extends BaseActivity implements
 					try {
 						now_1 = df.parse(xqdata.end_time);
 					} catch (java.text.ParseException e1) {
-						// TODO Auto-generated catch block
+
 						e1.printStackTrace();
 					}
 					try {
 						date_1 = df.parse(datetime);
 					} catch (java.text.ParseException e1) {
-						// TODO Auto-generated catch block
+
 						e1.printStackTrace();
 					}
 					long end_time = now_1.getTime();
@@ -534,7 +534,7 @@ public class ZhongAnMinShenXqActivity extends BaseActivity implements
 					}
 
 				} catch (Exception e) {
-					// TODO: handle exception
+
 					e.printStackTrace();
 				}
 				break;
@@ -557,14 +557,14 @@ public class ZhongAnMinShenXqActivity extends BaseActivity implements
 	 * @param sur_api
 	 */
 	private void getjianche_activity_1() {
-		// TODO Auto-generated method stub
+
 		// progress.CreateProgress();
 		AsyncHttp.get(RealmName.REALM_NAME_LL + "/check_order_signin?mobile="
 						+ mobile + "&article_id=" + xqdata.article_id + "",
 				new AsyncHttpResponseHandler() {
 					@Override
 					public void onSuccess(int arg0, String arg1) {
-						// TODO Auto-generated method stub
+
 						super.onSuccess(arg0, arg1);
 						try {
 							JSONObject jsonObject = new JSONObject(arg1);
@@ -595,7 +595,7 @@ public class ZhongAnMinShenXqActivity extends BaseActivity implements
 								Toast.makeText(ZhongAnMinShenXqActivity.this,info, 200).show();
 							}
 						} catch (JSONException e) {
-							// TODO Auto-generated catch block
+
 							e.printStackTrace();
 						}
 
@@ -603,7 +603,7 @@ public class ZhongAnMinShenXqActivity extends BaseActivity implements
 
 					@Override
 					public void onFailure(Throwable arg0, String arg1) {
-						// TODO Auto-generated method stub
+
 						progress.CloseProgress();
 						System.out.println("==========================" + arg1);
 						Toast.makeText(ZhongAnMinShenXqActivity.this, "异常", 200).show();
@@ -620,14 +620,14 @@ public class ZhongAnMinShenXqActivity extends BaseActivity implements
 	 * @param sur_api
 	 */
 	private void getjianche_activity() {
-		// TODO Auto-generated method stub
+
 		// progress.CreateProgress();
 		AsyncHttp.get(RealmName.REALM_NAME_LL + "/check_order_signup?mobile="
 						+ mobile + "&article_id=" + xqdata.article_id + "",
 				new AsyncHttpResponseHandler() {
 					@Override
 					public void onSuccess(int arg0, String arg1) {
-						// TODO Auto-generated method stub
+
 						super.onSuccess(arg0, arg1);
 						try {
 							JSONObject jsonObject = new JSONObject(arg1);
@@ -676,7 +676,7 @@ public class ZhongAnMinShenXqActivity extends BaseActivity implements
 								}
 							}
 						} catch (JSONException e) {
-							// TODO Auto-generated catch block
+
 							e.printStackTrace();
 						}
 
@@ -684,7 +684,7 @@ public class ZhongAnMinShenXqActivity extends BaseActivity implements
 
 					@Override
 					public void onFailure(Throwable arg0, String arg1) {
-						// TODO Auto-generated method stub
+
 						progress.CloseProgress();
 						System.out.println("==========================访问接口失败！");
 						System.out.println("==========================" + arg1);
@@ -704,7 +704,7 @@ public class ZhongAnMinShenXqActivity extends BaseActivity implements
 	 * @param kou_hongbao
 	 */
 	private void getguowuqingdan() {
-		// TODO Auto-generated method stub
+
 		try {
 			progress.CreateProgress();
 			System.out.println("real_name=========================="+ real_name);
@@ -721,7 +721,7 @@ public class ZhongAnMinShenXqActivity extends BaseActivity implements
 					new AsyncHttpResponseHandler() {
 						@Override
 						public void onSuccess(int arg0, String arg1) {
-							// TODO Auto-generated method stub
+
 							super.onSuccess(arg0, arg1);
 							try {
 								JSONObject jsonObject = new JSONObject(arg1);
@@ -738,7 +738,7 @@ public class ZhongAnMinShenXqActivity extends BaseActivity implements
 										loadusertijiao(buy_no);
 
 									} catch (Exception e) {
-										// TODO: handle exception
+
 										e.printStackTrace();
 									}
 								} else {
@@ -764,7 +764,7 @@ public class ZhongAnMinShenXqActivity extends BaseActivity implements
 									//									}
 								}
 							} catch (JSONException e) {
-								// TODO Auto-generated catch block
+
 								e.printStackTrace();
 							}
 
@@ -772,7 +772,7 @@ public class ZhongAnMinShenXqActivity extends BaseActivity implements
 
 						@Override
 						public void onFailure(Throwable arg0, String arg1) {
-							// TODO Auto-generated method stub
+
 							progress.CloseProgress();
 							System.out.println("=========================="+ arg1);
 							Toast.makeText(ZhongAnMinShenXqActivity.this, "异常",200).show();
@@ -781,7 +781,7 @@ public class ZhongAnMinShenXqActivity extends BaseActivity implements
 
 					}, ZhongAnMinShenXqActivity.this);
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 	}
@@ -854,7 +854,7 @@ public class ZhongAnMinShenXqActivity extends BaseActivity implements
 									//									startActivity(intent);
 									//								}
 								} catch (Exception e) {
-									// TODO: handle exception
+
 									e.printStackTrace();
 								}
 							} else {
@@ -884,7 +884,7 @@ public class ZhongAnMinShenXqActivity extends BaseActivity implements
 							}
 
 						} catch (Exception e) {
-							// TODO: handle exception
+
 							e.printStackTrace();
 						}
 
@@ -895,7 +895,7 @@ public class ZhongAnMinShenXqActivity extends BaseActivity implements
 
 				@Override
 				public void onFailure(Throwable arg0, String arg1) {
-					// TODO Auto-generated method stub
+
 					progress.CloseProgress();
 					System.out.println("=========================="+ arg1);
 					Toast.makeText(ZhongAnMinShenXqActivity.this, "异常",200).show();
@@ -905,7 +905,7 @@ public class ZhongAnMinShenXqActivity extends BaseActivity implements
 			}, getApplicationContext());
 
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 	}
@@ -916,14 +916,14 @@ public class ZhongAnMinShenXqActivity extends BaseActivity implements
 	 * @param sur_api
 	 */
 	//	private void getjianche_activity_2() {
-	//		// TODO Auto-generated method stub
+	//
 	//		// progress.CreateProgress();
 	//		AsyncHttp.get(RealmName.REALM_NAME_LL + "/check_order_signup?mobile="
 	//				+ mobile + "&article_id=" + xqdata.article_id + "",
 	//				new AsyncHttpResponseHandler() {
 	//					@Override
 	//					public void onSuccess(int arg0, String arg1) {
-	//						// TODO Auto-generated method stub
+	//
 	//						super.onSuccess(arg0, arg1);
 	//						try {
 	//							JSONObject jsonObject = new JSONObject(arg1);
@@ -970,7 +970,7 @@ public class ZhongAnMinShenXqActivity extends BaseActivity implements
 	////									}
 	//							}
 	//						} catch (JSONException e) {
-	//							// TODO Auto-generated catch block
+	//
 	//							e.printStackTrace();
 	//						}
 	//
@@ -978,7 +978,7 @@ public class ZhongAnMinShenXqActivity extends BaseActivity implements
 	//
 	//					@Override
 	//					public void onFailure(Throwable arg0, String arg1) {
-	//						// TODO Auto-generated method stub
+	//
 	//						progress.CloseProgress();
 	//						System.out.println("==========================访问接口失败！");
 	//						System.out.println("==========================" + arg1);

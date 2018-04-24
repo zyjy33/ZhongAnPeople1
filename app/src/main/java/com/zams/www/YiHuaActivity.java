@@ -136,7 +136,7 @@ package com.zams.www;
 //
 //			@Override
 //			public void onClick(View arg0) {
-//				// TODO Auto-generated method stub
+//
 //				changeCheckStatus(2);
 //				layout1.setVisibility(View.VISIBLE);
 //				layout2.setVisibility(View.GONE);
@@ -147,7 +147,7 @@ package com.zams.www;
 //	@Override
 //	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 //			Bundle savedInstanceState) {
-//		// TODO Auto-generated method stub
+//
 //		this.inflater = inflater;
 //		View layout = inflater.inflate(R.layout.yihua_layout, null);
 //		UCSService.init(context, true);
@@ -367,10 +367,10 @@ package com.zams.www;
 //				boolean flag = iTelephony.endCall();
 //				System.out.println("挂断 吗"+flag);
 //			} catch (RemoteException e) {
-//				// TODO Auto-generated catch block
+//
 //				e.printStackTrace();
 //			} catch (Exception e) {
-//				// TODO Auto-generated catch block
+//
 //				e.printStackTrace();
 //			}
 //		}
@@ -409,7 +409,7 @@ package com.zams.www;
 //
 //			@Override
 //			public void onClick(View arg0) {
-//				// TODO Auto-generated method stub
+//
 //
 ////				unregisterThis();//取消监听
 //				downPhone();
@@ -451,7 +451,7 @@ package com.zams.www;
 //
 //			@Override
 //			public void onClick(View arg0) {
-//				// TODO Auto-generated method stub
+//
 //				UCSCall.setMicMute(!UCSCall.isMicMute());
 //			}
 //		});
@@ -460,7 +460,7 @@ package com.zams.www;
 //
 //			@Override
 //			public void onClick(View arg0) {
-//				// TODO Auto-generated method stub
+//
 //
 //				UCSCall.setSpeakerphone(!UCSCall.isSpeakerphoneOn());
 //			}
@@ -469,14 +469,14 @@ package com.zams.www;
 //
 //			@Override
 //			public void onClick(View arg0) {
-//				// TODO Auto-generated method stub
+//
 //			}
 //		});
 //		yihua_diget_send.setOnClickListener(new OnClickListener() {
 //
 //			@Override
 //			public void onClick(View arg0) {
-//				// TODO Auto-generated method stub
+//
 //				UCSCall.hangUp(DIAL.VOIP_NUMBER);
 //				mPopupWindow.dismiss();
 //			}
@@ -540,7 +540,7 @@ package com.zams.www;
 //
 //	@Override
 //	public void onDestroy() {
-//		// TODO Auto-generated method stub
+//
 //		super.onDestroy();
 //		context.stopService(new Intent(context, ConnectService.class));
 //	}
@@ -634,7 +634,7 @@ package com.zams.www;
 //
 //					@Override
 //					public void onCheckedChanged(CompoundButton arg0, boolean arg1) {
-//						// TODO Auto-generated method stub
+//
 //						if(arg1){
 //							asnyLoader();
 //						}else {
@@ -714,7 +714,7 @@ package com.zams.www;
 //		AsyncHttp.post_1(RealmName.REALM_NAME+"/mi/getdata.ashx", params, new AsyncHttpResponseHandler(){
 //			@Override
 //			public void onSuccess(int arg0, String arg1) {
-//				// TODO Auto-generated method stub
+//
 //				super.onSuccess(arg0, arg1);
 //				System.out.println(arg1);
 //				try {
@@ -746,7 +746,7 @@ package com.zams.www;
 //					}
 //					handler.sendEmptyMessage(2);
 //				} catch (JSONException e) {
-//					// TODO Auto-generated catch block
+//
 //					e.printStackTrace();
 //				}
 //
@@ -769,7 +769,7 @@ package com.zams.www;
 //	}
 //	private ImageLoader imageLoader;
 //	public YiHuaActivity(ImageLoader imageLoader,MainFragment context) {
-//		// TODO Auto-generated constructor stub
+//
 //		this.imageLoader = imageLoader;
 //		this.context = context;
 //	}
@@ -792,7 +792,7 @@ package com.zams.www;
 //			@Override
 //			public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
 //					long arg3) {
-//				// TODO Auto-generated method stub
+//
 //				yihua_phone.setText(listDomains.get(arg2).getPhone());
 //			}
 //
@@ -828,7 +828,7 @@ package com.zams.www;
 //
 //			@Override
 //			public void run() {
-//				// TODO Auto-generated method stub
+//
 //				screenHeight = lay_b.getMeasuredHeight();
 //			}
 //		});

@@ -115,7 +115,7 @@ public class MyShopPingCarActivity extends Fragment implements OnClickListener {
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 							 Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
+
 		View layout = inflater.inflate(R.layout.activity_gouwuche, null);
 
 		progress = new DialogProgress(getActivity());
@@ -146,7 +146,7 @@ public class MyShopPingCarActivity extends Fragment implements OnClickListener {
 	String datall;
 	@Override
 	public void onResume() {
-		// TODO Auto-generated method stub
+
 		super.onResume();
 		WareInformationActivity.jdh_type = "";//聚兑换判断为空
 
@@ -241,21 +241,21 @@ public class MyShopPingCarActivity extends Fragment implements OnClickListener {
 					result = null;
 				}
 			} catch (Exception e) {
-				// TODO: handle exception
+
 				e.printStackTrace();
 			}
 			System.out.println("HomeActivity.type=======2=========="+ HomeActivity.type);
 			System.out.println("MyPosterView.type=======2==============="+ MyPosterView.type);
 			System.out.println("GouWuCheAGoodsAdaper.type=======2==============="+ GouWuCheAGoodsAdaper.type);
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 	};
 
 
 	private void getjianche() {
-		// TODO Auto-generated method stub
+
 		SharedPreferences spPreferences_login = getActivity().getSharedPreferences("longuserset_login", Context.MODE_PRIVATE);
 		nickname = spPreferences_login.getString("nickname", "");
 		String headimgurl = spPreferences_login.getString("headimgurl", "");
@@ -344,7 +344,7 @@ public class MyShopPingCarActivity extends Fragment implements OnClickListener {
 					getuserxinxi();
 
 				} catch (JSONException e) {
-					// TODO Auto-generated catch block
+
 					e.printStackTrace();
 				}
 
@@ -353,7 +353,7 @@ public class MyShopPingCarActivity extends Fragment implements OnClickListener {
 
 	}
 	private void getuserxinxi() {
-		// TODO Auto-generated method stub
+
 		spPreferences = getActivity().getSharedPreferences("longuserset", Context.MODE_PRIVATE);
 		user_name = spPreferences.getString("user", "");
 		user_id = spPreferences.getString("user_id", "");
@@ -363,7 +363,7 @@ public class MyShopPingCarActivity extends Fragment implements OnClickListener {
 
 	DataBean dm;
 	private void getgouwuche() {
-		// TODO Auto-generated method stub
+
 		System.out.println("ptye================"+ptye);
 		if (ptye == false) {
 			progress.CreateProgress();
@@ -378,7 +378,7 @@ public class MyShopPingCarActivity extends Fragment implements OnClickListener {
 				,new AsyncHttpResponseHandler() {
 					@Override
 					public void onSuccess(int arg0,String arg1) {
-						// TODO Auto-generated method stub
+
 						super.onSuccess(arg0, arg1);
 						try {
 							JSONObject jsonObject = new JSONObject(arg1);
@@ -420,7 +420,7 @@ public class MyShopPingCarActivity extends Fragment implements OnClickListener {
 							//							refreshListView();
 							progress.CloseProgress();
 						} catch (JSONException e) {
-							// TODO Auto-generated catch block
+
 							e.printStackTrace();
 						}
 
@@ -453,7 +453,7 @@ public class MyShopPingCarActivity extends Fragment implements OnClickListener {
 					new AsyncHttpResponseHandler() {
 						@Override
 						public void onSuccess(int arg0, String arg1) {
-							// TODO Auto-generated method stub
+
 							super.onSuccess(arg0, arg1);
 							//								System.out.println("热销专区====================="+arg1);
 							try {
@@ -497,13 +497,13 @@ public class MyShopPingCarActivity extends Fragment implements OnClickListener {
 								});
 								//									progress.CloseProgress();
 							} catch (JSONException e) {
-								// TODO Auto-generated catch block
+
 								e.printStackTrace();
 							}
 						}
 					}, null);
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 
@@ -540,7 +540,7 @@ public class MyShopPingCarActivity extends Fragment implements OnClickListener {
 
 			@Override
 			public void onClick(View arg0) {
-				// TODO Auto-generated method stub
+
 				Intent intent = new Intent(getActivity(),TuiJianSpListActivity.class);
 				startActivity(intent);
 			}
@@ -552,7 +552,7 @@ public class MyShopPingCarActivity extends Fragment implements OnClickListener {
 
 			@Override
 			public void onClick(View arg0) {
-				// TODO Auto-generated method stub
+
 				//						user_name = spPreferences.getString("user", "");
 				System.out.println("user_name================"+user_name);
 				//						if (user_name.equals("")) {
@@ -610,7 +610,7 @@ public class MyShopPingCarActivity extends Fragment implements OnClickListener {
 				//			System.out.println("clear------11-------清除内存");
 				setListViewHeightBasedOnChildren(mListView);
 			} catch (Exception e) {
-				// TODO: handle exception
+
 				e.printStackTrace();
 			}
 		} else {
@@ -618,7 +618,7 @@ public class MyShopPingCarActivity extends Fragment implements OnClickListener {
 				mListAdapter.notifyDataSetChanged();
 				setListViewHeightBasedOnChildren(mListView);
 			} catch (Exception e) {
-				// TODO: handle exception
+
 				e.printStackTrace();
 			}
 		}
@@ -724,7 +724,7 @@ public class MyShopPingCarActivity extends Fragment implements OnClickListener {
 					holder.red = (TextView) view.findViewById(R.id.tv_reduce);
 					holder.frontView = view.findViewById(R.id.item_left);
 				} catch (Exception e) {
-					// TODO: handle exception
+
 					e.printStackTrace();
 				}
 				view.setTag(holder);
@@ -757,7 +757,7 @@ public class MyShopPingCarActivity extends Fragment implements OnClickListener {
 
 				}
 			} catch (Exception e) {
-				// TODO: handle exception
+
 				e.printStackTrace();
 			}
 			return view;
@@ -826,7 +826,7 @@ public class MyShopPingCarActivity extends Fragment implements OnClickListener {
 					AsyncHttp.get(RealmName.REALM_NAME_LL+ "/cart_goods_update?cart_id="+cart_id+"&user_id="+user_id+"&quantity="+currentNum+"",new AsyncHttpResponseHandler() {
 						@Override
 						public void onSuccess(int arg0, String arg1) {
-							// TODO Auto-generated method stub
+
 							System.out.println("==========================访问接口成功！"+arg1);
 							super.onSuccess(arg0, arg1);
 						}
@@ -868,7 +868,7 @@ public class MyShopPingCarActivity extends Fragment implements OnClickListener {
 						AsyncHttp.get(RealmName.REALM_NAME_LL+ "/cart_goods_update?cart_id="+cart_id+"&user_id="+user_id+"&quantity="+currentNum+"",new AsyncHttpResponseHandler() {
 							@Override
 							public void onSuccess(int arg0, String arg1) {
-								// TODO Auto-generated method stub
+
 								System.out.println("==========================2访问接口成功！"+arg1);
 								super.onSuccess(arg0, arg1);
 							}
@@ -968,7 +968,7 @@ public class MyShopPingCarActivity extends Fragment implements OnClickListener {
 	int i;
 	@Override
 	public void onClick(View v) {
-		// TODO Auto-generated method stub
+
 		switch (v.getId()) {
 
 			case R.id.subtitle:
@@ -1074,7 +1074,7 @@ public class MyShopPingCarActivity extends Fragment implements OnClickListener {
 								AsyncHttp.get(strUrl,new AsyncHttpResponseHandler() {
 									@Override
 									public void onSuccess(int arg0, String arg1) {
-										// TODO Auto-generated method stub
+
 										System.out.println("==========================删除接口成功！"+arg1);
 										super.onSuccess(arg0, arg1);
 										try {
@@ -1101,7 +1101,7 @@ public class MyShopPingCarActivity extends Fragment implements OnClickListener {
 												Toast.makeText(getActivity(), info, 200).show();
 											}
 										} catch (Exception e) {
-											// TODO: handle exception
+
 											e.printStackTrace();
 										}
 									}
@@ -1122,7 +1122,7 @@ public class MyShopPingCarActivity extends Fragment implements OnClickListener {
 						//						AsyncHttp.get(strUrl,new AsyncHttpResponseHandler() {
 						//							@Override
 						//							public void onSuccess(int arg0, String arg1) {
-						//								// TODO Auto-generated method stub
+						//
 						//								System.out.println("==========================访问接口成功！"+arg1);
 						//								super.onSuccess(arg0, arg1);
 						//								try {
@@ -1138,7 +1138,7 @@ public class MyShopPingCarActivity extends Fragment implements OnClickListener {
 						//								    	Toast.makeText(getActivity(), info, 200).show();
 						//									}
 						//								} catch (Exception e) {
-						//									// TODO: handle exception
+						//
 						//									e.printStackTrace();
 						//								}
 						//							}
@@ -1238,7 +1238,7 @@ public class MyShopPingCarActivity extends Fragment implements OnClickListener {
 					new AsyncHttpResponseHandler() {
 						@Override
 						public void onSuccess(int arg0,String arg1) {
-							// TODO Auto-generated method stub
+
 							super.onSuccess(arg0, arg1);
 							try {
 								JSONObject jsonObject = new JSONObject(arg1);
@@ -1276,14 +1276,14 @@ public class MyShopPingCarActivity extends Fragment implements OnClickListener {
 								}
 								progress.CloseProgress();
 							} catch (JSONException e) {
-								// TODO Auto-generated catch block
+
 								e.printStackTrace();
 							}
 
 						}
 						@Override
 						public void onFailure(Throwable arg0, String arg1) {
-							// TODO Auto-generated method stub
+
 							System.out.println("==========================访问接口失败！");
 							System.out.println("========================="+arg0);
 							System.out.println("=========================="+arg1);
@@ -1294,7 +1294,7 @@ public class MyShopPingCarActivity extends Fragment implements OnClickListener {
 					}, getActivity());
 
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 	}
@@ -1308,7 +1308,7 @@ public class MyShopPingCarActivity extends Fragment implements OnClickListener {
 	//					new AsyncHttpResponseHandler() {
 	//						@Override
 	//						public void onSuccess(int arg0,String arg1) {
-	//							// TODO Auto-generated method stub
+	//
 	//							super.onSuccess(arg0, arg1);
 	//							try {
 	//								JSONObject jsonObject = new JSONObject(arg1);
@@ -1341,14 +1341,14 @@ public class MyShopPingCarActivity extends Fragment implements OnClickListener {
 	//								}
 	//								progress.CloseProgress();
 	//							} catch (JSONException e) {
-	//								// TODO Auto-generated catch block
+	//
 	//								e.printStackTrace();
 	//							}
 	//
 	//						}
 	//						@Override
 	//						public void onFailure(Throwable arg0, String arg1) {
-	//							// TODO Auto-generated method stub
+	//
 	//							System.out.println("==========================访问接口失败！");
 	//							System.out.println("========================="+arg0);
 	//							System.out.println("=========================="+arg1);
@@ -1359,7 +1359,7 @@ public class MyShopPingCarActivity extends Fragment implements OnClickListener {
 	//					}, getActivity());
 	//
 	//			} catch (Exception e) {
-	//				// TODO: handle exception
+	//
 	//				e.printStackTrace();
 	//			}
 	//	}

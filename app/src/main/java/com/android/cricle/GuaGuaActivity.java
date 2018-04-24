@@ -82,7 +82,7 @@ public class GuaGuaActivity extends BaseActivity{
 
 	@Override
 	public boolean onKeyDown(int keyCode, KeyEvent event) {
-		// TODO Auto-generated method stub
+
 		if(keyCode==KeyEvent.KEYCODE_BACK){
 			AppManager.getAppManager().finishActivity();
 		}
@@ -139,7 +139,7 @@ public class GuaGuaActivity extends BaseActivity{
 	}
 	@Override
 	protected void onResume() {
-		// TODO Auto-generated method stub
+
 		super.onResume();
 		result = (TextView) findViewById(R.id.result);
 		more_gua = (Button) findViewById(R.id.more_gua);
@@ -161,7 +161,7 @@ public class GuaGuaActivity extends BaseActivity{
 
 			@Override
 			public void onClick(View arg0) {
-				// TODO Auto-generated method stub
+
 				initPopupWindow();
 				showPopupWindow(gua_jiang);
 			}
@@ -180,7 +180,7 @@ public class GuaGuaActivity extends BaseActivity{
 			registerData = wareDao.findIsLoginHengyuCode();
 			yth = registerData.getHengyuCode().toString();
 		} catch (NullPointerException e) {
-			// TODO: handle exception
+
 			NewDataToast.makeText(getApplicationContext(), "未登录", false,0).show();
 			AppManager.getAppManager().finishActivity();
 
@@ -220,7 +220,7 @@ public class GuaGuaActivity extends BaseActivity{
 							handler.sendMessage(msg);
 						}
 					} catch (JSONException e) {
-						// TODO Auto-generated catch block
+
 						e.printStackTrace();
 					}
 
@@ -256,7 +256,7 @@ public class GuaGuaActivity extends BaseActivity{
 
 			@Override
 			public void onClick(View arg0) {
-				// TODO Auto-generated method stub
+
 				if (mPopupWindow.isShowing()) {
 					mPopupWindow.dismiss();
 				}

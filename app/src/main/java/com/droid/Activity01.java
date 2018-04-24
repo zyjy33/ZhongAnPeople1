@@ -87,7 +87,7 @@ public class Activity01 extends Activity implements OnScrollListener {
 			iv_fanhui.setOnClickListener(new OnClickListener() {
 				@Override
 				public void onClick(View arg0) {
-					// TODO Auto-generated method stub
+
 					finish();
 				}
 			});
@@ -203,7 +203,7 @@ public class Activity01 extends Activity implements OnScrollListener {
 			InitLocation();
 			mLocationClient.start();
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 	}
@@ -592,7 +592,7 @@ public class Activity01 extends Activity implements OnScrollListener {
 							.findViewById(R.id.recentHint);
 					recentHint.setText("最近访问的城市");
 				} catch (Exception e) {
-					// TODO: handle exception
+
 					e.printStackTrace();
 				}
 			} else if (viewType == 2) {

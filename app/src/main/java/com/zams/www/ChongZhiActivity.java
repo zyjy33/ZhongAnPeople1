@@ -75,7 +75,7 @@ public class ChongZhiActivity extends BaseActivity {
 
 			@Override
 			public void onClick(View arg0) {
-				// TODO Auto-generated method stub
+
 				finish();
 			}
 		});
@@ -84,7 +84,7 @@ public class ChongZhiActivity extends BaseActivity {
 
 			@Override
 			public void onClick(View arg0) {
-				// TODO Auto-generated method stub
+
 				Toast.makeText(getApplicationContext(), "暂不支持提现", 200).show();
 			}
 		});
@@ -100,7 +100,7 @@ public class ChongZhiActivity extends BaseActivity {
 
 	@Override
 	protected void onResume() {
-		// TODO Auto-generated method stub
+
 		super.onResume();
 		loadInfo();
 		yuee.setText("￥" + in.getStringValue("PassTicketBalance"));
@@ -202,7 +202,7 @@ public class ChongZhiActivity extends BaseActivity {
 
 			@Override
 			public void onFailure(Throwable arg0, String arg1) {
-				// TODO Auto-generated method stub
+
 				super.onFailure(arg0, arg1);
 
 			}

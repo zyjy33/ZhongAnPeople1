@@ -76,7 +76,7 @@ public class CanTuanFengXiangActivity extends BaseActivity implements
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
+
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_cantuan_fenxiang);
@@ -96,7 +96,7 @@ public class CanTuanFengXiangActivity extends BaseActivity implements
 
 			@Override
 			public void onClick(View arg0) {
-				// TODO Auto-generated method stub
+
 				finish();
 			}
 		});
@@ -142,7 +142,7 @@ public class CanTuanFengXiangActivity extends BaseActivity implements
 
 				@Override
 				public void onClick(View v) {
-					// TODO Auto-generated method stub
+
 					if (UserLoginActivity.wx_fanhui == false) {
 						Intent intent5 = new Intent(
 								CanTuanFengXiangActivity.this,
@@ -159,7 +159,7 @@ public class CanTuanFengXiangActivity extends BaseActivity implements
 			btn_sms.setOnClickListener(new OnClickListener() {
 				@Override
 				public void onClick(View v) {
-					// TODO Auto-generated method stub
+
 					finish();
 					// con(18, 0);
 				}
@@ -170,7 +170,7 @@ public class CanTuanFengXiangActivity extends BaseActivity implements
 			// iv_fanhui.setOnClickListener(this);
 
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 
@@ -244,7 +244,7 @@ public class CanTuanFengXiangActivity extends BaseActivity implements
 			}
 
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 	}
@@ -413,7 +413,7 @@ public class CanTuanFengXiangActivity extends BaseActivity implements
 
 	@Override
 	public void onClick(View v) {
-		// TODO Auto-generated method stub
+
 
 		switch (v.getId()) {
 			case R.id.iv_fanhui:

@@ -85,7 +85,7 @@ public class FenXiangActivity extends BaseActivity implements OnClickListener {
 	private ImageView zams_fw_1,zams_fw_2,zams_fw_3,zams_fw_4;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
+
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_fenxiang);
@@ -105,7 +105,7 @@ public class FenXiangActivity extends BaseActivity implements OnClickListener {
 	}
 
 	private void getzhou() {
-		// TODO Auto-generated method stub
+
 		String user_id = spPreferences.getString("user_id", "");
 		link_url = RealmName.REALM_NAME_FX + "/appshare/" + user_id + ".html";
 	}
@@ -145,7 +145,7 @@ public class FenXiangActivity extends BaseActivity implements OnClickListener {
 			ll_fzjf.setOnClickListener(this);
 
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 
@@ -153,7 +153,7 @@ public class FenXiangActivity extends BaseActivity implements OnClickListener {
 
 	@Override
 	public void onClick(View v) {
-		// TODO Auto-generated method stub
+
 
 		switch (v.getId()) {
 			case R.id.iv_fanhui:
@@ -189,7 +189,7 @@ public class FenXiangActivity extends BaseActivity implements OnClickListener {
 						}
 
 					} catch (Exception e) {
-						// TODO: handle exception
+
 						e.printStackTrace();
 					}
 				}
@@ -237,7 +237,7 @@ public class FenXiangActivity extends BaseActivity implements OnClickListener {
 					.findViewById(R.id.img_btn_tencent);// 腾讯微博
 
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 		// 微博
@@ -264,7 +264,7 @@ public class FenXiangActivity extends BaseActivity implements OnClickListener {
 
 			@Override
 			public void onClick(View v) {
-				// TODO Auto-generated method stub
+
 				pop.dismiss();
 				con(17, 1);
 			}
@@ -273,7 +273,7 @@ public class FenXiangActivity extends BaseActivity implements OnClickListener {
 		btn_sms.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				// TODO Auto-generated method stub
+
 				pop.dismiss();
 				con(18,0);
 				//				Toast.makeText(FenXiangActivity.this, "抱歉，暂时不支持", 200).show();
@@ -332,7 +332,7 @@ public class FenXiangActivity extends BaseActivity implements OnClickListener {
 			}
 			// }
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 	}
@@ -584,7 +584,7 @@ public class FenXiangActivity extends BaseActivity implements OnClickListener {
 			bd4.setCallback(null);
 			bd4.getBitmap().recycle();
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 	}

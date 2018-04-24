@@ -183,7 +183,7 @@ public class MyPopupWindowMenu extends PopupWindow implements OnClickListener,
 
 	@Override
 	public void onClick(View arg0) {
-		// TODO Auto-generated method stub
+
 		switch (arg0.getId()) {
 			case R.id.ll_backhome:
 				dismiss();
@@ -219,7 +219,7 @@ public class MyPopupWindowMenu extends PopupWindow implements OnClickListener,
 				new Thread() {
 					@Override
 					public void run() {
-						// TODO Auto-generated method stub
+
 						super.run();
 						//					try {
 						//						InputStream ip = HttpClientUtil.getRequest(strUrl);
@@ -348,7 +348,7 @@ public class MyPopupWindowMenu extends PopupWindow implements OnClickListener,
 				return "";
 			}
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			Log.e("VersionInfo", "Exception", e);
 		}
 		return versionName;
@@ -449,13 +449,13 @@ public class MyPopupWindowMenu extends PopupWindow implements OnClickListener,
 
 	@Override
 	public void onReq(BaseReq arg0) {
-		// TODO Auto-generated method stub
+
 
 	}
 
 	@Override
 	public void onResp(BaseResp arg0) {
-		// TODO Auto-generated method stub
+
 
 	}
 
@@ -504,7 +504,7 @@ public class MyPopupWindowMenu extends PopupWindow implements OnClickListener,
 			//			});
 
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 
@@ -531,7 +531,7 @@ public class MyPopupWindowMenu extends PopupWindow implements OnClickListener,
 
 			@Override
 			public void onClick(View v) {
-				// TODO Auto-generated method stub
+
 				pop.dismiss();
 				con(17, 1);
 			}
@@ -540,7 +540,7 @@ public class MyPopupWindowMenu extends PopupWindow implements OnClickListener,
 		btn_sms.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				// TODO Auto-generated method stub
+
 				pop.dismiss();
 				con(18, 0);
 			}
@@ -560,7 +560,7 @@ public class MyPopupWindowMenu extends PopupWindow implements OnClickListener,
 			System.out.println("==========" + zhou);
 			softshareWxChat(zhou);
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 	}

@@ -26,7 +26,7 @@ public class GuigeGridAdapter extends BaseAdapter {
 	private ImageLoader imageLoader;
 
 	public GuigeGridAdapter(ImageLoader imageLoader) {
-		// TODO Auto-generated constructor stub
+
 		this.imageLoader = imageLoader;
 	}
 
@@ -39,13 +39,13 @@ public class GuigeGridAdapter extends BaseAdapter {
 
 	@Override
 	public int getCount() {
-		// TODO Auto-generated method stub
+
 		return data2.size();
 	}
 
 	@Override
 	public Object getItem(int position) {
-		// TODO Auto-generated method stub
+
 		return data2.get(position);
 	}
 
@@ -55,7 +55,7 @@ public class GuigeGridAdapter extends BaseAdapter {
 
 	@Override
 	public long getItemId(int position) {
-		// TODO Auto-generated method stub
+
 		return position;
 	}
 

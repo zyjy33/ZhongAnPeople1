@@ -41,7 +41,7 @@ public class ZhiFufangshiAdapter extends BaseAdapter {
 
 	@Override
 	public Object getItem(int position) {
-		// TODO Auto-generated method stub
+
 		return List.get(position);
 	}
 
@@ -99,7 +99,7 @@ public class ZhiFufangshiAdapter extends BaseAdapter {
 
 				@Override
 				public void onClick(View arg0) {
-					// TODO Auto-generated method stub
+
 					// int position = List.get(position).get;
 
 					holder.cd.setChecked(true);
@@ -108,7 +108,7 @@ public class ZhiFufangshiAdapter extends BaseAdapter {
 			});
 
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 

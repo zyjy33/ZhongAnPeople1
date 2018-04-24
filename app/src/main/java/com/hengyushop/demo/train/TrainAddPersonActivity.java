@@ -59,7 +59,7 @@ public class TrainAddPersonActivity extends BaseActivity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
+
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.train_add_person);
@@ -71,7 +71,7 @@ public class TrainAddPersonActivity extends BaseActivity {
 
 			@Override
 			public void onClick(View arg0) {
-				// TODO Auto-generated method stub
+
 				tempBtn1 = (RadioButton) findViewById(v3
 						.getCheckedRadioButtonId());
 				tempBtn2 = (RadioButton) findViewById(v4
@@ -104,7 +104,7 @@ public class TrainAddPersonActivity extends BaseActivity {
 														handler.sendEmptyMessage(1);
 													}
 												} catch (JSONException e) {
-													// TODO Auto-generated catch
+													  catch
 													// block
 													e.printStackTrace();
 												}

@@ -88,14 +88,14 @@ public class UserLoginWayActivity extends BaseActivity implements
 				}
 			};
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 	}
 
 	@Override
 	protected void onResume() {
-		// TODO Auto-generated method stub
+
 		super.onResume();
 		// SharedPreferences spPreferences = getSharedPreferences("longuserset",
 		// MODE_PRIVATE);
@@ -158,7 +158,7 @@ public class UserLoginWayActivity extends BaseActivity implements
 
 	@Override
 	public void onClick(View v) {
-		// TODO Auto-generated method stub
+
 		switch (v.getId()) {
 			case R.id.item0://
 				Intent intent3 = new Intent(UserLoginWayActivity.this,
@@ -174,7 +174,7 @@ public class UserLoginWayActivity extends BaseActivity implements
 					// startActivity(intent);
 
 				} catch (Exception e) {
-					// TODO: handle exception
+
 					e.printStackTrace();
 				}
 				break;
@@ -212,7 +212,7 @@ public class UserLoginWayActivity extends BaseActivity implements
 					mTencent.login(this, "all", listener);
 					// finish();
 				} catch (Exception e) {
-					// TODO: handle exception
+
 					e.printStackTrace();
 				}
 			} else {
@@ -221,7 +221,7 @@ public class UserLoginWayActivity extends BaseActivity implements
 				// finish();
 			}
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 	}
@@ -246,7 +246,7 @@ public class UserLoginWayActivity extends BaseActivity implements
 				editor.putString("oauth_openid", oauth_openid);
 				editor.commit();
 			} catch (JSONException e) {
-				// TODO Auto-generated catch block
+
 				e.printStackTrace();
 			}
 			// Util.showResultDialog(UserLoginActivity.this,
@@ -288,7 +288,7 @@ public class UserLoginWayActivity extends BaseActivity implements
 					IUiListener listener = new IUiListener() {
 						@Override
 						public void onError(UiError e) {
-							// TODO Auto-generated method stub
+
 						}
 
 						@Override
@@ -383,7 +383,7 @@ public class UserLoginWayActivity extends BaseActivity implements
 										+ bitmap);
 								finish();
 							} catch (Exception e) {
-								// TODO: handle exception
+
 								e.printStackTrace();
 							}
 
@@ -398,7 +398,7 @@ public class UserLoginWayActivity extends BaseActivity implements
 					mInfo.getUserInfo(listener);
 
 				} catch (Exception e) {
-					// TODO: handle exception
+
 					e.printStackTrace();
 				}
 
@@ -409,7 +409,7 @@ public class UserLoginWayActivity extends BaseActivity implements
 			}
 
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 

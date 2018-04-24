@@ -66,7 +66,7 @@ public class OrderInfromationActivity extends BaseActivity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
+
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.orderinformation);
@@ -124,7 +124,7 @@ public class OrderInfromationActivity extends BaseActivity {
 				new AsyncHttpResponseHandler() {
 					@Override
 					public void onSuccess(int arg0, String arg1) {
-						// TODO Auto-generated method stub
+
 						super.onSuccess(arg0, arg1);
 						parse(arg1, tag_flag);
 					}
@@ -135,7 +135,7 @@ public class OrderInfromationActivity extends BaseActivity {
 				public void onItemClick(AdapterView<?> arg0, View arg1,
 										int arg2, long arg3) {
 
-					// TODO Auto-generated method stub
+
 					// String total = list.get(arg2).Price;
 					// String code = list.get(arg2).SerialNumber;
 					// String reno = list.get(arg2).trno;
@@ -215,7 +215,7 @@ public class OrderInfromationActivity extends BaseActivity {
 			msg.obj = list;
 			handler.sendMessage(msg);
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 	}

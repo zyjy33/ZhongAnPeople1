@@ -117,7 +117,7 @@ public class HealthPavilionAdapter extends BaseAdapter {
 			// }
 
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 		return view;

@@ -52,14 +52,14 @@ public class ChuanKeXuanZeActivity extends BaseActivity implements OnClickListen
 
 	//	@Override
 	//	protected void onResume() {
-	//		// TODO Auto-generated method stub
+	//
 	//		super.onResume();
 	//
 	//	}
 
 	@Override
 	public void onClick(View v) {
-		// TODO Auto-generated method stub
+
 		switch (v.getId()) {
 			case R.id.rl_nan:
 				value = "普通服务顾问";
@@ -100,7 +100,7 @@ public class ChuanKeXuanZeActivity extends BaseActivity implements OnClickListen
 	//						}else{
 	//						}
 	//					} catch (JSONException e) {
-	//						// TODO Auto-generated catch block
+	//
 	//						e.printStackTrace();
 	//					}
 	//				};

@@ -91,22 +91,22 @@ public class SignEncodeUtil {
 			// System.out.println("解码:"+new String(decode));
 			return string;
 		} catch (InvalidKeyException e) {
-			// TODO Auto-generated catch block
+
 			e.printStackTrace();
 		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
+
 			e.printStackTrace();
 		} catch (NoSuchAlgorithmException e) {
-			// TODO Auto-generated catch block
+
 			e.printStackTrace();
 		} catch (InvalidKeySpecException e) {
-			// TODO Auto-generated catch block
+
 			e.printStackTrace();
 		} catch (SignatureException e) {
-			// TODO Auto-generated catch block
+
 			e.printStackTrace();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
+
 			e.printStackTrace();
 		}
 		return voucher;

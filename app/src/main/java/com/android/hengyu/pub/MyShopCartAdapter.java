@@ -56,19 +56,19 @@ public class MyShopCartAdapter extends BaseAdapter {
 
 	@Override
 	public int getCount() {
-		// TODO Auto-generated method stub
+
 		return list.size();
 	}
 
 	@Override
 	public Object getItem(int position) {
-		// TODO Auto-generated method stub
+
 		return position;
 	}
 
 	@Override
 	public long getItemId(int position) {
-		// TODO Auto-generated method stub
+
 		return position;
 	}
 
@@ -112,7 +112,7 @@ public class MyShopCartAdapter extends BaseAdapter {
 
 	@Override
 	public View getView(final int position, View convertView, ViewGroup parent) {
-		// TODO Auto-generated method stub
+
 		final ViewHolder viewHolder;
 		if (convertView == null
 				|| convertView.getTag(R.drawable.icon + position) == null) {
@@ -315,7 +315,7 @@ public class MyShopCartAdapter extends BaseAdapter {
 
 			}, context);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
+
 			e.printStackTrace();
 		}
 	}
@@ -342,7 +342,7 @@ public class MyShopCartAdapter extends BaseAdapter {
 		try {
 			AsyncHttp.get(str, new AsyncHttpResponseHandler(), context);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
+
 			e.printStackTrace();
 		}
 	}

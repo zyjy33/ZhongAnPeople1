@@ -165,7 +165,7 @@ public class WareClassifyThreeActivity extends BaseActivity {
 			@Override
 			public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
 					long arg3) {
-				// TODO Auto-generated method stub
+
 				String typename = list.get(arg2).productTypeName;
 				int id = waredao.findbyTypeName(typename).ID;
 				Intent intent = new Intent(WareClassifyThreeActivity.this,
@@ -181,7 +181,7 @@ public class WareClassifyThreeActivity extends BaseActivity {
 			@Override
 			public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
 					long arg3) {
-				// TODO Auto-generated method stub
+
 				int id = listgird.get(arg2).productItemId;
 				Toast.makeText(getApplicationContext(), id + "", 200).show();
 				Intent intent = new Intent(WareClassifyThreeActivity.this,
@@ -214,7 +214,7 @@ public class WareClassifyThreeActivity extends BaseActivity {
 			message.obj = list;
 			handler.sendMessage(message);
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 	}

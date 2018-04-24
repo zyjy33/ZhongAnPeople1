@@ -42,7 +42,7 @@ public class MenuActivity extends Fragment implements OnClickListener {
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 							 Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
+
 		View layout = inflater.inflate(R.layout.hengyu_service, null);
 		wareDao = new WareDao(getActivity());
 		initdata(layout);
@@ -88,7 +88,7 @@ public class MenuActivity extends Fragment implements OnClickListener {
 
 	@Override
 	public void onClick(View v) {
-		// TODO Auto-generated method stub
+
 		List<UserRegisterData> list = wareDao.findisLogin();
 		switch (v.getId()) {
 			case R.id.img_tuan_three:
@@ -195,9 +195,9 @@ public class MenuActivity extends Fragment implements OnClickListener {
 			 * ComponentName("zhongguo.sqwtxzs",
 			 * "zhongguo.sqwtxzs.nnnview.New_Open"); intent122.setComponent(cn);
 			 * try { startActivity(intent122); } catch
-			 * (ActivityNotFoundException e) { // TODO: handle exception
+			 * (ActivityNotFoundException e) {
 			 *
-			 * // TODO Auto-generated catch block e.printStackTrace();
+			 *   e.printStackTrace();
 			 *
 			 * // 如果程序未安装 跳过来安装文件 if (copyApkFromAssets(getActivity(),
 			 * "jinsheng.apk", Environment.getExternalStorageDirectory()

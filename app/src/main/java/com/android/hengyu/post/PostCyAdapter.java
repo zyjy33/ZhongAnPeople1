@@ -56,7 +56,7 @@ public class PostCyAdapter extends BaseAdapter {
 			holder.v1.setText(HttpUtils.getSimpleTime(list.get(position)
 					.getTime(), "MM-dd"));
 		} catch (ParseException e) {
-			// TODO Auto-generated catch block
+
 			e.printStackTrace();
 		}
 		holder.add.setText("["+list.get(position).getAdd()+"]");

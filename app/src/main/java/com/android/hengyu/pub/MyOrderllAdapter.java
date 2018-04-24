@@ -84,24 +84,24 @@ public class MyOrderllAdapter extends BaseAdapter {
 	}
 
 	public int getCount() {
-		// TODO Auto-generated method stub
+
 		return list.size();
 	}
 
 	// @Override
 	// public Object getItem(int position) {
-	// // TODO Auto-generated method stub
+	//
 	// return list.get(position);
 	// }
 
 	public Object getItem(int position) {
-		// TODO Auto-generated method stub
+
 		return position;
 	}
 
 	@Override
 	public long getItemId(int position) {
-		// TODO Auto-generated method stub
+
 		return position;
 	}
 
@@ -129,7 +129,7 @@ public class MyOrderllAdapter extends BaseAdapter {
 
 	@Override
 	public View getView(final int position, View convertView, ViewGroup patent) {
-		// TODO Auto-generated method stub
+
 		ViewHolder holder = null;
 		// holder = new ViewHolder();
 		System.out
@@ -323,7 +323,7 @@ public class MyOrderllAdapter extends BaseAdapter {
 						handler.sendMessage(msg);
 
 					} catch (Exception e) {
-						// TODO: handle exception
+
 						e.printStackTrace();
 					}
 				}
@@ -345,7 +345,7 @@ public class MyOrderllAdapter extends BaseAdapter {
 						intent.putExtra("title", "title");
 						context.startActivity(intent);
 					} catch (Exception e) {
-						// TODO: handle exception
+
 						e.printStackTrace();
 					}
 				}
@@ -365,7 +365,7 @@ public class MyOrderllAdapter extends BaseAdapter {
 						msg.obj = order_no;
 						handler.sendMessage(msg);
 					} catch (Exception e) {
-						// TODO: handle exception
+
 						e.printStackTrace();
 					}
 
@@ -385,7 +385,7 @@ public class MyOrderllAdapter extends BaseAdapter {
 						msg.obj = order_no;
 						handler.sendMessage(msg);
 					} catch (Exception e) {
-						// TODO: handle exception
+
 						e.printStackTrace();
 					}
 
@@ -406,7 +406,7 @@ public class MyOrderllAdapter extends BaseAdapter {
 						msg.obj = order_no;
 						handler.sendMessage(msg);
 					} catch (Exception e) {
-						// TODO: handle exception
+
 						e.printStackTrace();
 					}
 				}
@@ -476,7 +476,7 @@ public class MyOrderllAdapter extends BaseAdapter {
 							context.startActivity(intent);
 
 						} catch (Exception e) {
-							// TODO: handle exception
+
 							e.printStackTrace();
 						}
 					}
@@ -500,14 +500,14 @@ public class MyOrderllAdapter extends BaseAdapter {
 						context.startActivity(intent);
 
 					} catch (Exception e) {
-						// TODO: handle exception
+
 						e.printStackTrace();
 					}
 				}
 			});
 
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 

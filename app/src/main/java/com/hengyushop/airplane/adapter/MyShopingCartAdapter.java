@@ -60,20 +60,20 @@ public class MyShopingCartAdapter extends BaseAdapter {
 
 	@Override
 	public int getCount() {
-		// TODO Auto-generated method stub
+
 		return list.size();
 	}
 
 	@Override
 	public Object getItem(int position) {
-		// TODO Auto-generated method stub
+
 
 		return position;
 	}
 
 	@Override
 	public long getItemId(int position) {
-		// TODO Auto-generated method stub
+
 		return position;
 	}
 
@@ -87,7 +87,7 @@ public class MyShopingCartAdapter extends BaseAdapter {
 
 	@Override
 	public View getView(final int position, View convertView, ViewGroup parent) {
-		// TODO Auto-generated method stub
+
 		if (convertView == null) {
 			System.out.println("6================");
 			holder = new ShopCartViewHolder();
@@ -153,7 +153,7 @@ public class MyShopingCartAdapter extends BaseAdapter {
 		//
 		//			@Override
 		//			public void onClick(View v) {
-		//				// TODO Auto-generated method stub
+		//
 		//				try {
 		//
 		//				int orderid = Integer.parseInt(list.get(position).id);
@@ -163,7 +163,7 @@ public class MyShopingCartAdapter extends BaseAdapter {
 		//				message.arg1 = orderid;
 		//				handler.sendMessage(message);
 		//				} catch (Exception e) {
-		//					// TODO: handle exception
+		//
 		//					e.printStackTrace();
 		//				}
 		//
@@ -334,7 +334,7 @@ public class MyShopingCartAdapter extends BaseAdapter {
 			AsyncHttp.get(RealmName.REALM_NAME_LL+ "/cart_goods_update?cart_id="+cart_id+"&user_id="+19+"&quantity="+number+"",new AsyncHttpResponseHandler() {
 				@Override
 				public void onSuccess(int arg0, String arg1) {
-					// TODO Auto-generated method stub
+
 					//				System.out.println("==========================访问接口成功！"+arg1);
 					super.onSuccess(arg0, arg1);
 				}
@@ -342,7 +342,7 @@ public class MyShopingCartAdapter extends BaseAdapter {
 			}, context);
 
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 	}
@@ -364,7 +364,7 @@ public class MyShopingCartAdapter extends BaseAdapter {
 				AsyncHttp.get(RealmName.REALM_NAME_LL+ "/cart_goods_update?cart_id="+cart_id+"&user_id="+19+"&quantity="+number+"",new AsyncHttpResponseHandler() {
 					@Override
 					public void onSuccess(int arg0, String arg1) {
-						// TODO Auto-generated method stub
+
 						//					System.out.println("==========================2访问接口成功！"+arg1);
 						super.onSuccess(arg0, arg1);
 					}
@@ -376,7 +376,7 @@ public class MyShopingCartAdapter extends BaseAdapter {
 
 
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 	}
@@ -385,7 +385,7 @@ public class MyShopingCartAdapter extends BaseAdapter {
 	//
 	//			@Override
 	//			public void onClick(View arg0) {
-	//				// TODO Auto-generated method stub
+	//
 	//				try {
 	//					int num = Integer.parseInt(holder.market_information_seps_num.getText().toString());
 	////					int add = Integer.parseInt(list.get(position).getQuantity());
@@ -406,7 +406,7 @@ public class MyShopingCartAdapter extends BaseAdapter {
 	//					System.out.println("价格是多少============="+total_c);
 	//
 	//				} catch (Exception e) {
-	//					// TODO: handle exception
+	//
 	//					e.printStackTrace();
 	//				}
 	//			}
@@ -417,7 +417,7 @@ public class MyShopingCartAdapter extends BaseAdapter {
 	//
 	//			@Override
 	//			public void onClick(View arg0) {
-	//				// TODO Auto-generated method stub
+	//
 	//				try {
 	//				int num = Integer.parseInt(holder.market_information_seps_num.getText().toString());
 	////					int del = Integer.parseInt(list.get(position).getQuantity());
@@ -437,7 +437,7 @@ public class MyShopingCartAdapter extends BaseAdapter {
 	//					Toast.makeText(context, "不能再减了", 200).show();
 	//				}
 	//				} catch (Exception e) {
-	//					// TODO: handle exception
+	//
 	//					e.printStackTrace();
 	//				}
 	//			}

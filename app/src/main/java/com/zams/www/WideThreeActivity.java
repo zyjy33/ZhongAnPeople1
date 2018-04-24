@@ -137,7 +137,7 @@ public class WideThreeActivity extends BaseActivity implements OnClickListener {
 		AsyncHttp.post_1(strUrl, params, new AsyncHttpResponseHandler(){
 			@Override
 			public void onSuccess(int arg0, String arg1) {
-				// TODO Auto-generated method stub
+
 				super.onSuccess(arg0, arg1);
 				parse(arg1);
 			}
@@ -159,7 +159,7 @@ public class WideThreeActivity extends BaseActivity implements OnClickListener {
 			@Override
 			public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
 									long arg3) {
-				// TODO Auto-generated method stub
+
 				String typename = list.get(arg2).productTypeName;
 				int id = waredao.findbyTypeName1(typename).ID;
 				Intent intent = new Intent(WideThreeActivity.this,
@@ -179,7 +179,7 @@ public class WideThreeActivity extends BaseActivity implements OnClickListener {
 			@Override
 			public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
 									long arg3) {
-				// TODO Auto-generated method stub
+
 				int id = listgird.get(arg2).productItemId;
 				Toast.makeText(getApplicationContext(), id + "", 200).show();
 				Intent intent = new Intent(WideThreeActivity.this,
@@ -212,14 +212,14 @@ public class WideThreeActivity extends BaseActivity implements OnClickListener {
 			message.obj = list;
 			handler.sendMessage(message);
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 	}
 
 	@Override
 	public void onClick(View v) {
-		// TODO Auto-generated method stub
+
 
 	}
 

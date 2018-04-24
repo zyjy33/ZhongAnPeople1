@@ -12,13 +12,13 @@ public class G  extends BroadcastReceiver{
 
 	@Override
 	public void onReceive(Context context, Intent intent) {
-		// TODO Auto-generated method stub
+
 
 		TelephonyManager telM = (TelephonyManager)getSystemService(Context.TELEPHONY_SERVICE);
 		telM.listen(new TelListener(context), PhoneStateListener.LISTEN_CALL_STATE);
 	}
 	private TelephonyManager getSystemService(String telephonyService) {
-		// TODO Auto-generated method stub
+
 		return null;
 	}
 	public class TelListener extends PhoneStateListener {
@@ -33,7 +33,7 @@ public class G  extends BroadcastReceiver{
 
 		@Override
 		public void onCallStateChanged(int state, String incomingNumber) {
-			// TODO Auto-generated method stub
+
 			super.onCallStateChanged(state, incomingNumber);
 			if(state == TelephonyManager.CALL_STATE_RINGING){
 

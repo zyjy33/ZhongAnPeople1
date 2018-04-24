@@ -38,7 +38,7 @@ public class PostWorkIndexActivity extends BaseActivity {
 			@Override
 			public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
 					long arg3) {
-				// TODO Auto-generated method stub
+
 				Intent intent = new Intent(PostWorkIndexActivity.this,
 						PostWorkListActivity.class);
 				intent.putExtra("obj", woDos.get(arg2));

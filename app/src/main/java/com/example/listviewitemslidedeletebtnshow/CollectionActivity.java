@@ -82,7 +82,7 @@ public class CollectionActivity extends Activity
 		//			@Override
 		//			public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
 		//					long arg3) {
-		//				// TODO Auto-generated method stub
+		//
 		//				String wareId = list.get(arg2).article_id;
 		//				Intent intent = new Intent(CollectionActivity.this,WareInformationActivity.class);
 		//				intent.putExtra("id", wareId);
@@ -95,7 +95,7 @@ public class CollectionActivity extends Activity
 
 			@Override
 			public void onClick(View arg0) {
-				// TODO Auto-generated method stub
+
 				finish();
 			}
 		});
@@ -117,7 +117,7 @@ public class CollectionActivity extends Activity
 			}
 
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 	};
@@ -139,7 +139,7 @@ public class CollectionActivity extends Activity
 						AsyncHttp.get(str, new AsyncHttpResponseHandler(){
 							@Override
 							public void onSuccess(int arg0, String arg1) {
-								// TODO Auto-generated method stub
+
 								System.out.println("===================="+arg1);
 								//						progress.CloseProgress();
 								super.onSuccess(arg0, arg1);
@@ -147,7 +147,7 @@ public class CollectionActivity extends Activity
 							}
 							@Override
 							public void onFailure(Throwable arg0, String arg1) {
-								// TODO Auto-generated method stub
+
 								super.onFailure(arg0, arg1);
 								System.out.println("1===================="+arg0);
 								System.out.println("2===================="+arg1);
@@ -159,7 +159,7 @@ public class CollectionActivity extends Activity
 						//				progress.CloseProgress();
 
 					} catch (Exception e) {
-						// TODO: handle exception
+
 						e.printStackTrace();
 					}
 					break;
@@ -171,7 +171,7 @@ public class CollectionActivity extends Activity
 						intent.putExtra("id", article_id);
 						startActivity(intent);
 					} catch (Exception e) {
-						// TODO: handle exception
+
 						e.printStackTrace();
 					}
 					break;
@@ -193,7 +193,7 @@ public class CollectionActivity extends Activity
 		AsyncHttp.get(strUrl, new AsyncHttpResponseHandler(){
 			@Override
 			public void onSuccess(int arg0, String arg1) {
-				// TODO Auto-generated method stub
+
 				System.out.println("===================="+arg1);
 				super.onSuccess(arg0, arg1);
 				parse(arg1);
@@ -240,7 +240,7 @@ public class CollectionActivity extends Activity
 
 			}
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 	}

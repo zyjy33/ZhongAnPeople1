@@ -33,7 +33,7 @@ public class JuTuanAdapter extends BaseAdapter {
 
 	// public static int tuanshu;
 	public JuTuanAdapter(ImageLoader imageLoader) {
-		// TODO Auto-generated constructor stub
+
 		this.imageLoader = imageLoader;
 	}
 
@@ -48,13 +48,13 @@ public class JuTuanAdapter extends BaseAdapter {
 
 	@Override
 	public int getCount() {
-		// TODO Auto-generated method stub
+
 		return list.size();
 	}
 
 	@Override
 	public Object getItem(int position) {
-		// TODO Auto-generated method stub
+
 		return list.get(position);
 	}
 
@@ -64,7 +64,7 @@ public class JuTuanAdapter extends BaseAdapter {
 
 	@Override
 	public long getItemId(int position) {
-		// TODO Auto-generated method stub
+
 		return position;
 	}
 

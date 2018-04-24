@@ -137,7 +137,7 @@ public class OrderDetailActivity extends BaseActivity implements
 		AsyncHttp.post_1(strUrl, params, new AsyncHttpResponseHandler() {
 			@Override
 			public void onSuccess(int arg0, String arg1) {
-				// TODO Auto-generated method stub
+
 				super.onSuccess(arg0, arg1);
 				parse(arg1);
 			}
@@ -247,7 +247,7 @@ public class OrderDetailActivity extends BaseActivity implements
 
 	@Override
 	public void onClick(View v) {
-		// TODO Auto-generated method stub
+
 		switch (v.getId()) {
 			case R.id.btn_continue_pay:
 			/*
@@ -324,7 +324,7 @@ public class OrderDetailActivity extends BaseActivity implements
 
 			@Override
 			public void onClick(View arg0) {
-				// TODO Auto-generated method stub
+
 				dissPop();
 			}
 		});
@@ -376,7 +376,7 @@ public class OrderDetailActivity extends BaseActivity implements
 				AsyncHttp.get(strUrl2, new AsyncHttpResponseHandler() {
 					@Override
 					public void onSuccess(int arg0, String arg1) {
-						// TODO Auto-generated method stub
+
 						super.onSuccess(arg0, arg1);
 						try {
 							JSONObject jsonObject = new JSONObject(arg1);
@@ -386,7 +386,7 @@ public class OrderDetailActivity extends BaseActivity implements
 							message.obj = msg;
 							handler.sendMessage(message);
 						} catch (JSONException e) {
-							// TODO Auto-generated catch block
+
 							e.printStackTrace();
 						}
 					}

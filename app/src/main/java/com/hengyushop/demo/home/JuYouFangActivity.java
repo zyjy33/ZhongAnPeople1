@@ -74,7 +74,7 @@ public class JuYouFangActivity extends BaseActivity{
 	//当第一次调用一个Activity就会执行onCreate方法
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
+
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.juyoufang_home);
@@ -91,7 +91,7 @@ public class JuYouFangActivity extends BaseActivity{
 	//当Activity可以得到用户焦点的时候就会调用onResume方法
 	@Override
 	protected void onResume() {
-		// TODO Auto-generated method stub
+
 		super.onResume();
 		Log.e(TAG, "start onResume~~~");
 		SharedPreferences spPreferences = getSharedPreferences("longuserset_city", MODE_PRIVATE);
@@ -150,7 +150,7 @@ public class JuYouFangActivity extends BaseActivity{
 	}
 
 	//	public void uncaughtException(Thread arg0, Throwable arg1) {
-	//		// TODO Auto-generated method stub
+	//
 	//		 //在此处理异常， arg1即为捕获到的异常
 	//        Log.i("AAA", "uncaughtException   " + arg1);
 	//	}
@@ -229,7 +229,7 @@ public class JuYouFangActivity extends BaseActivity{
 
 			@Override
 			public void onClick(View arg0) {
-				// TODO Auto-generated method stub
+
 				finish();
 			}
 		});
@@ -244,7 +244,7 @@ public class JuYouFangActivity extends BaseActivity{
 				"channel_name=trade&parent_id=273", new AsyncHttpResponseHandler(){
 			@Override
 			public void onSuccess(int arg0, String arg1) {
-				// TODO Auto-generated method stub
+
 				super.onSuccess(arg0, arg1);
 				parse(arg1);
 			}
@@ -295,7 +295,7 @@ public class JuYouFangActivity extends BaseActivity{
 						@Override
 						public void onItemClick(AdapterView<?> arg0, View arg1,
 												int arg2, long arg3) {
-							// TODO Auto-generated method stub
+
 							String id = lists.get(arg2).getId();
 							System.out.println("====================="+id);
 							Intent intent = new Intent(JuYouFangActivity.this,WareInformationActivity.class);
@@ -325,7 +325,7 @@ public class JuYouFangActivity extends BaseActivity{
 							load_list(id, true);
 
 						} catch (Exception e) {
-							// TODO: handle exception
+
 							e.printStackTrace();
 						}
 					}
@@ -342,7 +342,7 @@ public class JuYouFangActivity extends BaseActivity{
 								adapter.setSeclection(arg2);
 								adapter.notifyDataSetChanged();
 							} catch (Exception e) {
-								// TODO: handle exception
+
 								e.printStackTrace();
 							}
 
@@ -380,7 +380,7 @@ public class JuYouFangActivity extends BaseActivity{
 				new AsyncHttpResponseHandler(){
 					@Override
 					public void onSuccess(int arg0, String arg1) {
-						// TODO Auto-generated method stub
+
 						super.onSuccess(arg0, arg1);
 						System.out.println("商家列表=====================二级值1"+arg1);
 						try {
@@ -422,7 +422,7 @@ public class JuYouFangActivity extends BaseActivity{
 							progress.CloseProgress();
 							handler.sendEmptyMessage(0);
 						} catch (JSONException e) {
-							// TODO Auto-generated catch block
+
 							e.printStackTrace();
 						}
 					}
@@ -437,7 +437,7 @@ public class JuYouFangActivity extends BaseActivity{
 
 		@Override
 		public void onHeaderRefresh(PullToRefreshView view) {
-			// TODO Auto-generated method stub
+
 			refresh.postDelayed(new Runnable() {
 
 				@Override
@@ -455,7 +455,7 @@ public class JuYouFangActivity extends BaseActivity{
 
 		@Override
 		public void onFooterRefresh(PullToRefreshView view) {
-			// TODO Auto-generated method stub
+
 			refresh.postDelayed(new Runnable() {
 
 				@Override
@@ -465,7 +465,7 @@ public class JuYouFangActivity extends BaseActivity{
 						refresh.onFooterRefreshComplete();
 
 					} catch (Exception e) {
-						// TODO: handle exception
+
 						e.printStackTrace();
 					}
 				}

@@ -22,7 +22,7 @@ public class OneNewAdapter extends BaseAdapter {
 
 	public OneNewAdapter(Context context, ArrayList<OneNewBean> lists,
 			ImageLoader imageLoader) {
-		// TODO Auto-generated constructor stub
+
 		this.context = context;
 		this.lists = lists;
 		this.imageLoader = imageLoader;

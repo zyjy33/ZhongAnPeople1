@@ -67,7 +67,7 @@ public class CopyOfYunshangServiceActivity extends Fragment {
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 							 Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
+
 		View layout = inflater.inflate(R.layout.activity_yun_service, null);
 		progress = new DialogProgress(getActivity());
 		spPreferences = getActivity().getSharedPreferences("longuserset",
@@ -96,7 +96,7 @@ public class CopyOfYunshangServiceActivity extends Fragment {
 
 	@Override
 	public void onResume() {
-		// TODO Auto-generated method stub
+
 		super.onResume();
 		SharedPreferences spPreferences_login = getActivity()
 				.getSharedPreferences("longuserset_login", Context.MODE_PRIVATE);
@@ -130,7 +130,7 @@ public class CopyOfYunshangServiceActivity extends Fragment {
 	}
 
 	private void getjianche() {
-		// TODO Auto-generated method stub
+
 		SharedPreferences spPreferences_login = getActivity()
 				.getSharedPreferences("longuserset_login", Context.MODE_PRIVATE);
 		nickname = spPreferences_login.getString("nickname", "");
@@ -266,7 +266,7 @@ public class CopyOfYunshangServiceActivity extends Fragment {
 					getuserxinxi();
 
 				} catch (JSONException e) {
-					// TODO Auto-generated catch block
+
 					e.printStackTrace();
 				}
 
@@ -309,7 +309,7 @@ public class CopyOfYunshangServiceActivity extends Fragment {
 				// // Toast.makeText(getActivity(), info, 200).show();
 				// }
 				// } catch (JSONException e) {
-				// // TODO Auto-generated catch block
+				//
 				// e.printStackTrace();
 				// }
 			};
@@ -318,7 +318,7 @@ public class CopyOfYunshangServiceActivity extends Fragment {
 	}
 
 	private void getuserxinxi() {
-		// TODO Auto-generated method stub
+
 		spPreferences = getActivity().getSharedPreferences("longuserset",
 				Context.MODE_PRIVATE);
 		user_name_phone = spPreferences.getString("user", "");
@@ -377,7 +377,7 @@ public class CopyOfYunshangServiceActivity extends Fragment {
 
 			@Override
 			public void onClick(View v) {
-				// TODO Auto-generated method stub
+
 				if (ck_xuanzhe.isChecked()) {
 
 					// Toast.makeText(getActivity(), "登录成功1", 1000).show();
@@ -393,7 +393,7 @@ public class CopyOfYunshangServiceActivity extends Fragment {
 
 			@Override
 			public void onClick(View v) {
-				// TODO Auto-generated method stub
+
 				if (!nickname.equals("")) {
 					if (!user_name_phone.equals("")) {
 						Intent Intent2 = new Intent(getActivity(),
@@ -466,7 +466,7 @@ public class CopyOfYunshangServiceActivity extends Fragment {
 	// ,new AsyncHttpResponseHandler() {
 	// @Override
 	// public void onSuccess(int arg0,String arg1) {
-	// // TODO Auto-generated method stub
+	//
 	// super.onSuccess(arg0, arg1);
 	// try {
 	// JSONObject jsonObject = new JSONObject(arg1);
@@ -510,7 +510,7 @@ public class CopyOfYunshangServiceActivity extends Fragment {
 	// handler.sendEmptyMessage(0);
 	// progress.CloseProgress();
 	// } catch (JSONException e) {
-	// // TODO Auto-generated catch block
+	//
 	// e.printStackTrace();
 	// }
 	//

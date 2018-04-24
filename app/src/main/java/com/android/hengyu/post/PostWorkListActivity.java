@@ -74,7 +74,7 @@ public class PostWorkListActivity extends BaseActivity {
 				 * OnItemSelectedListener() {
 				 * 
 				 * @Override public void onItemSelected(AdapterView<?> arg0,
-				 * View arg1, int arg2, long arg3) { // TODO Auto-generated
+				 * View arg1, int arg2, long arg3) {
 				 * method stub city = new CityDB(getApplicationContext())
 				 * .getProvince(
 				 * "select name from city where provinceId =(select code from province where name='"
@@ -164,7 +164,7 @@ public class PostWorkListActivity extends BaseActivity {
 								@Override
 								public void onItemSelected(AdapterView<?> arg0,
 														   View arg1, int arg2, long arg3) {
-									// TODO Auto-generated method stub
+
 									if (work_lists.getSelectedItemPosition() == 0) {
 										JobCategoryId = "";
 									} else {
@@ -180,7 +180,7 @@ public class PostWorkListActivity extends BaseActivity {
 
 								@Override
 								public void onNothingSelected(AdapterView<?> arg0) {
-									// TODO Auto-generated method stub
+
 
 								}
 							});
@@ -190,7 +190,7 @@ public class PostWorkListActivity extends BaseActivity {
 								@Override
 								public void onItemSelected(AdapterView<?> arg0,
 														   View arg1, int arg2, long arg3) {
-									// TODO Auto-generated method stub
+
 									salaryValue = priceValue.get(work_price
 											.getSelectedItemPosition());
 									load();
@@ -198,7 +198,7 @@ public class PostWorkListActivity extends BaseActivity {
 
 								@Override
 								public void onNothingSelected(AdapterView<?> arg0) {
-									// TODO Auto-generated method stub
+
 
 								}
 							});
@@ -213,7 +213,7 @@ public class PostWorkListActivity extends BaseActivity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
-		// TODO Auto-generated method stub
+
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.post_work_list);
 		indexDo = (WorkIndexDo) getIntent().getSerializableExtra("obj");

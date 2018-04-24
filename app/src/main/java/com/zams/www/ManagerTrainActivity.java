@@ -121,7 +121,7 @@ public class ManagerTrainActivity extends BaseActivity {
 			handler.sendMessage(msg);
 
 		} catch (JSONException e) {
-			// TODO Auto-generated catch block
+
 			e.printStackTrace();
 		}
 

@@ -29,7 +29,7 @@ public class GuigeListAdapter extends BaseAdapter {
 
 	public GuigeListAdapter(Context context, List<GuigeData> list,
 							ArrayList data, ArrayList data1, ArrayList data2) {
-		// TODO Auto-generated constructor stub
+
 		this.data = data;
 		this.data1 = data1;
 		this.data2 = data2;
@@ -41,21 +41,21 @@ public class GuigeListAdapter extends BaseAdapter {
 
 	@Override
 	public int getCount() {
-		// TODO Auto-generated method stub
+
 		//		Log.i("data", "=============" + list.size());
 		return list.size();
 	}
 
 	@Override
 	public Object getItem(int position) {
-		// TODO Auto-generated method stub
+
 		return list.get(position);
 
 	}
 
 	@Override
 	public long getItemId(int position) {
-		// TODO Auto-generated method stub
+
 		return position;
 	}
 
@@ -63,7 +63,7 @@ public class GuigeListAdapter extends BaseAdapter {
 	public View getView(int position, View convertView, ViewGroup patent) {
 		try {
 			System.out.println("=====51=====================");
-			// TODO Auto-generated method stub
+
 			convertView = inflater.inflate(R.layout.guige_item, null);
 			LinearLayout addview = (LinearLayout) convertView
 					.findViewById(R.id.addview);
@@ -128,7 +128,7 @@ public class GuigeListAdapter extends BaseAdapter {
 			// addview.addView(vi);
 			// }
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 		return convertView;

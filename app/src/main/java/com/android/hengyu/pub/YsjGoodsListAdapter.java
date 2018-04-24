@@ -30,7 +30,7 @@ public class YsjGoodsListAdapter extends BaseAdapter {
 
 	public YsjGoodsListAdapter(ArrayList<GoodsListData> lists,ArrayList<shangpingListData> lists_ll,
 							   Context context,ImageLoader loader) {//ArrayList<shangpingListData> lists_ll,
-		// TODO Auto-generated constructor stub
+
 		try {
 			this.context = context;
 			this.lists = lists;
@@ -39,7 +39,7 @@ public class YsjGoodsListAdapter extends BaseAdapter {
 			this.inflater = LayoutInflater.from(context);
 
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 	}
@@ -51,19 +51,19 @@ public class YsjGoodsListAdapter extends BaseAdapter {
 
 	@Override
 	public int getCount() {
-		// TODO Auto-generated method stub
+
 		return lists.size();
 	}
 
 	@Override
 	public long getItemId(int position) {
-		// TODO Auto-generated method stub
+
 		return position;
 	}
 
 	@Override
 	public Object getItem(int position) {
-		// TODO Auto-generated method stub
+
 		return position;
 	}
 
@@ -89,7 +89,7 @@ public class YsjGoodsListAdapter extends BaseAdapter {
 
 
 			} catch (Exception e) {
-				// TODO: handle exception
+
 				e.printStackTrace();
 			}
 			//			  gridview.setOnItemClickListener(new OnItemClickListener() {
@@ -187,7 +187,7 @@ public class YsjGoodsListAdapter extends BaseAdapter {
 
 
 					} catch (Exception e) {
-						// TODO: handle exception
+
 						e.printStackTrace();
 					}
 					return inflate;
@@ -195,19 +195,19 @@ public class YsjGoodsListAdapter extends BaseAdapter {
 
 				@Override
 				public long getItemId(int position) {
-					// TODO Auto-generated method stub
+
 					return position;
 				}
 
 				@Override
 				public Object getItem(int position) {
-					// TODO Auto-generated method stub
+
 					return position;
 				}
 
 				@Override
 				public int getCount() {
-					// TODO Auto-generated method stub
+
 					return lists_ll.size();
 				}
 			});
@@ -266,7 +266,7 @@ public class YsjGoodsListAdapter extends BaseAdapter {
 			//											+ lists_ll.get(position).img_url, iv_biaoti3);
 			//						}
 			//					} catch (Exception e) {
-			//						// TODO: handle exception
+			//
 			//						e.printStackTrace();
 			//					}
 			//					return inflate;
@@ -274,24 +274,24 @@ public class YsjGoodsListAdapter extends BaseAdapter {
 			//
 			//				@Override
 			//				public long getItemId(int position) {
-			//					// TODO Auto-generated method stub
+			//
 			//					return position;
 			//				}
 			//
 			//				@Override
 			//				public Object getItem(int position) {
-			//					// TODO Auto-generated method stub
+			//
 			//					return position;
 			//				}
 			//
 			//				@Override
 			//				public int getCount() {
-			//					// TODO Auto-generated method stub
+			//
 			//					return lists_ll.size();
 			//				}
 			//			});
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 		//YangHuzsAdapter

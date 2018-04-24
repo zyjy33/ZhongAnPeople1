@@ -41,13 +41,13 @@ public class JuJingCaiAdapter extends BaseAdapter {
 	}
 
 	public int getCount() {
-		// TODO Auto-generated method stub
+
 		return List.size();
 	}
 
 	@Override
 	public Object getItem(int position) {
-		// TODO Auto-generated method stub
+
 		return List.get(position);
 	}
 
@@ -97,7 +97,7 @@ public class JuJingCaiAdapter extends BaseAdapter {
 
 				@Override
 				public void onClick(View arg0) {
-					// TODO Auto-generated method stub
+
 					try {
 						Intent intent = new Intent(mContext,
 								JuTuanGouXqActivity.class);
@@ -106,7 +106,7 @@ public class JuJingCaiAdapter extends BaseAdapter {
 						intent.putExtra("choujiang", "110");
 						mContext.startActivity(intent);
 					} catch (Exception e) {
-						// TODO: handle exception
+
 						e.printStackTrace();
 					}
 				}
@@ -117,7 +117,7 @@ public class JuJingCaiAdapter extends BaseAdapter {
 							+ List.get(position).getImg_url());
 
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 		return convertView;

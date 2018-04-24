@@ -61,7 +61,7 @@ public class WareInformationGalleryActivity extends BaseActivity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
+
 		super.onCreate(savedInstanceState);
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.ware_infromation_gallery);
@@ -85,7 +85,7 @@ public class WareInformationGalleryActivity extends BaseActivity {
 		AsyncHttp.post_1(strUrl, params, new AsyncHttpResponseHandler(){
 			@Override
 			public void onSuccess(int arg0, String arg1) {
-				// TODO Auto-generated method stub
+
 				super.onSuccess(arg0, arg1);
 				parse(arg1);
 			}
@@ -109,7 +109,7 @@ public class WareInformationGalleryActivity extends BaseActivity {
 				Log.v("data1", proDesignImg);
 			}
 		} catch (JSONException e) {
-			// TODO Auto-generated catch block
+
 			e.printStackTrace();
 		}
 	}

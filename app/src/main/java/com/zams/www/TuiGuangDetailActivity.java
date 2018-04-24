@@ -51,7 +51,7 @@ public class TuiGuangDetailActivity extends BaseActivity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
+
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.tuiguang_detail);
@@ -113,7 +113,7 @@ public class TuiGuangDetailActivity extends BaseActivity {
 
 			@Override
 			public void onClick(View arg0) {
-				// TODO Auto-generated method stub
+
 				SoftWarePopuWindow();
 			}
 		});

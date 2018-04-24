@@ -52,7 +52,7 @@ public class LieBiaoActivity extends Activity implements OnClickListener {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
+
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.common_pay_pop);
 		spPreferences = getSharedPreferences("longuserset", MODE_PRIVATE);
@@ -73,14 +73,14 @@ public class LieBiaoActivity extends Activity implements OnClickListener {
 
 			@Override
 			public void onClick(View arg0) {
-				// TODO Auto-generated method stub
+
 				finish();
 			}
 		});
 	}
 
 	private void getleibie(String parent_id) {
-		// TODO Auto-generated method stub
+
 		String channel_name = getIntent().getStringExtra("channel_name");
 		// System.out.println("=====1第二层de数据channel_name====================="+channel_name);
 		System.out.println("=====1第二层de数据=====================" + parent_id);
@@ -89,7 +89,7 @@ public class LieBiaoActivity extends Activity implements OnClickListener {
 				+ "", new AsyncHttpResponseHandler() {
 			@Override
 			public void onSuccess(int arg0, String arg1) {
-				// TODO Auto-generated method stub
+
 				super.onSuccess(arg0, arg1);
 				formatWeatherll(arg1);
 			}
@@ -162,7 +162,7 @@ public class LieBiaoActivity extends Activity implements OnClickListener {
 
 							finish();
 						} catch (Exception e) {
-							// TODO: handle exception
+
 						}
 					}
 				});
@@ -174,14 +174,14 @@ public class LieBiaoActivity extends Activity implements OnClickListener {
 			}
 
 		} catch (JSONException e) {
-			// TODO Auto-generated catch block
+
 			e.printStackTrace();
 		}
 	}
 
 	@Override
 	public void onClick(View arg0) {
-		// TODO Auto-generated method stub
+
 
 	}
 

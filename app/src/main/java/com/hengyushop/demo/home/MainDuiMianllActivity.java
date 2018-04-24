@@ -102,7 +102,7 @@ public class MainDuiMianllActivity extends BaseActivity implements OnClickListen
 	String touxiang = "";
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
+
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_mianduimian);
@@ -136,7 +136,7 @@ public class MainDuiMianllActivity extends BaseActivity implements OnClickListen
 
 	//	@Override
 	//	protected void onResume() {
-	//		// TODO Auto-generated method stub
+	//
 	//		super.onResume();
 	//		TextView tv_geshu = (TextView) findViewById(R.id.tv_geshu);
 	//		if (list.size() > 0) {
@@ -305,7 +305,7 @@ public class MainDuiMianllActivity extends BaseActivity implements OnClickListen
 							//						setListViewHeightBasedOnChildren(lv);
 							adapter.notifyDataSetChanged(); //调用notifyDataSetChanged方法
 						} catch (Exception e) {
-							// TODO: handle exception
+
 							e.printStackTrace();
 						}
 
@@ -321,7 +321,7 @@ public class MainDuiMianllActivity extends BaseActivity implements OnClickListen
 			});
 
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 
@@ -349,7 +349,7 @@ public class MainDuiMianllActivity extends BaseActivity implements OnClickListen
 	};
 
 	private void zhou() {
-		// TODO Auto-generated method stub
+
 		try {
 
 			TextView tv_geshu = (TextView) findViewById(R.id.tv_geshu);
@@ -359,14 +359,14 @@ public class MainDuiMianllActivity extends BaseActivity implements OnClickListen
 				tv_geshu.setText(geshu);
 			}
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 	}
 
 	@Override
 	public void onClick(View v) {
-		// TODO Auto-generated method stub
+
 
 		switch (v.getId()) {
 			case R.id.iv_fanhui:
@@ -425,19 +425,19 @@ public class MainDuiMianllActivity extends BaseActivity implements OnClickListen
 
 		@Override
 		public int getCount() {
-			// TODO Auto-generated method stub
+
 			return list.size();
 		}
 
 		@Override
 		public Object getItem(int position) {
-			// TODO Auto-generated method stub
+
 			return list.get(position);
 		}
 
 		@Override
 		public long getItemId(int position) {
-			// TODO Auto-generated method stub
+
 			return position;
 		}
 
@@ -458,7 +458,7 @@ public class MainDuiMianllActivity extends BaseActivity implements OnClickListen
 
 					@Override
 					public void onClick(View arg0) {
-						// TODO Auto-generated method stub
+
 						//						list.clear();
 						list.remove(position);
 						System.out.println("============="+position);
@@ -479,7 +479,7 @@ public class MainDuiMianllActivity extends BaseActivity implements OnClickListen
 								//								btn_data.setText("请添加");
 							}
 						} catch (Exception e) {
-							// TODO: handle exception
+
 							e.printStackTrace();
 						}
 						adapter.notifyDataSetChanged();

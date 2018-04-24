@@ -20,7 +20,7 @@ public class TelListener extends PhoneStateListener {
 
     @Override
     public void onCallStateChanged(int state, String incomingNumber) {
-        // TODO Auto-generated method stub
+
         super.onCallStateChanged(state, incomingNumber);
         if(state == TelephonyManager.CALL_STATE_RINGING){
 

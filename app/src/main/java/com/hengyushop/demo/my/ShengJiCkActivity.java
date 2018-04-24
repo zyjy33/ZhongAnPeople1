@@ -140,7 +140,7 @@ public class ShengJiCkActivity extends BaseActivity implements OnClickListener {
 	ImageLoader imageLoader;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
+
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_shengji_chuangke);
@@ -159,7 +159,7 @@ public class ShengJiCkActivity extends BaseActivity implements OnClickListener {
 
 	@Override
 	protected void onResume() {
-		// TODO Auto-generated method stub
+
 		super.onResume();
 		//		userpanduan();
 		//		tv_mobile = (TextView) findViewById(R.id.tv_mobile);
@@ -294,7 +294,7 @@ public class ShengJiCkActivity extends BaseActivity implements OnClickListener {
 					bean = null;
 					getdizhishen();
 				} catch (JSONException e) {
-					// TODO Auto-generated catch block
+
 					e.printStackTrace();
 				}
 			};
@@ -306,7 +306,7 @@ public class ShengJiCkActivity extends BaseActivity implements OnClickListener {
 	 * 获取省份
 	 */
 	private void getdizhishen() {
-		// TODO Auto-generated method stub
+
 		list_1 = new ArrayList<DizhiData>();
 		list_shen = new ArrayList<String>();
 		list_code1 = new ArrayList<String>();
@@ -374,7 +374,7 @@ public class ShengJiCkActivity extends BaseActivity implements OnClickListener {
 	 * 获取城市
 	 */
 	private void getdizhishi(String code) {
-		// TODO Auto-generated method stub
+
 		try {
 
 			list_2 = new ArrayList<DizhiData>();
@@ -437,7 +437,7 @@ public class ShengJiCkActivity extends BaseActivity implements OnClickListener {
 					}, null);
 
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 	}
@@ -446,7 +446,7 @@ public class ShengJiCkActivity extends BaseActivity implements OnClickListener {
 	 * 获取地区
 	 */
 	private void gedizhidiqu(String code) {
-		// TODO Auto-generated method stub
+
 		try {
 			list_3 = new ArrayList<DizhiData>();
 			list_diqu = new ArrayList<String>();
@@ -499,7 +499,7 @@ public class ShengJiCkActivity extends BaseActivity implements OnClickListener {
 
 					}, null);
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 	}
@@ -536,7 +536,7 @@ public class ShengJiCkActivity extends BaseActivity implements OnClickListener {
 						aa_area.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 						sp_xian.setAdapter(aa_area);
 					} catch (Exception e) {
-						// TODO: handle exception
+
 						e.printStackTrace();
 					}
 					break;
@@ -553,7 +553,7 @@ public class ShengJiCkActivity extends BaseActivity implements OnClickListener {
 			@Override
 			public void onItemSelected(AdapterView<?> arg0, View arg1,
 									   int arg2, long arg3) {
-				// TODO Auto-generated method stub
+
 				try {
 					//				System.out.println("arg2================================="+arg2);
 					//				int num = arg2-1;
@@ -573,7 +573,7 @@ public class ShengJiCkActivity extends BaseActivity implements OnClickListener {
 					}
 
 				} catch (Exception e) {
-					// TODO: handle exception
+
 					e.printStackTrace();
 				}
 
@@ -581,7 +581,7 @@ public class ShengJiCkActivity extends BaseActivity implements OnClickListener {
 
 			@Override
 			public void onNothingSelected(AdapterView<?> arg0) {
-				// TODO Auto-generated method stub
+
 			}
 		});
 
@@ -590,7 +590,7 @@ public class ShengJiCkActivity extends BaseActivity implements OnClickListener {
 			@Override
 			public void onItemSelected(AdapterView<?> arg0, View arg1,
 									   int arg2, long arg3) {
-				// TODO Auto-generated method stub
+
 				try {
 					shi = list_shi.get(arg2);
 					System.out.println("shi================================="+shi);
@@ -606,13 +606,13 @@ public class ShengJiCkActivity extends BaseActivity implements OnClickListener {
 					}
 
 				} catch (Exception e) {
-					// TODO: handle exception
+
 					e.printStackTrace();
 				}
 			}
 			@Override
 			public void onNothingSelected(AdapterView<?> arg0) {
-				// TODO Auto-generated method stub
+
 			}
 		});
 
@@ -621,7 +621,7 @@ public class ShengJiCkActivity extends BaseActivity implements OnClickListener {
 			@Override
 			public void onItemSelected(AdapterView<?> arg0, View arg1,
 									   int arg2, long arg3) {
-				// TODO Auto-generated method stub
+
 				try {
 					//					System.out.println("list_3================================="+list_3.size());
 					xian = list_diqu.get(arg2);
@@ -640,14 +640,14 @@ public class ShengJiCkActivity extends BaseActivity implements OnClickListener {
 						area = null;
 					}
 				} catch (Exception e) {
-					// TODO: handle exception
+
 					e.printStackTrace();
 				}
 			}
 
 			@Override
 			public void onNothingSelected(AdapterView<?> arg0) {
-				// TODO Auto-generated method stub
+
 			}
 		});
 
@@ -658,7 +658,7 @@ public class ShengJiCkActivity extends BaseActivity implements OnClickListener {
 
 	@Override
 	public void onClick(View v) {
-		// TODO Auto-generated method stub
+
 
 		switch (v.getId()) {
 			case R.id.regise_tip:
@@ -820,7 +820,7 @@ public class ShengJiCkActivity extends BaseActivity implements OnClickListener {
 							AsyncHttp.get(strUrlone, new AsyncHttpResponseHandler() {
 								@Override
 								public void onSuccess(int arg0, String arg1) {
-									// TODO Auto-generated method stub
+
 									super.onSuccess(arg0, arg1);
 									try {
 										JSONObject jsonObject = new JSONObject(arg1);
@@ -848,7 +848,7 @@ public class ShengJiCkActivity extends BaseActivity implements OnClickListener {
 										}
 
 									} catch (Exception e) {
-										// TODO: handle exception
+
 										e.printStackTrace();
 									}
 
@@ -856,7 +856,7 @@ public class ShengJiCkActivity extends BaseActivity implements OnClickListener {
 
 								@Override
 								public void onFailure(Throwable arg0, String arg1) {
-									// TODO Auto-generated method stub
+
 									super.onFailure(arg0, arg1);
 									Toast.makeText(ShengJiCkActivity.this,"异常", 200).show();
 								}
@@ -865,7 +865,7 @@ public class ShengJiCkActivity extends BaseActivity implements OnClickListener {
 
 
 						} catch (Exception e1) {
-							// TODO Auto-generated catch block
+
 							e1.printStackTrace();
 						}
 
@@ -875,7 +875,7 @@ public class ShengJiCkActivity extends BaseActivity implements OnClickListener {
 					}
 
 				} catch (Exception e) {
-					// TODO: handle exception
+
 					e.printStackTrace();
 				}
 
@@ -1052,10 +1052,10 @@ public class ShengJiCkActivity extends BaseActivity implements OnClickListener {
 										try {
 											client.upload(time + ".jpg", fis, 0, 0, null);
 										} catch (FTPDataTransferException e) {
-											// TODO Auto-generated catch block
+
 											e.printStackTrace();
 										} catch (FTPAbortedException e) {
-											// TODO Auto-generated catch block
+
 											e.printStackTrace();
 										}
 										fis.close();
@@ -1094,7 +1094,7 @@ public class ShengJiCkActivity extends BaseActivity implements OnClickListener {
 						}.start();
 
 					} catch (Exception e) {
-						// TODO: handle exception
+
 						e.printStackTrace();
 					}
 
@@ -1264,10 +1264,10 @@ public class ShengJiCkActivity extends BaseActivity implements OnClickListener {
 									try {
 										client.upload(time + ".jpg", fis, 0, 0, null);
 									} catch (FTPDataTransferException e) {
-										// TODO Auto-generated catch block
+
 										e.printStackTrace();
 									} catch (FTPAbortedException e) {
-										// TODO Auto-generated catch block
+
 										e.printStackTrace();
 									}
 									fis.close();
@@ -1297,7 +1297,7 @@ public class ShengJiCkActivity extends BaseActivity implements OnClickListener {
 					}.start();
 
 				} catch (Exception e) {
-					// TODO: handle exception
+
 					e.printStackTrace();
 				}
 			}

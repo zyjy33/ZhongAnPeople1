@@ -37,7 +37,7 @@ public class MianDuiMianGhztActivity extends BaseActivity implements
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
+
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_mainduimian_ghzt);
@@ -59,7 +59,7 @@ public class MianDuiMianGhztActivity extends BaseActivity implements
 			bd2.setCallback(null);
 			bd2.getBitmap().recycle();
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 	};
@@ -102,14 +102,14 @@ public class MianDuiMianGhztActivity extends BaseActivity implements
 			iv_qr_image1.setOnClickListener(this);
 			iv_qr_image2.setOnClickListener(this);
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 	}
 
 	@Override
 	public void onClick(View v) {
-		// TODO Auto-generated method stub
+
 
 		switch (v.getId()) {
 			case R.id.iv_fanhui:
@@ -132,7 +132,7 @@ public class MianDuiMianGhztActivity extends BaseActivity implements
 					MainDuiMianPromoteActivity.handler.sendEmptyMessage(1);
 					finish();
 				} catch (Exception e) {
-					// TODO: handle exception
+
 					e.printStackTrace();
 				}
 				break;
@@ -152,7 +152,7 @@ public class MianDuiMianGhztActivity extends BaseActivity implements
 					MainDuiMianPromoteActivity.handler.sendEmptyMessage(1);
 					finish();
 				} catch (Exception e) {
-					// TODO: handle exception
+
 					e.printStackTrace();
 				}
 				break;

@@ -56,7 +56,6 @@ public class Circleview extends ImageView {
 		thread = new Thread() {
 			@Override
 			public void run() {
-				// TODO Auto-generated method stub
 				super.run();
 
 				try {
@@ -109,7 +108,6 @@ public class Circleview extends ImageView {
 
 	@Override
 	protected void onDraw(Canvas canvas) {
-		// TODO Auto-generated method stub
 		super.onDraw(canvas);
 
 		matx.reset();

@@ -150,7 +150,7 @@ public class ZhongAnMinShenActivity extends Fragment implements OnClickListener 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
+
 		View layout = inflater
 				.inflate(R.layout.activity_huodong_fragment, null);//
 		// View layout = inflater.inflate(R.layout.hengyu_activity, null);//
@@ -186,7 +186,7 @@ public class ZhongAnMinShenActivity extends Fragment implements OnClickListener 
 			// load_list(true);
 			load_list();
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 		return layout;
@@ -240,7 +240,7 @@ public class ZhongAnMinShenActivity extends Fragment implements OnClickListener 
 
 			@Override
 			public boolean onEditorAction(TextView arg0, int arg1, KeyEvent arg2) {
-				// TODO Auto-generated method stub
+
 				if (arg1 == EditorInfo.IME_ACTION_SEARCH) {
 					// Toast.makeText(getActivity(),"呵呵",Toast.LENGTH_SHORT).show();
 					Intent intent = new Intent(getActivity(),
@@ -330,13 +330,13 @@ public class ZhongAnMinShenActivity extends Fragment implements OnClickListener 
 						}
 
 					} catch (Exception e) {
-						// TODO: handle exception
+
 						e.printStackTrace();
 					}
 				}
 			});
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 		// //广告滚动
@@ -377,7 +377,7 @@ public class ZhongAnMinShenActivity extends Fragment implements OnClickListener 
 		//
 		// @Override
 		// public boolean onTouch(View arg0, MotionEvent arg1) {
-		// // TODO Auto-generated method stub
+		//
 		// switch (arg1.getAction()) {
 		// case MotionEvent.ACTION_MOVE:
 		// System.out.println("滑动" + arg0.getScrollY());
@@ -444,7 +444,7 @@ public class ZhongAnMinShenActivity extends Fragment implements OnClickListener 
 			@Override
 			public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
 					long arg3) {
-				// TODO Auto-generated method stub
+
 				try {
 					if (!nickname.equals("")) {
 						if (!user_name.equals("")) {
@@ -471,7 +471,7 @@ public class ZhongAnMinShenActivity extends Fragment implements OnClickListener 
 					}
 
 				} catch (Exception e) {
-					// TODO: handle exception
+
 					e.printStackTrace();
 				}
 			}
@@ -486,7 +486,7 @@ public class ZhongAnMinShenActivity extends Fragment implements OnClickListener 
 	//
 	// @Override
 	// public void onHeaderRefresh(PullToRefreshView view) {
-	// // TODO Auto-generated method stub
+	//
 	// refresh.postDelayed(new Runnable() {
 	//
 	// @Override
@@ -505,7 +505,7 @@ public class ZhongAnMinShenActivity extends Fragment implements OnClickListener 
 	//
 	// @Override
 	// public void onFooterRefresh(PullToRefreshView view) {
-	// // TODO Auto-generated method stub
+	//
 	// refresh.postDelayed(new Runnable() {
 	//
 	// @Override
@@ -515,7 +515,7 @@ public class ZhongAnMinShenActivity extends Fragment implements OnClickListener 
 	// refresh.onFooterRefreshComplete();
 	//
 	// } catch (Exception e) {
-	// // TODO: handle exception
+	//
 	// e.printStackTrace();
 	// }
 	// }
@@ -546,7 +546,7 @@ public class ZhongAnMinShenActivity extends Fragment implements OnClickListener 
 
 	@Override
 	public void onResume() {
-		// TODO Auto-generated method stub
+
 		super.onResume();
 		
 		System.out.println("MyPosterView.type=======1=========="+MyPosterView.type);
@@ -592,7 +592,7 @@ public class ZhongAnMinShenActivity extends Fragment implements OnClickListener 
 	}
 
 	private void getjianche() {
-		// TODO Auto-generated method stub
+
 		SharedPreferences spPreferences_login = getActivity()
 				.getSharedPreferences("longuserset_login", Context.MODE_PRIVATE);
 		nickname = spPreferences_login.getString("nickname", "");
@@ -718,7 +718,7 @@ public class ZhongAnMinShenActivity extends Fragment implements OnClickListener 
 					}
 					getuserxinxi();
 				} catch (JSONException e) {
-					// TODO Auto-generated catch block
+
 					e.printStackTrace();
 				}
 
@@ -728,7 +728,7 @@ public class ZhongAnMinShenActivity extends Fragment implements OnClickListener 
 	}
 
 	private void getuserxinxi() {
-		// TODO Auto-generated method stub
+
 		try {
 
 			spPreferences = getActivity().getSharedPreferences("longuserset",
@@ -756,7 +756,7 @@ public class ZhongAnMinShenActivity extends Fragment implements OnClickListener 
 			System.out.println("======group_id======1=======" + group_id);
 
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 	}
@@ -777,7 +777,7 @@ public class ZhongAnMinShenActivity extends Fragment implements OnClickListener 
 				// public void onItemClick(AdapterView<?> arg0, View arg1, int
 				// arg2,
 				// long arg3) {
-				// // TODO Auto-generated method stub
+				//
 				// try {
 				// if (!nickname.equals("")) {
 				// if (!user_name.equals("")) {
@@ -804,7 +804,7 @@ public class ZhongAnMinShenActivity extends Fragment implements OnClickListener 
 				// }
 				//
 				// } catch (Exception e) {
-				// // TODO: handle exception
+				//
 				// e.printStackTrace();
 				// }
 				// }
@@ -820,7 +820,7 @@ public class ZhongAnMinShenActivity extends Fragment implements OnClickListener 
 					startActivity(intent13);
 
 				} catch (Exception e) {
-					// TODO: handle exception
+
 					e.printStackTrace();
 				}
 				break;
@@ -847,7 +847,7 @@ public class ZhongAnMinShenActivity extends Fragment implements OnClickListener 
 									FenXiangActivity.class);
 							startActivity(intentll);
 						} catch (Exception e) {
-							// TODO: handle exception
+
 							e.printStackTrace();
 						}
 					}
@@ -861,7 +861,7 @@ public class ZhongAnMinShenActivity extends Fragment implements OnClickListener 
 
 	@Override
 	public void onClick(View arg0) {
-		// TODO Auto-generated method stub
+
 		switch (arg0.getId()) {
 		case R.id.index_item0:
 			// if (!nickname.equals("")) {
@@ -921,7 +921,7 @@ public class ZhongAnMinShenActivity extends Fragment implements OnClickListener 
 						new AsyncHttpResponseHandler() {
 							@Override
 							public void onSuccess(int arg0, String arg1) {
-								// TODO Auto-generated method stub
+
 								super.onSuccess(arg0, arg1);
 								System.out.println("活动列表====================="
 										+ arg1);
@@ -982,7 +982,7 @@ public class ZhongAnMinShenActivity extends Fragment implements OnClickListener 
 										CURRENT_NUM = CURRENT_NUM + 1;
 									}
 								} catch (JSONException e) {
-									// TODO Auto-generated catch block
+
 									e.printStackTrace();
 								}
 							}
@@ -1009,7 +1009,7 @@ public class ZhongAnMinShenActivity extends Fragment implements OnClickListener 
 							new AsyncHttpResponseHandler() {
 								@Override
 								public void onSuccess(int arg0, String arg1) {
-									// TODO Auto-generated method stub
+
 									super.onSuccess(arg0, arg1);
 									System.out.println("输出聚精彩列表========="
 											+ arg1);
@@ -1072,7 +1072,7 @@ public class ZhongAnMinShenActivity extends Fragment implements OnClickListener 
 												ZamsHuoDong1Adapter.mAq.clear();
 
 											} catch (Exception e) {
-												// TODO: handle exception
+
 												e.printStackTrace();
 											}
 										} else {
@@ -1081,14 +1081,14 @@ public class ZhongAnMinShenActivity extends Fragment implements OnClickListener 
 										}
 
 									} catch (JSONException e) {
-										// TODO Auto-generated catch block
+
 										e.printStackTrace();
 									}
 								}
 
 							}, getActivity());
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 	}
@@ -1106,14 +1106,14 @@ public class ZhongAnMinShenActivity extends Fragment implements OnClickListener 
 						new AsyncHttpResponseHandler() {
 							@Override
 							public void onSuccess(int arg0, String arg1) {
-								// TODO Auto-generated method stub
+
 								super.onSuccess(arg0, arg1);
 								parse2(arg1);
 							}
 
 							@Override
 							public void onFailure(Throwable arg0, String arg1) {
-								// TODO Auto-generated method stub
+
 								super.onFailure(arg0, arg1);
 								try {
 									System.out
@@ -1126,7 +1126,7 @@ public class ZhongAnMinShenActivity extends Fragment implements OnClickListener 
 									// Toast.makeText(getActivity(), "超时异常",
 									// 200).show();
 								} catch (Exception e) {
-									// TODO: handle exception
+
 									e.printStackTrace();
 								}
 							}
@@ -1180,7 +1180,7 @@ public class ZhongAnMinShenActivity extends Fragment implements OnClickListener 
 			childHandler.sendMessage(msg);
 
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 	}
@@ -1204,7 +1204,7 @@ public class ZhongAnMinShenActivity extends Fragment implements OnClickListener 
 					advPager.setData(urls, new MyPosterOnClick() {
 						@Override
 						public void onMyclick(int position) {
-							// TODO Auto-generated method stub
+
 							// String link_url =
 							// tempss.get(position).getLink_url();
 							// System.out.println("link_url=============" +
@@ -1251,13 +1251,13 @@ public class ZhongAnMinShenActivity extends Fragment implements OnClickListener 
 								}
 
 							} catch (Exception e) {
-								// TODO: handle exception
+
 								e.printStackTrace();
 							}
 						}
 					}, true, imageLoader, true);
 				} catch (Exception e) {
-					// TODO: handle exception
+
 					e.printStackTrace();
 				}
 				break;

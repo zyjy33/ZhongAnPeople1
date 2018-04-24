@@ -73,7 +73,7 @@ public class YunCommunityActivity extends Fragment {
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 							 Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
+
 		View layout = inflater.inflate(R.layout.activity_yun_community, null);
 		progress = new DialogProgress(getActivity());
 
@@ -97,7 +97,7 @@ public class YunCommunityActivity extends Fragment {
 		//
 		//			@Override
 		//			public void onClick(View arg0) {
-		//				// TODO Auto-generated method stub
+		//
 		//				ID = Integer.parseInt(list_ll.get(arg2).getId());
 		//				dialog(ID);
 		//			}
@@ -128,7 +128,7 @@ public class YunCommunityActivity extends Fragment {
 		//			@Override
 		//			public boolean onItemLongClick(AdapterView<?> arg0, View arg1,
 		//					int arg2, long arg3) {
-		//				// TODO Auto-generated method stub
+		//
 		//				Toast.makeText(getActivity(),"请勾选要下单的商品", 200).show();
 		////				ID = Integer.parseInt(list_ll.get(arg2).getId());
 		////				dialog(ID);
@@ -152,7 +152,7 @@ public class YunCommunityActivity extends Fragment {
 						String total_c = MyShopingCartllAdapter.total_c;
 						tv_endmoney.setText("￥" + total_c);
 					} catch (Exception e) {
-						// TODO: handle exception
+
 						e.printStackTrace();
 					}
 					break;
@@ -167,7 +167,7 @@ public class YunCommunityActivity extends Fragment {
 							Toast.makeText(getActivity(),"请勾选要下单的商品", 200).show();
 						}
 					} catch (Exception e) {
-						// TODO: handle exception
+
 						e.printStackTrace();
 					}
 
@@ -177,7 +177,7 @@ public class YunCommunityActivity extends Fragment {
 						String total_cll = MyShopingCartllAdapter.total_c;
 						tv_endmoney.setText("￥" + total_cll);
 					} catch (Exception e) {
-						// TODO: handle exception
+
 						e.printStackTrace();
 					}
 					break;
@@ -186,7 +186,7 @@ public class YunCommunityActivity extends Fragment {
 						//				String[] orderid = (String[]) msg.obj;
 						//				System.out.println("数组值11=================="+orderid);
 					} catch (Exception e) {
-						// TODO: handle exception
+
 						e.printStackTrace();
 					}
 					break;
@@ -212,7 +212,7 @@ public class YunCommunityActivity extends Fragment {
 				,new AsyncHttpResponseHandler() {
 					@Override
 					public void onSuccess(int arg0,String arg1) {
-						// TODO Auto-generated method stub
+
 						super.onSuccess(arg0, arg1);
 						try {
 							JSONObject jsonObject = new JSONObject(arg1);
@@ -256,7 +256,7 @@ public class YunCommunityActivity extends Fragment {
 							handler.sendEmptyMessage(0);
 							progress.CloseProgress();
 						} catch (JSONException e) {
-							// TODO Auto-generated catch block
+
 							e.printStackTrace();
 						}
 

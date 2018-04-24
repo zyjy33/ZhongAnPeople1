@@ -110,7 +110,7 @@ public class OneBuyInformation extends BaseActivity {
 							textView.setOnClickListener(new OnClickListener() {
 								@Override
 								public void onClick(View arg0) {
-									// TODO Auto-generated method stub
+
 									Intent intent = new Intent(
 											OneBuyInformation.this,
 											One_JiexiaoActivity.class);
@@ -156,7 +156,7 @@ public class OneBuyInformation extends BaseActivity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
+
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.market_information_layout);
@@ -182,7 +182,7 @@ public class OneBuyInformation extends BaseActivity {
 
 			@Override
 			public void onClick(View arg0) {
-				// TODO Auto-generated method stub
+
 				System.out.println("点击");
 				// Intent intent = new
 				// Intent(OneBuyInformation.this,ShoppingCart1Activity.class);
@@ -223,7 +223,7 @@ public class OneBuyInformation extends BaseActivity {
 
 						@Override
 						public void onClick(View arg0) {
-							// TODO Auto-generated method stub
+
 							Intent intent = new Intent(OneBuyInformation.this,
 									WareInformationDetailsActivity.class);
 							Bundle bundle = new Bundle();
@@ -237,7 +237,7 @@ public class OneBuyInformation extends BaseActivity {
 					.setOnClickListener(new OnClickListener() {
 						@Override
 						public void onClick(View arg0) {
-							// TODO Auto-generated method stub
+
 							Intent intent = new Intent(OneBuyInformation.this,
 									OneAllActivity.class);
 							Bundle bundle = new Bundle();
@@ -259,7 +259,7 @@ public class OneBuyInformation extends BaseActivity {
 
 				@Override
 				public void onClick(View arg0) {
-					// TODO Auto-generated method stub
+
 
 					addNow();
 
@@ -419,7 +419,7 @@ public class OneBuyInformation extends BaseActivity {
 							@Override
 							public void onCheckedChanged(RadioGroup arg0,
 														 int arg1) {
-								// TODO Auto-generated method stub
+
 								int index = arg0.getId();
 								for (int o = 0; o < listButtons.get(index).length; o++) {
 									if (listButtons.get(index)[o].getId() == arg1) {
@@ -487,7 +487,7 @@ public class OneBuyInformation extends BaseActivity {
 						AsyncHttp.get(str1, new AsyncHttpResponseHandler() {
 							@Override
 							public void onSuccess(int arg0, String arg1) {
-								// TODO Auto-generated method stub
+
 								super.onSuccess(arg0, arg1);
 								Message message = new Message();
 								message.what = 1;
@@ -558,7 +558,7 @@ public class OneBuyInformation extends BaseActivity {
 															handler.sendMessage(message);
 														}
 													} catch (JSONException e) {
-														// TODO Auto-generated
+
 														// catch block
 														e.printStackTrace();
 													}
@@ -566,7 +566,7 @@ public class OneBuyInformation extends BaseActivity {
 											}, getApplicationContext());
 
 								} catch (Exception e) {
-									// TODO Auto-generated catch block
+
 									e.printStackTrace();
 								}
 							};
@@ -592,7 +592,7 @@ public class OneBuyInformation extends BaseActivity {
 					AsyncHttp.get(str3, new AsyncHttpResponseHandler() {
 						@Override
 						public void onSuccess(int arg0, String arg1) {
-							// TODO Auto-generated method stub
+
 							super.onSuccess(arg0, arg1);
 							Message message = new Message();
 							message.what = 1;
@@ -602,7 +602,7 @@ public class OneBuyInformation extends BaseActivity {
 				} else {
 					new Thread() {
 						public void run() {
-							// TODO Auto-generated method stub
+
 							str4 = RealmName.REALM_NAME
 									+ "/mi/receiveOrderInfo.ashx?"
 									+ "act=InsertOneProductOrderItem&yth="
@@ -622,7 +622,7 @@ public class OneBuyInformation extends BaseActivity {
 											@Override
 											public void onSuccess(int arg0,
 																  String arg1) {
-												// TODO Auto-generated method
+												  method
 												// stub
 												super.onSuccess(arg0, arg1);
 												try {
@@ -649,7 +649,7 @@ public class OneBuyInformation extends BaseActivity {
 														handler.sendMessage(message);
 													}
 												} catch (JSONException e) {
-													// TODO Auto-generated catch
+													  catch
 													// block
 													e.printStackTrace();
 												}
@@ -657,7 +657,7 @@ public class OneBuyInformation extends BaseActivity {
 										}, getApplicationContext());
 
 							} catch (Exception e) {
-								// TODO Auto-generated catch block
+
 								e.printStackTrace();
 							}
 						}
@@ -689,7 +689,7 @@ public class OneBuyInformation extends BaseActivity {
 						AsyncHttp.get(str5, new AsyncHttpResponseHandler() {
 							@Override
 							public void onSuccess(int arg0, String arg1) {
-								// TODO Auto-generated method stub
+
 								super.onSuccess(arg0, arg1);
 								Message message = new Message();
 								message.what = 1;
@@ -701,7 +701,7 @@ public class OneBuyInformation extends BaseActivity {
 						new Thread() {
 							@Override
 							public void run() {
-								// TODO Auto-generated method stub
+
 								super.run();
 								try {
 									str6 = RealmName.REALM_NAME
@@ -728,7 +728,7 @@ public class OneBuyInformation extends BaseActivity {
 												@Override
 												public void onSuccess(int arg0,
 																	  String arg1) {
-													// TODO Auto-generated
+
 													// method stub
 													super.onSuccess(arg0, arg1);
 													try {
@@ -756,7 +756,7 @@ public class OneBuyInformation extends BaseActivity {
 															handler.sendEmptyMessage(1);
 														}
 													} catch (JSONException e) {
-														// TODO Auto-generated
+
 														// catch block
 														e.printStackTrace();
 													}
@@ -764,7 +764,7 @@ public class OneBuyInformation extends BaseActivity {
 											}, getApplicationContext());
 
 								} catch (Exception e) {
-									// TODO: handle exception
+
 									e.printStackTrace();
 								}
 							}

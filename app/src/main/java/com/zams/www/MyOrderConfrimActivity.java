@@ -152,7 +152,7 @@ public class MyOrderConfrimActivity extends BaseActivity {
 
 	@Override
 	protected void onResume() {
-		// TODO Auto-generated method stub
+
 		super.onResume();
 		try {
 
@@ -289,14 +289,14 @@ public class MyOrderConfrimActivity extends BaseActivity {
 			// }
 
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 	}
 
 	// @Override
 	// protected void onDestroy() {
-	// // TODO Auto-generated method stub
+	//
 	// super.onDestroy();
 	// }
 
@@ -304,7 +304,7 @@ public class MyOrderConfrimActivity extends BaseActivity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
+
 		try {
 
 			requestWindowFeature(Window.FEATURE_NO_TITLE);
@@ -337,7 +337,7 @@ public class MyOrderConfrimActivity extends BaseActivity {
 			};
 			initdata();
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 	}
@@ -367,7 +367,7 @@ public class MyOrderConfrimActivity extends BaseActivity {
 					}
 					load_list(true);
 				} catch (JSONException e) {
-					// TODO Auto-generated catch block
+
 					e.printStackTrace();
 				}
 			};
@@ -375,7 +375,7 @@ public class MyOrderConfrimActivity extends BaseActivity {
 	}
 
 	private void gethongbao() {
-		// TODO Auto-generated method stub
+
 
 		/**
 		 * 判断是否使用红包
@@ -446,7 +446,7 @@ public class MyOrderConfrimActivity extends BaseActivity {
 							tv_jiaguo.setText("￥"+dzongjia+" , "+heji_quantity+"件，红包可抵扣: ￥"+packet+"元");
 						}
 					} catch (Exception e) {
-						// TODO: handle exception
+
 						e.printStackTrace();
 					}
 					//				if (hongbao.equals("0.0")) {
@@ -594,7 +594,7 @@ public class MyOrderConfrimActivity extends BaseActivity {
 			}
 
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 
@@ -676,7 +676,7 @@ public class MyOrderConfrimActivity extends BaseActivity {
 
 				@Override
 				public void onClick(View arg0) {
-					// TODO Auto-generated method stub
+
 					finish();
 
 				}
@@ -759,7 +759,7 @@ public class MyOrderConfrimActivity extends BaseActivity {
 			});
 
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 
@@ -771,7 +771,7 @@ public class MyOrderConfrimActivity extends BaseActivity {
 
 			@Override
 			public void onClick(View arg0) {
-				// TODO Auto-generated method stub
+
 				yu_pay_c1.setChecked(false);
 				yu_pay_c2.setChecked(false);
 				yu_pay_c0.setChecked(true);
@@ -784,7 +784,7 @@ public class MyOrderConfrimActivity extends BaseActivity {
 
 			@Override
 			public void onClick(View arg0) {
-				// TODO Auto-generated method stub
+
 				// 点击设置是否为点击状态
 				yu_pay_c1.setChecked(false);
 				yu_pay_c2.setChecked(false);
@@ -801,7 +801,7 @@ public class MyOrderConfrimActivity extends BaseActivity {
 
 			@Override
 			public void onClick(View arg0) {
-				// TODO Auto-generated method stub
+
 				yu_pay_c0.setChecked(false);
 				yu_pay_c1.setChecked(true);
 				yu_pay_c2.setChecked(false);
@@ -814,7 +814,7 @@ public class MyOrderConfrimActivity extends BaseActivity {
 
 			@Override
 			public void onClick(View arg0) {
-				// TODO Auto-generated method stub
+
 				yu_pay_c0.setChecked(false);
 				yu_pay_c1.setChecked(true);
 				yu_pay_c2.setChecked(false);
@@ -832,7 +832,7 @@ public class MyOrderConfrimActivity extends BaseActivity {
 
 			@Override
 			public void onClick(View arg0) {
-				// TODO Auto-generated method stub
+
 				yu_pay_c0.setChecked(false);
 				yu_pay_c1.setChecked(false);
 				yu_pay_c2.setChecked(true);
@@ -844,7 +844,7 @@ public class MyOrderConfrimActivity extends BaseActivity {
 
 			@Override
 			public void onClick(View arg0) {
-				// TODO Auto-generated method stub
+
 				yu_pay_c0.setChecked(false);
 				yu_pay_c1.setChecked(false);
 				yu_pay_c2.setChecked(true);
@@ -861,7 +861,7 @@ public class MyOrderConfrimActivity extends BaseActivity {
 
 			@Override
 			public void onClick(View arg0) {
-				// TODO Auto-generated method stub
+
 				System.out.println("user_accept_name======11========"
 						+ user_accept_name);
 				if (user_accept_name == null) {
@@ -877,7 +877,7 @@ public class MyOrderConfrimActivity extends BaseActivity {
 						//
 						//									@Override
 						//									public void onClick(int resID) {
-						//										// TODO Auto-generated method stub
+						//
 						//										switch (resID) {
 						//										case R.id.item0:
 						//											// 余额支付
@@ -906,7 +906,7 @@ public class MyOrderConfrimActivity extends BaseActivity {
 						//								}, cancelListener, null);
 
 					} catch (Exception e) {
-						// TODO: handle exception
+
 						e.printStackTrace();
 					}
 				}
@@ -938,14 +938,14 @@ public class MyOrderConfrimActivity extends BaseActivity {
 						} else {
 						}
 					} catch (JSONException e) {
-						// TODO Auto-generated catch block
+
 						e.printStackTrace();
 					}
 				};
 			}, MyOrderConfrimActivity.this);
 
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 	}
@@ -967,7 +967,7 @@ public class MyOrderConfrimActivity extends BaseActivity {
 				@Override
 				public void onSuccess(int arg0, String arg1) {
 
-					// TODO Auto-generated method stub
+
 					super.onSuccess(arg0, arg1);
 					try {
 						JSONObject jsonObject = new JSONObject(arg1);
@@ -1025,7 +1025,7 @@ public class MyOrderConfrimActivity extends BaseActivity {
 								progress.CloseProgress();
 								layout0.setVisibility(View.VISIBLE);
 							} catch (JSONException e) {
-								// TODO Auto-generated catch block
+
 								progress.CloseProgress();
 								e.printStackTrace();
 							}
@@ -1036,7 +1036,7 @@ public class MyOrderConfrimActivity extends BaseActivity {
 						}
 
 					} catch (JSONException e) {
-						// TODO Auto-generated catch block
+
 						progress.CloseProgress();
 						e.printStackTrace();
 					}
@@ -1045,7 +1045,7 @@ public class MyOrderConfrimActivity extends BaseActivity {
 			}, getApplicationContext());
 
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 
@@ -1068,7 +1068,7 @@ public class MyOrderConfrimActivity extends BaseActivity {
 		AsyncHttp.get(url, new AsyncHttpResponseHandler() {
 			@Override
 			public void onSuccess(int arg0, String arg1) {
-				// TODO Auto-generated method stub
+
 				super.onSuccess(arg0, arg1);
 				System.out.println("=====================二级值1" + arg1);
 				try {
@@ -1150,7 +1150,7 @@ public class MyOrderConfrimActivity extends BaseActivity {
 							System.out.println("dzongjia---------------"
 									+ dzongjia);
 						} catch (Exception e) {
-							// TODO: handle exception
+
 							e.printStackTrace();
 						}
 
@@ -1190,7 +1190,7 @@ public class MyOrderConfrimActivity extends BaseActivity {
 						CURRENT_NUM = 1;
 					}
 				} catch (JSONException e) {
-					// TODO Auto-generated catch block
+
 					e.printStackTrace();
 				}
 			}
@@ -1205,7 +1205,7 @@ public class MyOrderConfrimActivity extends BaseActivity {
 				new AsyncHttpResponseHandler() {
 					@Override
 					public void onSuccess(int arg0, String arg1) {
-						// TODO Auto-generated method stub
+
 						super.onSuccess(arg0, arg1);
 						System.out.println("输出所有拼团活动列表=========" + arg1);
 						try {
@@ -1334,7 +1334,7 @@ public class MyOrderConfrimActivity extends BaseActivity {
 									gethongbao();
 
 								} catch (Exception e) {
-									// TODO: handle exception
+
 									e.printStackTrace();
 								}
 								progress.CloseProgress();
@@ -1342,7 +1342,7 @@ public class MyOrderConfrimActivity extends BaseActivity {
 								progress.CloseProgress();
 							}
 						} catch (JSONException e) {
-							// TODO Auto-generated catch block
+
 							e.printStackTrace();
 						}
 					}
@@ -1446,7 +1446,7 @@ public class MyOrderConfrimActivity extends BaseActivity {
 							}
 
 						} catch (Exception e) {
-							// TODO: handle exception
+
 							e.printStackTrace();
 						}
 
@@ -1458,7 +1458,7 @@ public class MyOrderConfrimActivity extends BaseActivity {
 			}, getApplicationContext());
 
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 	}
@@ -1491,7 +1491,7 @@ public class MyOrderConfrimActivity extends BaseActivity {
 						// list_shop_cart.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
 
 					} catch (Exception e) {
-						// TODO: handle exception
+
 						e.printStackTrace();
 					}
 					break;
@@ -1528,7 +1528,7 @@ public class MyOrderConfrimActivity extends BaseActivity {
 								// "支付true", Toast.LENGTH_SHORT).show();
 
 							} catch (Exception e) {
-								// TODO: handle exception
+
 								e.printStackTrace();
 							}
 						} else {
@@ -1536,7 +1536,7 @@ public class MyOrderConfrimActivity extends BaseActivity {
 									Toast.LENGTH_SHORT).show();
 						}
 					} catch (Exception e) {
-						// TODO: handle exception
+
 						e.printStackTrace();
 					}
 
@@ -1651,7 +1651,7 @@ public class MyOrderConfrimActivity extends BaseActivity {
 
 						@Override
 						public void onFailure(Throwable arg0, String arg1) {
-							// TODO Auto-generated method stub
+
 							super.onFailure(arg0, arg1);
 							System.out.println("11================================="
 									+ arg0);
@@ -1665,7 +1665,7 @@ public class MyOrderConfrimActivity extends BaseActivity {
 					}, null);
 
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 	}
@@ -1715,7 +1715,7 @@ public class MyOrderConfrimActivity extends BaseActivity {
 			}, null);
 
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 	}
@@ -1779,7 +1779,7 @@ public class MyOrderConfrimActivity extends BaseActivity {
 					}, null);
 
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 	}
@@ -1821,7 +1821,7 @@ public class MyOrderConfrimActivity extends BaseActivity {
 					}, null);
 
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 	}
@@ -1865,7 +1865,7 @@ public class MyOrderConfrimActivity extends BaseActivity {
 			payThread.start();
 
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 
 		}

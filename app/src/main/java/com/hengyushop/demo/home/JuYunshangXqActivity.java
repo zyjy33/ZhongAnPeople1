@@ -56,7 +56,7 @@ public class JuYunshangXqActivity extends BaseActivity implements OnClickListene
 	public AQuery mAq;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
+
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.juyunshang_xq);
@@ -114,7 +114,7 @@ public class JuYunshangXqActivity extends BaseActivity implements OnClickListene
 			mAq.id(iv_img_url).image(RealmName.REALM_NAME_HTTP + img_url);
 
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 
@@ -125,7 +125,7 @@ public class JuYunshangXqActivity extends BaseActivity implements OnClickListene
 
 			@Override
 			public void onClick(View arg0) {
-				// TODO Auto-generated method stub
+
 				finish();
 			}
 		});
@@ -153,7 +153,7 @@ public class JuYunshangXqActivity extends BaseActivity implements OnClickListene
 							}
 						});
 					} catch (Exception e) {
-						// TODO: handle exception
+
 						e.printStackTrace();
 					}
 					break;
@@ -171,7 +171,7 @@ public class JuYunshangXqActivity extends BaseActivity implements OnClickListene
 
 	@Override
 	public void onClick(View v) {
-		// TODO Auto-generated method stub
+
 		switch (v.getId()) {
 			case R.id.index_item0:
 				cursor1.setVisibility(View.VISIBLE);
@@ -227,7 +227,7 @@ public class JuYunshangXqActivity extends BaseActivity implements OnClickListene
 				"channel_name=goods&top=100&strwhere=user_id="+user_id+"", new AsyncHttpResponseHandler(){
 			@Override
 			public void onSuccess(int arg0, String arg1) {
-				// TODO Auto-generated method stub
+
 				super.onSuccess(arg0, arg1);
 				try {
 					System.out.println("（商品列表）=========="+arg1);
@@ -273,7 +273,7 @@ public class JuYunshangXqActivity extends BaseActivity implements OnClickListene
 
 		@Override
 		public void onHeaderRefresh(PullToRefreshView view) {
-			// TODO Auto-generated method stub
+
 			refresh.postDelayed(new Runnable() {
 
 				@Override
@@ -291,7 +291,7 @@ public class JuYunshangXqActivity extends BaseActivity implements OnClickListene
 
 		@Override
 		public void onFooterRefresh(PullToRefreshView view) {
-			// TODO Auto-generated method stub
+
 			refresh.postDelayed(new Runnable() {
 
 				@Override

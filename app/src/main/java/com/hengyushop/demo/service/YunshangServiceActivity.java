@@ -86,7 +86,7 @@ public class YunshangServiceActivity extends Fragment {
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 							 Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
+
 		View layout = inflater.inflate(R.layout.activity_zams_service, null);
 		progress = new DialogProgress(getActivity());
 		spPreferences = getActivity().getSharedPreferences("longuserset", Context.MODE_PRIVATE);
@@ -110,7 +110,7 @@ public class YunshangServiceActivity extends Fragment {
 	String datall;
 	@Override
 	public void onResume() {
-		// TODO Auto-generated method stub
+
 		super.onResume();
 		SharedPreferences spPreferences_login = getActivity().getSharedPreferences("longuserset_login", Context.MODE_PRIVATE);
 		nickname = spPreferences_login.getString("nickname", "");
@@ -126,7 +126,7 @@ public class YunshangServiceActivity extends Fragment {
 
 
 	private void getjianche() {
-		// TODO Auto-generated method stub
+
 		SharedPreferences spPreferences_login = getActivity().getSharedPreferences("longuserset_login", Context.MODE_PRIVATE);
 		nickname = spPreferences_login.getString("nickname", "");
 		String headimgurl = spPreferences_login.getString("headimgurl", "");
@@ -237,7 +237,7 @@ public class YunshangServiceActivity extends Fragment {
 					getuserxinxi();
 
 				} catch (JSONException e) {
-					// TODO Auto-generated catch block
+
 					e.printStackTrace();
 				}
 			};
@@ -245,7 +245,7 @@ public class YunshangServiceActivity extends Fragment {
 
 	}
 	private void getuserxinxi() {
-		// TODO Auto-generated method stub
+
 		spPreferences = getActivity().getSharedPreferences("longuserset", Context.MODE_PRIVATE);
 		user_name = spPreferences.getString("user", "");
 		user_id = spPreferences.getString("user_id", "");
@@ -355,7 +355,7 @@ public class YunshangServiceActivity extends Fragment {
 
 				@Override
 				public void onClick(View arg0) {
-					// TODO Auto-generated method stub
+
 					Intent intent = new Intent(getActivity(), PlatformhotlineActivity.class);
 					startActivity(intent);
 				}
@@ -396,7 +396,7 @@ public class YunshangServiceActivity extends Fragment {
 			//		list_shop_cart = (ListView)layout.findViewById(R.id.list_shop_cart);
 			//		tv_amount_jf = (EditText)layout.findViewById(R.id.tv_amount_jf);
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 	}
@@ -423,7 +423,7 @@ public class YunshangServiceActivity extends Fragment {
 	 * 广告滚动
 	 */
 	private void loadWeather() {
-		// TODO Auto-generated method stub
+
 		AsyncHttp.get(RealmName.REALM_NAME_LL + "/get_adbanner_list?advert_id=21",
 				new AsyncHttpResponseHandler() {
 					@Override
@@ -465,7 +465,7 @@ public class YunshangServiceActivity extends Fragment {
 				,new AsyncHttpResponseHandler() {
 					@Override
 					public void onSuccess(int arg0, String arg1) {
-						// TODO Auto-generated method stub
+
 						super.onSuccess(arg0, arg1);
 						try {
 							System.out.println("详情===================="+arg1);
@@ -496,20 +496,20 @@ public class YunshangServiceActivity extends Fragment {
 							progress.CloseProgress();
 
 						} catch (Exception e) {
-							// TODO: handle exception
+
 							e.printStackTrace();
 						}
 					}
 					@Override
 					public void onFailure(Throwable arg0, String arg1) {
-						// TODO Auto-generated method stub
+
 						super.onFailure(arg0, arg1);
 						try {
 							System.out.println("=============================="+arg1);
 							progress.CloseProgress();
 							Toast.makeText(getActivity(), "异常", 200).show();
 						} catch (Exception e) {
-							// TODO: handle exception
+
 							e.printStackTrace();
 						}
 					}
@@ -536,7 +536,7 @@ public class YunshangServiceActivity extends Fragment {
 					advPager.setData(urls, new MyPosterOnClick() {
 						@Override
 						public void onMyclick(int position) {
-							// TODO Auto-generated method stub
+
 							if (!nickname.equals("")) {
 								if (!user_name.equals("")) {
 									//								String web_id = tempss.get(position).getId();
@@ -646,7 +646,7 @@ public class YunshangServiceActivity extends Fragment {
 			bd9.setCallback(null);
 			bd9.getBitmap().recycle();
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 		//			System.out.println("MyPosterView.type=======1=========="+MyPosterView.type);

@@ -50,7 +50,7 @@ public class TuiJianGoodsGridViewAdaper extends BaseAdapter {
 
 	@Override
 	public Object getItem(int position) {
-		// TODO Auto-generated method stub
+
 		return list.get(position);
 	}
 
@@ -83,7 +83,7 @@ public class TuiJianGoodsGridViewAdaper extends BaseAdapter {
 			mAq.id(holder.img).image(RealmName.REALM_NAME_HTTP+list.get(position).getImg_url());
 			type = true;
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 		return convertView;

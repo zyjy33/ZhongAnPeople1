@@ -20,7 +20,7 @@ public class TrainItemAdapter extends BaseAdapter {
 
 	public TrainItemAdapter(Context context, ArrayList<ChePiaoData> list,
 							ImageLoader imageLoader) {
-		// TODO Auto-generated constructor stub
+
 		this.context = context;
 		this.list = list;
 		this.imageLoader = imageLoader;
@@ -44,18 +44,18 @@ public class TrainItemAdapter extends BaseAdapter {
 	@Override
 	public Object getItem(int arg0) {
 		return list.get(arg0);
-		// TODO Auto-generated method stub
+
 	}
 
 	@Override
 	public long getItemId(int arg0) {
-		// TODO Auto-generated method stub
+
 		return arg0;
 	}
 
 	@Override
 	public View getView(int index, View view, ViewGroup arg2) {
-		// TODO Auto-generated method stub ViewHolder holder = null;
+		  ViewHolder holder = null;
 		ViewHolder holder = null;
 		if (view == null) {
 			holder = new ViewHolder();

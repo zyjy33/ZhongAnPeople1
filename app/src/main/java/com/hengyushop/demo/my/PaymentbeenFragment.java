@@ -101,7 +101,7 @@ public class PaymentbeenFragment extends Fragment implements OnClickListener{
 	}
 	@Override
 	public void onResume() {
-		// TODO Auto-generated method stub
+
 		super.onResume();
 		load_list(true);
 	}
@@ -160,7 +160,7 @@ public class PaymentbeenFragment extends Fragment implements OnClickListener{
 
 		@Override
 		public void onHeaderRefresh(PullToRefreshView view) {
-			// TODO Auto-generated method stub
+
 			refresh.postDelayed(new Runnable() {
 
 				@Override
@@ -178,7 +178,7 @@ public class PaymentbeenFragment extends Fragment implements OnClickListener{
 
 		@Override
 		public void onFooterRefresh(PullToRefreshView view) {
-			// TODO Auto-generated method stub
+
 			refresh.postDelayed(new Runnable() {
 
 				@Override
@@ -194,7 +194,7 @@ public class PaymentbeenFragment extends Fragment implements OnClickListener{
 						refresh.onFooterRefreshComplete();
 
 					} catch (Exception e) {
-						// TODO: handle exception
+
 						e.printStackTrace();
 					}
 				}
@@ -225,7 +225,7 @@ public class PaymentbeenFragment extends Fragment implements OnClickListener{
 					new AsyncHttpResponseHandler() {
 						@Override
 						public void onSuccess(int arg0, String arg1) {
-							// TODO Auto-generated method stub
+
 							super.onSuccess(arg0, arg1);
 							System.out.println("=========全部============"+arg1);
 							try {
@@ -259,7 +259,7 @@ public class PaymentbeenFragment extends Fragment implements OnClickListener{
 												md.getList().add(mb);
 											}
 										} catch (Exception e) {
-											// TODO: handle exception
+
 											e.printStackTrace();
 										}
 										list.add(md);
@@ -281,7 +281,7 @@ public class PaymentbeenFragment extends Fragment implements OnClickListener{
 								}
 
 							} catch (Exception e) {
-								// TODO: handle exception
+
 								e.printStackTrace();
 							}
 							System.out.println("========1===========");
@@ -290,7 +290,7 @@ public class PaymentbeenFragment extends Fragment implements OnClickListener{
 
 					}, getActivity());
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 	}
@@ -312,7 +312,7 @@ public class PaymentbeenFragment extends Fragment implements OnClickListener{
 				new AsyncHttpResponseHandler() {
 					@Override
 					public void onSuccess(int arg0, String arg1) {
-						// TODO Auto-generated method stub
+
 						super.onSuccess(arg0, arg1);
 						System.out.println("=========全部============"+arg1);
 						try {
@@ -346,7 +346,7 @@ public class PaymentbeenFragment extends Fragment implements OnClickListener{
 											md.getList().add(mb);
 										}
 									} catch (Exception e) {
-										// TODO: handle exception
+
 										e.printStackTrace();
 									}
 									list.add(md);
@@ -364,7 +364,7 @@ public class PaymentbeenFragment extends Fragment implements OnClickListener{
 							msg.obj = list;
 							handler.sendMessage(msg);
 						} catch (Exception e) {
-							// TODO: handle exception
+
 							e.printStackTrace();
 						}
 					}
@@ -461,7 +461,7 @@ public class PaymentbeenFragment extends Fragment implements OnClickListener{
 	}
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
+
 		super.onCreate(savedInstanceState);
 	}
 
@@ -476,14 +476,14 @@ public class PaymentbeenFragment extends Fragment implements OnClickListener{
 
 
 	private Intent getIntent() {
-		// TODO Auto-generated method stub
+
 		return null;
 	}
 
 
 	@Override
 	public void onClick(View v) {
-		// TODO Auto-generated method stub
+
 		switch (v.getId()) {
 			default:
 				break;
@@ -525,13 +525,13 @@ public class PaymentbeenFragment extends Fragment implements OnClickListener{
 	//
 	//		@Override
 	//		public Object getItem(int position) {
-	//			// TODO Auto-generated method stub
+	//
 	//			return list.get(position);
 	//		}
 	//
 	//		@Override
 	//		public long getItemId(int position) {
-	//			// TODO Auto-generated method stub
+	//
 	//			return position;
 	//		}
 	//
@@ -550,7 +550,7 @@ public class PaymentbeenFragment extends Fragment implements OnClickListener{
 	//
 	//		@Override
 	//		public View getView(final int position, View convertView, ViewGroup patent) {
-	//			// TODO Auto-generated method stub
+	//
 	//			ViewHolder holder = null;
 	//			holder = new ViewHolder();
 	//			//ViewGroup zhouGroup = null;

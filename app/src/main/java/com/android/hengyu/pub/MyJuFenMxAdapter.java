@@ -31,7 +31,7 @@ public class MyJuFenMxAdapter extends BaseAdapter {
 
 	public MyJuFenMxAdapter(List<MyJuFenData> list, ArrayList datadz1,
 							Context context, ImageLoader loader) {
-		// TODO Auto-generated constructor stub
+
 		this.context = context;
 		this.list = list;
 		this.datadz1 = datadz1;
@@ -42,12 +42,12 @@ public class MyJuFenMxAdapter extends BaseAdapter {
 	}
 
 	// public int getCount() {
-	// // TODO Auto-generated method stub
+	//
 	// return list.size();
 	// }
 	//
 	// public Object getItem(int position) {
-	// // TODO Auto-generated method stub
+	//
 	// return position;
 	// }
 
@@ -64,17 +64,17 @@ public class MyJuFenMxAdapter extends BaseAdapter {
 
 	@Override
 	public Object getItem(int position) {
-		// TODO Auto-generated method stub
+
 		return list.get(position);
 	}
 
 	public long getItemId(int position) {
-		// TODO Auto-generated method stub
+
 		return position;
 	}
 
 	public View getView(final int position, View convertView, ViewGroup parent) {
-		// TODO Auto-generated method stub
+
 		final ViewHolder holder;
 		if (convertView == null) {
 			holder = new ViewHolder();
@@ -118,7 +118,7 @@ public class MyJuFenMxAdapter extends BaseAdapter {
 				tv_tiem.setText(list.get(position).reg_time);
 			}
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 		System.out.println("================================" + position);
@@ -162,7 +162,7 @@ public class MyJuFenMxAdapter extends BaseAdapter {
 			// }
 
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 

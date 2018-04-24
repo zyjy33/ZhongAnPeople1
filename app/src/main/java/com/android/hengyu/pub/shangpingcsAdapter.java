@@ -42,19 +42,19 @@ public class shangpingcsAdapter extends BaseAdapter {
 
 	@Override
 	public Object getItem(int position) {
-		// TODO Auto-generated method stub
+
 		return list.get(position);
 	}
 
 	@Override
 	public long getItemId(int position) {
-		// TODO Auto-generated method stub
+
 		return position;
 	}
 
 	@Override
 	public View getView(final int position, View convertView, ViewGroup patent) {
-		// TODO Auto-generated method stub
+
 		convertView = inflater.inflate(R.layout.guige_item, null);
 		TextView tv_letter = (TextView) convertView.findViewById(R.id.tv_zhuti);
 		LinearLayout addview = (LinearLayout) convertView
@@ -75,7 +75,7 @@ public class shangpingcsAdapter extends BaseAdapter {
 
 				addview.addView(vi);
 			} catch (Exception e) {
-				// TODO: handle exception
+
 				e.printStackTrace();
 			}
 		}

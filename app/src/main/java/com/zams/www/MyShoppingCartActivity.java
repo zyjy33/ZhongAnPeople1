@@ -98,7 +98,7 @@ public class MyShoppingCartActivity extends BaseActivity {
 	// @Override
 	// public View onCreateView(LayoutInflater inflater, ViewGroup container,
 	// Bundle savedInstanceState) {
-	// // TODO Auto-generated method stub
+	//
 	// View layout = inflater.inflate(R.layout.shopping_cart, null);
 	// progress = new DialogProgress(MyShoppingCartllActivity.this);
 	// spPreferences =
@@ -112,7 +112,7 @@ public class MyShoppingCartActivity extends BaseActivity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
+
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.shopping_cart);
@@ -129,7 +129,7 @@ public class MyShoppingCartActivity extends BaseActivity {
 
 	@Override
 	public void onResume() {
-		// TODO Auto-generated method stub
+
 		super.onResume();
 		try {
 			System.out.println("2================");
@@ -163,7 +163,7 @@ public class MyShoppingCartActivity extends BaseActivity {
 			}
 
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 	}
@@ -195,7 +195,7 @@ public class MyShoppingCartActivity extends BaseActivity {
 
 			@Override
 			public void onClick(View arg0) {
-				// TODO Auto-generated method stub
+
 				user_id = spPreferences.getString("user_id", "");
 				if (user_id.equals("")) {
 					Intent intentll = new Intent(MyShoppingCartActivity.this,
@@ -213,7 +213,7 @@ public class MyShoppingCartActivity extends BaseActivity {
 
 			@Override
 			public void onClick(View arg0) {
-				// TODO Auto-generated method stub
+
 				// String total_cll = MyShopingCartllAdapter.total_c;
 				// Intent intent = new
 				// Intent(getActivity(),MyOrderConfrimActivity.class);
@@ -252,7 +252,7 @@ public class MyShoppingCartActivity extends BaseActivity {
 						}
 
 					} catch (Exception e) {
-						// TODO: handle exception
+
 						e.printStackTrace();
 					}
 					break;
@@ -261,7 +261,7 @@ public class MyShoppingCartActivity extends BaseActivity {
 						String total_c = MyShopingCartllAdapter.total_c;
 						tv_endmoney.setText("￥" + total_c);
 					} catch (Exception e) {
-						// TODO: handle exception
+
 						e.printStackTrace();
 					}
 					break;
@@ -277,7 +277,7 @@ public class MyShoppingCartActivity extends BaseActivity {
 									"请勾选要下单的商品", 200).show();
 						}
 					} catch (Exception e) {
-						// TODO: handle exception
+
 						e.printStackTrace();
 					}
 
@@ -287,7 +287,7 @@ public class MyShoppingCartActivity extends BaseActivity {
 						total_cll = MyShopingCartllAdapter.total_c;
 						tv_endmoney.setText("￥" + total_cll);
 					} catch (Exception e) {
-						// TODO: handle exception
+
 						e.printStackTrace();
 					}
 					break;
@@ -296,7 +296,7 @@ public class MyShoppingCartActivity extends BaseActivity {
 						// String[] orderid = (String[]) msg.obj;
 						// System.out.println("数组值11=================="+orderid);
 					} catch (Exception e) {
-						// TODO: handle exception
+
 						e.printStackTrace();
 					}
 					break;
@@ -328,7 +328,7 @@ public class MyShoppingCartActivity extends BaseActivity {
 					+ user_id + "", new AsyncHttpResponseHandler() {
 				@Override
 				public void onSuccess(int arg0, String arg1) {
-					// TODO Auto-generated method stub
+
 					super.onSuccess(arg0, arg1);
 					try {
 						JSONObject jsonObject = new JSONObject(arg1);
@@ -380,7 +380,7 @@ public class MyShoppingCartActivity extends BaseActivity {
 							// 200).show();
 						}
 					} catch (JSONException e) {
-						// TODO Auto-generated catch block
+
 						e.printStackTrace();
 					}
 
@@ -444,7 +444,7 @@ public class MyShoppingCartActivity extends BaseActivity {
 					+ "&quantity=" + str3 + "", new AsyncHttpResponseHandler() {
 				@Override
 				public void onSuccess(int arg0, String arg1) {
-					// TODO Auto-generated method stub
+
 					super.onSuccess(arg0, arg1);
 					try {
 						JSONObject jsonObject = new JSONObject(arg1);
@@ -486,7 +486,7 @@ public class MyShoppingCartActivity extends BaseActivity {
 									200).show();
 						}
 					} catch (JSONException e) {
-						// TODO Auto-generated catch block
+
 						e.printStackTrace();
 					}
 
@@ -494,7 +494,7 @@ public class MyShoppingCartActivity extends BaseActivity {
 
 				@Override
 				public void onFailure(Throwable arg0, String arg1) {
-					// TODO Auto-generated method stub
+
 					System.out.println("==========================访问接口失败！");
 					System.out.println("=========================" + arg0);
 					System.out.println("==========================" + arg1);
@@ -504,7 +504,7 @@ public class MyShoppingCartActivity extends BaseActivity {
 			}, MyShoppingCartActivity.this);
 
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 	}

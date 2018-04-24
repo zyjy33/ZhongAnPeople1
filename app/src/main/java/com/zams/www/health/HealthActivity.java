@@ -94,7 +94,7 @@ public class HealthActivity extends Activity implements OnItemClickListener,
 
                             @Override
                             public void onFailure(Throwable arg0, String arg1) {
-                                // TODO Auto-generated method stub
+
                                 super.onFailure(arg0, arg1);
                             }
 

@@ -49,7 +49,7 @@ public class TishiBaoMinQianDaoActivity extends Activity implements OnClickListe
 	int shuzi = 0;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
+
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_tishi_baomin_qiandao);
 		try {
@@ -75,7 +75,7 @@ public class TishiBaoMinQianDaoActivity extends Activity implements OnClickListe
 			initUI();
 			load_list();
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 	}
@@ -93,7 +93,7 @@ public class TishiBaoMinQianDaoActivity extends Activity implements OnClickListe
 				new AsyncHttpResponseHandler() {
 					@Override
 					public void onSuccess(int arg0, String arg1) {
-						// TODO Auto-generated method stub
+
 						super.onSuccess(arg0, arg1);
 						System.out.println("=========数据接口============" + arg1);
 						try {
@@ -132,14 +132,14 @@ public class TishiBaoMinQianDaoActivity extends Activity implements OnClickListe
 								tv_conent.setText(info);
 							}
 						} catch (Exception e) {
-							// TODO: handle exception
+
 							e.printStackTrace();
 						}
 					}
 
 					@Override
 					public void onFailure(Throwable arg0, String arg1) {
-						// TODO Auto-generated method stub
+
 						progress.CloseProgress();
 						System.out.println("==========================访问接口失败！");
 						System.out.println("==========================" + arg1);
@@ -184,7 +184,7 @@ public class TishiBaoMinQianDaoActivity extends Activity implements OnClickListe
 
 						@Override
 						public void onFailure(Throwable arg0, String arg1) {
-							// TODO Auto-generated method stub
+
 							super.onFailure(arg0, arg1);
 							progress.CloseProgress();
 							System.out.println("异常================================="+arg1);
@@ -193,7 +193,7 @@ public class TishiBaoMinQianDaoActivity extends Activity implements OnClickListe
 					}, null);
 
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 	}
@@ -221,7 +221,7 @@ public class TishiBaoMinQianDaoActivity extends Activity implements OnClickListe
 				}
 			};
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 	}
@@ -231,7 +231,7 @@ public class TishiBaoMinQianDaoActivity extends Activity implements OnClickListe
 	 */
 	@Override
 	public void onClick(View v) {
-		// TODO Auto-generated method stub
+
 		intent = new Intent();
 		switch (v.getId()) {
 			case R.id.btnConfirm:// 确认

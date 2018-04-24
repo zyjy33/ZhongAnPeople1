@@ -88,7 +88,7 @@ public class JuDuiHuanActivity extends BaseActivity implements OnClickListener {
 	private ImageView zams_fw_1,zams_fw_2,zams_fw_3,zams_fw_4,zams_fw_5;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
+
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_jifenguan);// activity_juhuihuan_tetle
@@ -105,7 +105,7 @@ public class JuDuiHuanActivity extends BaseActivity implements OnClickListener {
 
 	@Override
 	protected void onResume() {
-		// TODO Auto-generated method stub
+
 		super.onResume();
 		jianceqiandao();
 	}
@@ -153,7 +153,7 @@ public class JuDuiHuanActivity extends BaseActivity implements OnClickListener {
 			bd5.setCallback(null);
 			bd5.getBitmap().recycle();
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 	};
@@ -237,7 +237,7 @@ public class JuDuiHuanActivity extends BaseActivity implements OnClickListener {
 
 				@Override
 				public void onClick(View arg0) {
-					// TODO Auto-generated method stub
+
 					finish();
 				}
 			});
@@ -256,7 +256,7 @@ public class JuDuiHuanActivity extends BaseActivity implements OnClickListener {
 			});
 
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 	}
@@ -275,7 +275,7 @@ public class JuDuiHuanActivity extends BaseActivity implements OnClickListener {
 						new AsyncHttpResponseHandler() {
 							@Override
 							public void onSuccess(int arg0, String arg1) {
-								// TODO Auto-generated method stub
+
 								super.onSuccess(arg0, arg1);
 								System.out
 										.println("获取置顶商品======================="
@@ -360,7 +360,7 @@ public class JuDuiHuanActivity extends BaseActivity implements OnClickListener {
 											yh.setOnClickListener(new OnClickListener() {
 												@Override
 												public void onClick(View arg0) {
-													// TODO Auto-generated
+
 													// method stub
 													Intent intent = new Intent(
 															JuDuiHuanActivity.this,
@@ -402,7 +402,7 @@ public class JuDuiHuanActivity extends BaseActivity implements OnClickListener {
 
 												@Override
 												public void onClick(View arg0) {
-													// TODO Auto-generated
+
 													// method stub
 													Intent intent = new Intent(
 															JuDuiHuanActivity.this,
@@ -444,7 +444,7 @@ public class JuDuiHuanActivity extends BaseActivity implements OnClickListener {
 
 												@Override
 												public void onClick(View arg0) {
-													// TODO Auto-generated
+
 													// method stub
 													Intent intent = new Intent(
 															JuDuiHuanActivity.this,
@@ -482,7 +482,7 @@ public class JuDuiHuanActivity extends BaseActivity implements OnClickListener {
 
 												@Override
 												public void onClick(View arg0) {
-													// TODO Auto-generated
+
 													// method stub
 													Intent intent = new Intent(
 															JuDuiHuanActivity.this,
@@ -499,18 +499,18 @@ public class JuDuiHuanActivity extends BaseActivity implements OnClickListener {
 										}
 										// progress.CloseProgress();
 									} catch (Exception e) {
-										// TODO: handle exception
+
 										e.printStackTrace();
 									}
 								} catch (JSONException e) {
-									// TODO Auto-generated catch block
+
 									e.printStackTrace();
 								}
 							}
 
 							@Override
 							public void onFailure(Throwable arg0, String arg1) {
-								// TODO Auto-generated method stub
+
 								progress.CloseProgress();
 								System.out
 										.println("==========================访问接口失败！");
@@ -557,7 +557,7 @@ public class JuDuiHuanActivity extends BaseActivity implements OnClickListener {
 						new AsyncHttpResponseHandler() {
 							@Override
 							public void onSuccess(int arg0, String arg1) {
-								// TODO Auto-generated method stub
+
 								super.onSuccess(arg0, arg1);
 								System.out.println("=====================二级值=="
 										+ arg1);
@@ -631,7 +631,7 @@ public class JuDuiHuanActivity extends BaseActivity implements OnClickListener {
 									// CURRENT_NUM =CURRENT_NUM+VIEW_NUM;
 									// }
 								} catch (JSONException e) {
-									// TODO Auto-generated catch block
+
 									e.printStackTrace();
 								}
 							}
@@ -662,7 +662,7 @@ public class JuDuiHuanActivity extends BaseActivity implements OnClickListener {
 						intent13.putExtra("gg_id", id);
 						startActivity(intent13);
 					} catch (Exception e) {
-						// TODO: handle exception
+
 						e.printStackTrace();
 					}
 					break;
@@ -675,7 +675,7 @@ public class JuDuiHuanActivity extends BaseActivity implements OnClickListener {
 
 	@Override
 	public void onClick(View v) {
-		// TODO Auto-generated method stub
+
 		switch (v.getId()) {
 			case R.id.tv_qiandao:
 				// SharedPreferences spPreferences =
@@ -749,14 +749,14 @@ public class JuDuiHuanActivity extends BaseActivity implements OnClickListener {
 							// userloginqm2();
 						}
 					} catch (JSONException e) {
-						// TODO Auto-generated catch block
+
 						e.printStackTrace();
 					}
 				};
 
 				@Override
 				public void onFailure(Throwable arg0, String arg1) {
-					// TODO Auto-generated method stub
+
 					super.onFailure(arg0, arg1);
 					Toast.makeText(JuDuiHuanActivity.this, "访问接口失败", 200)
 							.show();
@@ -764,7 +764,7 @@ public class JuDuiHuanActivity extends BaseActivity implements OnClickListener {
 			}, JuDuiHuanActivity.this);
 
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 	}
@@ -806,14 +806,14 @@ public class JuDuiHuanActivity extends BaseActivity implements OnClickListener {
 						}
 						userloginqm2();
 					} catch (JSONException e) {
-						// TODO Auto-generated catch block
+
 						e.printStackTrace();
 					}
 				};
 
 				@Override
 				public void onFailure(Throwable arg0, String arg1) {
-					// TODO Auto-generated method stub
+
 					super.onFailure(arg0, arg1);
 					Toast.makeText(JuDuiHuanActivity.this, "访问接口失败", 200)
 							.show();
@@ -821,7 +821,7 @@ public class JuDuiHuanActivity extends BaseActivity implements OnClickListener {
 			}, JuDuiHuanActivity.this);
 
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 	}
@@ -866,7 +866,7 @@ public class JuDuiHuanActivity extends BaseActivity implements OnClickListener {
 	// tv_qiandao.setText("已签到");
 	// }
 	// } catch (Exception e) {
-	// // TODO: handle exception
+	//
 	// e.printStackTrace();
 	// }
 
@@ -875,14 +875,14 @@ public class JuDuiHuanActivity extends BaseActivity implements OnClickListener {
 	// }
 	// // getjiangxiang(login_sign);
 	// } catch (JSONException e) {
-	// // TODO Auto-generated catch block
+	//
 	// e.printStackTrace();
 	// }
 	// };
 	// }, null);
 	//
 	// } catch (Exception e) {
-	// // TODO: handle exception
+	//
 	// e.printStackTrace();
 	// }
 	// }
@@ -923,14 +923,14 @@ public class JuDuiHuanActivity extends BaseActivity implements OnClickListener {
 						} else {
 						}
 					} catch (JSONException e) {
-						// TODO Auto-generated catch block
+
 						e.printStackTrace();
 					}
 				};
 			}, null);
 
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 	}
@@ -977,7 +977,7 @@ public class JuDuiHuanActivity extends BaseActivity implements OnClickListener {
 					}, null);
 
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 	}
@@ -997,7 +997,7 @@ public class JuDuiHuanActivity extends BaseActivity implements OnClickListener {
 					advPager.setData(urls, new MyPosterOnClick() {
 						@Override
 						public void onMyclick(int position) {
-							// TODO Auto-generated method stub
+
 							Message msg = new Message();
 							msg.what = 13;
 							msg.obj = tempss.get(position).getId();
@@ -1019,7 +1019,7 @@ public class JuDuiHuanActivity extends BaseActivity implements OnClickListener {
 	//
 	// @Override
 	// public void onHeaderRefresh(PullToRefreshView view) {
-	// // TODO Auto-generated method stub
+	//
 	// refresh.postDelayed(new Runnable() {
 	//
 	// @Override
@@ -1038,7 +1038,7 @@ public class JuDuiHuanActivity extends BaseActivity implements OnClickListener {
 	//
 	// @Override
 	// public void onFooterRefresh(PullToRefreshView view) {
-	// // TODO Auto-generated method stub
+	//
 	// refresh.postDelayed(new Runnable() {
 	//
 	// @Override
@@ -1084,14 +1084,14 @@ public class JuDuiHuanActivity extends BaseActivity implements OnClickListener {
 	// }
 	// System.out.println("======输出抽奖幸奖项=======id======"+id);
 	// } catch (JSONException e) {
-	// // TODO Auto-generated catch block
+	//
 	// e.printStackTrace();
 	// }
 	// };
 	//
 	// @Override
 	// public void onFailure(Throwable arg0, String arg1) {
-	// // TODO Auto-generated method stub
+	//
 	// super.onFailure(arg0, arg1);
 	// System.out.println("======访问接口失败============="+arg1);
 	// // Toast.makeText(ZhuanYiZhuanActivity.this, "访问接口失败", 200).show();
@@ -1146,14 +1146,14 @@ public class JuDuiHuanActivity extends BaseActivity implements OnClickListener {
 	//
 	//
 	// } catch (JSONException e) {
-	// // TODO Auto-generated catch block
+	//
 	// e.printStackTrace();
 	// }
 	// };
 	//
 	// @Override
 	// public void onFailure(Throwable arg0, String arg1) {
-	// // TODO Auto-generated method stub
+	//
 	// super.onFailure(arg0, arg1);
 	// System.out.println("======访问接口失败============="+arg1);
 	// // Toast.makeText(ZhuanYiZhuanActivity.this, "访问接口失败", 200).show();
@@ -1205,7 +1205,7 @@ public class JuDuiHuanActivity extends BaseActivity implements OnClickListener {
 	// // System.out.println("drawn-----------------------------------"+drawn);
 	//
 	// } catch (JSONException e) {
-	// // TODO Auto-generated catch block
+	//
 	// e.printStackTrace();
 	// }
 	// };
@@ -1213,7 +1213,7 @@ public class JuDuiHuanActivity extends BaseActivity implements OnClickListener {
 	//
 	// @Override
 	// public void onFailure(Throwable arg0, String arg1) {
-	// // TODO Auto-generated method stub
+	//
 	// super.onFailure(arg0, arg1);
 	// System.out.println("======访问接口失败============="+arg1);
 	// // Toast.makeText(ZhuanYiZhuanActivity.this, "访问接口失败", 200).show();

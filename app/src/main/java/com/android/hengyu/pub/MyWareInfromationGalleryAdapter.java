@@ -27,7 +27,7 @@ public class MyWareInfromationGalleryAdapter extends BaseAdapter {
 	public MyWareInfromationGalleryAdapter(
 			List<Map<String, String>> allGriddatas, Context context,
 			ImageLoader loader) {
-		// TODO Auto-generated constructor stub
+
 		this.list = allGriddatas;
 		this.context = context;
 		this.loader = loader;
@@ -35,25 +35,25 @@ public class MyWareInfromationGalleryAdapter extends BaseAdapter {
 
 	@Override
 	public int getCount() {
-		// TODO Auto-generated method stub
+
 		return list.size();
 	}
 
 	@Override
 	public Object getItem(int arg0) {
-		// TODO Auto-generated method stub
+
 		return arg0;
 	}
 
 	@Override
 	public long getItemId(int arg0) {
-		// TODO Auto-generated method stub
+
 		return arg0;
 	}
 
 	@Override
 	public View getView(int position, View convertView, ViewGroup parent) {
-		// TODO Auto-generated method stub
+
 		if (convertView == null) {
 			convertView = RelativeLayout.inflate(context,
 					R.layout.galleryitem_ware_information, null);

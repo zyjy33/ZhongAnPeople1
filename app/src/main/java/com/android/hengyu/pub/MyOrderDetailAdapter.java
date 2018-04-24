@@ -23,30 +23,30 @@ public class MyOrderDetailAdapter extends BaseAdapter {
 
 	public MyOrderDetailAdapter(ArrayList<OrderDetailData> list,
 								Context context, ImageLoader loader) {
-		// TODO Auto-generated constructor stub
+
 		this.context = context;
 		this.imageLoader = loader;
 		this.list = list;
 	}
 
 	public int getCount() {
-		// TODO Auto-generated method stub
+
 		// return list.size();
 		return list.size();
 	}
 
 	public Object getItem(int position) {
-		// TODO Auto-generated method stub
+
 		return position;
 	}
 
 	public long getItemId(int position) {
-		// TODO Auto-generated method stub
+
 		return position;
 	}
 
 	public View getView(int position, View convertView, ViewGroup parent) {
-		// TODO Auto-generated method stub
+
 		if (convertView == null) {
 			convertView = LinearLayout.inflate(context,
 					R.layout.listitem_order_detail, null);

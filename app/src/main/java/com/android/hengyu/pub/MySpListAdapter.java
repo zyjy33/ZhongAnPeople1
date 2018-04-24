@@ -26,7 +26,7 @@ public class MySpListAdapter extends BaseAdapter {
 	public static boolean type = false;
 	public MySpListAdapter(ArrayList<SpListData> lists,
 						   Context context,ImageLoader loader) {
-		// TODO Auto-generated constructor stub
+
 		this.context = context;
 		this.lists = lists;
 		this.loader = loader;
@@ -41,26 +41,26 @@ public class MySpListAdapter extends BaseAdapter {
 		this.notifyDataSetChanged();
 	}
 	public int getCount() {
-		// TODO Auto-generated method stub
+
 		// return list.size();
 		return lists.size();
 	}
 
 	public Object getItem(int position) {
-		// TODO Auto-generated method stub
+
 		return position;
 	}
 
 
 	public long getItemId(int position) {
-		// TODO Auto-generated method stub
+
 		return position;
 	}
 
 
 
 	public View getView(int position, View convertView, ViewGroup parent) {
-		// TODO Auto-generated method stub
+
 		if (convertView == null) {
 			convertView = LinearLayout.inflate(context,R.layout.listitem_goods_time, null);
 		}
@@ -99,7 +99,7 @@ public class MySpListAdapter extends BaseAdapter {
 		//				String  zhou  =RealmName.REALM_NAME_HTTP + lists.get(position).img_url;
 		//				System.out.println("--zhou------------------"+zhou);
 		//			} catch (Exception e) {
-		//				// TODO: handle exception
+		//
 		//				e.printStackTrace();
 		//			}
 		//		} else {

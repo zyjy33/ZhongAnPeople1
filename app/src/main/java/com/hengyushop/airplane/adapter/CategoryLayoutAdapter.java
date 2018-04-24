@@ -17,7 +17,7 @@ public class CategoryLayoutAdapter extends BaseAdapter {
 	private ArrayList<CategoryDomain> list;
 
 	public CategoryLayoutAdapter(Context context, ArrayList<CategoryDomain> list) {
-		// TODO Auto-generated constructor stub
+
 		this.context = context;
 		this.list = list;
 	}
@@ -29,25 +29,25 @@ public class CategoryLayoutAdapter extends BaseAdapter {
 
 	@Override
 	public int getCount() {
-		// TODO Auto-generated method stub
+
 		return list.size();
 	}
 
 	@Override
 	public Object getItem(int arg0) {
-		// TODO Auto-generated method stub
+
 		return list.get(arg0);
 	}
 
 	@Override
 	public long getItemId(int arg0) {
-		// TODO Auto-generated method stub
+
 		return arg0;
 	}
 
 	@Override
 	public View getView(int index, View view, ViewGroup arg2) {
-		// TODO Auto-generated method stub
+
 		final ViewHolder holder;
 		if (view == null || view.getTag(R.drawable.icon + index) == null) {
 			holder = new ViewHolder();

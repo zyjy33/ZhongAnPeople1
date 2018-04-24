@@ -52,7 +52,7 @@ public class DianPingActivity extends BaseActivity implements OnClickListener{
 	private SharedPreferences spPreferences;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
+
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.detail_dianping);
@@ -83,7 +83,7 @@ public class DianPingActivity extends BaseActivity implements OnClickListener{
 
 				@Override
 				public void onCheckedChanged(RadioGroup arg0, int arg1) {
-					// TODO Auto-generated method stub
+
 					switch (arg1) {
 						case R.id.ra1:
 							check = "0";
@@ -104,7 +104,7 @@ public class DianPingActivity extends BaseActivity implements OnClickListener{
 			});
 
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 
@@ -123,7 +123,7 @@ public class DianPingActivity extends BaseActivity implements OnClickListener{
 					"&article_id="+article_id+"&content="+content+"&score="+check+"", new AsyncHttpResponseHandler() {
 				@Override
 				public void onSuccess(int arg0, String arg1) {
-					// TODO Auto-generated method stub
+
 					super.onSuccess(arg0, arg1);
 					System.out.println("=======详情数据=="+arg1);
 					try {
@@ -138,7 +138,7 @@ public class DianPingActivity extends BaseActivity implements OnClickListener{
 						}
 						progress.CloseProgress();
 					} catch (JSONException e) {
-						// TODO Auto-generated catch block
+
 						e.printStackTrace();
 					}
 				}
@@ -150,7 +150,7 @@ public class DianPingActivity extends BaseActivity implements OnClickListener{
 
 	@Override
 	public void onClick(View v) {
-		// TODO Auto-generated method stub
+
 
 		switch (v.getId()) {
 			case R.id.iv_fanhui:

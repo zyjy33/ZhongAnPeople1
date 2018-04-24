@@ -26,7 +26,7 @@ public class MyGridAdapter extends BaseAdapter {
 	private ImageLoader imageLoader;
 
 	// public MyGridAdapter(ImageLoader imageLoader) {
-	// // TODO Auto-generated constructor stub
+	//
 	// this.imageLoader = imageLoader;
 	// }
 
@@ -37,20 +37,20 @@ public class MyGridAdapter extends BaseAdapter {
 			this.data2 = data2;
 			this.mContext = mContext;
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 	}
 
 	@Override
 	public int getCount() {
-		// TODO Auto-generated method stub
+
 		return data2.size();
 	}
 
 	@Override
 	public Object getItem(int position) {
-		// TODO Auto-generated method stub
+
 		return data2.get(position);
 	}
 
@@ -61,7 +61,7 @@ public class MyGridAdapter extends BaseAdapter {
 
 	@Override
 	public long getItemId(int position) {
-		// TODO Auto-generated method stub
+
 		return position;
 	}
 
@@ -95,7 +95,7 @@ public class MyGridAdapter extends BaseAdapter {
 			}
 
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 		// ImageLoader imageLoader=ImageLoader.getInstance();

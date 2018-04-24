@@ -74,7 +74,7 @@ package com.zams.www;
 //	@Override
 //	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 //			Bundle savedInstanceState) {
-//		// TODO Auto-generated method stub
+//
 //		View layout = inflater.inflate(R.layout.shopping_cart, null);
 //		progress = new DialogProgress(getActivity());
 //
@@ -172,7 +172,7 @@ package com.zams.www;
 ////
 ////			@Override
 ////			public void onClick(View arg0) {
-////				// TODO Auto-generated method stub
+////
 ////				ID = Integer.parseInt(list_ll.get(arg2).getId());
 ////				dialog(ID);
 ////			}
@@ -202,7 +202,7 @@ package com.zams.www;
 //
 //			@Override
 //			public void onClick(View arg0) {
-//				// TODO Auto-generated method stub
+//
 //				String total_cll = MyShopingCartllAdapter.total_c;
 //				Intent intent = new Intent(getActivity(),MyOrderConfrimActivity.class);
 ////				String rsu = tv_amount_jf.getText().toString();
@@ -237,7 +237,7 @@ package com.zams.www;
 //
 //
 //				} catch (Exception e) {
-//					// TODO: handle exception
+//
 //					e.printStackTrace();
 //				}
 //				break;
@@ -246,7 +246,7 @@ package com.zams.www;
 //				String total_c = MyShopingCartllAdapter.total_c;
 //				tv_endmoney.setText("￥" + total_c);
 //				} catch (Exception e) {
-//					// TODO: handle exception
+//
 //					e.printStackTrace();
 //				}
 //				break;
@@ -261,7 +261,7 @@ package com.zams.www;
 //						Toast.makeText(getActivity(),"请勾选要下单的商品", 200).show();
 //					}
 //					} catch (Exception e) {
-//						// TODO: handle exception
+//
 //						e.printStackTrace();
 //					}
 //
@@ -271,7 +271,7 @@ package com.zams.www;
 //				String total_cll = MyShopingCartllAdapter.total_c;
 //				tv_endmoney.setText("￥" + total_cll);
 //				} catch (Exception e) {
-//					// TODO: handle exception
+//
 //					e.printStackTrace();
 //				}
 //				break;
@@ -280,7 +280,7 @@ package com.zams.www;
 ////				String[] orderid = (String[]) msg.obj;
 ////				System.out.println("数组值11=================="+orderid);
 //				} catch (Exception e) {
-//					// TODO: handle exception
+//
 //					e.printStackTrace();
 //				}
 //				break;
@@ -324,7 +324,7 @@ package com.zams.www;
 //				,new AsyncHttpResponseHandler() {
 //					@Override
 //					public void onSuccess(int arg0,String arg1) {
-//						// TODO Auto-generated method stub
+//
 //						super.onSuccess(arg0, arg1);
 //						try {
 //							JSONObject jsonObject = new JSONObject(arg1);
@@ -366,7 +366,7 @@ package com.zams.www;
 //								Toast.makeText(getActivity(), "购物车暂无数据", 200).show();
 //							}
 //						} catch (JSONException e) {
-//							// TODO Auto-generated catch block
+//
 //							e.printStackTrace();
 //						}
 //

@@ -48,7 +48,7 @@ public class S extends Service {
 
 	@Override
 	public IBinder onBind(Intent intent) {
-		// TODO Auto-generated method stub
+
 		return null;
 	}
 
@@ -57,7 +57,7 @@ public class S extends Service {
 		// 来电监听，获取系统服务“TELEPHONY_SERVICE
 		TelephonyManager telM = (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);
 		telM.listen(new TelListener(this), PhoneStateListener.LISTEN_CALL_STATE);
-		// TODO Auto-generated method stub
+
 		/*
 		 * if(intent.hasExtra("start")){ // initOverlay();
 		 * System.out.println("这里"); // 取得TelephonyManager对象 tManager =
@@ -67,7 +67,7 @@ public class S extends Service {
 		 * {
 		 * 
 		 * @Override public void onCallStateChanged(int state, String number) {
-		 * // TODO Auto-generated method stub
+		 *
 		 * 
 		 * switch (state) { // 无任何状态 case TelephonyManager.CALL_STATE_IDLE:
 		 * break; case TelephonyManager.CALL_STATE_OFFHOOK: break; // 来电铃响时 case
@@ -78,12 +78,12 @@ public class S extends Service {
 		 * // initOverlay(); CountDownTimer countDownTimer = new
 		 * CountDownTimer(3000,100) {
 		 * 
-		 * @Override public void onTick(long arg0) { // TODO Auto-generated
+		 * @Override public void onTick(long arg0) {
 		 * method stub
 		 * 
 		 * }
 		 * 
-		 * @Override public void onFinish() { // TODO Auto-generated method stub
+		 * @Override public void onFinish() {
 		 * Intent intent = new Intent(); intent.setAction("rings");
 		 * sendBroadcast(intent);
 		 * 

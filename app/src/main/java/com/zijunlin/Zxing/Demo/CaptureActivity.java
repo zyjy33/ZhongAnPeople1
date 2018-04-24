@@ -174,7 +174,7 @@ public class CaptureActivity extends BaseActivity implements Callback {
 					finish();
 
 				} catch (Exception e) {
-					// TODO: handle exception
+
 					e.printStackTrace();
 				}
 			} else if (sp_sys.equals("2")) {
@@ -190,7 +190,7 @@ public class CaptureActivity extends BaseActivity implements Callback {
 					startActivity(intent);
 					finish();
 				} catch (Exception e) {
-					// TODO: handle exception
+
 					e.printStackTrace();
 				}
 			} else if (sp_sys.equals("3")) {
@@ -201,7 +201,7 @@ public class CaptureActivity extends BaseActivity implements Callback {
 					startActivity(intent);
 					finish();
 				} catch (Exception e) {
-					// TODO: handle exception
+
 					e.printStackTrace();
 				}
 			} else {
@@ -210,7 +210,7 @@ public class CaptureActivity extends BaseActivity implements Callback {
 				finish();
 			}
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 	}

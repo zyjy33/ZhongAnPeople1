@@ -522,7 +522,6 @@ public class WheelView extends View {
 	private int calculateLayoutWidth(int widthSize, int mode) {
 		initResourcesIfNecessary();
 
-		// TODO: make it static
 		itemsLayout.setLayoutParams(new LayoutParams(LayoutParams.MATCH_PARENT,
 				LayoutParams.MATCH_PARENT));
 		itemsLayout

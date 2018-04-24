@@ -22,7 +22,7 @@ public class HuoDongListAdapter extends BaseAdapter {
 	public static  AQuery aQuery;
 
 	public HuoDongListAdapter(ArrayList<JuTuanGouData> list, Context context) {
-		// TODO Auto-generated constructor stub
+
 		this.context = context;
 		this.list = list;
 		aQuery = new AQuery(context);
@@ -35,22 +35,22 @@ public class HuoDongListAdapter extends BaseAdapter {
 
 
 	public int getCount() {
-		// TODO Auto-generated method stub
+
 		return list.size();
 	}
 
 	public Object getItem(int position) {
-		// TODO Auto-generated method stub
+
 		return position;
 	}
 
 	public long getItemId(int position) {
-		// TODO Auto-generated method stub
+
 		return position;
 	}
 
 	public View getView(int position, View convertView, ViewGroup parent) {
-		// TODO Auto-generated method stub
+
 		if (convertView == null) {
 			convertView = LinearLayout.inflate(context,R.layout.huodong_list_item, null);
 		}

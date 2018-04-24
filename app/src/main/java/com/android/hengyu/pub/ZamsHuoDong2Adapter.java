@@ -43,7 +43,7 @@ public class ZamsHuoDong2Adapter extends BaseAdapter {
 			mInflater = LayoutInflater.from(context);
 			mAq = new AQuery(context);
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 	}
@@ -54,13 +54,13 @@ public class ZamsHuoDong2Adapter extends BaseAdapter {
 	}
 
 	public int getCount() {
-		// TODO Auto-generated method stub
+
 		return List.size();
 	}
 
 	@Override
 	public Object getItem(int position) {
-		// TODO Auto-generated method stub
+
 		return List.get(position);
 
 	}
@@ -140,13 +140,13 @@ public class ZamsHuoDong2Adapter extends BaseAdapter {
 				try {
 					now_1 = df.parse(List.get(position).getEnd_time());
 				} catch (java.text.ParseException e1) {
-					// TODO Auto-generated catch block
+
 					e1.printStackTrace();
 				}
 				try {
 					date_1 = df.parse(ZhongAnMSActivity.datetime);
 				} catch (java.text.ParseException e1) {
-					// TODO Auto-generated catch block
+
 					e1.printStackTrace();
 				}
 				long end_time = now_1.getTime();
@@ -163,7 +163,7 @@ public class ZamsHuoDong2Adapter extends BaseAdapter {
 								new AsyncHttpResponseHandler() {
 									@Override
 									public void onSuccess(int arg0, String arg1) {
-										// TODO Auto-generated method stub
+
 										super.onSuccess(arg0, arg1);
 										try {
 											JSONObject jsonObject = new JSONObject(arg1);
@@ -178,14 +178,14 @@ public class ZamsHuoDong2Adapter extends BaseAdapter {
 												holder.tv_ent.setText("报名中");
 											}
 										} catch (JSONException e) {
-											// TODO Auto-generated catch block
+
 											e.printStackTrace();
 										}
 									}
 
 									@Override
 									public void onFailure(Throwable arg0, String arg1) {
-										// TODO Auto-generated method stub
+
 										System.out.println("访问接口失败！==========================" + arg1);
 										super.onFailure(arg0, arg1);
 									}
@@ -202,7 +202,7 @@ public class ZamsHuoDong2Adapter extends BaseAdapter {
 				}
 
 			} catch (Exception e) {
-				// TODO: handle exception
+
 				e.printStackTrace();
 			}
 
@@ -213,7 +213,7 @@ public class ZamsHuoDong2Adapter extends BaseAdapter {
 			//
 			// @Override
 			// public void onClick(View arg0) {
-			// // TODO Auto-generated method stub
+			//
 			// try {
 			// Intent intent = new Intent(mContext,
 			// JuTuanGouXqActivity.class);
@@ -222,14 +222,14 @@ public class ZamsHuoDong2Adapter extends BaseAdapter {
 			// intent.putExtra("choujiang", "110");
 			// mContext.startActivity(intent);
 			// } catch (Exception e) {
-			// // TODO: handle exception
+			//
 			// e.printStackTrace();
 			// }
 			// }
 			// });
 
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 		return convertView;

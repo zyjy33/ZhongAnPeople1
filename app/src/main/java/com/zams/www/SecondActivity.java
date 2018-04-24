@@ -63,7 +63,7 @@ public class SecondActivity extends BaseActivity {
 
 			@Override
 			public void onClick(View arg0) {
-				// TODO Auto-generated method stub
+
 				Intent intent = new Intent(SecondActivity.this,MainFragment.class);
 				startActivity(intent);
 				AppManager.getAppManager().finishActivity();
@@ -175,7 +175,7 @@ public class SecondActivity extends BaseActivity {
 			}
 
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 	};
@@ -198,7 +198,7 @@ public class SecondActivity extends BaseActivity {
 					advPager.setData(urls, new MyPosterOnClick() {
 						@Override
 						public void onMyclick(int position) {
-							// TODO Auto-generated method stub
+
 							// Message msg = new Message();
 							// msg.what = 13;
 							// msg.obj = tempss.get(position).getId();
@@ -265,7 +265,7 @@ public class SecondActivity extends BaseActivity {
 					//
 					// @Override
 					// public void onMyclick(int position) {
-					// // TODO Auto-generated method stub
+					//
 					//
 					// }
 					// }, true, imageLoader, false);
@@ -275,7 +275,7 @@ public class SecondActivity extends BaseActivity {
 					//
 					// @Override
 					// public void onMyclick(int position) {
-					// // TODO Auto-generated method stub
+					//
 					//
 					// }
 					// }, true, imageLoader, true);
@@ -320,7 +320,7 @@ public class SecondActivity extends BaseActivity {
 		// }, null);
 		//
 		// } catch (Exception e) {
-		// // TODO: handle exception
+		//
 		// e.printStackTrace();
 		// }
 	}
@@ -338,14 +338,14 @@ public class SecondActivity extends BaseActivity {
 
 	@Override
 	protected void onStart() {
-		// TODO Auto-generated method stub
+
 		super.onStart();
 
 	}
 
 	// @Override
 	// protected void onPause() {
-	// // TODO Auto-generated method stub
+	//
 	// super.onPause();
 	// market_information_images.puseExecutorService();
 	// }

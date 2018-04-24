@@ -126,7 +126,7 @@ public class LglotteryRealdyActivity extends BaseActivity {
 	private OnClickListener clickListener = new OnClickListener() {
 		@Override
 		public void onClick(View arg0) {
-			// TODO Auto-generated method stub
+
 			switch (arg0.getId()) {
 				case R.id.lottery_pay:
 					if (pay_balance + pay_jinbi != 50.0) {
@@ -310,7 +310,7 @@ public class LglotteryRealdyActivity extends BaseActivity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
+
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.lglottery_readly);
@@ -337,7 +337,7 @@ public class LglotteryRealdyActivity extends BaseActivity {
 					@SuppressWarnings("unchecked")
 					@Override
 					public void onSuccess(int arg0, String arg1) {
-						// TODO Auto-generated method stub
+
 						super.onSuccess(arg0, arg1);
 						WLog.v(arg1);
 						try {
@@ -369,7 +369,7 @@ public class LglotteryRealdyActivity extends BaseActivity {
 					@SuppressWarnings("deprecation")
 					@Override
 					public void onFinish() {
-						// TODO Auto-generated method stub
+
 						super.onFinish();
 
 					}

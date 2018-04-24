@@ -34,7 +34,7 @@ public class MyAirPlaneSelectTwoAdapter extends BaseExpandableListAdapter {
 									  List<AirPlaneSelectFlightData> flightDatas,
 									  ArrayList<ArrayList<AirPlaneSelectMoneyData>> moneyDatas,
 									  OnClickListener onclick) {
-		// TODO Auto-generated constructor stub
+
 		this.flightDatas = flightDatas;
 		this.moneyDatas = moneyDatas;
 		mInflater = LayoutInflater.from(ct);
@@ -43,19 +43,19 @@ public class MyAirPlaneSelectTwoAdapter extends BaseExpandableListAdapter {
 
 	@Override
 	public Object getChild(int arg0, int arg1) {
-		// TODO Auto-generated method stub
+
 		return null;
 	}
 
 	@Override
 	public long getChildId(int arg0, int arg1) {
-		// TODO Auto-generated method stub
+
 		return 0;
 	}
 
 	@Override
 	public int getChildrenCount(int groupPosition) {
-		// TODO Auto-generated method stub
+
 		if (moneyDatas != null) // /
 		{
 			if (moneyDatas.size() > groupPosition
@@ -73,38 +73,38 @@ public class MyAirPlaneSelectTwoAdapter extends BaseExpandableListAdapter {
 
 	@Override
 	public Object getGroup(int groupPosition) {
-		// TODO Auto-generated method stub
+
 		return (flightDatas != null) ? flightDatas.get(groupPosition) : null;
 	}
 
 	@Override
 	public int getGroupCount() {
-		// TODO Auto-generated method stub
+
 		return (flightDatas != null) ? flightDatas.size() : 0;
 	}
 
 	@Override
 	public long getGroupId(int arg0) {
-		// TODO Auto-generated method stub
+
 		return arg0;
 	}
 
 	@Override
 	public boolean hasStableIds() {
-		// TODO Auto-generated method stub
+
 		return true;
 	}
 
 	@Override
 	public boolean isChildSelectable(int arg0, int arg1) {
-		// TODO Auto-generated method stub
+
 		return true;
 	}
 
 	@Override
 	public View getGroupView(int groupPosition, boolean isExpanded,
 							 View convertView, ViewGroup parent) {
-		// TODO Auto-generated method stub
+
 		if (convertView != null) {
 			tempView = convertView;
 		} else {

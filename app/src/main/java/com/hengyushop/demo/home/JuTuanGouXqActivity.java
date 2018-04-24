@@ -148,7 +148,7 @@ public class JuTuanGouXqActivity extends BaseActivity implements OnClickListener
 	public static String jiekou = "0";
 	@Override
 	public void onResume() {
-		// TODO Auto-generated method stub
+
 		super.onResume();
 		spPreferences = getSharedPreferences("longuserset", MODE_PRIVATE);
 		user_name_phone = spPreferences.getString("user", "");
@@ -175,7 +175,7 @@ public class JuTuanGouXqActivity extends BaseActivity implements OnClickListener
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
+
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_jutuangou_title);//activity_jutuangou_title activity_jutuangou_xq
@@ -202,7 +202,7 @@ public class JuTuanGouXqActivity extends BaseActivity implements OnClickListener
 
 				@Override
 				public void onClick(View arg0) {
-					// TODO Auto-generated method stub
+
 					System.out.println("iv_fanhui====================");
 					finish();
 				}
@@ -213,7 +213,7 @@ public class JuTuanGouXqActivity extends BaseActivity implements OnClickListener
 
 				@Override
 				public void onClick(View arg0) {
-					// TODO Auto-generated method stub
+
 					try {
 						if (user_name_phone.equals("")) {
 							Intent intent = new Intent(JuTuanGouXqActivity.this,UserLoginActivity.class);
@@ -237,13 +237,13 @@ public class JuTuanGouXqActivity extends BaseActivity implements OnClickListener
 							}
 						}
 					} catch (Exception e) {
-						// TODO: handle exception
+
 						e.printStackTrace();
 					}
 				}
 			});
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 	}
@@ -304,7 +304,7 @@ public class JuTuanGouXqActivity extends BaseActivity implements OnClickListener
 
 
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 
@@ -358,7 +358,7 @@ public class JuTuanGouXqActivity extends BaseActivity implements OnClickListener
 								String time = timer_time;
 								now = df.parse(time);
 							} catch (java.text.ParseException e1) {
-								// TODO Auto-generated catch block
+
 								e1.printStackTrace();
 							}
 
@@ -368,7 +368,7 @@ public class JuTuanGouXqActivity extends BaseActivity implements OnClickListener
 								date = df.parse(time);
 								time_Current = date.getTime();
 							} catch (java.text.ParseException e1) {
-								// TODO Auto-generated catch block
+
 								e1.printStackTrace();
 							}
 
@@ -380,7 +380,7 @@ public class JuTuanGouXqActivity extends BaseActivity implements OnClickListener
 						}
 
 					} catch (Exception e) {
-						// TODO: handle exception
+
 						e.printStackTrace();
 					}
 					break;
@@ -414,7 +414,7 @@ public class JuTuanGouXqActivity extends BaseActivity implements OnClickListener
 						setListViewHeightBasedOnChildren(new_list);
 
 					} catch (Exception e) {
-						// TODO: handle exception
+
 						e.printStackTrace();
 					}
 					break;
@@ -475,7 +475,7 @@ public class JuTuanGouXqActivity extends BaseActivity implements OnClickListener
 	//				, new AsyncHttpResponseHandler() {
 	//			@Override
 	//			public void onSuccess(int arg0, String arg1) {
-	//				// TODO Auto-generated method stub
+	//
 	//				super.onSuccess(arg0, arg1);
 	//
 	//
@@ -585,7 +585,7 @@ public class JuTuanGouXqActivity extends BaseActivity implements OnClickListener
 	////						listData.add(new Date(end_time));
 	//					   }
 	//					} catch (Exception e) {
-	//						// TODO: handle exception
+	//
 	//						e.printStackTrace();
 	//					}
 	//
@@ -611,7 +611,7 @@ public class JuTuanGouXqActivity extends BaseActivity implements OnClickListener
 	//					}
 	////					mAq.clear();
 	//				} catch (JSONException e) {
-	//					// TODO Auto-generated catch block
+	//
 	//					e.printStackTrace();
 	//				}
 	//			}
@@ -648,7 +648,7 @@ public class JuTuanGouXqActivity extends BaseActivity implements OnClickListener
 				, new AsyncHttpResponseHandler() {
 					@Override
 					public void onSuccess(int arg0, String arg1) {
-						// TODO Auto-generated method stub
+
 						super.onSuccess(arg0, arg1);
 						System.out.println("输出内容详情========="+arg1);
 						try {
@@ -810,7 +810,7 @@ public class JuTuanGouXqActivity extends BaseActivity implements OnClickListener
 							webview.loadUrl(RealmName.REALM_NAME_HTTP+"/mobile/goods/conent-"+data.article_id+".html");//商品介绍
 							progress.CloseProgress();
 						} catch (JSONException e) {
-							// TODO Auto-generated catch block
+
 							e.printStackTrace();
 						}
 					}
@@ -844,7 +844,7 @@ public class JuTuanGouXqActivity extends BaseActivity implements OnClickListener
 			tv_tuanshu.setText(list.get(0).getPeople()+"人团数");
 			tv_price.getPaint().setFlags(Paint.STRIKE_THRU_TEXT_FLAG | Paint.ANTI_ALIAS_FLAG); // 设置市场价文字的中划线
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 
@@ -876,7 +876,7 @@ public class JuTuanGouXqActivity extends BaseActivity implements OnClickListener
 
 	@Override
 	public void onClick(View v) {
-		// TODO Auto-generated method stub
+
 
 		switch (v.getId()) {
 			case R.id.fanhui:
@@ -923,7 +923,7 @@ public class JuTuanGouXqActivity extends BaseActivity implements OnClickListener
 				//							"&user_id="+user_id+"&tags=", new AsyncHttpResponseHandler() {
 				//						@Override
 				//						public void onSuccess(int arg0, String arg1) {
-				//							// TODO Auto-generated method stub
+				//
 				//							super.onSuccess(arg0, arg1);
 				//							try {
 				//								JSONObject jsonObject = new JSONObject(arg1);
@@ -938,7 +938,7 @@ public class JuTuanGouXqActivity extends BaseActivity implements OnClickListener
 				//									Toast.makeText(getApplicationContext(), info, 200).show();
 				//								}
 				//							} catch (JSONException e) {
-				//								// TODO Auto-generated catch block
+				//
 				//								e.printStackTrace();
 				//							}
 				//
@@ -958,7 +958,7 @@ public class JuTuanGouXqActivity extends BaseActivity implements OnClickListener
 								"&user_id="+user_id+"&tags=", new AsyncHttpResponseHandler() {
 							@Override
 							public void onSuccess(int arg0, String arg1) {
-								// TODO Auto-generated method stub
+
 								super.onSuccess(arg0, arg1);
 								try {
 									JSONObject jsonObject = new JSONObject(arg1);
@@ -973,7 +973,7 @@ public class JuTuanGouXqActivity extends BaseActivity implements OnClickListener
 										Toast.makeText(getApplicationContext(), info, 200).show();
 									}
 								} catch (JSONException e) {
-									// TODO Auto-generated catch block
+
 									e.printStackTrace();
 								}
 
@@ -986,7 +986,7 @@ public class JuTuanGouXqActivity extends BaseActivity implements OnClickListener
 					}
 
 				} catch (Exception e) {
-					// TODO: handle exception
+
 					e.printStackTrace();
 				}
 
@@ -1003,7 +1003,7 @@ public class JuTuanGouXqActivity extends BaseActivity implements OnClickListener
 				CommomConfrim.showSheet(JuTuanGouXqActivity.this, new onDeleteSelect() {
 					@Override
 					public void onClick(String resID) {
-						// TODO Auto-generated method stub
+
 
 					}
 				}, data.id);
@@ -1040,7 +1040,7 @@ public class JuTuanGouXqActivity extends BaseActivity implements OnClickListener
 				CommomConfrim.showSheet(JuTuanGouXqActivity.this, new onDeleteSelect() {
 					@Override
 					public void onClick(String resID) {
-						// TODO Auto-generated method stub
+
 
 					}
 				}, data.id);
@@ -1147,7 +1147,7 @@ public class JuTuanGouXqActivity extends BaseActivity implements OnClickListener
 				//			startActivity(intent);
 				//
 				//				} catch (Exception e) {
-				//					// TODO: handle exception
+				//
 				//					e.printStackTrace();
 				//				}
 				//			} else {
@@ -1175,14 +1175,14 @@ public class JuTuanGouXqActivity extends BaseActivity implements OnClickListener
 	////			timer_time = "2017-05-02 18:04:50";
 	//			now_1 = df.parse(timer_time);
 	//		} catch (java.text.ParseException e1) {
-	//			// TODO Auto-generated catch block
+	//
 	//			e1.printStackTrace();
 	//		}
 	//		try {
 	////			datetime = "2017-05-02 18:04:10";
 	//			date_1 = df.parse(datetime);
 	//		} catch (java.text.ParseException e1) {
-	//			// TODO Auto-generated catch block
+	//
 	//			e1.printStackTrace();
 	//		}
 	//
@@ -1204,7 +1204,7 @@ public class JuTuanGouXqActivity extends BaseActivity implements OnClickListener
 	//			System.out.println("2-------------"+count);
 	//			count.start();//开始计时
 	//		} catch (Exception e) {
-	//			// TODO: handle exception
+	//
 	//			e.printStackTrace();
 	//		}
 	//	}
@@ -1221,7 +1221,7 @@ public class JuTuanGouXqActivity extends BaseActivity implements OnClickListener
 	//					"&article_id="+data.article_id+"&goods_id="+data.goods_id+"&quantity="+1+"",new AsyncHttpResponseHandler() {
 	//						@Override
 	//						public void onSuccess(int arg0,String arg1) {
-	//							// TODO Auto-generated method stub
+	//
 	//							super.onSuccess(arg0, arg1);
 	//							try {
 	//								JSONObject jsonObject = new JSONObject(arg1);
@@ -1247,14 +1247,14 @@ public class JuTuanGouXqActivity extends BaseActivity implements OnClickListener
 	//									Toast.makeText(JuTuanGouXqActivity.this, info, 200).show();
 	//								}
 	//							} catch (JSONException e) {
-	//								// TODO Auto-generated catch block
+	//
 	//								e.printStackTrace();
 	//							}
 	//							progress.CloseProgress();
 	//						}
 	//						@Override
 	//						public void onFailure(Throwable arg0, String arg1) {
-	//							// TODO Auto-generated method stub
+	//
 	//							System.out.println("==========================访问接口失败！");
 	//							System.out.println("========================="+arg0);
 	//							System.out.println("=========================="+arg1);
@@ -1265,7 +1265,7 @@ public class JuTuanGouXqActivity extends BaseActivity implements OnClickListener
 	//					}, getApplicationContext());
 	//
 	//			} catch (Exception e) {
-	//				// TODO: handle exception
+	//
 	//				e.printStackTrace();
 	//			}
 	//	}
@@ -1340,7 +1340,7 @@ public class JuTuanGouXqActivity extends BaseActivity implements OnClickListener
 				////				}
 				//
 				//				} catch (Exception e) {
-				//					// TODO: handle exception
+				//
 				//					e.printStackTrace();
 				//				}
 				//			}else {
@@ -1369,7 +1369,7 @@ public class JuTuanGouXqActivity extends BaseActivity implements OnClickListener
 
 						updateTextView( now.getTime()-time_Current, holder);
 					} catch (Exception e) {
-						// TODO: handle exception
+
 						e.printStackTrace();
 					}
 				}
@@ -1382,7 +1382,7 @@ public class JuTuanGouXqActivity extends BaseActivity implements OnClickListener
 				//			}
 
 			} catch (Exception e) {
-				// TODO: handle exception
+
 				e.printStackTrace();
 			}
 
@@ -1415,7 +1415,7 @@ public class JuTuanGouXqActivity extends BaseActivity implements OnClickListener
 
 				@Override
 				public void onClick(View arg0) {
-					// TODO Auto-generated method stub
+
 					foreman_id = list_ll.get(position).getForeman_id();//提交团购订单 调用参数值
 					foreman_name = list_ll.get(position).getForeman_name();//提交团购订单  调用参数值
 					//						orders_no = list_ll.get(position).getOrder_no();//提交团购订单  调用参数值

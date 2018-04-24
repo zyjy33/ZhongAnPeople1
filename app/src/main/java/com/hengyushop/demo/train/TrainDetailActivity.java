@@ -122,7 +122,7 @@ public class TrainDetailActivity extends BaseActivity {
 							data.getStart_train_date() + data.getToTime(),
 							"yyyy-MM-dd hh:ss"));
 				} catch (ParseException e1) {
-					// TODO Auto-generated catch block
+
 					e1.printStackTrace();
 				}
 				params.put("LiShi", data.getTakeTime());
@@ -166,7 +166,7 @@ public class TrainDetailActivity extends BaseActivity {
 										@Override
 										public void onSuccess(int arg0,
 															  String arg1) {
-											// TODO Auto-generated method stub
+
 											super.onSuccess(arg0, arg1);
 											System.out.println(arg1);
 											try {
@@ -221,7 +221,7 @@ public class TrainDetailActivity extends BaseActivity {
 													handler.sendEmptyMessage(3);
 												}
 											} catch (JSONException e) {
-												// TODO Auto-generated catch
+												  catch
 												// block
 												e.printStackTrace();
 											}
@@ -414,7 +414,7 @@ public class TrainDetailActivity extends BaseActivity {
 
 			@Override
 			public void onClick(View arg0) {
-				// TODO Auto-generated method stub
+
 				dissPop();
 			}
 		});

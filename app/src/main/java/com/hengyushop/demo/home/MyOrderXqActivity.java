@@ -82,7 +82,7 @@
 //
 //	@Override
 //	protected void onResume() {
-//		// TODO Auto-generated method stub
+//
 //		super.onResume();
 ////		TextView tv_geshu = (TextView) findViewById(R.id.tv_geshu);
 ////		if (list.size() > 0) {
@@ -98,7 +98,7 @@
 //	}
 //	@Override
 //	protected void onCreate(Bundle savedInstanceState) {
-//		// TODO Auto-generated method stub
+//
 //		requestWindowFeature(Window.FEATURE_NO_TITLE);
 //		super.onCreate(savedInstanceState);
 //		setContentView(R.layout.activity_my_order_xq);
@@ -126,7 +126,7 @@
 //
 //				@Override
 //				public void onClick(View arg0) {
-//					// TODO Auto-generated method stub
+//
 //					finish();
 //				}
 //			});
@@ -217,7 +217,7 @@
 //			};
 //
 //	    } catch (Exception e) {
-//		// TODO: handle exception
+//
 //		e.printStackTrace();
 //	}
 //
@@ -390,7 +390,7 @@
 //
 //	@Override
 //	public void onClick(View v) {
-//		// TODO Auto-generated method stub
+//
 //
 //		switch (v.getId()) {
 //		case R.id.iv_fanhui:
@@ -447,14 +447,14 @@
 //						}else{
 //						}
 //					} catch (JSONException e) {
-//						// TODO Auto-generated catch block
+//
 //						e.printStackTrace();
 //					}
 //				};
 //			}, MyOrderXqActivity.this);
 //
 //		} catch (Exception e) {
-//			// TODO: handle exception
+//
 //			e.printStackTrace();
 //		}
 //	}
@@ -499,7 +499,7 @@
 //
 //					@Override
 //					public void onFailure(Throwable arg0, String arg1) {
-//						// TODO Auto-generated method stub
+//
 //						super.onFailure(arg0, arg1);
 //						System.out.println("11================================="+arg0);
 //						System.out.println("22================================="+arg1);
@@ -509,7 +509,7 @@
 //				}, null);
 //		
 //		} catch (Exception e) {
-//			// TODO: handle exception
+//
 //			e.printStackTrace();
 //		}
 //	}

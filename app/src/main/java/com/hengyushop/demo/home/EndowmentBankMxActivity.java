@@ -52,7 +52,7 @@ public class EndowmentBankMxActivity extends BaseActivity implements
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
+
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_ylyhmx);// endowment_bank_activity
@@ -174,13 +174,13 @@ public class EndowmentBankMxActivity extends BaseActivity implements
 
 				@Override
 				public void onClick(View arg0) {
-					// TODO Auto-generated method stub
+
 					finish();
 				}
 			});
 
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 	}
@@ -217,7 +217,7 @@ public class EndowmentBankMxActivity extends BaseActivity implements
 //
 //					}
 //				} catch (JSONException e) {
-//					// TODO Auto-generated catch block
+//
 //					e.printStackTrace();
 //				}
 //			};
@@ -238,7 +238,7 @@ public class EndowmentBankMxActivity extends BaseActivity implements
 
 	@Override
 	public void onClick(View v) {
-		// TODO Auto-generated method stub
+
 		switch (v.getId()) {
 			case R.id.index_item0:
 				// Intent intent1 = new

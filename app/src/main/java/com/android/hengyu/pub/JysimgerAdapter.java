@@ -36,7 +36,7 @@ public class JysimgerAdapter extends BaseAdapter {
 
 	public JysimgerAdapter(ArrayList<shangpingListData> lists_ll, Context context,
 			ImageLoader loader) {
-		// TODO Auto-generated constructor stub
+
 		try {
 
 			this.context = context;
@@ -45,7 +45,7 @@ public class JysimgerAdapter extends BaseAdapter {
 			this.inflater = LayoutInflater.from(context);
 
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 	}
@@ -56,23 +56,23 @@ public class JysimgerAdapter extends BaseAdapter {
 	}
 
 	public int getCount() {
-		// TODO Auto-generated method stub
+
 		// return list.size();
 		return lists_ll.size();
 	}
 
 	public Object getItem(int position) {
-		// TODO Auto-generated method stub
+
 		return position;
 	}
 
 	public long getItemId(int position) {
-		// TODO Auto-generated method stub
+
 		return position;
 	}
 
 	public View getView(final int position, View convertView, ViewGroup parent) {
-		// TODO Auto-generated method stub
+
 		if (convertView == null) {
 			convertView = LinearLayout.inflate(context, layout.tuijian_yunshangju_time, null);
 		}
@@ -153,7 +153,7 @@ public class JysimgerAdapter extends BaseAdapter {
 
 				@Override
 				public void onClick(View arg0) {
-					// TODO Auto-generated method stub
+
 					Intent intent = new Intent(context,
 							WareInformationActivity.class);
 					intent.putExtra("id", lists_ll.get(position).user_id);
@@ -165,7 +165,7 @@ public class JysimgerAdapter extends BaseAdapter {
 
 				@Override
 				public void onClick(View arg0) {
-					// TODO Auto-generated method stub
+
 					Intent intent = new Intent(context,
 							WareInformationActivity.class);
 					intent.putExtra("id", lists_ll.get(position).user_id);
@@ -177,7 +177,7 @@ public class JysimgerAdapter extends BaseAdapter {
 
 				@Override
 				public void onClick(View arg0) {
-					// TODO Auto-generated method stub
+
 					Intent intent = new Intent(context,
 							WareInformationActivity.class);
 					intent.putExtra("id", lists_ll.get(position).user_id);
@@ -187,7 +187,7 @@ public class JysimgerAdapter extends BaseAdapter {
 			});
 
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 		return convertView;

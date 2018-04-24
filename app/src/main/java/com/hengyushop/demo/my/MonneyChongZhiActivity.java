@@ -73,7 +73,7 @@ public class MonneyChongZhiActivity extends BaseActivity implements OnClickListe
 
 	@Override
 	protected void onResume() {
-		// TODO Auto-generated method stub
+
 		super.onResume();
 
 		System.out.println("flag=============="+flag);
@@ -84,7 +84,7 @@ public class MonneyChongZhiActivity extends BaseActivity implements OnClickListe
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
+
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_yanglao_chongzhi);
@@ -140,7 +140,7 @@ public class MonneyChongZhiActivity extends BaseActivity implements OnClickListe
 
 				@Override
 				public void onClick(View arg0) {
-					// TODO Auto-generated method stub
+
 					if(yu_pay_c1.isChecked()){
 						yu_pay_c1.setChecked(false);
 					}else if(yu_pay_c2.isChecked()){
@@ -153,7 +153,7 @@ public class MonneyChongZhiActivity extends BaseActivity implements OnClickListe
 
 				@Override
 				public void onClick(View arg0) {
-					// TODO Auto-generated method stub
+
 					if(yu_pay_c1.isChecked()){
 						//点击设置是否为点击状态
 						yu_pay_c1.setChecked(false);
@@ -170,7 +170,7 @@ public class MonneyChongZhiActivity extends BaseActivity implements OnClickListe
 
 				@Override
 				public void onClick(View arg0) {
-					// TODO Auto-generated method stub
+
 					if(yu_pay_c0.isChecked()){
 						yu_pay_c0.setChecked(false);
 					}else if(yu_pay_c2.isChecked()){
@@ -183,7 +183,7 @@ public class MonneyChongZhiActivity extends BaseActivity implements OnClickListe
 
 				@Override
 				public void onClick(View arg0) {
-					// TODO Auto-generated method stub
+
 					if(yu_pay_c0.isChecked()){
 						yu_pay_c0.setChecked(false);
 					}else if(yu_pay_c2.isChecked()){
@@ -199,7 +199,7 @@ public class MonneyChongZhiActivity extends BaseActivity implements OnClickListe
 
 				@Override
 				public void onClick(View arg0) {
-					// TODO Auto-generated method stub
+
 					if(yu_pay_c0.isChecked()){
 						yu_pay_c0.setChecked(false);
 					}else if(yu_pay_c1.isChecked()){
@@ -212,7 +212,7 @@ public class MonneyChongZhiActivity extends BaseActivity implements OnClickListe
 
 				@Override
 				public void onClick(View arg0) {
-					// TODO Auto-generated method stub
+
 					if(yu_pay_c0.isChecked()){
 						yu_pay_c0.setChecked(false);
 					}else if(yu_pay_c1.isChecked()){
@@ -267,14 +267,14 @@ public class MonneyChongZhiActivity extends BaseActivity implements OnClickListe
 			});
 
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 	}
 
 	@Override
 	public void onClick(View v) {
-		// TODO Auto-generated method stub
+
 
 		switch (v.getId()) {
 			case R.id.iv_fanhui:
@@ -321,14 +321,14 @@ public class MonneyChongZhiActivity extends BaseActivity implements OnClickListe
 						}else{
 						}
 					} catch (JSONException e) {
-						// TODO Auto-generated catch block
+
 						e.printStackTrace();
 					}
 				};
 			}, MonneyChongZhiActivity.this);
 
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 	}
@@ -374,7 +374,7 @@ public class MonneyChongZhiActivity extends BaseActivity implements OnClickListe
 
 						@Override
 						public void onFailure(Throwable arg0, String arg1) {
-							// TODO Auto-generated method stub
+
 							super.onFailure(arg0, arg1);
 							System.out.println("11================================="+arg0);
 							System.out.println("22================================="+arg1);
@@ -384,7 +384,7 @@ public class MonneyChongZhiActivity extends BaseActivity implements OnClickListe
 					}, null);
 
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 	}
@@ -436,7 +436,7 @@ public class MonneyChongZhiActivity extends BaseActivity implements OnClickListe
 					}, getApplicationContext());
 
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 	}
@@ -484,7 +484,7 @@ public class MonneyChongZhiActivity extends BaseActivity implements OnClickListe
 					}, null);
 
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 	}
@@ -524,7 +524,7 @@ public class MonneyChongZhiActivity extends BaseActivity implements OnClickListe
 					}, null);
 
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 	}
@@ -574,7 +574,7 @@ public class MonneyChongZhiActivity extends BaseActivity implements OnClickListe
 					}, getApplicationContext());
 
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 	}
@@ -629,7 +629,7 @@ public class MonneyChongZhiActivity extends BaseActivity implements OnClickListe
 					}, null);
 
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 	}

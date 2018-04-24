@@ -167,20 +167,20 @@ public class MyAssetsActivity extends BaseActivity implements OnClickListener {
 
 				@Override
 				public void onClick(View arg0) {
-					// TODO Auto-generated method stub
+
 					finish();
 				}
 			});
 
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 	}
 
 	@Override
 	public void onClick(View v) {
-		// TODO Auto-generated method stub
+
 		switch (v.getId()) {
 			case R.id.index_item0:
 				// index_item0.setVisibility(View.VISIBLE);
@@ -243,7 +243,7 @@ public class MyAssetsActivity extends BaseActivity implements OnClickListener {
 
 		@Override
 		public void onHeaderRefresh(PullToRefreshView view) {
-			// TODO Auto-generated method stub
+
 			refresh.postDelayed(new Runnable() {
 
 				@Override
@@ -261,7 +261,7 @@ public class MyAssetsActivity extends BaseActivity implements OnClickListener {
 
 		@Override
 		public void onFooterRefresh(PullToRefreshView view) {
-			// TODO Auto-generated method stub
+
 			refresh.postDelayed(new Runnable() {
 
 				@Override
@@ -278,7 +278,7 @@ public class MyAssetsActivity extends BaseActivity implements OnClickListener {
 						refresh.onFooterRefreshComplete();
 
 					} catch (Exception e) {
-						// TODO: handle exception
+
 						e.printStackTrace();
 					}
 				}
@@ -291,7 +291,7 @@ public class MyAssetsActivity extends BaseActivity implements OnClickListener {
 	//
 	// @Override
 	// public void onFooterRefresh(PullToRefreshView view) {
-	// // TODO Auto-generated method stub
+	//
 	// refresh.postDelayed(new Runnable() {
 	//
 	// @Override
@@ -352,7 +352,7 @@ public class MyAssetsActivity extends BaseActivity implements OnClickListener {
 				new AsyncHttpResponseHandler() {
 					@Override
 					public void onSuccess(int arg0, String arg1) {
-						// TODO Auto-generated method stub
+
 						super.onSuccess(arg0, arg1);
 						System.out.println("=====================二级值1" + arg1);
 						try {
@@ -393,7 +393,7 @@ public class MyAssetsActivity extends BaseActivity implements OnClickListener {
 							}
 							progress.CloseProgress();
 						} catch (JSONException e) {
-							// TODO Auto-generated catch block
+
 							e.printStackTrace();
 						}
 					}
@@ -416,7 +416,7 @@ public class MyAssetsActivity extends BaseActivity implements OnClickListener {
 	//				new AsyncHttpResponseHandler() {
 	//					@Override
 	//					public void onSuccess(int arg0, String arg1) {
-	//						// TODO Auto-generated method stub
+	//
 	//						super.onSuccess(arg0, arg1);
 	//						System.out.println("=====================二级值2" + arg1);
 	//						try {
@@ -450,7 +450,7 @@ public class MyAssetsActivity extends BaseActivity implements OnClickListener {
 	//							msg.obj = list;
 	//							handler.sendMessage(msg);
 	//						} catch (JSONException e) {
-	//							// TODO Auto-generated catch block
+	//
 	//							e.printStackTrace();
 	//						}
 	//					}
@@ -497,14 +497,14 @@ public class MyAssetsActivity extends BaseActivity implements OnClickListener {
 
 						}
 					} catch (JSONException e) {
-						// TODO Auto-generated catch block
+
 						e.printStackTrace();
 					}
 				};
 
 				@Override
 				public void onFailure(Throwable arg0, String arg1) {
-					// TODO Auto-generated method stub
+
 					super.onFailure(arg0, arg1);
 					NewDataToast.makeText(MyAssetsActivity.this, "连接超时", false,
 							0).show();
@@ -512,7 +512,7 @@ public class MyAssetsActivity extends BaseActivity implements OnClickListener {
 			}, getApplicationContext());
 
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 	}
@@ -543,7 +543,7 @@ public class MyAssetsActivity extends BaseActivity implements OnClickListener {
 			bd4.setCallback(null);
 			bd4.getBitmap().recycle();
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 	};

@@ -110,24 +110,24 @@ public class MyJuTuanOrderAdapter extends BaseAdapter {
 	}
 
 	public int getCount() {
-		// TODO Auto-generated method stub
+
 		return list.size();
 	}
 
 	// @Override
 	// public Object getItem(int position) {
-	// // TODO Auto-generated method stub
+	//
 	// return list.get(position);
 	// }
 
 	public Object getItem(int position) {
-		// TODO Auto-generated method stub
+
 		return position;
 	}
 
 	@Override
 	public long getItemId(int position) {
-		// TODO Auto-generated method stub
+
 		return position;
 	}
 
@@ -154,7 +154,7 @@ public class MyJuTuanOrderAdapter extends BaseAdapter {
 
 	@Override
 	public View getView(final int position, View convertView, ViewGroup patent) {
-		// TODO Auto-generated method stub
+
 		// ViewHolder holder = null;
 		// holder = new ViewHolder();
 		System.out
@@ -313,7 +313,7 @@ public class MyJuTuanOrderAdapter extends BaseAdapter {
 						// msg.obj = order_no;
 						// handler.sendMessage(msg);
 					} catch (Exception e) {
-						// TODO: handle exception
+
 						e.printStackTrace();
 					}
 				}
@@ -333,7 +333,7 @@ public class MyJuTuanOrderAdapter extends BaseAdapter {
 								.getOrder_no());
 						context.startActivity(intent);
 					} catch (Exception e) {
-						// TODO: handle exception
+
 						e.printStackTrace();
 					}
 				}
@@ -353,7 +353,7 @@ public class MyJuTuanOrderAdapter extends BaseAdapter {
 						msg.obj = order_no;
 						handler.sendMessage(msg);
 					} catch (Exception e) {
-						// TODO: handle exception
+
 						e.printStackTrace();
 					}
 
@@ -374,7 +374,7 @@ public class MyJuTuanOrderAdapter extends BaseAdapter {
 						msg.obj = order_no;
 						handler.sendMessage(msg);
 					} catch (Exception e) {
-						// TODO: handle exception
+
 						e.printStackTrace();
 					}
 				}
@@ -527,7 +527,7 @@ public class MyJuTuanOrderAdapter extends BaseAdapter {
 							context.startActivity(intent);
 
 						} catch (Exception e) {
-							// TODO: handle exception
+
 							e.printStackTrace();
 						}
 					}
@@ -551,14 +551,14 @@ public class MyJuTuanOrderAdapter extends BaseAdapter {
 						context.startActivity(intent);
 
 					} catch (Exception e) {
-						// TODO: handle exception
+
 						e.printStackTrace();
 					}
 				}
 			});
 
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 
@@ -606,14 +606,14 @@ public class MyJuTuanOrderAdapter extends BaseAdapter {
 							Toast.makeText(context, info, 200).show();
 						}
 					} catch (JSONException e) {
-						// TODO Auto-generated catch block
+
 						e.printStackTrace();
 					}
 				};
 			}, context);
 
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 	}

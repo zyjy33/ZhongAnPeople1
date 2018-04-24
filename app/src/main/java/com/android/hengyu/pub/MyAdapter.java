@@ -48,7 +48,7 @@ public class MyAdapter extends BaseAdapter {
 
 	@Override
 	public Object getItem(int position) {
-		// TODO Auto-generated method stub
+
 		return List.get(position);
 	}
 
@@ -94,7 +94,7 @@ public class MyAdapter extends BaseAdapter {
 			//		}
 
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 		if (clickTemp == position) {

@@ -23,7 +23,7 @@ public class OnePersonAdapter extends BaseExpandableListAdapter {
 
 	public OnePersonAdapter(Context context, ArrayList<One_Person_Bean> lists,
 							ImageLoader imageLoader) {
-		// TODO Auto-generated constructor stub
+
 		this.context = context;
 		this.lists = lists;
 		this.imageLoader = imageLoader;
@@ -41,20 +41,20 @@ public class OnePersonAdapter extends BaseExpandableListAdapter {
 
 	@Override
 	public Object getChild(int groupPosition, int childPosition) {
-		// TODO Auto-generated method stub
+
 		return lists.get(groupPosition).getChild().get(childPosition);
 	}
 
 	@Override
 	public long getChildId(int groupPosition, int childPosition) {
-		// TODO Auto-generated method stub
+
 		return 0;
 	}
 
 	@Override
 	public View getChildView(int groupPosition, int childPosition,
 							 boolean isLastChild, View convertView, ViewGroup parent) {
-		// TODO Auto-generated method stub
+
 
 		if (convertView == null) {
 			convertView = LayoutInflater.from(context).inflate(
@@ -80,7 +80,7 @@ public class OnePersonAdapter extends BaseExpandableListAdapter {
 
 	@Override
 	public int getChildrenCount(int groupPosition) {
-		// TODO Auto-generated method stub
+
 		if(lists.get(groupPosition).getChild().size()!=0){
 			return 1;
 		}
@@ -89,26 +89,26 @@ public class OnePersonAdapter extends BaseExpandableListAdapter {
 
 	@Override
 	public Object getGroup(int groupPosition) {
-		// TODO Auto-generated method stub
+
 		return lists.get(groupPosition);
 	}
 
 	@Override
 	public int getGroupCount() {
-		// TODO Auto-generated method stub
+
 		return lists.size();
 	}
 
 	@Override
 	public long getGroupId(int groupPosition) {
-		// TODO Auto-generated method stub
+
 		return groupPosition;
 	}
 
 	@Override
 	public View getGroupView(int groupPosition, boolean isExpanded,
 							 View convertView, ViewGroup parent) {
-		// TODO Auto-generated method stub
+
 		final ViewHolder viewHolder;
 		if (convertView == null) {
 			convertView = LayoutInflater.from(context).inflate(
@@ -146,13 +146,13 @@ public class OnePersonAdapter extends BaseExpandableListAdapter {
 
 	@Override
 	public boolean hasStableIds() {
-		// TODO Auto-generated method stub
+
 		return false;
 	}
 
 	@Override
 	public boolean isChildSelectable(int groupPosition, int childPosition) {
-		// TODO Auto-generated method stub
+
 		return false;
 	}
 

@@ -54,7 +54,7 @@ public class MerchantsLabelActivity extends Activity implements OnClickListener 
 
 			@Override
 			public void onClick(View arg0) {
-				// TODO Auto-generated method stub
+
 				finish();
 			}
 		});

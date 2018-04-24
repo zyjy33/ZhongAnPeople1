@@ -112,7 +112,7 @@ public class MyXiaDanActivity extends BaseActivity implements OnClickListener {
 
 	@Override
 	public void onResume() {
-		// TODO Auto-generated method stub
+
 		super.onResume();
 		try {
 
@@ -161,7 +161,7 @@ public class MyXiaDanActivity extends BaseActivity implements OnClickListener {
 			}
 
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 
@@ -169,7 +169,7 @@ public class MyXiaDanActivity extends BaseActivity implements OnClickListener {
 
 
 	private void getgouwuche(String content) {
-		// TODO Auto-generated method stub
+
 		progress.CreateProgress();
 		//		result = new ArrayList<DataBean_ll>();
 		System.out.println("content=====================content" + content);
@@ -178,7 +178,7 @@ public class MyXiaDanActivity extends BaseActivity implements OnClickListener {
 					,new AsyncHttpResponseHandler() {
 						@Override
 						public void onSuccess(int arg0,String arg1) {
-							// TODO Auto-generated method stub
+
 							super.onSuccess(arg0, arg1);
 							try {
 								JSONObject jsonObject = new JSONObject(arg1);
@@ -217,7 +217,7 @@ public class MyXiaDanActivity extends BaseActivity implements OnClickListener {
 										progress.CloseProgress();
 
 									} catch (Exception e) {
-										// TODO: handle exception
+
 										e.printStackTrace();
 									}
 								} else {
@@ -226,7 +226,7 @@ public class MyXiaDanActivity extends BaseActivity implements OnClickListener {
 								}
 
 							} catch (JSONException e) {
-								// TODO Auto-generated catch block
+
 								e.printStackTrace();
 							}
 
@@ -248,7 +248,7 @@ public class MyXiaDanActivity extends BaseActivity implements OnClickListener {
 
 
 	private void getgouwuche() {
-		// TODO Auto-generated method stub
+
 		//		progress.CreateProgress();
 		result = new ArrayList<DataBean_ll>();
 		user_id = spPreferences.getString("user_id", "");
@@ -258,7 +258,7 @@ public class MyXiaDanActivity extends BaseActivity implements OnClickListener {
 					,new AsyncHttpResponseHandler() {
 						@Override
 						public void onSuccess(int arg0,String arg1) {
-							// TODO Auto-generated method stub
+
 							super.onSuccess(arg0, arg1);
 							try {
 								JSONObject jsonObject = new JSONObject(arg1);
@@ -298,7 +298,7 @@ public class MyXiaDanActivity extends BaseActivity implements OnClickListener {
 								//							refreshListView();
 								progress.CloseProgress();
 							} catch (JSONException e) {
-								// TODO Auto-generated catch block
+
 								e.printStackTrace();
 							}
 
@@ -339,7 +339,7 @@ public class MyXiaDanActivity extends BaseActivity implements OnClickListener {
 
 				@Override
 				public void onClick(View arg0) {
-					// TODO Auto-generated method stub
+
 					user_id = spPreferences.getString("user_id", "");
 					if (user_id.equals("")) {
 						Intent intentll = new Intent(MyXiaDanActivity.this,UserLoginActivity.class);
@@ -355,7 +355,7 @@ public class MyXiaDanActivity extends BaseActivity implements OnClickListener {
 
 				@Override
 				public void onClick(View arg0) {
-					// TODO Auto-generated method stub
+
 					finish();
 				}
 			});
@@ -365,7 +365,7 @@ public class MyXiaDanActivity extends BaseActivity implements OnClickListener {
 
 				@Override
 				public void onClick(View arg0) {
-					// TODO Auto-generated method stub
+
 					Intent Intent2 = new Intent(MyXiaDanActivity.this,CaptureActivity.class);
 					//							Intent2.putExtra("sp_sys", "2");
 					startActivity(Intent2);
@@ -373,7 +373,7 @@ public class MyXiaDanActivity extends BaseActivity implements OnClickListener {
 			});
 
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 
@@ -493,7 +493,7 @@ public class MyXiaDanActivity extends BaseActivity implements OnClickListener {
 					holder.red = (TextView) view.findViewById(R.id.tv_reduce);
 					holder.frontView = view.findViewById(R.id.item_left);
 				} catch (Exception e) {
-					// TODO: handle exception
+
 					e.printStackTrace();
 				}
 				view.setTag(holder);
@@ -575,7 +575,7 @@ public class MyXiaDanActivity extends BaseActivity implements OnClickListener {
 					//					AsyncHttp.get(RealmName.REALM_NAME_LL+ "/cart_goods_update?cart_id="+cart_id+"&user_id="+user_id+"&quantity="+currentNum+"",new AsyncHttpResponseHandler() {
 					//						@Override
 					//						public void onSuccess(int arg0, String arg1) {
-					//							// TODO Auto-generated method stub
+					//
 					//							System.out.println("==========================访问接口成功！"+arg1);
 					//							super.onSuccess(arg0, arg1);
 					//						}
@@ -619,7 +619,7 @@ public class MyXiaDanActivity extends BaseActivity implements OnClickListener {
 						//						AsyncHttp.get(RealmName.REALM_NAME_LL+ "/cart_goods_update?cart_id="+cart_id+"&user_id="+user_id+"&quantity="+currentNum+"",new AsyncHttpResponseHandler() {
 						//							@Override
 						//							public void onSuccess(int arg0, String arg1) {
-						//								// TODO Auto-generated method stub
+						//
 						//								System.out.println("==========================2访问接口成功！"+arg1);
 						//								super.onSuccess(arg0, arg1);
 						//							}
@@ -717,7 +717,7 @@ public class MyXiaDanActivity extends BaseActivity implements OnClickListener {
 
 	@Override
 	public void onClick(View v) {
-		// TODO Auto-generated method stub
+
 		switch (v.getId()) {
 
 			case R.id.subtitle:
@@ -827,7 +827,7 @@ public class MyXiaDanActivity extends BaseActivity implements OnClickListener {
 					AsyncHttp.get(strUrl,new AsyncHttpResponseHandler() {
 						@Override
 						public void onSuccess(int arg0, String arg1) {
-							// TODO Auto-generated method stub
+
 							System.out.println("==========================访问接口成功！"+arg1);
 							super.onSuccess(arg0, arg1);
 							try {
@@ -843,7 +843,7 @@ public class MyXiaDanActivity extends BaseActivity implements OnClickListener {
 									Toast.makeText(MyXiaDanActivity.this, info, 200).show();
 								}
 							} catch (Exception e) {
-								// TODO: handle exception
+
 								e.printStackTrace();
 							}
 						}

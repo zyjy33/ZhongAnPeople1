@@ -71,7 +71,7 @@ public class RechargePayQQActivity extends BaseActivity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
+
 		super.onCreate(savedInstanceState);
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.recgarge_pay);
@@ -131,7 +131,7 @@ public class RechargePayQQActivity extends BaseActivity {
 
 			@Override
 			public void onClick(View arg0) {
-				// TODO Auto-generated method stub
+
 				paypwd = et_paypwd.getText().toString();
 				// 支付密码加密
 				RechargePayQQActivity md5s = new RechargePayQQActivity();
@@ -152,7 +152,7 @@ public class RechargePayQQActivity extends BaseActivity {
 				AsyncHttp.get(strUrl, new AsyncHttpResponseHandler(){
 					@Override
 					public void onSuccess(int arg0, String arg1) {
-						// TODO Auto-generated method stub
+
 						super.onSuccess(arg0, arg1);
 
 						try {
@@ -172,7 +172,7 @@ public class RechargePayQQActivity extends BaseActivity {
 								handler.sendMessage(message);
 							}
 						} catch (JSONException e) {
-							// TODO Auto-generated catch block
+
 							e.printStackTrace();
 						}
 

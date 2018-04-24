@@ -44,7 +44,7 @@ public class AirPlaneTicketInfromationActivity extends BaseActivity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
+
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.airplane_ticket_information);
@@ -102,7 +102,7 @@ public class AirPlaneTicketInfromationActivity extends BaseActivity {
 			fly_detail_all.setText("" + day1 + "天" + hour1 + "小时" + minute1
 					+ "分");
 		} catch (java.text.ParseException e1) {
-			// TODO Auto-generated catch block
+
 			e1.printStackTrace();
 		}
 
@@ -114,7 +114,7 @@ public class AirPlaneTicketInfromationActivity extends BaseActivity {
 			try {
 				d = dateFormat.parse(bean.getDate());
 			} catch (java.text.ParseException e) {
-				// TODO Auto-generated catch block
+
 				e.printStackTrace();
 			}
 		} catch (ParseException e) {
@@ -135,7 +135,7 @@ public class AirPlaneTicketInfromationActivity extends BaseActivity {
 
 		@Override
 		public void onClick(View v) {
-			// TODO Auto-generated method stub
+
 			switch (v.getId()) {
 				case R.id.check_ok:
 					// 确认信息无误

@@ -82,7 +82,7 @@ public class JuTuanGou2Activity extends BaseActivity implements OnClickListener 
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
+
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_jutuangou_tetle);
@@ -101,7 +101,7 @@ public class JuTuanGou2Activity extends BaseActivity implements OnClickListener 
 
 	@Override
 	protected void onDestroy() {
-		// TODO Auto-generated method stub
+
 		super.onDestroy();
 		try {
 			if (MyPosterView.type == true) {
@@ -120,19 +120,19 @@ public class JuTuanGou2Activity extends BaseActivity implements OnClickListener 
 				list_3 = null;
 			}
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 	}
 
 	// public void uncaughtException(Thread arg0, Throwable arg1) {
-	// // TODO Auto-generated method stub
+	//
 	// //在此处理异常， arg1即为捕获到的异常
 	// Log.i("AAA", "uncaughtException   " + arg1);
 	// }
 	// @Override
 	// protected void onResume() {
-	// // TODO Auto-generated method stub
+	//
 	// super.onResume();
 	// // loadCate();
 	// }
@@ -146,7 +146,7 @@ public class JuTuanGou2Activity extends BaseActivity implements OnClickListener 
 		AsyncHttp.get(strUrl, new AsyncHttpResponseHandler() {
 			@Override
 			public void onSuccess(int arg0, String arg1) {
-				// TODO Auto-generated method stub
+
 				super.onSuccess(arg0, arg1);
 				parse1(arg1);
 			}
@@ -193,7 +193,7 @@ public class JuTuanGou2Activity extends BaseActivity implements OnClickListener 
 			mytaobao.setData(list_ju);
 			// progress.CloseProgress();
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 	}
@@ -207,7 +207,7 @@ public class JuTuanGou2Activity extends BaseActivity implements OnClickListener 
 
 				@Override
 				public void onClick(View arg0) {
-					// TODO Auto-generated method stub
+
 					Intent intent = new Intent(JuTuanGou2Activity.this,
 							JuTouTiaoActivity.class);
 					startActivity(intent);
@@ -272,13 +272,13 @@ public class JuTuanGou2Activity extends BaseActivity implements OnClickListener 
 
 				@Override
 				public void onClick(View arg0) {
-					// TODO Auto-generated method stub
+
 					finish();
 				}
 			});
 
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 
@@ -286,7 +286,7 @@ public class JuTuanGou2Activity extends BaseActivity implements OnClickListener 
 
 	@Override
 	public void onClick(View v) {
-		// TODO Auto-generated method stub
+
 		switch (v.getId()) {
 			case R.id.index_item0:
 				try {
@@ -303,7 +303,7 @@ public class JuTuanGou2Activity extends BaseActivity implements OnClickListener 
 						Toast.makeText(JuTuanGou2Activity.this, "数据为空", 200).show();
 					}
 				} catch (Exception e) {
-					// TODO: handle exception
+
 					e.printStackTrace();
 				}
 				break;
@@ -323,7 +323,7 @@ public class JuTuanGou2Activity extends BaseActivity implements OnClickListener 
 						Toast.makeText(JuTuanGou2Activity.this, "数据为空", 200).show();
 					}
 				} catch (Exception e) {
-					// TODO: handle exception
+
 					e.printStackTrace();
 				}
 				break;
@@ -342,7 +342,7 @@ public class JuTuanGou2Activity extends BaseActivity implements OnClickListener 
 						Toast.makeText(JuTuanGou2Activity.this, "数据为空", 200).show();
 					}
 				} catch (Exception e) {
-					// TODO: handle exception
+
 					e.printStackTrace();
 				}
 				break;
@@ -445,7 +445,7 @@ public class JuTuanGou2Activity extends BaseActivity implements OnClickListener 
 						new AsyncHttpResponseHandler() {
 							@Override
 							public void onSuccess(int arg0, String arg1) {
-								// TODO Auto-generated method stub
+
 								super.onSuccess(arg0, arg1);
 								System.out
 										.println("输出所有拼团活动列表=========" + arg1);
@@ -528,13 +528,13 @@ public class JuTuanGou2Activity extends BaseActivity implements OnClickListener 
 											now_1 = df.parse(list_1.get(0)
 													.getEnd_time());
 										} catch (java.text.ParseException e1) {
-											// TODO Auto-generated catch block
+
 											e1.printStackTrace();
 										}
 										try {
 											date_1 = df.parse(datetime);
 										} catch (java.text.ParseException e1) {
-											// TODO Auto-generated catch block
+
 											e1.printStackTrace();
 										}
 										long end_time = now_1.getTime();
@@ -568,7 +568,7 @@ public class JuTuanGou2Activity extends BaseActivity implements OnClickListener 
 									progress.CloseProgress();
 									loadWeather2();
 								} catch (JSONException e) {
-									// TODO Auto-generated catch block
+
 									e.printStackTrace();
 								}
 							}
@@ -577,7 +577,7 @@ public class JuTuanGou2Activity extends BaseActivity implements OnClickListener 
 	}
 
 	private void getzhou() {
-		// TODO Auto-generated method stub
+
 		ll_tuangou1.setOnClickListener(this);
 	}
 
@@ -599,7 +599,7 @@ public class JuTuanGou2Activity extends BaseActivity implements OnClickListener 
 						new AsyncHttpResponseHandler() {
 							@Override
 							public void onSuccess(int arg0, String arg1) {
-								// TODO Auto-generated method stub
+
 								super.onSuccess(arg0, arg1);
 								System.out
 										.println("输出所有拼团活动列表=========" + arg1);
@@ -680,13 +680,13 @@ public class JuTuanGou2Activity extends BaseActivity implements OnClickListener 
 											now_2 = df.parse(list_2.get(0)
 													.getEnd_time());
 										} catch (java.text.ParseException e1) {
-											// TODO Auto-generated catch block
+
 											e1.printStackTrace();
 										}
 										try {
 											date_2 = df.parse(datetime);
 										} catch (java.text.ParseException e1) {
-											// TODO Auto-generated catch block
+
 											e1.printStackTrace();
 										}
 										long end_time = now_2.getTime();
@@ -712,7 +712,7 @@ public class JuTuanGou2Activity extends BaseActivity implements OnClickListener 
 									}
 									loadWeather3();
 								} catch (JSONException e) {
-									// TODO Auto-generated catch block
+
 									e.printStackTrace();
 								}
 							}
@@ -721,7 +721,7 @@ public class JuTuanGou2Activity extends BaseActivity implements OnClickListener 
 	}
 
 	private void getzhou2() {
-		// TODO Auto-generated method stub
+
 		ll_tuangou2.setOnClickListener(this);
 	}
 
@@ -743,7 +743,7 @@ public class JuTuanGou2Activity extends BaseActivity implements OnClickListener 
 						new AsyncHttpResponseHandler() {
 							@Override
 							public void onSuccess(int arg0, String arg1) {
-								// TODO Auto-generated method stub
+
 								super.onSuccess(arg0, arg1);
 								System.out
 										.println("输出所有拼团活动列表=========" + arg1);
@@ -823,13 +823,13 @@ public class JuTuanGou2Activity extends BaseActivity implements OnClickListener 
 											now_3 = df.parse(list_3.get(0)
 													.getEnd_time());
 										} catch (java.text.ParseException e1) {
-											// TODO Auto-generated catch block
+
 											e1.printStackTrace();
 										}
 										try {
 											date_3 = df.parse(datetime);
 										} catch (java.text.ParseException e1) {
-											// TODO Auto-generated catch block
+
 											e1.printStackTrace();
 										}
 										long end_time = now_3.getTime();
@@ -855,7 +855,7 @@ public class JuTuanGou2Activity extends BaseActivity implements OnClickListener 
 									progress.CloseProgress();
 									// loadWeather4();
 								} catch (JSONException e) {
-									// TODO Auto-generated catch block
+
 									e.printStackTrace();
 								}
 							}
@@ -864,7 +864,7 @@ public class JuTuanGou2Activity extends BaseActivity implements OnClickListener 
 	}
 
 	private void getzhou3() {
-		// TODO Auto-generated method stub
+
 		ll_tuangou3.setOnClickListener(this);
 	}
 
@@ -910,7 +910,7 @@ public class JuTuanGou2Activity extends BaseActivity implements OnClickListener 
 //
 //						@Override
 //						public void onFailure(Throwable arg0, String arg1) {
-//							// TODO Auto-generated method stub
+//
 //							super.onFailure(arg0, arg1);
 //							System.out.println("======输出112============="+ arg0);
 //							System.out.println("======输出113============="+ arg1);
@@ -919,7 +919,7 @@ public class JuTuanGou2Activity extends BaseActivity implements OnClickListener 
 //					}, null);
 //
 //		} catch (Exception e) {
-//			// TODO: handle exception
+//
 //			e.printStackTrace();
 //		}
 //	}
@@ -931,7 +931,7 @@ public class JuTuanGou2Activity extends BaseActivity implements OnClickListener 
 	private MyPosterView advPager = null;
 	AdvertDao1 ada;
 	private void getTupian() {
-		// TODO Auto-generated method stub
+
 		try {
 			//广告滚动
 			advPager = (MyPosterView) findViewById(R.id.adv_pagerll);
@@ -974,7 +974,7 @@ public class JuTuanGou2Activity extends BaseActivity implements OnClickListener 
 					}, getApplicationContext());
 
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 	}
@@ -1003,7 +1003,7 @@ public class JuTuanGou2Activity extends BaseActivity implements OnClickListener 
 						advPager.setData(urls, new MyPosterOnClick() {
 							@Override
 							public void onMyclick(int position) {
-								// TODO Auto-generated method stub
+
 //						link_url
 //						Message msg = new Message();
 //						msg.what = 13;

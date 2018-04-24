@@ -30,7 +30,7 @@ public class TishiBaoMinOkActivity extends Activity implements OnClickListener{
 	View iv_xian;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
+
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_tishi_baomin_ok);
 		//		spPreferences = getSharedPreferences("longuserset", MODE_PRIVATE);
@@ -90,7 +90,7 @@ public class TishiBaoMinOkActivity extends Activity implements OnClickListener{
 	 */
 	@Override
 	public void onClick(View v) {
-		// TODO Auto-generated method stub
+
 
 		intent = new Intent();
 		switch (v.getId()) {

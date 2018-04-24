@@ -95,13 +95,13 @@ public class RechargeGameActivity extends BaseActivity implements
 			@Override
 			public void onItemSelected(AdapterView<?> arg0, View arg1,
 									   int arg2, long arg3) {
-				// TODO Auto-generated method stub
+
 				name = game_name.get(arg2);
 			}
 
 			@Override
 			public void onNothingSelected(AdapterView<?> arg0) {
-				// TODO Auto-generated method stub
+
 			}
 		});
 		sp_game_money.setOnItemSelectedListener(new OnItemSelectedListener() {
@@ -109,20 +109,20 @@ public class RechargeGameActivity extends BaseActivity implements
 			@Override
 			public void onItemSelected(AdapterView<?> arg0, View arg1,
 									   int arg2, long arg3) {
-				// TODO Auto-generated method stub
+
 				money = game_money.get(arg2);
 			}
 
 			@Override
 			public void onNothingSelected(AdapterView<?> arg0) {
-				// TODO Auto-generated method stub
+
 			}
 		});
 	}
 
 	@Override
 	public void onClick(View v) {
-		// TODO Auto-generated method stub
+
 		switch (v.getId()) {
 			case R.id.btn_game:
 

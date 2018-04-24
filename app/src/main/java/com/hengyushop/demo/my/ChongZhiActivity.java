@@ -83,7 +83,7 @@ public class ChongZhiActivity extends BaseActivity implements OnClickListener{
 	String fangshi;
 	@Override
 	protected void onResume() {
-		// TODO Auto-generated method stub
+
 		super.onResume();
 		System.out.println("11==============" + zhifu);
 		//		if (zhifu == 3) {
@@ -96,7 +96,7 @@ public class ChongZhiActivity extends BaseActivity implements OnClickListener{
 	}
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
+
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_shengji_chongzhi);
@@ -140,7 +140,7 @@ public class ChongZhiActivity extends BaseActivity implements OnClickListener{
 		//
 		//			@Override
 		//			public boolean onKey(View arg0, int arg1, KeyEvent arg2) {
-		//				// TODO Auto-generated method stub
+		//
 		////				chongzhi_edit.setText(chongzhi_edit.getText());
 		//				yfje_edit.setText(chongzhi_edit.getText());
 		//				return false;
@@ -158,7 +158,7 @@ public class ChongZhiActivity extends BaseActivity implements OnClickListener{
 					yfje_edit.setText(chongzhi_edit.getText());
 
 				} catch (Exception e) {
-					// TODO: handle exception
+
 					e.printStackTrace();
 				}
 			}
@@ -185,7 +185,7 @@ public class ChongZhiActivity extends BaseActivity implements OnClickListener{
 
 			@Override
 			public void onClick(View arg0) {
-				// TODO Auto-generated method stub
+
 				if(yu_pay_c1.isChecked()){
 					yu_pay_c1.setChecked(false);
 					yu_pay_c2.setChecked(false);
@@ -197,7 +197,7 @@ public class ChongZhiActivity extends BaseActivity implements OnClickListener{
 
 			@Override
 			public void onClick(View arg0) {
-				// TODO Auto-generated method stub
+
 				if(yu_pay_c1.isChecked()){
 					//点击设置是否为点击状态
 					yu_pay_c1.setChecked(false);
@@ -213,7 +213,7 @@ public class ChongZhiActivity extends BaseActivity implements OnClickListener{
 
 			@Override
 			public void onClick(View arg0) {
-				// TODO Auto-generated method stub
+
 				if(yu_pay_c0.isChecked()){
 					yu_pay_c0.setChecked(false);
 					yu_pay_c2.setChecked(false);
@@ -225,7 +225,7 @@ public class ChongZhiActivity extends BaseActivity implements OnClickListener{
 
 			@Override
 			public void onClick(View arg0) {
-				// TODO Auto-generated method stub
+
 				if(yu_pay_c0.isChecked()){
 					yu_pay_c0.setChecked(false);
 					yu_pay_c2.setChecked(false);
@@ -240,7 +240,7 @@ public class ChongZhiActivity extends BaseActivity implements OnClickListener{
 
 			@Override
 			public void onClick(View arg0) {
-				// TODO Auto-generated method stub
+
 				if(yu_pay_c0.isChecked()){
 					yu_pay_c0.setChecked(false);
 					yu_pay_c1.setChecked(false);
@@ -252,7 +252,7 @@ public class ChongZhiActivity extends BaseActivity implements OnClickListener{
 
 			@Override
 			public void onClick(View arg0) {
-				// TODO Auto-generated method stub
+
 				if(yu_pay_c0.isChecked()){
 					yu_pay_c0.setChecked(false);
 					yu_pay_c1.setChecked(false);
@@ -306,7 +306,7 @@ public class ChongZhiActivity extends BaseActivity implements OnClickListener{
 
 	@Override
 	public void onClick(View v) {
-		// TODO Auto-generated method stub
+
 
 		switch (v.getId()) {
 			case R.id.iv_fanhui:
@@ -347,14 +347,14 @@ public class ChongZhiActivity extends BaseActivity implements OnClickListener{
 						}else{
 						}
 					} catch (JSONException e) {
-						// TODO Auto-generated catch block
+
 						e.printStackTrace();
 					}
 				};
 			}, null);
 
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 	}
@@ -410,7 +410,7 @@ public class ChongZhiActivity extends BaseActivity implements OnClickListener{
 					}, null);
 
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 	}
@@ -453,7 +453,7 @@ public class ChongZhiActivity extends BaseActivity implements OnClickListener{
 
 						@Override
 						public void onFailure(Throwable arg0, String arg1) {
-							// TODO Auto-generated method stub
+
 							super.onFailure(arg0, arg1);
 							System.out.println("11================================="+arg0);
 							System.out.println("22================================="+arg1);
@@ -463,7 +463,7 @@ public class ChongZhiActivity extends BaseActivity implements OnClickListener{
 					}, null);
 
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 	}
@@ -509,7 +509,7 @@ public class ChongZhiActivity extends BaseActivity implements OnClickListener{
 					}, null);
 
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 	}
@@ -562,7 +562,7 @@ public class ChongZhiActivity extends BaseActivity implements OnClickListener{
 					}, null);
 
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 	}
@@ -604,7 +604,7 @@ public class ChongZhiActivity extends BaseActivity implements OnClickListener{
 	//
 	//					@Override
 	//					public void onFailure(Throwable arg0, String arg1) {
-	//						// TODO Auto-generated method stub
+	//
 	//						super.onFailure(arg0, arg1);
 	//						System.out.println("11================================="+arg0);
 	//						System.out.println("22================================="+arg1);
@@ -614,7 +614,7 @@ public class ChongZhiActivity extends BaseActivity implements OnClickListener{
 	//				}, null);
 	//
 	//		} catch (Exception e) {
-	//			// TODO: handle exception
+	//
 	//			e.printStackTrace();
 	//		}
 	//	}
@@ -669,7 +669,7 @@ public class ChongZhiActivity extends BaseActivity implements OnClickListener{
 					}, null);
 
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 	}
@@ -685,7 +685,7 @@ public class ChongZhiActivity extends BaseActivity implements OnClickListener{
 	//		AsyncHttp.post(RealmName.REALM_NAME+"/mi/receiveOrderInfo_business.ashx", params, new AsyncHttpResponseHandler(){
 	//			@Override
 	//			public void onSuccess(int arg0, String arg1) {
-	//				// TODO Auto-generated method stub
+	//
 	//				super.onSuccess(arg0, arg1);
 	//				try {
 	//					JSONObject object = new JSONObject(arg1);
@@ -693,7 +693,7 @@ public class ChongZhiActivity extends BaseActivity implements OnClickListener{
 	//					handler.sendEmptyMessage(1);
 	//					System.out.println(orderSerialNumber);
 	//				} catch (JSONException e) {
-	//					// TODO Auto-generated catch block
+	//
 	//					e.printStackTrace();
 	//				}
 	//			}
@@ -713,9 +713,9 @@ public class ChongZhiActivity extends BaseActivity implements OnClickListener{
 		AsyncHttp.post(RealmName.REALM_NAME+"/mi/receiveOrderInfo_business.ashx", params, new AsyncHttpResponseHandler(){
 			@Override
 			public void onSuccess(int arg0, String arg1) {
-				// TODO Auto-generated method stub
 
-				// TODO Auto-generated method stub
+
+
 				super.onSuccess(arg0, arg1);
 				try {
 					JSONObject jsonObject = new JSONObject(arg1);
@@ -731,7 +731,7 @@ public class ChongZhiActivity extends BaseActivity implements OnClickListener{
 						handler.sendEmptyMessage(2);
 					}
 				} catch (JSONException e) {
-					// TODO Auto-generated catch block
+
 					e.printStackTrace();
 				}
 

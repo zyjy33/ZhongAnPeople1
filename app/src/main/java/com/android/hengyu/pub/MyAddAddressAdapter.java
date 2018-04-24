@@ -30,7 +30,7 @@ public class MyAddAddressAdapter extends BaseAdapter {
 
 	public MyAddAddressAdapter(ArrayList<UserAddressData> list,
 			Activity activity, Handler handler) {
-		// TODO Auto-generated constructor stub
+
 		this.activity = activity;
 		this.list = list;
 		this.handler = handler;
@@ -38,23 +38,23 @@ public class MyAddAddressAdapter extends BaseAdapter {
 	}
 
 	public int getCount() {
-		// TODO Auto-generated method stub
+
 		// return list.size();
 		return list.size();
 	}
 
 	public Object getItem(int position) {
-		// TODO Auto-generated method stub
+
 		return list.get(position);
 	}
 
 	public long getItemId(int position) {
-		// TODO Auto-generated method stub
+
 		return position;
 	}
 
 	public View getView(int position, View convertView, ViewGroup parent) {
-		// TODO Auto-generated method stub
+
 		if (convertView == null
 				|| convertView.getTag(R.drawable.btn_add + position) == null) {
 			holder = new AddressViewHolder();
@@ -81,7 +81,7 @@ public class MyAddAddressAdapter extends BaseAdapter {
 			@Override
 			public void onCheckedChanged(CompoundButton buttonView,
 					boolean isChecked) {
-				// TODO Auto-generated method stub
+
 				if (isChecked) {
 					if (temp != -1) {
 						RadioButton tempRadio = (RadioButton) activity

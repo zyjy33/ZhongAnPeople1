@@ -73,7 +73,7 @@ public class MyListViewAdapter extends BaseAdapter {
 					// 为view设置标签
 					convertView.setTag(holder);
 				} catch (Exception e) {
-					// TODO: handle exception
+
 					e.printStackTrace();
 				}
 			} else {
@@ -90,7 +90,7 @@ public class MyListViewAdapter extends BaseAdapter {
 			// 根据isSelected来设置checkbox的选中状况
 			holder.cb.setChecked(getIsSelected().get(position));
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 		return convertView;

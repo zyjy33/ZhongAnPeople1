@@ -23,7 +23,7 @@ public class CommonWeb extends BaseActivity{
 	private TextView title;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
+
 		super.onCreate(savedInstanceState);
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.common_webview);
@@ -36,7 +36,7 @@ public class CommonWeb extends BaseActivity{
 		WebViewClient webViewClient = new WebViewClient(){
 			@Override
 			public boolean shouldOverrideUrlLoading(WebView view, String url) {
-				// TODO Auto-generated method stub
+
 			 
 					 commonView.loadUrl(url);
 				

@@ -66,7 +66,7 @@ public class MenuAdvertActivity extends BaseActivity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
+
 		super.onCreate(savedInstanceState);
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.menu_advert_layout);
@@ -96,7 +96,7 @@ public class MenuAdvertActivity extends BaseActivity {
 			AsyncHttp.post_1(url,params, new AsyncHttpResponseHandler(){
 				@Override
 				public void onSuccess(int arg0, String arg1) {
-					// TODO Auto-generated method stub
+
 					super.onSuccess(arg0, arg1);
 					parse(arg1);
 				}
@@ -106,7 +106,7 @@ public class MenuAdvertActivity extends BaseActivity {
 		//		new Thread() {
 		//			@Override
 		//			public void run() {
-		//				// TODO Auto-generated method stub
+		//
 		//				super.run();
 		//				Map<String, String> param = new HashMap<String, String>();
 		//				param.put("", "");

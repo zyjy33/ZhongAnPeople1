@@ -91,11 +91,11 @@ public class WideMarketAdapter extends BaseAdapter {
 				zaylAdapter MyAdapter2 = new zaylAdapter(items, context);
 				holder.item_img.setAdapter(MyAdapter2);
 			} catch (Exception e) {
-				// TODO: handle exception
+
 				e.printStackTrace();
 			}
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 		return view;

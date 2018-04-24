@@ -65,7 +65,7 @@ public class DaiRegisterActivity extends BaseActivity implements
 
 			@Override
 			public void onClick(View arg0) {
-				// TODO Auto-generated method stub
+
 				finish();
 			}
 		});
@@ -117,7 +117,7 @@ public class DaiRegisterActivity extends BaseActivity implements
 									try {
 										Thread.sleep(1000);
 									} catch (InterruptedException e) {
-										// TODO Auto-generated catch block
+
 										e.printStackTrace();
 									}
 
@@ -160,7 +160,7 @@ public class DaiRegisterActivity extends BaseActivity implements
 			get_yz.setOnClickListener(this);
 			regise_tip.setOnClickListener(this);
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 	}
@@ -169,7 +169,7 @@ public class DaiRegisterActivity extends BaseActivity implements
 	public void onClick(View v) {
 		try {
 
-			// TODO Auto-generated method stub
+
 			switch (v.getId()) {
 				case R.id.regise_tip:
 					Intent intent4 = new Intent(DaiRegisterActivity.this,
@@ -306,7 +306,7 @@ public class DaiRegisterActivity extends BaseActivity implements
 												@Override
 												public void onSuccess(int arg0,
 																	  String arg1) {
-													// TODO Auto-generated method
+													  method
 													// stub
 													super.onSuccess(arg0, arg1);
 													try {
@@ -389,7 +389,7 @@ public class DaiRegisterActivity extends BaseActivity implements
 																	.show();
 														}
 													} catch (JSONException e) {
-														// TODO Auto-generated catch
+														  catch
 														// block
 														e.printStackTrace();
 													}
@@ -414,7 +414,7 @@ public class DaiRegisterActivity extends BaseActivity implements
 					break;
 			}
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 	}

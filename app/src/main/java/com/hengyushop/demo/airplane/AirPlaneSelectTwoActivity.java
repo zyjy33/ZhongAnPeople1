@@ -104,7 +104,7 @@ public class AirPlaneSelectTwoActivity extends BaseActivity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
+
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.airplane_select_two);
@@ -133,7 +133,7 @@ public class AirPlaneSelectTwoActivity extends BaseActivity {
 		 * try { InputStream in =
 		 * HttpClientUtil.postRequest(RealmName.REALM_NAME + url, map); String
 		 * arg1 = new HttpUtils().convertStreamToString(in, "UTF-8");
-		 * parse(arg1); } catch (Exception e) { // TODO Auto-generated catch
+		 * parse(arg1); } catch (Exception e) {   catch
 		 * block e.printStackTrace(); }
 		 */
 		String url = "/mi/flightTicket.ashx?act=GetAvailableFlightWithPriceAndCommision";
@@ -145,7 +145,7 @@ public class AirPlaneSelectTwoActivity extends BaseActivity {
 				new AsyncHttpResponseHandler() {
 					@Override
 					public void onSuccess(int arg0, String arg1) {
-						// TODO Auto-generated method stub
+
 						super.onSuccess(arg0, arg1);
 						parse(arg1);
 					}
@@ -213,13 +213,13 @@ public class AirPlaneSelectTwoActivity extends BaseActivity {
 				handler.sendMessage(msg);
 			}
 		} catch (JSONException e) {
-			// TODO Auto-generated catch block
+
 			e.printStackTrace();
 		} catch (ParseException e) {
-			// TODO Auto-generated catch block
+
 			e.printStackTrace();
 		} catch (java.text.ParseException e) {
-			// TODO Auto-generated catch block
+
 			e.printStackTrace();
 		}
 	}

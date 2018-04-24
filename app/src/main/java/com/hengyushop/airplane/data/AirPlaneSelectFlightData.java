@@ -13,7 +13,7 @@ public class AirPlaneSelectFlightData {
 	public int type;
 
 	public AirPlaneSelectFlightData(String flightName, int type) {
-		// TODO Auto-generated constructor stub
+
 		this.FlightName = flightName;
 		this.type = type;
 	}

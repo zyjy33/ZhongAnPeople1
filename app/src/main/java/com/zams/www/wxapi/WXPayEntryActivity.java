@@ -176,14 +176,14 @@ public class WXPayEntryActivity extends Activity implements IWXAPIEventHandler {
 						} else {
 						}
 					} catch (JSONException e) {
-						// TODO Auto-generated catch block
+
 						e.printStackTrace();
 					}
 				};
 			}, WXPayEntryActivity.this);
 
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 	}
@@ -237,7 +237,7 @@ public class WXPayEntryActivity extends Activity implements IWXAPIEventHandler {
 
 						@Override
 						public void onFailure(Throwable arg0, String arg1) {
-							// TODO Auto-generated method stub
+
 							super.onFailure(arg0, arg1);
 							Toast.makeText(WXPayEntryActivity.this, "异常", 200).show();
 							System.out.println("11================================="
@@ -249,7 +249,7 @@ public class WXPayEntryActivity extends Activity implements IWXAPIEventHandler {
 					}, null);
 
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 	}
@@ -299,7 +299,7 @@ public class WXPayEntryActivity extends Activity implements IWXAPIEventHandler {
 
 						@Override
 						public void onFailure(Throwable arg0, String arg1) {
-							// TODO Auto-generated method stub
+
 							super.onFailure(arg0, arg1);
 							Toast.makeText(WXPayEntryActivity.this, "异常", 200).show();
 						}
@@ -307,7 +307,7 @@ public class WXPayEntryActivity extends Activity implements IWXAPIEventHandler {
 					}, null);
 
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 	}
@@ -355,7 +355,7 @@ public class WXPayEntryActivity extends Activity implements IWXAPIEventHandler {
 
 						@Override
 						public void onFailure(Throwable arg0, String arg1) {
-							// TODO Auto-generated method stub
+
 							super.onFailure(arg0, arg1);
 							Toast.makeText(WXPayEntryActivity.this, "异常", 200).show();
 						}
@@ -363,7 +363,7 @@ public class WXPayEntryActivity extends Activity implements IWXAPIEventHandler {
 					}, null);
 
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 	}
@@ -412,7 +412,7 @@ public class WXPayEntryActivity extends Activity implements IWXAPIEventHandler {
 
 						@Override
 						public void onFailure(Throwable arg0, String arg1) {
-							// TODO Auto-generated method stub
+
 							super.onFailure(arg0, arg1);
 							Toast.makeText(WXPayEntryActivity.this, "异常", 200).show();
 						}
@@ -420,7 +420,7 @@ public class WXPayEntryActivity extends Activity implements IWXAPIEventHandler {
 					}, null);
 
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 	}

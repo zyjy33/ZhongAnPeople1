@@ -96,7 +96,7 @@ public class ShoppingCartActivity extends Fragment {
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 							 Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
+
 		View layout = inflater.inflate(R.layout.shopping_cart, null);
 		progress = new DialogProgress(getActivity());
 		spPreferences = getActivity().getSharedPreferences("longuserset",
@@ -111,7 +111,7 @@ public class ShoppingCartActivity extends Fragment {
 
 	@Override
 	public void onResume() {
-		// TODO Auto-generated method stub
+
 		super.onResume();
 
 		if (!nickname.equals("")) {
@@ -187,13 +187,13 @@ public class ShoppingCartActivity extends Fragment {
 		// int arg2, long arg3) {
 		// try {
 		//
-		// // TODO Auto-generated method stub
+		//
 		// String id = lists.get(arg2).getId();
 		// System.out.println("====================="+id);
 		//
 		//
 		// } catch (Exception e) {
-		// // TODO: handle exception
+		//
 		// e.printStackTrace();
 		// }
 		// }
@@ -203,7 +203,7 @@ public class ShoppingCartActivity extends Fragment {
 
 			@Override
 			public void onClick(View arg0) {
-				// TODO Auto-generated method stub
+
 				user_id = spPreferences.getString("user_id", "");
 				if (user_id.equals("")) {
 					Intent intentll = new Intent(getActivity(),
@@ -220,7 +220,7 @@ public class ShoppingCartActivity extends Fragment {
 
 			@Override
 			public void onClick(View arg0) {
-				// TODO Auto-generated method stub
+
 				// String total_cll = MyShopingCartllAdapter.total_c;
 				// Intent intent = new
 				// Intent(getActivity(),MyOrderConfrimActivity.class);
@@ -259,7 +259,7 @@ public class ShoppingCartActivity extends Fragment {
 						}
 
 					} catch (Exception e) {
-						// TODO: handle exception
+
 						e.printStackTrace();
 					}
 					break;
@@ -270,7 +270,7 @@ public class ShoppingCartActivity extends Fragment {
 						// double money_heji = MyShopingCartllAdapter.total_monney;
 						// tv_endmoney.setText("￥" + money_heji);
 					} catch (Exception e) {
-						// TODO: handle exception
+
 						e.printStackTrace();
 					}
 					break;
@@ -285,7 +285,7 @@ public class ShoppingCartActivity extends Fragment {
 							Toast.makeText(getActivity(), "请勾选要下单的商品", 200).show();
 						}
 					} catch (Exception e) {
-						// TODO: handle exception
+
 						e.printStackTrace();
 					}
 
@@ -297,7 +297,7 @@ public class ShoppingCartActivity extends Fragment {
 						// money_heji = MyShopingCartllAdapter.total_monney;
 						// tv_endmoney.setText("￥" + money_heji);
 					} catch (Exception e) {
-						// TODO: handle exception
+
 						e.printStackTrace();
 					}
 					break;
@@ -306,7 +306,7 @@ public class ShoppingCartActivity extends Fragment {
 						// String[] orderid = (String[]) msg.obj;
 						// System.out.println("数组值11=================="+orderid);
 					} catch (Exception e) {
-						// TODO: handle exception
+
 						e.printStackTrace();
 					}
 					break;
@@ -338,7 +338,7 @@ public class ShoppingCartActivity extends Fragment {
 					+ user_id + "", new AsyncHttpResponseHandler() {
 				@Override
 				public void onSuccess(int arg0, String arg1) {
-					// TODO Auto-generated method stub
+
 					super.onSuccess(arg0, arg1);
 					try {
 						JSONObject jsonObject = new JSONObject(arg1);
@@ -392,7 +392,7 @@ public class ShoppingCartActivity extends Fragment {
 							// 200).show();
 						}
 					} catch (JSONException e) {
-						// TODO Auto-generated catch block
+
 						e.printStackTrace();
 					}
 
@@ -456,7 +456,7 @@ public class ShoppingCartActivity extends Fragment {
 					+ "&quantity=" + str3 + "", new AsyncHttpResponseHandler() {
 				@Override
 				public void onSuccess(int arg0, String arg1) {
-					// TODO Auto-generated method stub
+
 					super.onSuccess(arg0, arg1);
 					try {
 						JSONObject jsonObject = new JSONObject(arg1);
@@ -494,7 +494,7 @@ public class ShoppingCartActivity extends Fragment {
 							Toast.makeText(getActivity(), info, 200).show();
 						}
 					} catch (JSONException e) {
-						// TODO Auto-generated catch block
+
 						e.printStackTrace();
 					}
 
@@ -502,7 +502,7 @@ public class ShoppingCartActivity extends Fragment {
 
 				@Override
 				public void onFailure(Throwable arg0, String arg1) {
-					// TODO Auto-generated method stub
+
 					System.out.println("==========================访问接口失败！");
 					System.out.println("=========================" + arg0);
 					System.out.println("==========================" + arg1);
@@ -512,7 +512,7 @@ public class ShoppingCartActivity extends Fragment {
 			}, getActivity());
 
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 	}

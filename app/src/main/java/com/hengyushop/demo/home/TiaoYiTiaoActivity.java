@@ -123,7 +123,7 @@ public class TiaoYiTiaoActivity extends Activity {
 
 					@Override
 					public void onClick(View arg0) {
-						// TODO Auto-generated method stub
+
 						finish();
 					}
 				});
@@ -132,7 +132,7 @@ public class TiaoYiTiaoActivity extends Activity {
 			}
 
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 
@@ -528,14 +528,14 @@ public class TiaoYiTiaoActivity extends Activity {
 
 					System.out.println("======输出抽奖幸奖项=======id======" + id);
 				} catch (JSONException e) {
-					// TODO Auto-generated catch block
+
 					e.printStackTrace();
 				}
 			};
 
 			@Override
 			public void onFailure(Throwable arg0, String arg1) {
-				// TODO Auto-generated method stub
+
 				super.onFailure(arg0, arg1);
 				System.out.println("======访问接口失败=============" + arg1);
 				// Toast.makeText(ZhuanYiZhuanActivity.this, "访问接口失败",
@@ -583,14 +583,14 @@ public class TiaoYiTiaoActivity extends Activity {
 					System.out.println("======list.size()============="
 							+ list.size());
 				} catch (JSONException e) {
-					// TODO Auto-generated catch block
+
 					e.printStackTrace();
 				}
 			};
 
 			@Override
 			public void onFailure(Throwable arg0, String arg1) {
-				// TODO Auto-generated method stub
+
 				super.onFailure(arg0, arg1);
 				System.out.println("======访问接口失败===============");
 				// Toast.makeText(TiaoYiTiaoActivity.this, "访问接口失败",
@@ -624,7 +624,7 @@ public class TiaoYiTiaoActivity extends Activity {
 					} else {
 					}
 				} catch (JSONException e) {
-					// TODO Auto-generated catch block
+
 					e.printStackTrace();
 				}
 			};

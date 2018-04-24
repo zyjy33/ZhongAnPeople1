@@ -21,7 +21,7 @@ public class Webview1 extends BaseActivity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
+
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.webview1);
@@ -35,7 +35,7 @@ public class Webview1 extends BaseActivity {
 
 				@Override
 				public void onClick(View v) {
-					// TODO Auto-generated method stub
+
 					AppManager.getAppManager().finishActivity();
 				}
 			});
@@ -148,7 +148,7 @@ public class Webview1 extends BaseActivity {
 				}
 
 			} catch (Exception e) {
-				// TODO: handle exception
+
 				e.printStackTrace();
 			}
 
@@ -160,7 +160,7 @@ public class Webview1 extends BaseActivity {
 			});
 
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 

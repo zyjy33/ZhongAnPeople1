@@ -40,20 +40,20 @@ public class ShopingCartOrderAdapter extends BaseAdapter {
 
 	@Override
 	public int getCount() {
-		// TODO Auto-generated method stub
+
 		return list.size();
 	}
 
 	@Override
 	public Object getItem(int position) {
-		// TODO Auto-generated method stub
+
 
 		return position;
 	}
 
 	@Override
 	public long getItemId(int position) {
-		// TODO Auto-generated method stub
+
 		return position;
 	}
 	public static class ViewHolder {
@@ -79,7 +79,7 @@ public class ShopingCartOrderAdapter extends BaseAdapter {
 
 	@Override
 	public View getView(final int position, View convertView, ViewGroup parent) {
-		// TODO Auto-generated method stub
+
 		try {
 			ViewHolder holder = null;
 			if (convertView == null) {
@@ -125,7 +125,7 @@ public class ShopingCartOrderAdapter extends BaseAdapter {
 
 
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 

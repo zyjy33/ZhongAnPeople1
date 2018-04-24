@@ -27,7 +27,7 @@ public class QianDaoBaoMingActivity extends BaseActivity {
 	public static AQuery mAq;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
+
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_baomin_qiandao);
@@ -64,7 +64,7 @@ public class QianDaoBaoMingActivity extends BaseActivity {
 			
 			@Override
 			public void onClick(View arg0) {
-				// TODO Auto-generated method stub
+
 				finish();
 			}
 		});
@@ -74,7 +74,7 @@ public class QianDaoBaoMingActivity extends BaseActivity {
 			
 			@Override
 			public void onClick(View arg0) {
-				// TODO Auto-generated method stub
+
 				System.out.println("sp_sys-----------------------2");
 				  Intent intent = new Intent(QianDaoBaoMingActivity.this, CaptureActivity.class);
 				  intent.putExtra("sp_sys", "2");
@@ -89,7 +89,7 @@ public class QianDaoBaoMingActivity extends BaseActivity {
 			
 			@Override
 			public void onClick(View arg0) {
-				// TODO Auto-generated method stub
+
 				System.out.println("sp_sys-----------------------3");
 				  Intent intent = new Intent(QianDaoBaoMingActivity.this, CaptureActivity.class);
 				  intent.putExtra("sp_sys", "3");
@@ -104,7 +104,7 @@ public class QianDaoBaoMingActivity extends BaseActivity {
 			
 			@Override
 			public void onClick(View arg0) {
-				// TODO Auto-generated method stub
+
 				  Intent intent = new Intent(QianDaoBaoMingActivity.this, QianDaoListActivity.class);
 //				  intent.putExtra("sp_sys", getIntent().getStringExtra("sp_sys"));
 				  startActivity(intent);

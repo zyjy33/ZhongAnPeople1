@@ -82,7 +82,7 @@ public class MyChuangYouActivity extends BaseActivity implements
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
+
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_my_chuangyou);
@@ -105,7 +105,7 @@ public class MyChuangYouActivity extends BaseActivity implements
 
 	// @Override
 	// protected void onResume() {
-	// // TODO Auto-generated method stub
+	//
 	// super.onResume();
 	// TextView tv_geshu = (TextView) findViewById(R.id.tv_geshu);
 	// if (list.size() > 0) {
@@ -131,7 +131,7 @@ public class MyChuangYouActivity extends BaseActivity implements
 			btn_settle_accounts.setOnClickListener(this);
 
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 
@@ -145,7 +145,7 @@ public class MyChuangYouActivity extends BaseActivity implements
 	//
 	// @Override
 	// public void onHeaderRefresh(PullToRefreshView view) {
-	// // TODO Auto-generated method stub
+	//
 	// refresh.postDelayed(new Runnable() {
 	//
 	// @Override
@@ -164,7 +164,7 @@ public class MyChuangYouActivity extends BaseActivity implements
 	//
 	// @Override
 	// public void onFooterRefresh(PullToRefreshView view) {
-	// // TODO Auto-generated method stub
+	//
 	// refresh.postDelayed(new Runnable() {
 	//
 	// @Override
@@ -179,7 +179,7 @@ public class MyChuangYouActivity extends BaseActivity implements
 	// refresh.onFooterRefreshComplete();
 	//
 	// } catch (Exception e) {
-	// // TODO: handle exception
+	//
 	// e.printStackTrace();
 	// }
 	// }
@@ -210,7 +210,7 @@ public class MyChuangYouActivity extends BaseActivity implements
 						progress.CloseProgress();
 
 					} catch (Exception e) {
-						// TODO: handle exception
+
 						e.printStackTrace();
 					}
 					break;
@@ -242,7 +242,7 @@ public class MyChuangYouActivity extends BaseActivity implements
 				+ CURRENT_NUM + "", new AsyncHttpResponseHandler() {
 			@Override
 			public void onSuccess(int arg0, String arg1) {
-				// TODO Auto-generated method stub
+
 				super.onSuccess(arg0, arg1);
 				System.out.println("=====================二级值1" + arg1);
 				try {
@@ -281,7 +281,7 @@ public class MyChuangYouActivity extends BaseActivity implements
 								.show();
 					}
 				} catch (JSONException e) {
-					// TODO Auto-generated catch block
+
 					e.printStackTrace();
 				}
 			}
@@ -294,7 +294,7 @@ public class MyChuangYouActivity extends BaseActivity implements
 				+ "&fund_id=2&expenses_id=6", new AsyncHttpResponseHandler() {
 			@Override
 			public void onSuccess(int arg0, String arg1) {
-				// TODO Auto-generated method stub
+
 				super.onSuccess(arg0, arg1);
 				System.out.println("=====================二级值1" + arg1);
 				try {
@@ -311,7 +311,7 @@ public class MyChuangYouActivity extends BaseActivity implements
 						progress.CloseProgress();
 					}
 				} catch (JSONException e) {
-					// TODO Auto-generated catch block
+
 					e.printStackTrace();
 				}
 			}
@@ -320,7 +320,7 @@ public class MyChuangYouActivity extends BaseActivity implements
 
 	@Override
 	public void onClick(View v) {
-		// TODO Auto-generated method stub
+
 
 		switch (v.getId()) {
 			case R.id.iv_fanhui:
@@ -381,7 +381,7 @@ public class MyChuangYouActivity extends BaseActivity implements
 			});
 
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 
@@ -408,7 +408,7 @@ public class MyChuangYouActivity extends BaseActivity implements
 
 			@Override
 			public void onClick(View v) {
-				// TODO Auto-generated method stub
+
 				pop.dismiss();
 				con(17, 1);
 			}
@@ -417,7 +417,7 @@ public class MyChuangYouActivity extends BaseActivity implements
 		btn_sms.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				// TODO Auto-generated method stub
+
 				pop.dismiss();
 				con(18, 0);
 			}
@@ -436,7 +436,7 @@ public class MyChuangYouActivity extends BaseActivity implements
 			System.out.println("==========" + zhou);
 			softshareWxChat(zhou);
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 	}

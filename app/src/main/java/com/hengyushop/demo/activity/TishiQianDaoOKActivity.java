@@ -32,7 +32,7 @@ public class TishiQianDaoOKActivity extends Activity implements OnClickListener 
 			real_name,birthday,sex,datetime,mobile,nianlin;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
+
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_tishi_qiandao_ok);
 		try {
@@ -56,7 +56,7 @@ public class TishiQianDaoOKActivity extends Activity implements OnClickListener 
 			// progress = new DialogProgress(TishiQianDaoOKActivity.this);
 			initUI();
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 	}
@@ -85,7 +85,7 @@ public class TishiQianDaoOKActivity extends Activity implements OnClickListener 
 	 */
 	@Override
 	public void onClick(View v) {
-		// TODO Auto-generated method stub
+
 
 		intent = new Intent();
 		switch (v.getId()) {

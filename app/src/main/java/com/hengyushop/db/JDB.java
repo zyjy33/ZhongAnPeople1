@@ -9,7 +9,7 @@ import android.database.sqlite.SQLiteDatabase;
 public class JDB {
 	private SQLiteDatabase db;
 	public JDB(Context context) {
-		// TODO Auto-generated constructor stub
+
 		db = context.openOrCreateDatabase("jdpiao.db", Context.MODE_PRIVATE, null);
 	}
 	public ArrayList<String> getProvinceW(String sql,boolean flag) {

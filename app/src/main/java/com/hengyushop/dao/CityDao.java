@@ -15,7 +15,7 @@ public class CityDao {
 	private SQLiteDatabase db;
 
 	public CityDao(Context context) {
-		// TODO Auto-generated constructor stub
+
 		this.context = context;
 		db = context
 				.openOrCreateDatabase("city.db", Context.MODE_PRIVATE, null);

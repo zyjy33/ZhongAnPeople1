@@ -66,7 +66,7 @@ public class ChuangKeActivity extends BaseActivity implements OnClickListener {
 
 				@Override
 				public void onClick(View arg0) {
-					// TODO Auto-generated method stub
+
 					Intent intent4 = new Intent(ChuangKeActivity.this,
 							Webview1.class);
 					//					intent4.putExtra("ylsc_id", "5977");
@@ -88,14 +88,14 @@ public class ChuangKeActivity extends BaseActivity implements OnClickListener {
 			};
 
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 	}
 
 	@Override
 	public void onClick(View v) {
-		// TODO Auto-generated method stub
+
 		switch (v.getId()) {
 			case R.id.fanhui:
 				finish();
@@ -119,7 +119,7 @@ public class ChuangKeActivity extends BaseActivity implements OnClickListener {
 
 	// @Override
 	// protected void onResume() {
-	// // TODO Auto-generated method stub
+	//
 	// super.onResume();
 	// String haoma = getIntent().getStringExtra("zhou");
 	//
@@ -160,7 +160,7 @@ public class ChuangKeActivity extends BaseActivity implements OnClickListener {
 					}, null);
 
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 	}

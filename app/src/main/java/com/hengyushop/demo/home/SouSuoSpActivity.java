@@ -49,7 +49,7 @@ public class SouSuoSpActivity extends BaseActivity {
 	int len;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
+
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_xinshougongye);
@@ -76,7 +76,7 @@ public class SouSuoSpActivity extends BaseActivity {
 			@Override
 			public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
 									long arg3) {
-				// TODO Auto-generated method stub
+
 				try {
 
 					System.out.println("=================1="+lists.size());
@@ -85,7 +85,7 @@ public class SouSuoSpActivity extends BaseActivity {
 					startActivity(intent);
 
 				} catch (Exception e) {
-					// TODO: handle exception
+
 					e.printStackTrace();
 				}
 			}
@@ -105,7 +105,7 @@ public class SouSuoSpActivity extends BaseActivity {
 					//					@Override
 					//					public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
 					//							long arg3) {
-					//						// TODO Auto-generated method stub
+					//
 					//						try {
 					//
 					//						System.out.println("=================1="+lists.size());
@@ -114,7 +114,7 @@ public class SouSuoSpActivity extends BaseActivity {
 					//						startActivity(intent);
 					//
 					//						} catch (Exception e) {
-					//							// TODO: handle exception
+					//
 					//							e.printStackTrace();
 					//						}
 					//					}
@@ -137,7 +137,7 @@ public class SouSuoSpActivity extends BaseActivity {
 
 			@Override
 			public void onClick(View arg0) {
-				// TODO Auto-generated method stub
+
 				finish();
 			}
 		});
@@ -150,7 +150,7 @@ public class SouSuoSpActivity extends BaseActivity {
 
 		@Override
 		public void onHeaderRefresh(PullToRefreshView view) {
-			// TODO Auto-generated method stub
+
 			refresh.postDelayed(new Runnable() {
 
 				@Override
@@ -168,7 +168,7 @@ public class SouSuoSpActivity extends BaseActivity {
 
 		@Override
 		public void onFooterRefresh(PullToRefreshView view) {
-			// TODO Auto-generated method stub
+
 			refresh.postDelayed(new Runnable() {
 
 				@Override
@@ -178,7 +178,7 @@ public class SouSuoSpActivity extends BaseActivity {
 						refresh.onFooterRefreshComplete();
 
 					} catch (Exception e) {
-						// TODO: handle exception
+
 						e.printStackTrace();
 					}
 				}
@@ -217,7 +217,7 @@ public class SouSuoSpActivity extends BaseActivity {
 				new AsyncHttpResponseHandler() {
 					@Override
 					public void onSuccess(int arg0, String arg1) {
-						// TODO Auto-generated method stub
+
 						super.onSuccess(arg0, arg1);
 						System.out.println("=====================二级值1"+arg1);
 						try {
@@ -259,7 +259,7 @@ public class SouSuoSpActivity extends BaseActivity {
 								Toast.makeText(SouSuoSpActivity.this, "没有该商品！", 200).show();
 							}
 						} catch (JSONException e) {
-							// TODO Auto-generated catch block
+
 							e.printStackTrace();
 						}
 					}

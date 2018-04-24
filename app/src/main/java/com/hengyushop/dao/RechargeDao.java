@@ -14,7 +14,7 @@ public class RechargeDao {
 	private SQLiteDatabase db;
 
 	public RechargeDao(Context context) {
-		// TODO Auto-generated constructor stub
+
 		this.context = context;
 		System.out.println(DBRecharge.DB_PATH + "/" + DBRecharge.DB_NAME);
 		db = SQLiteDatabase.openOrCreateDatabase(DBRecharge.DB_PATH + "/"

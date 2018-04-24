@@ -71,7 +71,7 @@ public class AirOrderSendActivity extends BaseActivity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
+
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		super.onCreate(savedInstanceState);
 
@@ -137,7 +137,7 @@ public class AirOrderSendActivity extends BaseActivity {
 		/*
 		 * mPopupWindow.setOnDismissListener(new OnDismissListener() {
 		 *
-		 * @Override public void onDismiss() { // TODO Auto-generated method
+		 * @Override public void onDismiss() {   method
 		 * stub
 		 *
 		 * } });
@@ -157,7 +157,7 @@ public class AirOrderSendActivity extends BaseActivity {
 
 			@Override
 			public void onClick(View arg0) {
-				// TODO Auto-generated method stub
+
 				if (mPopupWindow != null && mPopupWindow.isShowing()) {
 					mPopupWindow.dismiss();
 				}
@@ -167,7 +167,7 @@ public class AirOrderSendActivity extends BaseActivity {
 
 			@Override
 			public void onClick(View arg0) {
-				// TODO Auto-generated method stub
+
 				send(login_account.getText().toString(), login_password
 						.getText().toString());
 			}
@@ -424,7 +424,7 @@ public class AirOrderSendActivity extends BaseActivity {
 		/*
 		 * mPopupWindow.setOnDismissListener(new OnDismissListener() {
 		 *
-		 * @Override public void onDismiss() { // TODO Auto-generated method
+		 * @Override public void onDismiss() {   method
 		 * stub
 		 *
 		 * } });
@@ -468,7 +468,7 @@ public class AirOrderSendActivity extends BaseActivity {
 		/*
 		 * mPopupWindow.setOnDismissListener(new OnDismissListener() {
 		 *
-		 * @Override public void onDismiss() { // TODO Auto-generated method
+		 * @Override public void onDismiss() {   method
 		 * stub
 		 *
 		 * } });
@@ -503,7 +503,7 @@ public class AirOrderSendActivity extends BaseActivity {
 
 		@Override
 		public void onClick(View view) {
-			// TODO Auto-generated method stub
+
 			switch (view.getId()) {
 
 				case R.id.fly_detiail_card_c:
@@ -675,7 +675,7 @@ public class AirOrderSendActivity extends BaseActivity {
 				.setOnItemSelectedListener(new OnItemSelectedListener() {
 					public void onItemSelected(AdapterView<?> arg0, View arg1,
 											   int arg2, long arg3) {
-						// TODO Auto-generated method stub
+
 						city = new CityDB(getApplicationContext())
 								.getProvince("select name from city where provinceId =(select code from province where name='"
 										+ province.get(arg2) + "')");
@@ -699,7 +699,7 @@ public class AirOrderSendActivity extends BaseActivity {
 
 					@Override
 					public void onNothingSelected(AdapterView<?> arg0) {
-						// TODO Auto-generated method stub
+
 
 					}
 				});
@@ -708,7 +708,7 @@ public class AirOrderSendActivity extends BaseActivity {
 
 					public void onItemSelected(AdapterView<?> arg0, View arg1,
 											   int arg2, long arg3) {
-						// TODO Auto-generated method stub
+
 						area = new CityDB(getApplicationContext())
 								.getProvince("select name from area where cityId =(select code from city where name='"
 										+ city.get(arg2) + "')");
@@ -723,7 +723,7 @@ public class AirOrderSendActivity extends BaseActivity {
 
 					@Override
 					public void onNothingSelected(AdapterView<?> arg0) {
-						// TODO Auto-generated method stub
+
 
 					}
 				});

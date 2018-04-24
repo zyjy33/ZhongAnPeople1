@@ -47,7 +47,7 @@ public class JuTuanGouAdapter extends BaseAdapter {
 	}
 
 	public int getCount() {
-		// TODO Auto-generated method stub
+
 		// return list.size();
 		return List.size();
 	}
@@ -63,7 +63,7 @@ public class JuTuanGouAdapter extends BaseAdapter {
 	// }
 	@Override
 	public Object getItem(int position) {
-		// TODO Auto-generated method stub
+
 		return List.get(position);
 	}
 
@@ -157,14 +157,14 @@ public class JuTuanGouAdapter extends BaseAdapter {
 				try {
 					now_1 = df.parse(List.get(position).getEnd_time());
 				} catch (java.text.ParseException e1) {
-					// TODO Auto-generated catch block
+
 					e1.printStackTrace();
 				}
 
 				try {
 					date_1 = df.parse(JuTuanGouActivity.datetime);
 				} catch (java.text.ParseException e1) {
-					// TODO Auto-generated catch block
+
 					e1.printStackTrace();
 				}
 				long end_time = now_1.getTime();
@@ -178,7 +178,7 @@ public class JuTuanGouAdapter extends BaseAdapter {
 
 						@Override
 						public void onClick(View arg0) {
-							// TODO Auto-generated method stub
+
 							// MyOrderConfrimActivity.fanhui_type = false;
 							// DBFengXiangActivity.fanhui_type = false;
 							// UserLoginActivity.fanhui_type = false;
@@ -218,14 +218,14 @@ public class JuTuanGouAdapter extends BaseAdapter {
 				try {
 					now_1 = df.parse(List.get(position).getEnd_time());
 				} catch (java.text.ParseException e1) {
-					// TODO Auto-generated catch block
+
 					e1.printStackTrace();
 				}
 
 				try {
 					date_1 = df.parse(JuTuanGouActivity.datetime);
 				} catch (java.text.ParseException e1) {
-					// TODO Auto-generated catch block
+
 					e1.printStackTrace();
 				}
 				long end_time = now_1.getTime();
@@ -239,7 +239,7 @@ public class JuTuanGouAdapter extends BaseAdapter {
 
 						@Override
 						public void onClick(View arg0) {
-							// TODO Auto-generated method stub
+
 							try {
 								// JuTuanConfrimActivity.fanhui_type = false;
 								// DBFengXiangActivity.fanhui_type = false;
@@ -254,7 +254,7 @@ public class JuTuanGouAdapter extends BaseAdapter {
 
 								mContext.startActivity(intent);
 							} catch (Exception e) {
-								// TODO: handle exception
+
 								e.printStackTrace();
 							}
 						}
@@ -285,14 +285,14 @@ public class JuTuanGouAdapter extends BaseAdapter {
 				try {
 					now_1 = df.parse(List.get(position).getEnd_time());
 				} catch (java.text.ParseException e1) {
-					// TODO Auto-generated catch block
+
 					e1.printStackTrace();
 				}
 
 				try {
 					date_1 = df.parse(JuTuanGouActivity.datetime);
 				} catch (java.text.ParseException e1) {
-					// TODO Auto-generated catch block
+
 					e1.printStackTrace();
 				}
 				long end_time = now_1.getTime();
@@ -306,7 +306,7 @@ public class JuTuanGouAdapter extends BaseAdapter {
 
 						@Override
 						public void onClick(View arg0) {
-							// TODO Auto-generated method stub
+
 							try {
 								// MyOrderConfrimActivity.fanhui_type = false;
 								// DBFengXiangActivity.fanhui_type = false;
@@ -322,7 +322,7 @@ public class JuTuanGouAdapter extends BaseAdapter {
 								mContext.startActivity(intent);
 
 							} catch (Exception e) {
-								// TODO: handle exception
+
 								e.printStackTrace();
 							}
 						}
@@ -354,7 +354,7 @@ public class JuTuanGouAdapter extends BaseAdapter {
 			//
 			// @Override
 			// public void onClick(View arg0) {
-			// // TODO Auto-generated method stub
+			//
 			// // MyOrderConfrimActivity.fanhui_type = false;
 			// // DBFengXiangActivity.fanhui_type = false;
 			// // UserLoginActivity.fanhui_type = false;
@@ -376,7 +376,7 @@ public class JuTuanGouAdapter extends BaseAdapter {
 			holder.tv_titel.setText(List.get(position).getTitle());
 
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 		return convertView;

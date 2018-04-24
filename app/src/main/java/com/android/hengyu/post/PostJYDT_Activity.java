@@ -53,7 +53,7 @@ public class PostJYDT_Activity extends BaseActivity {
 			@Override
 			public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
 									long arg3) {
-				// TODO Auto-generated method stub
+
 				Intent intent = new Intent(PostJYDT_Activity.this,
 						PostStandDetail.class);
 				intent.putExtra("ob", list.get(arg2));

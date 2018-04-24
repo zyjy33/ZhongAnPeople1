@@ -112,14 +112,14 @@ public class UserLoginActivity extends BaseActivity implements OnClickListener {
 				}
 			};
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 	}
 
 	@Override
 	protected void onResume() {
-		// TODO Auto-generated method stub
+
 		super.onResume();
 		//			SharedPreferences spPreferences = getSharedPreferences("longuserset", MODE_PRIVATE);
 		//			user_name = spPreferences.getString("user_name", "");
@@ -181,14 +181,14 @@ public class UserLoginActivity extends BaseActivity implements OnClickListener {
 						String openid = object.getString("openid");
 						userxinxill(access_token,openid);
 					} catch (JSONException e) {
-						// TODO Auto-generated catch block
+
 						e.printStackTrace();
 					}
 				};
 			}, UserLoginActivity.this);
 
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 	}
@@ -230,7 +230,7 @@ public class UserLoginActivity extends BaseActivity implements OnClickListener {
 						//							mImageView.setImageBitmap(mBitmap);
 
 					} catch (JSONException e) {
-						// TODO Auto-generated catch block
+
 						e.printStackTrace();
 					}
 
@@ -246,7 +246,7 @@ public class UserLoginActivity extends BaseActivity implements OnClickListener {
 			}, UserLoginActivity.this);
 
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 	}
@@ -292,7 +292,7 @@ public class UserLoginActivity extends BaseActivity implements OnClickListener {
 		img_menu.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View arg0) {
-				// TODO Auto-generated method stub
+
 				finish();
 			}
 		});
@@ -301,7 +301,7 @@ public class UserLoginActivity extends BaseActivity implements OnClickListener {
 
 	@Override
 	public void onClick(View v) {
-		// TODO Auto-generated method stub
+
 		switch (v.getId()) {
 			case R.id.btn_login://微信登录
 				//			Intent intent = new Intent(UserLoginActivity.this,MainUserLoginActivity.class);
@@ -324,7 +324,7 @@ public class UserLoginActivity extends BaseActivity implements OnClickListener {
 					startActivity(intent3);
 					System.out.println("0---------2--------");
 				} catch (Exception e) {
-					// TODO: handle exception
+
 					e.printStackTrace();
 				}
 				break;
@@ -350,7 +350,7 @@ public class UserLoginActivity extends BaseActivity implements OnClickListener {
 	//				editor.putString("sex", ret);
 	//				editor.commit();
 	//			} catch (JSONException e) {
-	//				// TODO Auto-generated catch block
+	//
 	//				e.printStackTrace();
 	//			}
 	////			Util.showResultDialog(UserLoginActivity.this, response.toString(),"登录成功");
@@ -542,7 +542,7 @@ public class UserLoginActivity extends BaseActivity implements OnClickListener {
 				return "";
 			}
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			Log.e("VersionInfo", "Exception", e);
 		}
 		return versionName;

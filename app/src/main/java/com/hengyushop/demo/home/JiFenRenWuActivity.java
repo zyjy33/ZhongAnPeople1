@@ -95,7 +95,7 @@ public class JiFenRenWuActivity extends BaseActivity {
 
 			@Override
 			public void onClick(View arg0) {
-				// TODO Auto-generated method stub
+
 				finish();
 			}
 		});
@@ -104,7 +104,7 @@ public class JiFenRenWuActivity extends BaseActivity {
 
 			@Override
 			public void onClick(View arg0) {
-				// TODO Auto-generated method stub
+
 				Intent intent = new Intent(JiFenRenWuActivity.this,
 						QianMingActivity.class);
 				intent.putExtra("id", "29");
@@ -116,7 +116,7 @@ public class JiFenRenWuActivity extends BaseActivity {
 
 			@Override
 			public void onClick(View arg0) {
-				// TODO Auto-generated method stub
+
 				Intent intent = new Intent(JiFenRenWuActivity.this,
 						QianMingActivity.class);
 				intent.putExtra("id2", "2930");
@@ -153,7 +153,7 @@ public class JiFenRenWuActivity extends BaseActivity {
 						TuiGuang1Adapter.aQuery.clear();
 						// setListViewHeightBasedOnChildren(listView);
 					} catch (Exception e) {
-						// TODO: handle exception
+
 						e.printStackTrace();
 					}
 					break;
@@ -177,7 +177,7 @@ public class JiFenRenWuActivity extends BaseActivity {
 	// "lesson_id=23", new AsyncHttpResponseHandler(){
 	// @Override
 	// public void onSuccess(int arg0, String arg1) {
-	// // TODO Auto-generated method stub
+	//
 	// super.onSuccess(arg0, arg1);
 	// try {
 	// System.out.println("arg1=========="+arg1);
@@ -210,7 +210,7 @@ public class JiFenRenWuActivity extends BaseActivity {
 				new AsyncHttpResponseHandler() {
 					@Override
 					public void onSuccess(int arg0, String arg1) {
-						// TODO Auto-generated method stub
+
 						super.onSuccess(arg0, arg1);
 						try {
 							System.out.println("（商品列表）==========" + arg1);
@@ -259,7 +259,7 @@ public class JiFenRenWuActivity extends BaseActivity {
 				new AsyncHttpResponseHandler() {
 					@Override
 					public void onSuccess(int arg0, String arg1) {
-						// TODO Auto-generated method stub
+
 						super.onSuccess(arg0, arg1);
 						try {
 							System.out.println("推广传播==========" + arg1);

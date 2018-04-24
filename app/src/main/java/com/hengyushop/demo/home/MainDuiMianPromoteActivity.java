@@ -174,7 +174,7 @@ public class MainDuiMianPromoteActivity extends BaseActivity implements
 
 	@Override
 	protected void onResume() {
-		// TODO Auto-generated method stub
+
 		super.onResume();
 	}
 	public void onDestroy() {
@@ -185,7 +185,7 @@ public class MainDuiMianPromoteActivity extends BaseActivity implements
 			//			bd1.setCallback(null);
 			//			bd1.getBitmap().recycle();
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 	};
@@ -230,7 +230,7 @@ public class MainDuiMianPromoteActivity extends BaseActivity implements
 
 				@Override
 				public void onClick(View arg0) {
-					// TODO Auto-generated method stub
+
 					finish();
 				}
 			});
@@ -239,14 +239,14 @@ public class MainDuiMianPromoteActivity extends BaseActivity implements
 			ll_user_buju.setVisibility(View.GONE);
 
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 	}
 
 	@Override
 	public void onClick(View v) {
-		// TODO Auto-generated method stub
+
 		switch (v.getId()) {
 			case R.id.index_item0:
 				cursor1.setVisibility(View.VISIBLE);
@@ -275,7 +275,7 @@ public class MainDuiMianPromoteActivity extends BaseActivity implements
 					// 200).show();
 					intren();
 				} catch (Exception e) {
-					// TODO: handle exception
+
 					e.printStackTrace();
 				}
 				break;
@@ -290,7 +290,7 @@ public class MainDuiMianPromoteActivity extends BaseActivity implements
 					intent.putExtra("mdm_sys", mdm_sys);
 					startActivity(intent);
 				} catch (Exception e) {
-					// TODO: handle exception
+
 					e.printStackTrace();
 				}
 				break;
@@ -352,7 +352,7 @@ public class MainDuiMianPromoteActivity extends BaseActivity implements
 						//						bd1.setCallback(null);
 						//						bd1.getBitmap().recycle();
 					} catch (Exception e) {
-						// TODO: handle exception
+
 						e.printStackTrace();
 					}
 				}
@@ -389,13 +389,13 @@ public class MainDuiMianPromoteActivity extends BaseActivity implements
 			}
 
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 	}
 
 	private void getmianduimian() {
-		// TODO Auto-generated method stub
+
 		try {
 
 			mdm_sys = getIntent().getStringExtra("mdm_sys");
@@ -471,7 +471,7 @@ public class MainDuiMianPromoteActivity extends BaseActivity implements
 			// ll_zhuti.setBackgroundResource(R.drawable.ysj_hb2);
 			// // Toast.makeText(MianDuiMianFxhbActivity.this, "2", 200).show();
 			// } catch (Exception e) {
-			// // TODO: handle exception
+			//
 			// e.printStackTrace();
 			// }
 			// }
@@ -503,7 +503,7 @@ public class MainDuiMianPromoteActivity extends BaseActivity implements
 			}
 
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 	}
@@ -586,7 +586,7 @@ public class MainDuiMianPromoteActivity extends BaseActivity implements
 								options);
 						zhoull();
 					} catch (Exception e) {
-						// TODO: handle exception
+
 						e.printStackTrace();
 					}
 				}
@@ -607,7 +607,7 @@ public class MainDuiMianPromoteActivity extends BaseActivity implements
 			System.out.println("bitmap_fx1==============" + bitmap_fx);
 
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 	}
@@ -618,7 +618,7 @@ public class MainDuiMianPromoteActivity extends BaseActivity implements
 	}
 
 	private void zhou() {
-		// TODO Auto-generated method stub
+
 		System.out.println("bitmap_fx1==============" + bitmap_fx);
 
 		alterBitmap = Bitmap.createBitmap(bitmap_fx.getWidth(),
@@ -664,7 +664,7 @@ public class MainDuiMianPromoteActivity extends BaseActivity implements
 						matrix2, true);
 				canvas.drawBitmap(bitMap2, 290, 180, null);
 			} catch (Exception e) {
-				// TODO: handle exception
+
 				e.printStackTrace();
 			}
 		} else {
@@ -720,7 +720,7 @@ public class MainDuiMianPromoteActivity extends BaseActivity implements
 	}
 
 	private void zhoull() {
-		// TODO Auto-generated method stub
+
 		System.out.println("bitmap_fx1==============" + bitmap_fx);
 
 		alterBitmap = Bitmap.createBitmap(bitmap_fx.getWidth(),
@@ -758,7 +758,7 @@ public class MainDuiMianPromoteActivity extends BaseActivity implements
 						matrix2, true);
 				canvas.drawBitmap(bitMap2, 200, 120, null);
 			} catch (Exception e) {
-				// TODO: handle exception
+
 				e.printStackTrace();
 			}
 		} else {

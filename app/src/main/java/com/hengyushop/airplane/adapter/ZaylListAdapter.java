@@ -41,19 +41,19 @@ public class ZaylListAdapter extends BaseAdapter {
 
 	@Override
 	public int getCount() {
-		// TODO Auto-generated method stub
+
 		return items.size();
 	}
 
 	@Override
 	public Object getItem(int position) {
-		// TODO Auto-generated method stub
+
 		return items.get(position);
 	}
 
 	@Override
 	public long getItemId(int position) {
-		// TODO Auto-generated method stub
+
 		return position;
 	}
 
@@ -61,7 +61,7 @@ public class ZaylListAdapter extends BaseAdapter {
 	public View getView(int position, View convertView, ViewGroup parent) {
 		try {
 
-			// TODO: handle exception
+
 			if (convertView == null) {
 				convertView = LayoutInflater.from(mContext).inflate(
 						R.layout.ylsc_list_item, parent, false);
@@ -81,7 +81,7 @@ public class ZaylListAdapter extends BaseAdapter {
 							+ items.get(position).getImg_url());
 			type = true;
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 		return convertView;

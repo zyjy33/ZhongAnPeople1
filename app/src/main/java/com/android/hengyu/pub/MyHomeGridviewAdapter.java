@@ -24,7 +24,7 @@ public class MyHomeGridviewAdapter extends BaseAdapter {
 
 	public MyHomeGridviewAdapter(List<Map<String, String>> allGriddatas,
 			Context context) {
-		// TODO Auto-generated constructor stub
+
 		this.list = allGriddatas;
 		this.context = context;
 		// loader = new ImageLoader(context);
@@ -32,25 +32,25 @@ public class MyHomeGridviewAdapter extends BaseAdapter {
 
 	@Override
 	public int getCount() {
-		// TODO Auto-generated method stub
+
 		return list.size();
 	}
 
 	@Override
 	public Object getItem(int arg0) {
-		// TODO Auto-generated method stub
+
 		return arg0;
 	}
 
 	@Override
 	public long getItemId(int arg0) {
-		// TODO Auto-generated method stub
+
 		return arg0;
 	}
 
 	@Override
 	public View getView(int position, View convertView, ViewGroup parent) {
-		// TODO Auto-generated method stub
+
 		if (convertView == null) {
 			convertView = RelativeLayout.inflate(context,
 					R.layout.grideitem_home, null);

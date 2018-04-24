@@ -62,7 +62,7 @@ public class JuTuanGouActivity extends BaseActivity implements OnClickListener,
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
+
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_my_jutuangou);
@@ -102,19 +102,19 @@ public class JuTuanGouActivity extends BaseActivity implements OnClickListener,
 
 				@Override
 				public void onClick(View arg0) {
-					// TODO Auto-generated method stub
+
 					finish();
 				}
 			});
 
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 	}
 
 	public void uncaughtException(Thread arg0, Throwable arg1) {
-		// TODO Auto-generated method stub
+
 		// 在此处理异常， arg1即为捕获到的异常
 		Log.i("AAA", "uncaughtException   " + arg1);
 	}
@@ -129,7 +129,7 @@ public class JuTuanGouActivity extends BaseActivity implements OnClickListener,
 			// iv_fanhui.setOnClickListener(this);
 
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 
@@ -172,7 +172,7 @@ public class JuTuanGouActivity extends BaseActivity implements OnClickListener,
 
 		@Override
 		public void onHeaderRefresh(PullToRefreshView view) {
-			// TODO Auto-generated method stub
+
 			refresh.postDelayed(new Runnable() {
 
 				@Override
@@ -190,7 +190,7 @@ public class JuTuanGouActivity extends BaseActivity implements OnClickListener,
 
 		@Override
 		public void onFooterRefresh(PullToRefreshView view) {
-			// TODO Auto-generated method stub
+
 			refresh.postDelayed(new Runnable() {
 
 				@Override
@@ -207,7 +207,7 @@ public class JuTuanGouActivity extends BaseActivity implements OnClickListener,
 						refresh.onFooterRefreshComplete();
 
 					} catch (Exception e) {
-						// TODO: handle exception
+
 						e.printStackTrace();
 					}
 				}
@@ -240,7 +240,7 @@ public class JuTuanGouActivity extends BaseActivity implements OnClickListener,
 					new AsyncHttpResponseHandler() {
 						@Override
 						public void onSuccess(int arg0, String arg1) {
-							// TODO Auto-generated method stub
+
 							super.onSuccess(arg0, arg1);
 							System.out.println("输出所有拼团活动列表=========" + arg1);
 							try {
@@ -316,21 +316,21 @@ public class JuTuanGouActivity extends BaseActivity implements OnClickListener,
 									Toast.makeText(JuTuanGouActivity.this,info, 200).show();
 								}
 							} catch (JSONException e) {
-								// TODO Auto-generated catch block
+
 								e.printStackTrace();
 							}
 						}
 
 					}, null);
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			e.printStackTrace();
 		}
 	}
 
 	@Override
 	public void onClick(View v) {
-		// TODO Auto-generated method stub
+
 		switch (v.getId()) {
 			case R.id.fanhui:
 				finish();

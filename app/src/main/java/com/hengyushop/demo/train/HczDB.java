@@ -11,7 +11,7 @@ public class HczDB {
 	private SQLiteDatabase db;
 
 	public HczDB(Context context) {
-		// TODO Auto-generated constructor stub
+
 		this.context = context;
 		db = context.openOrCreateDatabase("hcz.db", Context.MODE_PRIVATE, null);
 	}
