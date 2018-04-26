@@ -23,18 +23,18 @@ import java.util.ArrayList;
  * @Description:gridview的Adapter
  * @author http://blog.csdn.net/finddreams
  */
-public class zaylAdapter extends BaseAdapter {
+public class ZaylAdapter extends BaseAdapter {
 	private Context mContext;
 	private ArrayList<ZhongAnYlBean> items;
 	private ImageLoader imageLoader;
 	public static AQuery aQuery;
 	public static boolean type = false;
-	public zaylAdapter(ImageLoader imageLoader) {
+	public ZaylAdapter(ImageLoader imageLoader) {
 
 		this.imageLoader = imageLoader;
 	}
 
-	public zaylAdapter(ArrayList<ZhongAnYlBean> items2, Context mContext) {
+	public ZaylAdapter(ArrayList<ZhongAnYlBean> items2, Context mContext) {
 		super();
 		this.items = items2;
 		this.mContext = mContext;

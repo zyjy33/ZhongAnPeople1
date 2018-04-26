@@ -45,7 +45,7 @@ public class TrainAddPersonActivity extends BaseActivity {
 		public void dispatchMessage(android.os.Message msg) {
 			switch (msg.what) {
 				case 1:
-					Toast.makeText(getApplicationContext(), "Ìí¼Ó³É¹¦!", 200).show();
+					Toast.makeText(getApplicationContext(), "Ìí¼Ó³É¹¦!", Toast.LENGTH_SHORT).show();
 					AppManager.getAppManager().finishActivity();
 					break;
 
@@ -77,7 +77,7 @@ public class TrainAddPersonActivity extends BaseActivity {
 				tempBtn2 = (RadioButton) findViewById(v4
 						.getCheckedRadioButtonId());
 				if (yth == null) {
-					Toast.makeText(getApplicationContext(), "Î´µÇÂ¼!", 200).show();
+					Toast.makeText(getApplicationContext(), "Î´µÇÂ¼!", Toast.LENGTH_SHORT).show();
 				} else {
 					if (tempBtn1 != null && tempBtn2 != null) {
 						RequestParams params = new RequestParams();
@@ -104,11 +104,10 @@ public class TrainAddPersonActivity extends BaseActivity {
 														handler.sendEmptyMessage(1);
 													}
 												} catch (JSONException e) {
-													  catch
 													// block
 													e.printStackTrace();
 												}
-											};
+											}
 										}, getApplicationContext());
 					}
 

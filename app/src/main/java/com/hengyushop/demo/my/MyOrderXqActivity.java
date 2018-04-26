@@ -325,8 +325,8 @@ public class MyOrderXqActivity extends BaseActivity implements OnClickListener{
 
 	/**
 	 * 删除订单
-	 * @param order_no
-	 * @param payment_id
+	 * @param
+	 * @param
 	 */
 	public void fukuanok3(String order_no2) {
 		progress.CreateProgress();
@@ -348,14 +348,14 @@ public class MyOrderXqActivity extends BaseActivity implements OnClickListener{
 							String info = object.getString("info");
 							if (status.equals("y")) {
 								progress.CloseProgress();
-								Toast.makeText(MyOrderXqActivity.this, info, 200).show();
+								Toast.makeText(MyOrderXqActivity.this, info, Toast.LENGTH_SHORT).show();
 								//									  Intent intent = new Intent(getActivity(), MyOrderConfrimActivity.class);
 								//									  intent.putExtra("order_no",order_no);
 								//									  intent.putExtra("id","1");
 								//									  startActivity(intent);
 							}else {
 								progress.CloseProgress();
-								Toast.makeText(MyOrderXqActivity.this, info, 200).show();
+								Toast.makeText(MyOrderXqActivity.this, info, Toast.LENGTH_SHORT).show();
 							}
 
 
@@ -369,8 +369,8 @@ public class MyOrderXqActivity extends BaseActivity implements OnClickListener{
 	}
 	/**
 	 * 取消订单
-	 * @param order_no
-	 * @param payment_id
+	 * @param
+	 * @param
 	 */
 	public void fukuanok2(String order_no2) {
 		progress.CreateProgress();
@@ -392,10 +392,10 @@ public class MyOrderXqActivity extends BaseActivity implements OnClickListener{
 							String info = object.getString("info");
 							if (status.equals("y")) {
 								progress.CloseProgress();
-								Toast.makeText(MyOrderXqActivity.this, info, 200).show();
+								Toast.makeText(MyOrderXqActivity.this, info, Toast.LENGTH_SHORT).show();
 							}else {
 								progress.CloseProgress();
-								Toast.makeText(MyOrderXqActivity.this, info, 200).show();
+								Toast.makeText(MyOrderXqActivity.this, info, Toast.LENGTH_SHORT).show();
 							}
 
 
@@ -481,8 +481,6 @@ public class MyOrderXqActivity extends BaseActivity implements OnClickListener{
 
 	/**
 	 * 更新订单
-	 * @param login_sign
-	 * @param payment_id
 	 */
 	private void loadguanggaoll(String recharge_noll, String login_sign) {
 		try {
@@ -506,11 +504,11 @@ public class MyOrderXqActivity extends BaseActivity implements OnClickListener{
 									progress.CloseProgress();
 									teby = false;
 									finish();
-									Toast.makeText(MyOrderXqActivity.this, info, 200).show();
+									Toast.makeText(MyOrderXqActivity.this, info, Toast.LENGTH_SHORT).show();
 								}else {
 									progress.CloseProgress();
 									teby = false;
-									Toast.makeText(MyOrderXqActivity.this, info, 200).show();
+									Toast.makeText(MyOrderXqActivity.this, info, Toast.LENGTH_SHORT).show();
 								}
 							} catch (JSONException e) {
 								e.printStackTrace();
@@ -523,7 +521,7 @@ public class MyOrderXqActivity extends BaseActivity implements OnClickListener{
 							super.onFailure(arg0, arg1);
 							System.out.println("11================================="+arg0);
 							System.out.println("22================================="+arg1);
-							Toast.makeText(MyOrderXqActivity.this, "网络超时异常", 200).show();
+							Toast.makeText(MyOrderXqActivity.this, "网络超时异常", Toast.LENGTH_SHORT).show();
 						}
 
 					}, null);

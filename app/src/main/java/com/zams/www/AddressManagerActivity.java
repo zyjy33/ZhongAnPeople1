@@ -194,7 +194,7 @@ public class AddressManagerActivity extends BaseActivity {
 				
 				break;
 			case 1:
-				Toast.makeText(getApplicationContext(), (String) msg.obj, 200).show();
+				Toast.makeText(getApplicationContext(), (String) msg.obj, Toast.LENGTH_SHORT).show();
 				break;
 			default:
 				break;

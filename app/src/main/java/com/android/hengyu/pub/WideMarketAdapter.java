@@ -9,7 +9,7 @@ import android.widget.GridView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.hengyushop.airplane.adapter.zaylAdapter;
+import com.hengyushop.airplane.adapter.ZaylAdapter;
 import com.hengyushop.entity.ZhongAnYlBean;
 import com.hengyushop.entity.ZhongAnYlData;
 import com.zams.www.R;
@@ -88,7 +88,7 @@ public class WideMarketAdapter extends BaseAdapter {
 				// WideChildAdapter childAdapter = new WideChildAdapter(items,
 				// context, handler);
 				// holder.item_img.setAdapter(childAdapter);
-				zaylAdapter MyAdapter2 = new zaylAdapter(items, context);
+				ZaylAdapter MyAdapter2 = new ZaylAdapter(items, context);
 				holder.item_img.setAdapter(MyAdapter2);
 			} catch (Exception e) {
 

@@ -54,7 +54,6 @@ public class TrainPersonItemAdapter extends BaseAdapter {
 	@Override
 	public View getView(final int index, View view, ViewGroup arg2) {
 		  ViewHolder holder = null;
-		ViewHolder holder = null;
 		if (view == null) {
 			holder = new ViewHolder();
 			view = LinearLayout.inflate(context, R.layout.train_person_item,

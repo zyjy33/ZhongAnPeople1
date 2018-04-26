@@ -2,7 +2,6 @@ package com.android.hengyu.pub;
 
 import java.util.ArrayList;
 
-import android.R.color;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
@@ -19,11 +18,8 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.androidquery.AQuery;
-import com.hengyushop.airplane.adapter.SpcsAdapter;
-import com.hengyushop.airplane.adapter.zaylAdapter;
-import com.hengyushop.demo.home.ZhongAnYlActivity;
+import com.hengyushop.airplane.adapter.ZaylAdapter;
 import com.hengyushop.demo.home.ZhongAnYlListActivity;
-import com.hengyushop.entity.GuigeData;
 import com.hengyushop.entity.ZhongAnYlBean;
 import com.hengyushop.entity.ZhongAnYlData;
 import com.zams.www.R;
@@ -138,7 +134,7 @@ public class ZhongAnYlAdapter extends BaseAdapter {
 					items = list.get(position).getList();
 					// System.out.println("items------------------------"+items.size());
 					gridview = (GridView) vi.findViewById(R.id.gridView);
-					// zaylAdapter MyAdapter2 = new zaylAdapter(items, context);
+					// ZaylAdapter MyAdapter2 = new ZaylAdapter(items, context);
 					// gridview.setAdapter(MyAdapter2);
 					gridview.setOnItemClickListener(new OnItemClickListener() {
 
@@ -172,7 +168,7 @@ public class ZhongAnYlAdapter extends BaseAdapter {
 				}
 			}
 
-			zaylAdapter MyAdapter2 = new zaylAdapter(items, context);
+			ZaylAdapter MyAdapter2 = new ZaylAdapter(items, context);
 			gridview.setAdapter(MyAdapter2);
 			MyAdapter2.notifyDataSetChanged();
 

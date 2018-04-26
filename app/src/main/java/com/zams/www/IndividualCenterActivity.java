@@ -491,7 +491,7 @@ public class IndividualCenterActivity extends Fragment implements
 					.println("user_name_key=================" + user_name_key);
 
 			// Toast.makeText(getActivity(), nickname+"/"+user_name,
-			// 200).show();
+			// Toast.LENGTH_SHORT).show();
 			if (!nickname.equals("")) {
 
 				System.out.println("==00====");
@@ -599,7 +599,7 @@ public class IndividualCenterActivity extends Fragment implements
 							"");
 					System.out.println("1======" + nickname);
 					// Toast.makeText(getActivity(), "微信名/"+nickname,
-					// 200).show();
+					// Toast.LENGTH_SHORT).show();
 					UserLoginActivity.panduan = false;
 					Intent intent4 = new Intent(context,
 							UserLoginActivity.class);
@@ -612,7 +612,7 @@ public class IndividualCenterActivity extends Fragment implements
 					String nickname = spPreferences_login.getString("nickname",
 							"");
 					// Toast.makeText(getActivity(), "QQ名/"+nickname,
-					// 200).show();
+					// Toast.LENGTH_SHORT).show();
 					System.out.println("1======" + nickname);
 					UserLoginWayActivity.panduan = false;
 					Intent intent4 = new Intent(context,
@@ -626,7 +626,7 @@ public class IndividualCenterActivity extends Fragment implements
 					String user_name = spPreferences.getString("user", "");
 					System.out.println("2======" + user_name);
 					// Toast.makeText(getActivity(), "用户名/"+user_name,
-					// 200).show();
+					// Toast.LENGTH_SHORT).show();
 					Intent intent4 = new Intent(context,
 							UserLoginActivity.class);
 					// intent4.putExtra("login", index);
@@ -636,7 +636,7 @@ public class IndividualCenterActivity extends Fragment implements
 					spPreferences.edit().clear().commit();
 					spPreferences_login.edit().clear().commit();
 					jdh_spPreferences.edit().clear().commit();// 积兑换保存福利清除
-					// Toast.makeText(getActivity(), "空值", 200).show();
+					// Toast.makeText(getActivity(), "空值", Toast.LENGTH_SHORT).show();
 					Intent intent4 = new Intent(context,
 							UserLoginActivity.class);
 					startActivity(intent4);
@@ -900,7 +900,7 @@ public class IndividualCenterActivity extends Fragment implements
 
 								super.onFailure(arg0, arg1);
 								NewDataToast.makeText(context, "连接超时", false, 0).show();
-								//							Toast.makeText(context,"连接超时, 200).show();
+								//							Toast.makeText(context,"连接超时, Toast.LENGTH_SHORT).show();
 							}
 						}, context);
 
@@ -916,7 +916,7 @@ public class IndividualCenterActivity extends Fragment implements
 					break;
 				case 2:
 					String strobj = (String) msg.obj;
-					Toast.makeText(getActivity(), strobj, 200).show();
+					Toast.makeText(getActivity(), strobj, Toast.LENGTH_SHORT).show();
 					break;
 				case 5:
 					String text1 = (String) msg.obj;
@@ -1735,7 +1735,7 @@ public class IndividualCenterActivity extends Fragment implements
 				}
 				break;
 			case R.id.index_item0:// 我的优惠劵
-				Toast.makeText(getActivity(), "功能还未开发，敬请期待", 200).show();
+				Toast.makeText(getActivity(), "功能还未开发，敬请期待", Toast.LENGTH_SHORT).show();
 				break;
 			case R.id.index_item1:// 我的聚兑换
 				if (!nickname.equals("")) {
@@ -1889,7 +1889,7 @@ public class IndividualCenterActivity extends Fragment implements
 				}
 				break;
 			case R.id.index_item3:// 我的抽奖
-				Toast.makeText(getActivity(), "功能还未开发，敬请期待", 200).show();
+				Toast.makeText(getActivity(), "功能还未开发，敬请期待", Toast.LENGTH_SHORT).show();
 				break;
 			case R.id.ll_user:
 				// Intent intentu = new
@@ -2160,10 +2160,10 @@ public class IndividualCenterActivity extends Fragment implements
 					object.getString("info");
 					// onResume();
 					if (status.equals("y")) {
-						Toast.makeText(context, "上传成功", 200).show();
+						Toast.makeText(context, "上传成功", Toast.LENGTH_SHORT).show();
 						System.out.println("上传成功--------------------------");
 					} else {
-						Toast.makeText(context, "上传失败", 200).show();
+						Toast.makeText(context, "上传失败", Toast.LENGTH_SHORT).show();
 					}
 				} catch (JSONException e) {
 

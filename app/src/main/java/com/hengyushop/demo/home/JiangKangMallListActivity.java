@@ -1,7 +1,6 @@
 package com.hengyushop.demo.home;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -20,24 +19,16 @@ import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.ListAdapter;
-import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.AdapterView.OnItemClickListener;
 
-import com.android.hengyu.pub.JuTuanGouAdapter;
-import com.android.hengyu.pub.MyAdapter2;
-import com.android.hengyu.pub.WideMarketAdapter;
-import com.android.hengyu.pub.YsjGoodsListAdapter;
 import com.android.hengyu.pub.ZhongAnYlAdapter;
 import com.android.hengyu.web.DialogProgress;
 import com.android.hengyu.web.RealmName;
 import com.hengyushop.airplane.adapter.ZaylListAdapter;
-import com.hengyushop.airplane.adapter.zaylAdapter;
 import com.hengyushop.demo.at.AsyncHttp;
 import com.hengyushop.demo.at.BaseActivity;
-import com.hengyushop.entity.GuigeBean;
-import com.hengyushop.entity.JuTuanGouData;
 import com.hengyushop.entity.ZhongAnYlBean;
 import com.hengyushop.entity.ZhongAnYlData;
 import com.loopj.android.http.AsyncHttpResponseHandler;

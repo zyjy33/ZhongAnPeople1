@@ -497,9 +497,6 @@
             android:name="com.hengyushop.demo.airplane.AirPlaneSelectTwoActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.hengyushop.demo.airplane.AirPlaneTicketInfromationActivity"
-            android:screenOrientation="portrait" />
-        <activity
             android:name="com.hengyushop.demo.movie.MovieHomeActivity"
             android:screenOrientation="portrait" />
         <activity

@@ -180,7 +180,7 @@ public class DaiRegisterActivity extends BaseActivity implements
 				case R.id.get_yz:
 					phone = userphone.getText().toString().trim();
 					if (phone.equals("")) {
-						Toast.makeText(DaiRegisterActivity.this, "请输入手机号码", 200)
+						Toast.makeText(DaiRegisterActivity.this, "请输入手机号码", Toast.LENGTH_SHORT)
 								.show();
 					}
 					// else
@@ -211,7 +211,7 @@ public class DaiRegisterActivity extends BaseActivity implements
 										} else {
 											Toast.makeText(
 													DaiRegisterActivity.this, info,
-													200).show();
+													Toast.LENGTH_SHORT).show();
 											// handler.sendEmptyMessage(3);
 										}
 									} catch (JSONException e) {
@@ -223,14 +223,14 @@ public class DaiRegisterActivity extends BaseActivity implements
 						} else {
 							// NewDataToast.makeText(getApplicationContext(),
 							// "请输入手机号码",false,0).show();
-							Toast.makeText(DaiRegisterActivity.this, "手机号码不正确", 200)
+							Toast.makeText(DaiRegisterActivity.this, "手机号码不正确", Toast.LENGTH_SHORT)
 									.show();
 						}
 						// } else {
 						// // NewDataToast.makeText(getApplicationContext(),
 						// "请输入手机号码",false,0).show();
 						// Toast.makeText(UserRegisterActivity.this, "手机号码不能为空",
-						// 200).show();
+						// Toast.LENGTH_SHORT).show();
 						// }
 					}
 
@@ -251,34 +251,34 @@ public class DaiRegisterActivity extends BaseActivity implements
 					pwd = userpwd.getText().toString().trim();
 
 					if (dai_user_name.equals("")) {
-						Toast.makeText(DaiRegisterActivity.this, "用户姓名不能为空", 200)
+						Toast.makeText(DaiRegisterActivity.this, "用户姓名不能为空", Toast.LENGTH_SHORT)
 								.show();
 					} else if (user_sfzh.equals("")) {
-						Toast.makeText(DaiRegisterActivity.this, "身份证号不能为空", 200)
+						Toast.makeText(DaiRegisterActivity.this, "身份证号不能为空", Toast.LENGTH_SHORT)
 								.show();
 					} else if (phone.equals("")) {
-						Toast.makeText(DaiRegisterActivity.this, "手机号码不能为空", 200)
+						Toast.makeText(DaiRegisterActivity.this, "手机号码不能为空", Toast.LENGTH_SHORT)
 								.show();
 					} else if (phone.length() < 11) {
-						Toast.makeText(DaiRegisterActivity.this, "手机号码少于11位", 200)
+						Toast.makeText(DaiRegisterActivity.this, "手机号码少于11位", Toast.LENGTH_SHORT)
 								.show();
 					} else if (yz.equals("")) {
-						Toast.makeText(DaiRegisterActivity.this, "请输入验证码", 200)
+						Toast.makeText(DaiRegisterActivity.this, "请输入验证码", Toast.LENGTH_SHORT)
 								.show();
 					}
 					// else if (yz.length() < 6 ) {
 					// Toast.makeText(UserRegisterActivity.this, "验证码少于六位",
-					// 200).show();
+					// Toast.LENGTH_SHORT).show();
 					// }
 					else if (pwd.equals("")) {
-						Toast.makeText(DaiRegisterActivity.this, "密码不能为空", 200)
+						Toast.makeText(DaiRegisterActivity.this, "密码不能为空", Toast.LENGTH_SHORT)
 								.show();
 					} else if (pwd.length() < 8) {
-						Toast.makeText(DaiRegisterActivity.this, "密码不得小于8位", 200)
+						Toast.makeText(DaiRegisterActivity.this, "密码不得小于8位", Toast.LENGTH_SHORT)
 								.show();
 					} else if (!(userpwd.getText().toString().length() < 20 && userpwd
 							.getText().toString().length() >= 8)) {
-						Toast.makeText(DaiRegisterActivity.this, "密码在8-20位之间", 200)
+						Toast.makeText(DaiRegisterActivity.this, "密码在8-20位之间", Toast.LENGTH_SHORT)
 								.show();
 					} else {
 						if (Validator.isIDCard(user_sfzh)) {
@@ -306,7 +306,6 @@ public class DaiRegisterActivity extends BaseActivity implements
 												@Override
 												public void onSuccess(int arg0,
 																	  String arg1) {
-													  method
 													// stub
 													super.onSuccess(arg0, arg1);
 													try {
@@ -389,7 +388,6 @@ public class DaiRegisterActivity extends BaseActivity implements
 																	.show();
 														}
 													} catch (JSONException e) {
-														  catch
 														// block
 														e.printStackTrace();
 													}

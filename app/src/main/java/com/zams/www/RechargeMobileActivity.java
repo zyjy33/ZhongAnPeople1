@@ -109,7 +109,7 @@ public class RechargeMobileActivity extends BaseActivity {
 				case 10:
 					sp_mobile_money.setSelection(0);
 					progress.CloseProgress();
-					Toast.makeText(getApplicationContext(), "充值失败,请检查充值信息.", 200)
+					Toast.makeText(getApplicationContext(), "充值失败,请检查充值信息.", Toast.LENGTH_SHORT)
 							.show();
 					break;
 				case 20:
@@ -695,7 +695,7 @@ public class RechargeMobileActivity extends BaseActivity {
 
 				type="5";
 				//				warn();
-				Toast.makeText(getApplicationContext(), "待接入", 200).show();
+				Toast.makeText(getApplicationContext(), "待接入", Toast.LENGTH_SHORT).show();
 			}
 		});
 
@@ -851,7 +851,7 @@ public class RechargeMobileActivity extends BaseActivity {
 					return;
 				} else {
 					if (type.equals("-1")) {
-						Toast.makeText(getApplicationContext(), "请完善必要信息!", 200)
+						Toast.makeText(getApplicationContext(), "请完善必要信息!", Toast.LENGTH_SHORT)
 								.show();
 					} else if (type.equals("2")) {
 						//支付宝
@@ -870,7 +870,6 @@ public class RechargeMobileActivity extends BaseActivity {
 											@Override
 											public void onSuccess(int arg0,
 																  String arg1) {
-												  method
 												// stub
 												super.onSuccess(arg0, arg1);
 												System.out.println(arg1);
@@ -882,7 +881,7 @@ public class RechargeMobileActivity extends BaseActivity {
 
 													handler.sendEmptyMessage(1);
 												} catch (JSONException e) {
-													  catch
+
 													// block
 													e.printStackTrace();
 												}
@@ -906,7 +905,6 @@ public class RechargeMobileActivity extends BaseActivity {
 											@Override
 											public void onSuccess(int arg0,
 																  String arg1) {
-												  method
 												// stub
 												super.onSuccess(arg0, arg1);
 												System.out.println(arg1);
@@ -954,7 +952,6 @@ public class RechargeMobileActivity extends BaseActivity {
 													}
 													handler.sendEmptyMessage(0);
 												} catch (JSONException e) {
-													  catch
 													// block
 													e.printStackTrace();
 												}
@@ -979,7 +976,6 @@ public class RechargeMobileActivity extends BaseActivity {
 											@Override
 											public void onSuccess(int arg0,
 																  String arg1) {
-												  method
 												// stub
 												super.onSuccess(arg0, arg1);
 												System.out.println(arg1);
@@ -998,7 +994,6 @@ public class RechargeMobileActivity extends BaseActivity {
 
 													handler.sendEmptyMessage(5);
 												} catch (JSONException e) {
-													  catch
 													// block
 													e.printStackTrace();
 												}

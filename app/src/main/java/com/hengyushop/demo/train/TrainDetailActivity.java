@@ -221,7 +221,6 @@ public class TrainDetailActivity extends BaseActivity {
 													handler.sendEmptyMessage(3);
 												}
 											} catch (JSONException e) {
-												  catch
 												// block
 												e.printStackTrace();
 											}

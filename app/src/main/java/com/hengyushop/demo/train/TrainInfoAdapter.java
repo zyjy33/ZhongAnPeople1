@@ -52,7 +52,6 @@ public class TrainInfoAdapter extends BaseAdapter {
 	@Override
 	public View getView(int index, View view, ViewGroup arg2) {
 		  ViewHolder holder = null;
-		ViewHolder holder = null;
 		if (view == null) {
 			holder = new ViewHolder();
 			view = LinearLayout.inflate(context,

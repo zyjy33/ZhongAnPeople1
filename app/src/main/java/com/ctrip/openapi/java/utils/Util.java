@@ -457,12 +457,12 @@ public class Util {
 	}
 
 	/**
-	 * 鎵撳嵃娑堟伅骞朵笖鐢═oast鏄剧ず娑堟伅
+
 	 *
 	 * @param activity
 	 * @param message
-	 * @param logLevel
-	 *            濉玠, w, e鍒嗗埆浠ｈ〃debug, warn, error; 榛樿鏄痙ebug
+	 * @param
+	 *
 	 */
 	public static final void toastMessage(final Activity activity,
 										  final String message) {

@@ -8,7 +8,6 @@ import org.json.JSONObject;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -27,16 +26,12 @@ import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.android.hengyu.pub.GouWuCheAGoodsAdaper;
 import com.android.hengyu.pub.HealthPavilionAdapter;
 import com.android.hengyu.pub.JianKangMalllAdapter;
 import com.android.hengyu.pub.MyGridllAdapter;
-import com.android.hengyu.pub.WideChildAdapter;
-import com.android.hengyu.pub.ZhongAnYlAdapter;
 import com.android.hengyu.web.DialogProgress;
 import com.android.hengyu.web.RealmName;
-import com.hengyushop.airplane.adapter.ZaylListAdapter;
-import com.hengyushop.airplane.adapter.zaylAdapter;
+import com.hengyushop.airplane.adapter.ZaylAdapter;
 import com.hengyushop.demo.at.AsyncHttp;
 import com.hengyushop.demo.at.BaseActivity;
 import com.hengyushop.demo.wec.MyGridView;
@@ -47,11 +42,8 @@ import com.hengyushop.entity.GuigellBean;
 import com.hengyushop.entity.MyAssetsBean;
 import com.hengyushop.entity.ZhongAnYlBean;
 import com.hengyushop.entity.ZhongAnYlData;
-import com.lglottery.www.widget.MyPosterView;
 import com.loopj.android.http.AsyncHttpResponseHandler;
-import com.zams.www.HomeActivity;
 import com.zams.www.R;
-import com.zams.www.WareInformationActivity;
 
 /**
  *
@@ -129,9 +121,9 @@ public class HealthGunaActivity extends BaseActivity implements OnClickListener 
 				MyGridllAdapter.type = false;
 			}
 
-			if (zaylAdapter.type == true) {
-				zaylAdapter.aQuery.clear();
-				zaylAdapter.type = false;
+			if (ZaylAdapter.type == true) {
+				ZaylAdapter.aQuery.clear();
+				ZaylAdapter.type = false;
 			}
 		} catch (Exception e) {
 

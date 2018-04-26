@@ -171,7 +171,7 @@ public class ZhongAnYlListActivity extends BaseActivity implements OnClickListen
 								handler.sendEmptyMessage(1);
 							}else {
 								progress.CloseProgress();
-								Toast.makeText(ZhongAnYlListActivity.this, info, 200).show();
+								Toast.makeText(ZhongAnYlListActivity.this, info, Toast.LENGTH_SHORT).show();
 							}
 						} catch (JSONException e) {
 
@@ -184,7 +184,7 @@ public class ZhongAnYlListActivity extends BaseActivity implements OnClickListen
 
 						super.onFailure(arg0, arg1);
 						progress.CloseProgress();
-						Toast.makeText(ZhongAnYlListActivity.this, "接口异常", 200).show();
+						Toast.makeText(ZhongAnYlListActivity.this, "接口异常", Toast.LENGTH_SHORT).show();
 						System.out.println("======输出112============="+arg0);
 						System.out.println("======输出113============="+arg1);
 					}

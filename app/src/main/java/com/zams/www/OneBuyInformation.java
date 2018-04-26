@@ -71,10 +71,10 @@ public class OneBuyInformation extends BaseActivity {
 		public void dispatchMessage(Message msg) {
 			switch (msg.what) {
 				case -1:
-					Toast.makeText(getApplicationContext(), "添加失败", 200).show();
+					Toast.makeText(getApplicationContext(), "添加失败", Toast.LENGTH_SHORT).show();
 					break;
 				case 1:
-					Toast.makeText(getApplicationContext(), "成功加入购物车", 200).show();
+					Toast.makeText(getApplicationContext(), "成功加入购物车", Toast.LENGTH_SHORT).show();
 					break;
 				case 0:
 					tv_hengyu_money.setText("￥" + retailPrice);
@@ -277,7 +277,7 @@ public class OneBuyInformation extends BaseActivity {
 		if (username.size() != 0) {
 			if (style_name.size() >= 2) { // 当商品只有两条属性时
 				if (propits[0] == null || propits[1] == null) {
-					Toast.makeText(getApplicationContext(), "请选择商品的属性", 200)
+					Toast.makeText(getApplicationContext(), "请选择商品的属性", Toast.LENGTH_SHORT)
 							.show();
 				} else {
 					stylename1 = style_name.get(0).toString();
@@ -461,7 +461,7 @@ public class OneBuyInformation extends BaseActivity {
 		if (username.size() != 0) {
 			if (style_name.size() >= 2) { // 当商品只有两条属性时
 				if (propits[0] == null || propits[1] == null) {
-					Toast.makeText(getApplicationContext(), "请选择商品的属性", 200)
+					Toast.makeText(getApplicationContext(), "请选择商品的属性", Toast.LENGTH_SHORT)
 							.show();
 				} else {
 					stylename1 = style_name.get(0).toString();
@@ -622,7 +622,6 @@ public class OneBuyInformation extends BaseActivity {
 											@Override
 											public void onSuccess(int arg0,
 																  String arg1) {
-												  method
 												// stub
 												super.onSuccess(arg0, arg1);
 												try {
@@ -649,7 +648,6 @@ public class OneBuyInformation extends BaseActivity {
 														handler.sendMessage(message);
 													}
 												} catch (JSONException e) {
-													  catch
 													// block
 													e.printStackTrace();
 												}
@@ -665,7 +663,7 @@ public class OneBuyInformation extends BaseActivity {
 				}
 			} else if (style_name.size() == 1) { // 当商品只有一条属性时
 				if (propits[0] == null) {
-					Toast.makeText(getApplicationContext(), "请选择商品的属性", 200)
+					Toast.makeText(getApplicationContext(), "请选择商品的属性", Toast.LENGTH_SHORT)
 							.show();
 				} else {
 					stylename1 = style_name.get(0).toString();

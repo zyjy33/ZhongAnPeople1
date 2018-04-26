@@ -44,8 +44,6 @@ import com.hengyushop.entity.UserRegisterData;
 import com.lglottery.www.common.SharedUtils;
 import com.lglottery.www.widget.NewDataToast;
 import com.loopj.android.http.AsyncHttpResponseHandler;
-import com.loopj.android.http.RequestParams;
-import com.zams.www.R;
 
 public class SoftUpdataActivity extends BaseActivity {
 	private TextView v1, v2, v3,price;
@@ -264,7 +262,6 @@ public class SoftUpdataActivity extends BaseActivity {
 									params, new AsyncHttpResponseHandler() {
 										public void onSuccess(int arg0,
 															  String arg1) {
-											  method
 											super.onSuccess(arg0, arg1);
 											System.out.println(arg1);
 											try {
@@ -311,7 +308,6 @@ public class SoftUpdataActivity extends BaseActivity {
 												}
 												handler.sendEmptyMessage(0);
 											} catch (JSONException e) {
-												  catch
 												// block
 												e.printStackTrace();
 											}
@@ -326,7 +322,7 @@ public class SoftUpdataActivity extends BaseActivity {
 						NewDataToast.makeText(getApplicationContext(), "密码在8-20位之间", false, 0).show();
 					}else if (!pass1.getText().toString().equals(pass2.getText().toString())) {
 						Toast.makeText(getApplicationContext(), "两次交易密码不一致",
-								200).show();
+								Toast.LENGTH_SHORT).show();
 					}else {
 						INDEX = INDEX + 1;
 					}
