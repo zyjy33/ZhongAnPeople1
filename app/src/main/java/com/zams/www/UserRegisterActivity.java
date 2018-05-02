@@ -430,13 +430,13 @@ public class UserRegisterActivity extends BaseActivity implements
 				case R.id.get_yz:
 					phone = userphone.getText().toString().trim();
 					if (phone.equals("")) {
-						Toast.makeText(UserRegisterActivity.this, "请输入手机号码", 200)
+						Toast.makeText(UserRegisterActivity.this, "请输入手机号码",  Toast.LENGTH_SHORT)
 								.show();
 					}
 					// else
 					// if (phone.length() < 11 ) {
 					// Toast.makeText(UserRegisterActivity.this, "手机号少于11位",
-					// 200).show();
+					//  Toast.LENGTH_SHORT).show();
 					// }
 					else {
 						if (Validator.isMobile(phone)) {
@@ -455,13 +455,13 @@ public class UserRegisterActivity extends BaseActivity implements
 										String info = object.getString("info");// info
 										if (result.equals("y")) {
 											// Toast.makeText(UserRegisterActivity.this,
-											// info, 200).show();
+											// info,  Toast.LENGTH_SHORT).show();
 											yanzhengma = object.getString("data");
 											handler.sendEmptyMessage(2);
 										} else {
 											Toast.makeText(
 													UserRegisterActivity.this,
-													info, 200).show();
+													info,  Toast.LENGTH_SHORT).show();
 											// handler.sendEmptyMessage(3);
 										}
 									} catch (JSONException e) {
@@ -474,13 +474,13 @@ public class UserRegisterActivity extends BaseActivity implements
 							// NewDataToast.makeText(getApplicationContext(),
 							// "请输入手机号码",false,0).show();
 							Toast.makeText(UserRegisterActivity.this, "手机号码不正确",
-									200).show();
+									 Toast.LENGTH_SHORT).show();
 						}
 						// } else {
 						// // NewDataToast.makeText(getApplicationContext(),
 						// "请输入手机号码",false,0).show();
 						// Toast.makeText(UserRegisterActivity.this, "手机号码不能为空",
-						// 200).show();
+						//  Toast.LENGTH_SHORT).show();
 						// }
 					}
 
@@ -506,28 +506,28 @@ public class UserRegisterActivity extends BaseActivity implements
 					// insertdata = formatter.format(curDate);
 
 					if (phone.equals("")) {
-						Toast.makeText(UserRegisterActivity.this, "手机号码不能为空", 200)
+						Toast.makeText(UserRegisterActivity.this, "手机号码不能为空",  Toast.LENGTH_SHORT)
 								.show();
 					} else if (phone.length() < 11) {
-						Toast.makeText(UserRegisterActivity.this, "手机号码少于11位", 200)
+						Toast.makeText(UserRegisterActivity.this, "手机号码少于11位",  Toast.LENGTH_SHORT)
 								.show();
 					} else if (yz.equals("")) {
-						Toast.makeText(UserRegisterActivity.this, "请输入验证码", 200)
+						Toast.makeText(UserRegisterActivity.this, "请输入验证码", Toast.LENGTH_SHORT)
 								.show();
 					}
 					// else if (yz.length() < 6 ) {
 					// Toast.makeText(UserRegisterActivity.this, "验证码少于六位",
-					// 200).show();
+					//  Toast.LENGTH_SHORT).show();
 					// }
 					else if (pwd.equals("")) {
-						Toast.makeText(UserRegisterActivity.this, "密码不能为空", 200)
+						Toast.makeText(UserRegisterActivity.this, "密码不能为空",  Toast.LENGTH_SHORT)
 								.show();
-					} else if (pwd.length() < 8) {
-						Toast.makeText(UserRegisterActivity.this, "密码不得小于8位", 200)
+					} else if (pwd.length() < 6) {
+						Toast.makeText(UserRegisterActivity.this, "密码不得小于6位",  Toast.LENGTH_SHORT)
 								.show();
 					} else if (!(userpwd.getText().toString().length() < 20 && userpwd
 							.getText().toString().length() >= 8)) {
-						Toast.makeText(UserRegisterActivity.this, "密码在8-20位之间", 200)
+						Toast.makeText(UserRegisterActivity.this, "密码在8-20位之间",  Toast.LENGTH_SHORT)
 								.show();
 					} else {
 						try {

@@ -273,12 +273,12 @@ public class DaiRegisterActivity extends BaseActivity implements
 					else if (pwd.equals("")) {
 						Toast.makeText(DaiRegisterActivity.this, "密码不能为空", Toast.LENGTH_SHORT)
 								.show();
-					} else if (pwd.length() < 8) {
-						Toast.makeText(DaiRegisterActivity.this, "密码不得小于8位", Toast.LENGTH_SHORT)
+					} else if (pwd.length() < 6) {
+						Toast.makeText(DaiRegisterActivity.this, "密码不得小于6位", Toast.LENGTH_SHORT)
 								.show();
 					} else if (!(userpwd.getText().toString().length() < 20 && userpwd
-							.getText().toString().length() >= 8)) {
-						Toast.makeText(DaiRegisterActivity.this, "密码在8-20位之间", Toast.LENGTH_SHORT)
+							.getText().toString().length() >= 6)) {
+						Toast.makeText(DaiRegisterActivity.this, "密码在6-20位之间", Toast.LENGTH_SHORT)
 								.show();
 					} else {
 						if (Validator.isIDCard(user_sfzh)) {

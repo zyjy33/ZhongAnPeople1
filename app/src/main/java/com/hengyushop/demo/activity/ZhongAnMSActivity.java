@@ -745,7 +745,7 @@ public class ZhongAnMSActivity extends Fragment implements OnClickListener {
 											 new_list.setVisibility(View.GONE);
 //											 juJingCaiAdapter = new ZamsHuoDong1Adapter(getActivity(), list_ll);
 //											 new_list.setAdapter(juJingCaiAdapter);
-											 Toast.makeText(getActivity(),"暂无活动", 200).show();
+											 Toast.makeText(getActivity(),"暂无活动", Toast.LENGTH_SHORT).show();
 											 progress.CloseProgress();
 										}
 									} catch (JSONException e) {
@@ -758,7 +758,7 @@ public class ZhongAnMSActivity extends Fragment implements OnClickListener {
 
 									super.onFailure(arg0, arg1);
 									System.out.println("arg1----------------"+arg1);
-									Toast.makeText(getActivity(),"链接异常", 200).show();
+									Toast.makeText(getActivity(),"链接异常",  Toast.LENGTH_SHORT).show();
 									progress.CloseProgress();
 								}
 
@@ -820,7 +820,7 @@ public class ZhongAnMSActivity extends Fragment implements OnClickListener {
 										} else {
 											zt_type_1 = true;
 											advPager_1.setVisibility(View.GONE);
-											// Toast.makeText(getActivity(), info, 200).show();
+											// Toast.makeText(getActivity(), info,  Toast.LENGTH_SHORT).show();
 										}
 										progress.CloseProgress();
 
@@ -850,7 +850,7 @@ public class ZhongAnMSActivity extends Fragment implements OnClickListener {
 
 								super.onFailure(arg0, arg1);
 									progress.CloseProgress();
-									Toast.makeText(getActivity(), "超时异常",200).show();
+									Toast.makeText(getActivity(), "超时异常", Toast.LENGTH_SHORT).show();
 							}
 						}, getActivity());
 	}
@@ -905,7 +905,7 @@ public class ZhongAnMSActivity extends Fragment implements OnClickListener {
 											 zt_type_2 = true;
 											 advPager_2.setVisibility(View.GONE);
 //											 iv_zhuti_tp.setBackgroundResource(R.drawable.ic_launcher);
-//											 Toast.makeText(getActivity(), info, 200).show();
+//											 Toast.makeText(getActivity(), info,  Toast.LENGTH_SHORT).show();
 										}
 										progress.CloseProgress();
 
@@ -920,7 +920,7 @@ public class ZhongAnMSActivity extends Fragment implements OnClickListener {
 
 								super.onFailure(arg0, arg1);
 									progress.CloseProgress();
-									Toast.makeText(getActivity(), "超时异常",200).show();
+									Toast.makeText(getActivity(), "超时异常", Toast.LENGTH_SHORT).show();
 							}
 						}, getActivity());
 	}

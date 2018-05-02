@@ -26,7 +26,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/white"
-        android:orientation="vertical" >    -->
+        android:orientation="vertical" >
+    -->
 
     <FrameLayout
         android:id="@+id/fl_buju"
@@ -124,7 +125,8 @@
      android:background="@drawable/bg_red_3_5_touxiang" 
      android:src="@drawable/ysj_tx"  
      android:visibility="invisible"
-     android:scaleType="fitXY"                -->
+     android:scaleType="fitXY"
+                -->
 
                 <TextView
                     android:id="@+id/tv_weixin_name"
@@ -858,6 +860,7 @@
                 android:background="@color/list_item_line" />
 
             <LinearLayout
+                android:visibility="gone"
                 android:id="@+id/img_btn_health_manage"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"

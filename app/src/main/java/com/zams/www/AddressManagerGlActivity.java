@@ -120,7 +120,7 @@ public class AddressManagerGlActivity extends BaseActivity {
 
 				ID = list.get(arg2).id;
 				dialog(ID);
-				return false;
+				return true;
 			}
 		});
 	}

@@ -75,24 +75,13 @@ import com.tencent.mm.sdk.openapi.WXAPIFactory;
  * @author Administrator
  */
 public class MyOrderConfrimActivity extends BaseActivity {
-    private ListView list_address_a;
-    private String yth, key, phone, imei, tel, endmoney, pwd, username,
-            PassTicket, shopPassTicket, orderSerialNumber;
-    private int addressid;
-    private WareDao wareDao;
-    private UserRegisterData registerData;
-    private String strUrl;
+    private String pwd, username;
     private ArrayList<ShopCartData> list;
     private DialogProgress progress;
     private int checkedAddressId;
     private StringBuilder orderid;
     private MyPopupWindowMenu popupWindowMenu;
-    private String trade_no;
-    private ArrayList<CardItem> banks = null;
-    private String bankNames[] = null;
-    private static final int REQUESTCODE = 10000;
-    private int jf, express_fee;
-    private ArrayList<ShopCarts> carts;
+    private int express_fee;
     private TextView tv_user_name, tv_user_address, tv_user_phone, tv_hongbao;
     private SharedPreferences spPreferences;
     public static String user_name, user_id;
@@ -101,7 +90,6 @@ public class MyOrderConfrimActivity extends BaseActivity {
     private InScrollListView list_shop_cart;
     ArrayList<ShopCartData> list_ll = new ArrayList<ShopCartData>();
     private ShopCartData data;
-    private ShopCartData dm;
     private LinearLayout layout0, ll_ljgm, layout2, ll_zhifufs;
     private RelativeLayout layout1, rl_hongbao;
     private TextView heji, tv_1, tv_2;
@@ -145,8 +133,7 @@ public class MyOrderConfrimActivity extends BaseActivity {
             user_mobile1, recharge_no1, article_id1;
     public static String recharge_no, order_no, datetime1, sell_price1,
             give_pension1;
-    private LinearLayout ll_money_ju, market_information_juduihuan,
-            market_information_bottom;
+    private LinearLayout market_information_juduihuan;
     public AQuery mAq;
 
     @Override
@@ -207,85 +194,7 @@ public class MyOrderConfrimActivity extends BaseActivity {
             tv_color = (TextView) findViewById(R.id.tv_color);
             tv_size = (TextView) findViewById(R.id.tv_size);
             ll_ljgm = (LinearLayout) findViewById(R.id.ll_ljgm);
-
-            // JuTuanGouData bean = (JuTuanGouData)
-            // getIntent().getSerializableExtra("bean");
-            // String title = bean.getTitle();
-
-            // String title = getIntent().getStringExtra("title");
-            // String jdh_title = getIntent().getStringExtra("jdh_title");
-            // if (title != null) {
-            // String stare = getIntent().getStringExtra("stare");
-            // if (stare.equals("1")) {
-            // dzongjia =
-            // Double.parseDouble(getIntent().getStringExtra("price"));
-            // tv_size.getPaint().setFlags(Paint.STRIKE_THRU_TEXT_FLAG |
-            // Paint.ANTI_ALIAS_FLAG);
-            // String groupon_price =
-            // getIntent().getStringExtra("groupon_price");
-            // String price = getIntent().getStringExtra("price");
-            // tv_color.setText( "￥" + price);
-            // tv_size.setText( "￥" + groupon_price);
-            // tv_1.setText("价格:");
-            // tv_2.setText("团购价:");
-            // }else {
-            // dzongjia =
-            // Double.parseDouble(getIntent().getStringExtra("groupon_price"));
-            // tv_size.getPaint().setFlags(Paint.STRIKE_THRU_TEXT_FLAG |
-            // Paint.ANTI_ALIAS_FLAG);
-            // String groupon_price =
-            // getIntent().getStringExtra("groupon_price");
-            // tv_color.setText( "￥" + groupon_price);//团购价
-            // String price = getIntent().getStringExtra("price");
-            // tv_size.setText( "￥" + price);
-            // }
-            // rl_hongbao.setVisibility(View.GONE);
-            // ll_ljgm.setVisibility(View.VISIBLE);
-            // System.out.println("1================");
-            // String img_url = getIntent().getStringExtra("img_url");
-            // mAq.id(img_ware).image(RealmName.REALM_NAME_HTTP + img_url);
-            // // dzongjia =
-            // Double.parseDouble(getIntent().getStringExtra("groupon_price"));
-            // // dzongjia =
-            // Double.parseDouble(getIntent().getStringExtra("price"));
-            // // String groupon_price =
-            // getIntent().getStringExtra("groupon_price");
-            // // tv_color.setText( "￥" + groupon_price);//团购价
-            // // String price = getIntent().getStringExtra("price");
-            // // tv_size.setText( "￥" + price);
-            // // tv_color.getPaint().setFlags(Paint.STRIKE_THRU_TEXT_FLAG |
-            // Paint.ANTI_ALIAS_FLAG);
-            // tv_warename.setText(title);
-            // // heji.setText("实付款:" + "￥" + retailPrice);
-            // loadWeather();
-            // } else
-            // //聚兑换
-            // if (jdh_title != null) {
-            // ll_ljgm.setVisibility(View.VISIBLE);
-            // rl_hongbao.setVisibility(View.GONE);
-            // System.out.println("2================");
-            // String img_url = getIntent().getStringExtra("img_url");
-            // jubi = getIntent().getStringExtra("point");
-            // dzongjia =
-            // Double.parseDouble(getIntent().getStringExtra("point"));
-            // String goods_price = getIntent().getStringExtra("goods_price");
-            // ImageLoader imageLoaderll = ImageLoader.getInstance();
-            // imageLoaderll.displayImage(RealmName.REALM_NAME_HTTP + img_url,
-            // img_ware);
-            // tv_color.setText(jubi);//福利
-            // tv_size.setText(goods_price);
-            // tv_size.getPaint().setFlags(
-            // Paint.STRIKE_THRU_TEXT_FLAG | Paint.ANTI_ALIAS_FLAG);
-            // tv_warename.setText(jdh_title);
-            // tv_1.setText("福利:");
-            // tv_2.setText( "￥" + "市场价:");
-            //
-            // // market_information_juduihuan.setVisibility(View.VISIBLE);
-            // // heji.setText("实付款:" + retailPrice);
-            // loadWeather();
-            // }else{
             getuserhongbao(user_name);
-            // }
 
         } catch (Exception e) {
 
@@ -293,11 +202,6 @@ public class MyOrderConfrimActivity extends BaseActivity {
         }
     }
 
-    // @Override
-    // protected void onDestroy() {
-    //
-    // super.onDestroy();
-    // }
 
     public static Handler handlerll;
 
@@ -1078,6 +982,7 @@ public class MyOrderConfrimActivity extends BaseActivity {
                         len = jsonArray.length();
                         double a = 0;
                         double di_hongbao = 0;
+                        heji_quantity = 0;
                         for (int i = 0; i < jsonArray.length(); i++) {
                             JSONObject json = jsonArray.getJSONObject(i);
                             data = new ShopCartData();
@@ -1358,9 +1263,7 @@ public class MyOrderConfrimActivity extends BaseActivity {
 
     private void loadusertijiao(String payment_id, int kou_hongbao) {
         try {
-            // progress.CreateProgress();
-            // jiekou_type = getIntent().getStringExtra("jdh_type");
-            // System.out.println("jiekou_type=====================" + jiekou_type);
+
             jiekou_type_ysj = WareInformationActivity.jdh_type;
             System.out.println("jiekou_type_ysj=====================" + jiekou_type_ysj);
             if (jiekou_type_ysj.equals("1")) {

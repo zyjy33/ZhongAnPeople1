@@ -215,10 +215,10 @@ public class UserForgotPasswordActivity extends BaseActivity implements
 					phone = userphone.getText().toString().trim();
 					if (phone.equals("")) {
 						Toast.makeText(UserForgotPasswordActivity.this, "手机号码不能为空",
-								200).show();
+								 Toast.LENGTH_SHORT).show();
 					} else if (phone.length() < 11) {
 						Toast.makeText(UserForgotPasswordActivity.this,
-								"手机号码少于11位", 200).show();
+								"手机号码少于11位",  Toast.LENGTH_SHORT).show();
 					} else {
 						// phone = userphone.getText().toString().trim();
 						if (Validator.isMobile(phone)) {
@@ -241,7 +241,7 @@ public class UserForgotPasswordActivity extends BaseActivity implements
 										} else {
 											Toast.makeText(
 													UserForgotPasswordActivity.this,
-													info, 200).show();
+													info,  Toast.LENGTH_SHORT).show();
 											// handler.sendEmptyMessage(3);
 										}
 									} catch (JSONException e) {
@@ -251,7 +251,7 @@ public class UserForgotPasswordActivity extends BaseActivity implements
 							}, getApplicationContext());
 						} else {
 							Toast.makeText(UserForgotPasswordActivity.this,
-									"手机号码不正确", 200).show();
+									"手机号码不正确",  Toast.LENGTH_SHORT).show();
 						}
 					}
 
@@ -280,32 +280,32 @@ public class UserForgotPasswordActivity extends BaseActivity implements
 					System.out.println("2==================" + yanzhengma);
 					if (phone.equals("")) {
 						Toast.makeText(UserForgotPasswordActivity.this, "手机号码不能为空",
-								200).show();
+								 Toast.LENGTH_SHORT).show();
 					} else if (phone.length() < 11) {
 						Toast.makeText(UserForgotPasswordActivity.this,
-								"手机号码少于11位", 200).show();
+								"手机号码少于11位",  Toast.LENGTH_SHORT).show();
 					} else if (yz.equals("")) {
 						Toast.makeText(UserForgotPasswordActivity.this, "验证码不能为空",
-								200).show();
+								 Toast.LENGTH_SHORT).show();
 					}
 					// else if (!yz.equals(yanzhengma)) {
 					// Toast.makeText(UserRegisterActivity.this, "验证码不正确",
-					// 200).show();
+					//  Toast.LENGTH_SHORT).show();
 					// }
 					// else if (yz.length() < 6 ) {
 					// Toast.makeText(UserForgotPasswordActivity.this, "验证码少于六位",
-					// 200).show();
+					//  Toast.LENGTH_SHORT).show();
 					// }
 					else if (pwd.equals("")) {
 						Toast.makeText(UserForgotPasswordActivity.this, "密码不能为空",
-								200).show();
-					} else if (pwd.length() < 8) {
-						Toast.makeText(UserForgotPasswordActivity.this, "密码不得小于8位",
-								200).show();
+								 Toast.LENGTH_SHORT).show();
+					} else if (pwd.length() < 6) {
+						Toast.makeText(UserForgotPasswordActivity.this, "密码不得小于6位",
+								 Toast.LENGTH_SHORT).show();
 					} else if (!(userpwd.getText().toString().length() < 20 && userpwd
-							.getText().toString().length() >= 8)) {
+							.getText().toString().length() >= 6)) {
 						Toast.makeText(UserForgotPasswordActivity.this,
-								"密码在8-20位之间", 200).show();
+								"密码在6-20位之间",  Toast.LENGTH_SHORT).show();
 					} else {
 						try {
 							progress = new DialogProgress(

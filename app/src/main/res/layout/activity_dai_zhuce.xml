@@ -134,7 +134,7 @@
         android:layout_marginTop="15dp"
         android:background="@drawable/zhou_btn_red_3_5_shanchu_bg"
         android:gravity="center"
-        android:hint="请输入（8-20位）密码"
+        android:hint="请输入（6-20位）密码"
         android:imeOptions="actionNext"
         android:maxLength="20"
         android:password="true"
