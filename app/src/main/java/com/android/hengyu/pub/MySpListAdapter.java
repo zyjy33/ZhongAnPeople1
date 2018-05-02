@@ -16,99 +16,96 @@ import com.nostra13.universalimageloader.core.ImageLoader;
 import com.zams.www.R;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class MySpListAdapter extends BaseAdapter {
 
-	private ArrayList<SpListData> lists;
-	private Context context;
-	private ImageLoader loader;
-	public static AQuery query;
-	public static boolean type = false;
-	public MySpListAdapter(ArrayList<SpListData> lists,
-						   Context context,ImageLoader loader) {
+    private ArrayList<SpListData> mLsts;
+    private Context context;
+    private ImageLoader loader;
+    public static AQuery query;
+    public static boolean type = false;
 
-		this.context = context;
-		this.lists = lists;
-		this.loader = loader;
-		query = new AQuery(context);
-		//		HuanCunClear zhou = new HuanCunClear();
-		//		query = zhou.query;
-		//		query = HuanCunClear.query;
+    public MySpListAdapter(ArrayList<SpListData> lists,
+                           Context context, ImageLoader loader) {
 
-	}
-	public void putData(ArrayList<SpListData> lists){
-		this.lists = lists;
-		this.notifyDataSetChanged();
-	}
-	public int getCount() {
+        this.context = context;
+        this.mLsts = lists;
+        this.loader = loader;
+        query = new AQuery(context);
+    }
 
-		// return list.size();
-		return lists.size();
-	}
+    /**
+     * 更新数据
+     *
+     * @param lists
+     */
+    public void upData(ArrayList<SpListData> lists) {
+        if (lists != null) {
+            this.mLsts.clear();
+            this.mLsts.addAll(lists);
+            this.notifyDataSetChanged();
+        }
+    }
 
-	public Object getItem(int position) {
+    public void putData(ArrayList<SpListData> lists) {
+        this.mLsts = lists;
+        this.notifyDataSetChanged();
+    }
 
-		return position;
-	}
+    /**
+     * 加载更多
+     *
+     * @param lists
+     */
+    public void loadMoreData(List<SpListData> lists) {
+        if (this.mLsts != null) {
+            this.mLsts.addAll(lists);
+            this.notifyDataSetChanged();
+        }
+    }
+
+    public int getCount() {
+        return mLsts == null ? 0 : mLsts.size();
+    }
+
+    public Object getItem(int position) {
+        return mLsts.get(position);
+    }
 
 
-	public long getItemId(int position) {
-
-		return position;
-	}
-
+    public long getItemId(int position) {
+        return position;
+    }
 
 
-	public View getView(int position, View convertView, ViewGroup parent) {
+    public View getView(int position, View convertView, ViewGroup parent) {
+        if (convertView == null) {
+            convertView = LinearLayout.inflate(context, R.layout.listitem_goods_time, null);
+        }
+        LinearLayout ll_kedikou = (LinearLayout) convertView.findViewById(R.id.ll_kedikou);
+        TextView tv_name = (TextView) convertView.findViewById(R.id.tv_ware_name);
+        TextView tv_rePrice = (TextView) convertView.findViewById(R.id.tv_hengyu_money);
+        TextView tv_maPrice = (TextView) convertView.findViewById(R.id.tv_market_money);
+        TextView tv_hongbao = (TextView) convertView.findViewById(R.id.tv_hongbao);
+        ImageView img_ware = (ImageView) convertView.findViewById(R.id.img_ware);
+        View vi_ = (View) convertView.findViewById(R.id.vi_);
+        vi_.setVisibility(View.GONE);
+        tv_maPrice.getPaint().setFlags(
+                Paint.STRIKE_THRU_TEXT_FLAG | Paint.ANTI_ALIAS_FLAG); // 设置市场价文字的中划线
 
-		if (convertView == null) {
-			convertView = LinearLayout.inflate(context,R.layout.listitem_goods_time, null);
-		}
-		LinearLayout ll_kedikou = (LinearLayout) convertView.findViewById(R.id.ll_kedikou);
-		TextView tv_name = (TextView) convertView.findViewById(R.id.tv_ware_name);
-		TextView tv_rePrice = (TextView) convertView.findViewById(R.id.tv_hengyu_money);
-		TextView tv_maPrice = (TextView) convertView.findViewById(R.id.tv_market_money);
-		TextView tv_hongbao = (TextView) convertView.findViewById(R.id.tv_hongbao);
-		ImageView img_ware = (ImageView) convertView.findViewById(R.id.img_ware);
-		View vi_ = (View) convertView.findViewById(R.id.vi_);
-		vi_.setVisibility(View.GONE);
-
-		tv_maPrice.getPaint().setFlags(
-				Paint.STRIKE_THRU_TEXT_FLAG | Paint.ANTI_ALIAS_FLAG); // 设置市场价文字的中划线
-
-		//		tv_name.setText(lists.get(position).getTitle());
-		tv_name.setText(lists.get(position).title);
-		tv_rePrice.setText("￥" + lists.get(position).getSell_price());
-		tv_maPrice.setText("￥" + lists.get(position).getMarket_price());
-		tv_hongbao.setText("￥" + lists.get(position).getCashing_packet());
-		if (lists.get(position).getCashing_packet().equals("0.0")) {
-			ll_kedikou.setVisibility(View.GONE);
-		}else {
-			ll_kedikou.setVisibility(View.VISIBLE);
-		}
-
-		//		tv_maPrice.setText("￥" + lists.get(position).market_price);
-		//		tv_id.setText(list.get(position).id + "");
-
-		//		if (position == 0) {
-		//			img_ware.setBackgroundResource(R.drawable.ic_launcher);
-		//			String tupian = lists.get(position).img_url;
-		//			System.out.println("--tupian------------------"+tupian);
-		//			try {
-		//				loader.displayImage(RealmName.REALM_NAME_HTTP + lists.get(position).img_url, img_ware);
-		//				String  zhou  =RealmName.REALM_NAME_HTTP + lists.get(position).img_url;
-		//				System.out.println("--zhou------------------"+zhou);
-		//			} catch (Exception e) {
-		//
-		//				e.printStackTrace();
-		//			}
-		//		} else {
-		//			loader.displayImage(RealmName.REALM_NAME_HTTP + lists.get(position).img_url, img_ware);
-		//			String tupian = lists.get(position).img_url;
-		//			System.out.println("--tupian------------------"+tupian);
-		//		}
-		query.id(img_ware).image(RealmName.REALM_NAME_HTTP+lists.get(position).img_url);
-		type = true;
-		return convertView;
-	}
+        SpListData data = mLsts.get(position);
+        tv_name.setText(data.title);
+        tv_rePrice.setText("￥" + data.getSell_price());
+        tv_maPrice.setText("￥" + data.getMarket_price());
+        tv_hongbao.setText("￥" + data.getCashing_packet());
+        if (data.getCashing_packet().equals("0.0")) {
+            ll_kedikou.setVisibility(View.GONE);
+        } else {
+            ll_kedikou.setVisibility(View.VISIBLE);
+        }
+        query.id(img_ware).image(RealmName.REALM_NAME_HTTP + data.img_url);
+        type = true;
+        return convertView;
+    }
 }

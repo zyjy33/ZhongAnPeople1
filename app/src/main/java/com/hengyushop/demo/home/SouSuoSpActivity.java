@@ -10,6 +10,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.text.TextUtils;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.Window;
@@ -37,236 +38,236 @@ import com.zams.www.WareInformationActivity;
 
 public class SouSuoSpActivity extends BaseActivity {
 
-	private ArrayList<SpListData> lists;
-	private WareDao wareDao;
-	private String yth, key, strUrl;
-	private DialogProgress progress;
-	private ListView listView;
-	private int ID;
-	private MyPopupWindowMenu popupWindowMenu;
-	private PullToRefreshView refresh;
-	MySpListAdapter myadapter;
-	int len;
-	@Override
-	protected void onCreate(Bundle savedInstanceState) {
+    private ArrayList<SpListData> lists;
+    private WareDao wareDao;
+    private String yth, key, strUrl;
+    private DialogProgress progress;
+    private ListView listView;
+    private int ID;
+    private MyPopupWindowMenu popupWindowMenu;
+    private PullToRefreshView refresh;
+    MySpListAdapter myadapter;
+    int len;
+    private Intent mIntent;
 
-		requestWindowFeature(Window.FEATURE_NO_TITLE);
-		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_xinshougongye);
-		popupWindowMenu = new MyPopupWindowMenu(this);
-		progress = new DialogProgress(SouSuoSpActivity.this);
-		//		progress.CreateProgress();
-		TextView textView1 = (TextView) findViewById(R.id.textView1);
-		String strwhere_zhi = getIntent().getStringExtra("strwhere_zhi");
-		if (!strwhere_zhi.equals("")) {
-			textView1.setText(strwhere_zhi);
-		}else {
-			textView1.setText("搜索商品");
-		}
-		initdata();
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
 
-		lists = new ArrayList<SpListData>();
-		myadapter = new MySpListAdapter(lists,getApplicationContext(), imageLoader);
-		listView.setAdapter(myadapter);
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_xinshougongye);
+        popupWindowMenu = new MyPopupWindowMenu(this);
+        progress = new DialogProgress(SouSuoSpActivity.this);
+        TextView textView1 = (TextView) findViewById(R.id.textView1);
+        mIntent = getIntent();
+        if (mIntent == null) {
+            return;
+        }
+        String strwhere_zhi = mIntent.getStringExtra("strwhere_zhi");
+        if (!TextUtils.isEmpty(strwhere_zhi)) {
+            textView1.setText(strwhere_zhi);
+        } else {
+            textView1.setText("搜索商品");
+        }
+        initView();
 
-		load_list(true);
+        lists = new ArrayList<SpListData>();
+        myadapter = new MySpListAdapter(lists, getApplicationContext(), imageLoader);
+        listView.setAdapter(myadapter);
 
-		listView.setOnItemClickListener(new OnItemClickListener() {
+        load_list(true);
 
-			@Override
-			public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
-									long arg3) {
+        listView.setOnItemClickListener(new OnItemClickListener() {
 
-				try {
+            @Override
+            public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
+                                    long arg3) {
 
-					System.out.println("=================1="+lists.size());
-					Intent intent= new Intent(SouSuoSpActivity.this,WareInformationActivity.class);
-					intent.putExtra("id", lists.get(arg2).id);
-					startActivity(intent);
+                try {
 
-				} catch (Exception e) {
+                    System.out.println("=================1=" + lists.size());
+                    Intent intent = new Intent(SouSuoSpActivity.this, WareInformationActivity.class);
+                    intent.putExtra("id", lists.get(arg2).id);
+                    startActivity(intent);
 
-					e.printStackTrace();
-				}
-			}
-		});
+                } catch (Exception e) {
 
-	}
-	Handler handler = new Handler() {
-		public void dispatchMessage(Message msg) {
-			switch (msg.what) {
-				case 0:
-					System.out.println("=================5="+lists.size());
-					myadapter.putData(lists);
-					progress.CloseProgress();
+                    e.printStackTrace();
+                }
+            }
+        });
 
-					//				listView.setOnItemClickListener(new OnItemClickListener() {
-					//
-					//					@Override
-					//					public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
-					//							long arg3) {
-					//
-					//						try {
-					//
-					//						System.out.println("=================1="+lists.size());
-					//						Intent intent= new Intent(SouSuoSpActivity.this,Webview1.class);
-					//						intent.putExtra("list_xsgy", lists.get(arg2).id);
-					//						startActivity(intent);
-					//
-					//						} catch (Exception e) {
-					//
-					//							e.printStackTrace();
-					//						}
-					//					}
-					//				});
-					break;
+    }
 
-				default:
-					break;
-			}
-		};
-	};
-	private void initdata() {
-		refresh = (PullToRefreshView) findViewById(R.id.refresh);
-		refresh.setOnHeaderRefreshListener(listHeadListener);
-		refresh.setOnFooterRefreshListener(listFootListener);
-		listView = (ListView) findViewById(R.id.new_list);
+    Handler handler = new Handler() {
+        public void dispatchMessage(Message msg) {
+            switch (msg.what) {
+                case 0:
+//                    System.out.println("=================5=" + lists.size());
+//                    myadapter.putData(lists);
+//                    progress.CloseProgress();
 
-		ImageView iv_fanhui = (ImageView) findViewById(R.id.iv_fanhui);
-		iv_fanhui.setOnClickListener(new OnClickListener() {
+                    //				listView.setOnItemClickListener(new OnItemClickListener() {
+                    //
+                    //					@Override
+                    //					public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
+                    //							long arg3) {
+                    //
+                    //						try {
+                    //
+                    //						System.out.println("=================1="+lists.size());
+                    //						Intent intent= new Intent(SouSuoSpActivity.this,Webview1.class);
+                    //						intent.putExtra("list_xsgy", lists.get(arg2).id);
+                    //						startActivity(intent);
+                    //
+                    //						} catch (Exception e) {
+                    //
+                    //							e.printStackTrace();
+                    //						}
+                    //					}
+                    //				});
+                    break;
 
-			@Override
-			public void onClick(View arg0) {
+                default:
+                    break;
+            }
+        }
 
-				finish();
-			}
-		});
-	}
+        ;
+    };
 
-	/**
-	 * 上拉列表刷新加载
-	 */
-	private OnHeaderRefreshListener listHeadListener = new OnHeaderRefreshListener() {
+    private void initView() {
+        listView = (ListView) findViewById(R.id.new_list);
+        refresh = (PullToRefreshView) findViewById(R.id.refresh);
+        refresh.setOnHeaderRefreshListener(listHeadListener);
+        refresh.setOnFooterRefreshListener(listFootListener);
+        ImageView iv_fanhui = (ImageView) findViewById(R.id.iv_fanhui);
+        iv_fanhui.setOnClickListener(new OnClickListener() {
 
-		@Override
-		public void onHeaderRefresh(PullToRefreshView view) {
+            @Override
+            public void onClick(View arg0) {
+                finish();
+            }
+        });
+    }
 
-			refresh.postDelayed(new Runnable() {
+    /**
+     * 上拉列表刷新加载
+     */
+    private OnHeaderRefreshListener listHeadListener = new OnHeaderRefreshListener() {
 
-				@Override
-				public void run() {
-					refresh.onHeaderRefreshComplete();
-				}
-			}, 1000);
-		}
-	};
+        @Override
+        public void onHeaderRefresh(PullToRefreshView view) {
 
-	/**
-	 * 下拉列表刷新加载
-	 */
-	private OnFooterRefreshListener listFootListener = new OnFooterRefreshListener() {
+            refresh.postDelayed(new Runnable() {
 
-		@Override
-		public void onFooterRefresh(PullToRefreshView view) {
+                @Override
+                public void run() {
+                    refresh.onHeaderRefreshComplete();
+                }
+            }, 1000);
+        }
+    };
 
-			refresh.postDelayed(new Runnable() {
+    /**
+     * 下拉列表刷新加载
+     */
+    private OnFooterRefreshListener listFootListener = new OnFooterRefreshListener() {
 
-				@Override
-				public void run() {
-					try {
-						load_list(false);
-						refresh.onFooterRefreshComplete();
+        @Override
+        public void onFooterRefresh(PullToRefreshView view) {
+            refresh.postDelayed(new Runnable() {
 
-					} catch (Exception e) {
+                @Override
+                public void run() {
+                    try {
+                        load_list(false);
+                        refresh.onFooterRefreshComplete();
+                    } catch (Exception e) {
 
-						e.printStackTrace();
-					}
-				}
-			}, 1000);
-		}
-	};
+                        e.printStackTrace();
+                    }
+                }
+            }, 1000);
+        }
+    };
 
-	/**
-	 * 第1个列表数据解析
-	 */
-	private int CURRENT_NUM = 1;
-	private final int VIEW_NUM = 10;
-	String URL;
-	private void load_list(boolean flag) {
-		progress.CreateProgress();
-		if(flag){
-			//计数和容器清零
-			CURRENT_NUM = 1;
-			lists = new ArrayList<SpListData>();
-		}
-		String strwhere_zhi = getIntent().getStringExtra("strwhere_zhi");
-		String channel_name = getIntent().getStringExtra("channel_name");
-		String home_sousuo = getIntent().getStringExtra("home_sousuo");
-		System.out.println("strwhere_zhi====================="+strwhere_zhi);
-		System.out.println("channel_name====================="+channel_name);
+    /**
+     * 第1个列表数据解析
+     */
+    private int CURRENT_NUM = 1;
+    private final int VIEW_NUM = 10;
+    String URL;
 
-		if (home_sousuo != null) {
-			URL = "/get_article_page_search_all?page_size="+VIEW_NUM+"&page_index="+CURRENT_NUM+"" +
-					"&keyword="+strwhere_zhi+"&orderby=id%20desc";
-		}else {
-			URL = "/get_article_page_search_list?channel_name="+channel_name+"&category_id=0&page_size="+VIEW_NUM+"&page_index="+CURRENT_NUM+"" +
-					"&keyword="+strwhere_zhi+"&orderby=id%20desc";
-		}
+    private void load_list(boolean flag) {
+        progress.CreateProgress();
+        if (flag) {
+            //计数和容器清零
+            CURRENT_NUM = 1;
+            lists.clear();
+        }
+        String strwhere_zhi = getIntent().getStringExtra("strwhere_zhi");
+        String channel_name = getIntent().getStringExtra("channel_name");
+        String home_sousuo = getIntent().getStringExtra("home_sousuo");
+        System.out.println("strwhere_zhi=====================" + strwhere_zhi);
+        System.out.println("channel_name=====================" + channel_name);
 
-		AsyncHttp.get(RealmName.REALM_NAME_LL+ URL,
-				new AsyncHttpResponseHandler() {
-					@Override
-					public void onSuccess(int arg0, String arg1) {
+        if (home_sousuo != null) {
+            URL = "/get_article_page_search_all?page_size=" + VIEW_NUM + "&page_index=" + CURRENT_NUM + "" +
+                    "&keyword=" + strwhere_zhi + "&orderby=id%20desc";
+        } else {
+            URL = "/get_article_page_search_list?channel_name=" + channel_name + "&category_id=0&page_size=" + VIEW_NUM + "&page_index=" + CURRENT_NUM + "" +
+                    "&keyword=" + strwhere_zhi + "&orderby=id%20desc";
+        }
 
-						super.onSuccess(arg0, arg1);
-						System.out.println("=====================二级值1"+arg1);
-						try {
-							JSONObject jsonObject = new JSONObject(arg1);
-							String status = jsonObject.getString("status");
-							String info = jsonObject.getString("info");
-							JSONArray jsonArray = jsonObject.getJSONArray("data");
-							len = jsonArray.length();
-							System.out.println("len================"+len);
-							if (len != 0) {
-								if (status.equals("y")) {
-									for(int i=0;i<jsonArray.length();i++){
-										JSONObject object = jsonArray.getJSONObject(i);
-										SpListData spList = new SpListData();
-										spList.id = object.getString("id");
-										spList.img_url = object.getString("img_url");
-										spList.title = object.getString("title");
-										//										spList.market_price = object.getString("market_price");
-										//										spList.sell_price = object.getString("sell_price");
-										//										spList.cashing_packet = object.getString("cashing_packet");
+        AsyncHttp.get(RealmName.REALM_NAME_LL + URL,
+                new AsyncHttpResponseHandler() {
+                    @Override
+                    public void onSuccess(int arg0, String arg1) {
 
-										JSONObject jsot = object.getJSONObject("default_spec_item");
-										spList.market_price = jsot.getString("market_price");
-										spList.sell_price = jsot.getString("sell_price");
-										spList.cashing_packet = jsot.getString("cashing_packet");
-										lists.add(spList);
-									}
-								}else {
-									progress.CloseProgress();
-									Toast.makeText(SouSuoSpActivity.this, info, 200).show();
-								}
-								handler.sendEmptyMessage(0);
-								if(len!=0){
-									CURRENT_NUM =CURRENT_NUM+1;
-								}
-								progress.CloseProgress();
-							}else {
-								progress.CloseProgress();
-								Toast.makeText(SouSuoSpActivity.this, "没有该商品！", 200).show();
-							}
-						} catch (JSONException e) {
-
-							e.printStackTrace();
-						}
-					}
-				}, null);
-	}
+                        super.onSuccess(arg0, arg1);
+                        System.out.println("=====================二级值1" + arg1);
+                        try {
+                            JSONObject jsonObject = new JSONObject(arg1);
+                            String status = jsonObject.getString("status");
+                            String info = jsonObject.getString("info");
+                            JSONArray jsonArray = jsonObject.getJSONArray("data");
+                            len = jsonArray.length();
+                            System.out.println("len================" + len);
+                            if (len != 0) {
+                                if (status.equals("y")) {
+                                    ArrayList<SpListData> spListData = new ArrayList<>();
+                                    for (int i = 0; i < jsonArray.length(); i++) {
+                                        JSONObject object = jsonArray.getJSONObject(i);
+                                        SpListData spList = new SpListData();
+                                        spList.id = object.getString("id");
+                                        spList.img_url = object.getString("img_url");
+                                        spList.title = object.getString("title");
+                                        JSONObject jsot = object.getJSONObject("default_spec_item");
+                                        spList.market_price = jsot.getString("market_price");
+                                        spList.sell_price = jsot.getString("sell_price");
+                                        spList.cashing_packet = jsot.getString("cashing_packet");
+                                        spListData.add(spList);
+                                    }
+                                    myadapter.loadMoreData(spListData);
+                                } else {
+                                    Toast.makeText(SouSuoSpActivity.this, info, Toast.LENGTH_SHORT).show();
+                                }
+                                if (len != 0) {
+                                    CURRENT_NUM = CURRENT_NUM + 1;
+                                }
+                            } else {
+                                Toast.makeText(SouSuoSpActivity.this, "没有该商品！", Toast.LENGTH_SHORT).show();
+                            }
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                        progress.CloseProgress();
 
 
+                    }
+                }, null);
+    }
 
 
 }
