@@ -981,7 +981,7 @@ public class HomeActivity extends Fragment implements OnClickListener {
                 public void onClick(View arg0) {
 
                     Intent intent = new Intent(getActivity(), HongBaoZqListActivity.class);
-                    intent.putExtra("category_id", "2932");
+                    intent.putExtra("category_id", "2979");
                     intent.putExtra("type_zhi", "0");
                     intent.putExtra("channel_name", "life");
                     startActivity(intent);
@@ -994,7 +994,7 @@ public class HomeActivity extends Fragment implements OnClickListener {
                 public void onClick(View arg0) {
 
                     Intent intent = new Intent(getActivity(), HongBaoZqListActivity.class);
-                    intent.putExtra("category_id", "681");
+                    intent.putExtra("category_id", "2978");
                     intent.putExtra("type_zhi", "1");
                     startActivity(intent);
                 }
@@ -1006,7 +1006,7 @@ public class HomeActivity extends Fragment implements OnClickListener {
                 public void onClick(View arg0) {
 
                     Intent intent = new Intent(getActivity(), HongBaoZqListActivity.class);
-                    intent.putExtra("category_id", "870");
+                    intent.putExtra("category_id", "2977");
                     intent.putExtra("type_zhi", "2");
                     startActivity(intent);
                 }
