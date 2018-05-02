@@ -26,7 +26,7 @@
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
-            android:text="养老银行明细"
+            android:text="养老基金明细"
             android:textSize="18dip" />
         
     </RelativeLayout>
@@ -116,7 +116,7 @@
                         android:layout_marginLeft="1dp"
                         android:layout_marginRight="1dp"
                         android:layout_marginTop="8dp"
-                        android:text="养老银行余额（元）"
+                        android:text="养老基金余额（元）"
                          android:textSize="14sp"
                          android:textColor="@color/ziti_huise"
                          />
@@ -491,7 +491,7 @@
                         android:layout_margin="10dp"
                         android:gravity="center"
                         android:layout_marginTop="0dp"
-                        android:text="养老银行余额"
+                        android:text="养老基金余额"
                         android:layout_marginLeft="10dp"
                         android:textSize="14sp"
                         android:textColor="@color/ziti_huise" />

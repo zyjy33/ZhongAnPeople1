@@ -43,7 +43,7 @@ import com.zams.www.R;
 import com.zams.www.UserLoginActivity;
 
 /**
- * 养老银行
+ * 养老基金
  *
  * @author Administrator
  *
@@ -145,7 +145,7 @@ public class EndowmentBankActivity extends BaseActivity implements
 	}
 
 	/**
-	 * 养老银行余额
+	 * 养老基金余额
 	 */
 	private void loadyue() {
 		String user_name = spPreferences.getString("user", "");
@@ -153,11 +153,11 @@ public class EndowmentBankActivity extends BaseActivity implements
 			strUrlone = RealmName.REALM_NAME_LL + "/get_user_model?username="
 					+ user_name + "";
 
-			System.out.println("======养老银行余额=============" + strUrlone);
+			System.out.println("======养老基金余额=============" + strUrlone);
 			AsyncHttp.get(strUrlone, new AsyncHttpResponseHandler() {
 				public void onSuccess(int arg0, String arg1) {
 					try {
-						System.out.println("======养老银行余额=============" + arg1);
+						System.out.println("======养老基金余额=============" + arg1);
 						JSONObject object = new JSONObject(arg1);
 						String status = object.getString("status");
 						if (status.equals("y")) {
@@ -172,7 +172,7 @@ public class EndowmentBankActivity extends BaseActivity implements
 							data.point = obj.getString("point");
 							data.group_id = obj.getString("group_id");
 							pensions = data.pension;
-							tv_ylyhye.setText(data.pension + "元");// 养老银行余额
+							tv_ylyhye.setText(data.pension + "元");// 养老基金余额
 							list1.add(data);
 						} else {
 
@@ -228,18 +228,18 @@ public class EndowmentBankActivity extends BaseActivity implements
 	}
 
 	/**
-	 * 养老银行收益率
+	 * 养老基金收益率
 	 */
 	private void loadlilv() {
 		String user_id = spPreferences.getString("user_id", "");
 		strUrlone = RealmName.REALM_NAME_LL + "/get_payrecord_rate?user_id="
 				+ user_id + "" + "&months=600";
 
-		System.out.println("======养老银行收益率=============" + strUrlone);
+		System.out.println("======养老基金收益率=============" + strUrlone);
 		AsyncHttp.get(strUrlone, new AsyncHttpResponseHandler() {
 			public void onSuccess(int arg0, String arg1) {
 				try {
-					System.out.println("======养老银行收益率=============" + arg1);
+					System.out.println("======养老基金收益率=============" + arg1);
 					JSONObject object = new JSONObject(arg1);
 					String status = object.getString("status");
 					if (status.equals("y")) {

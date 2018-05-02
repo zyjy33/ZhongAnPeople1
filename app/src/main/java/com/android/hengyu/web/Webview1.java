@@ -90,7 +90,7 @@ public class Webview1 extends BaseActivity {
 							+ "/mobile/doc/show-" + chuanke_id + ".html");
 				}
 
-				// 养老银行的魅力web网页
+				// 养老基金的魅力web网页
 				String ylyh_id = getIntent().getStringExtra("ylyh_id");
 				if (ylyh_id != null) {
 					webview.loadUrl(RealmName.REALM_NAME_WEB

@@ -68,7 +68,7 @@
             android:layout_centerVertical="true"
             android:layout_marginRight="15dp"
             android:textColor="@color/white"
-            android:text="养老银行的魅力"
+            android:text="养老基金的魅力"
             android:background="@drawable/bg_red_3_5_zhuti"
              />
     </RelativeLayout>

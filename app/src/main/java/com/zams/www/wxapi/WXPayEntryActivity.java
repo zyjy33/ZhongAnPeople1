@@ -313,7 +313,7 @@ public class WXPayEntryActivity extends Activity implements IWXAPIEventHandler {
 	}
 
 	/**
-	 * 养老银行更新
+	 * 养老基金更新
 	 *
 	 * @param login_sign
 	 * @param recharge_no

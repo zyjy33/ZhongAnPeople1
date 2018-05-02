@@ -29,7 +29,7 @@
              android:layout_height="wrap_content"
              android:layout_centerHorizontal="true"
              android:layout_centerVertical="true"
-             android:text="养老银行充值"
+             android:text="养老基金充值"
              android:textSize="18dip" />
 
          <TextView

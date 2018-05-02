@@ -34,7 +34,7 @@ import com.zams.www.R;
 import com.zams.www.UserLoginActivity;
 
 /**
- * 养老银行明细
+ * 养老基金明细
  *
  * @author Administrator
  *
@@ -186,7 +186,7 @@ public class EndowmentBankMxActivity extends BaseActivity implements
 	}
 
 	/**
-	 * 养老银行余额
+	 * 养老基金余额
 	 */
 //	private void loadyue() {
 //		String user_name = spPreferences.getString("user", "");
@@ -211,7 +211,7 @@ public class EndowmentBankMxActivity extends BaseActivity implements
 //						data.point = obj.getString("point");
 //						data.group_id = obj.getString("group_id");
 //
-//						tv_ylyhye.setText(data.pension);// 养老银行余额
+//						tv_ylyhye.setText(data.pension);// 养老基金余额
 //
 //					} else {
 //

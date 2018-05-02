@@ -92,7 +92,7 @@
                         android:layout_marginLeft="1dp"
                         android:layout_marginRight="1dp"
                         android:layout_marginTop="8dp"
-                        android:text="养老银行余额"
+                        android:text="养老基金余额"
                          android:textSize="12sp"
                          android:textColor="@color/post_work_item"
                          />
@@ -164,7 +164,7 @@
             android:layout_marginTop="20dp"
             android:layout_marginBottom="15dp"
             android:background="@drawable/bg_red_3_5_login"
-            android:text="养老银行，保障未来"
+            android:text="养老基金，保障未来"
             android:textColor="#FFFFFF"
             android:textSize="18dp" />
                 <LinearLayout
@@ -187,7 +187,7 @@
                       <TextView
                                   android:layout_width="wrap_content"
                                   android:layout_height="30dp"
-                                  android:text="养老银行保障未来生活"
+                                  android:text="养老基金保障未来生活"
                                   android:layout_marginLeft="5dp"
                                   android:layout_marginRight="5dp"
                                   android:gravity="center"
