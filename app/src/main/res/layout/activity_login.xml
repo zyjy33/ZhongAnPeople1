@@ -118,7 +118,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="fill_parent"
                     android:background="@null"
-                    android:hint="请输入密码(6-16位数字或字母)"
+                    android:hint="请输入密码(6-20位数字或字母)"
                     android:maxLength="20"
                     android:singleLine="true"
                         android:imeOptions="actionNext"

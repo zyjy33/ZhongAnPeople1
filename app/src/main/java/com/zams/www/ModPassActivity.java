@@ -243,12 +243,12 @@ public class ModPassActivity extends BaseActivity implements OnClickListener {
 				newP2 = v3.getText().toString();
 				if (oldP.equals("")) {
 					Toast.makeText(ModPassActivity.this, "旧密码不能为空",  Toast.LENGTH_SHORT).show();
-				} else if (!(v2.getText().toString().length() < 20 && v2.getText()
-						.toString().length() >= 8)) {
-					Toast.makeText(ModPassActivity.this, "密码在8-20位之间", Toast.LENGTH_SHORT).show();
-				} else if (!(v3.getText().toString().length() < 20 && v3.getText()
-						.toString().length() >= 8)) {
-					Toast.makeText(ModPassActivity.this, "密码在8-20位之间",  Toast.LENGTH_SHORT).show();
+				} else if (!(v2.getText().toString().length() <= 20 && v2.getText()
+						.toString().length() >= 6)) {
+					Toast.makeText(ModPassActivity.this, "密码在6-20位之间", Toast.LENGTH_SHORT).show();
+				} else if (!(v3.getText().toString().length() <= 20 && v3.getText()
+						.toString().length() >= 6)) {
+					Toast.makeText(ModPassActivity.this, "密码在6-20位之间",  Toast.LENGTH_SHORT).show();
 				} else if (!newP1.equals(newP2)) {
 					Toast.makeText(ModPassActivity.this, "新密码不相同",  Toast.LENGTH_SHORT).show();
 				} else {

@@ -202,7 +202,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="fill_parent"
                     android:background="@null"
-                    android:hint="请输入（8-20位）密码"
+                    android:hint="请输入（6-20位）密码"
                     android:maxLength="20"
                     android:singleLine="true"
                         android:imeOptions="actionNext"

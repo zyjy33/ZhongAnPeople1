@@ -316,10 +316,10 @@ public class SoftUpdataActivity extends BaseActivity {
 									} );
 
 				} else if (INDEX == 1) {
-					if (!(pass1.getText().toString().length()<20&&pass1.getText().toString().length()>=8)) {
-						NewDataToast.makeText(getApplicationContext(), "密码在8-20位之间", false, 0).show();
-					}else if (!(pass2.getText().toString().length()<20&&pass2.getText().toString().length()>=8)) {
-						NewDataToast.makeText(getApplicationContext(), "密码在8-20位之间", false, 0).show();
+					if (!(pass1.getText().toString().length()<=20&&pass1.getText().toString().length()>=6)) {
+						NewDataToast.makeText(getApplicationContext(), "密码在6-20位之间", false, 0).show();
+					}else if (!(pass2.getText().toString().length()<=20&&pass2.getText().toString().length()>=6)) {
+						NewDataToast.makeText(getApplicationContext(), "密码在6-20位之间", false, 0).show();
 					}else if (!pass1.getText().toString().equals(pass2.getText().toString())) {
 						Toast.makeText(getApplicationContext(), "两次交易密码不一致",
 								Toast.LENGTH_SHORT).show();

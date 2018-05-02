@@ -293,7 +293,7 @@ public class ZhongAnMinShenXqActivity extends BaseActivity implements
             public void onSuccess(int arg0, String arg1) {
 
                 super.onSuccess(arg0, arg1);
-                System.out.println("=========解析数据============" + arg1);
+                System.out.println("ZhongAnMinShenXqActivity =========解析数据============" + arg1);
                 formatWeather(arg1);
             }
         }, null);

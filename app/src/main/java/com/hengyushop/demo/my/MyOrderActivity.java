@@ -456,7 +456,7 @@ public class MyOrderActivity extends BaseActivity implements OnClickListener {
 								if (list.size() == 0) {
 									no_data_no.setVisibility(View.VISIBLE);
 								}else {
-									Toast.makeText(MyOrderActivity.this, "没有订单了", 200).show();
+									Toast.makeText(MyOrderActivity.this, "没有订单了", Toast.LENGTH_SHORT).show();
 								}
 							}
 
@@ -664,8 +664,8 @@ public class MyOrderActivity extends BaseActivity implements OnClickListener {
 
 	/**
 	 * 确认付款
-	 * @param order_no
-	 * @param payment_id
+	 * @param
+	 * @param
 	 */
 	public void fukuanok(String order_no2) {
 		progress.CreateProgress();
@@ -687,10 +687,10 @@ public class MyOrderActivity extends BaseActivity implements OnClickListener {
 							String info = object.getString("info");
 							if (status.equals("y")) {
 								progress.CloseProgress();
-								Toast.makeText(MyOrderActivity.this, info, 200).show();
+								Toast.makeText(MyOrderActivity.this, info, Toast.LENGTH_SHORT).show();
 							}else {
 								progress.CloseProgress();
-								Toast.makeText(MyOrderActivity.this, info, 200).show();
+								Toast.makeText(MyOrderActivity.this, info, Toast.LENGTH_SHORT).show();
 							}
 
 
@@ -705,8 +705,8 @@ public class MyOrderActivity extends BaseActivity implements OnClickListener {
 
 	/**
 	 * 取消订单
-	 * @param order_no
-	 * @param payment_id
+	 * @param
+	 * @param
 	 */
 	public void fukuanok2(String order_no2) {
 		progress.CreateProgress();
@@ -728,12 +728,12 @@ public class MyOrderActivity extends BaseActivity implements OnClickListener {
 							String info = object.getString("info");
 							if (status.equals("y")) {
 								progress.CloseProgress();
-								Toast.makeText(MyOrderActivity.this, info, 200).show();
+								Toast.makeText(MyOrderActivity.this, info, Toast.LENGTH_SHORT).show();
 								load_list(true,strwhere);
 								madapter.notifyDataSetChanged();
 							}else {
 								progress.CloseProgress();
-								Toast.makeText(MyOrderActivity.this, info, 200).show();
+								Toast.makeText(MyOrderActivity.this, info, Toast.LENGTH_SHORT).show();
 							}
 
 
@@ -748,8 +748,8 @@ public class MyOrderActivity extends BaseActivity implements OnClickListener {
 
 	/**
 	 * 删除订单
-	 * @param order_no
-	 * @param payment_id
+	 * @param
+	 * @param
 	 */
 	public void fukuanok3(String order_no2) {
 		progress.CreateProgress();
@@ -771,12 +771,12 @@ public class MyOrderActivity extends BaseActivity implements OnClickListener {
 							String info = object.getString("info");
 							if (status.equals("y")) {
 								progress.CloseProgress();
-								Toast.makeText(MyOrderActivity.this, info, 200).show();
+								Toast.makeText(MyOrderActivity.this, info, Toast.LENGTH_SHORT).show();
 								load_list(true,strwhere);
 								madapter.notifyDataSetChanged();
 							}else {
 								progress.CloseProgress();
-								Toast.makeText(MyOrderActivity.this, info, 200).show();
+								Toast.makeText(MyOrderActivity.this, info, Toast.LENGTH_SHORT).show();
 							}
 
 
@@ -849,10 +849,10 @@ public class MyOrderActivity extends BaseActivity implements OnClickListener {
 						String status = object.getString("status");
 						String info = object.getString("info");
 						if (status.equals("y")) {
-							Toast.makeText(MyOrderActivity.this, info, 200).show();
+							Toast.makeText(MyOrderActivity.this, info, Toast.LENGTH_SHORT).show();
 							load_list(true, strwhere);
 						}else{
-							Toast.makeText(MyOrderActivity.this, info, 200).show();
+							Toast.makeText(MyOrderActivity.this, info, Toast.LENGTH_SHORT).show();
 						}
 					} catch (JSONException e) {
 
@@ -869,7 +869,7 @@ public class MyOrderActivity extends BaseActivity implements OnClickListener {
 	/**
 	 * 更新订单
 	 * @param login_sign
-	 * @param payment_id
+	 * @param
 	 */
 	private void loadguanggaoll(String recharge_noll, String login_sign) {
 		try {
@@ -893,11 +893,11 @@ public class MyOrderActivity extends BaseActivity implements OnClickListener {
 									progress.CloseProgress();
 									teby = false;
 									//							    	   finish();
-									Toast.makeText(MyOrderActivity.this, info, 200).show();
+									Toast.makeText(MyOrderActivity.this, info, Toast.LENGTH_SHORT).show();
 								}else {
 									progress.CloseProgress();
 									teby = false;
-									Toast.makeText(MyOrderActivity.this, info, 200).show();
+									Toast.makeText(MyOrderActivity.this, info, Toast.LENGTH_SHORT).show();
 								}
 							} catch (JSONException e) {
 								e.printStackTrace();
@@ -910,7 +910,7 @@ public class MyOrderActivity extends BaseActivity implements OnClickListener {
 							super.onFailure(arg0, arg1);
 							System.out.println("11================================="+arg0);
 							System.out.println("22================================="+arg1);
-							Toast.makeText(MyOrderActivity.this, "更新订单网络超时异常", 200).show();
+							Toast.makeText(MyOrderActivity.this, "更新订单网络超时异常", Toast.LENGTH_SHORT).show();
 						}
 
 					}, null);
