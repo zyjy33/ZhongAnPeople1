@@ -380,7 +380,6 @@ public class NewWare extends BaseActivity implements OnClickListener{
 
 						lbadapter = new MyAdapter(getApplicationContext(),list_lb);
 						myGridView.setAdapter(lbadapter);
-
 						INDX = list_lb.get(0).id;
 						quanbu = list_lb.get(0).id;
 
@@ -656,8 +655,9 @@ public class NewWare extends BaseActivity implements OnClickListener{
 			lists = new ArrayList<SpListData>();
 		}
 		System.out.println("=====================002--"+INDX);
-		AsyncHttp.get(RealmName.REALM_NAME_LL+"/get_article_page_size_list?channel_name="+channel_name+"&category_id="+INDX+"" +
-						"&page_size="+VIEW_NUM+"&page_index="+CURRENT_NUM+"&strwhere=&orderby=",
+		String url = RealmName.REALM_NAME_LL + "/get_article_page_size_list?channel_name=" + channel_name + "&category_id=" + INDX + "" +
+				"&page_size=" + VIEW_NUM + "&page_index=" + CURRENT_NUM + "&strwhere=&orderby=";
+		AsyncHttp.get(url,
 				new AsyncHttpResponseHandler(){
 					@Override
 					public void onSuccess(int arg0, String arg1) {
@@ -692,7 +692,7 @@ public class NewWare extends BaseActivity implements OnClickListener{
 								spList = null;
 							}else {
 								progress.CloseProgress();
-								Toast.makeText(NewWare.this, "没有商品了", 200).show();
+								Toast.makeText(NewWare.this, "没有商品了", Toast.LENGTH_SHORT).show();
 							}
 							if(len!=0){
 								CURRENT_NUM =CURRENT_NUM+1;
@@ -729,14 +729,12 @@ public class NewWare extends BaseActivity implements OnClickListener{
 	 */
 	public class MyAdapter extends BaseAdapter {
 
-		private Context mContext;
 		private List<EnterpriseData> List_lb;
 		private LayoutInflater mInflater;
 		private int clickTemp = 0;
 
 		public MyAdapter(Context context, List<EnterpriseData> list){
 			this.List_lb = list;
-			this.mContext = context;
 			mInflater = LayoutInflater.from(context);
 		}
 
@@ -761,10 +759,7 @@ public class NewWare extends BaseActivity implements OnClickListener{
 			return List_lb.get(position);
 		}
 
-		//		@Override
-		//		public Object getItem(int position) {
-		//			return list.getItem(position);
-		//		}
+
 
 		@Override
 		public long getItemId(int position) {

@@ -3,14 +3,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    android:orientation="vertical" >
+    android:orientation="vertical">
+
     <RelativeLayout
         android:id="@+id/home_title_layout"
         android:layout_width="match_parent"
         android:layout_height="45dp"
+        android:background="@color/ybs"
         android:focusable="true"
-          android:background="@color/ybs"
-        android:focusableInTouchMode="true" >
+        android:focusableInTouchMode="true">
 
         <ImageView
             android:id="@+id/iv_fanhui"
@@ -18,23 +19,22 @@
             android:layout_height="20dp"
             android:layout_centerVertical="true"
             android:layout_marginLeft="10dp"
-             android:src="@drawable/fanhuijian"
-            />
+            android:src="@drawable/fanhuijian" />
 
         <LinearLayout
-             android:id="@+id/ll_sousuo"
+            android:id="@+id/ll_sousuo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
-            android:background="@drawable/shape_bg_round_combo"
             android:layout_toLeftOf="@+id/img_shared"
             android:layout_toRightOf="@+id/iv_fanhui"
-            android:orientation="horizontal" >
+            android:background="@drawable/shape_bg_round_combo"
+            android:orientation="horizontal">
 
             <ImageView
-                 android:id="@+id/iv_sousuo"
+                android:id="@+id/iv_sousuo"
                 android:layout_width="20dp"
                 android:layout_height="20dp"
                 android:layout_centerVertical="true"
@@ -42,34 +42,33 @@
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
                 android:src="@drawable/sousuo" />
-<!--  
+            <!--
+                        <EditText
+                            android:id="@+id/tv1"
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:layout_centerVertical="true"
+                            Android:imeOptions="actionSearch"
+                            android:layout_marginRight="0dp"
+                            android:paddingLeft="0dp"
+                            android:paddingRight="0dp"
+                            android:layout_marginTop="0dp"
+                            android:background="@null"
+                             android:inputType="text"
+                            android:hint="搜索商品"
+                            android:textSize="13dip" />
+                         -->
             <EditText
                 android:id="@+id/tv1"
                 android:layout_width="match_parent"
                 android:layout_height="30dp"
                 android:layout_centerVertical="true"
-                Android:imeOptions="actionSearch"
-                android:layout_marginRight="0dp"
-                android:paddingLeft="0dp"
-                android:paddingRight="0dp"
-                android:layout_marginTop="0dp"
                 android:background="@null"
-                 android:inputType="text"  
                 android:hint="搜索商品"
+                android:imeOptions="actionSearch"
+                android:inputType="text"
                 android:textSize="13dip" />
-             -->
-               <EditText  
-           android:id="@+id/tv1"  
-           android:layout_width="match_parent"  
-           android:layout_height="30dp"  
-           android:background="@null"  
-           android:layout_centerVertical="true"
-           android:hint="搜索商品"  
-           android:inputType="text"  
-           android:textSize="13dip"
-           android:imeOptions="actionSearch"  
-           /> 
-           
+
         </LinearLayout>
 
         <ImageView
@@ -86,42 +85,45 @@
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:background="@color/gray" />
-	<LinearLayout 
-	    android:layout_width="match_parent"
-	    android:layout_height="45dp"
-	    android:visibility="gone"
-	    android:orientation="horizontal"
-	    >
-	    <HorizontalScrollView 
-	        android:layout_width="0dp"
-	        android:layout_weight="1"
-	        android:scrollbars="none"
-	        android:layout_height="match_parent">
-	        <RadioGroup 
-	            android:id="@+id/radio_group"
-	            android:orientation="horizontal"
-	            android:layout_width="wrap_content"
-	            android:layout_height="match_parent"
-	            android:gravity="center_vertical">
-	            
-	        </RadioGroup>
-	    </HorizontalScrollView>
-	    
-	</LinearLayout>
-	<HorizontalScrollView
-         android:id="@+id/horizontalScrollView"
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:orientation="horizontal"
+        android:visibility="gone">
+
+        <HorizontalScrollView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:scrollbars="none">
+
+            <RadioGroup
+                android:id="@+id/radio_group"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+            </RadioGroup>
+        </HorizontalScrollView>
+
+    </LinearLayout>
+
+    <HorizontalScrollView
+        android:id="@+id/horizontalScrollView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:focusable="false"
-        android:scrollbars="none" >
+        android:scrollbars="none">
 
-       <LinearLayout
+        <LinearLayout
             android:id="@+id/ll"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:orientation="horizontal"
-            android:padding="0dp"
-             >
+            android:padding="0dp">
+
             <com.android.hengyu.ui.MyGridView
                 android:id="@+id/mGv"
                 android:layout_width="wrap_content"
@@ -129,17 +131,18 @@
                 android:background="@null"
                 android:gravity="center"
                 android:horizontalSpacing="0dp" />
-            </LinearLayout>
-            
-    </HorizontalScrollView>
-<View
-    android:id="@+id/vi_xian"
-     android:layout_width="match_parent"
-        android:layout_height="1dp"
-         android:visibility="invisible"
-        android:background="#CDCDCD"/>
+        </LinearLayout>
 
-    
+    </HorizontalScrollView>
+
+    <View
+        android:id="@+id/vi_xian"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#CDCDCD"
+        android:visibility="invisible" />
+
+
     <!-- 
     
     <com.hengyushop.demo.wec.MyScrollView
@@ -178,57 +181,58 @@
         android:verticalSpacing="5dp" />
     
      -->
-	
-	<ImageView 
-	    android:id="@+id/new_image"
-	    android:layout_width="wrap_content"
-	    android:layout_height="wrap_content"
-	    android:visibility="gone"
-	    android:src="@drawable/demo_n"
-	    android:scaleType="fitXY"/>
-	    	<com.lglottery.www.widget.PullToRefreshView
-	    android:id="@+id/refresh"
-	    android:layout_width="match_parent"
-	      android:orientation="vertical"
-	    android:layout_height="match_parent">
-	    <ListView 
-	        android:id="@+id/new_list"
-	        android:layout_width="match_parent"
-	        android:layout_height="match_parent"
-	        android:background="@color/no_color"
-	        android:cacheColorHint="@color/no_color"
-	        android:divider="@color/list_diver"
-	        android:dividerHeight="1dp">
-	    </ListView>
-	    
-	</com.lglottery.www.widget.PullToRefreshView>
-		    	 <ScrollView
-            android:id="@+id/ScrollView01"
+
+    <ImageView
+        android:id="@+id/new_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:scaleType="fitXY"
+        android:src="@drawable/demo_n"
+        android:visibility="gone" />
+
+    <com.lglottery.www.widget.PullToRefreshView
+        android:id="@+id/refresh"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <ListView
+            android:id="@+id/new_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/no_color"
+            android:cacheColorHint="@color/no_color"
+            android:divider="@color/list_diver"
+            android:dividerHeight="1dp"></ListView>
+
+    </com.lglottery.www.widget.PullToRefreshView>
+
+    <ScrollView
+        android:id="@+id/ScrollView01"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/dihuise">
+
+        <LinearLayout
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:background="@color/dihuise"
-             >
+            android:orientation="vertical">
 
-            <LinearLayout
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                >
-	     <com.android.hengyu.ui.MyGridView
-                        android:id="@+id/gridView_list"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_marginBottom="5dp"
-                        android:layout_marginLeft="5dp"
-                        android:layout_marginRight="5dp"
-                        android:layout_marginTop="5dp"
-                        android:background="@color/huise_bj"
-                        android:cacheColorHint="#00000000"
-                        android:gravity="center"
-                        android:horizontalSpacing="5dp"
-                        android:listSelector="@android:color/transparent"
-                        android:numColumns="2"
-                        android:verticalSpacing="5dp" />
-	    </LinearLayout>
-	    </ScrollView>
+            <com.android.hengyu.ui.MyGridView
+                android:id="@+id/gridView_list"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="5dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginTop="5dp"
+                android:background="@color/huise_bj"
+                android:cacheColorHint="#00000000"
+                android:gravity="center"
+                android:horizontalSpacing="5dp"
+                android:listSelector="@android:color/transparent"
+                android:numColumns="2"
+                android:verticalSpacing="5dp" />
+        </LinearLayout>
+    </ScrollView>
 </LinearLayout>

@@ -51,6 +51,7 @@ public class HongBaoZqListActivity extends BaseActivity {
     String type_zhi = "";
     private TextView textView1;
     GridView gridView;
+    private String mChannelName = "goods";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,23 +61,27 @@ public class HongBaoZqListActivity extends BaseActivity {
         setContentView(R.layout.activity_hongbao_list);
         progress = new DialogProgress(HongBaoZqListActivity.this);
         textView1 = (TextView) findViewById(R.id.textView1);
-        type_zhi = getIntent().getStringExtra("type_zhi");
-        if ("0".equals(type_zhi)) {
-            textView1.setText("米面粮油/干货/副食酒水");
-        } else if ("1".equals(type_zhi)) {
-            textView1.setText("营养健康/保健品/医疗用品");
-        } else if ("2".equals(type_zhi)) {
-            textView1.setText("生活用品/家居家电");
-        } else if ("3".equals(type_zhi)) {
-            textView1.setText(getIntent().getStringExtra("title"));
+        Intent intent = getIntent();
+        if (intent != null) {
+            type_zhi = intent.getStringExtra("type_zhi");
+            mChannelName = intent.getStringExtra("channel_name");
+            if ("0".equals(type_zhi)) {
+                textView1.setText("米面粮油/干货/副食酒水");
+            } else if ("1".equals(type_zhi)) {
+                textView1.setText("营养健康/保健品/医疗用品");
+            } else if ("2".equals(type_zhi)) {
+                textView1.setText("生活用品/家居家电");
+            } else if ("3".equals(type_zhi)) {
+                textView1.setText(intent.getStringExtra("title"));
+            }
+            initdata();
+
+            lists = new ArrayList<SpListData>();
+            jdhadapter = new GoodsMyGridViewAdaper(lists, getApplicationContext());
+            gridView.setAdapter(jdhadapter);
+
+            load_list(true);
         }
-        initdata();
-
-        lists = new ArrayList<SpListData>();
-        jdhadapter = new GoodsMyGridViewAdaper(lists, getApplicationContext());
-        gridView.setAdapter(jdhadapter);
-
-        load_list(true);
     }
 
     @Override
@@ -163,16 +168,6 @@ public class HongBaoZqListActivity extends BaseActivity {
         });
     }
 
-//	  <GridView
-//      android:id="@+id/gridView"
-//      android:layout_width="match_parent"
-//      android:layout_height="match_parent"
-//      android:background="@color/no_color"
-//      android:cacheColorHint="@color/no_color"
-//      android:divider="@color/list_diver"
-//      android:numColumns="2"
-//      android:dividerHeight="1dp">
-
     /**
      * 上拉列表刷新加载
      */
@@ -233,7 +228,7 @@ public class HongBaoZqListActivity extends BaseActivity {
         String category_id = getIntent().getStringExtra("category_id");
 //			AsyncHttp.get(RealmName.REALM_NAME_LL+"/get_article_page_size_list?channel_name=goods&category_id="+category_id+"
 //			&page_size=500&page_index=1&strwhere=&orderby=",
-        AsyncHttp.get(RealmName.REALM_NAME_LL + "/get_article_page_size_list?channel_name=goods&category_id=" + category_id + "" +
+        AsyncHttp.get(RealmName.REALM_NAME_LL + "/get_article_page_size_list?channel_name=" + mChannelName + "&category_id=" + category_id + "" +
                         "&page_size=" + VIEW_NUM + "&page_index=" + CURRENT_NUM + "&strwhere=&orderby=",
                 new AsyncHttpResponseHandler() {
                     @Override

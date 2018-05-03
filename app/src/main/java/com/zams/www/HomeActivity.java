@@ -983,7 +983,7 @@ public class HomeActivity extends Fragment implements OnClickListener {
                     Intent intent = new Intent(getActivity(), HongBaoZqListActivity.class);
                     intent.putExtra("category_id", "2979");
                     intent.putExtra("type_zhi", "0");
-                    intent.putExtra("channel_name", "life");
+                    intent.putExtra("channel_name", "feedback");
                     startActivity(intent);
                 }
             });
@@ -996,6 +996,7 @@ public class HomeActivity extends Fragment implements OnClickListener {
                     Intent intent = new Intent(getActivity(), HongBaoZqListActivity.class);
                     intent.putExtra("category_id", "2978");
                     intent.putExtra("type_zhi", "1");
+                    intent.putExtra("channel_name", "feedback");
                     startActivity(intent);
                 }
             });
@@ -1008,6 +1009,7 @@ public class HomeActivity extends Fragment implements OnClickListener {
                     Intent intent = new Intent(getActivity(), HongBaoZqListActivity.class);
                     intent.putExtra("category_id", "2977");
                     intent.putExtra("type_zhi", "2");
+                    intent.putExtra("channel_name", "feedback");
                     startActivity(intent);
                 }
             });
