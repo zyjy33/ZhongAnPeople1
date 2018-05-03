@@ -99,6 +99,7 @@ public class TishiCarArchivesActivity extends Activity implements OnClickListene
 		switch (v.getId()) {
 			case R.id.btnConfirm://取消
 				//			String yue_fanhui = getIntent().getStringExtra("yue");
+				setResult(RESULT_OK);
 				finish();
 				yue_zhuangtai = "1";
 				break;
@@ -106,7 +107,7 @@ public class TishiCarArchivesActivity extends Activity implements OnClickListene
 				pwd = zhidupess.getText().toString().trim();
 				System.out.println("pwd-------------"+pwd);
 				if (pwd.equals("")) {
-					Toast.makeText(TishiCarArchivesActivity.this, "请输入密码", 200).show();
+					Toast.makeText(TishiCarArchivesActivity.this, "请输入密码", Toast.LENGTH_SHORT).show();
 				}else{
 					String yue = getIntent().getStringExtra("yue");
 					String jubi = getIntent().getStringExtra("jubi");
@@ -131,7 +132,7 @@ public class TishiCarArchivesActivity extends Activity implements OnClickListene
 
 	/**
 	 * 判断当前聚币与余额的值
-	 * @param order_no
+	 * @param
 	 */
 	private void useryue() {
 		String strUrlone = RealmName.REALM_NAME_LL + "/get_user_model?username="+user_name+"";

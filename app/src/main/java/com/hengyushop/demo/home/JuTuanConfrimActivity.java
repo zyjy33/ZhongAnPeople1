@@ -164,7 +164,7 @@ public class JuTuanConfrimActivity extends BaseActivity {
 			user_name = spPreferences.getString("user", "");
 			login_sign = spPreferences.getString("login_sign", "");
 			dzongjia = 0;
-			// System.out.println("dzongjiade值为零================"+dzongjia);
+			// System.out.println("dzongjiade值为零================"+mNeedSumMoney);
 
 			// String type_wx = getIntent().getStringExtra("type_wx");
 			// System.out.println("type_wx===1====" + type_wx);
@@ -219,7 +219,7 @@ public class JuTuanConfrimActivity extends BaseActivity {
 			// System.out.println("title======================"+title);
 			// if (title != null) {
 			// ll_ljgm.setVisibility(View.VISIBLE);
-			// // dzongjia =
+			// // mNeedSumMoney =
 			// Double.parseDouble(getIntent().getStringExtra("groupon_price"));
 			// // tv_size.getPaint().setFlags(Paint.STRIKE_THRU_TEXT_FLAG |
 			// Paint.ANTI_ALIAS_FLAG);
@@ -714,10 +714,10 @@ public class JuTuanConfrimActivity extends BaseActivity {
 							// a += total_c_ll;
 							// System.out.println("a---------------"+a)
 							// BigDecimal w = new BigDecimal(a);
-							// dzongjia = w.setScale(2,
+							// mNeedSumMoney = w.setScale(2,
 							// BigDecimal.ROUND_HALF_UP).doubleValue();
-							// System.out.println("dzongjia---------------"+dzongjia);
-							// retailPrice = Double.toString(dzongjia);
+							// System.out.println("mNeedSumMoney---------------"+mNeedSumMoney);
+							// retailPrice = Double.toString(mNeedSumMoney);
 
 							try {
 								type_title = getIntent().getStringExtra(
@@ -734,7 +734,7 @@ public class JuTuanConfrimActivity extends BaseActivity {
 											BigDecimal.ROUND_HALF_UP)
 											.doubleValue();
 									System.out
-											.println("dzongjia------------------------------"
+											.println("mNeedSumMoney------------------------------"
 													+ dzongjia);
 									if (getIntent().getStringExtra("spec_text")
 											.equals("")) {
@@ -1074,7 +1074,7 @@ public class JuTuanConfrimActivity extends BaseActivity {
 
 						System.out.println("3================" + list.size());
 						adapter = new ShopingCartOrderAdapter(list,
-								getApplicationContext(), handler);
+								getApplicationContext());
 						list_shop_cart.setAdapter(adapter);
 						// ShopingCartOrderAdapter.query.clear();
 						// list_shop_cart.setChoiceMode(ListView.CHOICE_MODE_SINGLE);

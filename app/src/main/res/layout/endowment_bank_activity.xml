@@ -369,5 +369,6 @@
             </LinearLayout>
 		</LinearLayout>
 		</LinearLayout>
+
 		</com.lglottery.www.widget.PagerScrollView>
 </LinearLayout>

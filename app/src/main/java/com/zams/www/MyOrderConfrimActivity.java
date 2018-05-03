@@ -3,6 +3,7 @@ package com.zams.www;
 import java.io.UnsupportedEncodingException;
 import java.math.BigDecimal;
 import java.net.URLEncoder;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 import org.json.JSONArray;
@@ -23,6 +24,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.Window;
@@ -50,6 +52,7 @@ import com.hengyushop.demo.at.Common;
 import com.hengyushop.demo.at.SlipButton;
 import com.hengyushop.demo.at.SlipButton.OnChangedListener;
 import com.hengyushop.demo.home.ZhiFuFangShiActivity;
+import com.hengyushop.demo.my.MyOrderActivity;
 import com.hengyushop.demo.my.TishiCarArchivesActivity;
 import com.hengyushop.entity.JuTuanGouData;
 import com.hengyushop.entity.ShopCartData;
@@ -69,7 +72,7 @@ import com.tencent.mm.sdk.openapi.WXAPIFactory;
  */
 public class MyOrderConfrimActivity extends BaseActivity {
     private String pwd, username;
-    private ArrayList<ShopCartData> list;
+    private ArrayList<ShopCartData> mList; //购物车列表
     private DialogProgress progress;
     private int checkedAddressId;
     private StringBuilder orderid;
@@ -77,12 +80,10 @@ public class MyOrderConfrimActivity extends BaseActivity {
     private int express_fee;
     private TextView tv_user_name, tv_user_address, tv_user_phone, tv_hongbao;
     private SharedPreferences spPreferences;
-    public static String user_name, user_id;
     private ImageButton btn_add_address;
     private ShopingCartOrderAdapter adapter;
     private InScrollListView list_shop_cart;
     ArrayList<ShopCartData> list_ll = new ArrayList<ShopCartData>();
-    private ShopCartData data;
     private LinearLayout layout0, ll_ljgm, layout2, ll_zhifufs;
     private RelativeLayout layout1, rl_hongbao;
     private TextView heji, tv_1, tv_2;
@@ -98,7 +99,6 @@ public class MyOrderConfrimActivity extends BaseActivity {
     TextView tv_size, tv_zhifu;
     String name = "";
     private String ZhiFuFangShi, express_id;
-    private String retailPrice, jubi;
     String type = "5";
     String order_str, notify_url;
     int zhifu, kou_hongbao;
@@ -107,17 +107,13 @@ public class MyOrderConfrimActivity extends BaseActivity {
     private String user_dizhiname;
     boolean zhuangtai = false;
     public static boolean teby = false;
-    private int len;
     String url;
     String login_sign, dandu_goumai;
     boolean flag;
-    boolean hongbao_tety = true;
-    public static double dzongjia = 0;
-    double cashing_packet = 0.0f;
     // double di_hongbao = 0;
     double packet;//红包
-    String total_fee, hongbao, kedi_hongbao;
-    ArrayList<JuTuanGouData> list_zf = new ArrayList<JuTuanGouData>();
+    String total_fee, kedi_hongbao;
+    ArrayList<JuTuanGouData> list_zf;
     SlipButton sb;
     double jiaguo = 0;
     public static String province, city, area, user_address, user_accept_name,
@@ -129,6 +125,21 @@ public class MyOrderConfrimActivity extends BaseActivity {
     private LinearLayout market_information_juduihuan;
     public AQuery mAq;
 
+    /**
+     * 用户名字和用户id
+     */
+    private String user_name, user_id;
+    /**
+     * 支付总额
+     */
+    private double mNeedSumMoney = 0;
+    /**
+     * 可用红包抵押的钱
+     */
+    double cashing_packet = 0.0;
+    private String buy_no;
+    private String mExchangePoint;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
@@ -139,12 +150,13 @@ public class MyOrderConfrimActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.order_confrim);
         progress.CreateProgress();
+
         spPreferences = getSharedPreferences("longuserset", MODE_PRIVATE);
         user_name = spPreferences.getString("user", "");
         user_id = spPreferences.getString("user_id", "");
+
         mAq = new AQuery(this);
         sb = (SlipButton) findViewById(R.id.splitbutton);
-        // sb.setCheck(false);
         tv_hb_ye = (TextView) findViewById(R.id.tv_hb_ye);
         tv_hb_ye_2 = (TextView) findViewById(R.id.tv_hb_ye_2);
         tv_hb_ye_3 = (TextView) findViewById(R.id.tv_hb_ye_3);
@@ -160,79 +172,72 @@ public class MyOrderConfrimActivity extends BaseActivity {
             }
         };
         initdata();
-
+        initData();
+        requestData();
     }
 
+    private void initData() {
+        // 获取地址
+        Intent intent = getIntent();
+        user_accept_name = intent.getStringExtra("user_accept_name");
+        System.out.println("name==============" + user_accept_name);
+        buy_no = intent.getStringExtra("buy_no");
 
-    @Override
-    protected void onResume() {
-
-        super.onResume();
-        try {
-
-            spPreferences = getSharedPreferences("longuserset", MODE_PRIVATE);
-            user_name = spPreferences.getString("user", "");
-            dzongjia = 0;
-            cashing_packet = 0.0f;
-            // System.out.println("dzongjiade值为零================"+dzongjia);
-            // System.out.println("cashing_packet值为零================"+cashing_packet);
-
-            // 获取地址
-            user_accept_name = getIntent().getStringExtra("user_accept_name");
-            System.out.println("name==============" + user_accept_name);
-            if (user_accept_name != null) {
-                province = getIntent().getStringExtra("province");
-                city = getIntent().getStringExtra("city");
-                area = getIntent().getStringExtra("user_area");
-                user_address = getIntent().getStringExtra("user_address");
-                user_mobile = getIntent().getStringExtra("user_mobile");
-
-                tv_user_name.setText("收货人：" + user_accept_name);
-                tv_user_address.setText("地址：" + province + "、" + city + "、" + area
-                        + "、" + user_address);
-                tv_user_phone.setText(user_mobile);
-            } else {
-                getuseraddress2();
-            }
-
-            System.out.println("teby==============" + teby);
-            // 余额支付成功后更新订单
-            if (teby == true) {
-                // userloginqm();
-                teby = false;
-                finish();
-            }
-
-            // 微信支付成功后关闭此界面
-            if (flag == true) {
-                userloginqm();
-                // finish();
-            }
-
-            // 余额支付取消关闭此界面
-            if (TishiCarArchivesActivity.yue_zhuangtai != null) {
-                TishiCarArchivesActivity.yue_zhuangtai = null;
-                finish();
-            }
-
-
-            // 立即购买
-            img_ware = (ImageView) findViewById(R.id.img_ware);
-            tv_warename = (TextView) findViewById(R.id.tv_ware_name);
-            tv_color = (TextView) findViewById(R.id.tv_color);
-            tv_size = (TextView) findViewById(R.id.tv_size);
-            ll_ljgm = (LinearLayout) findViewById(R.id.ll_ljgm);
-            getuserhongbao(user_name);//获取用户的红包余额
-
-        } catch (Exception e) {
-
-            e.printStackTrace();
+        if (!TextUtils.isEmpty(user_accept_name)) {
+            province = intent.getStringExtra("province");
+            city = intent.getStringExtra("city");
+            area = intent.getStringExtra("user_area");
+            user_address = intent.getStringExtra("user_address");
+            user_mobile = intent.getStringExtra("user_mobile");
+            tv_user_name.setText("收货人：" + user_accept_name);
+            tv_user_address.setText("地址：" + province + "、" + city + "、" + area
+                    + "、" + user_address);
+            tv_user_phone.setText(user_mobile);
+        } else {
+            getuseraddress2();
         }
+    }
+
+    private void requestData() {
+//        try {
+        mNeedSumMoney = 0;
+        cashing_packet = 0.0;
+        System.out.println("teby==============" + teby);
+        // 余额支付成功后更新订单
+        if (teby) {
+            teby = false;
+            finish();
+        }
+        // 微信支付成功后关闭此界面
+        if (flag) {
+            userloginqm();
+            // finish();
+        }
+
+        // 余额支付取消关闭此界面
+        if (TishiCarArchivesActivity.yue_zhuangtai != null) {
+            TishiCarArchivesActivity.yue_zhuangtai = null;
+            finish();
+        }
+
+        // 立即购买
+        img_ware = (ImageView) findViewById(R.id.img_ware);
+        tv_warename = (TextView) findViewById(R.id.tv_ware_name);
+        tv_color = (TextView) findViewById(R.id.tv_color);
+        tv_size = (TextView) findViewById(R.id.tv_size);
+        ll_ljgm = (LinearLayout) findViewById(R.id.ll_ljgm);
+        getuserhongbao(user_name);//获取用户的红包余额
+
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
     }
 
 
     public static Handler handlerll;
 
+    private double mOwnedPacket = 0.0; //拥有的红包
+    private double mExpectPacket = 0.0; //可用红包来抵押的值
 
     /**
      * 获取用户红包
@@ -240,24 +245,20 @@ public class MyOrderConfrimActivity extends BaseActivity {
      * @param user_name
      */
     private void getuserhongbao(String user_name) {
-        String strUrlone = RealmName.REALM_NAME_LL
-                + "/get_user_model?username=" + user_name + "";
+        String strUrlone = RealmName.REALM_NAME_LL + "/get_user_model?username=" + user_name + "";
         AsyncHttp.get(strUrlone, new AsyncHttpResponseHandler() {
             public void onSuccess(int arg0, String arg1) {
                 try {
                     JSONObject object = new JSONObject(arg1);
-                    System.out.println("获取红包值================" + arg1);
+                    Log.e(TAG, "获取红包值================" + arg1);
                     String status = object.getString("status");
                     JSONObject obj = object.getJSONObject("data");
                     if (status.equals("y")) {
-                        UserRegisterllData data = new UserRegisterllData();
-                        data.hongbao = obj.getDouble("packet");
-                        packet = data.hongbao;
-                        hongbao = String.valueOf(packet);
+                        mOwnedPacket = obj.getDouble("packet");
                     } else {
-
+                        mOwnedPacket = 0;
                     }
-                    load_list(true);
+                    load_list();
                 } catch (JSONException e) {
 
                     e.printStackTrace();
@@ -268,8 +269,9 @@ public class MyOrderConfrimActivity extends BaseActivity {
         }, MyOrderConfrimActivity.this);
     }
 
-    private void gethongbao() {
+    private static final String TAG = "MyOrderConfrimActivity";
 
+    private void gethongbao() {
 
         /**
          * 判断是否使用红包
@@ -277,210 +279,61 @@ public class MyOrderConfrimActivity extends BaseActivity {
         sb.SetOnChangedListener(new OnChangedListener() {
             @Override
             public void OnChanged(boolean isCheck) {
-                System.out.println("isCheck================" + isCheck);
-                System.out.println("dzongjia================" + dzongjia);
-                System.out
-                        .println("retailPrice1================" + retailPrice);
-                System.out.println("packet================" + packet);
-                System.out.println("cashing_packet================" + cashing_packet);
-                System.out.println("hongbao================" + hongbao);
-                System.out.println("kedi_hongbao================" + kedi_hongbao);
-                if (isCheck == true) {
-                    System.out.println("1================" + isCheck);
-                    try {
-                        if (hongbao.equals("0.0")) {
-                            heji.setVisibility(View.VISIBLE);
-                            tv_hongbao.setText("无可抵红包");
-                            kou_hongbao = 0;// 红包为0
-                            rl_hongbao.setVisibility(View.GONE);
-                            tv_jiaguo.setText("￥" + dzongjia + " , " + heji_quantity + "件，红包可抵扣: ￥" + 0 + "元");
-                        } else if (kedi_hongbao.equals("0.0")) {
-                            heji.setVisibility(View.VISIBLE);
-                            tv_hongbao.setText("无可抵红包");
-                            kou_hongbao = 0;// 无可抵红包
-                            rl_hongbao.setVisibility(View.GONE);
-                            tv_jiaguo.setText("￥" + dzongjia + " , " + heji_quantity + "件，红包可抵扣: ￥" + 0 + "元");
-                        } else if (dzongjia == cashing_packet) {
-                            heji.setVisibility(View.VISIBLE);
-                            tv_hongbao.setText("可用" + cashing_packet + "元红包抵"
-                                    + cashing_packet + "元");
-                            kou_hongbao = 1;// 已低红包
-                            rl_hongbao.setVisibility(View.VISIBLE);
-                            tv_jiaguo.setText("￥" + dzongjia + " , " + heji_quantity + "件，红包可抵扣: ￥" + cashing_packet + "元");
-                        } else if (packet >= cashing_packet) {
-                            BigDecimal w = new BigDecimal(dzongjia - cashing_packet);
-                            dzongjia = w.setScale(2, BigDecimal.ROUND_HALF_UP).doubleValue();
-                            // retailPrice =
-                            // Double.toString(w.setScale(2,BigDecimal.ROUND_HALF_UP).doubleValue());
-                            System.out.println("dzongjia11================"
-                                    + dzongjia);
-                            System.out.println("retailPrice11================"
-                                    + retailPrice);
-                            heji.setVisibility(View.VISIBLE);
-                            heji.setText("实付款:" + dzongjia);
-                            tv_hongbao.setText("可用" + cashing_packet + "元红包抵" + cashing_packet + "元");
-                            kou_hongbao = 1;// 已低红包
-                            rl_hongbao.setVisibility(View.VISIBLE);
-                            tv_jiaguo.setText("￥" + dzongjia + " , " + heji_quantity + "件，红包可抵扣: ￥" + cashing_packet + "元");
-                        } else if (packet <= cashing_packet) {
-                            BigDecimal w = new BigDecimal(dzongjia - packet);
-                            dzongjia = w.setScale(2, BigDecimal.ROUND_HALF_UP)
-                                    .doubleValue();
-                            System.out.println("dzongjia11================"
-                                    + dzongjia);
-                            System.out.println("retailPrice11================"
-                                    + retailPrice);
-                            heji.setVisibility(View.VISIBLE);
-                            heji.setText("实付款:" + dzongjia);
-                            tv_hongbao.setText("可用" + packet + "元红包抵" + packet + "元");
-                            // tv_hongbao.setText("可用"+hongbao+"元红包");
-                            kou_hongbao = 1;// 已低红包
-                            rl_hongbao.setVisibility(View.VISIBLE);
-                            tv_jiaguo.setText("￥" + dzongjia + " , " + heji_quantity + "件，红包可抵扣: ￥" + packet + "元");
+                Log.e(TAG, "isCheck================" + isCheck);
+                Log.e(TAG, "mNeedSumMoney================" + mNeedSumMoney);
+                Log.e(TAG, "packet================" + packet);
+                Log.e(TAG, "cashing_packet================" + cashing_packet);
+                Log.e(TAG, "kedi_hongbao================" + kedi_hongbao);
+                BigDecimal doublePoint = new BigDecimal(mNeedSumMoney);
+//                mNeedSumMoney = doublePoint.setScale(2, BigDecimal.ROUND_HALF_UP)
+//                        .doubleValue();
+
+                if (isCheck) { //选择的使用红包
+                    if (mOwnedPacket == 0 || mExpectPacket == 0) {
+                        heji.setVisibility(View.VISIBLE);
+                        tv_hongbao.setText("无可抵红包");
+                        kou_hongbao = 0;// 红包为0
+                        rl_hongbao.setVisibility(View.GONE);
+                        tv_jiaguo.setText("￥" + doubleToString(mNeedSumMoney) + " , " + mSumQuantity + "件，红包可抵扣: ￥" + 0 + "元");
+                        heji.setText("实付款:" + doubleToString(mNeedSumMoney));
+
+                    } else {
+                        heji.setVisibility(View.VISIBLE);
+                        rl_hongbao.setVisibility(View.VISIBLE);
+                        kou_hongbao = 1;// 已低红包
+                        double userRedPacket = 0.0;
+                        tv_hongbao.setText("可用" + mExpectPacket + "元红包抵" + mExpectPacket + "元");
+                        if (mOwnedPacket >= mExpectPacket) {// 拥有的红包够大
+                            userRedPacket = mExpectPacket;
+                        } else {//拥有小红包
+                            userRedPacket = mOwnedPacket;
                         }
-                    } catch (Exception e) {
-
-                        e.printStackTrace();
+                        tv_jiaguo.setText("￥" + doubleToString(mNeedSumMoney) + " , " + mSumQuantity + "件，红包可抵扣: ￥" + userRedPacket + "元");
+                        heji.setText("实付款:" + doubleToString((mNeedSumMoney - userRedPacket)));
                     }
-                    //				if (hongbao.equals("0.0")) {
-                    //					kou_hongbao = 0;// 红包为0
-                    //				} else if (kedi_hongbao.equals("0.0")) {
-                    //					kou_hongbao = 0;// 无可抵红包
-                    //				}else {
-                    //					kou_hongbao = 1;// 已低红包
-                    //				}
-                    hongbao_tety = isCheck;
-                } else if (isCheck == false) {
-                    System.out.println("1================" + isCheck);
-                    // sb.setCheck(true);
-                    System.out.println("dzongjia2================" + dzongjia);
-                    System.out.println("retailPrice2================"
-                            + retailPrice);
-                    if (hongbao.equals("0.0")) {
-                        heji.setVisibility(View.VISIBLE);
-                        tv_hongbao.setText("不可以使用红包");
-                        rl_hongbao.setVisibility(View.GONE);
-                        tv_jiaguo.setText("￥" + dzongjia + " , " + heji_quantity + "件，红包可抵扣: ￥" + 0 + "元");
-                    } else if (kedi_hongbao.equals("0.0")) {
-                        heji.setVisibility(View.VISIBLE);
-                        tv_hongbao.setText("不可以使用红包");
-                        rl_hongbao.setVisibility(View.GONE);
-                        tv_jiaguo.setText("￥" + dzongjia + " , " + heji_quantity + "件，红包可抵扣: ￥" + 0 + "元");
-                    } else if (dzongjia == cashing_packet) {
-                        heji.setVisibility(View.VISIBLE);
-                        // dzongjia = 0.0;
-                        tv_hongbao.setText("可用" + cashing_packet + "元红包抵"
-                                + cashing_packet + "元");
-                        rl_hongbao.setVisibility(View.VISIBLE);
-                        tv_jiaguo.setText("￥" + dzongjia + " , " + heji_quantity + "件，红包可抵扣: ￥" + 0 + "元");
-                    } else if (packet >= cashing_packet) {
-                        BigDecimal w = new BigDecimal(dzongjia + cashing_packet);
-                        dzongjia = w.setScale(2, BigDecimal.ROUND_HALF_UP).doubleValue();
-                        System.out.println("dzongjia22================" + dzongjia);
-                        heji.setVisibility(View.VISIBLE);
-                        heji.setText("实付款:" + dzongjia);
-                        tv_hongbao.setText("可用" + cashing_packet + "元红包抵"
-                                + cashing_packet + "元");
-                        rl_hongbao.setVisibility(View.VISIBLE);
-                        tv_jiaguo.setText("￥" + dzongjia + " , " + heji_quantity + "件，红包可抵扣: ￥" + 0 + "元");
-                    } else if (packet <= cashing_packet) {
-                        BigDecimal w = new BigDecimal(dzongjia + packet);
-                        dzongjia = w.setScale(2, BigDecimal.ROUND_HALF_UP)
-                                .doubleValue();
-                        System.out.println("dzongjia11================"
-                                + dzongjia);
-                        heji.setVisibility(View.VISIBLE);
-                        heji.setText("实付款:" + dzongjia);
-                        tv_hongbao.setText("可用" + packet + "元红包抵" + packet
-                                + "元");
-                        rl_hongbao.setVisibility(View.VISIBLE);
-                        tv_jiaguo.setText("￥" + dzongjia + " , " + heji_quantity + "件，红包可抵扣: ￥" + 0 + "元");
-                    }
-
-                    hongbao_tety = isCheck;
+                } else { //不使用红包
+                    System.out.println("dzongjia2================" + mNeedSumMoney);
+                    heji.setVisibility(View.VISIBLE);
+                    rl_hongbao.setVisibility(View.GONE);
+                    tv_hongbao.setText("不可以使用红包");
+                    tv_jiaguo.setText("￥" + doubleToString(mNeedSumMoney) + " , " + mSumQuantity + "件，红包可抵扣: ￥" + 0 + "元");
+                    heji.setText("实付款:" + doubleToString(mNeedSumMoney));
                     kou_hongbao = 0;// 不抵扣红包
                 }
-
                 tv_hb_ye.setText(String.valueOf(packet));
                 tv_hb_ye_2.setText(String.valueOf(packet));
-                //				tv_hb_ye_3.setText(String.valueOf(hongbao));
-                tv_hb_ye_3.setText("当前红包:￥" + String.valueOf(hongbao) + "元");
+                tv_hb_ye_3.setText("当前红包:￥" + String.valueOf(mOwnedPacket) + "元");
             }
         });
+        sb.setNowChooseCheck(true);
+        tv_hb_ye.setText(String.valueOf(packet));
+        tv_hb_ye_2.setText(String.valueOf(packet));
+        tv_hb_ye_3.setText("当前红包:￥" + String.valueOf(mOwnedPacket) + "元");
 
-        System.out.println("设置状态================" + hongbao_tety);
-        try {
+    }
 
-            /**
-             * 选择红包状态下
-             */
-            if (hongbao_tety == true) {
-                System.out.println("dzongjia3================" + dzongjia);
-                System.out
-                        .println("retailPrice================" + retailPrice);
-                System.out.println("hongbao================" + hongbao);
-                System.out.println("cashing_packet================"
-                        + cashing_packet);
-                if (hongbao.equals("0.0")) {
-                    tv_hongbao.setText("无可抵红包");
-                    heji.setVisibility(View.VISIBLE);
-                    kou_hongbao = 0;// 红包为0
-                    rl_hongbao.setVisibility(View.GONE);
-                    tv_jiaguo.setText("￥" + dzongjia + " , " + heji_quantity + "件，红包可抵扣: ￥" + 0 + "元");
-                } else if (kedi_hongbao.equals("0.0")) {
-                    tv_hongbao.setText("无可抵红包");
-                    heji.setVisibility(View.VISIBLE);
-                    kou_hongbao = 0;// 无可抵红包
-                    rl_hongbao.setVisibility(View.GONE);
-                    tv_jiaguo.setText("￥" + dzongjia + " , " + heji_quantity + "件，红包可抵扣: ￥" + 0 + "元");
-                } else if (dzongjia == cashing_packet) {
-//                    heji.setVisibility(View.GONE);
-                    // dzongjia = 0.0;
-                    tv_hongbao.setText("可用" + cashing_packet + "元红包抵"
-                            + cashing_packet + "元");
-                    kou_hongbao = 1;// 已低红包
-                    rl_hongbao.setVisibility(View.VISIBLE);
-                    tv_jiaguo.setText("￥" + dzongjia + " , " + heji_quantity + "件，红包可抵扣: ￥" + cashing_packet + "元");
-                } else if (packet >= cashing_packet) {
-                    BigDecimal w = new BigDecimal(dzongjia - cashing_packet);
-                    dzongjia = w.setScale(2, BigDecimal.ROUND_HALF_UP)
-                            .doubleValue();
-                    // retailPrice =
-                    // Double.toString(w.setScale(2,BigDecimal.ROUND_HALF_UP).doubleValue());
-                    System.out.println("dzongjia11================" + dzongjia);
-                    heji.setVisibility(View.VISIBLE);
-                    heji.setText("实付款:" + dzongjia);
-                    tv_hongbao.setText("可用" + cashing_packet + "元红包抵"
-                            + cashing_packet + "元");
-                    kou_hongbao = 1;// 已低红包
-                    rl_hongbao.setVisibility(View.VISIBLE);
-                    tv_jiaguo.setText("￥" + dzongjia + " , " + heji_quantity + "件，红包可抵扣: ￥" + cashing_packet + "元");
-                } else if (packet <= cashing_packet) {
-                    BigDecimal w = new BigDecimal(dzongjia - packet);
-                    dzongjia = w.setScale(2, BigDecimal.ROUND_HALF_UP)
-                            .doubleValue();
-                    System.out.println("dzongjia11================" + dzongjia);
-                    heji.setVisibility(View.VISIBLE);
-                    heji.setText("实付款:" + dzongjia);
-                    tv_hongbao.setText("可用" + packet + "元红包抵" + packet + "元");
-                    // tv_hongbao.setText("可用"+hongbao+"元红包");
-                    kou_hongbao = 1;// 已低红包
-                    rl_hongbao.setVisibility(View.VISIBLE);
-                    tv_jiaguo.setText("￥" + dzongjia + " , " + heji_quantity + "件，红包可抵扣: ￥" + packet + "元");
-                }
-
-
-                tv_hb_ye.setText(String.valueOf(packet));
-                tv_hb_ye_2.setText(String.valueOf(packet));
-                tv_hb_ye_3.setText("当前红包:￥" + String.valueOf(hongbao) + "元");
-
-            }
-
-        } catch (Exception e) {
-
-            e.printStackTrace();
-        }
-
+    public String doubleToString(double num) {
+        return new DecimalFormat("0.00").format(num);
     }
 
     @Override
@@ -491,7 +344,6 @@ public class MyOrderConfrimActivity extends BaseActivity {
         if (resultCode == 100) {
             layout0.setVisibility(View.VISIBLE);
             layout1.setVisibility(View.GONE);
-
             UserAddressData dt = (UserAddressData) data
                     .getSerializableExtra("data");
             checkedAddressId = dt.consigneeAddressId;
@@ -500,151 +352,125 @@ public class MyOrderConfrimActivity extends BaseActivity {
             String user_mobile = dt.user_mobile;
             String user_address = dt.user_address;
             System.out.println("checkedAddressId==================" + name);
-
             tv_user_name.setText("收货人:" + name);
             tv_user_address.setText(user_area + " " + user_address);
             tv_user_phone.setText(user_mobile);
-
         }
+        if (resultCode == RESULT_OK && requestCode == 111) {
+            showOrderActivity();
+        }
+
 
     }
 
     private void initdata() {
-        try {
-            market_information_juduihuan = (LinearLayout) findViewById(R.id.market_information_juduihuan);
-            confrim_btn = (Button) findViewById(R.id.confrim_btn);
-            list_shop_cart = (InScrollListView) findViewById(R.id.list_shop_cart);
-            list_shop_cart.setFocusable(false);
-            btn_add_address = (ImageButton) findViewById(R.id.img_btn_add_address);
-            layout0 = (LinearLayout) findViewById(R.id.layout0);
-            layout1 = (RelativeLayout) findViewById(R.id.layout1);
-            rl_hongbao = (RelativeLayout) findViewById(R.id.rl_hongbao);
-            layout2 = (LinearLayout) findViewById(R.id.layout2);
-            ll_zhifufs = (LinearLayout) findViewById(R.id.ll_zhifufs);
-            tv_user_name = (TextView) findViewById(R.id.tv_user_name);
-            tv_user_address = (TextView) findViewById(R.id.tv_user_address);
-            tv_user_phone = (TextView) findViewById(R.id.tv_user_phone);
-            tv_hongbao = (TextView) findViewById(R.id.tv_hongbao);
-            tv_zhifu = (TextView) findViewById(R.id.tv_zhifu);
-            tv_jiaguo = (TextView) findViewById(R.id.tv_jiaguo);
-            //			tv_hb_ye = (TextView) findViewById(R.id.tv_hb_ye);
-            //			tv_hb_ye_2 = (TextView) findViewById(R.id.tv_hb_ye_2);
-            //			tv_hb_ye_3 = (TextView) findViewById(R.id.tv_hb_ye_3);
-            heji = (TextView) findViewById(R.id.heji);
-            tv_1 = (TextView) findViewById(R.id.tv_1);
-            tv_2 = (TextView) findViewById(R.id.tv_2);
+//        try {
+        market_information_juduihuan = (LinearLayout) findViewById(R.id.market_information_juduihuan);
+        confrim_btn = (Button) findViewById(R.id.confrim_btn);
+        list_shop_cart = (InScrollListView) findViewById(R.id.list_shop_cart);
+        list_shop_cart.setFocusable(false);
+        btn_add_address = (ImageButton) findViewById(R.id.img_btn_add_address);
+        layout0 = (LinearLayout) findViewById(R.id.layout0);
+        layout1 = (RelativeLayout) findViewById(R.id.layout1);
+        rl_hongbao = (RelativeLayout) findViewById(R.id.rl_hongbao);
+        layout2 = (LinearLayout) findViewById(R.id.layout2);
+        ll_zhifufs = (LinearLayout) findViewById(R.id.ll_zhifufs);
+        tv_user_name = (TextView) findViewById(R.id.tv_user_name);
+        tv_user_address = (TextView) findViewById(R.id.tv_user_address);
+        tv_user_phone = (TextView) findViewById(R.id.tv_user_phone);
+        tv_hongbao = (TextView) findViewById(R.id.tv_hongbao);
+        tv_zhifu = (TextView) findViewById(R.id.tv_zhifu);
+        tv_jiaguo = (TextView) findViewById(R.id.tv_jiaguo);
+        heji = (TextView) findViewById(R.id.heji);
+        tv_1 = (TextView) findViewById(R.id.tv_1);
+        tv_2 = (TextView) findViewById(R.id.tv_2);
 
-            yu_pay0 = (LinearLayout) findViewById(R.id.yu_pay0);
-            yu_pay1 = (LinearLayout) findViewById(R.id.yu_pay1);
-            yu_pay2 = (LinearLayout) findViewById(R.id.yu_pay2);
-            yu_pay_c0 = (CheckBox) findViewById(R.id.yu_pay_c0);
-            yu_pay_c1 = (CheckBox) findViewById(R.id.yu_pay_c1);
-            yu_pay_c2 = (CheckBox) findViewById(R.id.yu_pay_c2);
+        yu_pay0 = (LinearLayout) findViewById(R.id.yu_pay0);
+        yu_pay1 = (LinearLayout) findViewById(R.id.yu_pay1);
+        yu_pay2 = (LinearLayout) findViewById(R.id.yu_pay2);
+        yu_pay_c0 = (CheckBox) findViewById(R.id.yu_pay_c0);
+        yu_pay_c1 = (CheckBox) findViewById(R.id.yu_pay_c1);
+        yu_pay_c2 = (CheckBox) findViewById(R.id.yu_pay_c2);
 
-            ImageView imageView = (ImageView) findViewById(R.id.iv_tupian);
-            Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.xiantiap);
+        //分割线
+        ImageView imageView = (ImageView) findViewById(R.id.iv_tupian);
+        Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.xiantiap);
+        BitmapDrawable bd = new BitmapDrawable(bitmap);
+        bd.setTileModeXY(TileMode.REPEAT, TileMode.REPEAT);
+        imageView.setBackgroundDrawable(bd);
+        //返回键
+        ImageView iv_fanhui = (ImageView) findViewById(R.id.iv_fanhui);
+        iv_fanhui.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View arg0) {
+                finish();
+            }
+        });
 
-            BitmapDrawable bd = new BitmapDrawable(bitmap);
-            bd.setTileModeXY(TileMode.REPEAT, TileMode.REPEAT);
-            imageView.setBackgroundDrawable(bd);
+        /**
+         * 支付方式
+         */
+        ll_zhifufs.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View arg0) {
+                Intent intent = new Intent(MyOrderConfrimActivity.this,
+                        ZhiFuFangShiActivity.class);
+                intent.putExtra("order_confrim", "order_confrim");//
+                startActivity(intent);
+            }
+        });
 
-            // retailPrice = getIntent().getStringExtra("total_cll");
-            // System.out.println("实付款----------------"+retailPrice);
-            // if (retailPrice != null) {
-            // heji.setText("实付款:" + retailPrice);
-            // }
+        /**
+         * 收货地址列表
+         */
+        layout0.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View arg0) {
+                String title = getIntent().getStringExtra("title");
+                String stare = getIntent().getStringExtra("stare");
+                String groupon_price = getIntent().getStringExtra("groupon_price");
+                String img_url = getIntent().getStringExtra("img_url");
+                String price = getIntent().getStringExtra("price");
+                String goods_price = getIntent().getStringExtra("goods_price");
+                String jubi = getIntent().getStringExtra("point");
+                String shopping_ids = getIntent().getStringExtra("shopping_ids");
+                String tuangou_id = getIntent().getStringExtra("tuangou_id");
 
-            ImageView iv_fanhui = (ImageView) findViewById(R.id.iv_fanhui);
-            iv_fanhui.setOnClickListener(new OnClickListener() {
+                Intent intent = new Intent(MyOrderConfrimActivity.this,
+                        AddressManagerActivity.class);
+                intent.putExtra("order_confrim", "order_confrim");// 标示
+                intent.putExtra("title", title);// 标示
+                intent.putExtra("stare", stare);
+                intent.putExtra("groupon_price", groupon_price);
+                intent.putExtra("img_url", img_url);
+                intent.putExtra("price", price);
+                intent.putExtra("goods_price", goods_price);
+                intent.putExtra("mExchangePoint", jubi);
+                intent.putExtra("shopping_ids", shopping_ids);
+                intent.putExtra("tuangou_id", tuangou_id);
+                intent.putExtra("buy_no", getIntent().getStringExtra("buy_no"));
+                startActivity(intent);
+                // startActivityForResult(intent, 100);
+                // startActivityForResult(intent, 0);
+            }
+        });
 
-                @Override
-                public void onClick(View arg0) {
+        /**
+         * 添加收货地址
+         */
+        layout1.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MyOrderConfrimActivity.this,
+                        AddUserAddressActivity.class);
+                startActivity(intent);
+            }
+        });
 
-                    finish();
-
-                }
-            });
-
-            /**
-             * 支付方式
-             */
-            ll_zhifufs.setOnClickListener(new OnClickListener() {
-
-                @Override
-                public void onClick(View arg0) {
-                    // BigDecimal a = new
-                    // BigDecimal(Double.parseDouble(retailPrice)-express_fee);
-                    // retailPrice =
-                    // Double.toString(a.setScale(2,BigDecimal.ROUND_HALF_UP).doubleValue());
-                    // System.out.println("支付方式retailPrice====================="+retailPrice);
-                    Intent intent = new Intent(MyOrderConfrimActivity.this,
-                            ZhiFuFangShiActivity.class);
-                    intent.putExtra("order_confrim", "order_confrim");//
-                    startActivity(intent);
-                }
-            });
-
-            /**
-             * 收货地址列表
-             */
-            layout0.setOnClickListener(new OnClickListener() {
-
-                @Override
-                public void onClick(View arg0) {
-                    String title = getIntent().getStringExtra("title");
-                    String stare = getIntent().getStringExtra("stare");
-                    String groupon_price = getIntent().getStringExtra(
-                            "groupon_price");
-                    String img_url = getIntent().getStringExtra("img_url");
-                    String price = getIntent().getStringExtra("price");
-                    String goods_price = getIntent().getStringExtra(
-                            "goods_price");
-                    String jubi = getIntent().getStringExtra("point");
-                    String shopping_ids = getIntent().getStringExtra(
-                            "shopping_ids");
-                    String tuangou_id = getIntent()
-                            .getStringExtra("tuangou_id");
-
-                    Intent intent = new Intent(MyOrderConfrimActivity.this,
-                            AddressManagerActivity.class);
-                    intent.putExtra("order_confrim", "order_confrim");// 标示
-                    intent.putExtra("title", title);// 标示
-                    intent.putExtra("stare", stare);
-                    intent.putExtra("groupon_price", groupon_price);
-                    intent.putExtra("img_url", img_url);
-                    intent.putExtra("price", price);
-                    intent.putExtra("goods_price", goods_price);
-                    intent.putExtra("jubi", jubi);
-                    intent.putExtra("shopping_ids", shopping_ids);
-                    intent.putExtra("tuangou_id", tuangou_id);
-                    intent.putExtra("buy_no",
-                            getIntent().getStringExtra("buy_no"));
-                    startActivity(intent);
-                    // startActivityForResult(intent, 100);
-                    // startActivityForResult(intent, 0);
-                }
-            });
-
-            /**
-             * 添加收货地址
-             */
-            layout1.setOnClickListener(new OnClickListener() {
-
-                @Override
-                public void onClick(View v) {
-                    // int index = 0;
-                    Intent intent = new Intent(MyOrderConfrimActivity.this,
-                            AddUserAddressActivity.class);
-                    // intent.putExtra("index", index);
-                    // startActivityForResult(intent, 0);
-                    startActivity(intent);
-                }
-            });
-
-        } catch (Exception e) {
-
-            e.printStackTrace();
-        }
+//        } catch (Exception e) {
+//
+//            e.printStackTrace();
+//        }
 
 
         /**
@@ -745,53 +571,46 @@ public class MyOrderConfrimActivity extends BaseActivity {
             @Override
             public void onClick(View arg0) {
 
-                System.out.println("user_accept_name======11========"
-                        + user_accept_name);
+                System.out.println("user_accept_name======11========" + user_accept_name);
                 if (user_accept_name == null) {
                     Toast.makeText(MyOrderConfrimActivity.this, "您还未添加收货地址",
                             Toast.LENGTH_SHORT).show();
+                } else if (!"2".equals(type) && mNeedSumMoney - (mExpectPacket > mOwnedPacket ? mOwnedPacket : mExpectPacket) == 0) {
+                    Toast.makeText(MyOrderConfrimActivity.this, "支付金额小于0，请使用余额支付", Toast.LENGTH_SHORT).show();
                 } else {
-                    try {
-
-                        System.out.println("type======结算方式========" + type);
-                        loadusertijiao(type, kou_hongbao);// 提交聚团订单
-
-                        //						CommomConfrim.showSheet(MyOrderConfrimActivity.this,new onDeleteSelect() {
-                        //
-                        //									@Override
-                        //		packet							public void onClick(int resID) {
-                        //
-                        //										switch (resID) {
-                        //										case R.id.item0:
-                        //											// 余额支付
-                        //											type = "2";
-                        //											loadusertijiao(type, kou_hongbao);
-                        //											break;
-                        //										case R.id.item1:
-                        //											break;
-                        //										case R.id.item2:// 支付宝
-                        //											// 支付宝
-                        //											type = "3";
-                        //											loadusertijiao(type, kou_hongbao);
-                        //											break;
-                        //										case R.id.item3:// 微信
-                        //											// 微信
-                        //											type = "5";
-                        //											loadusertijiao(type, kou_hongbao);
-                        //											break;
-                        //										case R.id.item4:
-                        //											break;
-                        //										default:
-                        //											break;
-                        //										}
-                        //									}
-                        //
-                        //								}, cancelListener, null);
-
-                    } catch (Exception e) {
-
-                        e.printStackTrace();
-                    }
+                    System.out.println("type======结算方式========" + type);
+                    loadusertijiao(type, kou_hongbao);// 提交聚团订单
+                    //						CommomConfrim.showSheet(MyOrderConfrimActivity.this,new onDeleteSelect() {
+                    //
+                    //									@Override
+                    //		packet							public void onClick(int resID) {
+                    //
+                    //										switch (resID) {
+                    //										case R.id.item0:
+                    //											// 余额支付
+                    //											type = "2";
+                    //											loadusertijiao(type, kou_hongbao);
+                    //											break;
+                    //										case R.id.item1:
+                    //											break;
+                    //										case R.id.item2:// 支付宝
+                    //											// 支付宝
+                    //											type = "3";
+                    //											loadusertijiao(type, kou_hongbao);
+                    //											break;
+                    //										case R.id.item3:// 微信
+                    //											// 微信
+                    //											type = "5";
+                    //											loadusertijiao(type, kou_hongbao);
+                    //											break;
+                    //										case R.id.item4:
+                    //											break;
+                    //										default:
+                    //											break;
+                    //										}
+                    //									}
+                    //
+                    //								}, cancelListener, null);
                 }
 
             }
@@ -844,8 +663,6 @@ public class MyOrderConfrimActivity extends BaseActivity {
         try {
 
             list_ll = new ArrayList<ShopCartData>();
-            user_name = spPreferences.getString("user", "");
-            user_id = spPreferences.getString("user_id", "");
             AsyncHttp.get(RealmName.REALM_NAME_LL
                     + "/get_user_shopping_address?user_name=" + user_name// get_user_shopping_address_default
                     + "", new AsyncHttpResponseHandler() {
@@ -942,134 +759,104 @@ public class MyOrderConfrimActivity extends BaseActivity {
     private int CURRENT_NUM = 1;
     private final int VIEW_NUM = 10;
     private int RUN_METHOD = -1;
-    int heji_quantity = 0;
-    private double mSumMoney = 0.0;
+    //    private double mSumMoney = 0.0;
+    int mSumQuantity = 0; //z总计商品个数
 
-    private void load_list(boolean flag) {
+    private void load_list() {//购物清单
         RUN_METHOD = 1;
-        list = new ArrayList<ShopCartData>();
-        String buy_no = getIntent().getStringExtra("buy_no");
+        mList = new ArrayList<ShopCartData>();
         System.out.println("buy_no=====================" + buy_no);
-        url = RealmName.REALM_NAME_LL + "/get_shopping_buy?buy_no=" + buy_no
-                + "";
+        url = RealmName.REALM_NAME_LL + "/get_shopping_buy?buy_no=" + buy_no + "";
         AsyncHttp.get(url, new AsyncHttpResponseHandler() {
             @Override
             public void onSuccess(int arg0, String arg1) {
-
-                super.onSuccess(arg0, arg1);
-                System.out.println("=====================二级值1" + arg1);
                 try {
                     JSONObject object = new JSONObject(arg1);
                     String status = object.getString("status");
                     String info = object.getString("info");
-                    mSumMoney = 0.0f;
+                    mNeedSumMoney = 0.0f;
+                    int len = 0;
                     if (status.equals("y")) {
                         JSONArray jsonArray = object.getJSONArray("data");
                         len = jsonArray.length();
-                        double a = 0;
-                        double di_hongbao = 0;
-                        heji_quantity = 0;
-                        for (int i = 0; i < jsonArray.length(); i++) {
+                        double sum = 0;
+                        mSumQuantity = 0;
+                        ShopCartData data = null;
+                        for (int i = 0; i < len; i++) {
                             JSONObject json = jsonArray.getJSONObject(i);
                             data = new ShopCartData();
                             data.title = json.getString("title");
-                            data.market_price = json.getString("market_price");
-                            data.sell_price = json.getString("sell_price");
-                            mSumMoney += Double.parseDouble(data.sell_price);
-                            data.cashing_packet = json
-                                    .getDouble("cashing_packet"); //可用多少红包抵
-                            data.exchange_price = json
-                                    .getString("exchange_price");
-                            data.exchange_point = json
-                                    .getString("exchange_point");
-                            // cashing_packet = data.cashing_packet;
+                            data.market_price = json.getString("market_price");//市场价格
+                            data.sell_price = json.getString("sell_price");//销售价格
+                            data.cashing_packet = json.getDouble("cashing_packet"); //可用多少红包抵
+                            data.exchange_price = json.getString("exchange_price"); //现金
+                            data.exchange_point = json.getString("exchange_point");  //积分
                             data.id = json.getString("id");
                             // data.quantity = json.getInt("quantity");
-                            data.setQuantity(json.getInt("quantity"));
-                            data.img_url = json.getString("img_url");
-                            heji_quantity += data.quantity;
+                            data.setQuantity(json.getInt("quantity"));//数量
+                            data.img_url = json.getString("img_url");//图片
+                            mSumQuantity += data.quantity;
                             // 商品价格
-                            BigDecimal c = new BigDecimal(Double.parseDouble(data.sell_price) * data.quantity);
+                            BigDecimal goodPrice = new BigDecimal(Double.parseDouble(data.sell_price) * data.quantity);
                             // 保留2位小数
-                            double total_c_ll = c.setScale(2, BigDecimal.ROUND_HALF_UP).doubleValue();
-                            a += total_c_ll;
-                            System.out.println("a---------------" + a);
-                            BigDecimal w = new BigDecimal(a);
-                            dzongjia = w.setScale(2, BigDecimal.ROUND_HALF_UP).doubleValue();
-                            System.out.println("cashing_packet---------------" + dzongjia);
-
-                            retailPrice = Double.toString(dzongjia);
+//                            double total_c_ll = goodPrice.setScale(2, BigDecimal.ROUND_HALF_UP).doubleValue();
+                            sum += goodPrice.doubleValue();
+//                            BigDecimal w = new BigDecimal(a);
+                            mNeedSumMoney += goodPrice.doubleValue();
+                            System.out.println("cashing_packet---------------" + mNeedSumMoney);
 
                             // 用红包抵的金额
-                            BigDecimal e = new BigDecimal(data.cashing_packet
-                                    * data.quantity);
+                            BigDecimal redPacket = new BigDecimal(data.cashing_packet * data.quantity);
                             // 保留2位小数
-                            double total_c = e.setScale(2,
-                                    BigDecimal.ROUND_HALF_UP).doubleValue();
-                            di_hongbao += total_c;
-
-                            BigDecimal b = new BigDecimal(di_hongbao);
-                            cashing_packet = b.setScale(2,
-                                    BigDecimal.ROUND_HALF_UP).doubleValue();
-                            System.out.println("cashing_packet---------------"
-                                    + cashing_packet);
-
-                            list.add(data);
+//                            double total_c = redPacket.setScale(2, BigDecimal.ROUND_HALF_UP).doubleValue();
+                            mExpectPacket += redPacket.doubleValue();
+                            cashing_packet = mExpectPacket;
+                            mList.add(data);
                         }
-                        try {
 
-                            // 判断红包是否
-
-                            hongbao = String.valueOf(packet);
-                            kedi_hongbao = String.valueOf(cashing_packet);
-                            System.out.println("可用红包---------------" + packet);
-                            System.out.println("可抵红包---------------"
-                                    + cashing_packet);
-                            if (hongbao.equals("0.0")) {
-                                tv_hongbao.setText("不可以使用红包");
-                                heji.setText("实付款:" + mSumMoney + "元");
-                            } else if (kedi_hongbao.equals("0.0")) {
-                                tv_hongbao.setText("不可以使用红包" + "元");
-                                heji.setText("实付款:" + mSumMoney);
-                            } else if (packet > cashing_packet) {
-                                tv_hongbao.setText("可用" + cashing_packet
-                                        + "元红包抵" + cashing_packet + "元");
-                                heji.setText("实付款:" + (mSumMoney - cashing_packet)+"元");
-                            } else if (packet < cashing_packet) {
-                                // tv_hongbao.setText("可用"+packet+"元红包");
-                                heji.setText("实付款:" + (mSumMoney - packet)+"元");
-                                tv_hongbao.setText("可用" + packet + "元红包抵"
-                                        + packet + "元");
-                            }
-                            System.out.println("dzongjia---------------"
-                                    + dzongjia);
-                        } catch (Exception e) {
-
-                            e.printStackTrace();
+                        // 判断红包是否
+                        kedi_hongbao = String.valueOf(cashing_packet);
+                        System.out.println("可用红包---------------" + packet);
+                        System.out.println("可抵红包---------------" + cashing_packet);
+                        if (0 == mOwnedPacket) {
+                            tv_hongbao.setText("不可以使用红包");
+                            sb.setVisibility(View.GONE);
+                            heji.setText("实付款:" + mNeedSumMoney + "元");
+                        } else if (0 == mExpectPacket) {
+                            tv_hongbao.setText("不可以使用红包" + "元");
+                            heji.setText("实付款:" + mNeedSumMoney);
+                            sb.setVisibility(View.GONE);
+                        } else if (mOwnedPacket > mExpectPacket) {
+                            tv_hongbao.setText("可用" + mExpectPacket + "元红包抵" + mExpectPacket + "元");
+                            heji.setText("实付款:" + (mNeedSumMoney - mExpectPacket) + "元");
+                            sb.setVisibility(View.VISIBLE);
+                        } else if (mOwnedPacket < mExpectPacket) {
+                            heji.setText("实付款:" + (mNeedSumMoney - mOwnedPacket) + "元");
+                            tv_hongbao.setText("可用" + mOwnedPacket + "元红包抵" + mOwnedPacket + "元");
+                            sb.setVisibility(View.VISIBLE);
                         }
+                        System.out.println("mNeedSumMoney---------------" + mNeedSumMoney);
 
                         zhuangtai = false;
                         progress.CloseProgress();
                         jiekou_type_ysj = WareInformationActivity.jdh_type;
-                        System.out
-                                .println("jiekou_type_ysj====================="
-                                        + jiekou_type_ysj);
-                        if (jiekou_type_ysj.equals("1")) {
+                        System.out.println("jiekou_type_ysj=====================" + jiekou_type_ysj);
+                        if ("1".equals(jiekou_type_ysj) && data != null) {
                             ll_ljgm.setVisibility(View.VISIBLE);
                             rl_hongbao.setVisibility(View.GONE);
-                            jubi = data.exchange_point;
-                            dzongjia = Double.parseDouble(data.exchange_price);
-                            mAq.id(img_ware).image(
-                                    RealmName.REALM_NAME_HTTP + data.img_url);
-                            tv_color.setText(jubi);// 聚币
+                            mExchangePoint = data.exchange_point;
+                            mNeedSumMoney = Double.parseDouble(data.exchange_price);
+                            mAq.id(img_ware).image(RealmName.REALM_NAME_HTTP + data.img_url);
+                            tv_color.setText(mExchangePoint);// 聚币
                             tv_color.setVisibility(View.GONE);
-                            tv_size.setText(jubi + "聚币" + "+" + dzongjia + "元");// 价格
+                            tv_size.setText(mExchangePoint + "聚币" + "+" + mNeedSumMoney + "元");// 价格
                             tv_2.setText("聚兑价:");
                             tv_warename.setText(data.title);
                             tv_1.setText("聚币:");
                             tv_1.setVisibility(View.GONE);
                         } else {
-                            handler.sendEmptyMessage(0);
+                            adapter = new ShopingCartOrderAdapter(mList, MyOrderConfrimActivity.this);
+                            list_shop_cart.setAdapter(adapter);
                         }
                         loadWeather();
                     } else {
@@ -1099,18 +886,14 @@ public class MyOrderConfrimActivity extends BaseActivity {
                 new AsyncHttpResponseHandler() {
                     @Override
                     public void onSuccess(int arg0, String arg1) {
-
-                        super.onSuccess(arg0, arg1);
                         System.out.println("输出所有拼团活动列表=========" + arg1);
                         try {
                             list_zf = new ArrayList<JuTuanGouData>();
                             progress.CloseProgress();
                             JSONObject object = new JSONObject(arg1);
                             String status = object.getString("status");
-                            // String info = object.getString("info");
                             if (status.equals("y")) {
-                                JSONArray jsonArray = object
-                                        .getJSONArray("data");
+                                JSONArray jsonArray = object.getJSONArray("data");
                                 for (int i = 0; i < jsonArray.length(); i++) {
                                     JSONObject obj = jsonArray.getJSONObject(i);
                                     JuTuanGouData data = new JuTuanGouData();
@@ -1121,11 +904,7 @@ public class MyOrderConfrimActivity extends BaseActivity {
                                 }
 
                                 try {
-                                    System.out.println("合计1----------------"
-                                            + retailPrice);
-                                    System.out
-                                            .println("合计1dzongjia----------------"
-                                                    + dzongjia);
+                                    System.out.println("合计1dzongjia----------------" + mNeedSumMoney);
                                     ZhiFuFangShi = ZhiFuFangShiActivity.title;
                                     express_id = ZhiFuFangShiActivity.express_id;
                                     express_fee = ZhiFuFangShiActivity.express_fee;
@@ -1133,38 +912,37 @@ public class MyOrderConfrimActivity extends BaseActivity {
                                         if (express_fee == 0) {
                                             tv_zhifu.setText(ZhiFuFangShi
                                                     + "(免邮)");
-                                            if (jubi != null) {
-                                                if (dzongjia > 0) {
+                                            if (mExchangePoint != null) {
+                                                if (mNeedSumMoney > 0) {
                                                     heji.setText("实付款:" + " 福利"
-                                                            + jubi + " + "
-                                                            + "￥" + dzongjia);
+                                                            + mExchangePoint + " + "
+                                                            + "￥" + mNeedSumMoney);
                                                 } else {
                                                     heji.setText("实付款:" + " 福利"
-                                                            + jubi);
+                                                            + mExchangePoint);
                                                 }
                                             } else {
                                                 heji.setText("实付款:" + " ￥"
-                                                        + dzongjia);
+                                                        + mNeedSumMoney);
                                             }
                                         } else {
                                             String price = String.valueOf(express_fee);
                                             tv_zhifu.setText(ZhiFuFangShi + "("
                                                     + "￥" + price + ")");
                                             BigDecimal c = new BigDecimal(
-                                                    dzongjia + express_fee);
-                                            // retailPrice =
+                                                    mNeedSumMoney + express_fee);
                                             // Double.toString(c.setScale(2,BigDecimal.ROUND_HALF_UP).doubleValue());
-                                            dzongjia = c.setScale(2,
+                                            mNeedSumMoney = c.setScale(2,
                                                     BigDecimal.ROUND_HALF_UP)
                                                     .doubleValue();
-                                            // heji.setText("实付款:" + dzongjia);
-                                            if (jubi != null) {
+                                            // heji.setText("实付款:" + mNeedSumMoney);
+                                            if (mExchangePoint != null) {
                                                 heji.setText("实付款:" + " 福利"
-                                                        + jubi + " + " + "￥"
-                                                        + dzongjia);
+                                                        + mExchangePoint + " + " + "￥"
+                                                        + mNeedSumMoney);
                                             } else {
                                                 heji.setText("实付款:" + " ￥"
-                                                        + dzongjia);
+                                                        + mNeedSumMoney);
                                             }
                                         }
                                         // ZhiFuFangShiActivity.title = null;
@@ -1178,53 +956,39 @@ public class MyOrderConfrimActivity extends BaseActivity {
                                         express_fee = list_zf.get(0)
                                                 .getExpress_fee();
                                         if (express_fee == 0) {
-                                            tv_zhifu.setText(ZhiFuFangShi
-                                                    + "(免邮)");
-                                            // heji.setText("实付款:" + dzongjia);
-                                            if (jubi != null) {
-                                                if (dzongjia > 0) {
+                                            tv_zhifu.setText(ZhiFuFangShi + "(免邮)");
+                                            // heji.setText("实付款:" + mNeedSumMoney);
+                                            if (mExchangePoint != null) {
+                                                if (mNeedSumMoney > 0) {
                                                     heji.setText("实付款:" + " 福利"
-                                                            + jubi + " + "
-                                                            + "￥" + dzongjia);
+                                                            + mExchangePoint + " + "
+                                                            + "￥" + mNeedSumMoney);
                                                 } else {
                                                     heji.setText("实付款:" + " 福利"
-                                                            + jubi);
+                                                            + mExchangePoint);
                                                 }
                                             } else {
                                                 heji.setText("实付款:" + " ￥"
-                                                        + dzongjia);
+                                                        + mNeedSumMoney);
                                             }
                                         } else {
                                             String price = String
                                                     .valueOf(express_fee);
-                                            tv_zhifu.setText(ZhiFuFangShi + "("
-                                                    + "￥" + price + ")");
-                                            BigDecimal c = new BigDecimal(
-                                                    dzongjia + express_fee);
-                                            // retailPrice =
-                                            // Double.toString(c.setScale(2,BigDecimal.ROUND_HALF_UP).doubleValue());
-                                            // heji.setText("实付款:" +
-                                            // retailPrice);
-                                            dzongjia = c.setScale(2,
-                                                    BigDecimal.ROUND_HALF_UP)
+                                            tv_zhifu.setText(ZhiFuFangShi + "(" + "￥" + price + ")");
+                                            BigDecimal c = new BigDecimal(mNeedSumMoney + express_fee);
+
+                                            mNeedSumMoney = c.setScale(2, BigDecimal.ROUND_HALF_UP)
                                                     .doubleValue();
-                                            // heji.setText("实付款:" + dzongjia);
-                                            if (jubi != null) {
-                                                heji.setText("实付款:" + " 福利"
-                                                        + jubi + " + " + "￥"
-                                                        + dzongjia);
+                                            if (mExchangePoint != null) {
+                                                heji.setText("实付款:" + " 福利" + mExchangePoint + " + " + "￥"
+                                                        + mNeedSumMoney);
                                             } else {
-                                                heji.setText("实付款:" + " ￥"
-                                                        + dzongjia);
+                                                heji.setText("实付款:" + " ￥" + mNeedSumMoney);
                                             }
                                         }
                                     }
-                                    System.out.println("合计2----------------"
-                                            + retailPrice);
-                                    System.out
-                                            .println("合计2dzongjia----------------"
-                                                    + dzongjia);
 
+                                    System.out.println("合计2dzongjia----------------" + mNeedSumMoney);
                                     gethongbao();
 
                                 } catch (Exception e) {
@@ -1254,7 +1018,6 @@ public class MyOrderConfrimActivity extends BaseActivity {
 
     private void loadusertijiao(String payment_id, int kou_hongbao) {
         try {
-
             jiekou_type_ysj = WareInformationActivity.jdh_type;
             System.out.println("jiekou_type_ysj=====================" + jiekou_type_ysj);
             if (jiekou_type_ysj.equals("1")) {
@@ -1265,7 +1028,6 @@ public class MyOrderConfrimActivity extends BaseActivity {
                 jiekou_type = "order_save";// 商品提交订单
                 is_cashing_point = "0";
             }
-            spPreferences = getSharedPreferences("longuserset", MODE_PRIVATE);
             login_sign = spPreferences.getString("login_sign", "");
             System.out.println("login_sign=====================" + login_sign);
             String buy_no = getIntent().getStringExtra("buy_no");
@@ -1288,31 +1050,21 @@ public class MyOrderConfrimActivity extends BaseActivity {
                     super.onSuccess(arg0, arg1);
                     try {
                         JSONObject object = new JSONObject(arg1);
-                        System.out
-                                .println("提交用户订单 ================================="
-                                        + arg1);
+                        System.out.println("提交用户订单 =================================" + arg1);
                         try {
-
                             String status = object.getString("status");
                             String info = object.getString("info");
                             if (status.equals("y")) {
                                 JSONObject jsonObject = object
                                         .getJSONObject("data");
                                 recharge_no = jsonObject.getString("trade_no");
-                                // datetime = jsonObject.getString("datetime");
-                                // order_no = jsonObject.getString("order_no");
-                                // total_amount =
-                                // jsonObject.getString("payable_amount");
-                                System.out
-                                        .println("jiekou_type_ysj====================="
-                                                + jiekou_type_ysj);
+
+                                System.out.println("jiekou_type_ysj=====================" + jiekou_type_ysj);
                                 if (jiekou_type_ysj.equals("1")) {
                                     WareInformationActivity.jdh_type = "";
-                                    total_amount = jsonObject
-                                            .getString("payable_amount");
+                                    total_amount = jsonObject.getString("payable_amount");
                                 } else {
-                                    total_amount = jsonObject
-                                            .getString("total_amount");
+                                    total_amount = jsonObject.getString("total_amount");
                                 }
                                 // data = new ShopCartData();
                                 if (type.equals("3")) {
@@ -1322,19 +1074,15 @@ public class MyOrderConfrimActivity extends BaseActivity {
                                 } else if (type.equals("2")) {
                                     // loadYue(recharge_no);
                                     // teby = true;
-                                    Intent intent = new Intent(
-                                            MyOrderConfrimActivity.this,
+                                    Intent intent = new Intent(MyOrderConfrimActivity.this,
                                             TishiCarArchivesActivity.class);
                                     intent.putExtra("order_no", recharge_no);
                                     intent.putExtra("yue", "yue");
-                                    startActivity(intent);
-                                    // finish();
+                                    startActivityForResult(intent, 111);
                                 }
-                                // handler.sendEmptyMessage(0);
                             } else {
-                                // progress.CloseProgress();
-                                Toast.makeText(MyOrderConfrimActivity.this,
-                                        info, Toast.LENGTH_SHORT).show();
+//                                Toast.makeText(MyOrderConfrimActivity.this, info, Toast.LENGTH_SHORT).show();
+                                showOrderActivity();
                             }
 
                         } catch (Exception e) {
@@ -1374,18 +1122,6 @@ public class MyOrderConfrimActivity extends BaseActivity {
 
             switch (msg.what) {
                 case 0:
-                    try {
-
-                        System.out.println("3================" + list.size());
-                        adapter = new ShopingCartOrderAdapter(list,
-                                getApplicationContext(), handler);
-                        list_shop_cart.setAdapter(adapter);
-                        // list_shop_cart.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
-
-                    } catch (Exception e) {
-
-                        e.printStackTrace();
-                    }
                     break;
                 case 1:
                     ali_pay();
@@ -1409,29 +1145,22 @@ public class MyOrderConfrimActivity extends BaseActivity {
                                 req.timeStamp = timestamp;// -1
                                 req.packageValue = package_;
                                 req.sign = sign;// -3
-
                                 // 在支付之前，如果应用没有注册到微信，应该先调用IWXMsg.registerApp将应用注册到微信
                                 api.registerApp(Constant.APP_ID);
                                 // api.sendReq(req);
                                 flag = api.sendReq(req);
                                 System.out.println("支付" + flag);
-                                // finish();
-                                // Toast.makeText(MyOrderConfrimActivity.this,
-                                // "支付true", Toast.LENGTH_SHORT).show();
-
                             } catch (Exception e) {
-
                                 e.printStackTrace();
                             }
                         } else {
-                            Toast.makeText(MyOrderConfrimActivity.this, "支付失败。。。",
-                                    Toast.LENGTH_SHORT).show();
+                            Toast.makeText(MyOrderConfrimActivity.this, "支付失败，请在我的订单中查看", Toast.LENGTH_SHORT).show();
+                            showOrderActivity();
                         }
                     } catch (Exception e) {
 
                         e.printStackTrace();
                     }
-
                     break;
                 case 5:// 支付宝
                     PayResult payResult = new PayResult((String) msg.obj);
@@ -1451,15 +1180,13 @@ public class MyOrderConfrimActivity extends BaseActivity {
                         // 判断resultStatus 为非“9000”则代表可能支付失败
                         // “8000”代表支付结果因为支付渠道原因或者系统原因还在等待支付结果确认，最终交易是否成功以服务端异步通知为准（小概率状态）
                         if (TextUtils.equals(resultStatus, "8000")) {
-                            Toast.makeText(MyOrderConfrimActivity.this, "支付结果确认中",
+                            Toast.makeText(MyOrderConfrimActivity.this, "支付结果确认中,请在我订单中查看",
                                     Toast.LENGTH_SHORT).show();
-                            finish();
-
+                            showOrderActivity();
                         } else {
                             // 其他值就可以判断为支付失败，包括用户主动取消支付，或者系统返回的错误
-                            Toast.makeText(MyOrderConfrimActivity.this, "支付失败",
-                                    Toast.LENGTH_SHORT).show();
-                            finish();
+                            Toast.makeText(MyOrderConfrimActivity.this, "支付失败，请在我的订单查看", Toast.LENGTH_SHORT).show();
+                            showOrderActivity();
                         }
                     }
                     break;
@@ -1621,7 +1348,6 @@ public class MyOrderConfrimActivity extends BaseActivity {
     private void loadweixinzf2(String recharge_no2, String total_amount) {
         try {
             recharge_no = recharge_no2;
-            System.out.println("总金额===================" + retailPrice);
             // String monney =
             // String.valueOf(Integer.parseInt(retailPrice)*100);
             String monney = String
@@ -1757,7 +1483,6 @@ public class MyOrderConfrimActivity extends BaseActivity {
             payThread.start();
 
         } catch (Exception e) {
-
             e.printStackTrace();
 
         }
@@ -1836,5 +1561,21 @@ public class MyOrderConfrimActivity extends BaseActivity {
         // orderInfo += "&paymethod=\"expressGateway\"";
         System.out.println(orderInfo);
         return orderInfo;
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        progress.CloseProgress();
+    }
+
+    /**
+     * 去我的订单页面
+     */
+    private void showOrderActivity() {
+        Intent intent = new Intent(MyOrderConfrimActivity.this, MyOrderActivity.class);
+        intent.putExtra("status", "1");
+        startActivity(intent);
+        finish();
     }
 }

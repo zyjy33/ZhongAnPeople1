@@ -61,13 +61,6 @@ public class ZhiFuFangShiActivity extends BaseActivity implements
 
 	}
 
-	@Override
-	protected void onResume() {
-
-		super.onResume();
-
-	}
-
 	Handler handler = new Handler() {
 		@SuppressWarnings("unchecked")
 		@Override
@@ -158,7 +151,7 @@ public class ZhiFuFangShiActivity extends BaseActivity implements
 							} else {
 								progress.CloseProgress();
 								Toast.makeText(ZhiFuFangShiActivity.this, info,
-										200).show();
+										Toast.LENGTH_SHORT).show();
 							}
 						} catch (JSONException e) {
 

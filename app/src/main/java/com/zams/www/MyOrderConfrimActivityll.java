@@ -436,7 +436,7 @@ public class MyOrderConfrimActivityll extends BaseActivity {
 					try {
 
 						System.out.println("3================"+list_ll.size());
-						adapter = new ShopingCartOrderAdapter(list_ll, getApplicationContext(), handler);
+						adapter = new ShopingCartOrderAdapter(list_ll, getApplicationContext());
 						list_shop_cart.setAdapter(adapter);
 						//				list_shop_cart.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
 

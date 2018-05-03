@@ -96,7 +96,7 @@ public class Webview1 extends BaseActivity {
 					webview.loadUrl(RealmName.REALM_NAME_WEB
 							+ "/mobile/news/conent-" + ylyh_id + ".html");
 				}
-
+//				http://mobile.zams.cn/mobile/news/conent-6239.html
 				// 服务顾问业务说明web网页
 				String ck_id = getIntent().getStringExtra("ck_id");
 				if (ck_id != null) {
