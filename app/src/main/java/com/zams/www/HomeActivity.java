@@ -1,11 +1,5 @@
 package com.zams.www;
 
-import java.util.ArrayList;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import android.app.Fragment;
 import android.content.Context;
 import android.content.Intent;
@@ -17,6 +11,7 @@ import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.text.TextUtils;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -25,8 +20,6 @@ import android.view.View.OnClickListener;
 import android.view.View.OnTouchListener;
 import android.view.ViewGroup;
 import android.view.inputmethod.EditorInfo;
-import android.widget.AdapterView;
-import android.widget.AdapterView.OnItemClickListener;
 import android.widget.EditText;
 import android.widget.GridView;
 import android.widget.ImageButton;
@@ -60,14 +53,12 @@ import com.hengyushop.demo.home.JuTuanGou2Activity;
 import com.hengyushop.demo.home.JuYouFangActivity;
 import com.hengyushop.demo.home.JuYunshangActivity;
 import com.hengyushop.demo.home.SouSuoSpActivity;
-import com.hengyushop.demo.home.TuiJianGoodsListActivity;
 import com.hengyushop.demo.home.XinshouGyActivity;
 import com.hengyushop.demo.home.ZhongAnYlActivity;
 import com.hengyushop.demo.my.TishiWxBangDingActivity;
 import com.hengyushop.demo.shopcart.TuiJianSpListActivity;
 import com.hengyushop.demo.wec.MyGridView;
 import com.hengyushop.demo.wec.NewWare;
-import com.hengyushop.demo.wec.NewWareMallActivity;
 import com.hengyushop.entity.JuTuanGouData;
 import com.hengyushop.entity.SpListData;
 import com.hengyushop.entity.UserRegisterllData;
@@ -79,6 +70,12 @@ import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.tencent.mm.sdk.openapi.IWXAPI;
 import com.zxing.android.CaptureActivity;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
 
 public class HomeActivity extends Fragment implements OnClickListener {
     private ImageView yh0, yh3, yh6, yh10, yh16, yh14, yh19, yh22, yh25, img_1, img_2, img_3;
@@ -110,7 +107,7 @@ public class HomeActivity extends Fragment implements OnClickListener {
     private ArrayList<BeanVo> list;
     private GridView gridview;
     ScrollTopView mytaobao;
-    private MyPosterView advPager = null;
+    private MyPosterView advPager = null; //广告
     private LinearLayout vip0, vip1, second_main_l4, second_main_l3,
             second_main_l2, item0, item1, item2, item3, layout2, index_item4,
             index_item0, index_item1, index_item2, index_item3, index_item6,
@@ -525,7 +522,7 @@ public class HomeActivity extends Fragment implements OnClickListener {
                                     //									spList = null;
                                 } else {
                                     //										progress.CloseProgress();
-                                    Toast.makeText(getActivity(), info,  Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(getActivity(), info, Toast.LENGTH_SHORT).show();
                                 }
                                 //									if(len!=0){
                                 //										CURRENT_NUM =CURRENT_NUM+1;
@@ -756,7 +753,7 @@ public class HomeActivity extends Fragment implements OnClickListener {
                 handler.sendMessage(msg);
                 // handler.sendEmptyMessage(110);
             } else {
-                Toast.makeText(getActivity(), info,  Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), info, Toast.LENGTH_SHORT).show();
             }
 
             progress.CloseProgress();
@@ -1260,7 +1257,6 @@ public class HomeActivity extends Fragment implements OnClickListener {
     }
 
     ArrayList<AdvertDao1> images = null;
-    AdvertDao1 ada;
 
     private void getguangao() {
 
@@ -1279,17 +1275,14 @@ public class HomeActivity extends Fragment implements OnClickListener {
                             int len = array.length();
                             images = new ArrayList<AdvertDao1>();
                             for (int i = 0; i < len; i++) {
-                                ada = new AdvertDao1();
+                                AdvertDao1 ada = new AdvertDao1();
                                 JSONObject json = array.getJSONObject(i);
                                 ada.setId(json.getString("id"));
                                 ada.setAd_url(json.getString("ad_url"));
                                 ada.setLink_url(json.getString("link_url"));
-                                // String ad_url = ada.getAd_url();
-                                ada.setAd_url(RealmName.REALM_NAME_HTTP
-                                        + json.getString("ad_url"));
+                                ada.setAd_url(RealmName.REALM_NAME_HTTP + json.getString("ad_url"));
                                 images.add(ada);
                             }
-                            ada = null;
                             Message msg = new Message();
                             msg.obj = images;
                             msg.what = 0;
@@ -1354,73 +1347,29 @@ public class HomeActivity extends Fragment implements OnClickListener {
                     for (int i = 0; i < tempss.size(); i++) {
                         urls.add(tempss.get(i).getAd_url());
                     }
-                    // addvie(context, tempss,urls);
                     ImageLoader imageLoader = ImageLoader.getInstance();
                     advPager.setData(urls, new MyPosterOnClick() {
                         @Override
                         public void onMyclick(int position) {
-
-                            // Message msg = new Message();
-                            // msg.what = 13;
-                            // msg.obj = tempss.get(position).getId();
-                            // handler.sendMessage(msg);
-
-                            if (!nickname.equals("")) {
-                                if (!user_name.equals("")) {
-                                    String link_url = tempss.get(position)
-                                            .getLink_url();
-                                    System.out.println("link_url============="
-                                            + link_url);
-                                    if (link_url.contains("goods")) {
-                                        String id = link_url.substring(33, 37);
-                                        System.out.println("id=============" + id);
-                                        Intent intent = new Intent(getActivity(),
-                                                WareInformationActivity.class);
-                                        intent.putExtra("id", id);
-                                        startActivity(intent);
-                                    } else {
-                                        Intent intent13 = new Intent(getActivity(),
-                                                Webview1.class);
-                                        intent13.putExtra("link_url", link_url);
-                                        startActivity(intent13);
-                                    }
+                            if (!TextUtils.isEmpty(nickname)) {
+                                if (!TextUtils.isEmpty(user_name)) {
+                                    String link_url = tempss.get(position).getLink_url();
+                                    goWebOrInfoActivity(link_url);
                                 } else {
                                     Intent intent2 = new Intent(getActivity(),
                                             TishiWxBangDingActivity.class);
                                     startActivity(intent2);
                                 }
                             } else {
-                                if (user_name.equals("")) {
-                                    Intent intent48 = new Intent(getActivity(),
-                                            UserLoginActivity.class);
+                                if (TextUtils.isEmpty(user_name)) {
+                                    Intent intent48 = new Intent(getActivity(), UserLoginActivity.class);
                                     startActivity(intent48);
                                 } else {
-                                    String link_url = tempss.get(position)
-                                            .getLink_url();
-                                    System.out.println("link_url============="
-                                            + link_url);
-                                    if (link_url.contains("goods")) {
-                                        String id = link_url.substring(33, 37);
-                                        System.out.println("id=============" + id);
-                                        Intent intent = new Intent(getActivity(),
-                                                WareInformationActivity.class);
-                                        intent.putExtra("id", id);
-                                        startActivity(intent);
-                                    } else {
-                                        Intent intent13 = new Intent(getActivity(),
-                                                Webview1.class);
-                                        intent13.putExtra("link_url", link_url);
-                                        startActivity(intent13);
-                                    }
+                                    String link_url = tempss.get(position).getLink_url();
+                                    goWebOrInfoActivity(link_url);
                                 }
                             }
 
-                            // String id = tempss.get(position).getId();
-                            // System.out.println("====================="+id);
-                            // Intent intent30 = new
-                            // Intent(getActivity(),WareInformationActivity.class);
-                            // intent30.putExtra("id", id);
-                            // startActivity(intent30);
                         }
                     }, true, imageLoader, true);
 
@@ -1432,6 +1381,24 @@ public class HomeActivity extends Fragment implements OnClickListener {
 
         ;
     };
+
+    private void goWebOrInfoActivity(String link_url) {
+        if (link_url != null && link_url.contains("goods") && !link_url.startsWith("http")) {
+            int start = link_url.lastIndexOf("-") + 1;
+            int end = link_url.lastIndexOf(".");
+            String id = link_url.substring(start, end);
+            System.out.println("id=============" + id);
+            Intent intent = new Intent(getActivity(),
+                    WareInformationActivity.class);
+            intent.putExtra("id", id);
+            startActivity(intent);
+        } else {
+            Intent intent13 = new Intent(getActivity(),
+                    Webview1.class);
+            intent13.putExtra("link_url", link_url);
+            startActivity(intent13);
+        }
+    }
 
     Handler handler = new Handler() {
 
@@ -1985,7 +1952,7 @@ public class HomeActivity extends Fragment implements OnClickListener {
                                             .getJSONObject("data");
                                     String id = obj.getString("id");
                                     String count = obj.getString("count");
-                                    Toast.makeText(getActivity(), info,  Toast.LENGTH_SHORT)
+                                    Toast.makeText(getActivity(), info, Toast.LENGTH_SHORT)
                                             .show();
                                     Intent intent = new Intent(getActivity(),
                                             MyOrderConfrimActivity.class);
@@ -1994,7 +1961,7 @@ public class HomeActivity extends Fragment implements OnClickListener {
                                     // finish();
                                 } else {
                                     // progress.CloseProgress();
-                                    Toast.makeText(getActivity(), info,  Toast.LENGTH_SHORT)
+                                    Toast.makeText(getActivity(), info, Toast.LENGTH_SHORT)
                                             .show();
                                 }
                             } catch (JSONException e) {

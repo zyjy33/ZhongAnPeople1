@@ -581,31 +581,6 @@
                         android:textSize="16dp" />
                 </LinearLayout>
 
-                <LinearLayout
-                    android:id="@+id/index_item2"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:background="@android:color/white"
-                    android:gravity="center"
-                    android:orientation="vertical"
-                    android:paddingTop="8dp" >
-
-                    <ImageView
-                        android:id="@+id/iv_my_tp3"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp" />
-
-                    <TextView
-                        android:layout_width="fill_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="8dp"
-                        android:layout_marginTop="8dp"
-                        android:gravity="center"
-                        android:text="我的拼团"
-                        android:textColor="@color/zams_zt_ys"
-                        android:textSize="13dp" />
-                </LinearLayout>
 
                 <LinearLayout
                     android:id="@+id/ll_payed"
@@ -705,6 +680,31 @@
                         android:textSize="13dp" />
                 </LinearLayout>
 
+                <LinearLayout
+                    android:id="@+id/index_item2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@android:color/white"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:paddingTop="8dp" >
+
+                    <ImageView
+                        android:id="@+id/iv_my_tp3"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp" />
+
+                    <TextView
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="8dp"
+                        android:layout_marginTop="8dp"
+                        android:gravity="center"
+                        android:text="我的拼团"
+                        android:textColor="@color/zams_zt_ys"
+                        android:textSize="13dp" />
+                </LinearLayout>
                 <LinearLayout
                     android:id="@+id/index_item3"
                     android:layout_width="0dp"

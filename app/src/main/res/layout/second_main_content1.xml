@@ -45,7 +45,7 @@ android:orientation="vertical" >
             <com.lglottery.www.widget.MyPosterView
                 android:id="@+id/adv_pagerll"
                 android:layout_width="fill_parent"
-                android:layout_height="180dp"></com.lglottery.www.widget.MyPosterView>
+                android:layout_height="180dp"/>
 
             <LinearLayout
                 android:id="@+id/main_fragment_viewpager"

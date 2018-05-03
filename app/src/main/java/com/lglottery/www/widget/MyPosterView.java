@@ -81,11 +81,6 @@ public class MyPosterView extends FrameLayout{
 
 		views = new ArrayList<ImageView>();
 		layoutShowPoint = (LinearLayout) findViewById(R.id.common_point);
-		// ((android.widget.RelativeLayout.LayoutParams)
-		// layoutShowPoint.getLayoutParams())
-		// .setMargins(0,0,0,MyApplication.getAdapH(10));
-
-		// 实现一个PagerAdapter
 
 		try {
 			Field mScroller;

@@ -575,7 +575,7 @@ public class MyOrderConfrimActivity extends BaseActivity {
                 if (user_accept_name == null) {
                     Toast.makeText(MyOrderConfrimActivity.this, "您还未添加收货地址",
                             Toast.LENGTH_SHORT).show();
-                } else if (!"2".equals(type) && mNeedSumMoney - (mExpectPacket > mOwnedPacket ? mOwnedPacket : mExpectPacket) == 0) {
+                } else if (sb.isNowChoose() && !"2".equals(type) && mNeedSumMoney - (mExpectPacket > mOwnedPacket ? mOwnedPacket : mExpectPacket) == 0) {
                     Toast.makeText(MyOrderConfrimActivity.this, "支付金额小于0，请使用余额支付", Toast.LENGTH_SHORT).show();
                 } else {
                     System.out.println("type======结算方式========" + type);
