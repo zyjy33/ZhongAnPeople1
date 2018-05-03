@@ -68,7 +68,7 @@
             android:layout_marginTop="0dp"
             android:background="@drawable/zhou_btn_red_3_5_shanchu_bg"
             android:hint="请输入证件号"
-            android:inputType="text"
+            android:inputType="number|numberDecimal|textCapWords"
             android:maxLength="50"
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
