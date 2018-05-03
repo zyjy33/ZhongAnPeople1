@@ -1063,7 +1063,7 @@ public class OrderConfrimActivity extends BaseActivity {
 											}
 										}).show();
 
-						return false;
+						return true;
 					}
 				});
 	}

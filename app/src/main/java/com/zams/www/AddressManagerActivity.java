@@ -63,25 +63,24 @@ public class AddressManagerActivity extends BaseActivity {
 	Intent intent;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.address_manager_gl);
+
 		popupWindowMenu = new MyPopupWindowMenu(this);
 		progress = new DialogProgress(AddressManagerActivity.this);
 		list_address = (ListView) findViewById(R.id.list_address);
 		list_address.setCacheColorHint(0);
 		tv_guanli = (TextView) findViewById(R.id.tv_guanli);
 		spPreferences = getSharedPreferences("longuserset", MODE_PRIVATE);
-		
-//		getuseraddress();
-		
+		/**
+		 * 返回键
+		 */
 		ImageView iv_fanhui = (ImageView) findViewById(R.id.iv_fanhui);
 		iv_fanhui.setOnClickListener(new OnClickListener() {
 			
 			@Override
 			public void onClick(View arg0) {
-
 				finish();
 			}
 		});
@@ -91,10 +90,9 @@ public class AddressManagerActivity extends BaseActivity {
 			@Override
 			public boolean onItemLongClick(AdapterView<?> arg0, View arg1,
 					int arg2, long arg3) {
-
 				ID = list.get(arg2).id;
 				dialog(ID);
-				return false;
+				return true;
 			}
 		});
 		

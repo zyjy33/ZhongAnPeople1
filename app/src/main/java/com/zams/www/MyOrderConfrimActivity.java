@@ -31,7 +31,6 @@ import android.widget.CheckBox;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -45,8 +44,6 @@ import com.android.pliay.PayResult;
 import com.android.pliay.SignUtils;
 import com.androidquery.AQuery;
 import com.hengyushop.airplane.adapter.ShopingCartOrderAdapter;
-import com.hengyushop.dao.CardItem;
-import com.hengyushop.dao.WareDao;
 import com.hengyushop.demo.at.AsyncHttp;
 import com.hengyushop.demo.at.BaseActivity;
 import com.hengyushop.demo.at.Common;
@@ -56,12 +53,8 @@ import com.hengyushop.demo.home.ZhiFuFangShiActivity;
 import com.hengyushop.demo.my.TishiCarArchivesActivity;
 import com.hengyushop.entity.JuTuanGouData;
 import com.hengyushop.entity.ShopCartData;
-import com.hengyushop.entity.ShopCarts;
 import com.hengyushop.entity.UserAddressData;
-import com.hengyushop.entity.UserRegisterData;
 import com.hengyushop.entity.UserRegisterllData;
-import com.lglottery.www.widget.CommomConfrim;
-import com.lglottery.www.widget.CommomConfrim.onDeleteSelect;
 import com.lglottery.www.widget.InScrollListView;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.tencent.mm.sdk.constants.Build;
@@ -137,6 +130,41 @@ public class MyOrderConfrimActivity extends BaseActivity {
     public AQuery mAq;
 
     @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        popupWindowMenu = new MyPopupWindowMenu(this);
+        progress = new DialogProgress(MyOrderConfrimActivity.this);
+        api = WXAPIFactory.createWXAPI(MyOrderConfrimActivity.this, null);
+        api.registerApp(Constant.APP_ID);
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.order_confrim);
+        progress.CreateProgress();
+        spPreferences = getSharedPreferences("longuserset", MODE_PRIVATE);
+        user_name = spPreferences.getString("user", "");
+        user_id = spPreferences.getString("user_id", "");
+        mAq = new AQuery(this);
+        sb = (SlipButton) findViewById(R.id.splitbutton);
+        // sb.setCheck(false);
+        tv_hb_ye = (TextView) findViewById(R.id.tv_hb_ye);
+        tv_hb_ye_2 = (TextView) findViewById(R.id.tv_hb_ye_2);
+        tv_hb_ye_3 = (TextView) findViewById(R.id.tv_hb_ye_3);
+        sb.setCheck(true);
+
+        handlerll = new Handler() {
+            public void handleMessage(Message msg) {
+                switch (msg.what) {
+                    case 2:
+                        finish();
+                        break;
+                }
+            }
+        };
+        initdata();
+
+    }
+
+
+    @Override
     protected void onResume() {
 
         super.onResume();
@@ -205,39 +233,6 @@ public class MyOrderConfrimActivity extends BaseActivity {
 
     public static Handler handlerll;
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        requestWindowFeature(Window.FEATURE_NO_TITLE);
-        popupWindowMenu = new MyPopupWindowMenu(this);
-        progress = new DialogProgress(MyOrderConfrimActivity.this);
-        api = WXAPIFactory.createWXAPI(MyOrderConfrimActivity.this, null);
-        api.registerApp(Constant.APP_ID);
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.order_confrim);
-        progress.CreateProgress();
-        spPreferences = getSharedPreferences("longuserset", MODE_PRIVATE);
-        user_name = spPreferences.getString("user", "");
-        user_id = spPreferences.getString("user_id", "");
-        mAq = new AQuery(this);
-        sb = (SlipButton) findViewById(R.id.splitbutton);
-        // sb.setCheck(false);
-        tv_hb_ye = (TextView) findViewById(R.id.tv_hb_ye);
-        tv_hb_ye_2 = (TextView) findViewById(R.id.tv_hb_ye_2);
-        tv_hb_ye_3 = (TextView) findViewById(R.id.tv_hb_ye_3);
-        sb.setCheck(true);
-
-        handlerll = new Handler() {
-            public void handleMessage(Message msg) {
-                switch (msg.what) {
-                    case 2:
-                        finish();
-                        break;
-                }
-            }
-        };
-        initdata();
-
-    }
 
     /**
      * 获取用户红包

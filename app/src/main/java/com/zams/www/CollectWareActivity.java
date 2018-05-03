@@ -112,7 +112,7 @@ public class CollectWareActivity extends BaseActivity {
 
 				ID = list.get(arg2).id;
 				dialog(ID);
-				return false;
+				return true;
 			}
 		});
 		ImageView iv_fanhui = (ImageView) findViewById(R.id.iv_fanhui);
