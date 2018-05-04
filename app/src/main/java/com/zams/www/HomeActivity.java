@@ -632,7 +632,6 @@ public class HomeActivity extends Fragment implements OnClickListener {
         AsyncHttp.get(strUrl, new AsyncHttpResponseHandler() {
             @Override
             public void onSuccess(int arg0, String arg1) {
-
                 super.onSuccess(arg0, arg1);
                 parse1(arg1);
             }
@@ -1269,7 +1268,6 @@ public class HomeActivity extends Fragment implements OnClickListener {
                     public void onSuccess(int arg0, String arg1) {
                         super.onSuccess(arg0, arg1);
                         try {
-                            System.out.println("广告滚动-----------" + arg1);
                             JSONObject object = new JSONObject(arg1);
                             JSONArray array = object.getJSONArray("data");
                             int len = array.length();
@@ -1383,7 +1381,7 @@ public class HomeActivity extends Fragment implements OnClickListener {
     };
 
     private void goWebOrInfoActivity(String link_url) {
-        if (link_url != null && link_url.contains("goods") && !link_url.startsWith("http")) {
+        if (link_url != null && link_url.contains("goods") ) {
             int start = link_url.lastIndexOf("-") + 1;
             int end = link_url.lastIndexOf(".");
             String id = link_url.substring(start, end);
