@@ -484,7 +484,7 @@ public class ZhongAnMinShenXqActivity extends BaseActivity implements
                                     System.out.println("收藏================" + arg1);
                                     // progress.CloseProgress();
                                     String info = jsonObject.getString("info");
-                                    Toast.makeText(getApplicationContext(), info,
+                                    Toast.makeText(getApplicationContext(), "此活动已经被关注过",
                                             Toast.LENGTH_SHORT).show();
                                 } catch (JSONException e) {
 

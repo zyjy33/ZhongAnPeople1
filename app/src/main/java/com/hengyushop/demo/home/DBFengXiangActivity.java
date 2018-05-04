@@ -81,9 +81,9 @@ public class DBFengXiangActivity extends BaseActivity implements OnClickListener
 	String data_pt;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		super.onCreate(savedInstanceState);
+		api = WXAPIFactory.createWXAPI(DBFengXiangActivity.this, Constant.APP_ID);
 		setContentView(R.layout.activity_fenxiang_time);
 		spPreferences = getSharedPreferences("longuserset", MODE_PRIVATE);
 		progress = new DialogProgress(DBFengXiangActivity.this);
@@ -117,7 +117,7 @@ public class DBFengXiangActivity extends BaseActivity implements OnClickListener
 				public void onClick(View arg0) {
 					finish();
 //					con(19, 1);
-					Toast.makeText(DBFengXiangActivity.this, "功能还未开发，敬请期待", 200).show();
+					Toast.makeText(DBFengXiangActivity.this, "功能还未开发，敬请期待", Toast.LENGTH_SHORT).show();
 				}
 			});
 
@@ -135,7 +135,6 @@ public class DBFengXiangActivity extends BaseActivity implements OnClickListener
 
 				@Override
 				public void onClick(View v) {
-
 					finish();
 					con(17, 1);
 				}
@@ -169,10 +168,8 @@ public class DBFengXiangActivity extends BaseActivity implements OnClickListener
 			System.out.println("user_id==========" + user_id);
 
 			SharedPreferences spPreferences_login = getSharedPreferences("longuserset_login", MODE_PRIVATE);
-//			SharedPreferences spPreferences_tishi = getSharedPreferences("longuserset_tishi", MODE_PRIVATE);
 			SharedPreferences spPreferences = getSharedPreferences("longuserset_ptye", MODE_PRIVATE);
 			String ptye = spPreferences.getString("ptye", "");
-//			String qq = spPreferences_tishi.getString("qq", "");
 			System.out.println("ptye==========" + ptye);
 			System.out.println("user_id==========" + user_id);
 			if (ptye != null) {
@@ -412,7 +409,7 @@ public class DBFengXiangActivity extends BaseActivity implements OnClickListener
 	/**
 	 * Bitmap转换成byte[]并且进行压缩,压缩到不大于maxkb
 	 * @param bitmap
-	 * @param IMAGE_SIZE
+	 * @param
 	 * @return
 	 */
 	public static byte[] bitmap2Bytes(Bitmap bitmap, int maxkb) {
