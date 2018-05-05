@@ -29,4 +29,12 @@
         <attr name="layout_horizontalSpacing" format="dimension"/>
         <attr name="layout_verticalSpacing" format="dimension"/>
     </declare-styleable>
+
+    <declare-styleable name="NoticeStyle">
+        <attr name="notice_type">
+            <enum name="no_internet" value="0" />
+            <enum name="loading" value="1" />
+            <enum name="data_error" value="2" />
+        </attr>
+    </declare-styleable>
 </resources>

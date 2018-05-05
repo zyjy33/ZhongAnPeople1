@@ -942,7 +942,10 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".health.DescriptionActivity"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"/>
+        <activity android:name=".health.NoEvaluatedOrderActivity"
+            android:screenOrientation="portrait"
+            />
         <receiver
             android:name=".wxapi.AppRegister"
             android:permission="com.tencent.mm.plugin.permission.SEND" >

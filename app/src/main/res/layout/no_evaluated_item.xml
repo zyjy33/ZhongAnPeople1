@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/order_num"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="@dimen/app_margin"
+        android:layout_marginRight="@dimen/app_margin"
+        android:gravity="center_vertical"
+        android:text="订单号：12345678912346"
+        android:textColor="@color/title_color"
+        android:textSize="15sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/no_evaluated_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/app_margin"
+            android:layout_marginRight="@dimen/app_margin"
+            android:text="2018-05-05"
+            android:textColor="@color/content_color"
+            android:textSize="14sp" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="1" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/app_margin"
+            android:text="待评价订单"
+            android:textColor="@color/content_color"
+            android:textSize="14sp" />
+    </LinearLayout>
+
+    <GridLayout
+        android:id="@+id/grid_title"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="#1491d9"
+        android:columnCount="5"
+        android:orientation="horizontal"
+        android:rowCount="1">
+
+        <TextView
+            style="@style/NoEvaluatedGridTitleTv"
+            android:text="序号" />
+
+        <TextView
+            style="@style/NoEvaluatedGridTitleTv"
+            android:text="体检名称" />
+
+        <TextView
+            style="@style/NoEvaluatedGridTitleTv"
+            android:text="体验结果" />
+
+        <TextView
+            style="@style/NoEvaluatedGridTitleTv"
+            android:text="正常范围" />
+
+        <TextView
+            style="@style/NoEvaluatedGridTitleTv"
+            android:text="体检备注" />
+    </GridLayout>
+
+    <GridLayout
+        android:id="@+id/grid_content"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_gravity="center"
+        android:columnCount="5"
+        android:orientation="horizontal"
+        android:rowCount="2">
+
+        <TextView
+            style="@style/NoEvaluatedGridContentTv"
+            android:text="01" />
+
+        <TextView
+            style="@style/NoEvaluatedGridContentTv"
+            android:text="舒张压" />
+
+        <TextView
+            style="@style/NoEvaluatedGridContentTv"
+            android:text="127ml/mog" />
+
+        <TextView
+            style="@style/NoEvaluatedGridContentTv"
+            android:text="70-112mmhg" />
+
+        <TextView
+            style="@style/NoEvaluatedGridContentTv"
+            android:text="忌口辛辣" />
+
+        <TextView
+            style="@style/NoEvaluatedGridContentTv"
+            android:text="02" />
+
+        <TextView
+            style="@style/NoEvaluatedGridContentTv"
+            android:text="血糖" />
+
+        <TextView
+            style="@style/NoEvaluatedGridContentTv"
+            android:text="12ml/mol" />
+
+        <TextView
+            style="@style/NoEvaluatedGridContentTv"
+            android:text="5-12ml/mol" />
+
+        <TextView
+            style="@style/NoEvaluatedGridContentTv"
+            android:text="高血糖少食" />
+
+    </GridLayout>
+
+    <TextView
+        android:layout_marginRight="@dimen/app_margin"
+        android:layout_gravity="right"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/assess_flag_bg"
+        android:paddingBottom="8dp"
+        android:paddingLeft="40dp"
+        android:paddingRight="40dp"
+        android:paddingTop="8dp"
+        android:text="评价"
+        android:gravity="center"
+        android:textColor="@color/orange_color"
+        android:textSize="18sp" />
+
+
+</LinearLayout>

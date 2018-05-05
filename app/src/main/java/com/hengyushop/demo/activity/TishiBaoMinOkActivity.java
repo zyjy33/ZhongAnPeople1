@@ -33,10 +33,6 @@ public class TishiBaoMinOkActivity extends Activity implements OnClickListener{
 
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_tishi_baomin_ok);
-		//		spPreferences = getSharedPreferences("longuserset", MODE_PRIVATE);
-		//		user_name = spPreferences.getString("user", "");
-		//		user_id = spPreferences.getString("user_id", "");
-		//		progress = new DialogProgress(TishiWxBangDingActivity.this);
 		initUI();
 	}
 

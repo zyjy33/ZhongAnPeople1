@@ -315,7 +315,7 @@ public class XListView extends ListView implements OnScrollListener {
 				if (mEnablePullLoad
 						&& mFooterView.getBottomMargin() > PULL_LOAD_MORE_DELTA
 						&& !mPullLoading) {
-					// startLoadMore();
+					 startLoadMore();
 				}
 				resetFooterHeight();
 			}

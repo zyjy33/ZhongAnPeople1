@@ -35,8 +35,6 @@ public class DianZiPiaoActivity extends BaseActivity {
 	Button btn_holdr;
 	ImageView img_ware;
 	private SharedPreferences spPreferences;
-	//	TextView
-	public static AQuery mAq;
 	String user_name,user_id,real_name,mobile;
 	Bitmap _Bitmap;
 	TextView tv_feiyong,tv_name,tv_ware_name,tv_dizhi,tv_time,tv_ent_time,tv_qiandao;
@@ -47,16 +45,11 @@ public class DianZiPiaoActivity extends BaseActivity {
 	LinearLayout ll_qiandao_pd;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_dianzipiao);
 		progress = new DialogProgress(DianZiPiaoActivity.this);
-		mAq = new AQuery(DianZiPiaoActivity.this);
 		spPreferences = getSharedPreferences("longuserset", MODE_PRIVATE);
-		//		user_name = spPreferences.getString("user", "");
-		//		user_id = spPreferences.getString("user_id", "");
-		//		real_name = spPreferences.getString("real_name", "");
 		mobile = spPreferences.getString("mobile", "");
 		weizhi_type = false;
 		initdata();
@@ -73,9 +66,6 @@ public class DianZiPiaoActivity extends BaseActivity {
 			// handler自带方法实现定时器
 			try {
 				handler.postDelayed(this, TIME);
-				//	                tvShow.setText(Integer.toString(i++));
-				//	                System.out.println("weizhi_type============1================"+weizhi_type);
-				//	                System.out.println("do...");
 				if (weizhi_type == false) {
 					loadzhifuweix();
 				}else {
@@ -128,8 +118,6 @@ public class DianZiPiaoActivity extends BaseActivity {
 		System.out.println("url---------------------"+url);
 		try {
 			_Bitmap = EncodingHandler.createQRCode(url, 350);
-
-
 			img_ware.setImageBitmap(_Bitmap);
 		} catch (WriterException e) {
 
