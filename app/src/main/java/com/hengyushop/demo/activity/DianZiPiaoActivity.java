@@ -211,7 +211,6 @@ public class DianZiPiaoActivity extends BaseActivity {
 				new AsyncHttpResponseHandler() {
 					@Override
 					public void onSuccess(int arg0, String arg1) {
-
 						super.onSuccess(arg0, arg1);
 						System.out.println("=========数据接口============"+arg1);
 						try {
