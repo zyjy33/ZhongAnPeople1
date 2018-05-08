@@ -359,7 +359,7 @@ public class MyOrderZFActivity extends BaseActivity implements OnClickListener {
 	/**
 	 * 微信支付
 	 *
-	 * @param payment_id
+	 * @param
 	 */
 	private void loadweixinzf2(String recharge_no) {
 		try {

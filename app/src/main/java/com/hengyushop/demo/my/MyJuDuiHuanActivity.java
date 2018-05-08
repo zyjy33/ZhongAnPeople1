@@ -49,7 +49,7 @@ import com.zams.www.R;
 
 /**
  *
- * 我的聚兑换
+ * 我的兑换
  *
  * @author Administrator
  *

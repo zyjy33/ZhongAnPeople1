@@ -389,7 +389,7 @@ android:orientation="vertical" >
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="5dp"
-                        android:text="回馈专区"
+                        android:text="红包专区"
                         android:textColor="@color/black"
                         android:textSize="15sp" />
                 </LinearLayout>
