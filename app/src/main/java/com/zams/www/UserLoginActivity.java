@@ -162,8 +162,12 @@ public class UserLoginActivity extends BaseActivity implements OnClickListener {
 
 	}
 
-	public void userxinxi(){
+	@Override
+	protected void onStart() {
+		super.onStart();
+	}
 
+	public void userxinxi(){
 
 		try{
 			String accessTokenUrl = "https://api.weixin.qq.com/sns/oauth2/access_token?appid="
@@ -236,10 +240,6 @@ public class UserLoginActivity extends BaseActivity implements OnClickListener {
 
 					spPreferences_qq = getSharedPreferences("longuserset_3_qq", MODE_PRIVATE);
 					spPreferences_qq.edit().clear().commit();
-
-					//						SharedPreferences spPreferences_tishi = getSharedPreferences("longuserset_tishi", MODE_PRIVATE);
-					//						spPreferences_tishi.edit().clear().commit();
-
 					isWXLogin = false;
 					finish();
 				};

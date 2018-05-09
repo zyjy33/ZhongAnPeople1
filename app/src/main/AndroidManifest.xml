@@ -2,8 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.zams.www"
-    android:versionCode="25008"
-    android:versionName="2.5.008">
+    android:versionCode="256"
+    android:versionName="2.5.6">
 
     <uses-sdk
         android:minSdkVersion="8"
@@ -45,7 +45,8 @@
 
     <uses-permission android:name="android.permission.FLASHLIGHT" />
     <uses-permission android:name="android.permission.BAIDU_LOCATION_SERVICE" />
-    <uses-permission android:name="android.permission.ACCESS_MOCK_LOCATION"
+    <uses-permission
+        android:name="android.permission.ACCESS_MOCK_LOCATION"
         tools:ignore="MockLocation" />
     <uses-permission android:name="com.android.launcher.permission.READ_SETTINGS" />
     <uses-permission android:name="android.permission.ACCESS_GPS" />
@@ -885,7 +886,8 @@
             android:name=".wxapi.WXEntryActivity"
             android:exported="true"
             android:label="@string/app_name"
-            android:launchMode="singleTask" />
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Translucent" />
         <activity
             android:name="com.example.baidunewdemo.BaiduActivity"
             android:screenOrientation="portrait" />
@@ -942,13 +944,14 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".health.DescriptionActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".health.NoEvaluatedOrderActivity"
-            android:screenOrientation="portrait"
-            />
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".health.NoEvaluatedOrderActivity"
+            android:screenOrientation="portrait" />
+
         <receiver
             android:name=".wxapi.AppRegister"
-            android:permission="com.tencent.mm.plugin.permission.SEND" >
+            android:permission="com.tencent.mm.plugin.permission.SEND">
             <intent-filter>
                 <action android:name="com.tencent.mm.plugin.openapi.Intent.ACTION_REFRESH_WXAPP" />
             </intent-filter>

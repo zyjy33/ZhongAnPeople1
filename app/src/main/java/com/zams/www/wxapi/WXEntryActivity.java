@@ -23,20 +23,24 @@ public class WXEntryActivity extends Activity implements IWXAPIEventHandler {
         super.onCreate(savedInstanceState);
         api = WXAPIFactory.createWXAPI(WXEntryActivity.this, Constant.APP_ID,
                 false);
-        try {
-            boolean b = api.handleIntent(getIntent(), this);
-            if (!b) {
-                finish();
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-            finish();
-        }
+        api.registerApp(Constant.APP_ID);
+        handleIntent(getIntent());
+//        try {
+//            boolean b = api.handleIntent(getIntent(), this);
+////            if (!b) {
+////                finish();
+////            }
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//            finish();
+//        }
     }
-
+    private void handleIntent(Intent intent) {
+        setIntent(intent);
+        api.handleIntent(intent, this);
+    }
     @Override
     public void onReq(BaseReq arg0) {
-
     }
 
     private static final String TAG = "WXEntryActivity";
@@ -44,41 +48,40 @@ public class WXEntryActivity extends Activity implements IWXAPIEventHandler {
     protected void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
         Log.e(TAG, "onNewIntent: " );
-        setIntent(intent);
-        api.handleIntent(intent, this);
+        handleIntent(intent);
     }
 
     @Override
     public void onResp(BaseResp resp) {
+
         // Toast.makeText(this, "调用onResp", 1).show();
-        Log.e(TAG, "onResp: "+ resp.getType() );
-//        switch (resp.errCode) {
-//
-//            case BaseResp.ErrCode.ERR_OK:
-//                System.out.println("0------------------"
-//                        + UserLoginActivity.isWXLogin);
-//                if (UserLoginActivity.isWXLogin) {
-//                    SendAuth.Resp sendResp = (SendAuth.Resp) resp;
-//                    System.out.println("1------------------" + sendResp.code);
-//                    UserLoginActivity.WX_CODE = sendResp.code;
-//                    // Toast.makeText(this, "用户同意", Toast.LENGTH_LONG).show();
-//                    finish();
-//                } else {
-//                    // Toast.makeText(this, "用户同意", Toast.LENGTH_LONG).show();
-//                }
-//                break;
-//            case BaseResp.ErrCode.ERR_USER_CANCEL:
-//                // Toast.makeText(this, "用户取消", Toast.LENGTH_LONG).show();
-//                UserLoginActivity.isWXLogin = false;
-//                break;
-//            case BaseResp.ErrCode.ERR_AUTH_DENIED:
-//                Toast.makeText(this, "用户拒绝授权", Toast.LENGTH_LONG).show();
-//                UserLoginActivity.isWXLogin = false;
-//                break;
-//            default:
-//                // Toast.makeText(this, "4", Toast.LENGTH_LONG).show();
-//                break;
-//        }
+        switch (resp.errCode) {
+
+            case BaseResp.ErrCode.ERR_OK:
+                System.out.println("0------------------"
+                        + UserLoginActivity.isWXLogin);
+                if (UserLoginActivity.isWXLogin) {
+                    SendAuth.Resp sendResp = (SendAuth.Resp) resp;
+                    System.out.println("1------------------" + sendResp.code);
+                    UserLoginActivity.WX_CODE = sendResp.code;
+                    // Toast.makeText(this, "用户同意", Toast.LENGTH_LONG).show();
+                    finish();
+                } else {
+                    // Toast.makeText(this, "用户同意", Toast.LENGTH_LONG).show();
+                }
+                break;
+            case BaseResp.ErrCode.ERR_USER_CANCEL:
+                // Toast.makeText(this, "用户取消", Toast.LENGTH_LONG).show();
+                UserLoginActivity.isWXLogin = false;
+                break;
+            case BaseResp.ErrCode.ERR_AUTH_DENIED:
+                Toast.makeText(this, "用户拒绝授权", Toast.LENGTH_LONG).show();
+                UserLoginActivity.isWXLogin = false;
+                break;
+            default:
+                // Toast.makeText(this, "4", Toast.LENGTH_LONG).show();
+                break;
+        }
 
         finish();
     }
