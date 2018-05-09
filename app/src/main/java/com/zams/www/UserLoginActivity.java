@@ -206,7 +206,6 @@ public class UserLoginActivity extends BaseActivity implements OnClickListener {
 			AsyncHttp.get(accessTokenUrl, new AsyncHttpResponseHandler() {
 				public void onSuccess(int arg0, String arg1) {
 					System.out.println("======输出2============="+arg1);
-					//						Toast.makeText(UserLoginActivity.this, "数据2为+"+arg1, 400).show();
 					try {
 						JSONObject object = new JSONObject(arg1);
 						nickname = object.getString("nickname");
@@ -229,15 +228,9 @@ public class UserLoginActivity extends BaseActivity implements OnClickListener {
 						editor.putString("country", country);
 						editor.putString("oauth_openid", oauth_openid);
 						editor.commit();
-						//							mBitmap = HttpUtil.getBitmapFromURL(headimgurl);
-						//							mTextView.setText(nickname);
-						//							mImageView.setImageBitmap(mBitmap);
-
 					} catch (JSONException e) {
-
 						e.printStackTrace();
 					}
-
 					spPreferences_qq = getSharedPreferences("longuserset_3_qq", MODE_PRIVATE);
 					spPreferences_qq.edit().clear().commit();
 					isWXLogin = false;
@@ -334,46 +327,6 @@ public class UserLoginActivity extends BaseActivity implements OnClickListener {
 	}
 
 
-	//	private class BaseUiListener implements IUiListener {
-	//
-	//		@Override
-	//		public void onComplete(Object response) {
-	//			System.out.println("response==============="+response);
-	//			try {
-	//				String access_token = ((JSONObject) response).getString("access_token");
-	//				String openid = ((JSONObject) response).getString("openid");
-	//				String ret = ((JSONObject) response).getString("ret");
-	////				System.out.println("access_token==============="+access_token);
-	//				Editor editor = spPreferences.edit();
-	//				editor.putString("access_token", access_token);
-	//				editor.putString("unionid", openid);
-	//				editor.putString("sex", ret);
-	//				editor.commit();
-	//			} catch (JSONException e) {
-	//
-	//				e.printStackTrace();
-	//			}
-	////			Util.showResultDialog(UserLoginActivity.this, response.toString(),"登录成功");
-	////
-	//			doComplete((JSONObject) response);
-	//		}
-	//
-	//		protected void doComplete(JSONObject values) {
-	//
-	//		}
-	//
-	//		@Override
-	//		public void onError(UiError e) {
-	//			Util.toastMessage(UserLoginActivity.this, "onError: " + e.errorDetail);
-	//			Util.dismissDialog();
-	//		}
-	//
-	//		@Override
-	//		public void onCancel() {
-	////			Util.toastMessage(UserLoginActivity.this, "用户取消");//onCancel:
-	//			Util.dismissDialog();
-	//		}
-	//	}
 
 	private void updata() {
 		try {

@@ -283,15 +283,16 @@ public class MyOrderConfrimActivity extends BaseActivity {
                 Log.e(TAG, "packet================" + packet);
                 Log.e(TAG, "cashing_packet================" + cashing_packet);
                 Log.e(TAG, "kedi_hongbao================" + kedi_hongbao);
+                double payMoney = 0.0;
                 if (isCheck) { //选择的使用红包
+
                     if (mOwnedPacket == 0 || mExpectPacket == 0) {
                         heji.setVisibility(View.VISIBLE);
                         tv_hongbao.setText("无可抵红包");
                         kou_hongbao = 0;// 红包为0
                         rl_hongbao.setVisibility(View.GONE);
                         tv_jiaguo.setText("￥" + doubleToString(mNeedSumMoney) + " , " + mSumQuantity + "件，红包可抵扣: ￥" + 0 + "元");
-                        heji.setText("实付款:" + doubleToString(mNeedSumMoney) + "元");
-
+                        payMoney = mNeedSumMoney;
                     } else {
                         heji.setVisibility(View.VISIBLE);
                         rl_hongbao.setVisibility(View.VISIBLE);
@@ -304,7 +305,7 @@ public class MyOrderConfrimActivity extends BaseActivity {
                             userRedPacket = mOwnedPacket;
                         }
                         tv_jiaguo.setText("￥" + doubleToString(mNeedSumMoney) + " , " + mSumQuantity + "件，红包可抵扣: ￥" + userRedPacket + "元");
-                        heji.setText("实付款:" + doubleToString((mNeedSumMoney - userRedPacket)) + "元");
+                        payMoney = mNeedSumMoney - userRedPacket;
                     }
                 } else { //不使用红包
                     System.out.println("dzongjia2================" + mNeedSumMoney);
@@ -312,12 +313,14 @@ public class MyOrderConfrimActivity extends BaseActivity {
                     rl_hongbao.setVisibility(View.GONE);
                     tv_hongbao.setText("不可以使用红包");
                     tv_jiaguo.setText("￥" + doubleToString(mNeedSumMoney) + " , " + mSumQuantity + "件，红包可抵扣: ￥" + 0 + "元");
-                    heji.setText("实付款:" + doubleToString(mNeedSumMoney) + "元");
+                    payMoney = mNeedSumMoney;
                     kou_hongbao = 0;// 不抵扣红包
                 }
                 tv_hb_ye.setText(String.valueOf(packet));
                 tv_hb_ye_2.setText(String.valueOf(packet));
                 tv_hb_ye_3.setText("当前红包:￥" + String.valueOf(mOwnedPacket) + "元");
+                heji.setText("实付款:" + doubleToString(payMoney) + "元");
+                isShowThreePay(payMoney);
             }
         });
         sb.setNowChooseCheck(true);
@@ -547,19 +550,6 @@ public class MyOrderConfrimActivity extends BaseActivity {
                 type = "2";
             }
         });
-        yu_pay2.setOnClickListener(new OnClickListener() {
-
-            @Override
-            public void onClick(View arg0) {
-
-                yu_pay_c0.setChecked(false);
-                yu_pay_c1.setChecked(false);
-                yu_pay_c2.setChecked(true);
-                // 余额支付
-                type = "2";
-            }
-        });
-
 
         /**
          * 结算方式
@@ -808,23 +798,26 @@ public class MyOrderConfrimActivity extends BaseActivity {
                         kedi_hongbao = String.valueOf(cashing_packet);
                         System.out.println("可用红包---------------" + packet);
                         System.out.println("可抵红包---------------" + cashing_packet);
+                        double payMoney = 0.0;
                         if (0 == mOwnedPacket) {
                             tv_hongbao.setText("不可以使用红包");
                             sb.setVisibility(View.GONE);
-                            heji.setText("实付款:" + mNeedSumMoney + "元");
+                            payMoney = mNeedSumMoney;
                         } else if (0 == mExpectPacket) {
                             tv_hongbao.setText("不可以使用红包" + "元");
-                            heji.setText("实付款:" + mNeedSumMoney + "元");
+                            payMoney = mNeedSumMoney;
                             sb.setVisibility(View.GONE);
                         } else if (mOwnedPacket > mExpectPacket) {
                             tv_hongbao.setText("可用" + mExpectPacket + "元红包抵" + mExpectPacket + "元");
-                            heji.setText("实付款:" + (mNeedSumMoney - mExpectPacket) + "元");
                             sb.setVisibility(View.VISIBLE);
+                            payMoney = mNeedSumMoney - mOwnedPacket;
                         } else if (mOwnedPacket < mExpectPacket) {
-                            heji.setText("实付款:" + (mNeedSumMoney - mOwnedPacket) + "元");
+                            payMoney = mNeedSumMoney - mOwnedPacket;
                             tv_hongbao.setText("可用" + mOwnedPacket + "元红包抵" + mOwnedPacket + "元");
                             sb.setVisibility(View.VISIBLE);
                         }
+                        isShowThreePay(payMoney);
+                        heji.setText("实付款:" + doubleToString(payMoney) + "元");
                         System.out.println("mNeedSumMoney---------------" + mNeedSumMoney);
 
                         zhuangtai = false;
@@ -870,6 +863,17 @@ public class MyOrderConfrimActivity extends BaseActivity {
         }, null);
     }
 
+    private void isShowThreePay(double payMoney) {
+        if (payMoney <= 0) {
+            yu_pay0.setVisibility(View.GONE);
+            yu_pay1.setVisibility(View.GONE);
+            yu_pay_c2.callOnClick();
+        } else {
+            yu_pay0.setVisibility(View.VISIBLE);
+            yu_pay1.setVisibility(View.VISIBLE);
+        }
+    }
+
     /**
      * 配送方式
      */
@@ -894,6 +898,7 @@ public class MyOrderConfrimActivity extends BaseActivity {
                                     data.setExpress_fee(obj.getInt("express_fee"));
                                     list_zf.add(data);
                                 }
+                                double payMoney = 0.0;
 
                                 try {
                                     ZhiFuFangShi = ZhiFuFangShiActivity.title;
@@ -910,6 +915,7 @@ public class MyOrderConfrimActivity extends BaseActivity {
                                                 }
                                             } else {
                                                 heji.setText("实付款:" + " ￥" + mNeedSumMoney);
+                                               isShowThreePay(mNeedSumMoney);
                                             }
                                         } else {
                                             String price = String.valueOf(express_fee);
@@ -920,6 +926,7 @@ public class MyOrderConfrimActivity extends BaseActivity {
                                                 heji.setText("实付款:" + " 福利" + mExchangePoint + " + " + "￥" + mNeedSumMoney);
                                             } else {
                                                 heji.setText("实付款:" + " ￥" + mNeedSumMoney);
+                                                isShowThreePay(mNeedSumMoney);
                                             }
                                         }
                                     } else {
@@ -936,6 +943,7 @@ public class MyOrderConfrimActivity extends BaseActivity {
                                                 }
                                             } else {
                                                 heji.setText("实付款:" + " ￥" + mNeedSumMoney);
+                                                isShowThreePay(mNeedSumMoney);
                                             }
                                         } else {
                                             String price = String.valueOf(express_fee);
@@ -948,6 +956,7 @@ public class MyOrderConfrimActivity extends BaseActivity {
                                                         + mNeedSumMoney);
                                             } else {
                                                 heji.setText("实付款:" + " ￥" + mNeedSumMoney);
+                                                isShowThreePay(mNeedSumMoney);
                                             }
                                         }
                                     }
@@ -1047,7 +1056,7 @@ public class MyOrderConfrimActivity extends BaseActivity {
 //                                Toast.makeText(MyOrderConfrimActivity.this, info, Toast.LENGTH_SHORT).show();
                                 if ("1".equals(jiekou_type_ysj)) {
                                     showMyJuDuiHuanActivity();
-                                }else{
+                                } else {
                                     showOrderActivity();
                                 }
                             }
@@ -1124,7 +1133,7 @@ public class MyOrderConfrimActivity extends BaseActivity {
                             Toast.makeText(MyOrderConfrimActivity.this, "支付失败，请在我的订单中查看", Toast.LENGTH_SHORT).show();
                             if ("1".equals(jiekou_type_ysj)) {
                                 showMyJuDuiHuanActivity();
-                            }else{
+                            } else {
                                 showOrderActivity();
                             }
                         }
@@ -1155,7 +1164,7 @@ public class MyOrderConfrimActivity extends BaseActivity {
                                     Toast.LENGTH_SHORT).show();
                             if ("1".equals(jiekou_type_ysj)) {
                                 showMyJuDuiHuanActivity();
-                            }else{
+                            } else {
                                 showOrderActivity();
                             }
                         } else {
@@ -1163,7 +1172,7 @@ public class MyOrderConfrimActivity extends BaseActivity {
                             Toast.makeText(MyOrderConfrimActivity.this, "支付失败，请在我的订单查看", Toast.LENGTH_SHORT).show();
                             if ("1".equals(jiekou_type_ysj)) {
                                 showMyJuDuiHuanActivity();
-                            }else{
+                            } else {
                                 showOrderActivity();
                             }
                         }
@@ -1234,8 +1243,6 @@ public class MyOrderConfrimActivity extends BaseActivity {
                                     //							 startActivity(intent);
                                     //							Toast.makeText(MyOrderConfrimActivity.this, info,Toast.LENGTH_SHORT).show();
                                     finish();
-                                    // Intent intent = new Intent(MyOrderConfrimActivity.this,ZhiFuOKActivity.class);
-                                    // startActivity(intent);
                                 } else {
                                     progress.CloseProgress();
                                     teby = false;
