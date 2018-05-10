@@ -33,11 +33,13 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.alibaba.fastjson.JSON;
 import com.android.hengyu.pub.QiYeJinMianAdaper;
 import com.android.hengyu.web.DialogProgress;
 import com.android.hengyu.web.RealmName;
 import com.android.hengyu.web.Webview1;
 import com.androidquery.AQuery;
+import com.bumptech.glide.Glide;
 import com.example.taobaohead.BeanVo;
 import com.example.taobaohead.headview.ScrollTopView;
 import com.hengyushop.dao.AdvertDao1;
@@ -55,6 +57,7 @@ import com.hengyushop.demo.home.JuYunshangActivity;
 import com.hengyushop.demo.home.SouSuoSpActivity;
 import com.hengyushop.demo.home.XinshouGyActivity;
 import com.hengyushop.demo.home.ZhongAnYlActivity;
+import com.hengyushop.demo.my.HaomaActivity;
 import com.hengyushop.demo.my.TishiWxBangDingActivity;
 import com.hengyushop.demo.shopcart.TuiJianSpListActivity;
 import com.hengyushop.demo.wec.MyGridView;
@@ -69,6 +72,8 @@ import com.lglottery.www.widget.PagerScrollView;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.tencent.mm.sdk.openapi.IWXAPI;
+import com.zams.www.http.RedPacketResponse;
+import com.zams.www.http.model.RedPackageData;
 import com.zxing.android.CaptureActivity;
 
 import org.json.JSONArray;
@@ -76,6 +81,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class HomeActivity extends Fragment implements OnClickListener {
     private ImageView yh0, yh3, yh6, yh10, yh16, yh14, yh19, yh22, yh25, img_1, img_2, img_3;
@@ -130,12 +136,14 @@ public class HomeActivity extends Fragment implements OnClickListener {
     private LinearLayout ll_sp1, ll_sp2, ll_sp3, ll_sp4, ll_sp5;
     String user_id;
     public static AQuery mAq;
-    boolean panduan = false;
     private ListView new_list;
     private DialogProgress progress;
     public static boolean type = false;
     private ArrayList<JuTuanGouData> list_ll = null;
     View layout;
+    private TextView redPackage1;
+    private TextView redPackage2;
+    private TextView redPackage;
 
     public HomeActivity() {
 
@@ -158,67 +166,63 @@ public class HomeActivity extends Fragment implements OnClickListener {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        try {
-            layout = inflater.inflate(R.layout.hengyu_home, null);
-            progress = new DialogProgress(getActivity());
-            tv1 = (EditText) layout.findViewById(R.id.tv1);
-            // tv1.getBackground().setAlpha(50);
-            ll_sousuo = (LinearLayout) layout.findViewById(R.id.ll_sousuo);
-            ll_sousuo.getBackground().setAlpha(70);
-            mAq = new AQuery(getActivity());
-            new_list = (ListView) layout.findViewById(R.id.new_list);
-            ImageView iv_sousuo = (ImageView) layout.findViewById(R.id.iv_sousuo);
-            iv_sousuo.setOnClickListener(new OnClickListener() {
-                @Override
-                public void onClick(View arg0) {
-                    Intent intent = new Intent(getActivity(), SouSuoSpActivity.class);
+        layout = inflater.inflate(R.layout.hengyu_home, null);
+        progress = new DialogProgress(getActivity());
+        tv1 = (EditText) layout.findViewById(R.id.tv1);
+        // tv1.getBackground().setAlpha(50);
+        ll_sousuo = (LinearLayout) layout.findViewById(R.id.ll_sousuo);
+        ll_sousuo.getBackground().setAlpha(70);
+        mAq = new AQuery(getActivity());
+        new_list = (ListView) layout.findViewById(R.id.new_list);
+        ImageView iv_sousuo = (ImageView) layout.findViewById(R.id.iv_sousuo);
+        iv_sousuo.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View arg0) {
+                Intent intent = new Intent(getActivity(), SouSuoSpActivity.class);
+                String strwhere_zhi = tv1.getText().toString().trim();
+                intent.putExtra("strwhere_zhi", strwhere_zhi);
+                intent.putExtra("home_sousuo", "home_sousuo");
+                startActivity(intent);
+            }
+        });
+
+        tv1.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+
+            @Override
+            public boolean onEditorAction(TextView arg0, int arg1,
+                                          KeyEvent arg2) {
+
+                if (arg1 == EditorInfo.IME_ACTION_SEARCH) {
+                    Intent intent = new Intent(getActivity(),
+                            SouSuoSpActivity.class);
                     String strwhere_zhi = tv1.getText().toString().trim();
                     intent.putExtra("strwhere_zhi", strwhere_zhi);
                     intent.putExtra("home_sousuo", "home_sousuo");
                     startActivity(intent);
                 }
-            });
+                return false;
+            }
 
-            tv1.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+        });
 
-                @Override
-                public boolean onEditorAction(TextView arg0, int arg1,
-                                              KeyEvent arg2) {
+        img_user = (ImageView) layout.findViewById(R.id.img_user);
+        img_shared = (ImageView) layout.findViewById(R.id.img_shared);
+        img_user.setBackgroundResource(R.drawable.saoyisao);
+        img_shared.setBackgroundResource(R.drawable.home_fx);
+        gridview = (GridView) layout.findViewById(R.id.gridView);
 
-                    if (arg1 == EditorInfo.IME_ACTION_SEARCH) {
+        redPackage1 = (TextView) layout.findViewById(R.id.tv_biaoti_1);
+        redPackage2 = (TextView) layout.findViewById(R.id.tv_biaoti_2);
+        redPackage = (TextView) layout.findViewById(R.id.tv_biaoti);
 
-                        // Toast.makeText(getActivity(),"呵呵",Toast.LENGTH_SHORT).show();
-                        // search pressed and perform your functionality.
-                        Intent intent = new Intent(getActivity(),
-                                SouSuoSpActivity.class);
-                        String strwhere_zhi = tv1.getText().toString().trim();
-                        intent.putExtra("strwhere_zhi", strwhere_zhi);
-                        intent.putExtra("home_sousuo", "home_sousuo");
-                        startActivity(intent);
-                    }
-                    return false;
-                }
 
-            });
+        spPreferences = getActivity().getSharedPreferences("longuserset", Context.MODE_PRIVATE);
 
-            img_user = (ImageView) layout.findViewById(R.id.img_user);
-            img_shared = (ImageView) layout.findViewById(R.id.img_shared);
-            img_user.setBackgroundResource(R.drawable.saoyisao);
-            img_shared.setBackgroundResource(R.drawable.home_fx);
-            gridview = (GridView) layout.findViewById(R.id.gridView);
-
-            spPreferences = getActivity().getSharedPreferences("longuserset", Context.MODE_PRIVATE);
-            // user_name = spPreferences.getString("user", "");
-
-            initLayout(layout);
-            getguangao();
-            loadWeather();
-            //			load_list();
-            load_P();// 商品详情
-        } catch (Exception e) {
-
-            e.printStackTrace();
-        }
+        initLayout(layout);
+        getguangao();
+        loadWeather();
+        requestRedPackage();
+        load_P();// 商品详情
         return layout;
 
     }
@@ -680,11 +684,10 @@ public class HomeActivity extends Fragment implements OnClickListener {
         // progress.CreateProgress();
         AsyncHttp
                 .get(RealmName.REALM_NAME_LL
-                                + "/get_article_top_list?channel_name=goods&top=10&strwhere=status=0%20and%20is_top=1",
+                                + "/get_article_top_list?channel_name=goods&top=6&strwhere=link_url=''%20and%20is_top=1&status=0",
                         new AsyncHttpResponseHandler() {
                             @Override
                             public void onSuccess(int arg0, String arg1) {
-
                                 super.onSuccess(arg0, arg1);
                                 parse2(arg1);
                             }
@@ -750,7 +753,6 @@ public class HomeActivity extends Fragment implements OnClickListener {
                 msg.what = 110;
                 msg.obj = datas;
                 handler.sendMessage(msg);
-                // handler.sendEmptyMessage(110);
             } else {
                 Toast.makeText(getActivity(), info, Toast.LENGTH_SHORT).show();
             }
@@ -763,215 +765,446 @@ public class HomeActivity extends Fragment implements OnClickListener {
         }
     }
 
-    /**
-     *
-     *
-     */
-    //	public void load_dingdan_ll(final Activity mContext) {
-    //		HashMap<String, Object> params = new HashMap<String, Object>();
-    //		params.put("channel_name", "goods");
-    //		params.put("top", "10");
-    //		params.put("strwhere", "status=0%20and%20is_top=1");
-    //		mAq = new AQuery(mContext);
-    //
-    //		String url = RealmName.REALM_NAME_LL + "/get_article_top_list?";
-    //		System.out.println("url---------------------" + url);
-    //		System.out.println("params---------------------" + params);
-    //		mAq.ajax(url, params, JSONObject.class, new AjaxCallback<JSONObject>() {
-    //			@Override
-    //			public void callback(String url, JSONObject object,
-    //					AjaxStatus status) {
-    //				System.out.println("===url" + url);
-    //				Log.i("dzhi", " 取得的值-----" + object);
-    //				// System.out.println("===得到的数据结果是:" + object);
-    //				if (object != null) {
-    //					try {
-    //						String info = object.getString("info");
-    //						if (object.getString("status").equals("y")) {
-    //							Toast.makeText(getActivity(), info,  Toast.LENGTH_SHORT).show();
-    //
-    //						} else {
-    //							Toast.makeText(getActivity(), info,  Toast.LENGTH_SHORT).show();
-    //						}
-    //
-    //					} catch (JSONException e) {
-    //						e.printStackTrace();
-    //					}
-    //				} else {
-    //
-    //					Toast.makeText(getActivity(), "请求有异常！",  Toast.LENGTH_SHORT).show();
-    //				}
-    //
-    //				super.callback(url, object, status);
-    //
-    //			}
-    //		});
-    //	}
+
     private void initLayout(View layout) {
-        try {
 
-            iv_zhuangti1 = (ImageView) layout.findViewById(R.id.iv_zhuangti1);
-            iv_zhuangti2 = (ImageView) layout.findViewById(R.id.iv_zhuangti2);
-            iv_zhuangti1.setBackgroundResource(R.drawable.zt1);
-            iv_zhuangti2.setBackgroundResource(R.drawable.zt2);
-            myGridView = (MyGridView) layout.findViewById(R.id.gridView);
-            iv_pt1 = (ImageView) layout.findViewById(R.id.iv_pt1);
-            iv_pt2 = (ImageView) layout.findViewById(R.id.iv_pt2);
-            iv_pt3 = (ImageView) layout.findViewById(R.id.iv_pt3);
-            iv_pt4 = (ImageView) layout.findViewById(R.id.iv_pt4);
-            iv_pt1.setBackgroundResource(R.drawable.pt1);
-            iv_pt2.setBackgroundResource(R.drawable.pt2);
-            iv_pt3.setBackgroundResource(R.drawable.pt3);
-            iv_pt4.setBackgroundResource(R.drawable.pt4);
+        iv_zhuangti1 = (ImageView) layout.findViewById(R.id.iv_zhuangti1);
+        iv_zhuangti2 = (ImageView) layout.findViewById(R.id.iv_zhuangti2);
+        iv_zhuangti1.setBackgroundResource(R.drawable.zt1);
+        iv_zhuangti2.setBackgroundResource(R.drawable.zt2);
+        myGridView = (MyGridView) layout.findViewById(R.id.gridView);
+        iv_pt1 = (ImageView) layout.findViewById(R.id.iv_pt1);
+        iv_pt2 = (ImageView) layout.findViewById(R.id.iv_pt2);
+        iv_pt3 = (ImageView) layout.findViewById(R.id.iv_pt3);
+        iv_pt4 = (ImageView) layout.findViewById(R.id.iv_pt4);
+        iv_pt1.setBackgroundResource(R.drawable.pt1);
+        iv_pt2.setBackgroundResource(R.drawable.pt2);
+        iv_pt3.setBackgroundResource(R.drawable.pt3);
+        iv_pt4.setBackgroundResource(R.drawable.pt4);
 
-            iv_home_tp1 = (ImageView) layout.findViewById(R.id.iv_home_tp1);
-            iv_home_tp2 = (ImageView) layout.findViewById(R.id.iv_home_tp2);
-            iv_home_tp3 = (ImageView) layout.findViewById(R.id.iv_home_tp3);
-            iv_home_tp4 = (ImageView) layout.findViewById(R.id.iv_home_tp4);
-            iv_home_tp5 = (ImageView) layout.findViewById(R.id.iv_home_tp5);
-            iv_home_tp6 = (ImageView) layout.findViewById(R.id.iv_home_tp6);
-            iv_home_tp7 = (ImageView) layout.findViewById(R.id.iv_home_tp7);
-            iv_home_tp8 = (ImageView) layout.findViewById(R.id.iv_home_tp8);
-            //		iv_home_tp1.setBackgroundResource(R.drawable.sy_shg);
-            //		iv_home_tp2.setBackgroundResource(R.drawable.sy_tcg);
-            //		iv_home_tp3.setBackgroundResource(R.drawable.sy_jkg);
-            //		iv_home_tp4.setBackgroundResource(R.drawable.sy_jfg);
-            //		iv_home_tp5.setBackgroundResource(R.drawable.sy_zayl);
-            //		iv_home_tp6.setBackgroundResource(R.drawable.sy_ylyh);
-            //		iv_home_tp7.setBackgroundResource(R.drawable.sy_ppsj);
-            //		iv_home_tp8.setBackgroundResource(R.drawable.sy_ptg);
-            Bitmap bm1 = BitmapFactory.decodeResource(this.getResources(), R.drawable.sy_shg);
-            BitmapDrawable bd1 = new BitmapDrawable(this.getResources(), bm1);
-            iv_home_tp1.setBackgroundDrawable(bd1);
-            Bitmap bm2 = BitmapFactory.decodeResource(this.getResources(), R.drawable.sy_tcg);
-            BitmapDrawable bd2 = new BitmapDrawable(this.getResources(), bm2);
-            iv_home_tp2.setBackgroundDrawable(bd2);
-            Bitmap bm3 = BitmapFactory.decodeResource(this.getResources(), R.drawable.sy_jkg);
-            BitmapDrawable bd3 = new BitmapDrawable(this.getResources(), bm3);
-            iv_home_tp3.setBackgroundDrawable(bd3);
-            Bitmap bm4 = BitmapFactory.decodeResource(this.getResources(), R.drawable.sy_jfg);
-            BitmapDrawable bd4 = new BitmapDrawable(this.getResources(), bm4);
-            iv_home_tp4.setBackgroundDrawable(bd4);
-            Bitmap bm5 = BitmapFactory.decodeResource(this.getResources(), R.drawable.sy_zayl);
-            BitmapDrawable bd5 = new BitmapDrawable(this.getResources(), bm5);
-            iv_home_tp5.setBackgroundDrawable(bd5);
-            Bitmap bm6 = BitmapFactory.decodeResource(this.getResources(), R.drawable.sy_ylyh);
-            BitmapDrawable bd6 = new BitmapDrawable(this.getResources(), bm6);
-            iv_home_tp6.setBackgroundDrawable(bd6);
-            Bitmap bm7 = BitmapFactory.decodeResource(this.getResources(), R.drawable.sy_ppsj);
-            BitmapDrawable bd7 = new BitmapDrawable(this.getResources(), bm7);
-            iv_home_tp7.setBackgroundDrawable(bd7);
-            Bitmap bm8 = BitmapFactory.decodeResource(this.getResources(), R.drawable.sy_ptg);
-            BitmapDrawable bd8 = new BitmapDrawable(this.getResources(), bm8);
-            iv_home_tp8.setBackgroundDrawable(bd8);
+        iv_home_tp1 = (ImageView) layout.findViewById(R.id.iv_home_tp1);
+        iv_home_tp2 = (ImageView) layout.findViewById(R.id.iv_home_tp2);
+        iv_home_tp3 = (ImageView) layout.findViewById(R.id.iv_home_tp3);
+        iv_home_tp4 = (ImageView) layout.findViewById(R.id.iv_home_tp4);
+        iv_home_tp5 = (ImageView) layout.findViewById(R.id.iv_home_tp5);
+        iv_home_tp6 = (ImageView) layout.findViewById(R.id.iv_home_tp6);
+        iv_home_tp7 = (ImageView) layout.findViewById(R.id.iv_home_tp7);
+        iv_home_tp8 = (ImageView) layout.findViewById(R.id.iv_home_tp8);
+        //		iv_home_tp1.setBackgroundResource(R.drawable.sy_shg);
+        //		iv_home_tp2.setBackgroundResource(R.drawable.sy_tcg);
+        //		iv_home_tp3.setBackgroundResource(R.drawable.sy_jkg);
+        //		iv_home_tp4.setBackgroundResource(R.drawable.sy_jfg);
+        //		iv_home_tp5.setBackgroundResource(R.drawable.sy_zayl);
+        //		iv_home_tp6.setBackgroundResource(R.drawable.sy_ylyh);
+        //		iv_home_tp7.setBackgroundResource(R.drawable.sy_ppsj);
+        //		iv_home_tp8.setBackgroundResource(R.drawable.sy_ptg);
+        Bitmap bm1 = BitmapFactory.decodeResource(this.getResources(), R.drawable.sy_shg);
+        BitmapDrawable bd1 = new BitmapDrawable(this.getResources(), bm1);
+        iv_home_tp1.setBackgroundDrawable(bd1);
+        Bitmap bm2 = BitmapFactory.decodeResource(this.getResources(), R.drawable.sy_tcg);
+        BitmapDrawable bd2 = new BitmapDrawable(this.getResources(), bm2);
+        iv_home_tp2.setBackgroundDrawable(bd2);
+        Bitmap bm3 = BitmapFactory.decodeResource(this.getResources(), R.drawable.sy_jkg);
+        BitmapDrawable bd3 = new BitmapDrawable(this.getResources(), bm3);
+        iv_home_tp3.setBackgroundDrawable(bd3);
+        Bitmap bm4 = BitmapFactory.decodeResource(this.getResources(), R.drawable.sy_jfg);
+        BitmapDrawable bd4 = new BitmapDrawable(this.getResources(), bm4);
+        iv_home_tp4.setBackgroundDrawable(bd4);
+        Bitmap bm5 = BitmapFactory.decodeResource(this.getResources(), R.drawable.sy_zayl);
+        BitmapDrawable bd5 = new BitmapDrawable(this.getResources(), bm5);
+        iv_home_tp5.setBackgroundDrawable(bd5);
+        Bitmap bm6 = BitmapFactory.decodeResource(this.getResources(), R.drawable.sy_ylyh);
+        BitmapDrawable bd6 = new BitmapDrawable(this.getResources(), bm6);
+        iv_home_tp6.setBackgroundDrawable(bd6);
+        Bitmap bm7 = BitmapFactory.decodeResource(this.getResources(), R.drawable.sy_ppsj);
+        BitmapDrawable bd7 = new BitmapDrawable(this.getResources(), bm7);
+        iv_home_tp7.setBackgroundDrawable(bd7);
+        Bitmap bm8 = BitmapFactory.decodeResource(this.getResources(), R.drawable.sy_ptg);
+        BitmapDrawable bd8 = new BitmapDrawable(this.getResources(), bm8);
+        iv_home_tp8.setBackgroundDrawable(bd8);
 
-            ll_sp1 = (LinearLayout) layout.findViewById(R.id.ll_sp1);
-            ll_sp2 = (LinearLayout) layout.findViewById(R.id.ll_sp2);
-            ll_sp3 = (LinearLayout) layout.findViewById(R.id.ll_sp3);
-            ll_sp4 = (LinearLayout) layout.findViewById(R.id.ll_sp4);
-            iv_imagr1 = (ImageView) layout.findViewById(R.id.iv_imagr1);
-            iv_imagr2 = (ImageView) layout.findViewById(R.id.iv_imagr2);
-            iv_imagr3 = (ImageView) layout.findViewById(R.id.iv_imagr3);
-            iv_imagr4 = (ImageView) layout.findViewById(R.id.iv_imagr4);
-            tv_text1 = (TextView) layout.findViewById(R.id.tv_text1);
-            tv_text2 = (TextView) layout.findViewById(R.id.tv_text2);
-            tv_text3 = (TextView) layout.findViewById(R.id.tv_text3);
-            tv_text4 = (TextView) layout.findViewById(R.id.tv_text4);
-            tv_jiaguo1 = (TextView) layout.findViewById(R.id.tv_jiaguo1);
-            tv_jiaguo2 = (TextView) layout.findViewById(R.id.tv_jiaguo2);
-            tv_jiaguo3 = (TextView) layout.findViewById(R.id.tv_jiaguo3);
-            tv_jiaguo4 = (TextView) layout.findViewById(R.id.tv_jiaguo4);
-            tv_scj1 = (TextView) layout.findViewById(R.id.tv_scj1);
-            tv_scj2 = (TextView) layout.findViewById(R.id.tv_scj2);
-            tv_scj3 = (TextView) layout.findViewById(R.id.tv_scj3);
-            tv_scj4 = (TextView) layout.findViewById(R.id.tv_scj4);
-            tv_goumai1 = (TextView) layout.findViewById(R.id.tv_goumai1);
-            tv_goumai2 = (TextView) layout.findViewById(R.id.tv_goumai2);
-            tv_goumai3 = (TextView) layout.findViewById(R.id.tv_goumai3);
-            tv_goumai4 = (TextView) layout.findViewById(R.id.tv_goumai4);
+        ll_sp1 = (LinearLayout) layout.findViewById(R.id.ll_sp1);
+        ll_sp2 = (LinearLayout) layout.findViewById(R.id.ll_sp2);
+        ll_sp3 = (LinearLayout) layout.findViewById(R.id.ll_sp3);
+        ll_sp4 = (LinearLayout) layout.findViewById(R.id.ll_sp4);
+        iv_imagr1 = (ImageView) layout.findViewById(R.id.iv_imagr1);
+        iv_imagr2 = (ImageView) layout.findViewById(R.id.iv_imagr2);
+        iv_imagr3 = (ImageView) layout.findViewById(R.id.iv_imagr3);
+        iv_imagr4 = (ImageView) layout.findViewById(R.id.iv_imagr4);
+        tv_text1 = (TextView) layout.findViewById(R.id.tv_text1);
+        tv_text2 = (TextView) layout.findViewById(R.id.tv_text2);
+        tv_text3 = (TextView) layout.findViewById(R.id.tv_text3);
+        tv_text4 = (TextView) layout.findViewById(R.id.tv_text4);
+        tv_jiaguo1 = (TextView) layout.findViewById(R.id.tv_jiaguo1);
+        tv_jiaguo2 = (TextView) layout.findViewById(R.id.tv_jiaguo2);
+        tv_jiaguo3 = (TextView) layout.findViewById(R.id.tv_jiaguo3);
+        tv_jiaguo4 = (TextView) layout.findViewById(R.id.tv_jiaguo4);
+        tv_scj1 = (TextView) layout.findViewById(R.id.tv_scj1);
+        tv_scj2 = (TextView) layout.findViewById(R.id.tv_scj2);
+        tv_scj3 = (TextView) layout.findViewById(R.id.tv_scj3);
+        tv_scj4 = (TextView) layout.findViewById(R.id.tv_scj4);
+        tv_goumai1 = (TextView) layout.findViewById(R.id.tv_goumai1);
+        tv_goumai2 = (TextView) layout.findViewById(R.id.tv_goumai2);
+        tv_goumai3 = (TextView) layout.findViewById(R.id.tv_goumai3);
+        tv_goumai4 = (TextView) layout.findViewById(R.id.tv_goumai4);
 
-            home_main_scrool = (PagerScrollView) layout
-                    .findViewById(R.id.home_main_scrool);
-            home_title_layout = (RelativeLayout) layout
-                    .findViewById(R.id.home_title_layout);
+        home_main_scrool = (PagerScrollView) layout
+                .findViewById(R.id.home_main_scrool);
+        home_title_layout = (RelativeLayout) layout
+                .findViewById(R.id.home_title_layout);
 
-            // main_fragment_viewpager = (LinearLayout)
-            // layout.findViewById(R.id.main_fragment_viewpager);
-            // posterView = new MyPosterView(context, null);
-            // main_fragment_viewpager.addView(posterView);
+        // main_fragment_viewpager = (LinearLayout)
+        // layout.findViewById(R.id.main_fragment_viewpager);
+        // posterView = new MyPosterView(context, null);
+        // main_fragment_viewpager.addView(posterView);
 
-            index_item6 = (LinearLayout) layout.findViewById(R.id.index_item6);
-            index_item4 = (LinearLayout) layout.findViewById(R.id.index_item4);
-            index_item7 = (LinearLayout) layout.findViewById(R.id.index_item7);
-            index_item5 = (LinearLayout) layout.findViewById(R.id.index_item5);
+        index_item6 = (LinearLayout) layout.findViewById(R.id.index_item6);
+        index_item4 = (LinearLayout) layout.findViewById(R.id.index_item4);
+        index_item7 = (LinearLayout) layout.findViewById(R.id.index_item7);
+        index_item5 = (LinearLayout) layout.findViewById(R.id.index_item5);
 
-            index_item1 = (LinearLayout) layout.findViewById(R.id.index_item1);
-            index_item2 = (LinearLayout) layout.findViewById(R.id.index_item2);
-            index_item3 = (LinearLayout) layout.findViewById(R.id.index_item3);
-            index_item0 = (LinearLayout) layout.findViewById(R.id.index_item0);
-            ll_rxzq = (LinearLayout) layout.findViewById(R.id.ll_rxzq);
-            ll_tjsp = (LinearLayout) layout.findViewById(R.id.ll_tjsp);
-            //		ll_rxzq.setOnClickListener(this);
-            // index_item4.setOnClickListener(this);
-            // index_item7.setOnClickListener(this);
-            // index_item6.setOnClickListener(this);
-            // index_item5.setOnClickListener(this);
-            // index_item1.setOnClickListener(this);
-            // index_item2.setOnClickListener(this);
-            // index_item3.setOnClickListener(this);
-            // index_item0.setOnClickListener(this);
-            img_shared.setOnClickListener(this);
+        index_item1 = (LinearLayout) layout.findViewById(R.id.index_item1);
+        index_item2 = (LinearLayout) layout.findViewById(R.id.index_item2);
+        index_item3 = (LinearLayout) layout.findViewById(R.id.index_item3);
+        index_item0 = (LinearLayout) layout.findViewById(R.id.index_item0);
+        ll_rxzq = (LinearLayout) layout.findViewById(R.id.ll_rxzq);
+        ll_tjsp = (LinearLayout) layout.findViewById(R.id.ll_tjsp);
+        //		ll_rxzq.setOnClickListener(this);
+        // index_item4.setOnClickListener(this);
+        // index_item7.setOnClickListener(this);
+        // index_item6.setOnClickListener(this);
+        // index_item5.setOnClickListener(this);
+        // index_item1.setOnClickListener(this);
+        // index_item2.setOnClickListener(this);
+        // index_item3.setOnClickListener(this);
+        // index_item0.setOnClickListener(this);
+        img_shared.setOnClickListener(this);
 
-            index_item4.setOnClickListener(this);
-            index_item7.setOnClickListener(this);
-            index_item6.setOnClickListener(this);
-            index_item5.setOnClickListener(this);
-            index_item1.setOnClickListener(this);
-            index_item2.setOnClickListener(this);
-            index_item3.setOnClickListener(this);
-            index_item0.setOnClickListener(this);
+        index_item4.setOnClickListener(this);
+        index_item7.setOnClickListener(this);
+        index_item6.setOnClickListener(this);
+        index_item5.setOnClickListener(this);
+        index_item1.setOnClickListener(this);
+        index_item2.setOnClickListener(this);
+        index_item3.setOnClickListener(this);
+        index_item0.setOnClickListener(this);
 
-            zams_hbzq_1 = (LinearLayout) layout.findViewById(R.id.zams_hbzq_1);
-            zams_hbzq_2 = (LinearLayout) layout.findViewById(R.id.zams_hbzq_2);
-            zams_hbzq_3 = (LinearLayout) layout.findViewById(R.id.zams_hbzq_3);
-            img_1 = (ImageView) layout.findViewById(R.id.img_1);
-            img_2 = (ImageView) layout.findViewById(R.id.img_2);
-            img_3 = (ImageView) layout.findViewById(R.id.img_3);
+        zams_hbzq_1 = (LinearLayout) layout.findViewById(R.id.zams_hbzq_1);
+        zams_hbzq_2 = (LinearLayout) layout.findViewById(R.id.zams_hbzq_2);
+        zams_hbzq_3 = (LinearLayout) layout.findViewById(R.id.zams_hbzq_3);
+        img_1 = (ImageView) layout.findViewById(R.id.img_1);
+        img_2 = (ImageView) layout.findViewById(R.id.img_2);
+        img_3 = (ImageView) layout.findViewById(R.id.img_3);
 
-            yh_0 = (LinearLayout) layout.findViewById(R.id.yh_0);
-            yh_1 = (LinearLayout) layout.findViewById(R.id.yh_1);
-            yh_2 = (LinearLayout) layout.findViewById(R.id.yh_2);
-            yh_3 = (LinearLayout) layout.findViewById(R.id.yh_3);
-            yh_4 = (LinearLayout) layout.findViewById(R.id.yh_4);
-            yh_5 = (LinearLayout) layout.findViewById(R.id.yh_5);
-            yh_6 = (LinearLayout) layout.findViewById(R.id.yh_6);
-            yh_7 = (LinearLayout) layout.findViewById(R.id.yh_7);
-            yh_8 = (LinearLayout) layout.findViewById(R.id.yh_8);
+        yh_0 = (LinearLayout) layout.findViewById(R.id.yh_0);
+        yh_1 = (LinearLayout) layout.findViewById(R.id.yh_1);
+        yh_2 = (LinearLayout) layout.findViewById(R.id.yh_2);
+        yh_3 = (LinearLayout) layout.findViewById(R.id.yh_3);
+        yh_4 = (LinearLayout) layout.findViewById(R.id.yh_4);
+        yh_5 = (LinearLayout) layout.findViewById(R.id.yh_5);
+        yh_6 = (LinearLayout) layout.findViewById(R.id.yh_6);
+        yh_7 = (LinearLayout) layout.findViewById(R.id.yh_7);
+        yh_8 = (LinearLayout) layout.findViewById(R.id.yh_8);
 
-            yh_0.setOnClickListener(this);
-            yh_1.setOnClickListener(this);
-            yh_2.setOnClickListener(this);
-            yh_3.setOnClickListener(this);
-            yh_4.setOnClickListener(this);
-            yh_5.setOnClickListener(this);
-            yh_6.setOnClickListener(this);
-            yh_7.setOnClickListener(this);
-            yh_8.setOnClickListener(this);
+        yh_0.setOnClickListener(this);
+        yh_1.setOnClickListener(this);
+        yh_2.setOnClickListener(this);
+        yh_3.setOnClickListener(this);
+        yh_4.setOnClickListener(this);
+        yh_5.setOnClickListener(this);
+        yh_6.setOnClickListener(this);
+        yh_7.setOnClickListener(this);
+        yh_8.setOnClickListener(this);
 
 
-            //		ll_rxzq.setOnClickListener(new OnClickListener() {
-            //
-            //			@Override
-            //			public void onClick(View arg0) {
-            //
-            //				Intent intent = new Intent(getActivity(),HongBaoZqListActivity.class);
-            //				intent.putExtra("channel_name", "life");
-            //				startActivity(intent);
-            //			}
-            //		});
+        //		ll_rxzq.setOnClickListener(new OnClickListener() {
+        //
+        //			@Override
+        //			public void onClick(View arg0) {
+        //
+        //				Intent intent = new Intent(getActivity(),HongBaoZqListActivity.class);
+        //				intent.putExtra("channel_name", "life");
+        //				startActivity(intent);
+        //			}
+        //		});
 
-            //HongBaoZqListActivity
-            img_1.setBackgroundResource(R.drawable.zams_hb_1);
+        //HongBaoZqListActivity
+
+        ll_tjsp.setOnClickListener(new OnClickListener() {
+
+            @Override
+            public void onClick(View arg0) {
+
+                //TuiJianSpListActivity TuiJianGoodsListActivity
+                Intent intent = new Intent(getActivity(), TuiJianSpListActivity.class);
+                intent.putExtra("title", "推荐商品");
+                startActivity(intent);
+            }
+        });
+
+
+        yh_0.setOnClickListener(new OnClickListener() {
+
+            @Override
+            public void onClick(View arg0) {
+
+                // Message msg = new Message();
+                // msg.what = 30;
+                // msg.arg1 = datas.get(0).id;
+                // handler.sendMessage(msg);
+                String id = Integer.toString(datas.get(0).id);
+                System.out.println("=====================" + id);
+                Intent intent30 = new Intent(getActivity(),
+                        WareInformationActivity.class);
+                intent30.putExtra("id", id);
+                startActivity(intent30);
+            }
+        });
+        yh_1.setOnClickListener(new OnClickListener() {
+
+            @Override
+            public void onClick(View arg0) {
+
+                String id = Integer.toString(datas.get(1).id);
+                System.out.println("=====================" + id);
+                Intent intent30 = new Intent(getActivity(),
+                        WareInformationActivity.class);
+                intent30.putExtra("id", id);
+                startActivity(intent30);
+            }
+        });
+        //		yh_2.setOnClickListener(new OnClickListener() {
+        //
+        //			@Override
+        //			public void onClick(View arg0) {
+        //
+        //				String id = Integer.toString(datas.get(3).id);
+        //				System.out.println("=====================" + id);
+        //				Intent intent30 = new Intent(getActivity(),
+        //						WareInformationActivity.class);
+        //				intent30.putExtra("id", id);
+        //				startActivity(intent30);
+        //			}
+        //		});
+        yh_3.setOnClickListener(new OnClickListener() {
+
+            @Override
+            public void onClick(View arg0) {
+
+                String id = Integer.toString(datas.get(2).id);
+                System.out.println("=====================" + id);
+                Intent intent30 = new Intent(getActivity(),
+                        WareInformationActivity.class);
+                intent30.putExtra("id", id);
+                startActivity(intent30);
+            }
+        });
+        yh_4.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View arg0) {
+                String id = Integer.toString(datas.get(3).id);
+                System.out.println("=====================" + id);
+                Intent intent30 = new Intent(getActivity(),
+                        WareInformationActivity.class);
+                intent30.putExtra("id", id);
+                startActivity(intent30);
+            }
+        });
+        //		yh_5.setOnClickListener(new OnClickListener() {
+        //			@Override
+        //			public void onClick(View arg0) {
+        //				String id = Integer.toString(datas.get(6).id);
+        //				System.out.println("=====================" + id);
+        //				Intent intent30 = new Intent(getActivity(),
+        //						WareInformationActivity.class);
+        //				intent30.putExtra("id", id);
+        //				startActivity(intent30);
+        //			}
+        //		});
+        yh_6.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View arg0) {
+                String id = Integer.toString(datas.get(4).id);
+                System.out.println("=====================" + id);
+                Intent intent30 = new Intent(getActivity(),
+                        WareInformationActivity.class);
+                intent30.putExtra("id", id);
+                startActivity(intent30);
+            }
+        });
+        yh_7.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View arg0) {
+                String id = Integer.toString(datas.get(5).id);
+                System.out.println("=====================" + id);
+                Intent intent30 = new Intent(getActivity(),
+                        WareInformationActivity.class);
+                intent30.putExtra("id", id);
+                startActivity(intent30);
+            }
+        });
+        //		yh_8.setOnClickListener(new OnClickListener() {
+        //			@Override
+        //			public void onClick(View arg0) {
+        //				String id = Integer.toString(datas.get(9).id);
+        //				System.out.println("=====================" + id);
+        //				Intent intent30 = new Intent(getActivity(),
+        //						WareInformationActivity.class);
+        //				intent30.putExtra("id", id);
+        //				startActivity(intent30);
+        //			}
+        //		});
+
+        yh0 = (ImageView) layout.findViewById(R.id.yh0);
+        yh1 = (TextView) layout.findViewById(R.id.yh1);
+        yh2 = (TextView) layout.findViewById(R.id.yh2);
+        yh3 = (ImageView) layout.findViewById(R.id.yh3);
+        yh4 = (TextView) layout.findViewById(R.id.yh4);
+        yh5 = (TextView) layout.findViewById(R.id.yh5);
+        yh6 = (ImageView) layout.findViewById(R.id.yh6);
+        yh7 = (TextView) layout.findViewById(R.id.yh7);
+        yh8 = (TextView) layout.findViewById(R.id.yh8);
+        yh16 = (ImageView) layout.findViewById(R.id.yh16);
+        yh17 = (TextView) layout.findViewById(R.id.yh17);
+        yh18 = (TextView) layout.findViewById(R.id.yh18);
+        yh14 = (ImageView) layout.findViewById(R.id.yh14);
+        yh141 = (TextView) layout.findViewById(R.id.yh141);
+        yh142 = (TextView) layout.findViewById(R.id.yh142);
+        yh19 = (ImageView) layout.findViewById(R.id.yh19);
+        yh20 = (TextView) layout.findViewById(R.id.yh20);
+        yh21 = (TextView) layout.findViewById(R.id.yh21);
+        yh22 = (ImageView) layout.findViewById(R.id.yh22);
+        yh23 = (TextView) layout.findViewById(R.id.yh23);
+        yh24 = (TextView) layout.findViewById(R.id.yh24);
+        yh25 = (ImageView) layout.findViewById(R.id.yh25);
+        yh26 = (TextView) layout.findViewById(R.id.yh26);
+        yh27 = (TextView) layout.findViewById(R.id.yh27);
+
+        yh10 = (ImageView) layout.findViewById(R.id.yh10);
+        yh11 = (TextView) layout.findViewById(R.id.yh11);
+        yh12 = (TextView) layout.findViewById(R.id.yh12);
+
+
+        home_main_scrool.setOnTouchListener(new OnTouchListener() {
+
+            @Override
+            public boolean onTouch(View arg0, MotionEvent arg1) {
+
+                switch (arg1.getAction()) {
+                    case MotionEvent.ACTION_MOVE:
+                        System.out.println("滑动" + arg0.getScrollY());
+                        if (arg0.getScrollY() <= 1) {
+                            img_user.setBackgroundResource(R.drawable.saoyisao);
+                            img_shared.setBackgroundResource(R.drawable.home_fx);
+                            home_title_layout.setBackgroundColor(getResources()
+                                    .getColor(R.color.no_color));
+                            // ll_sousuo.setBackgroundColor(getResources().getColor(R.color.no_color));
+                            ll_sousuo.getBackground().setAlpha(70);
+                            tv1.setBackgroundColor(getResources().getColor(
+                                    R.color.no_color));
+                        } else {
+                            img_user.setBackgroundResource(R.drawable.sys_hs);
+                            img_shared.setBackgroundResource(R.drawable.fx_hs);
+                            home_title_layout.setBackgroundColor(getResources()
+                                    .getColor(R.color.white));
+                            ll_sousuo.setBackgroundColor(getResources().getColor(
+                                    R.color.baihuise));
+                            tv1.setBackgroundColor(getResources().getColor(
+                                    R.color.baihuise));
+                        }
+                        break;
+                }
+                return false;
+            }
+        });
+        home_main_scrool.setAlwaysDrawnWithCacheEnabled(true);
+        // format();
+
+        // 聚头条
+        mytaobao = (ScrollTopView) layout.findViewById(R.id.mytaobao);
+        ll_jutoutiao = (LinearLayout) layout.findViewById(R.id.ll_jutoutiao);
+
+        ll_jutoutiao.setOnClickListener(new OnClickListener() {
+
+            @Override
+            public void onClick(View arg0) {
+
+                Intent intent = new Intent(getActivity(),
+                        JuTouTiaoActivity.class);
+                startActivity(intent);
+
+            }
+        });
+
+        mytaobao.setOnClickListener(new OnClickListener() {
+
+            @Override
+            public void onClick(View arg0) {
+
+                Intent intent = new Intent(getActivity(),
+                        JuTouTiaoActivity.class);
+                startActivity(intent);
+
+            }
+        });
+
+        // 新手攻略
+        iv_xsgl = (ImageView) layout.findViewById(R.id.iv_xsgl);// get_article_page_size_list
+        iv_xsgl.setBackgroundResource(R.drawable.xsgl);
+        // Bitmap bitMap =
+        // BitmapFactory.decodeResource(getResources(),R.drawable.xsgl);
+        // iv_xsgl.setImageBitmap(bitMap);
+        // bitMap.recycle(); //回收图片所占的内存
+
+        iv_xsgl.setOnClickListener(new OnClickListener() {
+
+            @Override
+            public void onClick(View arg0) {
+
+                String xinshougl = "zhi";
+                Intent intent = new Intent(getActivity(),
+                        XinshouGyActivity.class);
+                // intent.putExtra("xsgl", xinshougl);
+                startActivity(intent);
+            }
+        });
+        // format();
+
+    }
+
+    /**
+     * 获取红包专区数据
+     */
+    private void requestRedPackage() {
+        AsyncHttp.get(RealmName.REALM_NAME + "/tools/mobile_ajax.asmx/get_category_child_list?channel_name=feedback&parent_id=0", new AsyncHttpResponseHandler() {
+            @Override
+            public void onSuccess(String s) {
+                RedPacketResponse response = JSON.parseObject(s, RedPacketResponse.class);
+                List<RedPackageData> datas = response.getData();
+                if (datas != null) {
+                    initRedPackage(datas);
+                }
+
+            }
+
+            @Override
+            public void onFailure(Throwable throwable, String s) {
+                super.onFailure(throwable, s);
+            }
+        }, getActivity());
+    }
+
+    /**
+     * 红包专区
+     */
+    private void initRedPackage(List<RedPackageData> datas) {
+        int size = datas.size();
+        if (size > 0) {
+            final RedPackageData data0 = datas.get(0);
+            redPackage.setText(data0.getTitle());
+            Glide.with(this)
+                    .load(data0.getImg_url())
+                    .into(img_1);
             zams_hbzq_1.setOnClickListener(new OnClickListener() {
                 @Override
                 public void onClick(View arg0) {
@@ -980,11 +1213,18 @@ public class HomeActivity extends Fragment implements OnClickListener {
                     intent.putExtra("category_id", "2979");
                     intent.putExtra("type_zhi", "0");
                     intent.putExtra("channel_name", "feedback");
+                    intent.putExtra("title", data0.getTitle());
                     startActivity(intent);
                 }
             });
 
-            img_2.setBackgroundResource(R.drawable.zams_hb_3);
+        }
+        if (size > 1) {
+            final RedPackageData data1 = datas.get(1);
+            redPackage1.setText(data1.getTitle());
+            Glide.with(this)
+                    .load(data1.getImg_url())
+                    .into(img_2);
             zams_hbzq_2.setOnClickListener(new OnClickListener() {
                 @Override
                 public void onClick(View arg0) {
@@ -993,266 +1233,34 @@ public class HomeActivity extends Fragment implements OnClickListener {
                     intent.putExtra("category_id", "2978");
                     intent.putExtra("type_zhi", "1");
                     intent.putExtra("channel_name", "feedback");
+                    intent.putExtra("title", data1.getTitle());
+
                     startActivity(intent);
                 }
             });
 
-            img_3.setBackgroundResource(R.drawable.zams_hb_2);
+        }
+
+        if (size > 2) {
+            final RedPackageData data2 = datas.get(2);
+            redPackage2.setText(data2.getTitle());
+            Glide.with(this)
+                    .load(data2.getImg_url())
+                    .into(img_3);
             zams_hbzq_3.setOnClickListener(new OnClickListener() {
                 @Override
                 public void onClick(View arg0) {
-
                     Intent intent = new Intent(getActivity(), HongBaoZqListActivity.class);
                     intent.putExtra("category_id", "2977");
                     intent.putExtra("type_zhi", "2");
                     intent.putExtra("channel_name", "feedback");
+                    intent.putExtra("title", data2.getTitle());
                     startActivity(intent);
                 }
             });
-
-            ll_tjsp.setOnClickListener(new OnClickListener() {
-
-                @Override
-                public void onClick(View arg0) {
-
-                    //TuiJianSpListActivity TuiJianGoodsListActivity
-                    Intent intent = new Intent(getActivity(), TuiJianSpListActivity.class);
-                    intent.putExtra("title", "推荐商品");
-                    startActivity(intent);
-                }
-            });
-
-
-            yh_0.setOnClickListener(new OnClickListener() {
-
-                @Override
-                public void onClick(View arg0) {
-
-                    // Message msg = new Message();
-                    // msg.what = 30;
-                    // msg.arg1 = datas.get(0).id;
-                    // handler.sendMessage(msg);
-                    String id = Integer.toString(datas.get(1).id);
-                    System.out.println("=====================" + id);
-                    Intent intent30 = new Intent(getActivity(),
-                            WareInformationActivity.class);
-                    intent30.putExtra("id", id);
-                    startActivity(intent30);
-                }
-            });
-            yh_1.setOnClickListener(new OnClickListener() {
-
-                @Override
-                public void onClick(View arg0) {
-
-                    String id = Integer.toString(datas.get(2).id);
-                    System.out.println("=====================" + id);
-                    Intent intent30 = new Intent(getActivity(),
-                            WareInformationActivity.class);
-                    intent30.putExtra("id", id);
-                    startActivity(intent30);
-                }
-            });
-            //		yh_2.setOnClickListener(new OnClickListener() {
-            //
-            //			@Override
-            //			public void onClick(View arg0) {
-            //
-            //				String id = Integer.toString(datas.get(3).id);
-            //				System.out.println("=====================" + id);
-            //				Intent intent30 = new Intent(getActivity(),
-            //						WareInformationActivity.class);
-            //				intent30.putExtra("id", id);
-            //				startActivity(intent30);
-            //			}
-            //		});
-            yh_3.setOnClickListener(new OnClickListener() {
-
-                @Override
-                public void onClick(View arg0) {
-
-                    String id = Integer.toString(datas.get(3).id);
-                    System.out.println("=====================" + id);
-                    Intent intent30 = new Intent(getActivity(),
-                            WareInformationActivity.class);
-                    intent30.putExtra("id", id);
-                    startActivity(intent30);
-                }
-            });
-            yh_4.setOnClickListener(new OnClickListener() {
-                @Override
-                public void onClick(View arg0) {
-                    String id = Integer.toString(datas.get(4).id);
-                    System.out.println("=====================" + id);
-                    Intent intent30 = new Intent(getActivity(),
-                            WareInformationActivity.class);
-                    intent30.putExtra("id", id);
-                    startActivity(intent30);
-                }
-            });
-            //		yh_5.setOnClickListener(new OnClickListener() {
-            //			@Override
-            //			public void onClick(View arg0) {
-            //				String id = Integer.toString(datas.get(6).id);
-            //				System.out.println("=====================" + id);
-            //				Intent intent30 = new Intent(getActivity(),
-            //						WareInformationActivity.class);
-            //				intent30.putExtra("id", id);
-            //				startActivity(intent30);
-            //			}
-            //		});
-            yh_6.setOnClickListener(new OnClickListener() {
-                @Override
-                public void onClick(View arg0) {
-                    String id = Integer.toString(datas.get(5).id);
-                    System.out.println("=====================" + id);
-                    Intent intent30 = new Intent(getActivity(),
-                            WareInformationActivity.class);
-                    intent30.putExtra("id", id);
-                    startActivity(intent30);
-                }
-            });
-            yh_7.setOnClickListener(new OnClickListener() {
-                @Override
-                public void onClick(View arg0) {
-                    String id = Integer.toString(datas.get(6).id);
-                    System.out.println("=====================" + id);
-                    Intent intent30 = new Intent(getActivity(),
-                            WareInformationActivity.class);
-                    intent30.putExtra("id", id);
-                    startActivity(intent30);
-                }
-            });
-            //		yh_8.setOnClickListener(new OnClickListener() {
-            //			@Override
-            //			public void onClick(View arg0) {
-            //				String id = Integer.toString(datas.get(9).id);
-            //				System.out.println("=====================" + id);
-            //				Intent intent30 = new Intent(getActivity(),
-            //						WareInformationActivity.class);
-            //				intent30.putExtra("id", id);
-            //				startActivity(intent30);
-            //			}
-            //		});
-
-            yh0 = (ImageView) layout.findViewById(R.id.yh0);
-            yh1 = (TextView) layout.findViewById(R.id.yh1);
-            yh2 = (TextView) layout.findViewById(R.id.yh2);
-            yh3 = (ImageView) layout.findViewById(R.id.yh3);
-            yh4 = (TextView) layout.findViewById(R.id.yh4);
-            yh5 = (TextView) layout.findViewById(R.id.yh5);
-            yh6 = (ImageView) layout.findViewById(R.id.yh6);
-            yh7 = (TextView) layout.findViewById(R.id.yh7);
-            yh8 = (TextView) layout.findViewById(R.id.yh8);
-            yh16 = (ImageView) layout.findViewById(R.id.yh16);
-            yh17 = (TextView) layout.findViewById(R.id.yh17);
-            yh18 = (TextView) layout.findViewById(R.id.yh18);
-            yh14 = (ImageView) layout.findViewById(R.id.yh14);
-            yh141 = (TextView) layout.findViewById(R.id.yh141);
-            yh142 = (TextView) layout.findViewById(R.id.yh142);
-            yh19 = (ImageView) layout.findViewById(R.id.yh19);
-            yh20 = (TextView) layout.findViewById(R.id.yh20);
-            yh21 = (TextView) layout.findViewById(R.id.yh21);
-            yh22 = (ImageView) layout.findViewById(R.id.yh22);
-            yh23 = (TextView) layout.findViewById(R.id.yh23);
-            yh24 = (TextView) layout.findViewById(R.id.yh24);
-            yh25 = (ImageView) layout.findViewById(R.id.yh25);
-            yh26 = (TextView) layout.findViewById(R.id.yh26);
-            yh27 = (TextView) layout.findViewById(R.id.yh27);
-
-            yh10 = (ImageView) layout.findViewById(R.id.yh10);
-            yh11 = (TextView) layout.findViewById(R.id.yh11);
-            yh12 = (TextView) layout.findViewById(R.id.yh12);
-
-
-            home_main_scrool.setOnTouchListener(new OnTouchListener() {
-
-                @Override
-                public boolean onTouch(View arg0, MotionEvent arg1) {
-
-                    switch (arg1.getAction()) {
-                        case MotionEvent.ACTION_MOVE:
-                            System.out.println("滑动" + arg0.getScrollY());
-                            if (arg0.getScrollY() <= 1) {
-                                img_user.setBackgroundResource(R.drawable.saoyisao);
-                                img_shared.setBackgroundResource(R.drawable.home_fx);
-                                home_title_layout.setBackgroundColor(getResources()
-                                        .getColor(R.color.no_color));
-                                // ll_sousuo.setBackgroundColor(getResources().getColor(R.color.no_color));
-                                ll_sousuo.getBackground().setAlpha(70);
-                                tv1.setBackgroundColor(getResources().getColor(
-                                        R.color.no_color));
-                            } else {
-                                img_user.setBackgroundResource(R.drawable.sys_hs);
-                                img_shared.setBackgroundResource(R.drawable.fx_hs);
-                                home_title_layout.setBackgroundColor(getResources()
-                                        .getColor(R.color.white));
-                                ll_sousuo.setBackgroundColor(getResources().getColor(
-                                        R.color.baihuise));
-                                tv1.setBackgroundColor(getResources().getColor(
-                                        R.color.baihuise));
-                            }
-                            break;
-                    }
-                    return false;
-                }
-            });
-            home_main_scrool.setAlwaysDrawnWithCacheEnabled(true);
-            // format();
-
-            // 聚头条
-            mytaobao = (ScrollTopView) layout.findViewById(R.id.mytaobao);
-            ll_jutoutiao = (LinearLayout) layout.findViewById(R.id.ll_jutoutiao);
-
-            ll_jutoutiao.setOnClickListener(new OnClickListener() {
-
-                @Override
-                public void onClick(View arg0) {
-
-                    Intent intent = new Intent(getActivity(),
-                            JuTouTiaoActivity.class);
-                    startActivity(intent);
-
-                }
-            });
-
-            mytaobao.setOnClickListener(new OnClickListener() {
-
-                @Override
-                public void onClick(View arg0) {
-
-                    Intent intent = new Intent(getActivity(),
-                            JuTouTiaoActivity.class);
-                    startActivity(intent);
-
-                }
-            });
-
-            // 新手攻略
-            iv_xsgl = (ImageView) layout.findViewById(R.id.iv_xsgl);// get_article_page_size_list
-            iv_xsgl.setBackgroundResource(R.drawable.xsgl);
-            // Bitmap bitMap =
-            // BitmapFactory.decodeResource(getResources(),R.drawable.xsgl);
-            // iv_xsgl.setImageBitmap(bitMap);
-            // bitMap.recycle(); //回收图片所占的内存
-
-            iv_xsgl.setOnClickListener(new OnClickListener() {
-
-                @Override
-                public void onClick(View arg0) {
-
-                    String xinshougl = "zhi";
-                    Intent intent = new Intent(getActivity(),
-                            XinshouGyActivity.class);
-                    // intent.putExtra("xsgl", xinshougl);
-                    startActivity(intent);
-                }
-            });
-            // format();
-        } catch (Exception e) {
-
-            e.printStackTrace();
         }
+
+
     }
 
     ArrayList<AdvertDao1> images = null;
@@ -1292,43 +1300,6 @@ public class HomeActivity extends Fragment implements OnClickListener {
                 }, context);
     }
 
-    private void format() {
-        // double scale_b = (double) 341 / 583;
-        // double layout2_height = screenHeight * scale_b;
-        // layout2.setLayoutParams(new LayoutParams(LayoutParams.MATCH_PARENT,
-        // (int) layout2_height));
-        // -----------
-        // double scale_b1 = (double) 444 / 610;
-        // double layout2_1height = screenHeight * scale_b1;
-        // layout2_1.setLayoutParams(new LayoutParams(LayoutParams.MATCH_PARENT,
-        // (int) layout2_1height));
-        // --------
-
-        double viewPager = (double) 0 / 0;
-        double viewPager_height = viewPager * screenHeight;
-        main_fragment_viewpager.setLayoutParams(new LayoutParams(
-                android.view.ViewGroup.LayoutParams.MATCH_PARENT,
-                (int) viewPager_height));
-        double l2 = (double) 90 / 583;
-        double l2_height = l2 * screenHeight;
-        System.out.println("l2_height:" + l2_height);
-
-        // double l3 = (double) 130 / 583;
-        // double l3_height = l3 * screenHeight;
-        // second_main_l2.setLayoutParams(new LayoutParams(
-        // LayoutParams.MATCH_PARENT, (int) l2_height));
-        // second_main_l3.setLayoutParams(new LayoutParams(
-        // LayoutParams.MATCH_PARENT, (int) l3_height));
-        // second_main_l4.setLayoutParams(new LayoutParams(
-        // LayoutParams.MATCH_PARENT, (int) l3_height));
-
-        // double l4 = (double) 237 / 583;
-        // double l4_height = l4 * screenHeight;
-        // sec_demo2.setLayoutParams(new LayoutParams(LayoutParams.MATCH_PARENT,
-        // (int) l4_height));
-        // sec_demo3.setLayoutParams(new LayoutParams(LayoutParams.MATCH_PARENT,
-        // (int) l4_height));
-    }
 
     /**
      * 广告
@@ -1381,7 +1352,7 @@ public class HomeActivity extends Fragment implements OnClickListener {
     };
 
     private void goWebOrInfoActivity(String link_url) {
-        if (link_url != null && link_url.contains("goods") ) {
+        if (link_url != null && link_url.contains("goods")) {
             int start = link_url.lastIndexOf("-") + 1;
             int end = link_url.lastIndexOf(".");
             String id = link_url.substring(start, end);
@@ -1555,179 +1526,34 @@ public class HomeActivity extends Fragment implements OnClickListener {
                     break;
                 case 110:
                     type = true;
-                    // final ArrayList<WareInformationData> datas =
-                    // (ArrayList<WareInformationData>) msg.obj;
                     int len = datas.size();
                     if (len > 0) {
                         try {
                             System.out.println("点击了=================");
-                            mAq.id(yh0).image(RealmName.REALM_NAME_HTTP + datas.get(1).img_url);
-                            yh1.setText(datas.get(1).title);
-                            yh2.setText("￥" + datas.get(1).sell_price);
+                            mAq.id(yh0).image(RealmName.REALM_NAME_HTTP + datas.get(0).img_url);
+                            yh1.setText(datas.get(0).title);
+                            yh2.setText("￥" + datas.get(0).sell_price);
 
-                            mAq.id(yh3).image(RealmName.REALM_NAME_HTTP + datas.get(2).img_url);
-                            yh4.setText(datas.get(2).title);
-                            yh5.setText("￥" + datas.get(2).sell_price);
+                            mAq.id(yh3).image(RealmName.REALM_NAME_HTTP + datas.get(1).img_url);
+                            yh4.setText(datas.get(1).title);
+                            yh5.setText("￥" + datas.get(1).sell_price);
 
-                            mAq.id(yh16).image(RealmName.REALM_NAME_HTTP + datas.get(3).img_url);
-                            yh17.setText(datas.get(3).title);
-                            yh18.setText("￥" + datas.get(3).sell_price);
+                            mAq.id(yh16).image(RealmName.REALM_NAME_HTTP + datas.get(2).img_url);
+                            yh17.setText(datas.get(2).title);
+                            yh18.setText("￥" + datas.get(2).sell_price);
 
-                            mAq.id(yh10).image(RealmName.REALM_NAME_HTTP + datas.get(4).img_url);
-                            yh11.setText(datas.get(4).title);
-                            yh12.setText("￥" + datas.get(4).sell_price);
+                            mAq.id(yh10).image(RealmName.REALM_NAME_HTTP + datas.get(3).img_url);
+                            yh11.setText(datas.get(3).title);
+                            yh12.setText("￥" + datas.get(3).sell_price);
 
-                            mAq.id(yh19).image(RealmName.REALM_NAME_HTTP + datas.get(5).img_url);
-                            yh20.setText(datas.get(5).title);
-                            yh21.setText("￥" + datas.get(5).sell_price);
+                            mAq.id(yh19).image(RealmName.REALM_NAME_HTTP + datas.get(4).img_url);
+                            yh20.setText(datas.get(4).title);
+                            yh21.setText("￥" + datas.get(4).sell_price);
 
-                            mAq.id(yh22).image(RealmName.REALM_NAME_HTTP + datas.get(6).img_url);
-                            yh23.setText(datas.get(6).title);
-                            yh24.setText("￥" + datas.get(6).sell_price);
+                            mAq.id(yh22).image(RealmName.REALM_NAME_HTTP + datas.get(5).img_url);
+                            yh23.setText(datas.get(5).title);
+                            yh24.setText("￥" + datas.get(5).sell_price);
 
-                            //
-                            //						mAq.id(yh6).image(RealmName.REALM_NAME_HTTP+ datas.get(3).img_url);
-                            //						yh7.setText(datas.get(3).title);
-                            //						yh8.setText("￥" + datas.get(3).sell_price);
-                            //
-                            //						mAq.id(yh16).image(RealmName.REALM_NAME_HTTP+ datas.get(4).img_url);
-                            //						yh17.setText(datas.get(4).title);
-                            //						yh18.setText("￥" + datas.get(4).sell_price);
-                            //
-                            //						mAq.id(yh10).image(RealmName.REALM_NAME_HTTP+ datas.get(5).img_url);
-                            //						yh11.setText(datas.get(5).title);
-                            //						yh12.setText("￥" + datas.get(5).sell_price);
-                            //
-                            //						mAq.id(yh14).image(RealmName.REALM_NAME_HTTP+ datas.get(6).img_url);
-                            //						yh141.setText(datas.get(6).title);
-                            //						yh142.setText("￥" + datas.get(6).sell_price);
-                            //
-                            //						mAq.id(yh19).image(RealmName.REALM_NAME_HTTP+ datas.get(7).img_url);
-                            //						yh20.setText(datas.get(7).title);
-                            //						yh21.setText("￥" + datas.get(7).sell_price);
-                            //
-                            //						mAq.id(yh22).image(RealmName.REALM_NAME_HTTP+ datas.get(8).img_url);
-                            //						yh23.setText(datas.get(8).title);
-                            //						yh24.setText("￥" + datas.get(8).sell_price);
-                            //
-                            //						mAq.id(yh25).image(RealmName.REALM_NAME_HTTP+ datas.get(9).img_url);
-                            //						yh26.setText(datas.get(9).title);
-                            //						yh27.setText("￥" + datas.get(9).sell_price);
-
-                            // mAq.clear();
-                            // yh_0.setOnClickListener(new OnClickListener() {
-                            //
-                            // @Override
-                            // public void onClick(View arg0) {
-                            //
-                            // // Message msg = new Message();
-                            // // msg.what = 30;
-                            // // msg.arg1 = datas.get(0).id;
-                            // // handler.sendMessage(msg);
-                            // String id = Integer.toString(datas.get(1).id);
-                            // System.out.println("====================="+id);
-                            // Intent intent30 = new
-                            // Intent(getActivity(),WareInformationActivity.class);
-                            // intent30.putExtra("id", id);
-                            // startActivity(intent30);
-                            // }
-                            // });
-                            //
-                            // yh_1.setOnClickListener(new OnClickListener() {
-                            //
-                            // @Override
-                            // public void onClick(View arg0) {
-                            //
-                            // String id = Integer.toString(datas.get(2).id);
-                            // System.out.println("====================="+id);
-                            // Intent intent30 = new
-                            // Intent(getActivity(),WareInformationActivity.class);
-                            // intent30.putExtra("id", id);
-                            // startActivity(intent30);
-                            // }
-                            // });
-                            // //
-                            // yh_2.setOnClickListener(new OnClickListener() {
-                            //
-                            // @Override
-                            // public void onClick(View arg0) {
-                            //
-                            // String id = Integer.toString(datas.get(3).id);
-                            // System.out.println("====================="+id);
-                            // Intent intent30 = new
-                            // Intent(getActivity(),WareInformationActivity.class);
-                            // intent30.putExtra("id", id);
-                            // startActivity(intent30);
-                            // }
-                            // });
-                            // yh_3.setOnClickListener(new OnClickListener() {
-                            //
-                            // @Override
-                            // public void onClick(View arg0) {
-                            //
-                            // String id = Integer.toString(datas.get(4).id);
-                            // System.out.println("====================="+id);
-                            // Intent intent30 = new
-                            // Intent(getActivity(),WareInformationActivity.class);
-                            // intent30.putExtra("id", id);
-                            // startActivity(intent30);
-                            // }
-                            // });
-                            // yh_4.setOnClickListener(new OnClickListener() {
-                            // @Override
-                            // public void onClick(View arg0) {
-                            // String id = Integer.toString(datas.get(5).id);
-                            // System.out.println("====================="+id);
-                            // Intent intent30 = new
-                            // Intent(getActivity(),WareInformationActivity.class);
-                            // intent30.putExtra("id", id);
-                            // startActivity(intent30);
-                            // }
-                            // });
-                            // yh_5.setOnClickListener(new OnClickListener() {
-                            // @Override
-                            // public void onClick(View arg0) {
-                            // String id = Integer.toString(datas.get(6).id);
-                            // System.out.println("====================="+id);
-                            // Intent intent30 = new
-                            // Intent(getActivity(),WareInformationActivity.class);
-                            // intent30.putExtra("id", id);
-                            // startActivity(intent30);
-                            // }
-                            // });
-                            // yh_6.setOnClickListener(new OnClickListener() {
-                            // @Override
-                            // public void onClick(View arg0) {
-                            // String id = Integer.toString(datas.get(7).id);
-                            // System.out.println("====================="+id);
-                            // Intent intent30 = new
-                            // Intent(getActivity(),WareInformationActivity.class);
-                            // intent30.putExtra("id", id);
-                            // startActivity(intent30);
-                            // }
-                            // });
-                            // yh_7.setOnClickListener(new OnClickListener() {
-                            // @Override
-                            // public void onClick(View arg0) {
-                            // String id = Integer.toString(datas.get(8).id);
-                            // System.out.println("====================="+id);
-                            // Intent intent30 = new
-                            // Intent(getActivity(),WareInformationActivity.class);
-                            // intent30.putExtra("id", id);
-                            // startActivity(intent30);
-                            // }
-                            // });
-                            // yh_8.setOnClickListener(new OnClickListener() {
-                            // @Override
-                            // public void onClick(View arg0) {
-                            // String id = Integer.toString(datas.get(9).id);
-                            // System.out.println("====================="+id);
-                            // Intent intent30 = new
-                            // Intent(getActivity(),WareInformationActivity.class);
-                            // intent30.putExtra("id", id);
-                            // startActivity(intent30);
-                            // }
-                            // });
 
                         } catch (Exception e) {
 
@@ -1735,179 +1561,7 @@ public class HomeActivity extends Fragment implements OnClickListener {
                         }
 
                     }
-                    // ImageLoader imageLoader=ImageLoader.getInstance();
-                    // imageLoader.displayImage(RealmName.REALM_NAME_HTTP+
-                    // datas.get(0).img_url, iv_imagr1);
-                    // mAq.id(iv_imagr1).image(RealmName.REALM_NAME_HTTP+datas.get(0).img_url);
-                    // tv_text1.setText(datas.get(0).title);
-                    // tv_jiaguo1.setText("￥" + datas.get(0).sell_price);
-                    // tv_scj1.setText("￥" + datas.get(0).marketPrice);
-                    // tv_scj1.getPaint().setFlags(Paint.STRIKE_THRU_TEXT_FLAG |
-                    // Paint.ANTI_ALIAS_FLAG); // 设置文字的中划线
-                    // //点击到商品详情
-                    // // ll_sp1.setOnClickListener(new OnClickListener() {
-                    // // @Override
-                    // // public void onClick(View arg0) {
-                    // //
-                    // // String id = Integer.toString(datas.get(0).id);
-                    // // System.out.println("====================="+id);
-                    // // Intent intent = new
-                    // Intent(getActivity(),WareInformationActivity.class);
-                    // // intent.putExtra("id", id);
-                    // // startActivity(intent);
-                    // // }
-                    // // });
-                    //
-                    // //点击立即购买
-                    // tv_goumai1.setOnClickListener(new OnClickListener() {
-                    // @Override
-                    // public void onClick(View arg0) {
-                    //
-                    // // Intent intent = new
-                    // Intent(getActivity(),MyOrderConfrimActivity.class);
-                    // // intent.putExtra("proName", datas.get(0).title);
-                    // // intent.putExtra("proFaceImg", datas.get(0).img_url);
-                    // // intent.putExtra("retailPrice", datas.get(0).sell_price);
-                    // // intent.putExtra("marketPrice", datas.get(0).marketPrice);
-                    // // startActivity(intent);
-                    // // String article_id = datas.get(0).article_id;
-                    // // String goods_id = datas.get(0).goods_id;
-                    // // loadgouwuche(article_id,goods_id);//立即购买加入购物车
-                    // String id = Integer.toString(datas.get(0).id);
-                    // System.out.println("====================="+id);
-                    // Intent intent = new
-                    // Intent(getActivity(),WareInformationActivity.class);
-                    // intent.putExtra("id", id);
-                    // startActivity(intent);
-                    // }
-                    // });
-                    //
-                    // //2
-                    // // imageLoader.displayImage(RealmName.REALM_NAME_HTTP+
-                    // datas.get(1).img_url, iv_imagr2);
-                    // mAq.id(iv_imagr2).image(RealmName.REALM_NAME_HTTP+datas.get(1).img_url);
-                    // tv_text2.setText(datas.get(1).title);
-                    // tv_jiaguo2.setText("￥" + datas.get(1).sell_price);
-                    // tv_scj2.setText("￥" + datas.get(1).marketPrice);
-                    // tv_scj2.getPaint().setFlags(Paint.STRIKE_THRU_TEXT_FLAG |
-                    // Paint.ANTI_ALIAS_FLAG); // 设置文字的中划线
-                    // //点击到商品详情
-                    // // ll_sp2.setOnClickListener(new OnClickListener() {
-                    // // @Override
-                    // // public void onClick(View arg0) {
-                    // //
-                    // // String id = Integer.toString(datas.get(1).id);
-                    // // System.out.println("====================="+id);
-                    // // Intent intent = new
-                    // Intent(getActivity(),WareInformationActivity.class);
-                    // // intent.putExtra("id", id);
-                    // // startActivity(intent);
-                    // // }
-                    // // });
-                    // //点击立即购买
-                    // tv_goumai2.setOnClickListener(new OnClickListener() {
-                    // @Override
-                    // public void onClick(View arg0) {
-                    //
-                    // // Intent intent = new
-                    // Intent(getActivity(),MyOrderConfrimActivity.class);
-                    // // intent.putExtra("proName", datas.get(1).title);
-                    // // intent.putExtra("proFaceImg", datas.get(1).img_url);
-                    // // intent.putExtra("retailPrice", datas.get(1).sell_price);
-                    // // intent.putExtra("marketPrice", datas.get(1).marketPrice);
-                    // // startActivity(intent);
-                    // String id = Integer.toString(datas.get(1).id);
-                    // System.out.println("====================="+id);
-                    // Intent intent = new
-                    // Intent(getActivity(),WareInformationActivity.class);
-                    // intent.putExtra("id", id);
-                    // startActivity(intent);
-                    // }
-                    // });
-                    // //1
-                    // // imageLoader.displayImage(RealmName.REALM_NAME_HTTP+
-                    // datas.get(2).img_url, iv_imagr3);
-                    // mAq.id(iv_imagr3).image(RealmName.REALM_NAME_HTTP+datas.get(2).img_url);
-                    // tv_text3.setText(datas.get(2).title);
-                    // tv_jiaguo3.setText("￥" + datas.get(2).sell_price);
-                    // tv_scj3.setText("￥" + datas.get(2).marketPrice);
-                    // tv_scj3.getPaint().setFlags(Paint.STRIKE_THRU_TEXT_FLAG |
-                    // Paint.ANTI_ALIAS_FLAG); // 设置文字的中划线
-                    // //点击到商品详情
-                    // // ll_sp3.setOnClickListener(new OnClickListener() {
-                    // // @Override
-                    // // public void onClick(View arg0) {
-                    // //
-                    // // String id = Integer.toString(datas.get(2).id);
-                    // // System.out.println("====================="+id);
-                    // // Intent intent = new
-                    // Intent(getActivity(),WareInformationActivity.class);
-                    // // intent.putExtra("id", id);
-                    // // startActivity(intent);
-                    // // }
-                    // // });
-                    // //点击立即购买
-                    // tv_goumai3.setOnClickListener(new OnClickListener() {
-                    // @Override
-                    // public void onClick(View arg0) {
-                    //
-                    // // Intent intent = new
-                    // Intent(getActivity(),MyOrderConfrimActivity.class);
-                    // // intent.putExtra("proName", datas.get(2).title);
-                    // // intent.putExtra("proFaceImg", datas.get(2).img_url);
-                    // // intent.putExtra("retailPrice", datas.get(2).sell_price);
-                    // // intent.putExtra("marketPrice", datas.get(2).marketPrice);
-                    // // startActivity(intent);
-                    // String id = Integer.toString(datas.get(2).id);
-                    // System.out.println("====================="+id);
-                    // Intent intent = new
-                    // Intent(getActivity(),WareInformationActivity.class);
-                    // intent.putExtra("id", id);
-                    // startActivity(intent);
-                    // }
-                    // });
-                    // //4
-                    // // imageLoader.displayImage(RealmName.REALM_NAME_HTTP+
-                    // datas.get(3).img_url, iv_imagr4);
-                    // mAq.id(iv_imagr4).image(RealmName.REALM_NAME_HTTP+datas.get(3).img_url);
-                    // tv_text4.setText(datas.get(3).title);
-                    // tv_jiaguo4.setText("￥" + datas.get(3).sell_price);
-                    // tv_scj4.setText("￥" + datas.get(3).marketPrice);
-                    // tv_scj4.getPaint().setFlags(Paint.STRIKE_THRU_TEXT_FLAG |
-                    // Paint.ANTI_ALIAS_FLAG); // 设置文字的中划线
-                    // //点击到商品详情
-                    // // ll_sp4.setOnClickListener(new OnClickListener() {
-                    // // @Override
-                    // // public void onClick(View arg0) {
-                    // //
-                    // // String id = Integer.toString(datas.get(3).id);
-                    // // System.out.println("====================="+id);
-                    // // Intent intent = new
-                    // Intent(getActivity(),WareInformationActivity.class);
-                    // // intent.putExtra("id", id);
-                    // // startActivity(intent);
-                    // // }
-                    // // });
-                    // //点击立即购买
-                    // tv_goumai4.setOnClickListener(new OnClickListener() {
-                    // @Override
-                    // public void onClick(View arg0) {
-                    //
-                    // // Intent intent = new
-                    // Intent(getActivity(),MyOrderConfrimActivity.class);
-                    // // intent.putExtra("proName", datas.get(3).title);
-                    // // intent.putExtra("proFaceImg", datas.get(3).img_url);
-                    // // intent.putExtra("retailPrice", datas.get(3).sell_price);
-                    // // intent.putExtra("marketPrice", datas.get(3).marketPrice);
-                    // // startActivity(intent);
-                    // String id = Integer.toString(datas.get(3).id);
-                    // System.out.println("====================="+id);
-                    // Intent intent = new
-                    // Intent(getActivity(),WareInformationActivity.class);
-                    // intent.putExtra("id", id);
-                    // startActivity(intent);
-                    // }
-                    // });
+
                     break;
                 default:
                     break;

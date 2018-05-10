@@ -645,40 +645,14 @@ public class ZhongAnMinShenXqActivity extends BaseActivity implements
                                 progress.CloseProgress();
                                 //								Toast.makeText(ZhongAnMinShenXqActivity.this,info,  Toast.LENGTH_SHORT).show();
                                 getguowuqingdan();
-                                //									Intent intent = new Intent(ZhongAnMinShenXqActivity.this,BaoMinTiShiActivity.class);
-                                //									intent.putExtra("datatype_id", getIntent().getStringExtra("datatype_id"));
-                                //									intent.putExtra("sell_price",xqdata.sell_price);
-                                //									intent.putExtra("article_id",xqdata.article_id);
-                                //									intent.putExtra("goods_id",xqdata.goods_id);
-                                //									intent.putExtra("title", xqdata.title);
-                                //									intent.putExtra("img_url",xqdata.img_url);
-                                //									intent.putExtra("start_time",xqdata.start_time);
-                                //									intent.putExtra("end_time", xqdata.end_time);
-                                //									intent.putExtra("address", xqdata.address);
-                                //									intent.putExtra("id", xqdata.id);
-                                //									startActivity(intent);
-                            } else {
+
                                 progress.CloseProgress();
                                 //已签到
                                 String code = jsonObject.getString("code");
-                                if (code.equals("sinup")) {
+                                if ("sinup".equals(code)) {
                                     Toast.makeText(ZhongAnMinShenXqActivity.this, "您已签到", Toast.LENGTH_SHORT).show();
                                 } else {
                                     Toast.makeText(ZhongAnMinShenXqActivity.this, info, Toast.LENGTH_SHORT).show();
-                                    //									JSONObject obj = jsonObject.getJSONObject("data");
-                                    //									String trade_no = obj.getString("trade_no");
-                                    //									Intent intent = new Intent(ZhongAnMinShenXqActivity.this,TishiBaoMinOkActivity.class);
-                                    //									intent.putExtra("bm_tishi", "1");
-                                    //									intent.putExtra("datatype_id", getIntent().getStringExtra("datatype_id"));
-                                    //									intent.putExtra("trade_no", trade_no);
-                                    //									intent.putExtra("title", xqdata.title);
-                                    //									intent.putExtra("start_time",xqdata.start_time);
-                                    //									intent.putExtra("end_time", xqdata.end_time);
-                                    //									intent.putExtra("address", xqdata.address);
-                                    //									intent.putExtra("id", xqdata.id);
-                                    //									intent.putExtra("real_name",real_name);
-                                    //									intent.putExtra("mobile",mobile);
-                                    //									startActivity(intent);
                                 }
                             }
                         } catch (JSONException e) {

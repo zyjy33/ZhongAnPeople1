@@ -65,15 +65,11 @@ public class HongBaoZqListActivity extends BaseActivity {
         if (intent != null) {
             type_zhi = intent.getStringExtra("type_zhi");
             mChannelName = intent.getStringExtra("channel_name");
-            if ("0".equals(type_zhi)) {
-                textView1.setText("米面粮油/干货/副食酒水");
-            } else if ("1".equals(type_zhi)) {
-                textView1.setText("营养健康/保健品/医疗用品");
-            } else if ("2".equals(type_zhi)) {
-                textView1.setText("生活用品/家居家电");
-            } else if ("3".equals(type_zhi)) {
-                textView1.setText(intent.getStringExtra("title"));
+            String title = intent.getStringExtra("title");
+            if (title != null) {
+                textView1.setText(title);
             }
+
             initdata();
 
             lists = new ArrayList<SpListData>();
