@@ -1043,17 +1043,7 @@ public class HomeActivity extends Fragment implements OnClickListener {
                 startActivity(intent30);
             }
         });
-        //		yh_8.setOnClickListener(new OnClickListener() {
-        //			@Override
-        //			public void onClick(View arg0) {
-        //				String id = Integer.toString(datas.get(9).id);
-        //				System.out.println("=====================" + id);
-        //				Intent intent30 = new Intent(getActivity(),
-        //						WareInformationActivity.class);
-        //				intent30.putExtra("id", id);
-        //				startActivity(intent30);
-        //			}
-        //		});
+
 
         yh0 = (ImageView) layout.findViewById(R.id.yh0);
         yh1 = (TextView) layout.findViewById(R.id.yh1);
@@ -1452,7 +1442,7 @@ public class HomeActivity extends Fragment implements OnClickListener {
                     if (!nickname.equals("")) {
                         if (!user_name.equals("")) {
                             Intent intent48 = new Intent(getActivity(),
-                                    JuTuanGou2Activity.class);
+                                    JuDuiHuanActivity.class);
                             startActivity(intent48);
                         } else {
                             Intent intent2 = new Intent(getActivity(),
@@ -1466,8 +1456,9 @@ public class HomeActivity extends Fragment implements OnClickListener {
                             startActivity(intentll);
                         } else {
                             Intent intent48 = new Intent(getActivity(),
-                                    JuTuanGou2Activity.class);
+                                    JuDuiHuanActivity.class);
                             startActivity(intent48);
+
                         }
                     }
                     // Toast.makeText(getActivity(), "功能正在完善",  Toast.LENGTH_SHORT).show();

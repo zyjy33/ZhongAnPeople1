@@ -72,6 +72,7 @@ import com.tencent.mm.sdk.openapi.WXAPIFactory;
  * @author Administrator
  */
 public class MyOrderConfrimActivity extends BaseActivity {
+    public static final int ADD_FIRST_REQUEST = 11;
     private String pwd, username;
     private ArrayList<ShopCartData> mList; //购物车列表
     private DialogProgress progress;
@@ -310,7 +311,6 @@ public class MyOrderConfrimActivity extends BaseActivity {
                 } else { //不使用红包
                     System.out.println("dzongjia2================" + mNeedSumMoney);
                     heji.setVisibility(View.VISIBLE);
-                    rl_hongbao.setVisibility(View.GONE);
                     tv_hongbao.setText("不可以使用红包");
                     tv_jiaguo.setText("￥" + doubleToString(mNeedSumMoney) + " , " + mSumQuantity + "件，红包可抵扣: ￥" + 0 + "元");
                     payMoney = mNeedSumMoney;
@@ -359,6 +359,11 @@ public class MyOrderConfrimActivity extends BaseActivity {
         }
         if (resultCode == RESULT_OK && requestCode == 111) {
             showOrderActivity();
+        }
+        if (resultCode == 0 && requestCode == ADD_FIRST_REQUEST) {
+            layout0.setVisibility(View.VISIBLE);
+            layout1.setVisibility(View.GONE);
+            getuseraddress2();
         }
 
 
@@ -462,9 +467,8 @@ public class MyOrderConfrimActivity extends BaseActivity {
         layout1.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MyOrderConfrimActivity.this,
-                        AddUserAddressActivity.class);
-                startActivity(intent);
+                Intent intent = new Intent(MyOrderConfrimActivity.this, AddUserAddressActivity.class);
+                startActivityForResult(intent, ADD_FIRST_REQUEST);
             }
         });
 
@@ -663,15 +667,12 @@ public class MyOrderConfrimActivity extends BaseActivity {
                         String status = jsonObject.getString("status");
                         if (status.equals("y")) {
                             try {
-                                // JSONObject jsot =
-                                // jsonObject.getJSONObject("data");
-                                JSONArray jsonArray = jsonObject
-                                        .getJSONArray("data");
+
+                                JSONArray jsonArray = jsonObject.getJSONArray("data");
                                 for (int i = 0; i < jsonArray.length(); i++) {
                                     JSONObject jsot = jsonArray.getJSONObject(i);
                                     // UserAddressData data = new UserAddressData();
-                                    String user_dizhiname = jsot
-                                            .getString("user_accept_name");
+                                    String user_dizhiname = jsot.getString("user_accept_name");
                                     shopping_address_id = jsot.getString("id");
                                     province = jsot.getString("province");
                                     city = jsot.getString("city");
@@ -801,7 +802,7 @@ public class MyOrderConfrimActivity extends BaseActivity {
                         double payMoney = 0.0;
                         if (0 == mOwnedPacket) {
                             tv_hongbao.setText("不可以使用红包");
-                            sb.setVisibility(View.GONE);
+//                            sb.setVisibility(View.GONE);
                             payMoney = mNeedSumMoney;
                         } else if (0 == mExpectPacket) {
                             tv_hongbao.setText("不可以使用红包" + "元");
@@ -915,7 +916,7 @@ public class MyOrderConfrimActivity extends BaseActivity {
                                                 }
                                             } else {
                                                 heji.setText("实付款:" + " ￥" + mNeedSumMoney);
-                                               isShowThreePay(mNeedSumMoney);
+                                                isShowThreePay(mNeedSumMoney);
                                             }
                                         } else {
                                             String price = String.valueOf(express_fee);
