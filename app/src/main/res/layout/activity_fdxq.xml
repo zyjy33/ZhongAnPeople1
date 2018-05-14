@@ -3,43 +3,45 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    android:orientation="vertical" >
-<RelativeLayout
-         android:layout_width="match_parent"
-         android:layout_height="45dp"
-         android:visibility="gone"
-         android:layout_alignParentTop="true"
-         android:layout_gravity="center_horizontal"
-         android:background="@color/ybs" >
+    android:orientation="vertical">
 
-         <TextView
-             android:id="@+id/textView1"
-             android:layout_width="wrap_content"
-             android:layout_height="wrap_content"
-             android:layout_centerHorizontal="true"
-             android:layout_centerVertical="true"
-             android:text="商品详情"
-             android:textSize="18dip" />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_alignParentTop="true"
+        android:layout_gravity="center_horizontal"
+        android:background="@color/ybs"
+        android:visibility="gone">
 
-         <ImageView
-             android:id="@+id/iv_fanhui"
-             android:layout_width="wrap_content"
-             android:layout_height="20dp"
-             android:layout_alignParentLeft="true"
-             android:layout_centerVertical="true"
-             android:layout_marginLeft="10dp"
-             android:src="@drawable/fanhuijian"
-             android:textSize="18dip" />
-     </RelativeLayout>
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:text="商品详情"
+            android:textSize="18dip" />
+
+        <ImageView
+            android:id="@+id/iv_fanhui"
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:src="@drawable/fanhuijian"
+            android:textSize="18dip" />
+    </RelativeLayout>
+
     <RelativeLayout
         android:id="@+id/rl_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:visibility="gone"
         android:layout_gravity="center_horizontal"
         android:layout_marginBottom="5dp"
-        android:layout_marginTop="5dp" >
+        android:layout_marginTop="5dp"
+        android:visibility="gone">
 
         <Button
             android:layout_width="35dp"
@@ -55,8 +57,7 @@
             android:layout_centerVertical="true"
             android:text="商品详情"
             android:textSize="18dip"
-            android:visibility="gone" 
-            />
+            android:visibility="gone" />
 
         <Button
             android:layout_width="35dp"
@@ -70,43 +71,43 @@
     <com.android.hengyu.ui.ScrollViewContainer
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1" >
+        android:layout_weight="1">
 
         <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="match_parent" >
+            android:layout_height="match_parent">
 
             <RelativeLayout
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" >
+                android:layout_height="wrap_content">
 
                 <LinearLayout
                     android:id="@+id/imagesLayout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center_horizontal"
-                    android:orientation="vertical" >
+                    android:orientation="vertical">
 
                     <LinearLayout
                         android:id="@+id/images_layout"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content" >
+                        android:layout_height="wrap_content">
 
                         <FrameLayout
                             android:layout_width="match_parent"
-                            android:layout_height="match_parent" >
+                            android:layout_height="match_parent">
 
                             <com.lglottery.www.widget.MyPosterView
                                 android:id="@+id/market_information_images"
                                 android:layout_width="match_parent"
-                                android:layout_height="match_parent" >
-                            </com.lglottery.www.widget.MyPosterView>
-<ImageView
-                    android:id="@+id/ling_tip"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:visibility="gone"
-                    android:scaleType="fitXY" />
+                                android:layout_height="match_parent"></com.lglottery.www.widget.MyPosterView>
+
+                            <ImageView
+                                android:id="@+id/ling_tip"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:scaleType="fitXY"
+                                android:visibility="gone" />
 
                             <Button
                                 android:layout_width="40dp"
@@ -130,7 +131,7 @@
 
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content" >
+                        android:layout_height="wrap_content">
 
                         <LinearLayout
                             android:layout_width="0dp"
@@ -138,17 +139,17 @@
                             android:layout_marginLeft="10dp"
                             android:layout_marginRight="10dp"
                             android:layout_weight="1"
-                            android:orientation="vertical" >
+                            android:orientation="vertical">
 
                             <LinearLayout
                                 android:layout_width="match_parent"
-                                android:layout_height="50dp" >
+                                android:layout_height="50dp">
 
                                 <LinearLayout
                                     android:layout_width="0dp"
                                     android:layout_height="match_parent"
                                     android:layout_weight="1"
-                                    android:gravity="center_vertical" >
+                                    android:gravity="center_vertical">
 
                                     <TextView
                                         android:id="@+id/market_information_title"
@@ -175,7 +176,7 @@
                                 android:layout_marginLeft="10dp"
                                 android:layout_marginRight="10dp"
                                 android:orientation="horizontal"
-                                android:visibility="gone" >
+                                android:visibility="gone">
 
                                 <TextView
                                     android:id="@+id/tv_subtitle"
@@ -193,19 +194,19 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginLeft="10dp"
                                 android:layout_marginRight="10dp"
-                                android:visibility="gone"
                                 android:lines="2"
                                 android:paddingTop="0dp"
                                 android:text=""
                                 android:textColor="@color/red"
-                                android:textSize="15sp" />
+                                android:textSize="15sp"
+                                android:visibility="gone" />
 
                             <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginBottom="10dp"
                                 android:layout_marginTop="5dp"
-                                android:orientation="horizontal" >
+                                android:orientation="horizontal">
 
                                 <LinearLayout
                                     android:id="@+id/ll_money"
@@ -213,13 +214,13 @@
                                     android:layout_height="wrap_content"
                                     android:layout_marginLeft="8dp"
                                     android:layout_weight="1"
-                                    android:orientation="vertical" >
+                                    android:orientation="vertical">
 
                                     <LinearLayout
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:layout_marginBottom="4dp"
-                                        android:orientation="horizontal" >
+                                        android:orientation="horizontal">
 
                                         <TextView
                                             android:id="@+id/tv_wenzi1"
@@ -232,15 +233,15 @@
                                             android:id="@+id/tv_ware_hengyu_money"
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
+                                            android:text=""
                                             android:textColor="#FF0000"
-                                             android:text=""
                                             android:textSize="15dp" />
                                     </LinearLayout>
 
                                     <LinearLayout
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:orientation="horizontal" >
+                                        android:orientation="horizontal">
 
                                         <TextView
                                             android:id="@+id/tv_wenzi2"
@@ -253,8 +254,8 @@
                                             android:id="@+id/tv_ware_market_jifen"
                                             android:layout_width="80dp"
                                             android:layout_height="wrap_content"
+                                            android:text=""
                                             android:textColor="#FF0000"
-                                             android:text=""
                                             android:textSize="15dp" />
                                     </LinearLayout>
                                 </LinearLayout>
@@ -265,14 +266,14 @@
                                     android:layout_height="wrap_content"
                                     android:layout_marginLeft="8dip"
                                     android:layout_weight="1"
-                                    android:orientation="vertical" >
+                                    android:orientation="vertical">
 
                                     <LinearLayout
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:layout_marginBottom="8dp"
                                         android:gravity="left"
-                                        android:orientation="horizontal" >
+                                        android:orientation="horizontal">
 
                                         <TextView
                                             android:layout_width="wrap_content"
@@ -293,8 +294,8 @@
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:gravity="left"
-                                        android:visibility="gone"
-                                        android:orientation="horizontal" >
+                                        android:orientation="horizontal"
+                                        android:visibility="gone">
 
                                         <TextView
                                             android:layout_width="wrap_content"
@@ -307,8 +308,8 @@
                                             android:id="@+id/tv_integral"
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
-                                             android:textSize="15dp"
-                                            android:textColor="#FF0000" />
+                                            android:textColor="#FF0000"
+                                            android:textSize="15dp" />
                                     </LinearLayout>
                                 </LinearLayout>
                             </LinearLayout>
@@ -319,19 +320,19 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:background="@color/white"
-                        android:orientation="vertical" >
+                        android:orientation="vertical">
 
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="50dp"
-                            android:visibility="gone" >
+                            android:visibility="gone">
 
                             <LinearLayout
                                 android:id="@+id/market_information_sep"
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
-                                android:gravity="center_vertical" >
+                                android:gravity="center_vertical">
 
                                 <TextView
                                     android:layout_width="wrap_content"
@@ -352,14 +353,14 @@
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="50dp"
-                            android:visibility="gone" >
+                            android:visibility="gone">
 
                             <LinearLayout
                                 android:id="@+id/market_information_describe"
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
-                                android:gravity="center_vertical" >
+                                android:gravity="center_vertical">
 
                                 <ImageView
                                     android:layout_width="wrap_content"
@@ -390,13 +391,13 @@
                         <LinearLayout
                             android:id="@+id/market_information_param"
                             android:layout_width="match_parent"
-                            android:layout_height="50dp" >
+                            android:layout_height="50dp">
 
                             <LinearLayout
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
-                                android:gravity="center_vertical" >
+                                android:gravity="center_vertical">
 
                                 <ImageView
                                     android:layout_width="wrap_content"
@@ -417,8 +418,8 @@
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center_vertical"
                                 android:layout_marginRight="10dp"
-                                android:visibility="invisible"
-                                android:background="@drawable/market_information_arrow" />
+                                android:background="@drawable/market_information_arrow"
+                                android:visibility="invisible" />
                         </LinearLayout>
 
                         <View
@@ -429,13 +430,13 @@
                         <LinearLayout
                             android:id="@+id/market_information_appraise"
                             android:layout_width="match_parent"
-                            android:layout_height="50dp" >
+                            android:layout_height="50dp">
 
                             <LinearLayout
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
-                                android:gravity="center_vertical" >
+                                android:gravity="center_vertical">
 
                                 <ImageView
                                     android:layout_width="wrap_content"
@@ -455,7 +456,7 @@
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:orientation="horizontal" >
+                            android:orientation="horizontal">
 
                             <LinearLayout
                                 android:layout_width="wrap_content"
@@ -463,7 +464,7 @@
                                 android:layout_marginLeft="10dp"
                                 android:background="@drawable/market_tag_bg"
                                 android:gravity="center"
-                                android:orientation="vertical" >
+                                android:orientation="vertical">
 
                                 <TextView
                                     android:layout_width="wrap_content"
@@ -485,14 +486,14 @@
                                 android:layout_height="match_parent"
                                 android:layout_marginLeft="10dp"
                                 android:layout_weight="1"
-                                android:orientation="vertical" >
+                                android:orientation="vertical">
 
                                 <LinearLayout
                                     android:layout_width="match_parent"
                                     android:layout_height="0dp"
                                     android:layout_weight="1"
                                     android:gravity="bottom"
-                                    android:orientation="horizontal" >
+                                    android:orientation="horizontal">
 
                                     <TextView
                                         android:layout_width="wrap_content"
@@ -521,7 +522,7 @@
                                     android:layout_height="0dp"
                                     android:layout_weight="1"
                                     android:gravity="center_vertical"
-                                    android:orientation="horizontal" >
+                                    android:orientation="horizontal">
 
                                     <TextView
                                         android:layout_width="wrap_content"
@@ -544,7 +545,7 @@
                                     android:layout_width="match_parent"
                                     android:layout_height="0dp"
                                     android:layout_weight="1"
-                                    android:gravity="top" >
+                                    android:gravity="top">
 
                                     <TextView
                                         android:layout_width="wrap_content"
@@ -572,8 +573,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="60dp"
                     android:layout_below="@id/imagesLayout"
-                    android:layout_marginTop="30dp"
                     android:layout_marginBottom="0dp"
+                    android:layout_marginTop="30dp"
                     android:background="#eeeeee"
                     android:gravity="center"
                     android:text="继续拖动，查看图文详情"
@@ -584,33 +585,36 @@
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/white" >
+            android:background="@color/white">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="0dp"
                 android:background="@android:color/white"
-                 android:layout_marginTop="0dp"
                 android:gravity="center_horizontal"
-                android:orientation="vertical" >
-<LinearLayout
+                android:orientation="vertical">
+
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="20dp"
-                    android:orientation="vertical" >
-                    </LinearLayout>
+                    android:orientation="vertical"></LinearLayout>
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:orientation="vertical" >
-<View
-                            android:layout_width="match_parent"
-                            android:layout_height="1dp"
-                            android:background="@color/list_diver" />
+                    android:orientation="vertical">
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/list_diver" />
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@color/white"
-                        android:orientation="horizontal" >
+                        android:orientation="horizontal">
 
                         <TextView
                             android:id="@+id/bt_cart_all"
@@ -657,7 +661,7 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal" >
+                        android:orientation="horizontal">
 
                         <TextView
                             android:id="@+id/show_cart_all"
@@ -687,21 +691,21 @@
                     android:id="@+id/ll_shiyishicai1"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:orientation="vertical" >
+                    android:orientation="vertical">
 
                     <WebView
                         android:id="@+id/webview"
-                        android:layout_marginBottom="20dp"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent" />
+                        android:layout_height="match_parent"
+                        android:layout_marginBottom="20dp" />
                 </LinearLayout>
-                                <LinearLayout
+
+                <LinearLayout
                     android:id="@+id/ll_shiyishicai2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:visibility="gone" 
-                    >
+                    android:visibility="gone">
 
                     <ListView
                         android:id="@+id/new_list"
@@ -718,31 +722,30 @@
                         android:contentDescription="@string/app_name"
                         android:visibility="gone" />
                 </LinearLayout>
-                
-                    <LinearLayout
+
+                <LinearLayout
                     android:id="@+id/ll_guigecanshu"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:visibility="gone"
                     android:background="@color/huise"
                     android:orientation="vertical"
-                    >
-          <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    >
-                     <TextView
+                    android:visibility="gone">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:gravity="left"
-                            android:paddingLeft="15dp"
                             android:paddingBottom="10dp"
+                            android:paddingLeft="15dp"
                             android:paddingTop="10dp"
                             android:text="品牌"
-                            android:textColor="@color/black"
-                             />
+                            android:textColor="@color/black" />
 
                         <TextView
                             android:id="@+id/tv_ggcs_1"
@@ -755,22 +758,22 @@
                             android:text=""
                             android:textColor="@color/black" />
                     </LinearLayout>
+
                     <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    >
-                     <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:gravity="left"
-                            android:paddingLeft="15dp"
                             android:paddingBottom="10dp"
+                            android:paddingLeft="15dp"
                             android:paddingTop="10dp"
                             android:text="是否量装版"
-                            android:textColor="@color/black"
-                             />
+                            android:textColor="@color/black" />
 
                         <TextView
                             android:id="@+id/tv_ggcs_2"
@@ -783,22 +786,22 @@
                             android:text=""
                             android:textColor="@color/black" />
                     </LinearLayout>
+
                     <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    >
-                     <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:gravity="left"
-                            android:paddingLeft="15dp"
                             android:paddingBottom="10dp"
+                            android:paddingLeft="15dp"
                             android:paddingTop="10dp"
                             android:text="净含量"
-                            android:textColor="@color/black"
-                             />
+                            android:textColor="@color/black" />
 
                         <TextView
                             android:id="@+id/tv_ggcs_3"
@@ -811,22 +814,22 @@
                             android:text=""
                             android:textColor="@color/black" />
                     </LinearLayout>
+
                     <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    >
-                     <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:gravity="left"
-                            android:paddingLeft="15dp"
                             android:paddingBottom="10dp"
+                            android:paddingLeft="15dp"
                             android:paddingTop="10dp"
                             android:text="保质期"
-                            android:textColor="@color/black"
-                             />
+                            android:textColor="@color/black" />
 
                         <TextView
                             android:id="@+id/tv_ggcs_4"
@@ -839,7 +842,7 @@
                             android:text=""
                             android:textColor="@color/black" />
                     </LinearLayout>
-                    </LinearLayout>
+                </LinearLayout>
 
                 <ImageView
                     android:layout_width="wrap_content"
@@ -856,7 +859,7 @@
             </LinearLayout>
         </ScrollView>
     </com.android.hengyu.ui.ScrollViewContainer>
-
+    <!--兑换-->
     <LinearLayout
         android:id="@+id/market_information_juduihuan"
         android:layout_width="match_parent"
@@ -864,31 +867,30 @@
         android:background="@color/hongse"
         android:gravity="center"
         android:orientation="horizontal"
-        android:visibility="gone" >
+        android:visibility="gone">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="兑换"
-                android:textSize="16sp"
-                android:textColor="@color/white" />
-        
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="兑换"
+            android:textColor="@color/white"
+            android:textSize="16sp" />
+
     </LinearLayout>
-    
-      <LinearLayout
+
+    <LinearLayout
         android:id="@+id/market_information_bottom"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:background="@color/white"
-        android:orientation="horizontal"
-        >
+        android:orientation="horizontal">
 
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="4"
             android:background="@color/white"
-            android:orientation="horizontal" >
+            android:orientation="horizontal">
 
             <LinearLayout
                 android:id="@+id/btn_dianping"
@@ -897,7 +899,7 @@
                 android:layout_weight="2"
                 android:background="@color/white"
                 android:gravity="center"
-                android:orientation="vertical" >
+                android:orientation="vertical">
 
                 <ImageView
                     android:layout_width="22dp"
@@ -921,7 +923,7 @@
                 android:layout_weight="2"
                 android:background="@color/white"
                 android:gravity="center"
-                android:orientation="vertical" >
+                android:orientation="vertical">
 
                 <ImageView
                     android:layout_width="22dp"
@@ -948,8 +950,7 @@
             android:gravity="center"
             android:text="加入购物车"
             android:textColor="@color/white"
-            android:textSize="16sp" >
-        </Button>
+            android:textSize="16sp"></Button>
 
         <LinearLayout
             android:id="@+id/order_shop_now"
@@ -957,7 +958,7 @@
             android:layout_height="match_parent"
             android:layout_weight="3"
             android:background="@color/hongse"
-            android:gravity="center" >
+            android:gravity="center">
 
             <TextView
                 android:layout_width="wrap_content"

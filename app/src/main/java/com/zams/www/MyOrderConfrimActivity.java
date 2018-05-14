@@ -209,11 +209,13 @@ public class MyOrderConfrimActivity extends BaseActivity {
         // 余额支付成功后更新订单
         if (teby) {
             teby = false;
+            // TODO: 2018/5/14  
             finish();
         }
         // 微信支付成功后关闭此界面
         if (flag) {
             userloginqm();
+            // TODO: 2018/5/14  
             // finish();
         }
 

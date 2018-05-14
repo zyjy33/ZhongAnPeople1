@@ -174,10 +174,10 @@ public class MobilePhoneActivity extends BaseActivity implements
 				case R.id.get_yz:
 					phone = userphone.getText().toString().trim();
 					if (phone.equals("")) {
-						Toast.makeText(MobilePhoneActivity.this, "手机号码不能为空", 200)
+						Toast.makeText(MobilePhoneActivity.this, "手机号码不能为空", Toast.LENGTH_SHORT)
 								.show();
 					} else if (phone.length() < 11) {
-						Toast.makeText(MobilePhoneActivity.this, "手机号码少于11位", 200)
+						Toast.makeText(MobilePhoneActivity.this, "手机号码少于11位", Toast.LENGTH_SHORT)
 								.show();
 					} else {
 						// phone = userphone.getText().toString().trim();
@@ -199,7 +199,7 @@ public class MobilePhoneActivity extends BaseActivity implements
 										} else {
 											Toast.makeText(
 													MobilePhoneActivity.this, info,
-													200).show();
+													Toast.LENGTH_SHORT).show();
 											// handler.sendEmptyMessage(3);
 										}
 									} catch (JSONException e) {
@@ -208,7 +208,7 @@ public class MobilePhoneActivity extends BaseActivity implements
 								}
 							}, getApplicationContext());
 						} else {
-							Toast.makeText(MobilePhoneActivity.this, "手机号码不正确", 200)
+							Toast.makeText(MobilePhoneActivity.this, "手机号码不正确", Toast.LENGTH_SHORT)
 									.show();
 						}
 					}
@@ -229,16 +229,16 @@ public class MobilePhoneActivity extends BaseActivity implements
 					System.out.println("1==================" + yz);
 					System.out.println("2==================" + yanzhengma);
 					if (phone.equals("")) {
-						Toast.makeText(MobilePhoneActivity.this, "手机号码不能为空", 200)
+						Toast.makeText(MobilePhoneActivity.this, "手机号码不能为空", Toast.LENGTH_SHORT)
 								.show();
 					} else if (phone.length() < 11) {
-						Toast.makeText(MobilePhoneActivity.this, "手机号码少于11位", 200)
+						Toast.makeText(MobilePhoneActivity.this, "手机号码少于11位", Toast.LENGTH_SHORT)
 								.show();
 					} else if (yz.equals("")) {
-						Toast.makeText(MobilePhoneActivity.this, "验证码不能为空", 200)
+						Toast.makeText(MobilePhoneActivity.this, "验证码不能为空", Toast.LENGTH_SHORT)
 								.show();
 					} else if (pwd.equals("")) {
-						Toast.makeText(MobilePhoneActivity.this, "密码不能为空", 200)
+						Toast.makeText(MobilePhoneActivity.this, "密码不能为空", Toast.LENGTH_SHORT)
 								.show();
 					} else {
 						try {
@@ -267,8 +267,7 @@ public class MobilePhoneActivity extends BaseActivity implements
 												.getString("headimgurl2", "");
 										nickname = spPreferences_login.getString(
 												"nickname", "");
-										unionid = spPreferences_login.getString(
-												"unionid", "");
+										unionid = spPreferences_login.getString(		"unionid", "");
 										access_token = spPreferences_login
 												.getString("access_token", "");
 										sex = spPreferences_login.getString("sex",

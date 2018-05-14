@@ -275,8 +275,7 @@ public class HomeActivity extends Fragment implements OnClickListener {
 
     private void getjianche() {
 
-        spPreferences_login = getActivity()
-                .getSharedPreferences("longuserset_login", Context.MODE_PRIVATE);
+        spPreferences_login = getActivity().getSharedPreferences("longuserset_login", Context.MODE_PRIVATE);
         nickname = spPreferences_login.getString("nickname", "");
         String headimgurl = spPreferences_login.getString("headimgurl", "");
         String unionid = spPreferences_login.getString("unionid", "");

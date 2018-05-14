@@ -77,7 +77,6 @@ import java.util.ConcurrentModificationException;
 import java.util.List;
 import java.util.Map;
 
-@SuppressWarnings({"deprecation", "unused"})
 public class WareInformationActivity extends BaseActivity implements
         OnClickListener {
     private List<Map<String, String>> allGriddatas = null;

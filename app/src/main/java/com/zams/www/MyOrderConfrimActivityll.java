@@ -490,6 +490,7 @@ public class MyOrderConfrimActivityll extends BaseActivity {
 					if (TextUtils.equals(resultStatus, "9000")) {
 						Toast.makeText(MyOrderConfrimActivityll.this, "支付成功",
 								Toast.LENGTH_SHORT).show();
+						// TODO: 2018/5/14 支付成功
 					} else {
 						// 判断resultStatus 为非“9000”则代表可能支付失败
 						// “8000”代表支付结果因为支付渠道原因或者系统原因还在等待支付结果确认，最终交易是否成功以服务端异步通知为准（小概率状态）
@@ -514,7 +515,7 @@ public class MyOrderConfrimActivityll extends BaseActivity {
 
 	/**
 	 * 用户在线充值    支付宝1
-	 * @param payment_id
+	 * @param
 	 */
 	private void loadguanggao(String fund_id) {
 		try {
@@ -616,7 +617,7 @@ public class MyOrderConfrimActivityll extends BaseActivity {
 
 	/**
 	 * 用户在线充值  支付宝3
-	 * @param payment_id
+	 * @param
 	 */
 	private void loadzhidu(String recharge_no) {
 		try {
@@ -659,7 +660,7 @@ public class MyOrderConfrimActivityll extends BaseActivity {
 
 	/**
 	 * 用户在线充值    微信支付1
-	 * @param payment_id
+	 * @param
 	 */
 	private void loadweixinzf1(String fund_id) {
 		try {

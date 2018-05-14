@@ -341,7 +341,7 @@ android:orientation="vertical" >
                         android:layout_height="wrap_content"
                         android:layout_marginTop="4dp"
                         android:gravity="center"
-                        android:text="拼团购"
+                        android:text="签到"
                         android:textColor="@color/black"
                         android:textSize="14sp" />
                 </LinearLayout>
@@ -429,8 +429,7 @@ android:orientation="vertical" >
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="5dp"
-                        android:gravity="center"
-                        android:singleLine="true"
+                        android:lines="2"
                         android:text="米面粮油/干货/副食酒水"
                         android:textSize="12sp" />
 
@@ -487,8 +486,7 @@ android:orientation="vertical" >
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="5dp"
-                        android:gravity="center"
-                        android:singleLine="true"
+                        android:lines="2"
                         android:text="营养健康/保健品/医疗用品"
                         android:textSize="12sp" />
 
@@ -543,8 +541,7 @@ android:orientation="vertical" >
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="5dp"
-                        android:gravity="center"
-                        android:singleLine="true"
+                        android:lines="2"
                         android:text="生活用品/家居家电"
                         android:textSize="12sp" />
 
