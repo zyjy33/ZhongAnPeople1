@@ -209,7 +209,7 @@ public class MyOrderConfrimActivity extends BaseActivity {
         // 余额支付成功后更新订单
         if (teby) {
             teby = false;
-            // TODO: 2018/5/14  
+            // TODO: 2018/5/14
             finish();
         }
         // 微信支付成功后关闭此界面
@@ -344,6 +344,7 @@ public class MyOrderConfrimActivity extends BaseActivity {
         // 在这里进行查询地址的操作
         // Toast.makeText(getApplicationContext(), "查询地址联网操作",200).show();
         // handler.sendEmptyMessage(4);
+        Log.e(TAG, "onActivityResult: requestCode= " + requestCode + " resultCode= " + resultCode);
         if (resultCode == 100) {
             layout0.setVisibility(View.VISIBLE);
             layout1.setVisibility(View.GONE);
@@ -359,10 +360,10 @@ public class MyOrderConfrimActivity extends BaseActivity {
             tv_user_address.setText(user_area + " " + user_address);
             tv_user_phone.setText(user_mobile);
         }
-        if (resultCode == RESULT_OK && requestCode == 111) {
-            showOrderActivity();
+        if (requestCode == 111) {
+            showMyJuDuiHuanActivity();
         }
-        if (resultCode == 0 && requestCode == ADD_FIRST_REQUEST) {
+        if (requestCode == ADD_FIRST_REQUEST) {
             layout0.setVisibility(View.VISIBLE);
             layout1.setVisibility(View.GONE);
             getuseraddress2();

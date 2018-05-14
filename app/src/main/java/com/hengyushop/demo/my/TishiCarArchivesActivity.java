@@ -290,6 +290,7 @@ public class TishiCarArchivesActivity extends Activity implements OnClickListene
 										intent.putExtra("real_name",getIntent().getStringExtra("real_name"));
 										intent.putExtra("mobile",getIntent().getStringExtra("mobile"));
 										startActivity(intent);
+										setResult(RESULT_OK);
 										finish();
 									}else {
 										Toast.makeText(TishiCarArchivesActivity.this, info, 200).show();
