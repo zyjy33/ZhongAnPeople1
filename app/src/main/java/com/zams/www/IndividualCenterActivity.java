@@ -41,6 +41,7 @@ import android.os.Environment;
 import android.os.Handler;
 import android.os.Message;
 import android.provider.MediaStore;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -167,6 +168,7 @@ public class IndividualCenterActivity extends Fragment implements
     boolean tp_type = false;
     private static final String TAG = "ActivityDemo";
     View layout;
+    private String mMobile = "";
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -210,9 +212,9 @@ public class IndividualCenterActivity extends Fragment implements
             //	            // 捕获OutOfMemoryError，避免直接崩溃
             //	        }
 
-            spPreferences_login = getActivity().getSharedPreferences(
-                    "longuserset_login", Context.MODE_PRIVATE);
+            spPreferences_login = getActivity().getSharedPreferences("longuserset_login", Context.MODE_PRIVATE);
             nickname = spPreferences_login.getString("nickname", "");
+            mMobile = spPreferences_login.getString("mobile", "");
             headimgurl = spPreferences_login.getString("headimgurl", "");
             headimgurl2 = spPreferences_login.getString("headimgurl2", "");
 
@@ -318,6 +320,7 @@ public class IndividualCenterActivity extends Fragment implements
                 "longuserset_login", Context.MODE_PRIVATE);
 
         nickname = spPreferences_login.getString("nickname", "");
+        mMobile = spPreferences_login.getString("mobile", "");
         headimgurl = spPreferences_login.getString("headimgurl", "");
         unionid = spPreferences_login.getString("unionid", "");
         access_token = spPreferences_login.getString("access_token", "");
@@ -467,8 +470,7 @@ public class IndividualCenterActivity extends Fragment implements
 
         try {
 
-            spPreferences = getActivity().getSharedPreferences("longuserset",
-                    Context.MODE_PRIVATE);
+            spPreferences = getActivity().getSharedPreferences("longuserset", Context.MODE_PRIVATE);
             user_name_phone = spPreferences.getString("user", "");
             System.out.println("user_name_phone================="
                     + user_name_phone);
@@ -528,7 +530,11 @@ public class IndividualCenterActivity extends Fragment implements
                             // Bitmap bitmap = UserLoginActivity.bitmap;
                             bitmap = Utils.toRoundBitmap(bitmap, null); // 这个时候的图片已经被处理成圆形的了
                             img_head.setImageBitmap(bitmap);
-                            tv_weixin_name.setText(nickname);
+                            if (TextUtils.isEmpty(mMobile)) {
+                                tv_weixin_name.setText(nickname);
+                            } else {
+                                tv_weixin_name.setText(mMobile);
+                            }
                         } else {
                             img_head.setVisibility(View.GONE);
                             networkImage.setVisibility(View.VISIBLE);
@@ -536,7 +542,12 @@ public class IndividualCenterActivity extends Fragment implements
                             mImageLoader = initImageLoader(getActivity(),
                                     mImageLoader, "test");
                             mImageLoader.displayImage(headimgurl, networkImage);
-                            tv_weixin_name.setText(nickname);
+                            if (TextUtils.isEmpty(mMobile)) {
+                                tv_weixin_name.setText(nickname);
+
+                            } else {
+                                tv_weixin_name.setText(mMobile);
+                            }
                         }
 
                     } catch (Exception e) {

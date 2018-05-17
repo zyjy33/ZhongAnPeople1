@@ -9,8 +9,9 @@ public class Constant {
 	public static final String MCH_ID = "1394459302";
 	public static final String APP_SECRET = "e94e0ca414b307f026334dbbc124426c";
 	public static final String API_KEY = "szyunsencomju918comlingfeima9009";
+	public static final int CAMERA_REQUEST = 1;
 
-	public static class ShowMsgActivity {
+    public static class ShowMsgActivity {
 		public static final String STitle = "showmsg_title";
 		public static final String SMessage = "showmsg_message";
 		public static final String BAThumbData = "showmsg_thumb_data";

@@ -213,7 +213,6 @@ public class PersonCenterActivity extends BaseActivity implements OnClickListene
     /**
      * 获取用户资料
      */
-    SharedPreferences spPreferences_login;
     Editor editor;
 
     private void userloginqm() {
@@ -266,20 +265,13 @@ public class PersonCenterActivity extends BaseActivity implements OnClickListene
                                     v2.setText(data.user_code);
                                 }
 
-                                spPreferences_login = getSharedPreferences("longuserset_login", MODE_PRIVATE);
-                                String nickname = spPreferences_login.getString("nickname", "");
-                                System.out.println("=============nickname======" + nickname);
-                                if (!nickname.equals("")) {
-                                    tv_nicheng.setText(nickname);
-                                    tv_nicheng.setTextColor(getResources().getColor(color.black));
+
+                                if ("".equals(nick_name)) {
+                                    tv_nicheng.setText("请输入您的昵称");
+                                    tv_nicheng.setTextColor(getResources().getColor(color.gray));
                                 } else {
-                                    if (nick_name.equals("")) {
-                                        tv_nicheng.setText("请输入您的昵称");
-                                        tv_nicheng.setTextColor(getResources().getColor(color.gray));
-                                    } else {
-                                        tv_nicheng.setText(nick_name);
-                                        tv_nicheng.setTextColor(getResources().getColor(color.black));
-                                    }
+                                    tv_nicheng.setText(nick_name);
+                                    tv_nicheng.setTextColor(getResources().getColor(color.black));
                                 }
 
                                 tv_nick_name.setText(sex);

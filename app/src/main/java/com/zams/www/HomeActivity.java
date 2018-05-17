@@ -1,16 +1,21 @@
 package com.zams.www;
 
+import android.Manifest;
 import android.app.Fragment;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
+import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.support.annotation.NonNull;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.text.TextUtils;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
@@ -35,6 +40,7 @@ import android.widget.Toast;
 
 import com.alibaba.fastjson.JSON;
 import com.android.hengyu.pub.QiYeJinMianAdaper;
+import com.android.hengyu.web.Constant;
 import com.android.hengyu.web.DialogProgress;
 import com.android.hengyu.web.RealmName;
 import com.android.hengyu.web.Webview1;
@@ -329,9 +335,8 @@ public class HomeActivity extends Fragment implements OnClickListener {
                     System.out.println("datall==============" + datall);
                     if (datall.equals("null")) {
 
-                        SharedPreferences spPreferences_tishi = getActivity()
-                                .getSharedPreferences("longuserset_tishi",
-                                        Context.MODE_PRIVATE);
+                        SharedPreferences spPreferences_tishi = getActivity().getSharedPreferences("longuserset_tishi",
+                                Context.MODE_PRIVATE);
                         weixin = spPreferences_tishi.getString("weixin", "");
                         qq = spPreferences_tishi.getString("qq", "");
                         System.out
@@ -396,10 +401,8 @@ public class HomeActivity extends Fragment implements OnClickListener {
                             editor.putString("login_sign", data.login_sign);
                             editor.commit();
 
-                            String user_name = spPreferences.getString("user",
-                                    "");
-                            System.out.println("---2-------------------"
-                                    + user_name);
+                            String user_name = spPreferences.getString("user", "");
+                            System.out.println("---2-------------------" + user_name);
                         }
                     }
                     getuserxinxi();
@@ -451,10 +454,13 @@ public class HomeActivity extends Fragment implements OnClickListener {
             public void onClick(View arg0) {
                 if (!nickname.equals("")) {
                     if (!user_name.equals("")) {
-                        Intent Intent2 = new Intent(getActivity(),
-                                CaptureActivity.class);
-                        // Intent2.putExtra("sp_sys", "2");
-                        startActivity(Intent2);
+                        if (PackageManager.PERMISSION_DENIED == ContextCompat.checkSelfPermission(getActivity(), Manifest.permission.CAMERA)) {
+                            requestPermissions(new String[]{Manifest.permission.CAMERA}, Constant.CAMERA_REQUEST);
+
+                        } else {
+                            Intent Intent2 = new Intent(getActivity(), CaptureActivity.class);
+                            startActivity(Intent2);
+                        }
                     } else {
                         // getjianche();//后台检测是否绑定手机
                         Intent intent2 = new Intent(getActivity(),
@@ -486,6 +492,21 @@ public class HomeActivity extends Fragment implements OnClickListener {
 
             }
         });
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if (requestCode == Constant.CAMERA_REQUEST) {
+            int grantResult = grantResults[0];
+            if (PackageManager.PERMISSION_GRANTED==grantResult) {
+                Intent Intent2 = new Intent(getActivity(), CaptureActivity.class);
+                startActivity(Intent2);
+            }else{
+                Toast.makeText(context, "拒绝权限", Toast.LENGTH_SHORT).show();
+            }
+        }
+
     }
 
     /**

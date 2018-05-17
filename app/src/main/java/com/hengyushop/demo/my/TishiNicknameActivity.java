@@ -91,7 +91,7 @@ public class TishiNicknameActivity extends Activity implements OnClickListener{
 				nichen = zhidupess.getText().toString().trim();
 				System.out.println("nichen-------------"+nichen);
 				if (nichen.equals("")) {
-					Toast.makeText(TishiNicknameActivity.this, "请输入修改的昵称", 200).show();
+					Toast.makeText(TishiNicknameActivity.this, "请输入修改的昵称", Toast.LENGTH_SHORT).show();
 				}else{
 					userloginqm();
 				}
@@ -104,7 +104,7 @@ public class TishiNicknameActivity extends Activity implements OnClickListener{
 
 	/**
 	 * 获取登录签名
-	 * @param order_no
+	 * @param
 	 */
 	private void userloginqm() {
 		String strUrlone = RealmName.REALM_NAME_LL + "/get_user_model?username="+user_name+"";
@@ -132,7 +132,7 @@ public class TishiNicknameActivity extends Activity implements OnClickListener{
 	/**
 	 * 修改昵称
 	 * @param login_sign
-	 * @param payment_id
+	 * @param
 	 */
 	private void loadusersex(String login_sign) {
 		try {
@@ -149,11 +149,13 @@ public class TishiNicknameActivity extends Activity implements OnClickListener{
 								String info = object.getString("info");
 								if (status.equals("y")) {
 									progress.CloseProgress();
-									//									Toast.makeText(TishiNicknameActivity.this, info, 200).show();
+									//									Toast.makeText(TishiNicknameActivity.this, info, Toast.LENGTH_SHORT).show();
 									finish();
+									SharedPreferences.Editor edit = spPreferences.edit();
+									edit.putString("nickname",user_name).commit();
 								} else {
 									progress.CloseProgress();
-									Toast.makeText(TishiNicknameActivity.this, info, 200).show();
+									Toast.makeText(TishiNicknameActivity.this, info, Toast.LENGTH_SHORT).show();
 									finish();
 								}
 							} catch (JSONException e) {

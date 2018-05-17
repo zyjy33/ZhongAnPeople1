@@ -58,7 +58,7 @@ public class Location extends Application {
 	public void onCreate() {
 		reloadClient();
 		packgeName = getPackageName();
-		cauchException();
+//		cauchException();
 		/*
 		 * mLocationClient = new LocationClient(this);
 		 * mLocationClient.registerLocationListener(myListener);
