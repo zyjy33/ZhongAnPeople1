@@ -28,8 +28,8 @@
             android:layout_centerVertical="true"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
-            android:layout_toLeftOf="@+id/img_shared"
-            android:layout_toRightOf="@+id/iv_fanhui"
+            android:layout_toLeftOf="@id/img_shared"
+            android:layout_toRightOf="@id/iv_fanhui"
             android:background="@drawable/shape_bg_round_combo"
             android:orientation="horizontal">
 
@@ -203,7 +203,7 @@
             android:background="@color/no_color"
             android:cacheColorHint="@color/no_color"
             android:divider="@color/list_diver"
-            android:dividerHeight="1dp"></ListView>
+            android:dividerHeight="1dp"/>
 
     </com.lglottery.www.widget.PullToRefreshView>
 

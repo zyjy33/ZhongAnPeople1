@@ -90,12 +90,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class HomeActivity extends Fragment implements OnClickListener {
-    private ImageView yh0, yh3, yh6, yh10, yh16, yh14, yh19, yh22, yh25, img_1, img_2, img_3;
+    private ImageView yh0, yh3, yh6, yh10, yh16, yh14, yh19, yh22, yh25;
     ImageView iv_home_tp1, iv_home_tp2, iv_home_tp3, iv_home_tp4, iv_home_tp5, iv_home_tp6, iv_home_tp7, iv_home_tp8;
     private TextView yh1, yh2, yh4, yh5, yh7, yh8, yh11, yh12, yh17, yh18,
             yh141, yh142, yh20, yh21, yh23, yh24, yh26, yh27;
     private LinearLayout yh_0, yh_1, yh_2, yh_3, yh_4, yh_5, yh_6, yh_7, yh_8;
-    private LinearLayout zams_hbzq_1, zams_hbzq_2, zams_hbzq_3;
+
     private WareDao wareDao;
     private ImageView img_user;
     private ImageView img_shared;
@@ -147,9 +147,8 @@ public class HomeActivity extends Fragment implements OnClickListener {
     public static boolean type = false;
     private ArrayList<JuTuanGouData> list_ll = null;
     View layout;
-    private TextView redPackage1;
-    private TextView redPackage2;
-    private TextView redPackage;
+    private ImageView redPackageImg;
+
 
     public HomeActivity() {
 
@@ -216,14 +215,10 @@ public class HomeActivity extends Fragment implements OnClickListener {
         img_user.setBackgroundResource(R.drawable.saoyisao);
         img_shared.setBackgroundResource(R.drawable.home_fx);
         gridview = (GridView) layout.findViewById(R.id.gridView);
-
-        redPackage1 = (TextView) layout.findViewById(R.id.tv_biaoti_1);
-        redPackage2 = (TextView) layout.findViewById(R.id.tv_biaoti_2);
-        redPackage = (TextView) layout.findViewById(R.id.tv_biaoti);
-
-
+        redPackageImg = ((ImageView) layout.findViewById(R.id.red_package_img));
+        redPackageImg.setOnClickListener(this);
         spPreferences = getActivity().getSharedPreferences("longuserset", Context.MODE_PRIVATE);
-
+        requestRedPackage();
         initLayout(layout);
         getguangao();
         loadWeather();
@@ -497,13 +492,13 @@ public class HomeActivity extends Fragment implements OnClickListener {
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        if (requestCode == Constant.CAMERA_REQUEST) {
+        if (requestCode == Constant.CAMERA_REQUEST && grantResults.length > 0) {
             int grantResult = grantResults[0];
-            if (PackageManager.PERMISSION_GRANTED==grantResult) {
+            if (PackageManager.PERMISSION_GRANTED == grantResult) {
                 Intent Intent2 = new Intent(getActivity(), CaptureActivity.class);
                 startActivity(Intent2);
-            }else{
-                Toast.makeText(context, "拒绝权限", Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(context, "照相机权限已被拒绝", Toast.LENGTH_SHORT).show();
             }
         }
 
@@ -909,12 +904,6 @@ public class HomeActivity extends Fragment implements OnClickListener {
         index_item3.setOnClickListener(this);
         index_item0.setOnClickListener(this);
 
-        zams_hbzq_1 = (LinearLayout) layout.findViewById(R.id.zams_hbzq_1);
-        zams_hbzq_2 = (LinearLayout) layout.findViewById(R.id.zams_hbzq_2);
-        zams_hbzq_3 = (LinearLayout) layout.findViewById(R.id.zams_hbzq_3);
-        img_1 = (ImageView) layout.findViewById(R.id.img_1);
-        img_2 = (ImageView) layout.findViewById(R.id.img_2);
-        img_3 = (ImageView) layout.findViewById(R.id.img_3);
 
         yh_0 = (LinearLayout) layout.findViewById(R.id.yh_0);
         yh_1 = (LinearLayout) layout.findViewById(R.id.yh_1);
@@ -1186,92 +1175,34 @@ public class HomeActivity extends Fragment implements OnClickListener {
      * 获取红包专区数据
      */
     private void requestRedPackage() {
-        AsyncHttp.get(RealmName.REALM_NAME + "/tools/mobile_ajax.asmx/get_category_child_list?channel_name=feedback&parent_id=0", new AsyncHttpResponseHandler() {
+        AsyncHttp.get("http://mobile.zams.cn/tools/mobile_ajax.asmx/get_adbanner_list?advert_id=22", new AsyncHttpResponseHandler() {
             @Override
-            public void onSuccess(String s) {
-                RedPacketResponse response = JSON.parseObject(s, RedPacketResponse.class);
-                List<RedPackageData> datas = response.getData();
-                if (datas != null) {
-                    initRedPackage(datas);
+            public void onSuccess(int i, String s) {
+                super.onSuccess(i, s);
+                JSONObject object = null;
+                try {
+                    object = new JSONObject(s);
+                    String status = object.getString("status");
+                    if ("y".equals(status)) {
+                        JSONArray array = object.getJSONArray("data");
+                        if (array.length() > 0) {
+                            JSONObject jo = (JSONObject) array.get(0);
+                            String ad_url = RealmName.REALM_NAME + jo.getString("ad_url");
+                            Glide.with(getActivity())
+                                    .load(ad_url)
+                                    .placeholder(getResources().getDrawable(R.drawable.red_package))
+                                    .into(redPackageImg);
+                        }
+                    }
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
                 }
 
-            }
-
-            @Override
-            public void onFailure(Throwable throwable, String s) {
-                super.onFailure(throwable, s);
             }
         }, getActivity());
     }
 
-    /**
-     * 红包专区
-     */
-    private void initRedPackage(List<RedPackageData> datas) {
-        int size = datas.size();
-        if (size > 0) {
-            final RedPackageData data0 = datas.get(0);
-            redPackage.setText(data0.getTitle());
-            Glide.with(this)
-                    .load(data0.getImg_url())
-                    .into(img_1);
-            zams_hbzq_1.setOnClickListener(new OnClickListener() {
-                @Override
-                public void onClick(View arg0) {
-
-                    Intent intent = new Intent(getActivity(), HongBaoZqListActivity.class);
-                    intent.putExtra("category_id", "2979");
-                    intent.putExtra("type_zhi", "0");
-                    intent.putExtra("channel_name", "feedback");
-                    intent.putExtra("title", data0.getTitle());
-                    startActivity(intent);
-                }
-            });
-
-        }
-        if (size > 1) {
-            final RedPackageData data1 = datas.get(1);
-            redPackage1.setText(data1.getTitle());
-            Glide.with(this)
-                    .load(data1.getImg_url())
-                    .into(img_2);
-            zams_hbzq_2.setOnClickListener(new OnClickListener() {
-                @Override
-                public void onClick(View arg0) {
-
-                    Intent intent = new Intent(getActivity(), HongBaoZqListActivity.class);
-                    intent.putExtra("category_id", "2978");
-                    intent.putExtra("type_zhi", "1");
-                    intent.putExtra("channel_name", "feedback");
-                    intent.putExtra("title", data1.getTitle());
-
-                    startActivity(intent);
-                }
-            });
-
-        }
-
-        if (size > 2) {
-            final RedPackageData data2 = datas.get(2);
-            redPackage2.setText(data2.getTitle());
-            Glide.with(this)
-                    .load(data2.getImg_url())
-                    .into(img_3);
-            zams_hbzq_3.setOnClickListener(new OnClickListener() {
-                @Override
-                public void onClick(View arg0) {
-                    Intent intent = new Intent(getActivity(), HongBaoZqListActivity.class);
-                    intent.putExtra("category_id", "2977");
-                    intent.putExtra("type_zhi", "2");
-                    intent.putExtra("channel_name", "feedback");
-                    intent.putExtra("title", data2.getTitle());
-                    startActivity(intent);
-                }
-            });
-        }
-
-
-    }
 
     ArrayList<AdvertDao1> images = null;
 
@@ -1685,7 +1616,11 @@ public class HomeActivity extends Fragment implements OnClickListener {
             case R.id.img_shared:
                 handler.sendEmptyMessage(15);
                 break;
-
+            case R.id.red_package_img:
+                Intent intent = new Intent(getActivity(), NewWare.class);
+                intent.putExtra("channel_name", "feedback");
+                startActivity(intent);
+                break;
             default:
                 break;
         }
