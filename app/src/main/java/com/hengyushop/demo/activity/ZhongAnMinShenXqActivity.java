@@ -644,16 +644,17 @@ public class ZhongAnMinShenXqActivity extends BaseActivity implements
                                 //未签到未报名
                                 progress.CloseProgress();
                                 //								Toast.makeText(ZhongAnMinShenXqActivity.this,info,  Toast.LENGTH_SHORT).show();
-                                getguowuqingdan();
-
                                 progress.CloseProgress();
                                 //已签到
                                 String code = jsonObject.getString("code");
                                 if ("sinup".equals(code)) {
                                     Toast.makeText(ZhongAnMinShenXqActivity.this, "您已签到", Toast.LENGTH_SHORT).show();
                                 } else {
-                                    Toast.makeText(ZhongAnMinShenXqActivity.this, info, Toast.LENGTH_SHORT).show();
+                                    getguowuqingdan();
+//                                    Toast.makeText(ZhongAnMinShenXqActivity.this, info, Toast.LENGTH_SHORT).show();
                                 }
+                            }else{
+                                Toast.makeText(ZhongAnMinShenXqActivity.this, info, Toast.LENGTH_SHORT).show();
                             }
                         } catch (JSONException e) {
 
