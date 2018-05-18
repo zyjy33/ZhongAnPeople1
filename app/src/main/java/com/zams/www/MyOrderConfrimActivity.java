@@ -361,7 +361,7 @@ public class MyOrderConfrimActivity extends BaseActivity {
             tv_user_phone.setText(user_mobile);
         }
         if (requestCode == 111) {
-            if ("1".equals(WareInformationActivity.jdh_type)) {
+            if ("1".equals(WareInformationActivity.jdh_type)|| "1".equals(jiekou_type_ysj)) {
                 showMyJuDuiHuanActivity();
             } else {
                 showOrderActivity();

@@ -2,6 +2,7 @@ package com.hengyushop.demo.activity;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -48,7 +49,6 @@ import com.zams.www.R;
  * 活动详情
  *
  * @author Administrator
- *
  */
 public class ZhongAnMinShenXqActivity extends BaseActivity implements
         OnClickListener {
@@ -439,28 +439,30 @@ public class ZhongAnMinShenXqActivity extends BaseActivity implements
                 try {
                     SimpleDateFormat df = new SimpleDateFormat(
                             "yyyy-MM-dd HH:mm:ss");
+                    long end_time = 0;
+                    long time = 0;
+                    long startTime = 0;
                     try {
                         now_1 = df.parse(xqdata.end_time);
-                    } catch (java.text.ParseException e1) {
-
-                        e1.printStackTrace();
-                    }
-                    try {
                         date_1 = df.parse(datetime);
+                        Date startDate = df.parse(xqdata.start_time);
+                        end_time = now_1.getTime();
+                        time = date_1.getTime();
+                        startTime = startDate.getTime();
                     } catch (java.text.ParseException e1) {
-
                         e1.printStackTrace();
                     }
-                    long end_time = now_1.getTime();
-                    long time = date_1.getTime();
+
+
                     System.out.println("end_time-------------" + end_time);
                     System.out.println("time-------------" + time);
-                    if (end_time > time) {
+                    if (end_time > time && startTime <= time) {
                         System.out.println("1-------立即参与------");
                         //					sur_api = "check_order_signin";
                         getjianche_activity_1();
+                    } else if (startTime > time) {
+                        Toast.makeText(this, "活动未开始", Toast.LENGTH_SHORT).show();
                     } else {
-                        System.out.println("2-----已结束--------");
                         Toast.makeText(ZhongAnMinShenXqActivity.this, "活动已经结束了", Toast.LENGTH_SHORT).show();
                     }
 
@@ -653,7 +655,7 @@ public class ZhongAnMinShenXqActivity extends BaseActivity implements
                                     getguowuqingdan();
 //                                    Toast.makeText(ZhongAnMinShenXqActivity.this, info, Toast.LENGTH_SHORT).show();
                                 }
-                            }else{
+                            } else {
                                 Toast.makeText(ZhongAnMinShenXqActivity.this, info, Toast.LENGTH_SHORT).show();
                             }
                         } catch (JSONException e) {
