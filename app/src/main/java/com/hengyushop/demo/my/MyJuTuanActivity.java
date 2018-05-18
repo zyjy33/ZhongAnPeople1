@@ -13,7 +13,6 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.DialogInterface.OnCancelListener;
 import android.content.SharedPreferences;
-import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -141,10 +140,6 @@ public class MyJuTuanActivity extends BaseActivity implements OnClickListener {
 	@Override
 	protected void onDestroy() {
 		super.onDestroy();
-		//    	BitmapDrawable bd = (BitmapDrawable)imageView1.getBackground();
-		//		imageView1.setBackgroundResource(0);//别忘了把背景设为null，避免onDraw刷新背景时候出现used a recycled bitmap错误
-		//		bd.setCallback(null);
-		//		bd.getBitmap().recycle();
 
 		if (MyJuTuanOrderAdapter.type == true) {
 			MyJuTuanOrderAdapter.mAq.clear();

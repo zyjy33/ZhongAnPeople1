@@ -179,11 +179,7 @@ public class IndividualCenterActivity extends Fragment implements
         progress = new DialogProgress(getActivity());
         tp_type = false;
         example();
-        //		Bitmap bitMap = BitmapFactory.decodeResource(getResources(),R.drawable.zams_log);
-        //		networkImage.setImageBitmap(bitMap);
-        Bitmap bm = BitmapFactory.decodeResource(this.getResources(), R.drawable.zams_log);
-        BitmapDrawable bd = new BitmapDrawable(this.getResources(), bm);
-        networkImage.setBackgroundDrawable(bd);
+        networkImage.setBackgroundDrawable(getResources().getDrawable(R.drawable.zams_log));
         return layout;
     }
 
@@ -191,26 +187,8 @@ public class IndividualCenterActivity extends Fragment implements
         super.onResume();
         try {
 
-            Bitmap bm = BitmapFactory.decodeResource(this.getResources(), R.drawable.denglu_beijing);
-            BitmapDrawable bd = new BitmapDrawable(this.getResources(), bm);
-            lau0.setBackgroundDrawable(bd);
-
-            Bitmap bm1 = BitmapFactory.decodeResource(this.getResources(), R.drawable.denglu_beijing);
-            BitmapDrawable bd1 = new BitmapDrawable(this.getResources(), bm1);
-            lau1.setBackgroundDrawable(bd1);
-
-            //			if (!bitmapObject.isRecyled()) {     // Bitmap对象没有被回收
-            //			     bitmapObject.recycle();     // 释放
-            //			     System.gc();     // 提醒系统及时回收
-            //			}
-            //			if (!bm.isRecycled()) {     // Bitmap对象没有被回收
-            //				 bm.recycle();     // 释放
-            //			     System.gc();     // 提醒系统及时回收
-            //			}
-
-            //	        } catch (OutOfMemoryError e) {
-            //	            // 捕获OutOfMemoryError，避免直接崩溃
-            //	        }
+            lau0.setBackgroundDrawable(getResources().getDrawable(R.drawable.denglu_beijing));
+            lau1.setBackgroundDrawable(getResources().getDrawable(R.drawable.denglu_beijing));
 
             spPreferences_login = getActivity().getSharedPreferences("longuserset_login", Context.MODE_PRIVATE);
             nickname = spPreferences_login.getString("nickname", "");
@@ -256,20 +234,20 @@ public class IndividualCenterActivity extends Fragment implements
             //		jdh_spPreferences.edit().clear().commit();// 积兑换保存福利清除
             context = null;
             layout = null;
-            BitmapDrawable bd = (BitmapDrawable) networkImage.getBackground();
-            networkImage.setBackgroundResource(0);//别忘了把背景设为null，避免onDraw刷新背景时候出现used a recycled bitmap错误
-            bd.setCallback(null);
-            bd.getBitmap().recycle();
-
-            BitmapDrawable bd1 = (BitmapDrawable) lau0.getBackground();
-            lau0.setBackgroundResource(0);//别忘了把背景设为null，避免onDraw刷新背景时候出现used a recycled bitmap错误
-            bd1.setCallback(null);
-            bd1.getBitmap().recycle();
-
-            BitmapDrawable bd2 = (BitmapDrawable) lau1.getBackground();
-            lau1.setBackgroundResource(0);//别忘了把背景设为null，避免onDraw刷新背景时候出现used a recycled bitmap错误
-            bd2.setCallback(null);
-            bd2.getBitmap().recycle();
+//            BitmapDrawable bd = (BitmapDrawable) networkImage.getBackground();
+//            networkImage.setBackgroundResource(0);//别忘了把背景设为null，避免onDraw刷新背景时候出现used a recycled bitmap错误
+//            bd.setCallback(null);
+//            bd.getBitmap().recycle();
+//
+//            BitmapDrawable bd1 = (BitmapDrawable) lau0.getBackground();
+//            lau0.setBackgroundResource(0);//别忘了把背景设为null，避免onDraw刷新背景时候出现used a recycled bitmap错误
+//            bd1.setCallback(null);
+//            bd1.getBitmap().recycle();
+//
+//            BitmapDrawable bd2 = (BitmapDrawable) lau1.getBackground();
+//            lau1.setBackgroundResource(0);//别忘了把背景设为null，避免onDraw刷新背景时候出现used a recycled bitmap错误
+//            bd2.setCallback(null);
+//            bd2.getBitmap().recycle();
 
             //		System.out.println("MyPosterView.type=======1=========="+MyPosterView.type);
             //		System.out.println("HomeActivity.type=======1==============="+HomeActivity.type);
@@ -719,8 +697,7 @@ public class IndividualCenterActivity extends Fragment implements
         WXMediaMessage msg = new WXMediaMessage(webpage);
         msg.title = "我发你一个软件,看看呗!";
         msg.description = temp[0];
-        Bitmap thumb = BitmapFactory.decodeResource(context.getResources(),
-                R.drawable.icon);
+        Bitmap thumb = BitmapFactory.decodeResource(context.getResources(), R.drawable.icon);
 
         msg.thumbData = Util.bmpToByteArray(thumb, true);
 
@@ -763,7 +740,7 @@ public class IndividualCenterActivity extends Fragment implements
     }
 
     JSONObject obj;
-    Bitmap bitMap, bitmap;
+
     double exp, exp_weal, exp_invest, exp_action, exp_time;
     Handler handler = new Handler() {
         public void dispatchMessage(Message msg) {
@@ -877,8 +854,7 @@ public class IndividualCenterActivity extends Fragment implements
                                                     mImageLoader.displayImage(RealmName.REALM_NAME_FTP + data.avatar, networkImage);
                                                 } else {
                                                     if (data.avatar.equals("")) {
-                                                        bitMap = BitmapFactory.decodeResource(getResources(), R.drawable.app_zams);
-                                                        networkImage.setImageBitmap(bitMap);
+                                                        networkImage.setImageDrawable(getResources().getDrawable(R.drawable.app_zams));
                                                     } else {
                                                         if (!headimgurl.equals("")) {
                                                             img_head.setVisibility(View.GONE);
@@ -889,7 +865,7 @@ public class IndividualCenterActivity extends Fragment implements
                                                             if (!headimgurl2.equals("")) {
                                                                 img_head.setVisibility(View.VISIBLE);
                                                                 networkImage.setVisibility(View.GONE);
-                                                                bitmap = BitUtil.stringtoBitmap(headimgurl2);
+                                                                Bitmap bitmap = BitUtil.stringtoBitmap(headimgurl2);
                                                                 bitmap = Utils.toRoundBitmap(bitmap, null); // 这个时候的图片已经被处理成圆形的了
                                                                 img_head.setImageBitmap(bitmap);
                                                             }
