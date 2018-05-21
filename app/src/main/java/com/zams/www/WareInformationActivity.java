@@ -79,20 +79,11 @@ import java.util.Map;
 
 public class WareInformationActivity extends BaseActivity implements
         OnClickListener {
-    private List<Map<String, String>> allGriddatas = null;
-    private TextView tv_market_money, tv_ware_name, tv_hengyu_money,
-            tv_title_name, tv_ware_market_jifen, tv_integral, tv_spec_text, tv_wenzi1, tv_wenzi2;
+    private TextView tv_market_money, tv_hengyu_money,
+            tv_ware_market_jifen, tv_integral, tv_spec_text, tv_wenzi1, tv_wenzi2;
     private Button btn_add_shop_cart;
-    private ImageButton btn_ware_infromation_share, btn_wechat, btn_wx_friend, sms;
-    private ImageButton img_btn_tencent;
-    private View btn_sms;
     private LinearLayout market_information_param, market_information_sep, btn_collect, btn_dianping;
-    // private TabHost tabHost;
-    private LayoutInflater inflater;
     private View view;
-    private PopupWindow pop;
-    private String strUrl, str1, str2, str3, str4, str5, str6;
-    private int productItemId, AvailableIntegral;
     public static String sp_id, proFaceImg, proInverseImg, proDoDetailImg, proDesignImg, point_ll,
             proName, proTip, retailPrice, marketPrice, proSupplementImg, goods_price, price, title_jduihuan,
             proComputerInfo, yth, key, releaseBossUid, AvailableJuHongBao, Atv_integral, company_id, imgs_url,
@@ -100,19 +91,10 @@ public class WareInformationActivity extends BaseActivity implements
     XiangqingData xqdata;
     private String title, sub_title, sell_price, market_price, cost_price, rebate_price;
     private LinearLayout order_shop_now;
-    private WareDao wareDao;
-    private int index = 1;
-    private int Orderid;
-    private int ischecked = 1;
-    private int wareId;
     private DialogProgress progress;
     private IWXAPI api;
     private ArrayList<XiangqingData> lists;
     private MyPosterView market_information_images;
-    private UserRegisterData registerData;
-    private int productItemType;
-    private int iSLING = -1;
-    private int CID;
     private LinearLayout images_layout;
     private LinearLayout market_information_describe;
     private TextView market_information_title, market_information_tip;
@@ -121,14 +103,11 @@ public class WareInformationActivity extends BaseActivity implements
     GuigeData md;
     GuigeBean mb;
     private ImageView img_shared;
-    private Context context;
     private SharedPreferences spPreferences;
     public static String user_id;
     private LinearLayout ll_shiyishicai1, ll_shiyishicai2;
-    private TextView bt_cart_all, bt_cart_low, bt_cart_stock;
-    private TextView show_cart_all, show_cart_low, show_cart_stock;
-    private ArrayList<GuigeData> list_ll = null;
-    private ArrayList<GuigeData> list_lb = null;
+    private TextView bt_cart_all, bt_cart_low;
+    private TextView show_cart_all, show_cart_low;
     private WebView webview;
     private ListView new_list;
     int spjs = 1;
@@ -142,12 +121,9 @@ public class WareInformationActivity extends BaseActivity implements
     public static String jdh_type = "";
     int len;
     String user_name = "";
-    String user_name_3 = "";
     String weixin = "";
     String qq = "";
     String user_name_phone = "";
-    String user_name_3_wx = "";
-    String user_name_3_qq = "";
     String user_name_key = "";
     String oauth_name;
     String datall;
@@ -958,7 +934,7 @@ public class WareInformationActivity extends BaseActivity implements
                     }
                     //				market_information_tip.setText(subtitle);
                     market_information_title.setText(title + "");
-                    tv_hengyu_money.setText(exchange_point + "分+"+ exchange_price +"元");
+                    tv_hengyu_money.setText(exchange_point + "分+" + exchange_price + "元");
                     tv_ware_market_jifen.setText("￥" + price);
                     tv_ware_market_jifen.getPaint().setFlags(Paint.STRIKE_THRU_TEXT_FLAG | Paint.ANTI_ALIAS_FLAG);
                     ll_money_ju.setVisibility(View.GONE);
@@ -1326,7 +1302,7 @@ public class WareInformationActivity extends BaseActivity implements
                 try {
                     if (!nickname.equals("")) {
                         if (!user_name.equals("")) {
-                            if (UserLoginActivity.wx_fanhui == false) {
+                            if (!UserLoginActivity.wx_fanhui) {
                                 Intent intent5 = new Intent(WareInformationActivity.this, UserLoginActivity.class);
                                 startActivity(intent5);
                             } else {
@@ -1855,10 +1831,7 @@ public class WareInformationActivity extends BaseActivity implements
     ArrayList data;
 
     private void loadguigecanshu() {
-        //		progress.CreateProgress();
         data = new ArrayList();
-        list_ll = new ArrayList<GuigeData>();
-        list_lb = new ArrayList<GuigeData>();
         String article_id = WareInformationActivity.article_id;
         System.out.println("article_id==========================" + article_id);
         //		AsyncHttp.get(RealmName.REALM_NAME_LL+ "/get_article_spec_list?" +"channel_name=goods",

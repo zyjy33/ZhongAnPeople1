@@ -129,11 +129,6 @@ public class IndividualCenterActivity extends Fragment implements
     private String group_id;
     String user_id, headimgurl, access_token, sex, unionid;
     ArrayList<MyOrderData> list1;
-    ArrayList<MyOrderData> list2;
-    ArrayList<MyOrderData> list3;
-    ArrayList<MyOrderData> list4;
-    ArrayList<MyOrderData> list5;
-    private List<UserRegisterllData> lists = new ArrayList<UserRegisterllData>();
     private ImageLoader mImageLoader;
     private DialogProgress progress;
     public static String yth, login_sign, agencygroupid, storegroupid,
@@ -141,24 +136,16 @@ public class IndividualCenterActivity extends Fragment implements
     RoundImageView networkImage;
     private LinearLayout index_item0, index_item1, index_item2, index_item3;
     private LinearLayout ll_my_1, ll_my_2, ll_my_3, ll_my_4, ll_my_5;
-    String zhou;
     UserRegisterllData data;
-    protected static final int CHOOSE_PICTURE = 0;
-    protected static final int TAKE_PICTURE = 1;
-    private static final int CROP_SMALL_PICTURE = 2;
     protected static Uri tempUri;
     public static String path, time, area, lng, lat, imagePath, tupian;
     Bitmap photo;
     String nickname = "";
-    String user_name_weixin = "";
-    String user_name_qq = "";
     String weixin = "";
     String qq = "";
     String headimgurl2 = "";
     String user_name = "";
     String user_name_phone = "";
-    String user_name_3_wx = "";
-    String user_name_3_qq = "";
     String user_name_key = "";
     String oauth_name;
     String province = "";
@@ -210,87 +197,6 @@ public class IndividualCenterActivity extends Fragment implements
         }
     }
 
-    ;
-
-    @Override
-    public void onPause() {
-        super.onPause();
-    }
-
-    @Override
-    public void onStop() {
-        super.onStop();
-    }
-
-    //当Activity被销毁时会调用onDestory方法
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
-        Log.e(TAG, "start onDestroy~~~");
-        try {
-
-            //        spPreferences_login.edit().clear().commit();
-            //		spPreferences.edit().clear().commit();
-            //		jdh_spPreferences.edit().clear().commit();// 积兑换保存福利清除
-            context = null;
-            layout = null;
-//            BitmapDrawable bd = (BitmapDrawable) networkImage.getBackground();
-//            networkImage.setBackgroundResource(0);//别忘了把背景设为null，避免onDraw刷新背景时候出现used a recycled bitmap错误
-//            bd.setCallback(null);
-//            bd.getBitmap().recycle();
-//
-//            BitmapDrawable bd1 = (BitmapDrawable) lau0.getBackground();
-//            lau0.setBackgroundResource(0);//别忘了把背景设为null，避免onDraw刷新背景时候出现used a recycled bitmap错误
-//            bd1.setCallback(null);
-//            bd1.getBitmap().recycle();
-//
-//            BitmapDrawable bd2 = (BitmapDrawable) lau1.getBackground();
-//            lau1.setBackgroundResource(0);//别忘了把背景设为null，避免onDraw刷新背景时候出现used a recycled bitmap错误
-//            bd2.setCallback(null);
-//            bd2.getBitmap().recycle();
-
-            //		System.out.println("MyPosterView.type=======1=========="+MyPosterView.type);
-            //		System.out.println("HomeActivity.type=======1==============="+HomeActivity.type);
-            //		System.out.println("GouWuCheAGoodsAdaper.type=======1==============="+ GouWuCheAGoodsAdaper.type);
-            //		if (MyPosterView.type == true) {
-            //			MyPosterView.mQuery.clear();
-            //			MyPosterView.type = false;
-            //		}
-            //		if (HomeActivity.type == true) {
-            //			HomeActivity.mAq.clear();
-            //			HomeActivity.type = false;
-            //		}
-            //
-            //		if (GouWuCheAGoodsAdaper.type == true) {
-            //			GouWuCheAGoodsAdaper.mAq.clear();
-            //			GouWuCheAGoodsAdaper.type = false;
-            //		}
-            //		if (MyShopPingCarActivity.type == true) {
-            //			MyShopPingCarActivity.query.clear();
-            //			MyShopPingCarActivity.type = false;
-            //		}
-            //		System.out.println("HomeActivity.type=======2=========="+ HomeActivity.type);
-            //		System.out.println("MyPosterView.type=======2==============="+ MyPosterView.type);
-            //		System.out.println("GouWuCheAGoodsAdaper.type=======2==============="+ GouWuCheAGoodsAdaper.type);
-
-        } catch (Exception e) {
-
-            e.printStackTrace();
-        }
-    }
-
-    //	LinearLayout llGroup = (LinearLayout) findViewById(R.id.ll_group);
-
-    //size:代码中获取到的图片数量
-    //	private void addGroupImage(int size){
-    //		lau0.removeAllViews();  //clear linearlayout
-    //	    for (int i = 0; i < size; i++) {
-    //	        ImageView imageView = new ImageView(context);
-    //	        imageView.setLayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));  //设置图片宽高
-    //	        imageView.setImageResource(R.drawable.ic_launcher); //图片资源
-    //	        lau0.addView(imageView); //动态添加图片
-    //	    }
-    //	}
 
     private void getjianche() {
 
@@ -321,12 +227,6 @@ public class IndividualCenterActivity extends Fragment implements
         String nick_name = nickname.replaceAll("\\s*", "");
         System.out.println("nick_name-----2-----" + nick_name);
 
-        // String strUrlone = RealmName.REALM_NAME_LL +
-        // "/user_oauth_register_0215?nick_name="+nick_name+"&sex="+sex+"&avatar="+headimgurl+""
-        // +
-        // "&province="+province+"&city="+city+"&country="+country+"&oauth_name="+oauth_name+"&oauth_access_token="+access_token+""
-        // +
-        // "&oauth_unionid="+unionid+"";
         String strUrlone = RealmName.REALM_NAME_LL
                 + "/user_oauth_register_0217?nick_name=" + nick_name + "&sex="
                 + sex + "&avatar=" + headimgurl + "" + "&province=" + province
@@ -343,12 +243,6 @@ public class IndividualCenterActivity extends Fragment implements
                     object.getString("info");
                     // if (status.equals("y")) {
                     datall = object.getString("data");
-                    // JSONObject obj = object.getJSONObject("data");
-                    // data.id = obj.getString("id");
-                    // data.user_name = obj.getString("user_name");
-                    // province = obj.getString("province");
-                    // city = obj.getString("city");
-                    // area = obj.getString("area");
 
                     System.out.println("datall==============" + datall);
                     if (datall.equals("null")) {
@@ -369,7 +263,7 @@ public class IndividualCenterActivity extends Fragment implements
                                         + UserLoginWayActivity.panduan_tishi);
                         if (!nickname.equals("")) {
 
-                            if (UserLoginActivity.panduan_tishi == true) {
+                            if (UserLoginActivity.panduan_tishi) {
                                 if (weixin.equals("weixin")) {
                                 } else {
                                     Intent intent1 = new Intent(getActivity(),
@@ -378,7 +272,7 @@ public class IndividualCenterActivity extends Fragment implements
                                     UserLoginActivity.panduan_tishi = false;
                                 }
 
-                            } else if (UserLoginWayActivity.panduan_tishi == true) {
+                            } else if (UserLoginWayActivity.panduan_tishi) {
                                 if (qq.equals("qq")) {
                                 } else {
                                     Intent intent2 = new Intent(getActivity(),
@@ -453,34 +347,13 @@ public class IndividualCenterActivity extends Fragment implements
             System.out.println("user_name_phone================="
                     + user_name_phone);
 
-            // if (user_name_phone == null) {
-            // Intent intent48 = new Intent(getActivity(),
-            // UserLoginActivity.class);
-            // startActivity(intent48);
-            // }else {
+
             if (!user_name_phone.equals("")) {
                 user_id = spPreferences.getString("user_id", "");
                 user_name_key = user_name_phone;
-                // load_list();//订单
             }
 
-            // SharedPreferences spPreferences =
-            // getActivity().getSharedPreferences("longuserset",
-            // Context.MODE_PRIVATE);
-            // Editor editor = spPreferences.edit();
-            // editor.putString("user", user_name_key);
-            // editor.putString("user_id", user_id);
-            // editor.commit();
-
-            System.out.println("user_id=================" + user_id);
-            // System.out.println("user_name======22==========="+user_name);
-            System.out
-                    .println("user_name_key=================" + user_name_key);
-
-            // Toast.makeText(getActivity(), nickname+"/"+user_name,
-            // Toast.LENGTH_SHORT).show();
             if (!nickname.equals("")) {
-
                 System.out.println("==00====");
                 lau0.setVisibility(View.GONE);
                 lau1.setVisibility(View.VISIBLE);
@@ -582,11 +455,8 @@ public class IndividualCenterActivity extends Fragment implements
                         "user_juduihuan", Context.MODE_PRIVATE);
                 spPreferences = getActivity().getSharedPreferences(
                         "longuserset", Context.MODE_PRIVATE);
-                // clearData();
-                // System.out.println("UserLoginActivity.panduan====1=="+UserLoginActivity.panduan);
-                // System.out.println("UserLoginWayActivity.panduan====2=="+UserLoginWayActivity.panduan);
-                // System.out.println("PhoneLoginActivity.panduan====3=="+PhoneLoginActivity.panduan);
-                if (UserLoginActivity.panduan == true) {
+
+                if (UserLoginActivity.panduan) {
                     // if (!user_name_weixin.equals("")) {
                     spPreferences_login.edit().clear().commit();
                     spPreferences.edit().clear().commit();
@@ -651,14 +521,6 @@ public class IndividualCenterActivity extends Fragment implements
         });
 
         builder.create().show();
-    }
-
-    private void getUserdata() {
-    }
-
-    private TextView findViewById(int tvWeixinName) {
-
-        return null;
     }
 
     /**
@@ -829,7 +691,7 @@ public class IndividualCenterActivity extends Fragment implements
                                             login_sign = data.login_sign;
                                             tv_usernum.setText(data.group_name);
                                             group_id = data.group_id;
-                                            tv_name.setText(data.user_name);
+                                            tv_name.setText(data.mobile);
                                             yth = data.user_code;
                                             tv_ticket.setText(data.amount);
                                             tv_shop_ticket.setText(data.pension);
@@ -838,12 +700,6 @@ public class IndividualCenterActivity extends Fragment implements
                                             // point
 
                                             ll_huiyuan.setVisibility(View.VISIBLE);
-                                            //									String group_name = data.group_name;
-                                            //									if (group_name.contains("无")) {
-                                            //										lists.add(data);
-                                            //									} else {
-                                            //										tv_usernum.setText(group_name);
-                                            //									}
 
                                             System.out.println("tp_type===============" + tp_type);
                                             System.out.println("data.avatar===============" + data.avatar);

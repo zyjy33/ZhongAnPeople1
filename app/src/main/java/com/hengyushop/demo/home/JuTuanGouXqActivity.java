@@ -801,7 +801,7 @@ public class JuTuanGouXqActivity extends BaseActivity implements OnClickListener
 									}
 								}
 							}else {
-								Toast.makeText(JuTuanGouXqActivity.this, info, 200).show();
+								Toast.makeText(JuTuanGouXqActivity.this, info, Toast.LENGTH_SHORT).show();
 							}
 							System.out.println("list.size()---------------------"+list.size());
 							System.out.println("data.getPrice()---------------------"+data.getPrice());
@@ -967,10 +967,10 @@ public class JuTuanGouXqActivity extends BaseActivity implements OnClickListener
 									String info = jsonObject.getString("info");
 									if (status.equals("y")) {
 										progress.CloseProgress();
-										Toast.makeText(getApplicationContext(), info, 200).show();
+										Toast.makeText(getApplicationContext(), info, Toast.LENGTH_SHORT).show();
 									}else {
 										progress.CloseProgress();
-										Toast.makeText(getApplicationContext(), info, 200).show();
+										Toast.makeText(getApplicationContext(), info, Toast.LENGTH_SHORT).show();
 									}
 								} catch (JSONException e) {
 

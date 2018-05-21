@@ -1,10 +1,12 @@
 package com.zams.www;
 
+import java.io.Serializable;
 import java.io.UnsupportedEncodingException;
 import java.math.BigDecimal;
 import java.net.URLEncoder;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
+import java.util.List;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -53,9 +55,13 @@ import com.hengyushop.demo.at.SlipButton;
 import com.hengyushop.demo.at.SlipButton.OnChangedListener;
 import com.hengyushop.demo.home.ZhiFuFangShiActivity;
 import com.hengyushop.demo.my.MyJuDuiHuanActivity;
+import com.hengyushop.demo.my.MyJuDuiHuanXqActivity;
 import com.hengyushop.demo.my.MyOrderActivity;
+import com.hengyushop.demo.my.MyOrderXqActivity;
 import com.hengyushop.demo.my.TishiCarArchivesActivity;
 import com.hengyushop.entity.JuTuanGouData;
+import com.hengyushop.entity.MyOrderData;
+import com.hengyushop.entity.OrderBean;
 import com.hengyushop.entity.ShopCartData;
 import com.hengyushop.entity.UserAddressData;
 import com.hengyushop.entity.UserRegisterllData;
@@ -72,6 +78,7 @@ import com.tencent.mm.sdk.openapi.WXAPIFactory;
  * @author Administrator
  */
 public class MyOrderConfrimActivity extends BaseActivity {
+    public static boolean sHasPaySuccess = false;
     public static final int ADD_FIRST_REQUEST = 11;
     private String pwd, username;
     private ArrayList<ShopCartData> mList; //购物车列表
@@ -122,7 +129,7 @@ public class MyOrderConfrimActivity extends BaseActivity {
             user_mobile, shopping_address_id;
     public static String province1, city1, area1, user_address1, accept_name1,
             user_mobile1, recharge_no1, article_id1;
-    public static String recharge_no, order_no, datetime1, sell_price1,
+    public static String recharge_no, datetime1, sell_price1,  //recgarge_no 订单号
             give_pension1;
     private LinearLayout market_information_juduihuan;
     public AQuery mAq;
@@ -153,7 +160,7 @@ public class MyOrderConfrimActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.order_confrim);
         progress.CreateProgress();
-
+        sHasPaySuccess = false;
         spPreferences = getSharedPreferences("longuserset", MODE_PRIVATE);
         user_name = spPreferences.getString("user", "");
         user_id = spPreferences.getString("user_id", "");
@@ -361,10 +368,18 @@ public class MyOrderConfrimActivity extends BaseActivity {
             tv_user_phone.setText(user_mobile);
         }
         if (requestCode == 111) {
-            if ("1".equals(WareInformationActivity.jdh_type)|| "1".equals(jiekou_type_ysj)) {
-                showMyJuDuiHuanActivity();
+            if ("1".equals(WareInformationActivity.jdh_type) || "1".equals(jiekou_type_ysj)) {
+                if (sHasPaySuccess) {
+                    showMyJuDuiHuanActivity();
+                } else {
+                    showChangeGoodsActivity();
+                }
             } else {
-                showOrderActivity();
+                if (sHasPaySuccess) {
+                    showMyJuDuiHuanActivity();
+                } else {
+                    showOrderActivity();
+                }
             }
         }
 
@@ -1141,7 +1156,7 @@ public class MyOrderConfrimActivity extends BaseActivity {
                         } else {
                             Toast.makeText(MyOrderConfrimActivity.this, "支付失败，请在我的订单中查看", Toast.LENGTH_SHORT).show();
                             if ("1".equals(jiekou_type_ysj)) {
-                                showMyJuDuiHuanActivity();
+                                showChangeGoodsActivity();
                             } else {
                                 showOrderActivity();
                             }
@@ -1171,16 +1186,16 @@ public class MyOrderConfrimActivity extends BaseActivity {
                         if (TextUtils.equals(resultStatus, "8000")) {
                             Toast.makeText(MyOrderConfrimActivity.this, "支付结果确认中,请在我订单中查看",
                                     Toast.LENGTH_SHORT).show();
-                            if ("1".equals(jiekou_type_ysj)) {
-                                showMyJuDuiHuanActivity();
-                            } else {
-                                showOrderActivity();
-                            }
+//                            if ("1".equals(jiekou_type_ysj)) {
+//                                showMyJuDuiHuanActivity();
+//                            } else {
+//                                showOrderActivity();
+//                            }
                         } else {
                             // 其他值就可以判断为支付失败，包括用户主动取消支付，或者系统返回的错误
                             Toast.makeText(MyOrderConfrimActivity.this, "支付失败，请在我的订单查看", Toast.LENGTH_SHORT).show();
                             if ("1".equals(jiekou_type_ysj)) {
-                                showMyJuDuiHuanActivity();
+                                showChangeGoodsActivity();
                             } else {
                                 showOrderActivity();
                             }
@@ -1251,11 +1266,13 @@ public class MyOrderConfrimActivity extends BaseActivity {
                                     //							 Intent intent = new Intent(MyOrderConfrimActivity.this,MyOrderXqActivity.class);
                                     //							 startActivity(intent);
                                     //							Toast.makeText(MyOrderConfrimActivity.this, info,Toast.LENGTH_SHORT).show();
+                                    showMyJuDuiHuanActivity();
                                     finish();
                                 } else {
                                     progress.CloseProgress();
                                     teby = false;
                                     Toast.makeText(MyOrderConfrimActivity.this, info, Toast.LENGTH_SHORT).show();
+                                    showMyJuDuiHuanActivity();
                                     finish();
                                 }
                             } catch (JSONException e) {
@@ -1574,10 +1591,102 @@ public class MyOrderConfrimActivity extends BaseActivity {
         finish();
     }
 
-    private void showMyJuDuiHuanActivity() {
+    /**
+     *
+     *
+     * @param goodsId
+     */
+    private void showOrderInfoActivity(int goodsId) {
+        Intent intent = new Intent(MyOrderConfrimActivity.this, MyOrderXqActivity.class);
+        intent.putExtra("id", recharge_no);
+        startActivity(intent);
+        finish();
+    }
+
+    /**
+     * 兑换界面
+     */
+    private void showChangeGoodsActivity() {
         Intent intent = new Intent(MyOrderConfrimActivity.this, MyJuDuiHuanActivity.class);
         intent.putExtra("num", "2");
         startActivity(intent);
         finish();
+    }
+
+    /**
+     * 订单详情
+     */
+    private void showMyJuDuiHuanActivity() {
+        AsyncHttp.get("http://mobile.zams.cn/tools/mobile_ajax.asmx/get_order_trade_list?trade_no=" + recharge_no, new AsyncHttpResponseHandler() {
+            @Override
+            public void onSuccess(String arg1) {
+                MyOrderData md = new MyOrderData();
+
+                try {
+                    JSONObject object = new JSONObject(arg1);
+                    String status = object.getString("status");
+                    String info = object.getString("info");
+                    if (status.equals("y")) {
+                        JSONArray jsonArray = object.getJSONArray("data");
+                        int len = jsonArray.length();
+                        for (int i = 0; i < len; i++) {
+                            JSONObject obj = jsonArray.getJSONObject(i);
+                            md.setId(obj.getString("id"));
+                            md.setOrder_no(obj.getString("order_no"));
+                            md.setTrade_no(obj.getString("trade_no"));
+                            md.setCompany_name(obj.getString("company_name"));
+                            md.setPayment_status(obj.getString("payment_status"));
+                            md.setAccept_name(obj.getString("accept_name"));
+                            md.setExpress_status(obj.getString("express_status"));
+                            md.setExpress_fee(obj.getString("express_fee"));
+                            md.setStatus(obj.getString("status"));
+                            md.setProvince(obj.getString("province"));
+                            md.setCashing_packet(obj.getString("cashing_packet_total"));
+                            md.setExchange_price_total(obj.getString("exchange_price_total"));
+                            md.setExchange_point_total(obj.getString("exchange_point_total"));
+                            md.setAddress(obj.getString("address"));
+                            md.setUser_name(obj.getString("user_name"));
+                            md.setPayment_time(obj.getString("payment_time"));
+                            md.setPayable_amount(obj.getString("payable_amount"));
+                            md.setAdd_time(obj.getString("add_time"));
+                            md.setComplete_time(obj.getString("complete_time"));
+                            md.setRebate_time(obj.getString("rebate_time"));
+                            md.setMobile(obj.getString("mobile"));
+                            md.setCity(obj.getString("city"));
+                            md.setArea(obj.getString("area"));
+
+                            String order_groupon = obj.getString("order_goods");
+
+                            md.setList(new ArrayList<OrderBean>());
+                            JSONArray ja = new JSONArray(order_groupon);
+                            List<OrderBean> lists = new ArrayList<OrderBean>();
+                            OrderBean mb;
+                            for (int j = 0; j < ja.length(); j++) {
+                                JSONObject jo = ja.getJSONObject(j);
+                                mb = new OrderBean();
+                                mb.setPoint_title(jo.getString("article_title"));
+                                mb.setPoint_price(jo.getString("exchange_price"));
+                                mb.setPoint_value(jo.getString("exchange_point"));
+                                mb.setImg_url(jo.getString("img_url"));
+                                mb.setArticle_id(jo.getString("article_id"));
+                                md.getList().add(mb);
+                                lists.add(mb);
+                            }
+                            md.setList(lists);
+                        }
+                        Intent intent = new Intent(MyOrderConfrimActivity.this, MyJuDuiHuanXqActivity.class);
+                        intent.putExtra("bean", md);
+                        startActivity(intent);
+                        finish();
+                    }
+                } catch (Exception e) {
+
+                    e.printStackTrace();
+                }
+
+            }
+        }, this);
+
+
     }
 }

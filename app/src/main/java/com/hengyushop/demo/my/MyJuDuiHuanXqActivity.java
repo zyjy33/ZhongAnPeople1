@@ -96,7 +96,7 @@ public class MyJuDuiHuanXqActivity extends BaseActivity implements
 		// }
 		System.out.println("状态==============" + teby);
 		// 余额支付更新
-		if (teby == true) {
+		if (teby) {
 			userloginqm();
 			finish();
 		}
