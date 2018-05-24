@@ -85,19 +85,6 @@ public class ZhiFuFangShiActivity extends BaseActivity implements
 
 								System.out.println("=====id====================="
 										+ express_id);
-								// zhiAdapter.setSeclection(arg2);
-								// zhiAdapter.notifyDataSetChanged();
-								// Intent intent = new
-								// Intent(ZhiFuFangShiActivity.this,
-								// MyOrderConfrimActivity.class);
-								// intent.putExtra("id", id);
-								// intent.putExtra("title", title);
-								// startActivity(intent);
-								// int position = listView.getCheckedItemPosition();
-								// if(ListView.INVALID_POSITION != position){
-								// Toast.makeText(ZhiFuFangShiActivity.this,list.get(arg2).getTitle(),
-								// 0).show();
-								// }
 								finish();
 							} catch (Exception e) {
 

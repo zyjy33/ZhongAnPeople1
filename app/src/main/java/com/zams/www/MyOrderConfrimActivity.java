@@ -898,6 +898,12 @@ public class MyOrderConfrimActivity extends BaseActivity {
         }
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        loadWeather();
+    }
+
     /**
      * 配送方式
      */
