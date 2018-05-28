@@ -145,10 +145,10 @@ public class PullToRefreshView extends LinearLayout {
 
 	/**
 	 * init
-	 * 
+	 * 2012-7-26上午10:08:33
 	 * @description
-	 * @param context
-	 *            hylin 2012-7-26上午10:08:33
+	 * @param
+	 *
 	 */
 	private void init() {
 		// Load all of the animations we need in code rather than through XML

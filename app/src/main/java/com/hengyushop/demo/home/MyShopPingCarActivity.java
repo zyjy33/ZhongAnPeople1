@@ -202,52 +202,18 @@ public class MyShopPingCarActivity extends Fragment implements OnClickListener {
 
     public void onDestroy() {
         super.onDestroy();
-        try {
 
-            BitmapDrawable bd = (BitmapDrawable) imageView1.getBackground();
-            imageView1.setBackgroundResource(0);//别忘了把背景设为null，避免onDraw刷新背景时候出现used a recycled bitmap错误
-            bd.setCallback(null);
-            bd.getBitmap().recycle();
-
-            System.out.println("MyPosterView.type=======1==========" + MyPosterView.type);
-            System.out.println("HomeActivity.type=======1===============" + HomeActivity.type);
-            System.out.println("GouWuCheAGoodsAdaper.type=======1===============" + GouWuCheAGoodsAdaper.type);
-            try {
-
-                if (GouWuCheAGoodsAdaper.type == true) {
-                    GouWuCheAGoodsAdaper.mAq.clear();
-                    GouWuCheAGoodsAdaper.type = false;
-                }
-                if (MyShopPingCarActivity.type == true) {
-                    MyShopPingCarActivity.query.clear();
-                    MyShopPingCarActivity.query.recycle(mListView);
-                    MyShopPingCarActivity.type = false;
-                }
-
-                if (lists.size() > 0) {
-                    lists.clear();
-                    lists = null;
-                }
-
-                if (result.size() > 0) {
-                    result.clear();
-                    result = null;
-                }
-            } catch (Exception e) {
-
-                e.printStackTrace();
-            }
-            System.out.println("HomeActivity.type=======2==========" + HomeActivity.type);
-            System.out.println("MyPosterView.type=======2===============" + MyPosterView.type);
-            System.out.println("GouWuCheAGoodsAdaper.type=======2===============" + GouWuCheAGoodsAdaper.type);
-        } catch (Exception e) {
-
-            e.printStackTrace();
+        if (lists.size() > 0) {
+            lists.clear();
+            lists = null;
         }
+
+        if (result.size() > 0) {
+            result.clear();
+            result = null;
+        }
+
     }
-
-    ;
-
 
     private void getjianche() {
 
@@ -446,7 +412,6 @@ public class MyShopPingCarActivity extends Fragment implements OnClickListener {
         try {
             //821
             AsyncHttp.get(RealmName.REALM_NAME_LL +
-                            //				"/get_article_page_size_list?channel_name=life&category_id=687&page_size=20&page_index=1&strwhere=&orderby=",
                             "/get_article_top_list?channel_name=goods&top=5&strwhere=status=0%20and%20is_top=1",
                     new AsyncHttpResponseHandler() {
                         @Override
@@ -479,11 +444,6 @@ public class MyShopPingCarActivity extends Fragment implements OnClickListener {
                                 System.out.println("lists.size()=====================" + lists.size());
                                 jdhadapter = new GouWuCheAGoodsAdaper(lists, getActivity());
                                 myGridView.setAdapter(jdhadapter);
-                                if (lists.size() > 0) {
-                                    GouWuCheAGoodsAdaper.mAq.clear();
-                                    GouWuCheAGoodsAdaper.mAq.recycle(myGridView);
-                                }
-                                //									setListViewHeightBasedOnChildren(myGridView);
                                 myGridView.setOnItemClickListener(new OnItemClickListener() {
                                     @Override
                                     public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long arg3) {

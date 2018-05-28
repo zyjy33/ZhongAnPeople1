@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import com.android.hengyu.web.RealmName;
 import com.androidquery.AQuery;
+import com.bumptech.glide.Glide;
 import com.hengyushop.entity.SpListData;
 import com.zams.www.R;
 
@@ -22,7 +23,6 @@ public class GouWuCheAGoodsAdaper extends BaseAdapter {
 	private ArrayList<SpListData> list;
 	private LayoutInflater mInflater;
 	private int clickTemp = 0;
-	public static AQuery mAq;
 	public static boolean type = false;
 	public GouWuCheAGoodsAdaper(ArrayList<SpListData> list,Context context){
 		try {
@@ -31,7 +31,6 @@ public class GouWuCheAGoodsAdaper extends BaseAdapter {
 			this.list = list;
 			this.mContext = context;
 			mInflater = LayoutInflater.from(context);
-			mAq = new AQuery(context);
 			//		System.out.println("position=====2================");
 		} catch (Exception e) {
 
@@ -83,7 +82,9 @@ public class GouWuCheAGoodsAdaper extends BaseAdapter {
 			holder.tv_jifengduihuan.setText("￥"+list.get(position).sell_price);
 			//		holder.tv_shichangjia.setText("市场价:￥"+list.get(position).market_price);
 			//		holder.tv_shichangjia.getPaint().setFlags(Paint.STRIKE_THRU_TEXT_FLAG | Paint.ANTI_ALIAS_FLAG); // 设置市场价文字的中划线
-			mAq.id(holder.img).image(RealmName.REALM_NAME_HTTP+list.get(position).img_url);
+			Glide.with(mContext)
+					.load(RealmName.REALM_NAME_HTTP+list.get(position).img_url)
+					.into(holder.img);
 			type = true;
 		} catch (Exception e) {
 

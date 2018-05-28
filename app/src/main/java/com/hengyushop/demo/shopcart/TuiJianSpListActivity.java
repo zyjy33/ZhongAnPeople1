@@ -32,7 +32,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 
 /**
- * 推荐商品
+ * 每日劲爆品
  *
  * @author Administrator
  */
@@ -128,16 +128,13 @@ public class TuiJianSpListActivity extends BaseActivity {
                                     spList = null;
                                 } else {
                                     progress.CloseProgress();
-                                    Toast.makeText(TuiJianSpListActivity.this, info, 200).show();
+                                    Toast.makeText(TuiJianSpListActivity.this, info, Toast.LENGTH_SHORT).show();
                                 }
                                 System.out.println("lists.size()=====================" + lists.size());
                                 jdhadapter = new GouWuCheAGoodsAdaper(lists, TuiJianSpListActivity.this);
                                 myGridView.setAdapter(jdhadapter);
                                 //									GouWuCheAGoodsAdaper.mAq.clear();
-                                if (lists.size() > 0) {
-                                    GouWuCheAGoodsAdaper.mAq.clear();//清除内存
-                                    GouWuCheAGoodsAdaper.mAq.recycle(myGridView);
-                                }
+
                                 progress.CloseProgress();
                                 myGridView.setOnItemClickListener(new OnItemClickListener() {
                                     @Override
@@ -164,20 +161,13 @@ public class TuiJianSpListActivity extends BaseActivity {
 
     public void onDestroy() {
         super.onDestroy();
-        System.out.println("GouWuCheAGoodsAdaper.type=======1==========" + GouWuCheAGoodsAdaper.type);
         try {
-
-            if (GouWuCheAGoodsAdaper.type == true) {
-                GouWuCheAGoodsAdaper.mAq.clear();
-                GouWuCheAGoodsAdaper.type = false;
-            }
 
             if (lists.size() > 0) {
                 lists.clear();
                 lists = null;
             }
 
-            System.out.println("GouWuCheAGoodsAdaper.type=======1==========" + GouWuCheAGoodsAdaper.type);
         } catch (Exception e) {
 
             e.printStackTrace();

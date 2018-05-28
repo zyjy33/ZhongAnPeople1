@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import com.android.hengyu.web.RealmName;
 import com.androidquery.AQuery;
+import com.bumptech.glide.Glide;
 import com.hengyushop.entity.SpListData;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.zams.www.R;
@@ -22,7 +23,6 @@ public class MySpListAdapter extends BaseAdapter {
 
     private ArrayList<SpListData> mLsts;
     private Context context;
-    private ImageLoader loader;
     public static AQuery query;
     public static boolean type = false;
 
@@ -31,7 +31,6 @@ public class MySpListAdapter extends BaseAdapter {
 
         this.context = context;
         this.mLsts = lists;
-        this.loader = loader;
         query = new AQuery(context);
     }
 
@@ -99,7 +98,7 @@ public class MySpListAdapter extends BaseAdapter {
         tv_rePrice.setText("￥" + data.getSell_price());
         tv_maPrice.setText("￥" + data.getMarket_price());
         tv_hongbao.setText("￥" + data.getCashing_packet());
-        if (data.getCashing_packet().equals("0.0")) {
+        if ("0.0".equals(data.getCashing_packet())) {
             ll_kedikou.setVisibility(View.GONE);
         } else {
             ll_kedikou.setVisibility(View.VISIBLE);

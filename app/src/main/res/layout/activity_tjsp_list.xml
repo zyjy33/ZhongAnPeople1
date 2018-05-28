@@ -21,7 +21,7 @@
              android:layout_height="wrap_content"
              android:layout_centerHorizontal="true"
              android:layout_centerVertical="true"
-             android:text="推荐商品"
+             android:text="每日劲爆品"
              android:textSize="18dip" />
 
          <ImageView

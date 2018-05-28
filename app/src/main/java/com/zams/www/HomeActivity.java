@@ -946,7 +946,7 @@ public class HomeActivity extends Fragment implements OnClickListener {
 
                 //TuiJianSpListActivity TuiJianGoodsListActivity
                 Intent intent = new Intent(getActivity(), TuiJianSpListActivity.class);
-                intent.putExtra("title", "推荐商品");
+                intent.putExtra("title", "每日劲爆品");
                 startActivity(intent);
             }
         });
