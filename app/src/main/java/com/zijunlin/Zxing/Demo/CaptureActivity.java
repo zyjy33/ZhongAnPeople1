@@ -52,7 +52,6 @@ public class CaptureActivity extends BaseActivity implements Callback {
 		setContentView(R.layout.main);
 		//初始化 CameraManager
 		CameraManager.init(getApplication());
-
 		viewfinderView = (ViewfinderView) findViewById(R.id.viewfinder_view);
 		txtResult = (TextView) findViewById(R.id.txtResult);
 		hasSurface = false;

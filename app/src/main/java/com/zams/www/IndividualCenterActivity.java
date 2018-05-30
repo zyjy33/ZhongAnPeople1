@@ -19,6 +19,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import android.Manifest;
 import android.app.ActionBar.LayoutParams;
 import android.app.Activity;
 import android.app.ActivityManager;
@@ -31,6 +32,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
+import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
@@ -41,6 +43,8 @@ import android.os.Environment;
 import android.os.Handler;
 import android.os.Message;
 import android.provider.MediaStore;
+import android.support.annotation.NonNull;
+import android.support.v4.content.ContextCompat;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -1678,14 +1682,14 @@ public class IndividualCenterActivity extends Fragment implements
                                 + XiaDanActivity.list_ll.size());
                         System.out.println("list.size()==============1==========="
                                 + XiaDanActivity.list.size());
-                        Intent Intent2 = new Intent(getActivity(),
-                                CaptureActivity.class);
-                        // Intent Intent2 = new
-                        // Intent(getActivity(),XiaDanActivity.class);
-                        // Intent Intent2 = new
-                        // Intent(getActivity(),MyXiaDanActivity.class);
-                        Intent2.putExtra("sp_sys", "1");
-                        startActivity(Intent2);
+//                        if (PackageManager.PERMISSION_DENIED == ContextCompat.checkSelfPermission(getActivity(), Manifest.permission.CAMERA)) {
+//                            requestPermissions(new String[]{Manifest.permission.CAMERA}, Constant.CAMERA_REQUEST);
+//
+//                        } else {
+                            Intent Intent2 = new Intent(getActivity(), CaptureActivity.class);
+                            Intent2.putExtra("sp_sys", "1");
+                            startActivity(Intent2);
+//                        }
                     }
                 }
                 break;
@@ -1756,6 +1760,20 @@ public class IndividualCenterActivity extends Fragment implements
                 break;
         }
     }
+
+//    @Override
+//    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+//        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+//        if (requestCode == Constant.CAMERA_REQUEST && grantResults.length > 0) {
+//            int grantResult = grantResults[0];
+//            if (PackageManager.PERMISSION_GRANTED == grantResult) {
+//                Intent Intent2 = new Intent(getActivity(), com.zxing.android.CaptureActivity.class);
+//                startActivity(Intent2);
+//            } else {
+//                Toast.makeText(context, "照相机权限已被拒绝", Toast.LENGTH_SHORT).show();
+//            }
+//        }
+//    }
 
     public final static int CONSULT_DOC_PICTURE = 1000;
     public final static int CONSULT_DOC_CAMERA = 1001;
@@ -2138,7 +2156,7 @@ public class IndividualCenterActivity extends Fragment implements
      * 保存裁剪之后的图片数据
      *
      * @param
-     * @param picdata
+     * @param
      */
     protected void setImageToView(Intent data) {
         Bundle extras = data.getExtras();

@@ -588,9 +588,9 @@ public class PhoneLoginActivity extends BaseActivity implements OnClickListener 
 					//			name = et_username.getText().toString();
 					password = et_pwd.getText().toString();
 					if (name.equals("")) {
-						Toast.makeText(PhoneLoginActivity.this, "手机号码不能为空", 100).show();
+						Toast.makeText(PhoneLoginActivity.this, "手机号码不能为空", Toast.LENGTH_SHORT).show();
 					} else if (password.equals("")) {
-						Toast.makeText(PhoneLoginActivity.this, "密码不能为空", 100).show();
+						Toast.makeText(PhoneLoginActivity.this, "密码不能为空", Toast.LENGTH_SHORT).show();
 					} else {
 						progress.CreateProgress();
 						try {

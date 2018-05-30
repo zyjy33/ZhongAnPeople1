@@ -449,13 +449,13 @@ public class HomeActivity extends Fragment implements OnClickListener {
             public void onClick(View arg0) {
                 if (!nickname.equals("")) {
                     if (!user_name.equals("")) {
-                        if (PackageManager.PERMISSION_DENIED == ContextCompat.checkSelfPermission(getActivity(), Manifest.permission.CAMERA)) {
-                            requestPermissions(new String[]{Manifest.permission.CAMERA}, Constant.CAMERA_REQUEST);
-
-                        } else {
+//                        if (PackageManager.PERMISSION_DENIED == ContextCompat.checkSelfPermission(getActivity(), Manifest.permission.CAMERA)) {
+//                            requestPermissions(new String[]{Manifest.permission.CAMERA}, Constant.CAMERA_REQUEST);
+//
+//                        } else {
                             Intent Intent2 = new Intent(getActivity(), CaptureActivity.class);
                             startActivity(Intent2);
-                        }
+//                        }
                     } else {
                         // getjianche();//后台检测是否绑定手机
                         Intent intent2 = new Intent(getActivity(),
@@ -489,20 +489,20 @@ public class HomeActivity extends Fragment implements OnClickListener {
         });
     }
 
-    @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        if (requestCode == Constant.CAMERA_REQUEST && grantResults.length > 0) {
-            int grantResult = grantResults[0];
-            if (PackageManager.PERMISSION_GRANTED == grantResult) {
-                Intent Intent2 = new Intent(getActivity(), CaptureActivity.class);
-                startActivity(Intent2);
-            } else {
-                Toast.makeText(context, "照相机权限已被拒绝", Toast.LENGTH_SHORT).show();
-            }
-        }
-
-    }
+//    @Override
+//    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+//        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+//        if (requestCode == Constant.CAMERA_REQUEST && grantResults.length > 0) {
+//            int grantResult = grantResults[0];
+//            if (PackageManager.PERMISSION_GRANTED == grantResult) {
+//                Intent Intent2 = new Intent(getActivity(), com.zijunlin.Zxing.Demo.CaptureActivity.class);
+//                Intent2.putExtra("sp_sys", "1");
+//                startActivity(Intent2);
+//            } else {
+//                Toast.makeText(context, "照相机权限已被拒绝", Toast.LENGTH_SHORT).show();
+//            }
+//        }
+//    }
 
     /**
      * 红包专区
