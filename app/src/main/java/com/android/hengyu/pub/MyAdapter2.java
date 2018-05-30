@@ -95,7 +95,7 @@ public class MyAdapter2 extends BaseAdapter {
 			}
 			if (position == 3) {
 				holder.img.setImageResource(R.drawable.yyjb2);
-				holder.text.setText("一元聚币");
+				holder.text.setText("一元福利");
 			}
 
 			//        ImageLoader imageLoader=ImageLoader.getInstance();

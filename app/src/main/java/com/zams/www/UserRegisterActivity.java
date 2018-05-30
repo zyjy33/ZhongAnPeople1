@@ -135,9 +135,7 @@ public class UserRegisterActivity extends BaseActivity implements
                     break;
                 case 1:
                     String strmsg = (String) msg.obj;
-                    NewDataToast
-                            .makeText(getApplicationContext(), strmsg, false, 0)
-                            .show();
+                    NewDataToast.makeText(getApplicationContext(), strmsg, false, 0).show();
                     break;
                 case 2:
                     NewDataToast.makeText(getApplicationContext(), "验证码已发送", false,
@@ -499,11 +497,8 @@ public class UserRegisterActivity extends BaseActivity implements
                     break;
                 case R.id.btn_register:
                     yz = et_user_yz.getText().toString().trim();
-                    // name = username.getText().toString().trim();
                     phone = userphone.getText().toString().trim();
-                    // postbox = userpostbox.getText().toString().trim();
                     pwd = userpwd.getText().toString().trim();
-                    // pwdagain = userpwdagain.getText().toString().trim();
                     // SimpleDateFormat formatter = new SimpleDateFormat(
                     // "yyyy年MM月dd日   HH:mm:ss");
                     // Date curDate = new Date(System.currentTimeMillis());// 获取当前时间
@@ -619,42 +614,28 @@ public class UserRegisterActivity extends BaseActivity implements
                                                             JSONObject jsonObject = new JSONObject(
                                                                     arg1);
                                                             System.out
-                                                                    .println("=================1=="
-                                                                            + arg1);
-                                                            String status = jsonObject
-                                                                    .getString("status");
-                                                            String info = jsonObject
-                                                                    .getString("info");
+                                                                    .println("=================1==" + arg1);
+                                                            String status = jsonObject.getString("status");
+                                                            String info = jsonObject.getString("info");
                                                             if (status.equals("n")) {
-                                                                System.out
-                                                                        .println("=================2==");
-                                                                str = jsonObject
-                                                                        .getString("info");
-                                                                // String no =
-                                                                // jsonObject.getString("info");
-                                                                // // str =
-                                                                // jsonObject.getString("info");
-                                                                // NewDataToast.makeText(getApplicationContext(),
-                                                                // no,false,
-                                                                // 0).show();
+                                                                System.out.println("=================2==");
+                                                                str = jsonObject.getString("info");
+
                                                                 progress.CloseProgress();
                                                                 Message message = new Message();
                                                                 message.what = 1;
                                                                 message.obj = str;
                                                                 handler.sendMessage(message);
-                                                            } else if (status
-                                                                    .equals("y")) {
+                                                            } else if (status.equals("y")) {
                                                                 try {
                                                                     System.out
                                                                             .println("=================3=="
                                                                                     + info);
-                                                                    hengyuName = jsonObject
-                                                                            .getString("info");
+                                                                    hengyuName = jsonObject.getString("info");
                                                                     // NewDataToast.makeText(getApplicationContext(),
                                                                     // info,false,
                                                                     // 0).show();
-                                                                    SharedPreferences spPreferences = getSharedPreferences(
-                                                                            "longuserset_user",
+                                                                    SharedPreferences spPreferences = getSharedPreferences("longuserset_user",
                                                                             MODE_PRIVATE);
                                                                     Editor editor = spPreferences
                                                                             .edit();
@@ -753,8 +734,8 @@ public class UserRegisterActivity extends BaseActivity implements
                                     || file.getName().indexOf(
                                     keyword.toUpperCase()) > -1) {
                                 Register_Va va = new Register_Va();
-								/*
-								 * HashMap<> rowItem = new HashMap<String,
+                                /*
+                                 * HashMap<> rowItem = new HashMap<String,
 								 * Object>(); rowItem.put("number", index); //
 								 * 加入序列号 rowItem.put("bookName",
 								 * file.getName());// 加入名称 rowItem.put("path",

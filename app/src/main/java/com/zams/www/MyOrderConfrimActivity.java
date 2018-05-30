@@ -859,7 +859,7 @@ public class MyOrderConfrimActivity extends BaseActivity {
                             tv_size.setText(mExchangePoint + "福利" + "+" + mNeedSumMoney + "元");// 价格
                             tv_2.setText("兑换价:");
                             tv_warename.setText(data.title);
-                            tv_1.setText("聚币:");
+                            tv_1.setText("福利:");
                             tv_1.setVisibility(View.GONE);
                             sumMoneyLayout.setVisibility(View.GONE);
 

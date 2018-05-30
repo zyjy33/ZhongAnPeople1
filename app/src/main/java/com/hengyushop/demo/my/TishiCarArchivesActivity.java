@@ -132,7 +132,7 @@ public class TishiCarArchivesActivity extends Activity implements OnClickListene
     }
 
     /**
-     * 判断当前聚币与余额的值
+     * 判断当前福利与余额的值
      *
      * @param
      */
@@ -141,7 +141,7 @@ public class TishiCarArchivesActivity extends Activity implements OnClickListene
         AsyncHttp.get(strUrlone, new AsyncHttpResponseHandler() {
             public void onSuccess(int arg0, String arg1) {
                 try {
-                    System.out.println("当前聚币与余额的值-------------" + arg1);
+                    System.out.println("当前福利与余额的值-------------" + arg1);
                     JSONObject object = new JSONObject(arg1);
                     String status = object.getString("status");
                     if (status.equals("y")) {

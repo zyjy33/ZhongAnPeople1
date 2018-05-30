@@ -352,7 +352,7 @@ public class WareInformationActivityl extends BaseActivity implements
 
 				lists.add(xqdata);
 				handler.sendEmptyMessage(4);
-				userjubi();// 获取聚币
+				userjubi();// 获取福利
 				progress.CloseProgress();
 
 			} else {
@@ -897,7 +897,7 @@ public class WareInformationActivityl extends BaseActivity implements
 	};
 
 	/**
-	 * 获取当前聚币
+	 * 获取当前福利
 	 *
 	 * @param order_no
 	 */

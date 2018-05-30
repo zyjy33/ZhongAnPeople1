@@ -183,7 +183,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="25dp"
-            android:text="聚币管理"
+            android:text="福利管理"
             android:textColor="#C22023"
             android:textSize="16sp" />
         <RelativeLayout
@@ -200,7 +200,7 @@
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="15dp"
                 android:gravity="center"
-                android:text="聚币明细"
+                android:text="福利明细"
                 android:textColor="#000000"
                 android:textSize="15sp" />
 
@@ -225,7 +225,7 @@
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="15dp"
                 android:gravity="center"
-                android:text="聚币明细"
+                android:text="福利明细"
                 android:textColor="#000000"
                 android:textSize="15sp" />
 

@@ -183,7 +183,7 @@ public class MyJuDuiHuanXqAdapter extends BaseAdapter {
 
 					holder.tv_goods_title.setText(list.get(position).getList().get(i).getPoint_title());
 					holder.tv_market_price.setText("价格:￥"+list.get(position).getExchange_price_total());
-					holder.real_price.setText("聚币:￥"+list.get(position).getExchange_point_total());
+					holder.real_price.setText("福利:￥"+list.get(position).getExchange_point_total());
 
 					//			holder.quantity.setText("x"+list.get(position).getList().get(i).getQuantity());
 					//			holder.tv_market_price.getPaint().setFlags(Paint.STRIKE_THRU_TEXT_FLAG | Paint.ANTI_ALIAS_FLAG); // 设置市场价文字的中划线
@@ -241,7 +241,7 @@ public class MyJuDuiHuanXqAdapter extends BaseAdapter {
 				if (list.get(position).getExchange_point_total().equals("0")) {
 					holder.tv_heji.setText("合计:￥"+heji_zongjia);
 				}else {
-					holder.tv_heji.setText("合计:"+"聚币"+list.get(position).getExchange_point_total()+"+"+"￥"+heji_zongjia);
+					holder.tv_heji.setText("合计:"+"福利"+list.get(position).getExchange_point_total()+"+"+"￥"+heji_zongjia);
 				}
 
 

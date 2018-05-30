@@ -1559,12 +1559,9 @@ public class IndividualCenterActivity extends Fragment implements
                         }).create().show();
                 break;
             case R.id.caidan:
-                // if (!popupWindowMenu.isShowing()) {
-                // popupWindowMenu.showAtLocation(caidan, Gravity.BOTTOM, 0, 0);
-                //
-                // }
+
                 Intent intent4 = new Intent(getActivity(), Webview1.class);
-                intent4.putExtra("jysbz_id", "10334");
+                intent4.putExtra("web_id", "103");
                 startActivity(intent4);
                 break;
             case R.id.img_btn_order:// 订单管理

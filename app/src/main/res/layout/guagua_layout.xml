@@ -80,7 +80,7 @@
 					    android:layout_centerHorizontal="true"
 					    android:layout_above="@+id/start"
 					    android:gravity="center"
-					    android:text="100聚币刮一次\n聚财挡不住啊！"/>
+					    android:text="100福利刮一次\n聚财挡不住啊！"/>
                     <Button
                         android:id="@+id/start"
                         android:layout_width="150dp"
@@ -112,7 +112,7 @@
                 android:layout_marginLeft="15dp"
                 android:layout_marginRight="15dp"
                 android:layout_marginTop="5dp"
-                android:text="刮一次只需100聚币，聚币红包等你拿！红包当现金使用，可以在我们云商聚手机客户端使用。账户必须通过实名认证且设置支付密码，才能成功领取红包。"
+                android:text="刮一次只需100福利，福利红包等你拿！红包当现金使用，可以在我们云商聚手机客户端使用。账户必须通过实名认证且设置支付密码，才能成功领取红包。"
                 android:textColor="@color/white" />
             <Button
                 android:id="@+id/more_gua"

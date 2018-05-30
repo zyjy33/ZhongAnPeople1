@@ -40,12 +40,10 @@ public class WXPayEntryActivity extends Activity implements IWXAPIEventHandler {
     private static final String TAG = "WXPayEntryActivity";
     private IWXAPI api;
     private SharedPreferences spPreferences;
-    String recharge_no;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.pay_result);
         spPreferences = getSharedPreferences("longuserset", MODE_PRIVATE);
         api = WXAPIFactory.createWXAPI(this, Constant.APP_ID);
         api.handleIntent(getIntent(), this);

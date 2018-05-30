@@ -160,7 +160,7 @@ public class MyJuDuiHuanOrderAdapter extends BaseAdapter {
             if (list.get(position).getExchange_point_total().equals("0")) {
                 tv_heji.setText("￥" + list.get(position).getPayable_amount());
             } else {
-                tv_heji.setText("聚币" + list.get(position).getExchange_point_total() + "+" + "￥" + list.get(position).getPayable_amount());
+                tv_heji.setText("福利" + list.get(position).getExchange_point_total() + "+" + "￥" + list.get(position).getPayable_amount());
             }
 
             tv_company_name.setText(list.get(position).getCompany_name());
@@ -357,7 +357,7 @@ public class MyJuDuiHuanOrderAdapter extends BaseAdapter {
                         + list.get(position).getList().get(i).getPoint_price());
                 tv_goods_title.setText(list.get(position).getList().get(i)
                         .getPoint_title());
-                tv_jubi.setText("聚币:");
+                tv_jubi.setText("福利:");
                 sell_price
                         .setText(list.get(position).getExchange_point_total());
                 tv_market_price.setText("价格:￥"

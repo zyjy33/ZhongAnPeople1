@@ -587,7 +587,7 @@ public class WareInformationActivity extends BaseActivity implements
                                 Toast.makeText(WareInformationActivity.this, info, Toast.LENGTH_SHORT).show();
                             }
                             webview.loadUrl(RealmName.REALM_NAME_HTTP + "/mobile/goods/conent-" + data_xq.getArticle_id() + ".html");//商品介绍
-                            //					userjubi();//获取聚币
+                            //					userjubi();//获取福利
                             handler.sendEmptyMessage(4);
                             progress.CloseProgress();
 
@@ -644,7 +644,7 @@ public class WareInformationActivity extends BaseActivity implements
     //
     //			lists.add(xqdata);
     //			handler.sendEmptyMessage(4);
-    //			userjubi();//获取聚币
+    //			userjubi();//获取福利
     //    		progress.CloseProgress();
     //
     //			}else {
@@ -1122,7 +1122,7 @@ public class WareInformationActivity extends BaseActivity implements
     };
 
     /**
-     * 获取当前聚币
+     * 获取当前福利
      *
      * @param
      */

@@ -656,7 +656,11 @@ public class ZhongAnMinShenXqActivity extends BaseActivity implements
 //                                    Toast.makeText(ZhongAnMinShenXqActivity.this, info, Toast.LENGTH_SHORT).show();
                                 }
                             } else {
-                                Toast.makeText(ZhongAnMinShenXqActivity.this, info, Toast.LENGTH_SHORT).show();
+                                if ("8".equals(getIntent().getStringExtra("datatype_id"))) {
+                                    Toast.makeText(ZhongAnMinShenXqActivity.this, "您已经签到，不可以重复签到", Toast.LENGTH_SHORT).show();
+                                } else {
+                                    Toast.makeText(ZhongAnMinShenXqActivity.this, info, Toast.LENGTH_SHORT).show();
+                                }
                             }
                         } catch (JSONException e) {
 

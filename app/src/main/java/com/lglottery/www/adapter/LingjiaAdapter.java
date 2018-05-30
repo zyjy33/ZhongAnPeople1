@@ -73,7 +73,7 @@ public class LingjiaAdapter extends BaseAdapter {
 				holder.img);
 		holder.text1.setText(lists.get(position).getName());
 		holder.text2.setText(lists.get(position).getPrice() + "元+"
-				+ lists.get(position).getJifen() + "聚币");
+				+ lists.get(position).getJifen() + "福利");
 		holder.text3.setText(0 + "人已购买");
 		holder.text4.getPaint().setFlags(
 				Paint.STRIKE_THRU_TEXT_FLAG | Paint.ANTI_ALIAS_FLAG);

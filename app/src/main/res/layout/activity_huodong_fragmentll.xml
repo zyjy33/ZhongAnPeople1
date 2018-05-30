@@ -278,7 +278,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="4dp"
                         android:gravity="center"
-                        android:text="赚聚币"
+                        android:text="赚福利"
                         android:textColor="@color/black"
                         android:textSize="12sp" />
                 </LinearLayout>
@@ -1060,7 +1060,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center_horizontal"
                                 android:layout_marginTop="2dp"
-                                android:text="聚币等你抢"
+                                android:text="福利等你抢"
                                 android:textColor="#b0b0b0"
                                 android:textSize="10sp" />
 
@@ -1145,7 +1145,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center_horizontal"
                                 android:layout_marginTop="2dp"
-                                android:text="聚币免费送"
+                                android:text="福利免费送"
                                 android:textColor="#b0b0b0"
                                 android:textSize="10sp" />
 

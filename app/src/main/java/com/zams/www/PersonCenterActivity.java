@@ -277,7 +277,7 @@ public class PersonCenterActivity extends BaseActivity implements OnClickListene
                                 tv_nick_name.setText(sex);
                                 //						v2.setText(data.user_code);//聚卡
                                 //						v3.setText(data.amount);//账户余额
-                                //						v4.setText(data.point);//聚币
+                                //						v4.setText(data.point);//福利
                                 v7.setText(data.mobile);//手机号
                                 //						v8.setText(data.pension);//养老金
                                 //						v9.setText(data.packet);//红包

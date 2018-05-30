@@ -66,20 +66,20 @@
                             android:layout_marginLeft="20dp"
                             android:layout_marginRight="20dp"
                             android:layout_marginTop="55dp"
-                            android:text="1.坚持每周天天签到，首日签到领1聚币，连续签到每日递增1聚币，连续一周后则保持签到8个聚币。" />
+                            android:text="1.坚持每周天天签到，首日签到领1福利，连续签到每日递增1福利，连续一周后则保持签到8个福利。" />
 
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="20dp"
                             android:layout_marginRight="20dp"
-                            android:text="2.中途如有漏签，则重新从首日领1聚币开始计算。" />
+                            android:text="2.中途如有漏签，则重新从首日领1福利开始计算。" />
                          <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="20dp"
                             android:layout_marginRight="20dp"
-                            android:text="3.VIP用户签到，则双倍递增聚币" />
+                            android:text="3.VIP用户签到，则双倍递增福利" />
                     </LinearLayout>
 				</ScrollView>
                     <View
