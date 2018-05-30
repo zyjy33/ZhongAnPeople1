@@ -97,7 +97,6 @@ public class NewWare extends BaseActivity implements OnClickListener {
     String quanbu_id, user_name;
     EditText tv1;
     int num = 0;
-    private static SharedPreferences spPreferences;
     private boolean strue = false;
     private boolean pailie = false;
     ImageView img_shared;
@@ -308,6 +307,7 @@ public class NewWare extends BaseActivity implements OnClickListener {
         }
     }
 
+    private int mId = 0;
     Handler handler = new Handler() {
         public void dispatchMessage(Message msg) {
             switch (msg.what) {
@@ -395,10 +395,9 @@ public class NewWare extends BaseActivity implements OnClickListener {
                                     lbadapter.setSeclection(arg2);
                                     lbadapter.notifyDataSetChanged();
 
-                                    spPreferences = getSharedPreferences("longuserset", MODE_PRIVATE);
-                                    int id = spPreferences.getInt("id", 0);
+
                                     System.out.println("strue====================" + strue);
-                                    if (arg2 != id) {
+                                    if (arg2 != mId) {
                                         //第一次到界面选择第一个二级菜单
                                         if (strue = false) {
                                             String parent_id = String.valueOf(list_lb.get(arg2).id);
@@ -444,10 +443,7 @@ public class NewWare extends BaseActivity implements OnClickListener {
 
                                         } else {
                                             num = 1;
-                                            Editor editor = spPreferences.edit();
-                                            editor.putInt("id", arg2);
-                                            editor.commit();
-
+                                            mId = arg2;
                                         }
                                     } else {
                                         //								num = 1;

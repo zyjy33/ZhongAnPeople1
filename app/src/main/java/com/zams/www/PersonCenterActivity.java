@@ -412,7 +412,7 @@ public class PersonCenterActivity extends BaseActivity implements OnClickListene
                                         Message message = new Message();
                                         message.what = 0;
                                         handler.sendMessage(message);
-                                    } else if (server_version == client_version) {
+                                    } else{
                                         Message message = new Message();
                                         message.what = 1;
                                         handler.sendMessage(message);
