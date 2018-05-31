@@ -129,12 +129,8 @@ public class MyJuDuiHuanOrderAdapter extends BaseAdapter {
 
         // ViewHolder holder = null;
         // holder = new ViewHolder();
-        System.out
-                .println("position==========================================================="
-                        + position);
         // if (convertView == null) {
         // holder = new ViewHolder();
-
         // convertView = inflater.inflate(R.layout.itme_my_order, null);
         if (convertView == null) {
             convertView = LinearLayout.inflate(context, R.layout.itme_my_order,
@@ -156,6 +152,7 @@ public class MyJuDuiHuanOrderAdapter extends BaseAdapter {
             TextView tv_hongbao = (TextView) convertView.findViewById(R.id.tv_hongbao);//
             TextView tv_company_name = (TextView) convertView.findViewById(R.id.tv_company_name);//
             TextView tv_heji = (TextView) convertView.findViewById(R.id.tv_heji);//
+            TextView tv_tuikuan = (TextView) convertView.findViewById(R.id.tv_tuikuan);//
 
             if (list.get(position).getExchange_point_total().equals("0")) {
                 tv_heji.setText("￥" + list.get(position).getPayable_amount());
@@ -165,20 +162,14 @@ public class MyJuDuiHuanOrderAdapter extends BaseAdapter {
 
             tv_company_name.setText(list.get(position).getCompany_name());
             payment_status = list.get(position).getPayment_status();
-            // System.out.println("payment_status============="+payment_status);
             express_status = list.get(position).getExpress_status();
-            // System.out.println("express_status============="+express_status);
             status = list.get(position).getStatus();
-            // System.out.println("status============="+status);
 
             String yunfei = list.get(position).getExpress_fee();
-            // System.out.println("yunfei1============="+yunfei);
             if (yunfei.equals("0.0")) {
-                // if (yunfei == 0) {
                 tv_yunfei.setVisibility(View.GONE);
             } else {
-                tv_yunfei.setText("(含运费￥" + list.get(position).getExpress_fee()
-                        + ")");
+                tv_yunfei.setText("(含运费￥" + list.get(position).getExpress_fee() + ")");
             }
 
             String kedi_honbao = list.get(position).getCashing_packet();
@@ -202,7 +193,11 @@ public class MyJuDuiHuanOrderAdapter extends BaseAdapter {
             } else if (payment_status.equals("2") && express_status.equals("1")) {
                 System.out.println("待发货=============");
                 tv_zhuangtai.setText("已付款");
-                ll_anliu.setVisibility(View.GONE);
+                ll_anliu.setVisibility(View.VISIBLE);
+                tv_kukuang.setVisibility(View.GONE);
+                tv_pingjia.setVisibility(View.GONE);
+                shanchu.setVisibility(View.GONE);
+                tv_tuikuan.setVisibility(View.VISIBLE);
                 zhuangtai = 3;
             } else if (payment_status.equals("2") && express_status.equals("2")
                     && status.equals("2")) {
@@ -358,20 +353,17 @@ public class MyJuDuiHuanOrderAdapter extends BaseAdapter {
                 tv_goods_title.setText(list.get(position).getList().get(i)
                         .getPoint_title());
                 tv_jubi.setText("福利:");
-                sell_price
-                        .setText(list.get(position).getExchange_point_total());
-                tv_market_price.setText("价格:￥"
-                        + list.get(position).getExchange_price_total());
+                sell_price.setText(list.get(position).getExchange_point_total());
+                tv_market_price.setText("价格:￥" + list.get(position).getExchange_price_total());
 
                 // holder.sell_price.setText("￥"+list.get(position).getList().get(i).getSell_price());
                 // quantity.setText("x"+list.get(position).getList().get(i).getQuantity());
                 tv_market_price_title.setVisibility(View.GONE);
                 // tv_market_price.getPaint().setFlags(Paint.STRIKE_THRU_TEXT_FLAG
                 // | Paint.ANTI_ALIAS_FLAG); // 设置市场价文字的中划线
-                mAq.id(tupian).image(
-                        RealmName.REALM_NAME_HTTP
-                                + list.get(position).getList().get(i)
-                                .getImg_url());
+                mAq.id(tupian).image(RealmName.REALM_NAME_HTTP
+                        + list.get(position).getList().get(i)
+                        .getImg_url());
                 type = true;
                 // int number =
                 // list.get(position).getList().get(i).getQuantity();
@@ -439,6 +431,16 @@ public class MyJuDuiHuanOrderAdapter extends BaseAdapter {
 
                         e.printStackTrace();
                     }
+                }
+            });
+            tv_tuikuan.setOnClickListener(new OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                        String order_no = list.get(position).getOrder_no();
+                        Message msg = new Message();
+                        msg.what = 1;
+                        msg.obj = order_no;
+                        handler.sendMessage(msg);
                 }
             });
 

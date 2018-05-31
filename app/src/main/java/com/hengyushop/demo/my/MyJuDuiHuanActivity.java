@@ -519,6 +519,33 @@ public class MyJuDuiHuanActivity extends BaseActivity implements
                 }, MyJuDuiHuanActivity.this);
     }
 
+    /**
+     * 申请退款
+     */
+    protected void dialog1() {
+        AlertDialog.Builder builder = new Builder(MyJuDuiHuanActivity.this);
+        builder.setMessage("是否确定申请退款?");
+        builder.setTitle("提示");
+        builder.setPositiveButton("确认", new DialogInterface.OnClickListener() {
+
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                //				fukuanok2(order_no);
+                userloginqm(1);
+            }
+        });
+
+        builder.setNegativeButton("取消", new DialogInterface.OnClickListener() {
+
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+            }
+        });
+
+        builder.create().show();
+    }
+
     Handler handler = new Handler() {
         public void dispatchMessage(Message msg) {
             switch (msg.what) {
@@ -532,6 +559,8 @@ public class MyJuDuiHuanActivity extends BaseActivity implements
                     // progress.CloseProgress();
                     break;
                 case 1:
+                    order_no = (String) msg.obj; //申请退款
+                    dialog1();
                     break;
                 case 2:
                     order_no = (String) msg.obj;
@@ -588,7 +617,7 @@ public class MyJuDuiHuanActivity extends BaseActivity implements
                     if (TextUtils.equals(resultStatus, "9000")) {
                         Toast.makeText(MyJuDuiHuanActivity.this, "支付成功",
                                 Toast.LENGTH_SHORT).show();
-                        userloginqm();
+                        userloginqm(0);
                     } else {
                         // 判断resultStatus 为非“9000”则代表可能支付失败
                         // “8000”代表支付结果因为支付渠道原因或者系统原因还在等待支付结果确认，最终交易是否成功以服务端异步通知为准（小概率状态）
@@ -809,9 +838,10 @@ public class MyJuDuiHuanActivity extends BaseActivity implements
     }
 
     /**
-     * 获取登录签名
+     * 获取登录签名 type =1 退款
      */
-    private void userloginqm() {
+    private void userloginqm(int type) {
+        final int fType = type;
         try {
             SharedPreferences spPreferences = getSharedPreferences(
                     "longuserset", MODE_PRIVATE);
@@ -831,8 +861,11 @@ public class MyJuDuiHuanActivity extends BaseActivity implements
                             login_sign = data.login_sign;
                             System.out.println("======order_no============="
                                     + order_no);
-                            loadguanggaoll(order_no, login_sign);
-                        } else {
+                            if (fType == 1) {
+                                getKuiKuan(login_sign, order_no);
+                            } else {
+                                loadguanggaoll(order_no, login_sign);
+                            }
                         }
                     } catch (JSONException e) {
 
@@ -940,5 +973,41 @@ public class MyJuDuiHuanActivity extends BaseActivity implements
             e.printStackTrace();
         }
     }
+    /**
+     * 退款
+     * @param login_sign
+     * @param order_no
+     */
+    private void getKuiKuan(String login_sign, String order_no) {
+        try{
+            SharedPreferences spPreferences = getSharedPreferences("longuserset", MODE_PRIVATE);
+            String user_id = spPreferences.getString("user_id", "");
+            //			String sign = spPreferences.getString("login_sign", "");
+            String strUrlone = RealmName.REALM_NAME_LL + "/order_refund?user_id="+user_id+"&trade_no="+order_no+"&sign="+login_sign+"";
+            System.out.println("======11============="+strUrlone);
+            AsyncHttp.get(strUrlone, new AsyncHttpResponseHandler() {
+                public void onSuccess(int arg0, String arg1) {
+                    try {
+                        System.out.println("======arg1============="+arg1);
+                        JSONObject object = new JSONObject(arg1);
+                        String status = object.getString("status");
+                        String info = object.getString("info");
+                        if (status.equals("y")) {
+                            Toast.makeText(MyJuDuiHuanActivity.this, info, Toast.LENGTH_SHORT).show();
+                            load_list(true, strwhere);
+                        }else{
+                            Toast.makeText(MyJuDuiHuanActivity.this, info, Toast.LENGTH_SHORT).show();
+                        }
+                    } catch (JSONException e) {
 
+                        e.printStackTrace();
+                    }
+                };
+            }, MyJuDuiHuanActivity.this);
+
+        } catch (Exception e) {
+
+            e.printStackTrace();
+        }
+    }
 }

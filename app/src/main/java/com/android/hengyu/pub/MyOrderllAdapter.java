@@ -385,7 +385,6 @@ public class MyOrderllAdapter extends BaseAdapter {
 						msg.obj = order_no;
 						handler.sendMessage(msg);
 					} catch (Exception e) {
-
 						e.printStackTrace();
 					}
 
