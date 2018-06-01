@@ -1,13 +1,13 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 22
-    buildToolsVersion '26.0.2'
+    compileSdkVersion 23
+    buildToolsVersion '23.0.3'
 
     defaultConfig {
         applicationId "com.zams.www"
         minSdkVersion 14
-        targetSdkVersion 22
+        targetSdkVersion 23
 
         aaptOptions.cruncherEnabled = false
         aaptOptions.useNewCruncher = false
@@ -67,5 +67,6 @@ android {
         compile files('libs/universal-image-loader-1.9.2-SNAPSHOT-with-sources.jar')
         compile files('libs/yunzhixun_video_SDK_ver_1.1.10_release.jar')
         compile 'com.github.bumptech.glide:glide:3.7.0'
+        implementation 'com.yanzhenjie:permission:2.0.0-rc4'
     }
 }

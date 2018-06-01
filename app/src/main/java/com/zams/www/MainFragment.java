@@ -518,7 +518,7 @@ public class MainFragment extends BaseActivity {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 AndPermission.with(MainFragment.this)
-                        .permission(Permission.Group.CAMERA, Permission.Group.STORAGE)
+                        .permission( Permission.Group.STORAGE)
                         .onGranted(new Action() {
                             @Override
                             public void onAction(List<String> permissions) {

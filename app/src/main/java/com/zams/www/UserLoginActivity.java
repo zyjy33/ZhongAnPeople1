@@ -479,7 +479,7 @@ public class UserLoginActivity extends BaseActivity implements OnClickListener {
                     dialog.dismiss();
                 } else {
                     AndPermission.with(UserLoginActivity.this)
-                            .permission(Permission.Group.CAMERA, Permission.Group.STORAGE)
+                            .permission( Permission.Group.STORAGE)
                             .onGranted(new Action() {
                                 @Override
                                 public void onAction(List<String> permissions) {
