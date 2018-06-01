@@ -3,14 +3,20 @@ package com.example.downloadandnotificationbar;
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Handler;
 import android.os.Message;
+import android.util.Log;
 import android.widget.RemoteViews;
+import android.widget.Toast;
 
+import com.zams.www.MainFragment;
+import com.zams.www.PersonCenterActivity;
 import com.zams.www.R;
+import com.zams.www.UserLoginActivity;
 
 import java.io.File;
 import java.text.DecimalFormat;
@@ -33,12 +39,25 @@ public class UpdateApkThread extends Thread {
     private final int downloadSuccess = 2;// 下载成功
     private final int downloadError = 3;// 下载失败
     private DownLoadUtil downLoadUtil;
+    ProgressDialog downLoadDialog;
 
     public UpdateApkThread(String downloadUrl, String fileLocation, String fileName, Context context) {
         this.downloadUrl = downloadUrl;
         this.saveFile = new File(fileLocation);
         this.context = context;
         this.fileName = fileName;
+        showDialog();
+    }
+
+    private void showDialog() {
+        MainFragment.zhuangtai = true;
+        // 进度条对话框
+        downLoadDialog = new ProgressDialog(context);
+        downLoadDialog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
+        downLoadDialog.setMessage("正在下载更新");
+        downLoadDialog.setCanceledOnTouchOutside(true);
+        downLoadDialog.setProgressNumberFormat(null);
+        downLoadDialog.show();
     }
 
     @Override
@@ -50,6 +69,7 @@ public class UpdateApkThread extends Thread {
             downLoadUtil = new DownLoadUtil();
             int downSize = downLoadUtil.downloadUpdateFile(downloadUrl, saveFile, fileName, callback);
             if (downSize == downLoadUtil.getRealSize() && downSize != 0) {
+                downLoadDialog.setMax(downSize);
                 handler.sendEmptyMessage(downloadSuccess);
             }
         } catch (Exception e) {
@@ -58,7 +78,6 @@ public class UpdateApkThread extends Thread {
     }
 
     /**
-     *
      * @author wangqian@iliveasia.com
      * @Description: 初始化通知栏
      */
@@ -72,7 +91,6 @@ public class UpdateApkThread extends Thread {
     }
 
     /**
-     *
      * @author wangqian@iliveasia.com
      * @Description: 定时通知handler去显示下载百分比
      */
@@ -88,6 +106,7 @@ public class UpdateApkThread extends Thread {
         timer.schedule(task, 500, 500);
     }
 
+    private static final String TAG = "UpdateApkThread";
     Handler handler = new Handler() {
 
         @Override
@@ -103,6 +122,9 @@ public class UpdateApkThread extends Thread {
                     notificationViews.setProgressBar(R.id.progressBar, 100, (int) size, false);
                     notification.contentView = notificationViews;
                     notificationManager.notify(notificationID, notification);
+                    if (downLoadDialog != null && downLoadDialog.isShowing()) {
+                        downLoadDialog.setProgress((int) size);
+                    }
                 }
             } else if (msg.what == downloadSuccess) {// 下载完成
                 notificationViews.setTextViewText(R.id.progressTv, "下载完成");
@@ -116,8 +138,17 @@ public class UpdateApkThread extends Thread {
                     timer = null;
                     task = null;
                 }
+                File file = new File(saveFile + "/zams.apk");
+                if (downLoadDialog != null && downLoadDialog.isShowing()) {
+                    downLoadDialog.dismiss();
+                    installApk(file);
+                }
+                Log.e(TAG, "handleMessage: 下载完成安装");
+                MainFragment.zhuangtai = false;
+                UserLoginActivity.zhuangtai = false;
+                PersonCenterActivity.zhuangtai = false;
                 // 安装apk
-                Uri uri = Uri.fromFile(new File(saveFile + "/zams.apk"));
+                Uri uri = Uri.fromFile(file);
                 Intent installIntent = new Intent(Intent.ACTION_VIEW);
                 installIntent.setDataAndType(uri, "application/vnd.android.package-archive");
                 // PendingIntent 通知栏跳转
@@ -128,18 +159,36 @@ public class UpdateApkThread extends Thread {
                 notificationManager.notify(notificationID, notification);
 
             } else if (msg.what == downloadError) {// 下载失败
+                MainFragment.zhuangtai = false;
+                UserLoginActivity.zhuangtai = false;
+                PersonCenterActivity.zhuangtai = false;
                 if (timer != null && task != null) {
                     timer.cancel();
                     task.cancel();
                     timer = null;
                     task = null;
                 }
+                Toast.makeText(context, "网络异常，下载失败", Toast.LENGTH_SHORT);
+                if (downLoadDialog != null && downLoadDialog.isShowing()) {
+                    downLoadDialog.dismiss();
+                }
                 notificationManager.cancel(notificationID);
-
             }
         }
 
     };
+
+    // 安装apk
+    protected void installApk(File file) {
+        Intent intent = new Intent();
+        // 执行动作
+        intent.setAction(Intent.ACTION_VIEW);
+        // 执行的数据类型
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        intent.setDataAndType(Uri.fromFile(file), "application/vnd.android.package-archive");// 此处Android应为android，否则造成安装不了
+        context.startActivity(intent);
+    }
+
     /**
      * 下载回调
      */

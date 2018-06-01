@@ -20,7 +20,6 @@ import com.hengyushop.demo.at.AppManager;
 import com.hengyushop.demo.at.AsyncHttp;
 import com.hengyushop.demo.at.BaseActivity;
 import com.hengyushop.entity.UserRegisterllData;
-import com.lglottery.www.widget.NewDataToast;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 
 import org.json.JSONException;

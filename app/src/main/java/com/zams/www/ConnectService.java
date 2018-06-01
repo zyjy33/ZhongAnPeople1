@@ -161,7 +161,6 @@ public class ConnectService extends Service {
 			}
 		});
 
-		Log.i("mark", "ï¿?ï¿½ï¿½æŸ¥è¯¢çŠ¶ï¿½?");
 		new Thread(new Runnable() {
 
 			@Override
@@ -187,6 +186,7 @@ public class ConnectService extends Service {
 
 	@Override
 	public IBinder onBind(Intent intent) {
+
 		return null;
 	}
 

@@ -1,28 +1,5 @@
 package com.zams.www;
 
-import it.sauronsoftware.ftp4j.FTPAbortedException;
-import it.sauronsoftware.ftp4j.FTPClient;
-import it.sauronsoftware.ftp4j.FTPDataTransferException;
-import it.sauronsoftware.ftp4j.FTPException;
-import it.sauronsoftware.ftp4j.FTPIllegalReplyException;
-
-import java.io.BufferedInputStream;
-import java.io.BufferedOutputStream;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.net.HttpURLConnection;
-import java.net.URL;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.List;
-
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import android.app.Activity;
 import android.app.ActivityManager;
 import android.app.AlertDialog;
 import android.app.AlertDialog.Builder;
@@ -35,7 +12,6 @@ import android.content.SharedPreferences.Editor;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
-import android.graphics.Color;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -44,22 +20,18 @@ import android.os.Handler;
 import android.os.Message;
 import android.provider.MediaStore;
 import android.util.Log;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.view.Window;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.LinearLayout.LayoutParams;
 import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.android.hengyu.ui.ArrayWheelAdapterll;
 import com.android.hengyu.ui.WheelViewll;
 import com.android.hengyu.web.DialogProgress;
 import com.android.hengyu.web.RealmName;
@@ -71,11 +43,9 @@ import com.gghl.view.wheelcity.OnWheelChangedListener;
 import com.gghl.view.wheelcity.WheelView;
 import com.gghl.view.wheelcity.adapters.AbstractWheelTextAdapter;
 import com.gghl.view.wheelcity.adapters.ArrayWheelAdapter;
-import com.hengyushop.dao.WareDao;
 import com.hengyushop.demo.at.AsyncHttp;
 import com.hengyushop.demo.at.BaseActivity;
 import com.hengyushop.demo.home.GenderFangShiActivity;
-import com.hengyushop.demo.home.XiaDanActivity;
 import com.hengyushop.demo.my.TishiNicknameActivity;
 import com.hengyushop.entity.UserRegisterllData;
 import com.hengyushop.entity.UserSenJiBean;
@@ -91,7 +61,28 @@ import com.yanzhenjie.permission.AndPermission;
 import com.yanzhenjie.permission.Permission;
 import com.zams.www.R.color;
 import com.zams.www.weiget.PermissionSetting;
-import com.zijunlin.Zxing.Demo.CaptureActivity;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.List;
+
+import it.sauronsoftware.ftp4j.FTPAbortedException;
+import it.sauronsoftware.ftp4j.FTPClient;
+import it.sauronsoftware.ftp4j.FTPDataTransferException;
+import it.sauronsoftware.ftp4j.FTPException;
+import it.sauronsoftware.ftp4j.FTPIllegalReplyException;
 
 public class PersonCenterActivity extends BaseActivity implements OnClickListener {
     private String yth;
@@ -989,14 +980,14 @@ public class PersonCenterActivity extends BaseActivity implements OnClickListene
                                 @Override
                                 public void onAction(List<String> permissions) {
                                     final String filePath = Environment.getExternalStorageDirectory() + "/ss";
-                                    new UpdateApkThread("http://mobile.zams.cn/upload/201711/06/201711061711323273.apk", filePath, "zams.apk", PersonCenterActivity.this).start();
-                                    downLoadApk();
+                                    new UpdateApkThread(URL, filePath, "zams.apk", PersonCenterActivity.this).start();
+//                                    downLoadApk();
                                 }
                             })
                             .onDenied(new Action() {
                                 @Override
                                 public void onAction(List<String> permissions) {
-                                    new PermissionSetting(PersonCenterActivity.this).showSetting(permissions);
+                                    new PermissionSetting(PersonCenterActivity.this).showSettingStorage(permissions);
                                 }
                             }).start();
                 }

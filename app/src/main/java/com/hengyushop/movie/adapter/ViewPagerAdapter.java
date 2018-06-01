@@ -8,11 +8,9 @@ import java.util.ArrayList;
 
 /**
  * @author yangyu
- *	åŠŸèƒ½æè¿°ï¼šViewPageré€‚é…å™¨ï¼Œç”¨æ¥ç»‘å®šæ•°æ®å’Œview
  */
 public class ViewPagerAdapter extends PagerAdapter {
 
-	//ç•Œé¢åˆ—è¡¨
 	private ArrayList<View> views;
 
 	public ViewPagerAdapter (ArrayList<View> views){
@@ -20,7 +18,6 @@ public class ViewPagerAdapter extends PagerAdapter {
 	}
 
 	/**
-	 * èŽ·å¾—å½“å‰ç•Œé¢æ•?
 	 */
 	@Override
 	public int getCount() {
@@ -31,7 +28,6 @@ public class ViewPagerAdapter extends PagerAdapter {
 	}
 
 	/**
-	 * åˆå§‹åŒ–positionä½ç½®çš„ç•Œé?
 	 */
 	@Override
 	public Object instantiateItem(View view, int position) {
@@ -42,7 +38,6 @@ public class ViewPagerAdapter extends PagerAdapter {
 	}
 
 	/**
-	 * åˆ¤æ–­æ˜¯å¦ç”±å¯¹è±¡ç”Ÿæˆç•Œé?
 	 */
 	@Override
 	public boolean isViewFromObject(View view, Object arg1) {
@@ -50,7 +45,6 @@ public class ViewPagerAdapter extends PagerAdapter {
 	}
 
 	/**
-	 * é”?æ¯positionä½ç½®çš„ç•Œé?
 	 */
 	@Override
 	public void destroyItem(View view, int position, Object arg2) {

@@ -1,21 +1,17 @@
 package com.zams.www;
 
-import android.Manifest;
+import android.app.Activity;
 import android.app.Fragment;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
-import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.support.annotation.NonNull;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
 import android.text.TextUtils;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
@@ -30,7 +26,6 @@ import android.widget.GridView;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.LinearLayout.LayoutParams;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.PopupWindow;
@@ -38,9 +33,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.alibaba.fastjson.JSON;
 import com.android.hengyu.pub.QiYeJinMianAdaper;
-import com.android.hengyu.web.Constant;
 import com.android.hengyu.web.DialogProgress;
 import com.android.hengyu.web.RealmName;
 import com.android.hengyu.web.Webview1;
@@ -54,17 +47,13 @@ import com.hengyushop.demo.at.AsyncHttp;
 import com.hengyushop.demo.home.EndowmentBankActivity;
 import com.hengyushop.demo.home.FenXiangActivity;
 import com.hengyushop.demo.home.HealthGunaActivity;
-import com.hengyushop.demo.home.HongBaoZqListActivity;
 import com.hengyushop.demo.home.JuDuiHuanActivity;
 import com.hengyushop.demo.home.JuTouTiaoActivity;
-import com.hengyushop.demo.home.JuTuanGou2Activity;
 import com.hengyushop.demo.home.JuYouFangActivity;
 import com.hengyushop.demo.home.JuYunshangActivity;
 import com.hengyushop.demo.home.SouSuoSpActivity;
 import com.hengyushop.demo.home.XinshouGyActivity;
 import com.hengyushop.demo.home.ZhongAnYlActivity;
-import com.hengyushop.demo.my.HaomaActivity;
-import com.hengyushop.demo.my.MyXiaDanActivity;
 import com.hengyushop.demo.my.TishiWxBangDingActivity;
 import com.hengyushop.demo.shopcart.TuiJianSpListActivity;
 import com.hengyushop.demo.wec.MyGridView;
@@ -82,7 +71,6 @@ import com.tencent.mm.sdk.openapi.IWXAPI;
 import com.yanzhenjie.permission.Action;
 import com.yanzhenjie.permission.AndPermission;
 import com.yanzhenjie.permission.Permission;
-
 import com.zams.www.weiget.PermissionSetting;
 import com.zxing.android.CaptureActivity;
 
@@ -226,7 +214,6 @@ public class HomeActivity extends Fragment implements OnClickListener {
         initLayout(layout);
         getguangao();
         loadWeather();
-        requestRedPackage();
         load_P();// 商品详情
         return layout;
 
@@ -453,21 +440,21 @@ public class HomeActivity extends Fragment implements OnClickListener {
             public void onClick(View arg0) {
                 if (!nickname.equals("")) {
                     if (!user_name.equals("")) {
-                            AndPermission.with(getActivity())
-                                    .permission( Permission.Group.CAMERA, Permission.Group.STORAGE)
-                                    .onGranted(new Action() {
-                                        @Override
-                                        public void onAction(List<String> permissions) {
-                                            Intent Intent2 = new Intent(getActivity(), CaptureActivity.class);
-                                            startActivity(Intent2);
-                                        }
-                                    })
-                                    .onDenied(new Action() {
-                                        @Override
-                                        public void onAction(List<String> permissions) {
-                                            new PermissionSetting(getActivity()).showSetting(permissions);
-                                        }
-                                    }).start();
+                        AndPermission.with(getActivity())
+                                .permission(Permission.Group.CAMERA, Permission.Group.STORAGE)
+                                .onGranted(new Action() {
+                                    @Override
+                                    public void onAction(List<String> permissions) {
+                                        Intent Intent2 = new Intent(getActivity(), CaptureActivity.class);
+                                        startActivity(Intent2);
+                                    }
+                                })
+                                .onDenied(new Action() {
+                                    @Override
+                                    public void onAction(List<String> permissions) {
+                                        new PermissionSetting(getActivity()).showSetting(permissions);
+                                    }
+                                }).start();
                     } else {
                         // getjianche();//后台检测是否绑定手机
                         Intent intent2 = new Intent(getActivity(),
@@ -490,7 +477,7 @@ public class HomeActivity extends Fragment implements OnClickListener {
                             startActivity(intent48);
                         } else {
                             AndPermission.with(getActivity())
-                                    .permission( Permission.Group.CAMERA, Permission.Group.STORAGE)
+                                    .permission(Permission.Group.CAMERA, Permission.Group.STORAGE)
                                     .onGranted(new Action() {
                                         @Override
                                         public void onAction(List<String> permissions) {
@@ -1197,10 +1184,13 @@ public class HomeActivity extends Fragment implements OnClickListener {
                         if (array.length() > 0) {
                             JSONObject jo = (JSONObject) array.get(0);
                             String ad_url = RealmName.REALM_NAME + jo.getString("ad_url");
-                            Glide.with(getActivity())
-                                    .load(ad_url)
-                                    .placeholder(getResources().getDrawable(R.drawable.red_package))
-                                    .into(redPackageImg);
+                            Activity activity = getActivity();
+                            if (activity != null) {
+                                Glide.with(activity)
+                                        .load(ad_url)
+                                        .placeholder(getResources().getDrawable(R.drawable.red_package))
+                                        .into(redPackageImg);
+                            }
                         }
                     }
 

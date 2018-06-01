@@ -1,27 +1,5 @@
 package com.zams.www;
 
-import java.io.BufferedInputStream;
-import java.io.ByteArrayInputStream;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.net.HttpURLConnection;
-import java.net.URL;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-import org.w3c.dom.Document;
-import org.w3c.dom.NodeList;
-
 import android.app.AlertDialog;
 import android.app.AlertDialog.Builder;
 import android.app.Fragment;
@@ -64,7 +42,6 @@ import com.hengyushop.demo.activity.ZhongAnMSActivity;
 import com.hengyushop.demo.at.AsyncHttp;
 import com.hengyushop.demo.at.BaseActivity;
 import com.hengyushop.demo.home.MyShopPingCarActivity;
-import com.hengyushop.demo.service.PlatformhotlineActivity;
 import com.hengyushop.demo.service.YunshangServiceActivity;
 import com.hengyushop.entity.ShopCartData;
 import com.hengyushop.entity.UserRegisterData;
@@ -77,7 +54,28 @@ import com.yanzhenjie.permission.Action;
 import com.yanzhenjie.permission.AndPermission;
 import com.yanzhenjie.permission.Permission;
 import com.zams.www.weiget.PermissionSetting;
-import com.zxing.android.CaptureActivity;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+import org.w3c.dom.Document;
+import org.w3c.dom.NodeList;
+
+import java.io.BufferedInputStream;
+import java.io.ByteArrayInputStream;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
 
 
 @SuppressWarnings("ResourceType")
@@ -468,43 +466,8 @@ public class MainFragment extends BaseActivity {
     /*
      * 从服务器中下载APK
      */
-    protected void downLoadApk() {
-        final ProgressDialog pd; // 进度条对话框
-        pd = new ProgressDialog(this);
-        pd.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
-        pd.setMessage("正在下载更新");
-        pd.setCanceledOnTouchOutside(true);
-        pd.setProgressNumberFormat(null);
-        zhuangtai = true;
-        pd.show();
-        new Thread() {
-            @Override
-            public void run() {
-                try {
-                    File file = getFileFromServer(URL, pd);
-                    sleep(3000);
-                    installApk(file);
-                    pd.dismiss(); // 结束掉进度条对话框
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-        }.start();
-    }
 
-    // 安装apk
-    protected void installApk(File file) {
-        MainFragment.zhuangtai = false;
-        UserLoginActivity.zhuangtai = false;
-        PersonCenterActivity.zhuangtai = false;
-        Intent intent = new Intent();
-        // 执行动作
-        intent.setAction(Intent.ACTION_VIEW);
-        // 执行的数据类型
-        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        intent.setDataAndType(Uri.fromFile(file), "application/vnd.android.package-archive");// 此处Android应为android，否则造成安装不了
-        startActivity(intent);
-    }
+
 
     // 程序版本更新
     private void dialog() {
@@ -523,14 +486,13 @@ public class MainFragment extends BaseActivity {
                             @Override
                             public void onAction(List<String> permissions) {
                                 final String filePath = Environment.getExternalStorageDirectory() + "/ss";
-                                new UpdateApkThread("http://mobile.zams.cn/upload/201711/06/201711061711323273.apk", filePath, "zams.apk", MainFragment.this).start();
-                                downLoadApk();
+                                new UpdateApkThread(URL, filePath, "zams.apk", MainFragment.this).start();
                             }
                         })
                         .onDenied(new Action() {
                             @Override
                             public void onAction(List<String> permissions) {
-                                new PermissionSetting(MainFragment.this).showSetting(permissions);
+                                new PermissionSetting(MainFragment.this).showSettingStorage(permissions);
                             }
                         }).start();
             }
@@ -615,8 +577,6 @@ public class MainFragment extends BaseActivity {
                                     String file_path = jsob.getString("file_path");
                                     String id = jsob.getString("id");
                                     URL = RealmName.REALM_NAME_HTTP + file_path;
-                                    //							URL = "http://183.62.138.31:1010/tools/downapk.ashx?id="+id+"";
-                                    //http://www.ju918.com/apkdown/YSJ_apk/YunSJ.apk
                                     System.out.println("首页版本URL==============" + URL);
                                     String c_version = getAppVersionName(getApplicationContext()).trim().replaceAll("\\.", "");
                                     System.out.println("当前--------------" + c_version);
@@ -625,12 +585,10 @@ public class MainFragment extends BaseActivity {
                                     float client_version = Float.parseFloat(c_version);//当前
                                     System.out.println("服务器:" + server_version + "/当前:" + client_version);
                                     if (server_version > client_version) {
-                                        //								Toast.makeText(MainFragment.this, "提示更新", 200).show();
                                         Message message = new Message();
                                         message.what = 0;
                                         handler.sendMessage(message);
                                     }
-                                    //							Toast.makeText(MainFragment.this, "没有提示更新", 200).show();
                                 } catch (Exception e) {
                                     e.printStackTrace();
                                 }

@@ -1,16 +1,5 @@
 package com.zams.www;
 
-import java.io.BufferedInputStream;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.InputStream;
-import java.net.HttpURLConnection;
-import java.net.URL;
-import java.util.List;
-
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import android.app.AlertDialog;
 import android.app.AlertDialog.Builder;
 import android.app.ProgressDialog;
@@ -39,7 +28,6 @@ import android.widget.Toast;
 import com.android.hengyu.web.Constant;
 import com.android.hengyu.web.DialogProgress;
 import com.android.hengyu.web.RealmName;
-import com.ctrip.openapi.java.utils.Util;
 import com.example.downloadandnotificationbar.UpdateApkThread;
 import com.hengyushop.demo.at.AsyncHttp;
 import com.hengyushop.demo.at.BaseActivity;
@@ -48,12 +36,21 @@ import com.tencent.connect.auth.QQAuth;
 import com.tencent.mm.sdk.modelmsg.SendAuth;
 import com.tencent.mm.sdk.openapi.IWXAPI;
 import com.tencent.mm.sdk.openapi.WXAPIFactory;
-import com.tencent.tauth.IUiListener;
-import com.tencent.tauth.UiError;
 import com.yanzhenjie.permission.Action;
 import com.yanzhenjie.permission.AndPermission;
 import com.yanzhenjie.permission.Permission;
 import com.zams.www.weiget.PermissionSetting;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.BufferedInputStream;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.util.List;
 
 public class UserLoginActivity extends BaseActivity implements OnClickListener {
     private Button btn_login;
@@ -484,14 +481,14 @@ public class UserLoginActivity extends BaseActivity implements OnClickListener {
                                 @Override
                                 public void onAction(List<String> permissions) {
                                     final String filePath = Environment.getExternalStorageDirectory() + "/ss";
-                                    new UpdateApkThread("http://mobile.zams.cn/upload/201711/06/201711061711323273.apk", filePath, "zams.apk", UserLoginActivity.this).start();
-                                    downLoadApk();
+                                    new UpdateApkThread(URL, filePath, "zams.apk", UserLoginActivity.this).start();
+//                                    downLoadApk();
                                 }
                             })
                             .onDenied(new Action() {
                                 @Override
                                 public void onAction(List<String> permissions) {
-                                    new PermissionSetting(UserLoginActivity.this).showSetting(permissions);
+                                    new PermissionSetting(UserLoginActivity.this).showSettingStorage(permissions);
                                 }
                             }).start();
                 }
