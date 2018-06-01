@@ -230,7 +230,7 @@ public class MyOrderllAdapter extends BaseAdapter {
 				holder.tv_tuikuan.setVisibility(View.GONE);
 				holder.tv_kukuang.setVisibility(View.GONE);
 				holder.tv_pingjia.setVisibility(View.GONE);
-				holder.shanchu.setVisibility(View.GONE);
+				holder.shanchu.setVisibility(View.VISIBLE);
 			} else if (payment_status.equals("2") && express_status.equals("1")
 					&& status.equals("2")) {
 				System.out.println("待发货=============");
