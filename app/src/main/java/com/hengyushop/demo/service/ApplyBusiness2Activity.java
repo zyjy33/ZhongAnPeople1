@@ -25,11 +25,17 @@ import com.example.uploadpicdemo.Utils;
 import com.hengyushop.demo.at.AsyncHttp;
 import com.hengyushop.demo.at.BaseActivity;
 import com.loopj.android.http.AsyncHttpResponseHandler;
+import com.yanzhenjie.permission.Action;
+import com.yanzhenjie.permission.AndPermission;
+import com.yanzhenjie.permission.Permission;
+import com.zams.www.PersonCenterActivity;
 import com.zams.www.R;
+import com.zams.www.weiget.PermissionSetting;
 
 import org.json.JSONObject;
 
 import java.io.File;
+import java.util.List;
 
 /**
  * 申请商家2
@@ -251,13 +257,26 @@ public class ApplyBusiness2Activity extends BaseActivity implements OnClickListe
 						startActivityForResult(openAlbumIntent, CHOOSE_PICTURE);
 						break;
 					case TAKE_PICTURE: // 拍照
-						Intent openCameraIntent = new Intent(
-								MediaStore.ACTION_IMAGE_CAPTURE);
-						tempUri = Uri.fromFile(new File(Environment.getExternalStorageDirectory(), "image.jpg"));
-						// 指定照片保存路径（SD卡），image.jpg为一个临时文件，每次拍照后这个图片都会被替换
-						openCameraIntent.putExtra(MediaStore.EXTRA_OUTPUT, tempUri);
-						startActivityForResult(openCameraIntent, TAKE_PICTURE);
 
+						AndPermission.with(ApplyBusiness2Activity.this)
+								.permission(Permission.CAMERA)
+								.onGranted(new Action() {
+									@Override
+									public void onAction(List<String> permissions) {
+										Intent openCameraIntent = new Intent(
+												MediaStore.ACTION_IMAGE_CAPTURE);
+										tempUri = Uri.fromFile(new File(Environment.getExternalStorageDirectory(), "image.jpg"));
+										// 指定照片保存路径（SD卡），image.jpg为一个临时文件，每次拍照后这个图片都会被替换
+										openCameraIntent.putExtra(MediaStore.EXTRA_OUTPUT, tempUri);
+										startActivityForResult(openCameraIntent, TAKE_PICTURE);
+									}
+								})
+								.onDenied(new Action() {
+									@Override
+									public void onAction(List<String> permissions) {
+										new PermissionSetting(ApplyBusiness2Activity.this).showSetting(permissions);
+									}
+								}).start();
 
 						break;
 				}

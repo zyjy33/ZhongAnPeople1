@@ -1,6 +1,7 @@
 package com.hengyushop.demo.my;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -21,11 +22,16 @@ import com.android.hengyu.ui.MyPopupWindowMenu;
 import com.android.hengyu.web.DialogProgress;
 import com.android.hengyu.web.RealmName;
 import com.android.hengyu.web.Webview1;
+import com.hengyushop.demo.activity.QianDaoBaoMingActivity;
 import com.hengyushop.demo.at.AsyncHttp;
 import com.hengyushop.demo.at.BaseActivity;
 import com.hengyushop.entity.ShopCartData;
 import com.loopj.android.http.AsyncHttpResponseHandler;
+import com.yanzhenjie.permission.Action;
+import com.yanzhenjie.permission.AndPermission;
+import com.yanzhenjie.permission.Permission;
 import com.zams.www.R;
+import com.zams.www.weiget.PermissionSetting;
 import com.zijunlin.Zxing.Demo.CaptureActivity;
 
 public class SaoYiSaoPlaceActivity extends BaseActivity {
@@ -127,9 +133,22 @@ public class SaoYiSaoPlaceActivity extends BaseActivity {
 			@Override
 			public void onClick(View arg0) {
 
-				Intent Intent2 = new Intent(SaoYiSaoPlaceActivity.this,
-						CaptureActivity.class);
-				startActivity(Intent2);
+				AndPermission.with(SaoYiSaoPlaceActivity.this)
+						.permission( Permission.Group.CAMERA, Permission.Group.STORAGE)
+						.onGranted(new Action() {
+							@Override
+							public void onAction(List<String> permissions) {
+								Intent Intent2 = new Intent(SaoYiSaoPlaceActivity.this,
+										CaptureActivity.class);
+								startActivity(Intent2);
+							}
+						})
+						.onDenied(new Action() {
+							@Override
+							public void onAction(List<String> permissions) {
+								new PermissionSetting(SaoYiSaoPlaceActivity.this).showSetting(permissions);
+							}
+						}).start();
 			}
 		});
 	}

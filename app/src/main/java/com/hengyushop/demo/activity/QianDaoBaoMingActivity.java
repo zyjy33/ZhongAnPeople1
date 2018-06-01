@@ -15,8 +15,14 @@ import com.android.hengyu.web.DialogProgress;
 import com.android.hengyu.web.RealmName;
 import com.androidquery.AQuery;
 import com.hengyushop.demo.at.BaseActivity;
+import com.yanzhenjie.permission.Action;
+import com.yanzhenjie.permission.AndPermission;
+import com.yanzhenjie.permission.Permission;
 import com.zams.www.R;
+import com.zams.www.weiget.PermissionSetting;
 import com.zijunlin.Zxing.Demo.CaptureActivity;
+
+import java.util.List;
 
 public class QianDaoBaoMingActivity extends BaseActivity {
 	private String yth, key, strUrl;
@@ -76,10 +82,24 @@ public class QianDaoBaoMingActivity extends BaseActivity {
 			public void onClick(View arg0) {
 
 				System.out.println("sp_sys-----------------------2");
-				  Intent intent = new Intent(QianDaoBaoMingActivity.this, CaptureActivity.class);
-				  intent.putExtra("sp_sys", "2");
-				  System.out.println("sp_sys-----------------------"+getIntent().getStringExtra("2"));
-				  startActivity(intent);
+				AndPermission.with(QianDaoBaoMingActivity.this)
+						.permission( Permission.Group.CAMERA, Permission.Group.STORAGE)
+						.onGranted(new Action() {
+							@Override
+							public void onAction(List<String> permissions) {
+								Intent intent = new Intent(QianDaoBaoMingActivity.this, CaptureActivity.class);
+								intent.putExtra("sp_sys", "2");
+								System.out.println("sp_sys-----------------------"+getIntent().getStringExtra("2"));
+								startActivity(intent);
+							}
+						})
+						.onDenied(new Action() {
+							@Override
+							public void onAction(List<String> permissions) {
+								new PermissionSetting(QianDaoBaoMingActivity.this).showSetting(permissions);
+							}
+						}).start();
+
 //				  finish();
 			}
 		});
@@ -91,10 +111,24 @@ public class QianDaoBaoMingActivity extends BaseActivity {
 			public void onClick(View arg0) {
 
 				System.out.println("sp_sys-----------------------3");
-				  Intent intent = new Intent(QianDaoBaoMingActivity.this, CaptureActivity.class);
-				  intent.putExtra("sp_sys", "3");
-				  System.out.println("sp_sys-----------------------"+getIntent().getStringExtra("3"));
-				  startActivity(intent);
+
+				AndPermission.with(QianDaoBaoMingActivity.this)
+						.permission( Permission.Group.CAMERA, Permission.Group.STORAGE)
+						.onGranted(new Action() {
+							@Override
+							public void onAction(List<String> permissions) {
+								Intent intent = new Intent(QianDaoBaoMingActivity.this, CaptureActivity.class);
+								intent.putExtra("sp_sys", "3");
+								System.out.println("sp_sys-----------------------"+getIntent().getStringExtra("3"));
+								startActivity(intent);
+							}
+						})
+						.onDenied(new Action() {
+							@Override
+							public void onAction(List<String> permissions) {
+								new PermissionSetting(QianDaoBaoMingActivity.this).showSetting(permissions);
+							}
+						}).start();
 //				  finish();
 			}
 		});

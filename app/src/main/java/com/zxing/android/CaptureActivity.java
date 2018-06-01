@@ -103,10 +103,8 @@ public class CaptureActivity extends Activity implements Callback {
 		setContentView(R.layout.activity_capture);
 		surfaceView = (SurfaceView) findViewById(R.id.surfaceview);
 		viewfinderView = (ViewfinderView) findViewById(R.id.viewfinderview);
-
 		Window window = getWindow();
 		window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
-
 		hasSurface = false;
 		inactivityTimer = new InactivityTimer(this);
 	}

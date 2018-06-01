@@ -17,6 +17,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -74,6 +75,7 @@ import com.hengyushop.dao.WareDao;
 import com.hengyushop.demo.at.AsyncHttp;
 import com.hengyushop.demo.at.BaseActivity;
 import com.hengyushop.demo.home.GenderFangShiActivity;
+import com.hengyushop.demo.home.XiaDanActivity;
 import com.hengyushop.demo.my.TishiNicknameActivity;
 import com.hengyushop.entity.UserRegisterllData;
 import com.hengyushop.entity.UserSenJiBean;
@@ -84,7 +86,12 @@ import com.nostra13.universalimageloader.cache.disc.naming.Md5FileNameGenerator;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 import com.nostra13.universalimageloader.core.assist.QueueProcessingType;
+import com.yanzhenjie.permission.Action;
+import com.yanzhenjie.permission.AndPermission;
+import com.yanzhenjie.permission.Permission;
 import com.zams.www.R.color;
+import com.zams.www.weiget.PermissionSetting;
+import com.zijunlin.Zxing.Demo.CaptureActivity;
 
 public class PersonCenterActivity extends BaseActivity implements OnClickListener {
     private String yth;
@@ -485,13 +492,26 @@ public class PersonCenterActivity extends BaseActivity implements OnClickListene
                         startActivityForResult(openAlbumIntent, CHOOSE_PICTURE);
                         break;
                     case TAKE_PICTURE: // 拍照
-                        Intent openCameraIntent = new Intent(
-                                MediaStore.ACTION_IMAGE_CAPTURE);
-                        tempUri = Uri.fromFile(new File(Environment.getExternalStorageDirectory(), "image.jpg"));
-                        System.out.println("拍照================" + tempUri);
-                        // 指定照片保存路径（SD卡），image.jpg为一个临时文件，每次拍照后这个图片都会被替换
-                        openCameraIntent.putExtra(MediaStore.EXTRA_OUTPUT, tempUri);
-                        startActivityForResult(openCameraIntent, TAKE_PICTURE);
+                        AndPermission.with(PersonCenterActivity.this)
+                                .permission(Permission.CAMERA)
+                                .onGranted(new Action() {
+                                    @Override
+                                    public void onAction(List<String> permissions) {
+                                        Intent openCameraIntent = new Intent(
+                                                MediaStore.ACTION_IMAGE_CAPTURE);
+                                        tempUri = Uri.fromFile(new File(Environment.getExternalStorageDirectory(), "image.jpg"));
+                                        System.out.println("拍照================" + tempUri);
+                                        // 指定照片保存路径（SD卡），image.jpg为一个临时文件，每次拍照后这个图片都会被替换
+                                        openCameraIntent.putExtra(MediaStore.EXTRA_OUTPUT, tempUri);
+                                        startActivityForResult(openCameraIntent, TAKE_PICTURE);
+                                    }
+                                })
+                                .onDenied(new Action() {
+                                    @Override
+                                    public void onAction(List<String> permissions) {
+                                        new PermissionSetting(PersonCenterActivity.this).showSetting(permissions);
+                                    }
+                                }).start();
 
                         break;
                 }
@@ -963,9 +983,22 @@ public class PersonCenterActivity extends BaseActivity implements OnClickListene
                     Toast.makeText(PersonCenterActivity.this, "正在下载...", Toast.LENGTH_SHORT).show();
                     dialog.dismiss();
                 } else {
-                    final String filePath = Environment.getExternalStorageDirectory() + "/ss";
-                    new UpdateApkThread("http://mobile.zams.cn/upload/201711/06/201711061711323273.apk", filePath, "zams.apk", PersonCenterActivity.this).start();
-                    downLoadApk();
+                    AndPermission.with(PersonCenterActivity.this)
+                            .permission(Permission.Group.CAMERA, Permission.Group.STORAGE)
+                            .onGranted(new Action() {
+                                @Override
+                                public void onAction(List<String> permissions) {
+                                    final String filePath = Environment.getExternalStorageDirectory() + "/ss";
+                                    new UpdateApkThread("http://mobile.zams.cn/upload/201711/06/201711061711323273.apk", filePath, "zams.apk", PersonCenterActivity.this).start();
+                                    downLoadApk();
+                                }
+                            })
+                            .onDenied(new Action() {
+                                @Override
+                                public void onAction(List<String> permissions) {
+                                    new PermissionSetting(PersonCenterActivity.this).showSetting(permissions);
+                                }
+                            }).start();
                 }
             }
         });

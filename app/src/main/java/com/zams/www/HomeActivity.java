@@ -64,6 +64,7 @@ import com.hengyushop.demo.home.SouSuoSpActivity;
 import com.hengyushop.demo.home.XinshouGyActivity;
 import com.hengyushop.demo.home.ZhongAnYlActivity;
 import com.hengyushop.demo.my.HaomaActivity;
+import com.hengyushop.demo.my.MyXiaDanActivity;
 import com.hengyushop.demo.my.TishiWxBangDingActivity;
 import com.hengyushop.demo.shopcart.TuiJianSpListActivity;
 import com.hengyushop.demo.wec.MyGridView;
@@ -78,8 +79,11 @@ import com.lglottery.www.widget.PagerScrollView;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.tencent.mm.sdk.openapi.IWXAPI;
-import com.zams.www.http.RedPacketResponse;
-import com.zams.www.http.model.RedPackageData;
+import com.yanzhenjie.permission.Action;
+import com.yanzhenjie.permission.AndPermission;
+import com.yanzhenjie.permission.Permission;
+
+import com.zams.www.weiget.PermissionSetting;
 import com.zxing.android.CaptureActivity;
 
 import org.json.JSONArray;
@@ -449,13 +453,21 @@ public class HomeActivity extends Fragment implements OnClickListener {
             public void onClick(View arg0) {
                 if (!nickname.equals("")) {
                     if (!user_name.equals("")) {
-//                        if (PackageManager.PERMISSION_DENIED == ContextCompat.checkSelfPermission(getActivity(), Manifest.permission.CAMERA)) {
-//                            requestPermissions(new String[]{Manifest.permission.CAMERA}, Constant.CAMERA_REQUEST);
-//
-//                        } else {
-                            Intent Intent2 = new Intent(getActivity(), CaptureActivity.class);
-                            startActivity(Intent2);
-//                        }
+                            AndPermission.with(getActivity())
+                                    .permission( Permission.Group.CAMERA, Permission.Group.STORAGE)
+                                    .onGranted(new Action() {
+                                        @Override
+                                        public void onAction(List<String> permissions) {
+                                            Intent Intent2 = new Intent(getActivity(), CaptureActivity.class);
+                                            startActivity(Intent2);
+                                        }
+                                    })
+                                    .onDenied(new Action() {
+                                        @Override
+                                        public void onAction(List<String> permissions) {
+                                            new PermissionSetting(getActivity()).showSetting(permissions);
+                                        }
+                                    }).start();
                     } else {
                         // getjianche();//后台检测是否绑定手机
                         Intent intent2 = new Intent(getActivity(),
@@ -477,10 +489,21 @@ public class HomeActivity extends Fragment implements OnClickListener {
                                     UserLoginActivity.class);
                             startActivity(intent48);
                         } else {
-                            Intent intent48 = new Intent(getActivity(),
-                                    CaptureActivity.class);
-                            // intent48.putExtra("sp_sys", "2");
-                            startActivity(intent48);
+                            AndPermission.with(getActivity())
+                                    .permission( Permission.Group.CAMERA, Permission.Group.STORAGE)
+                                    .onGranted(new Action() {
+                                        @Override
+                                        public void onAction(List<String> permissions) {
+                                            Intent Intent2 = new Intent(getActivity(), CaptureActivity.class);
+                                            startActivity(Intent2);
+                                        }
+                                    })
+                                    .onDenied(new Action() {
+                                        @Override
+                                        public void onAction(List<String> permissions) {
+                                            new PermissionSetting(getActivity()).showSetting(permissions);
+                                        }
+                                    }).start();
                         }
                     }
                 }
@@ -489,20 +512,6 @@ public class HomeActivity extends Fragment implements OnClickListener {
         });
     }
 
-//    @Override
-//    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-//        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-//        if (requestCode == Constant.CAMERA_REQUEST && grantResults.length > 0) {
-//            int grantResult = grantResults[0];
-//            if (PackageManager.PERMISSION_GRANTED == grantResult) {
-//                Intent Intent2 = new Intent(getActivity(), com.zijunlin.Zxing.Demo.CaptureActivity.class);
-//                Intent2.putExtra("sp_sys", "1");
-//                startActivity(Intent2);
-//            } else {
-//                Toast.makeText(context, "照相机权限已被拒绝", Toast.LENGTH_SHORT).show();
-//            }
-//        }
-//    }
 
     /**
      * 红包专区

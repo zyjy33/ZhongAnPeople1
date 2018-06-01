@@ -11,7 +11,14 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.android.hengyu.web.DialogProgress;
+import com.yanzhenjie.permission.Action;
+import com.yanzhenjie.permission.AndPermission;
+import com.yanzhenjie.permission.Permission;
+import com.zams.www.MainFragment;
 import com.zams.www.R;
+import com.zams.www.weiget.PermissionSetting;
+
+import java.util.List;
 
 /**
  * 平台热线
@@ -69,16 +76,44 @@ public class PlatformhotlineActivity extends Activity implements OnClickListener
 				finish();
 				break;
 			case R.id.tv_dianhua1://
-				Intent intent = new Intent(Intent.ACTION_CALL);// 调用系统的CALL
-				intent.setData(Uri.parse("tel:" + "400-606-1201"));
-				startActivity(intent);
-				finish();
+
+				AndPermission.with(this)
+						.permission(Permission.CALL_PHONE)
+						.onGranted(new Action() {
+							@Override
+							public void onAction(List<String> permissions) {
+								Intent intent = new Intent(Intent.ACTION_CALL);// 调用系统的CALL
+								intent.setData(Uri.parse("tel:" + "400-606-1201"));
+								startActivity(intent);
+								finish();
+							}
+						})
+						.onDenied(new Action() {
+							@Override
+							public void onAction(List<String> permissions) {
+								new PermissionSetting(PlatformhotlineActivity.this).showSetting(permissions);
+							}
+						}).start();
 				break;
 			case R.id.tv_dianhua2://
-				Intent intent1 = new Intent(Intent.ACTION_CALL);// 调用系统的CALL
-				intent1.setData(Uri.parse("tel:" + "010-62575060"));
-				startActivity(intent1);
-				finish();
+
+				AndPermission.with(this)
+						.permission(Permission.CALL_PHONE)
+						.onGranted(new Action() {
+							@Override
+							public void onAction(List<String> permissions) {
+								Intent intent1 = new Intent(Intent.ACTION_CALL);// 调用系统的CALL
+								intent1.setData(Uri.parse("tel:" + "010-62575060"));
+								startActivity(intent1);
+								finish();
+							}
+						})
+						.onDenied(new Action() {
+							@Override
+							public void onAction(List<String> permissions) {
+								new PermissionSetting(PlatformhotlineActivity.this).showSetting(permissions);
+							}
+						}).start();
 				break;
 			default:
 				break;

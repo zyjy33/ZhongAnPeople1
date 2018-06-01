@@ -2,6 +2,7 @@ package com.hengyushop.demo.activity;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -77,11 +78,15 @@ import com.lglottery.www.widget.PullToRefreshView.OnHeaderRefreshListener;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.tencent.mm.sdk.openapi.IWXAPI;
+import com.yanzhenjie.permission.Action;
+import com.yanzhenjie.permission.AndPermission;
+import com.yanzhenjie.permission.Permission;
 import com.zams.www.HomeActivity;
 import com.zams.www.MyOrderConfrimActivity;
 import com.zams.www.R;
 import com.zams.www.UserLoginActivity;
 import com.zams.www.UserLoginWayActivity;
+import com.zams.www.weiget.PermissionSetting;
 import com.zxing.android.CaptureActivity;
 
 /**
@@ -263,9 +268,23 @@ public class ZhongAnMinShenActivity extends Fragment implements OnClickListener 
 				public void onClick(View arg0) {
 					if (!nickname.equals("")) {
 						if (!user_name.equals("")) {
-							Intent Intent2 = new Intent(getActivity(),
-									CaptureActivity.class);
-							startActivity(Intent2);
+
+							AndPermission.with(getActivity())
+									.permission( Permission.Group.CAMERA, Permission.Group.STORAGE)
+									.onGranted(new Action() {
+										@Override
+										public void onAction(List<String> permissions) {
+											Intent Intent2 = new Intent(getActivity(),
+													CaptureActivity.class);
+											startActivity(Intent2);
+										}
+									})
+									.onDenied(new Action() {
+										@Override
+										public void onAction(List<String> permissions) {
+											new PermissionSetting(getActivity()).showSetting(permissions);
+										}
+									}).start();
 						} else {
 							// getjianche();//后台检测是否绑定手机
 							Intent intent2 = new Intent(getActivity(),
@@ -287,10 +306,24 @@ public class ZhongAnMinShenActivity extends Fragment implements OnClickListener 
 										UserLoginActivity.class);
 								startActivity(intent48);
 							} else {
-								Intent intent48 = new Intent(getActivity(),
-										CaptureActivity.class);
-								// intent48.putExtra("sp_sys", "3");
-								startActivity(intent48);
+
+								AndPermission.with(getActivity())
+										.permission( Permission.Group.CAMERA, Permission.Group.STORAGE)
+										.onGranted(new Action() {
+											@Override
+											public void onAction(List<String> permissions) {
+												Intent intent48 = new Intent(getActivity(),
+														CaptureActivity.class);
+												// intent48.putExtra("sp_sys", "3");
+												startActivity(intent48);
+											}
+										})
+										.onDenied(new Action() {
+											@Override
+											public void onAction(List<String> permissions) {
+												new PermissionSetting(getActivity()).showSetting(permissions);
+											}
+										}).start();
 							}
 						}
 					}

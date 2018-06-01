@@ -190,5 +190,19 @@
     <string name="month_name_format">MMMM yyyy</string>
     <string name="title_activity_health_manage">健康管理</string>
     <string name="details">详情</string>
+    <string name="title_dialog">提示</string>
+    <string name="message_permission_rationale">允许以下权限以便程序继续执行：\n\n%1$s</string>
+    <string name="message_permission_always_failed">我们需要以下权限，请在设置中为我们开启：\n\n%1$s</string>
+
+    <string name="pwd_hint_info">请输入密码(6&#8211;20位数字的密码)</string>
+
+
+    <string name="errcode_unsupported">不支持错误</string>
+    <string name="setting">设置</string>
+    <string name="resume">继续</string>
+    <string name="cancel">取消</string>
+    <string name="ok">好</string>
+    <string name="no">不</string>
+
 
 </resources>

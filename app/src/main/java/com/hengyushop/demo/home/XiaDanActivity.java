@@ -2,6 +2,7 @@ package com.hengyushop.demo.home;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -23,9 +24,14 @@ import com.hengyushop.demo.at.AsyncHttp;
 import com.hengyushop.demo.at.BaseActivity;
 import com.hengyushop.demo.my.GouWuCheActivity;
 import com.hengyushop.demo.my.HaomaActivity;
+import com.hengyushop.demo.service.PlatformhotlineActivity;
 import com.hengyushop.entity.ShopCartData;
 import com.loopj.android.http.AsyncHttpResponseHandler;
+import com.yanzhenjie.permission.Action;
+import com.yanzhenjie.permission.AndPermission;
+import com.yanzhenjie.permission.Permission;
 import com.zams.www.R;
+import com.zams.www.weiget.PermissionSetting;
 import com.zijunlin.Zxing.Demo.CaptureActivity;
 
 import org.json.JSONArray;
@@ -357,10 +363,24 @@ public class XiaDanActivity extends BaseActivity {
 			@Override
 			public void onClick(View arg0) {
 
-				Intent Intent2 = new Intent(XiaDanActivity.this,
-						CaptureActivity.class);
-				// Intent2.putExtra("sp_sys", "2");
-				startActivity(Intent2);
+				AndPermission.with(XiaDanActivity.this)
+						.permission(Permission.CAMERA)
+						.onGranted(new Action() {
+							@Override
+							public void onAction(List<String> permissions) {
+								Intent Intent2 = new Intent(XiaDanActivity.this,
+										CaptureActivity.class);
+
+								startActivity(Intent2);
+							}
+						})
+						.onDenied(new Action() {
+							@Override
+							public void onAction(List<String> permissions) {
+								new PermissionSetting(XiaDanActivity.this).showSetting(permissions);
+							}
+						}).start();
+
 			}
 		});
 

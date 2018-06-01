@@ -36,8 +36,13 @@ import com.hengyushop.demo.wec.NewWare;
 import com.hengyushop.entity.DataBean_ll;
 import com.hengyushop.entity.ShopCartData;
 import com.loopj.android.http.AsyncHttpResponseHandler;
+import com.yanzhenjie.permission.Action;
+import com.yanzhenjie.permission.AndPermission;
+import com.yanzhenjie.permission.Permission;
+import com.zams.www.MainFragment;
 import com.zams.www.R;
 import com.zams.www.UserLoginActivity;
+import com.zams.www.weiget.PermissionSetting;
 import com.zijunlin.Zxing.Demo.CaptureActivity;
 
 import org.json.JSONArray;
@@ -365,10 +370,23 @@ public class MyXiaDanActivity extends BaseActivity implements OnClickListener {
 
 				@Override
 				public void onClick(View arg0) {
+					AndPermission.with(MyXiaDanActivity.this)
+							.permission( Permission.Group.CAMERA, Permission.Group.STORAGE)
+							.onGranted(new Action() {
+								@Override
+								public void onAction(List<String> permissions) {
+									Intent Intent2 = new Intent(MyXiaDanActivity.this,CaptureActivity.class);
+									//							Intent2.putExtra("sp_sys", "2");
+									startActivity(Intent2);
+								}
+							})
+							.onDenied(new Action() {
+								@Override
+								public void onAction(List<String> permissions) {
+									new PermissionSetting(MyXiaDanActivity.this).showSetting(permissions);
+								}
+							}).start();
 
-					Intent Intent2 = new Intent(MyXiaDanActivity.this,CaptureActivity.class);
-					//							Intent2.putExtra("sp_sys", "2");
-					startActivity(Intent2);
 				}
 			});
 

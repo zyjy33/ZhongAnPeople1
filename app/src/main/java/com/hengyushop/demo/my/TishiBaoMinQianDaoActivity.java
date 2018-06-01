@@ -22,11 +22,19 @@ import com.hengyushop.demo.activity.DianZiPiaoActivity;
 import com.hengyushop.demo.activity.TishiQianDaoOKActivity;
 import com.hengyushop.demo.activity.ZhongAnMinShenXqActivity;
 import com.hengyushop.demo.at.AsyncHttp;
+import com.hengyushop.demo.home.XiaDanActivity;
 import com.hengyushop.entity.OrderBean;
 import com.hengyushop.entity.XiangqingData;
 import com.loopj.android.http.AsyncHttpResponseHandler;
+import com.yanzhenjie.permission.Action;
+import com.yanzhenjie.permission.AndPermission;
+import com.yanzhenjie.permission.Permission;
 import com.zams.www.R;
+import com.zams.www.TicketShopDetailActivity;
+import com.zams.www.weiget.PermissionSetting;
 import com.zijunlin.Zxing.Demo.CaptureActivity;
+
+import java.util.List;
 
 /**
  * 报名签到
@@ -143,7 +151,7 @@ public class TishiBaoMinQianDaoActivity extends Activity implements OnClickListe
 						progress.CloseProgress();
 						System.out.println("==========================访问接口失败！");
 						System.out.println("==========================" + arg1);
-						Toast.makeText(TishiBaoMinQianDaoActivity.this, "异常", 200)
+						Toast.makeText(TishiBaoMinQianDaoActivity.this, "异常", Toast.LENGTH_SHORT)
 								.show();
 						super.onFailure(arg0, arg1);
 					}
@@ -243,9 +251,23 @@ public class TishiBaoMinQianDaoActivity extends Activity implements OnClickListe
 				if (qiandao1.equals("1")) {//输入手机号查询判断为1不跳转到扫一扫界面
 
 				}else {
-					Intent intent = new Intent(TishiBaoMinQianDaoActivity.this,CaptureActivity.class);
-					intent.putExtra("sp_sys", getIntent().getStringExtra("sp_sys"));
-					startActivity(intent);
+					AndPermission.with(TishiBaoMinQianDaoActivity.this)
+							.permission(Permission.Group.CAMERA, Permission.Group.STORAGE)
+							.onGranted(new Action() {
+								@Override
+								public void onAction(List<String> permissions) {
+									Intent intent = new Intent(TishiBaoMinQianDaoActivity.this,CaptureActivity.class);
+									intent.putExtra("sp_sys", getIntent().getStringExtra("sp_sys"));
+									startActivity(intent);
+								}
+							})
+							.onDenied(new Action() {
+								@Override
+								public void onAction(List<String> permissions) {
+									new PermissionSetting(TishiBaoMinQianDaoActivity.this).showSetting(permissions);
+								}
+							}).start();
+
 				}
 				break;
 			case R.id.btnCancle://取消
@@ -257,9 +279,22 @@ public class TishiBaoMinQianDaoActivity extends Activity implements OnClickListe
 				if (qiandao2.equals("1")) {//输入手机号查询判断为1不跳转到扫一扫界面
 
 				}else {
-					Intent intent1 = new Intent(TishiBaoMinQianDaoActivity.this,CaptureActivity.class);
-					intent1.putExtra("sp_sys", getIntent().getStringExtra("sp_sys"));
-					startActivity(intent1);
+					AndPermission.with(TishiBaoMinQianDaoActivity.this)
+							.permission(Permission.Group.CAMERA, Permission.Group.STORAGE)
+							.onGranted(new Action() {
+								@Override
+								public void onAction(List<String> permissions) {
+									Intent intent1 = new Intent(TishiBaoMinQianDaoActivity.this,CaptureActivity.class);
+									intent1.putExtra("sp_sys", getIntent().getStringExtra("sp_sys"));
+									startActivity(intent1);
+								}
+							})
+							.onDenied(new Action() {
+								@Override
+								public void onAction(List<String> permissions) {
+									new PermissionSetting(TishiBaoMinQianDaoActivity.this).showSetting(permissions);
+								}
+							}).start();
 				}
 				break;
 

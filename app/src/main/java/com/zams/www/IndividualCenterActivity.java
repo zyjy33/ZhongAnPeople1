@@ -102,7 +102,11 @@ import com.tencent.mm.sdk.modelmsg.WXMediaMessage;
 import com.tencent.mm.sdk.modelmsg.WXWebpageObject;
 import com.tencent.mm.sdk.openapi.IWXAPI;
 import com.tencent.mm.sdk.openapi.WXAPIFactory;
+import com.yanzhenjie.permission.Action;
+import com.yanzhenjie.permission.AndPermission;
+import com.yanzhenjie.permission.Permission;
 import com.zams.www.health.HealthActivity;
+import com.zams.www.weiget.PermissionSetting;
 import com.zijunlin.Zxing.Demo.CaptureActivity;
 
 public class IndividualCenterActivity extends Fragment implements
@@ -1659,10 +1663,25 @@ public class IndividualCenterActivity extends Fragment implements
                                 + XiaDanActivity.list_ll.size());
                         System.out.println("list.size()==============1==========="
                                 + XiaDanActivity.list.size());
-                        Intent Intent2 = new Intent(getActivity(),
-                                CaptureActivity.class);
-                        Intent2.putExtra("sp_sys", "1");
-                        startActivity(Intent2);
+                        AndPermission.with(this)
+                                .permission(Permission.CAMERA)
+                                .onGranted(new Action() {
+                                    @Override
+                                    public void onAction(List<String> permissions) {
+                                        Intent Intent2 = new Intent(getActivity(), CaptureActivity.class);
+                                        Intent2.putExtra("sp_sys", "1");
+                                        startActivity(Intent2);
+                                    }
+                                })
+                                .onDenied(new Action() {
+                                    @Override
+                                    public void onAction(List<String> permissions) {
+                                        if (AndPermission.hasAlwaysDeniedPermission(getActivity(), permissions)) {
+                                            new PermissionSetting(getActivity()).showSetting(permissions);
+                                        }
+                                    }
+                                })
+                                .start();
                     } else {
                         Intent intent = new Intent(getActivity(),
                                 TishiWxBangDingActivity.class);
@@ -1688,9 +1707,25 @@ public class IndividualCenterActivity extends Fragment implements
 //                            requestPermissions(new String[]{Manifest.permission.CAMERA}, Constant.CAMERA_REQUEST);
 //
 //                        } else {
-                            Intent Intent2 = new Intent(getActivity(), CaptureActivity.class);
-                            Intent2.putExtra("sp_sys", "1");
-                            startActivity(Intent2);
+                        AndPermission.with(this)
+                                .permission(Permission.CAMERA)
+                                .onGranted(new Action() {
+                                    @Override
+                                    public void onAction(List<String> permissions) {
+                                        Intent Intent2 = new Intent(getActivity(), CaptureActivity.class);
+                                        Intent2.putExtra("sp_sys", "1");
+                                        startActivity(Intent2);
+                                    }
+                                })
+                                .onDenied(new Action() {
+                                    @Override
+                                    public void onAction(List<String> permissions) {
+                                        if (AndPermission.hasAlwaysDeniedPermission(getActivity(), permissions)) {
+                                            new PermissionSetting(getActivity()).showSetting(permissions);
+                                        }
+                                    }
+                                })
+                                .start();
 //                        }
                     }
                 }
