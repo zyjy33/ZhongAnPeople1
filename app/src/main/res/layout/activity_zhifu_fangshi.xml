@@ -28,7 +28,7 @@
         <ListView 
 	        android:id="@+id/new_list"
 	        android:layout_width="match_parent"
-	        android:layout_height="wrap_content"
+	        android:layout_height="200dp"
 	        android:background="@null"
 	        android:cacheColorHint="@color/no_color"
 	        android:divider="@color/list_diver"

@@ -677,10 +677,12 @@ public class IndividualCenterActivity extends Fragment implements
                                             editor.putString("group_name", data.group_name);
                                             editor.commit();
 
-                                            if (!data.vip_card.equals("")) {
+                                            if (!TextUtils.isEmpty(data.vip_card)) {
                                                 tv_usertag.setText("服务金卡:" + data.vip_card);
+                                                tv_usertag.setVisibility(View.VISIBLE);
                                             } else {
                                                 tv_usertag.setText("健康卡号:" + data.user_code);
+                                                tv_usertag.setVisibility(View.GONE);
                                             }
                                             System.out.println("group_name=======企业职员========" + data.group_name);
                                             if (data.group_name.contains("企业职员")) {
@@ -688,7 +690,7 @@ public class IndividualCenterActivity extends Fragment implements
                                                 ll_saoyisao_qd.setVisibility(View.VISIBLE);
                                             } else {
                                                 iv_buju_dzc.setVisibility(View.VISIBLE);
-                                                img_btn_daizhuce.setVisibility(View.VISIBLE);
+//                                                img_btn_daizhuce.setVisibility(View.VISIBLE);
                                             }
 
                                             data.exp = obj.getString("exp");

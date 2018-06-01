@@ -105,7 +105,7 @@ public class ZhiFuFangShiActivity extends BaseActivity implements
 	 * 配送方式
 	 */
 	private void loadWeather() {
-		AsyncHttp.get(RealmName.REALM_NAME_LL + "/get_express_list?top=5",
+		AsyncHttp.get(RealmName.REALM_NAME_LL + "/get_express_list?top=100",
 				new AsyncHttpResponseHandler() {
 					@Override
 					public void onSuccess(int arg0, String arg1) {

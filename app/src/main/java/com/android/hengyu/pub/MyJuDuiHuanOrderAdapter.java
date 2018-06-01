@@ -220,6 +220,14 @@ public class MyJuDuiHuanOrderAdapter extends BaseAdapter {
                 tv_pingjia.setVisibility(View.VISIBLE);
                 tv_pingjia.setText("评价");
                 zhuangtai = 5;
+            } else if ("4".equals(payment_status)) {
+                tv_zhuangtai.setText("已退款");
+                ll_anliu.setVisibility(View.VISIBLE);
+                tv_tuikuan.setVisibility(View.GONE);
+                tv_kukuang.setVisibility(View.GONE);
+                tv_pingjia.setVisibility(View.GONE);
+                shanchu.setVisibility(View.VISIBLE);
+
             }
 
             /**
@@ -436,11 +444,11 @@ public class MyJuDuiHuanOrderAdapter extends BaseAdapter {
             tv_tuikuan.setOnClickListener(new OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                        String order_no = list.get(position).getOrder_no();
-                        Message msg = new Message();
-                        msg.what = 1;
-                        msg.obj = order_no;
-                        handler.sendMessage(msg);
+                    String order_no = list.get(position).getOrder_no();
+                    Message msg = new Message();
+                    msg.what = 1;
+                    msg.obj = order_no;
+                    handler.sendMessage(msg);
                 }
             });
 
