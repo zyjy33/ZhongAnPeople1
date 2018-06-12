@@ -694,7 +694,7 @@ public class IndividualCenterActivity extends Fragment implements
                                                 ll_saoyisao_qd.setVisibility(View.VISIBLE);
                                             } else {
                                                 iv_buju_dzc.setVisibility(View.VISIBLE);
-//                                                img_btn_daizhuce.setVisibility(View.VISIBLE);
+                                                img_btn_daizhuce.setVisibility(View.VISIBLE);
                                             }
 
                                             data.exp = obj.getString("exp");
