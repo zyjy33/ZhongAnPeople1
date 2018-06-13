@@ -84,19 +84,27 @@
     </style>
 
     <style name="NoEvaluatedGridTitleTv">
+        <item name="android:maxLines">1</item>
+        <item name="android:layout_gravity">center</item>
         <item name="android:layout_marginRight">3dp</item>
         <item name="android:textColor">@color/white</item>
-        <item name="android:layout_height">30dp</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_width">0dp</item>
         <item name="android:textSize">15sp</item>
         <item name="android:gravity">center</item>
     </style>
 
     <style name="NoEvaluatedGridContentTv">
+        <item name="android:layout_marginRight">3dp</item>
         <item name="android:gravity">center</item>
-        <item name="android:layout_height">30dp</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">5dp</item>
+        <item name="android:layout_marginBottom">5dp</item>
         <item name="android:textColor">#888888</item>
         <item name="android:textSize">15sp</item>
         <item name="android:layout_gravity">center</item>
+        <item name="android:maxLines">2</item>
     </style>
 
 </resources>

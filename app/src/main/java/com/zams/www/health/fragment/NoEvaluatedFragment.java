@@ -14,6 +14,7 @@ import com.lglottery.www.widget.PullToRefreshView;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.zams.www.BaseFragment;
 import com.zams.www.R;
+import com.zams.www.health.HealthActivity;
 import com.zams.www.health.business.NoEvaluateAdapter;
 import com.zams.www.health.model.HealthOrder;
 import com.zams.www.health.response.HealthOrderResponse;
@@ -28,15 +29,17 @@ import java.util.List;
 /**
  * 订单列表
  */
-public class NoEvaluatedFragment extends BaseFragment {
+public class NoEvaluatedFragment extends BaseFragment implements View.OnClickListener {
 
     private ListView listView;
     private NoEvaluateAdapter mAdapter;
     private int mPageIndex = 1;
-    private boolean mIsLoadMore = false;
+    private boolean mIsLoadMore = true;
     private ArrayList<HealthOrder> mDatas;
     private PullToRefreshView refreshView;
     private String mUserId;
+    private View noDataLayout;
+    private View toHealthManager;
 
     @Override
     protected int getLayoutId() {
@@ -47,10 +50,11 @@ public class NoEvaluatedFragment extends BaseFragment {
     protected void initView() {
         listView = (ListView) rootView.findViewById(R.id.list_view);
         refreshView = (PullToRefreshView) rootView.findViewById(R.id.refresh_view);
-        mAdapter = new NoEvaluateAdapter(getActivity(), new ArrayList<String>(), R.layout.no_evaluated_item);
-        listView.setAdapter(mAdapter);
+        noDataLayout = rootView.findViewById(R.id.no_data_layout);
+        toHealthManager = rootView.findViewById(R.id.to_health_manager_tv);
         mDatas = new ArrayList<>();
-        mAdapter.upData(mDatas);
+        mAdapter = new NoEvaluateAdapter(getActivity(), mDatas, R.layout.no_evaluated_item);
+        listView.setAdapter(mAdapter);
     }
 
     @Override
@@ -71,17 +75,23 @@ public class NoEvaluatedFragment extends BaseFragment {
                     List<HealthOrder> datas = list.getData();
                     if (mIsLoadMore) {
                         boolean hasMore = mAdapter.addData(datas);
+                        noDataLayout.setVisibility(View.GONE);
                         if (!hasMore) {
                             Toast.makeText(getActivity(), "没有更多数据了", Toast.LENGTH_SHORT).show();
                         }
                     } else {
                         mAdapter.upData(datas);
-                        Toast.makeText(getActivity(), "数据已更新", Toast.LENGTH_SHORT).show();
+                        if (mDatas.size() == 0) {
+                            noDataLayout.setVisibility(View.VISIBLE);
+                        } else {
+                            noDataLayout.setVisibility(View.GONE);
+                        }
                     }
                 }
                 if (mIsLoadMore) {
                     refreshView.onFooterRefreshComplete();
                 } else {
+                    Toast.makeText(getActivity(), "数据已更新", Toast.LENGTH_SHORT).show();
                     refreshView.onHeaderRefreshComplete();
                 }
             }
@@ -89,6 +99,9 @@ public class NoEvaluatedFragment extends BaseFragment {
             @Override
             public void onFailure(Throwable arg0, String arg1) {
                 super.onFailure(arg0, arg1);
+                if (mDatas.size() == 0) {
+                    noDataLayout.setVisibility(View.VISIBLE);
+                }
                 if (mIsLoadMore) {
                     refreshView.onFooterRefreshComplete();
                 } else {
@@ -101,6 +114,7 @@ public class NoEvaluatedFragment extends BaseFragment {
 
     @Override
     protected void initListener() {
+        toHealthManager.setOnClickListener(this);
         refreshView.setOnHeaderRefreshListener(new PullToRefreshView.OnHeaderRefreshListener() {
             @Override
             public void onHeaderRefresh(PullToRefreshView view) {
@@ -128,5 +142,12 @@ public class NoEvaluatedFragment extends BaseFragment {
             }
         });
 
+    }
+
+    @Override
+    public void onClick(View v) {
+        if (getActivity() instanceof HealthActivity) {
+            ((HealthActivity) getActivity()).toHealthManagerFragment();
+        }
     }
 }

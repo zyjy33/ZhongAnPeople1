@@ -970,9 +970,18 @@
         <activity
             android:name=".health.EvaluatedOKActivity"
             android:screenOrientation="portrait" />
+
         <activity
             android:name=".health.NoEvaluatedActivity"
             android:screenOrientation="portrait" />
+
+        <activity
+            android:screenOrientation="portrait"
+            android:name=".notice.SystemNoticeActivity"/>
+
+        <activity
+            android:screenOrientation="portrait"
+            android:name=".notice.SysNoticeManagerActivity"/>
     </application>
 
 </manifest>

@@ -1,6 +1,5 @@
 package com.zams.www.health.request;
 
-import android.app.Application;
 import android.content.Context;
 import android.util.Log;
 
@@ -8,14 +7,17 @@ import com.alibaba.fastjson.JSON;
 import com.android.hengyu.web.Constant;
 import com.android.hengyu.web.RealmName;
 import com.hengyushop.demo.at.AsyncHttp;
-import com.hengyushop.entity.OrderBean;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
-import com.zams.www.health.DescriptionActivity;
 import com.zams.www.health.model.AddHealthOrderBean;
+import com.zams.www.health.model.OneNoticeInfoBean;
+import com.zams.www.health.model.SysNoticeTypeBean;
 import com.zams.www.health.response.AddHealthOrderResponse;
-import com.zams.www.health.response.HealthOrderResponse;
+import com.zams.www.health.response.OneNticeListResponse;
+import com.zams.www.health.response.SysNoticeTypeResponse;
 import com.zams.www.http.BaseResponse;
+
+import java.util.List;
 
 /**
  * Created by Administrator on 2018/6/11.
@@ -70,7 +72,7 @@ public class HttpProxy {
      * @param url
      * @param httpCallBack
      */
-    public static void addCarRequest(Context ctx, String url,RequestParams params, final HttpCallBack<AddHealthOrderBean> httpCallBack) {
+    public static void addCarRequest(Context ctx, String url, RequestParams params, final HttpCallBack<AddHealthOrderBean> httpCallBack) {
         AsyncHttp.post(url, params, new AsyncHttpResponseHandler() {
             @Override
             public void onSuccess(int i, String s) {
@@ -93,6 +95,55 @@ public class HttpProxy {
             }
 
         }, ctx);
+    }
+
+    public static void getSysNoticeTypeData(Context context, String userId, final HttpCallBack<List<SysNoticeTypeBean>> callBack) {
+        String url = RealmName.REALM_NAME + "/tools/mobile_ajax.asmx/get_user_message_template_list?user_id=" + userId;
+        AsyncHttp.get(url, new AsyncHttpResponseHandler() {
+                    @Override
+                    public void onSuccess(int i, String s) {
+                        super.onSuccess(i, s);
+                        SysNoticeTypeResponse noticeTypeResponse = JSON.parseObject(s, SysNoticeTypeResponse.class);
+                        if (noticeTypeResponse != null && Constant.YES.equals(noticeTypeResponse.getStatus())) {
+                            List<SysNoticeTypeBean> data = noticeTypeResponse.getData();
+                            callBack.onSuccess(data);
+                        } else {
+                            callBack.onError(null, "数据为空");
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(Throwable throwable, String s) {
+                        super.onFailure(throwable, s);
+                        callBack.onError(null, s);
+                    }
+                }
+                , context);
+    }
+
+    public static void getOneTypeNoticeList(Context context, String userId, String requestId, String pageIndex, final HttpCallBack<List<OneNoticeInfoBean>> callBack) {
+        String url = RealmName.REALM_NAME + "/tools/mobile_ajax.asmx/get_user_message_list?user_id=60627" +
+                "&template_id=" + requestId + "&size=10&index=" + pageIndex;  // TODO: 2018/6/13  userId zyjy
+        AsyncHttp.get(url, new AsyncHttpResponseHandler() {
+                    @Override
+                    public void onSuccess(int i, String s) {
+                        super.onSuccess(i, s);
+                        OneNticeListResponse noticeTypeResponse = JSON.parseObject(s, OneNticeListResponse.class);
+                        if (noticeTypeResponse != null && Constant.YES.equals(noticeTypeResponse.getStatus())) {
+                            List<OneNoticeInfoBean> data = noticeTypeResponse.getData();
+                            callBack.onSuccess(data);
+                        } else {
+                            callBack.onError(null, "数据为空");
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(Throwable throwable, String s) {
+                        super.onFailure(throwable, s);
+                        callBack.onError(null, s);
+                    }
+                }
+                , context);
     }
 
 //    public void getHealthOrder(String url,){

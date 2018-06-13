@@ -39,6 +39,12 @@ public class NoEvaluateAdapter extends CommonAdaper<HealthOrder> {
         ListView listView = (ListView) holder.getView(R.id.list_view);
         listView.setAdapter(new ExaminationAdapter(context, item.getMedical_record(), R.layout.examination_item));
         TextView view = (TextView) holder.getView(R.id.evaluated_tv);
+        if (item.getStatusX() == 3) { //已完成的订单
+            view.setVisibility(View.VISIBLE);
+        } else {
+            view.setVisibility(View.GONE);
+        }
+
         final HealthOrder fItem = item;
         view.setOnClickListener(new View.OnClickListener() {
             @Override

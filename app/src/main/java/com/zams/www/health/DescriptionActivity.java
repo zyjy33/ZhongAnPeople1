@@ -85,7 +85,6 @@ public class DescriptionActivity extends BaseActivity implements View.OnClickLis
                     @Override
                     public void onSuccess(int arg0, String data) {
                         super.onSuccess(arg0, data);
-                        Log.e("zhangyong3", "data=" + data);
                         MedicalListItems list = JSON.parseObject(data,
                                 MedicalListItems.class);
                         if (list != null && Constant.YES.equals(list.getStatus())) {
@@ -98,6 +97,8 @@ public class DescriptionActivity extends BaseActivity implements View.OnClickLis
                                 descriptionTv.setText(medicalItem.getContent());
                                 Glide.with(DescriptionActivity.this)
                                         .load(RealmName.REALM_NAME + medicalItem.getImg_url())
+                                        .placeholder(R.drawable.sj_fw)//图片加载出来前，显示的图片
+                                        .error(R.drawable.sj_fw)//图
                                         .into(descriptionImg);
                             }
                         }

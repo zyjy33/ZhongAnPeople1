@@ -91,7 +91,17 @@ public class HealthActivity extends FragmentActivity implements OnClickListener 
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (mRightFragment != null) {
-            mRightFragment.onActivityResult(requestCode,resultCode,data);
+            mRightFragment.onActivityResult(requestCode, resultCode, data);
         }
+    }
+
+    public void toHealthManagerFragment() {
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        transaction.replace(R.id.health_and_comment_layout, mLeftFragment);
+        healthTv.setSelected(true);
+        orderTv.setSelected(false);
+        healthTv.setCompoundDrawables(null, null, null, mSelectDrawable);
+        orderTv.setCompoundDrawables(null, null, null, null);
+        transaction.commit();
     }
 }

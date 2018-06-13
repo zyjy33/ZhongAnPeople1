@@ -1,6 +1,7 @@
 package com.zams.www.health.business;
 
 import android.content.Context;
+import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
 import com.zams.www.R;
@@ -40,7 +41,12 @@ public class HospitalAssessAdapter extends CommonAdaper<HealthEvaluateBean> {
         holder.setText(R.id.assess_content, item.getEvaluate_desc());
         holder.setText(R.id.assess_flag_1, "龙床保健");
         holder.setText(R.id.assess_flag_2, "餐前血糖");
-        holder.setImageByUrl(R.id.assess_img, "http://img1.imgtn.bdimg.com/it/u=1966829974,544858845&fm=27&gp=0.jpg");
+        ImageView imgView = (ImageView) holder.getView(R.id.assess_img);
+        Glide.with(context)
+                .load("http://p.jianke.net/article/201512/20151223222721564.jpg")
+                .placeholder(R.drawable.sj_fw)//图片加载出来前，显示的图片
+                .error(R.drawable.sj_fw)//图
+                .into(imgView);
     }
 
     public void upData(List<HealthEvaluateBean> datas) {

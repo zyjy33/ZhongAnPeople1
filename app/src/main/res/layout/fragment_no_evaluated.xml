@@ -4,14 +4,57 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
+    <LinearLayout
+        android:visibility="gone"
+        android:id="@+id/no_data_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="120dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:text="亲，您还没有订单哦！感觉去逛逛吧！"
+            android:textColor="@color/color_888888"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/to_health_manager_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/assess_flag_bg"
+            android:gravity="center"
+            android:paddingBottom="10dp"
+            android:paddingLeft="60dp"
+            android:paddingRight="60dp"
+            android:paddingTop="10dp"
+            android:text="去逛逛"
+            android:textColor="@color/theme_color"
+            android:textSize="20dp" />
+
+    </LinearLayout>
+
+
     <com.lglottery.www.widget.PullToRefreshView
         android:id="@+id/refresh_view"
-        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
         <ListView
             android:id="@+id/list_view"
+            android:dividerHeight="4px"
+            android:divider="@color/list_item_line"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:listSelector="@color/transparent" />

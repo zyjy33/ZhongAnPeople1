@@ -24,7 +24,7 @@ public class ExaminationAdapter extends CommonAdaper<MedicalRecordBean> {
         holder.setText(R.id.serial_number, String.format("%02d", position + 1));
         holder.setText(R.id.inspect_name, item.getMedical_name());
         holder.setText(R.id.inspect_result, item.getMedical_result());
-        holder.setText(R.id.inspect_range, item.getOperators());
+        holder.setText(R.id.inspect_range, item.getNormal_value());
         holder.setText(R.id.inspect_remark, item.getNormal_desc());
     }
 }

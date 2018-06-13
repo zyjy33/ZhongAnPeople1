@@ -71,6 +71,7 @@ import com.tencent.mm.sdk.openapi.IWXAPI;
 import com.yanzhenjie.permission.Action;
 import com.yanzhenjie.permission.AndPermission;
 import com.yanzhenjie.permission.Permission;
+import com.zams.www.notice.SystemNoticeActivity;
 import com.zams.www.weiget.PermissionSetting;
 import com.zxing.android.CaptureActivity;
 
@@ -1435,7 +1436,7 @@ public class HomeActivity extends Fragment implements OnClickListener {
                     if (!nickname.equals("")) {
                         if (!user_name.equals("")) {
                             Intent Intent2 = new Intent(getActivity(),
-                                    FenXiangActivity.class);
+                                    SystemNoticeActivity.class);
                             startActivity(Intent2);
                         } else {
                             Intent intent2 = new Intent(getActivity(),
@@ -1451,7 +1452,7 @@ public class HomeActivity extends Fragment implements OnClickListener {
                             try {
                                 // SoftWarePopuWindow(img_shared, context);
                                 Intent intentll = new Intent(getActivity(),
-                                        FenXiangActivity.class);
+                                        SystemNoticeActivity.class);
                                 startActivity(intentll);
                             } catch (Exception e) {
 
