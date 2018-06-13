@@ -6,7 +6,6 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentTransaction;
 import android.view.View;
 import android.view.Window;
-import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -19,7 +18,7 @@ import com.zams.www.health.fragment.NoEvaluatedFragment;
  * Created by Administrator on 2018/5/5.
  */
 
-public class NoEvaluatedOrderActivity extends FragmentActivity implements View.OnClickListener {
+public class AllEvaluatedOrderActivity extends FragmentActivity implements View.OnClickListener {
 
     private ImageView backImg;
     private TextView leftTitle;
@@ -27,12 +26,13 @@ public class NoEvaluatedOrderActivity extends FragmentActivity implements View.O
     private Drawable mSelectDrawable;
     private AllOrderFragment mLeftFragment;
     private NoEvaluatedFragment mRightFragment;
+    private TextView actionTitle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_no_evaluated_order);
+        setContentView(R.layout.activity_all_evaluated_order);
         initView();
         initData();
         initListener();
@@ -43,6 +43,7 @@ public class NoEvaluatedOrderActivity extends FragmentActivity implements View.O
         backImg = (ImageView) findViewById(R.id.iv_back);
         leftTitle = (TextView) findViewById(R.id.left_title_tv);
         rightTitle = (TextView) findViewById(R.id.right_title_tv);
+        actionTitle = (TextView) findViewById(R.id.action_title);
     }
 
     private void initData() {
@@ -54,7 +55,6 @@ public class NoEvaluatedOrderActivity extends FragmentActivity implements View.O
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         mLeftFragment = new AllOrderFragment();
         transaction.add(R.id.no_evaluated_layout, mLeftFragment);
-
     }
 
     private void initListener() {
@@ -73,6 +73,7 @@ public class NoEvaluatedOrderActivity extends FragmentActivity implements View.O
                 finish();
                 break;
             case R.id.left_title_tv:
+                actionTitle.setText("全部医疗订单");
                 transaction.replace(R.id.no_evaluated_layout, mLeftFragment);
                 leftTitle.setSelected(true);
                 rightTitle.setSelected(false);
@@ -80,6 +81,7 @@ public class NoEvaluatedOrderActivity extends FragmentActivity implements View.O
                 rightTitle.setCompoundDrawables(null, null, null, null);
                 break;
             case R.id.right_title_tv:
+                actionTitle.setText("待评价订单");
                 if (mRightFragment == null) {
                     mRightFragment = new NoEvaluatedFragment();
                 }

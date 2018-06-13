@@ -115,11 +115,15 @@
         android:orientation="horizontal"
         android:visibility="gone">
 
-        <com.lglottery.www.widget.XListView
-            android:id="@+id/right_list_view"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:listSelector="#00000000" />
+
+
+            <ListView
+                android:id="@+id/right_list_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:listSelector="#00000000" />
+
+
     </LinearLayout>
 
 </LinearLayout>

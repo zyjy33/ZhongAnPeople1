@@ -9,9 +9,9 @@
         android:id="@+id/order_num"
         android:layout_width="match_parent"
         android:layout_height="30dp"
-        android:layout_marginTop="10dp"
         android:layout_marginLeft="@dimen/app_margin"
         android:layout_marginRight="@dimen/app_margin"
+        android:layout_marginTop="10dp"
         android:gravity="center_vertical"
         android:text="订单号：12345678912346"
         android:textColor="@color/title_color"
@@ -47,99 +47,62 @@
             android:textSize="14sp" />
     </LinearLayout>
 
-    <GridLayout
+    <android.support.v7.widget.GridLayout
         android:id="@+id/grid_title"
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:background="#1491d9"
-        android:columnCount="5"
-        android:orientation="horizontal"
-        android:rowCount="1">
+        app:columnCount="5"
+        app:orientation="vertical"
+        app:rowCount="1">
 
         <TextView
             style="@style/NoEvaluatedGridTitleTv"
-            android:text="序号" />
+            android:text="序号"
+            app:layout_columnWeight="1" />
 
         <TextView
             style="@style/NoEvaluatedGridTitleTv"
-            android:text="体检名称" />
+            android:text="体检名称"
+            app:layout_columnWeight="1" />
 
         <TextView
             style="@style/NoEvaluatedGridTitleTv"
-            android:text="体验结果" />
+            android:text="体验结果"
+            app:layout_columnWeight="1" />
 
         <TextView
             style="@style/NoEvaluatedGridTitleTv"
-            android:text="正常范围" />
+            android:text="正常范围"
+            app:layout_columnWeight="1" />
 
         <TextView
             style="@style/NoEvaluatedGridTitleTv"
-            android:text="体检备注" />
-    </GridLayout>
+            android:text="体检备注"
+            app:layout_columnWeight="1" />
+    </android.support.v7.widget.GridLayout>
 
-    <GridLayout
-        android:id="@+id/grid_content"
+    <ListView
+        android:id="@+id/list_view"
         android:layout_width="match_parent"
-        android:layout_height="70dp"
-        android:layout_gravity="center"
-        android:columnCount="5"
-        android:orientation="horizontal"
-        android:rowCount="2">
+        android:layout_height="wrap_content"
+        android:listSelector="@color/transparent" />
 
-        <TextView
-            style="@style/NoEvaluatedGridContentTv"
-            android:text="01" />
-
-        <TextView
-            style="@style/NoEvaluatedGridContentTv"
-            android:text="舒张压" />
-
-        <TextView
-            style="@style/NoEvaluatedGridContentTv"
-            android:text="127ml/mog" />
-
-        <TextView
-            style="@style/NoEvaluatedGridContentTv"
-            android:text="70-112mmhg" />
-
-        <TextView
-            style="@style/NoEvaluatedGridContentTv"
-            android:text="忌口辛辣" />
-
-        <TextView
-            style="@style/NoEvaluatedGridContentTv"
-            android:text="02" />
-
-        <TextView
-            style="@style/NoEvaluatedGridContentTv"
-            android:text="血糖" />
-
-        <TextView
-            style="@style/NoEvaluatedGridContentTv"
-            android:text="12ml/mol" />
-
-        <TextView
-            style="@style/NoEvaluatedGridContentTv"
-            android:text="5-12ml/mol" />
-
-        <TextView
-            style="@style/NoEvaluatedGridContentTv"
-            android:text="高血糖少食" />
-
-    </GridLayout>
 
     <TextView
-        android:layout_marginRight="@dimen/app_margin"
-        android:layout_gravity="right"
+        android:id="@+id/evaluated_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:layout_marginBottom="10dp"
+        android:layout_marginRight="@dimen/app_margin"
         android:background="@drawable/assess_flag_bg"
-        android:paddingBottom="8dp"
+        android:gravity="center"
+        android:paddingBottom="5dp"
         android:paddingLeft="40dp"
         android:paddingRight="40dp"
-        android:paddingTop="8dp"
+        android:paddingTop="5dp"
         android:text="评价"
-        android:gravity="center"
         android:textColor="@color/orange_color"
         android:textSize="18sp" />
 

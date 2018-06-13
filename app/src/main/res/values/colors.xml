@@ -8,5 +8,7 @@
     <color name="color_666">#666666</color>
     <color name="title_color">#222322</color>
     <color name="content_color">#888888</color>
+    <color name="color_888888">#888888</color>
+    <color name="theme_color">#de6838</color>
 
 </resources>

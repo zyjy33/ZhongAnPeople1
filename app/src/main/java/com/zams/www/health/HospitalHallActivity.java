@@ -18,12 +18,12 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.alibaba.fastjson.JSON;
-import com.android.hengyu.web.DialogProgress;
+import com.android.hengyu.web.Constant;
 import com.android.hengyu.web.RealmName;
-import com.guanggao.G;
 import com.hengyushop.demo.at.AsyncHttp;
 import com.hengyushop.demo.at.BaseActivity;
 import com.lglottery.www.http.HttpUtils;
+import com.lglottery.www.widget.PullToRefreshView;
 import com.lglottery.www.widget.XListView;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.zams.www.R;
@@ -31,6 +31,10 @@ import com.zams.www.health.business.HallListAdapter;
 import com.zams.www.health.business.HospitalAssessAdapter;
 import com.zams.www.health.business.MedicalItems;
 import com.zams.www.health.business.MedicalListItems;
+import com.zams.www.health.model.HealthEvaluateBean;
+import com.zams.www.health.model.HealthOrder;
+import com.zams.www.health.response.HealthEvaluateResponse;
+import com.zams.www.health.response.HealthOrderResponse;
 import com.zams.www.weiget.NoticeView;
 import com.zams.www.weiget.SelectScrollView;
 
@@ -50,10 +54,13 @@ public class HospitalHallActivity extends BaseActivity implements SelectScrollVi
     private LinearLayout left_layout;
     private LinearLayout rightLayout;
 
-    private XListView rightListView;
+    private ListView rightListView;
     private int mRightPage = 0;
     private boolean mRightHasRequest = false;
     private HospitalAssessAdapter mRightAdapter;
+    private ArrayList<Object> mRightDatas;
+    private PullToRefreshView rightRefreshView;
+    private String mUserId;
 
 
     @Override
@@ -65,6 +72,8 @@ public class HospitalHallActivity extends BaseActivity implements SelectScrollVi
         if (intent != null) {
             mCompanyId = intent.getIntExtra(HELL_KEY, 1);
         }
+        SharedPreferences sp = getSharedPreferences(Constant.LONGUSERSET, MODE_PRIVATE);
+        mUserId = sp.getString(Constant.USER_ID, "");
         initView();
         requestData(1);
     }
@@ -81,11 +90,10 @@ public class HospitalHallActivity extends BaseActivity implements SelectScrollVi
         noticeView = ((NoticeView) (NoticeView) findViewById(R.id.notice_view));
         //右边
         rightLayout = (LinearLayout) findViewById(R.id.right_layout);
-        rightListView = (XListView) findViewById(R.id.right_list_view);
-        rightListView.setPullLoadEnable(true);
-        rightListView.setPullRefreshEnable(false);
+        rightListView = (ListView) findViewById(R.id.right_list_view);
 
-        mRightAdapter = new HospitalAssessAdapter(this, new ArrayList<Object>(), R.layout.hospital_item);
+        mRightDatas = new ArrayList<>();
+        mRightAdapter = new HospitalAssessAdapter(this, mRightDatas, R.layout.hospital_item);
         rightListView.setAdapter(mRightAdapter);
 
         mSelectDrawable = getResources().getDrawable(R.drawable.orange_bg);
@@ -94,7 +102,7 @@ public class HospitalHallActivity extends BaseActivity implements SelectScrollVi
         projectListTv.setCompoundDrawables(null, null, null, mSelectDrawable);
 
         mMedicalItems = new ArrayList<MedicalItems>();
-        mHallListAdapter = new HallListAdapter(this, mMedicalItems,
+        mHallListAdapter = new HallListAdapter(this, mUserId, String.valueOf(mCompanyId), mMedicalItems,
                 R.layout.hall_list_item);
         hallListLv.setAdapter(mHallListAdapter);
 
@@ -110,79 +118,60 @@ public class HospitalHallActivity extends BaseActivity implements SelectScrollVi
         hallListLv.setOnItemClickListener(this);
         noticeView.setOnNoticeListener(this);
         rightListView.setOnItemClickListener(this);
-        rightListView.setXListViewListener(this);
         SharedPreferences sp = this.getSharedPreferences("longuserset", MODE_PRIVATE);
         String id = sp.getString("user_id", "");
-        Log.e(TAG, "initView: id=" + id);
+
+
     }
 
     private static final String TAG = "HospitalHallActivity";
 
     private void requestData(int type) {
         dialogProgress.CreateProgress();
+        String url = RealmName.REALM_NAME + "/tools/mobile_ajax.asmx/get_medical_projects_list?medical_type=" + type
+                + "&company_id=" + mCompanyId;
+        AsyncHttp.get(url, new AsyncHttpResponseHandler() {
+            @Override
+            public void onSuccess(int arg0, String data) {
+                super.onSuccess(arg0, data);
+                MedicalListItems list = JSON.parseObject(data,
+                        MedicalListItems.class);
+                if (list != null && list.getData().size() > 0) {
+                    List<MedicalItems> datas = list.getData();
+                    mHallListAdapter.upData(datas);
+                } else {
+                    mHallListAdapter.upData(null);
+                }
+                dialogProgress.CloseProgress();
+            }
 
-        AsyncHttp.get(RealmName.REALM_NAME + "/tools/mobile_ajax.asmx/get_medical_projects_list?medical_type=" + type
-                        + "&company_id=" + mCompanyId,
-                new AsyncHttpResponseHandler() {
-                    @Override
-                    public void onSuccess(int arg0, String data) {
-                        super.onSuccess(arg0, data);
-                        Log.e("zhangyong3", "data=" + data);
-                        MedicalListItems list = JSON.parseObject(data,
-                                MedicalListItems.class);
-                        if (list != null && list.getData().size() > 0) {
-                            List<MedicalItems> datas = list.getData();
-                            Log.e("datas = ", "" + datas.size());
-                            mHallListAdapter.upData(datas);
-                        }
-                        dialogProgress.CloseProgress();
-                    }
+            @Override
+            public void onFailure(Throwable arg0, String arg1) {
+                super.onFailure(arg0, arg1);
+                mHallListAdapter.upData(null);
+                dialogProgress.CloseProgress();
+            }
 
-                    @Override
-                    public void onFailure(Throwable arg0, String arg1) {
-                        super.onFailure(arg0, arg1);
-                        dialogProgress.CloseProgress();
-                    }
-
-                }, this);
+        }, this);
     }
 
     private void rightRequestData() {
-        ArrayList<String> datas = new ArrayList<>();
-        datas.add("1");
-        datas.add("1");
-        datas.add("1");
-        datas.add("1");
-        datas.add("1");
-        datas.add("1");
-        datas.add("1");
-        datas.add("1");
-        datas.add("1");
-        datas.add("1");
-        datas.add("1");
-        mRightAdapter.loadMore(datas);
-        runOnUiThread(new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    Thread.sleep(2000);
-                    rightListView.stopLoadMore();
-                    rightListView.stopRefresh();
-                    Log.e(TAG, "run: aaa");
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-            }
-        });
         if (mRightHasRequest) {
             return;
         }
         mRightHasRequest = true;
-        AsyncHttp.get("", new AsyncHttpResponseHandler() {
+        String url = RealmName.REALM_NAME + "/tools/mobile_ajax.asmx/get_medical_evaluate_list?company_id=" + mCompanyId;
+        AsyncHttp.get(url, new AsyncHttpResponseHandler() {
             @Override
             public void onSuccess(String s) {
                 super.onSuccess(s);
-
+                HealthEvaluateResponse orderResponse = JSON.parseObject(s, HealthEvaluateResponse.class);
+                if (orderResponse != null) {
+                    if (Constant.YES.equals(orderResponse.getStatus())) {
+                        List<HealthEvaluateBean> data = orderResponse.getData();
+                        mRightAdapter.upData(data);
+                    }
+                }
             }
 
             @Override
@@ -190,6 +179,7 @@ public class HospitalHallActivity extends BaseActivity implements SelectScrollVi
                 super.onFailure(throwable, s);
             }
         }, this);
+
     }
 
     @Override
@@ -239,13 +229,15 @@ public class HospitalHallActivity extends BaseActivity implements SelectScrollVi
                 int hallId = items.getId();
                 Intent intent = new Intent(this, DescriptionActivity.class);
                 intent.putExtra(DescriptionActivity.DESCRIPTION_ID, hallId);
+                intent.putExtra(DescriptionActivity.COMPANY_ID, mCompanyId);
                 startActivity(intent);
                 break;
             case R.id.hall_assess_lv:
+                Toast.makeText(this, "体检项目", Toast.LENGTH_SHORT).show();
                 break;
-            case R.id.right_list_view:
-                Intent intent1 = new Intent(this, NoEvaluatedOrderActivity.class);
-                startActivity(intent1);
+            case R.id.right_list_view: //评价
+//                Intent intent1 = new Intent(this, AllEvaluatedOrderActivity.class);
+//                startActivity(intent1);
                 break;
         }
     }

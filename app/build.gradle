@@ -68,5 +68,6 @@ android {
         compile files('libs/yunzhixun_video_SDK_ver_1.1.10_release.jar')
         compile 'com.github.bumptech.glide:glide:3.7.0'
         implementation 'com.yanzhenjie:permission:2.0.0-rc4'
+        compile 'com.android.support:gridlayout-v7:23.0.0'
     }
 }

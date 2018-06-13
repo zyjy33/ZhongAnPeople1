@@ -2,7 +2,10 @@ package com.zams.www.health.business;
 
 import android.content.Context;
 
+import com.bumptech.glide.Glide;
 import com.zams.www.R;
+import com.zams.www.health.model.HealthEvaluateBean;
+import com.zams.www.health.model.HealthOrder;
 import com.zams.www.weiget.CommonAdaper;
 import com.zams.www.weiget.ViewHolder;
 
@@ -14,31 +17,41 @@ import java.util.List;
  * 医院大厅评价
  */
 
-public class HospitalAssessAdapter extends CommonAdaper {
+public class HospitalAssessAdapter extends CommonAdaper<HealthEvaluateBean> {
     public HospitalAssessAdapter(Context context, List list, int itemLayoutId) {
         super(context, list, itemLayoutId);
     }
 
     @Override
-    public void convert(ViewHolder holder, Object item) {
-        holder.setText(R.id.assess_phone_num, "电话号码");
-        holder.setText(R.id.assess_date, "日期");
-        holder.setText(R.id.assess_content, "内容描述");
+    public void convert(ViewHolder holder, HealthEvaluateBean item) {
+        String mobile = item.getMobile();
+        if (mobile != null && mobile.length() >= 11) {
+            String startMobile = mobile.substring(0, 3);
+            String endMobile = mobile.substring(7);
+            holder.setText(R.id.assess_phone_num, startMobile + "****" + endMobile);
+        }
+        String orderSubmitTime = item.getOrder_submit_time();
+        if (orderSubmitTime != null) {
+            orderSubmitTime = orderSubmitTime.trim();
+            int endIndex = orderSubmitTime.indexOf(" ");
+            String date = orderSubmitTime.substring(0, endIndex);
+            holder.setText(R.id.assess_date, date);
+        }
+        holder.setText(R.id.assess_content, item.getEvaluate_desc());
         holder.setText(R.id.assess_flag_1, "龙床保健");
         holder.setText(R.id.assess_flag_2, "餐前血糖");
-        holder.setImageByUrl(R.id.assess_img, "http://img.zcool.cn/community/0181845834f4eda8012060c8c95113.JPG@1280w_1l_2o_100sh.png");
+        holder.setImageByUrl(R.id.assess_img, "http://img1.imgtn.bdimg.com/it/u=1966829974,544858845&fm=27&gp=0.jpg");
     }
 
-    public void upData(List<String> datas) {
+    public void upData(List<HealthEvaluateBean> datas) {
+        this.mList.clear();
         if (datas != null) {
-            this.mList.clear();
             this.mList.addAll(datas);
-            this.mList.addAll(datas);
-            this.notifyDataSetChanged();
         }
+        this.notifyDataSetChanged();
     }
 
-    public void loadMore(List<String> datas) {
+    public void loadMore(List<HealthEvaluateBean> datas) {
         if (datas != null) {
             this.mList.addAll(datas);
             this.notifyDataSetChanged();

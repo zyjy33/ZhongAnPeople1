@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.nostra13.universalimageloader.core.ImageLoader;
 
 /**
@@ -18,6 +19,7 @@ import com.nostra13.universalimageloader.core.ImageLoader;
 public class ViewHolder {
     //现在对于int作为键的官方推荐用SparseArray替代HashMap
     private final SparseArray<View> views;
+    private int mPosition;
     private View convertView;
     private Context context;
 
@@ -26,6 +28,7 @@ public class ViewHolder {
         this.views = new SparseArray<>();
         this.convertView = LayoutInflater.from(context).inflate(itemLayoutId, parent, false);
         convertView.setTag(this);
+        this.mPosition = position;
     }
 
     /**
@@ -86,7 +89,14 @@ public class ViewHolder {
      */
     public ViewHolder setImageByUrl(int viewId, String url) {
 //        ImageLoader.getInstance().init(ImageLoaderConfiguration.createDefault(context));
-        ImageLoader.getInstance().displayImage(url, (ImageView) getView(viewId));
+//        ImageLoader.getInstance().displayImage(url, (ImageView) getView(viewId));
+        Glide.with(context)
+                .load(url)
+                .into((ImageView) getView(viewId));
         return this;
+    }
+
+    public int getPosition() {
+        return mPosition;
     }
 }

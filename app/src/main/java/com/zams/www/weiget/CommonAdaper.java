@@ -19,7 +19,7 @@ public abstract class CommonAdaper<T> extends BaseAdapter {
     private int itemLayoutId;
 
 
-    public CommonAdaper(Context context, List<T> list,int itemLayoutId) {
+    public CommonAdaper(Context context, List<T> list, int itemLayoutId) {
         this.context = context;
         this.mList = list;
         this.itemLayoutId = itemLayoutId;
@@ -43,15 +43,33 @@ public abstract class CommonAdaper<T> extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        ViewHolder holder = getViewHolder(position,convertView,parent);
-        convert(holder,getItem(position));
+        ViewHolder holder = getViewHolder(position, convertView, parent);
+        convert(holder, getItem(position));
         return holder.getConvertView();
     }
 
-    public abstract void convert(ViewHolder holder,T item);
+    public abstract void convert(ViewHolder holder, T item);
 
-    private ViewHolder getViewHolder(int position,View convertView,ViewGroup parent){
-        return ViewHolder.get(context,convertView,parent,itemLayoutId,position);
+
+    private ViewHolder getViewHolder(int position, View convertView, ViewGroup parent) {
+        return ViewHolder.get(context, convertView, parent, itemLayoutId, position);
     }
 
+    public boolean addData(List<T> datas) {
+        if (datas != null && datas.size() > 0) {
+            mList.addAll(datas);
+            notifyDataSetChanged();
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public void upData(List<T> datas) {
+        mList.clear();
+        if (datas != null) {
+            mList.addAll(datas);
+        }
+        this.notifyDataSetChanged();
+    }
 }

@@ -1,6 +1,5 @@
 package com.zams.www.http;
 
-import java.util.List;
 
 /**
  * Created by Administrator on 2018/5/10.
@@ -102,4 +101,6 @@ public class BaseResponse {
     public void setTimestamp(String timestamp) {
         this.timestamp = timestamp;
     }
+
+
 }

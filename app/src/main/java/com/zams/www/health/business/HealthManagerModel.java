@@ -1,4 +1,7 @@
 package com.zams.www.health.business;
+
+import com.android.hengyu.web.RealmName;
+
 /**
  * 健康 管理列表对象
  * @author yunsenA
@@ -35,7 +38,11 @@ public class HealthManagerModel {
 		this.company_name = company_name;
 	}
 	public String getImg_url() {
-		return img_url;
+		if (img_url != null && img_url.startsWith("http")) {
+			return img_url;
+		} else {
+			return RealmName.REALM_NAME + img_url;
+		}
 	}
 	public void setImg_url(String img_url) {
 		this.img_url = img_url;

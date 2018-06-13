@@ -12,7 +12,7 @@
         android:layout_marginLeft="@dimen/app_margin"
         android:layout_marginRight="@dimen/app_margin"
         android:scaleType="centerCrop"
-        android:src="@drawable/ic_launcher" />
+        />
 
     <LinearLayout
         android:layout_width="match_parent"

@@ -860,7 +860,6 @@
                 android:background="@color/list_item_line" />
 
             <LinearLayout
-                android:visibility="gone"
                 android:id="@+id/img_btn_health_manage"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
@@ -875,6 +874,7 @@
                     <ImageView
                         android:layout_width="20dp"
                         android:layout_height="20dp"
+                        android:src="@drawable/health_manager_icon"
                         android:layout_marginLeft="10dp" />
 
                     <TextView

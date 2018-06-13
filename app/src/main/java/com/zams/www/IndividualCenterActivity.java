@@ -1523,9 +1523,28 @@ public class IndividualCenterActivity extends Fragment implements
                 }
                 break;
             case R.id.img_btn_health_manage:// 健康管理
-                Intent healthIntent = new Intent(getActivity(),
-                        HealthActivity.class);
-                startActivity(healthIntent);
+                if (!nickname.equals("")) {
+                    if (!user_name_phone.equals("")) {
+                        Intent healthIntent = new Intent(getActivity(),
+                                HealthActivity.class);
+                        startActivity(healthIntent);
+                    } else {
+                        Intent intent = new Intent(getActivity(),
+                                TishiWxBangDingActivity.class);
+                        startActivity(intent);
+                    }
+                } else {
+                    if (user_name_phone.equals("")) {
+                        Intent intent9 = new Intent(getActivity(),
+                                UserLoginActivity.class);
+                        startActivity(intent9);
+                    } else {
+                        Intent healthIntent = new Intent(getActivity(),
+                                HealthActivity.class);
+                        startActivity(healthIntent);
+                    }
+                }
+
                 break;
             case R.id.roundImage_network:
                 // dialog();

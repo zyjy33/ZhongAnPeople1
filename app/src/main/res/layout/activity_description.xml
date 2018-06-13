@@ -54,11 +54,11 @@
             <TextView
                 android:id="@+id/hall_describe_title"
                 android:layout_width="match_parent"
-                android:text="aa"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/app_margin"
                 android:layout_marginRight="@dimen/app_margin"
                 android:layout_marginTop="15dp"
+                android:text="aa"
                 android:textColor="@color/color333"
                 android:textSize="16sp" />
 
@@ -100,11 +100,11 @@
         android:background="#f8f8f8" />
 
     <TextView
-        android:layout_marginTop="17dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/app_margin"
         android:layout_marginRight="@dimen/app_margin"
+        android:layout_marginTop="17dp"
         android:text="服务详情"
         android:textColor="@color/color333"
         android:textSize="14sp" />
@@ -113,6 +113,8 @@
         android:id="@+id/hall_description_tv"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginLeft="@dimen/app_margin"
+        android:layout_marginRight="@dimen/app_margin"
         android:textColor="@color/color_666"
         android:textSize="14sp" />
 

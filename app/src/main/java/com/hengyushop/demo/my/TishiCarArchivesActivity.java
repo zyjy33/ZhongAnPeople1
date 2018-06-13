@@ -340,7 +340,7 @@ public class TishiCarArchivesActivity extends Activity implements OnClickListene
      * 确认收货
      *
      * @param order_no
-     * @param payment_id
+     * @param
      */
     public void ShouhuoOK(String order_no) {
         progress.CreateProgress();
@@ -363,8 +363,9 @@ public class TishiCarArchivesActivity extends Activity implements OnClickListene
                                 //									  order_type = getIntent().getStringExtra("order_type");
                                 order_type = "2";//确认收货状态
                                 System.out.println("order_type=============2====================" + order_type);
-                                Toast.makeText(TishiCarArchivesActivity.this, "确认订单完成", 200).show();
+                                Toast.makeText(TishiCarArchivesActivity.this, "确认订单完成", Toast.LENGTH_SHORT).show();
                                 MyOrderConfrimActivity.sHasPaySuccess = true;
+                                setResult(RESULT_OK);
                                 finish();
                             } else {
                                 progress.CloseProgress();
