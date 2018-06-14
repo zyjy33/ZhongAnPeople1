@@ -86,7 +86,6 @@ public class MyOrderConfrimActivity extends BaseActivity {
     private int checkedAddressId;
     private StringBuilder orderid;
     private MyPopupWindowMenu popupWindowMenu;
-    private int express_fee;
     private TextView tv_user_name, tv_user_address, tv_user_phone, tv_hongbao;
     private SharedPreferences spPreferences;
     private ImageButton btn_add_address;
@@ -142,6 +141,10 @@ public class MyOrderConfrimActivity extends BaseActivity {
      * 支付总额
      */
     private double mNeedSumMoney = 0;
+    /**
+     * 运费
+     */
+    private double express_fee = 0;
     /**
      * 可用红包抵押的钱
      */
@@ -288,12 +291,7 @@ public class MyOrderConfrimActivity extends BaseActivity {
         sb.SetOnChangedListener(new OnChangedListener() {
             @Override
             public void OnChanged(boolean isCheck) {
-                Log.e(TAG, "isCheck================" + isCheck);
-                Log.e(TAG, "mNeedSumMoney================" + mNeedSumMoney);
-                Log.e(TAG, "packet================" + packet);
-                Log.e(TAG, "cashing_packet================" + cashing_packet);
-                Log.e(TAG, "kedi_hongbao================" + kedi_hongbao);
-                double payMoney = 0.0;
+                double payMoney = express_fee;
                 if (isCheck) { //选择的使用红包
 
                     if (mOwnedPacket == 0 || mExpectPacket == 0) {
@@ -302,7 +300,7 @@ public class MyOrderConfrimActivity extends BaseActivity {
                         kou_hongbao = 0;// 红包为0
                         rl_hongbao.setVisibility(View.GONE);
                         tv_jiaguo.setText("￥" + doubleToString(mNeedSumMoney) + " , " + mSumQuantity + "件，红包可抵扣: ￥" + 0 + "元");
-                        payMoney = mNeedSumMoney;
+                        payMoney += mNeedSumMoney;
                     } else {
                         heji.setVisibility(View.VISIBLE);
                         rl_hongbao.setVisibility(View.VISIBLE);
@@ -315,14 +313,14 @@ public class MyOrderConfrimActivity extends BaseActivity {
                             userRedPacket = mOwnedPacket;
                         }
                         tv_jiaguo.setText("￥" + doubleToString(mNeedSumMoney) + " , " + mSumQuantity + "件，红包可抵扣: ￥" + userRedPacket + "元");
-                        payMoney = mNeedSumMoney - userRedPacket;
+                        payMoney += mNeedSumMoney - userRedPacket;
                     }
                 } else { //不使用红包
                     System.out.println("dzongjia2================" + mNeedSumMoney);
                     heji.setVisibility(View.VISIBLE);
                     tv_hongbao.setText("不可以使用红包");
                     tv_jiaguo.setText("￥" + doubleToString(mNeedSumMoney) + " , " + mSumQuantity + "件，红包可抵扣: ￥" + 0 + "元");
-                    payMoney = mNeedSumMoney;
+                    payMoney += mNeedSumMoney;
                     kou_hongbao = 0;// 不抵扣红包
                 }
                 tv_hb_ye.setText(String.valueOf(packet));
@@ -822,21 +820,21 @@ public class MyOrderConfrimActivity extends BaseActivity {
                         kedi_hongbao = String.valueOf(cashing_packet);
                         System.out.println("可用红包---------------" + packet);
                         System.out.println("可抵红包---------------" + cashing_packet);
-                        double payMoney = 0.0;
+                        double payMoney = express_fee; //运费
                         if (0 == mOwnedPacket) {
                             tv_hongbao.setText("不可以使用红包");
 //                            sb.setVisibility(View.GONE);
-                            payMoney = mNeedSumMoney;
+                            payMoney += mNeedSumMoney;
                         } else if (0 == mExpectPacket) {
                             tv_hongbao.setText("不可以使用红包" + "元");
-                            payMoney = mNeedSumMoney;
+                            payMoney += mNeedSumMoney;
                             sb.setVisibility(View.GONE);
                         } else if (mOwnedPacket > mExpectPacket) {
                             tv_hongbao.setText("可用" + mExpectPacket + "元红包抵" + mExpectPacket + "元");
                             sb.setVisibility(View.VISIBLE);
-                            payMoney = mNeedSumMoney - mOwnedPacket;
+                            payMoney += mNeedSumMoney - mOwnedPacket;
                         } else if (mOwnedPacket < mExpectPacket) {
-                            payMoney = mNeedSumMoney - mOwnedPacket;
+                            payMoney+= mNeedSumMoney - mOwnedPacket;
                             tv_hongbao.setText("可用" + mOwnedPacket + "元红包抵" + mOwnedPacket + "元");
                             sb.setVisibility(View.VISIBLE);
                         }
@@ -951,11 +949,11 @@ public class MyOrderConfrimActivity extends BaseActivity {
                                             String price = String.valueOf(express_fee);
                                             tv_zhifu.setText(ZhiFuFangShi + "(" + "￥" + price + ")");
                                             BigDecimal c = new BigDecimal(mNeedSumMoney + express_fee);
-                                            mNeedSumMoney = c.setScale(2, BigDecimal.ROUND_HALF_UP).doubleValue();
+                                            double needMoney = c.setScale(2, BigDecimal.ROUND_HALF_UP).doubleValue();
                                             if (mExchangePoint != null) {
-                                                heji.setText("实付款:" + " 福利" + mExchangePoint + " + " + "￥" + mNeedSumMoney);
+                                                heji.setText("实付款:" + " 福利" + mExchangePoint + " + " + "￥" + needMoney);
                                             } else {
-                                                heji.setText("实付款:" + " ￥" + mNeedSumMoney);
+                                                heji.setText("实付款:" + " ￥" + needMoney);
                                                 isShowThreePay(mNeedSumMoney);
                                             }
                                         }
@@ -979,13 +977,13 @@ public class MyOrderConfrimActivity extends BaseActivity {
                                             String price = String.valueOf(express_fee);
                                             tv_zhifu.setText(ZhiFuFangShi + "(" + "￥" + price + ")");
                                             BigDecimal c = new BigDecimal(mNeedSumMoney + express_fee);
-                                            mNeedSumMoney = c.setScale(2, BigDecimal.ROUND_HALF_UP)
+                                           double needMoney = c.setScale(2, BigDecimal.ROUND_HALF_UP)
                                                     .doubleValue();
                                             if (mExchangePoint != null) {
                                                 heji.setText("实付款:" + " 福利" + mExchangePoint + " + " + "￥"
-                                                        + mNeedSumMoney);
+                                                        + needMoney);
                                             } else {
-                                                heji.setText("实付款:" + " ￥" + mNeedSumMoney);
+                                                heji.setText("实付款:" + " ￥" + needMoney);
                                                 isShowThreePay(mNeedSumMoney);
                                             }
                                         }
@@ -1598,8 +1596,6 @@ public class MyOrderConfrimActivity extends BaseActivity {
     }
 
     /**
-     *
-     *
      * @param goodsId
      */
     private void showOrderInfoActivity(int goodsId) {
