@@ -834,7 +834,7 @@ public class MyOrderConfrimActivity extends BaseActivity {
                             sb.setVisibility(View.VISIBLE);
                             payMoney += mNeedSumMoney - mOwnedPacket;
                         } else if (mOwnedPacket < mExpectPacket) {
-                            payMoney+= mNeedSumMoney - mOwnedPacket;
+                            payMoney += mNeedSumMoney - mOwnedPacket;
                             tv_hongbao.setText("可用" + mOwnedPacket + "元红包抵" + mOwnedPacket + "元");
                             sb.setVisibility(View.VISIBLE);
                         }
@@ -977,7 +977,7 @@ public class MyOrderConfrimActivity extends BaseActivity {
                                             String price = String.valueOf(express_fee);
                                             tv_zhifu.setText(ZhiFuFangShi + "(" + "￥" + price + ")");
                                             BigDecimal c = new BigDecimal(mNeedSumMoney + express_fee);
-                                           double needMoney = c.setScale(2, BigDecimal.ROUND_HALF_UP)
+                                            double needMoney = c.setScale(2, BigDecimal.ROUND_HALF_UP)
                                                     .doubleValue();
                                             if (mExchangePoint != null) {
                                                 heji.setText("实付款:" + " 福利" + mExchangePoint + " + " + "￥"

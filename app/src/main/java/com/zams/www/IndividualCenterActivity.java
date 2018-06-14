@@ -192,8 +192,7 @@ public class IndividualCenterActivity extends Fragment implements
             headimgurl2 = spPreferences_login.getString("headimgurl2", "");
 
             System.out.println("nickname=================" + nickname);
-
-            if (!nickname.equals("")) {
+            if (!TextUtils.isEmpty(nickname)) {
                 getjianche();// 后台检测是否绑定手机
             } else {
                 getuserxinxi();
@@ -219,10 +218,6 @@ public class IndividualCenterActivity extends Fragment implements
         sex = spPreferences_login.getString("sex", "");
         String oauth_openid = spPreferences_login.getString("oauth_openid", "");
 
-        System.out.println("UserLoginActivity====================="
-                + UserLoginActivity.oauth_name);
-        System.out.println("UserLoginWayActivity====================="
-                + UserLoginWayActivity.oauth_name);
 
         if (UserLoginActivity.oauth_name.equals("weixin")) {
             oauth_name = "weixin";
@@ -346,8 +341,7 @@ public class IndividualCenterActivity extends Fragment implements
     }
 
     private void getuserxinxi() {
-
-
+        load_list();
         try {
 
             spPreferences = getActivity().getSharedPreferences("longuserset", Context.MODE_PRIVATE);
@@ -373,7 +367,6 @@ public class IndividualCenterActivity extends Fragment implements
                     ll_user_weixin.setVisibility(View.VISIBLE);
                     tv_weixin_name.setVisibility(View.GONE);
                     handler.sendEmptyMessage(-11);
-                    load_list();
                 } else {
                     try {
                         System.out.println("==22====");
@@ -424,7 +417,6 @@ public class IndividualCenterActivity extends Fragment implements
                     lau1.setVisibility(View.VISIBLE);
                     tv_weixin_name.setVisibility(View.GONE);
                     handler.sendEmptyMessage(-11);
-                    load_list();
                 } else {
                     lau0.setVisibility(View.VISIBLE);
                     lau1.setVisibility(View.GONE);
@@ -463,7 +455,7 @@ public class IndividualCenterActivity extends Fragment implements
                         "user_juduihuan", Context.MODE_PRIVATE);
                 spPreferences = getActivity().getSharedPreferences(
                         "longuserset", Context.MODE_PRIVATE);
-
+                user_id = "";
                 if (UserLoginActivity.panduan) {
                     // if (!user_name_weixin.equals("")) {
                     spPreferences_login.edit().clear().commit();
