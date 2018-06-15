@@ -90,6 +90,8 @@ public class Constant {
     public static final String PROVINCE = "province";
     public static final String CITY = "city";
     public static final String COUNTRY = "country";
+    public static final String SHOW_RED_POINT = "show_red_point";
+    public static final String SP_NOTICE = "sp_notice";
 
     public static class ShowMsgActivity {
         public static final String STitle = "showmsg_title";

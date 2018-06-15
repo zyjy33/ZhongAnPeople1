@@ -34,6 +34,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.hengyu.pub.QiYeJinMianAdaper;
+import com.android.hengyu.web.Constant;
 import com.android.hengyu.web.DialogProgress;
 import com.android.hengyu.web.RealmName;
 import com.android.hengyu.web.Webview1;
@@ -141,6 +142,8 @@ public class HomeActivity extends Fragment implements OnClickListener {
     private ArrayList<JuTuanGouData> list_ll = null;
     View layout;
     private ImageView redPackageImg;
+    private View mRedPoint;
+    private SharedPreferences mNoticeSp;
 
 
     public HomeActivity() {
@@ -172,6 +175,7 @@ public class HomeActivity extends Fragment implements OnClickListener {
         ll_sousuo.getBackground().setAlpha(70);
         mAq = new AQuery(getActivity());
         new_list = (ListView) layout.findViewById(R.id.new_list);
+        mRedPoint = layout.findViewById(R.id.red_point);
         ImageView iv_sousuo = (ImageView) layout.findViewById(R.id.iv_sousuo);
         iv_sousuo.setOnClickListener(new OnClickListener() {
             @Override
@@ -206,11 +210,12 @@ public class HomeActivity extends Fragment implements OnClickListener {
         img_user = (ImageView) layout.findViewById(R.id.img_user);
         img_shared = (ImageView) layout.findViewById(R.id.img_shared);
         img_user.setBackgroundResource(R.drawable.saoyisao);
-        img_shared.setBackgroundResource(R.drawable.home_fx);
+        img_shared.setBackgroundResource(R.drawable.message_icon_2);
         gridview = (GridView) layout.findViewById(R.id.gridView);
         redPackageImg = ((ImageView) layout.findViewById(R.id.red_package_img));
         redPackageImg.setOnClickListener(this);
         spPreferences = getActivity().getSharedPreferences("longuserset", Context.MODE_PRIVATE);
+        mNoticeSp = getActivity().getSharedPreferences(Constant.SP_NOTICE, Context.MODE_PRIVATE);
         requestRedPackage();
         initLayout(layout);
         getguangao();
@@ -248,6 +253,12 @@ public class HomeActivity extends Fragment implements OnClickListener {
     public void onResume() {
 
         super.onResume();
+        boolean isShowRed = mNoticeSp.getBoolean(Constant.SHOW_RED_POINT, false);
+        if (isShowRed) {
+            redPackageImg.setVisibility(View.VISIBLE);
+        } else {
+            redPackageImg.setVisibility(View.GONE);
+        }
         try {
 
             spPreferences_login = getActivity().getSharedPreferences("longuserset_login", Context.MODE_PRIVATE);
@@ -1091,7 +1102,7 @@ public class HomeActivity extends Fragment implements OnClickListener {
                         System.out.println("滑动" + arg0.getScrollY());
                         if (arg0.getScrollY() <= 1) {
                             img_user.setBackgroundResource(R.drawable.saoyisao);
-                            img_shared.setBackgroundResource(R.drawable.home_fx);
+                            img_shared.setBackgroundResource(R.drawable.message_icon_2);
                             home_title_layout.setBackgroundColor(getResources()
                                     .getColor(R.color.no_color));
                             // ll_sousuo.setBackgroundColor(getResources().getColor(R.color.no_color));
@@ -1100,7 +1111,7 @@ public class HomeActivity extends Fragment implements OnClickListener {
                                     R.color.no_color));
                         } else {
                             img_user.setBackgroundResource(R.drawable.sys_hs);
-                            img_shared.setBackgroundResource(R.drawable.fx_hs);
+                            img_shared.setBackgroundResource(R.drawable.message_icon);
                             home_title_layout.setBackgroundColor(getResources()
                                     .getColor(R.color.white));
                             ll_sousuo.setBackgroundColor(getResources().getColor(

@@ -63,6 +63,8 @@ public class SystemNoticeActivity extends BaseActivity implements View.OnClickLi
     private void initData() {
         SharedPreferences sp = getSharedPreferences(Constant.LONGUSERSET, Context.MODE_PRIVATE);
         mUserId = sp.getString(Constant.USER_ID, "");
+        SharedPreferences noticeSp = getSharedPreferences(Constant.SP_NOTICE, MODE_PRIVATE);
+        noticeSp.edit().putBoolean(Constant.SHOW_RED_POINT, false).commit();
     }
 
     private void initListener() {

@@ -78,7 +78,7 @@ public class WsManager {
         if (mInstance == null) {
             synchronized (WsManager.class) {
                 if (mInstance == null) {
-                    mSp = Location.getInstance().getSharedPreferences("sp_notice", Context.MODE_PRIVATE);
+                    mSp = Location.getInstance().getSharedPreferences(Constant.SP_NOTICE, Context.MODE_PRIVATE);
                     sNoticeId = mSp.getInt("notice_id", 0);
                     mInstance = new WsManager();
                 }
@@ -164,8 +164,13 @@ public class WsManager {
                     if (sNoticeId < 0) {
                         sNoticeId = 0;
                     }
-                    Log.e(TAG, "onTextMessage: "+content );
-                    mSp.edit().putInt("notice_id", sNoticeId).commit();
+                    Log.e(TAG, "onTextMessage: " + content);
+
+                    SharedPreferences.Editor edit = mSp.edit();
+                    edit.putBoolean(Constant.SHOW_RED_POINT, true);
+                    edit.putInt("notice_id", sNoticeId);
+                    edit.commit();
+
 //                    EventBus.getDefault().postSticky(new UpNoticeUi(EventConstants.UP_NOTICE_UI, content));
                 }
             }
@@ -446,7 +451,7 @@ public class WsManager {
         sendReq(Action.LOGIN, null, new ICallback() {
             @Override
             public void onSuccess(Object o) {
-                Log.d(TAG,"授权成功");
+                Log.d(TAG, "授权成功");
                 setStatus(WsStatus.CONNECT_SUCCESS);
             }
 
