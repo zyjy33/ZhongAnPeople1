@@ -47,6 +47,7 @@ import com.nostra13.universalimageloader.core.ImageLoader;
 import com.zams.www.R;
 import com.zams.www.UserLoginActivity;
 import com.zams.www.UserLoginWayActivity;
+import com.zams.www.health.HealthActivity;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -112,11 +113,10 @@ public class YunshangServiceActivity extends Fragment implements OnClickListener
 
     @Override
     public void onResume() {
-
         super.onResume();
         SharedPreferences spPreferences_login = getActivity().getSharedPreferences("longuserset_login", Context.MODE_PRIVATE);
         nickname = spPreferences_login.getString("nickname", "");
-
+        user_name_phone = spPreferences.getString("user", "");
         System.out.println("nickname=================" + nickname);
         if (!nickname.equals("")) {
             getjianche();//后台检测是否绑定手机
@@ -659,7 +659,7 @@ public class YunshangServiceActivity extends Fragment implements OnClickListener
         switch (v.getId()) {
             case R.id.zams_fw_1:
             case R.id.zams_fw_2:
-            case R.id.zams_fw_3:
+
             case R.id.zams_fw_4:
             case R.id.zams_fw_6:
             case R.id.zams_fw_7:
@@ -670,6 +670,29 @@ public class YunshangServiceActivity extends Fragment implements OnClickListener
             case R.id.zams_fw_5:
                 Intent intent = new Intent(getActivity(), PlatformhotlineActivity.class);
                 startActivity(intent);
+                break;
+            case R.id.zams_fw_3:
+                if (!nickname.equals("")) {
+                    if (!user_name_phone.equals("")) {
+                        Intent healthIntent = new Intent(getActivity(),
+                                HealthActivity.class);
+                        startActivity(healthIntent);
+                    } else {
+                        Intent intent3 = new Intent(getActivity(),
+                                TishiWxBangDingActivity.class);
+                        startActivity(intent3);
+                    }
+                } else {
+                    if (user_name_phone.equals("")) {
+                        Intent intent9 = new Intent(getActivity(),
+                                UserLoginActivity.class);
+                        startActivity(intent9);
+                    } else {
+                        Intent healthIntent = new Intent(getActivity(),
+                                HealthActivity.class);
+                        startActivity(healthIntent);
+                    }
+                }
                 break;
         }
     }

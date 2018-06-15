@@ -863,6 +863,7 @@
                 android:id="@+id/img_btn_health_manage"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
+                android:visibility="gone"
                 android:background="@color/white" >
 
                 <LinearLayout

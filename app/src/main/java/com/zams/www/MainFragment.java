@@ -54,6 +54,7 @@ import com.yanzhenjie.permission.Action;
 import com.yanzhenjie.permission.AndPermission;
 import com.yanzhenjie.permission.Permission;
 import com.zams.www.weiget.PermissionSetting;
+import com.zams.www.wsmanager.WsManager;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -127,7 +128,7 @@ public class MainFragment extends BaseActivity {
                 }
             }
         };
-
+        WsManager.getInstance().init();
 
         //来电监听，获取系统服务“TELEPHONY_SERVICE
         /*TelephonyManager telM = (TelephonyManager)getSystemService(Context.TELEPHONY_SERVICE);
@@ -468,7 +469,6 @@ public class MainFragment extends BaseActivity {
      */
 
 
-
     // 程序版本更新
     private void dialog() {
         System.out.println("首页版本==============");
@@ -481,7 +481,7 @@ public class MainFragment extends BaseActivity {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 AndPermission.with(MainFragment.this)
-                        .permission( Permission.Group.STORAGE)
+                        .permission(Permission.Group.STORAGE)
                         .onGranted(new Action() {
                             @Override
                             public void onAction(List<String> permissions) {
@@ -949,5 +949,11 @@ public class MainFragment extends BaseActivity {
     private String buildTransaction(final String type) {
         return (type == null) ? String.valueOf(System.currentTimeMillis())
                 : type + System.currentTimeMillis();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        WsManager.getInstance().disconnect();
     }
 }

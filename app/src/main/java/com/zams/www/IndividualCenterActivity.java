@@ -107,6 +107,7 @@ import com.yanzhenjie.permission.AndPermission;
 import com.yanzhenjie.permission.Permission;
 import com.zams.www.health.HealthActivity;
 import com.zams.www.weiget.PermissionSetting;
+import com.zams.www.wsmanager.WsManager;
 import com.zijunlin.Zxing.Demo.CaptureActivity;
 
 public class IndividualCenterActivity extends Fragment implements
@@ -194,6 +195,7 @@ public class IndividualCenterActivity extends Fragment implements
             System.out.println("nickname=================" + nickname);
             if (!TextUtils.isEmpty(nickname)) {
                 getjianche();// 后台检测是否绑定手机
+                WsManager.getInstance().init();
             } else {
                 getuserxinxi();
             }
@@ -456,6 +458,7 @@ public class IndividualCenterActivity extends Fragment implements
                 spPreferences = getActivity().getSharedPreferences(
                         "longuserset", Context.MODE_PRIVATE);
                 user_id = "";
+                WsManager.getInstance().disconnect();
                 if (UserLoginActivity.panduan) {
                     // if (!user_name_weixin.equals("")) {
                     spPreferences_login.edit().clear().commit();
@@ -1515,27 +1518,6 @@ public class IndividualCenterActivity extends Fragment implements
                 }
                 break;
             case R.id.img_btn_health_manage:// 健康管理
-                if (!nickname.equals("")) {
-                    if (!user_name_phone.equals("")) {
-                        Intent healthIntent = new Intent(getActivity(),
-                                HealthActivity.class);
-                        startActivity(healthIntent);
-                    } else {
-                        Intent intent = new Intent(getActivity(),
-                                TishiWxBangDingActivity.class);
-                        startActivity(intent);
-                    }
-                } else {
-                    if (user_name_phone.equals("")) {
-                        Intent intent9 = new Intent(getActivity(),
-                                UserLoginActivity.class);
-                        startActivity(intent9);
-                    } else {
-                        Intent healthIntent = new Intent(getActivity(),
-                                HealthActivity.class);
-                        startActivity(healthIntent);
-                    }
-                }
 
                 break;
             case R.id.roundImage_network:

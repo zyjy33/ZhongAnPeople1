@@ -1,6 +1,8 @@
 package com.zams.www.health.business;
 
 import android.content.Context;
+import android.text.Html;
+import android.text.method.LinkMovementMethod;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -115,7 +117,11 @@ public class OtherNoticeAdapter extends BaseAdapter {
                 } else {
                     holder = (ViewHolder) convertView.getTag();
                 }
-                holder.contentTv.setText(data.getContent());
+                String content = data.getContent();
+                if (content != null) {
+                    holder.contentTv.setMovementMethod(LinkMovementMethod.getInstance());
+                    holder.contentTv.setText(Html.fromHtml(content));
+                }
                 holder.moreLayout.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
