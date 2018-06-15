@@ -255,9 +255,9 @@ public class HomeActivity extends Fragment implements OnClickListener {
         super.onResume();
         boolean isShowRed = mNoticeSp.getBoolean(Constant.SHOW_RED_POINT, false);
         if (isShowRed) {
-            redPackageImg.setVisibility(View.VISIBLE);
+            mRedPoint.setVisibility(View.VISIBLE);
         } else {
-            redPackageImg.setVisibility(View.GONE);
+            mRedPoint.setVisibility(View.GONE);
         }
         try {
 
@@ -813,14 +813,7 @@ public class HomeActivity extends Fragment implements OnClickListener {
         iv_home_tp6 = (ImageView) layout.findViewById(R.id.iv_home_tp6);
         iv_home_tp7 = (ImageView) layout.findViewById(R.id.iv_home_tp7);
         iv_home_tp8 = (ImageView) layout.findViewById(R.id.iv_home_tp8);
-        //		iv_home_tp1.setBackgroundResource(R.drawable.sy_shg);
-        //		iv_home_tp2.setBackgroundResource(R.drawable.sy_tcg);
-        //		iv_home_tp3.setBackgroundResource(R.drawable.sy_jkg);
-        //		iv_home_tp4.setBackgroundResource(R.drawable.sy_jfg);
-        //		iv_home_tp5.setBackgroundResource(R.drawable.sy_zayl);
-        //		iv_home_tp6.setBackgroundResource(R.drawable.sy_ylyh);
-        //		iv_home_tp7.setBackgroundResource(R.drawable.sy_ppsj);
-        //		iv_home_tp8.setBackgroundResource(R.drawable.sy_ptg);
+
         Bitmap bm1 = BitmapFactory.decodeResource(this.getResources(), R.drawable.sy_shg);
         BitmapDrawable bd1 = new BitmapDrawable(this.getResources(), bm1);
         iv_home_tp1.setBackgroundDrawable(bd1);
@@ -830,7 +823,7 @@ public class HomeActivity extends Fragment implements OnClickListener {
         Bitmap bm3 = BitmapFactory.decodeResource(this.getResources(), R.drawable.sy_jkg);
         BitmapDrawable bd3 = new BitmapDrawable(this.getResources(), bm3);
         iv_home_tp3.setBackgroundDrawable(bd3);
-        Bitmap bm4 = BitmapFactory.decodeResource(this.getResources(), R.drawable.sy_jfg);
+        Bitmap bm4 = BitmapFactory.decodeResource(this.getResources(), R.drawable.sy_ppsj);
         BitmapDrawable bd4 = new BitmapDrawable(this.getResources(), bm4);
         iv_home_tp4.setBackgroundDrawable(bd4);
         Bitmap bm5 = BitmapFactory.decodeResource(this.getResources(), R.drawable.sy_zayl);
@@ -839,7 +832,7 @@ public class HomeActivity extends Fragment implements OnClickListener {
         Bitmap bm6 = BitmapFactory.decodeResource(this.getResources(), R.drawable.sy_ylyh);
         BitmapDrawable bd6 = new BitmapDrawable(this.getResources(), bm6);
         iv_home_tp6.setBackgroundDrawable(bd6);
-        Bitmap bm7 = BitmapFactory.decodeResource(this.getResources(), R.drawable.sy_ppsj);
+        Bitmap bm7 = BitmapFactory.decodeResource(this.getResources(), R.drawable.sy_jfg);
         BitmapDrawable bd7 = new BitmapDrawable(this.getResources(), bm7);
         iv_home_tp7.setBackgroundDrawable(bd7);
         Bitmap bm8 = BitmapFactory.decodeResource(this.getResources(), R.drawable.sy_ptg);
@@ -1007,13 +1000,16 @@ public class HomeActivity extends Fragment implements OnClickListener {
 
             @Override
             public void onClick(View arg0) {
-
-                String id = Integer.toString(datas.get(2).id);
-                System.out.println("=====================" + id);
-                Intent intent30 = new Intent(getActivity(),
-                        WareInformationActivity.class);
-                intent30.putExtra("id", id);
-                startActivity(intent30);
+//               红包馆
+//                String id = Integer.toString(datas.get(4).id);
+//                System.out.println("=====================" + id);
+//                Intent intent30 = new Intent(getActivity(),
+//                        WareInformationActivity.class);
+//                intent30.putExtra("id", id);
+//                startActivity(intent30);
+                Intent intent = new Intent(getActivity(), NewWare.class);
+                intent.putExtra("channel_name", "feedback");
+                startActivity(intent);
             }
         });
         yh_4.setOnClickListener(new OnClickListener() {
@@ -1041,7 +1037,8 @@ public class HomeActivity extends Fragment implements OnClickListener {
         yh_6.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View arg0) {
-                String id = Integer.toString(datas.get(4).id);
+
+                String id = Integer.toString(datas.get(2).id);
                 System.out.println("=====================" + id);
                 Intent intent30 = new Intent(getActivity(),
                         WareInformationActivity.class);
