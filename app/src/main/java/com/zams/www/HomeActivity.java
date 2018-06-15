@@ -1000,16 +1000,13 @@ public class HomeActivity extends Fragment implements OnClickListener {
 
             @Override
             public void onClick(View arg0) {
-//               红包馆
-//                String id = Integer.toString(datas.get(4).id);
-//                System.out.println("=====================" + id);
-//                Intent intent30 = new Intent(getActivity(),
-//                        WareInformationActivity.class);
-//                intent30.putExtra("id", id);
-//                startActivity(intent30);
-                Intent intent = new Intent(getActivity(), NewWare.class);
-                intent.putExtra("channel_name", "feedback");
-                startActivity(intent);
+
+                String id = Integer.toString(datas.get(2).id);
+                System.out.println("=====================" + id);
+                Intent intent30 = new Intent(getActivity(),
+                        WareInformationActivity.class);
+                intent30.putExtra("id", id);
+                startActivity(intent30);
             }
         });
         yh_4.setOnClickListener(new OnClickListener() {
@@ -1037,8 +1034,7 @@ public class HomeActivity extends Fragment implements OnClickListener {
         yh_6.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View arg0) {
-
-                String id = Integer.toString(datas.get(2).id);
+                String id = Integer.toString(datas.get(4).id);
                 System.out.println("=====================" + id);
                 Intent intent30 = new Intent(getActivity(),
                         WareInformationActivity.class);
@@ -1390,10 +1386,13 @@ public class HomeActivity extends Fragment implements OnClickListener {
                     }
                     break;
                 case 6:
-                    System.out.println("7=============");
-                    // Toast.makeText(getActivity(), "功能正在完善",  Toast.LENGTH_SHORT).show();
-                    Intent intent6 = new Intent(getActivity(),
-                            JuYunshangActivity.class);
+//                    System.out.println("7=============");
+//                    // Toast.makeText(getActivity(), "功能正在完善",  Toast.LENGTH_SHORT).show();
+//                    Intent intent6 = new Intent(getActivity(),
+//                            JuYunshangActivity.class);
+//                    startActivity(intent6);
+                    Intent intent6 = new Intent(getActivity(), NewWare.class);
+                    intent6.putExtra("channel_name", "feedback");
                     startActivity(intent6);
                     break;
                 case 7:
@@ -1607,7 +1606,7 @@ public class HomeActivity extends Fragment implements OnClickListener {
                 handler.sendEmptyMessage(2);
                 break;
             case R.id.index_item3:
-                handler.sendEmptyMessage(3);
+                handler.sendEmptyMessage(6);
                 break;
             case R.id.index_item4:
                 handler.sendEmptyMessage(4);
@@ -1616,7 +1615,7 @@ public class HomeActivity extends Fragment implements OnClickListener {
                 handler.sendEmptyMessage(5);
                 break;
             case R.id.index_item6:
-                handler.sendEmptyMessage(6);
+                handler.sendEmptyMessage(3);
                 break;
             case R.id.index_item7:
                 handler.sendEmptyMessage(7);

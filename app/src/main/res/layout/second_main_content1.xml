@@ -782,7 +782,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_marginLeft="5dp"
-                        android:text="每日劲爆品"
+                        android:text="推荐商品"
                         android:textColor="@color/black"
                         android:textSize="15sp" />
 
