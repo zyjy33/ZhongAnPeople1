@@ -203,12 +203,12 @@ public class MyShopPingCarActivity extends Fragment implements OnClickListener {
     public void onDestroy() {
         super.onDestroy();
 
-        if (lists.size() > 0) {
+        if (lists != null && lists.size() > 0) {
             lists.clear();
             lists = null;
         }
 
-        if (result.size() > 0) {
+        if (result != null && result.size() > 0) {
             result.clear();
             result = null;
         }
