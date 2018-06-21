@@ -157,7 +157,7 @@ public class YunshangServiceActivity extends Fragment implements OnClickListener
 
                     System.out.println("datall==============" + datall);
                     Activity activity = getActivity();
-                    if(activity==null){
+                    if (activity == null) {
                         return;
                     }
                     if (datall.equals("null")) {
@@ -536,20 +536,46 @@ public class YunshangServiceActivity extends Fragment implements OnClickListener
         switch (v.getId()) {
             case R.id.zams_fw_1:
                 Intent intent = new Intent(getActivity(), PlatformhotlineActivity.class);
+                intent.putExtra(PlatformhotlineActivity.PHONE_ONE,"400-606-1201");
+                intent.putExtra(PlatformhotlineActivity.PHONE_TWO,"010-62575060");
                 startActivity(intent);
                 break;
             case R.id.zams_fw_2:
+                showPhoneServiceActivity("家政服务", "",
+                        "不同于普通家政服务，中安民生的家政服务是为老粘人独家制定的，是综合报名、护理、保洁、家庭管理甚至物流配送为依托的全方位服务体系。",
+                        R.drawable.family_banner);
+                break;
             case R.id.zams_fw_4:
+                showPhoneServiceActivity("心理咨询", "",
+                        "中安民生配有专业的心理咨询医生，治疗与指导有需要的会员，为其提供救助和咨询帮助。并会对病情进行跟踪，间隔性主动与患者进行多次复诊。",
+                        R.drawable.psychological);
+                break;
             case R.id.zams_fw_6:
+                showPhoneServiceActivity("婚姻介绍", "",
+                        "周期性以各大厅为单位进行区域性单身联谊活动，并在大截点，如每季度、每半年、每年，将个大厅优质男女单身会员聚集在一起，举行大型单身联谊活动。",
+                        R.drawable.marriage);
+                break;
             case R.id.zams_fw_7:
+                showPhoneServiceActivity("保险服务", "",
+                        "中安民生的保险服务主要提供保险保障、咨询与申诉，以及附加价值服务。主要为有需要的会员，或参与外出养老方式的会员进行人身安全保障。",
+                        R.drawable.insurance);
+                break;
             case R.id.zams_fw_8:
+                showPhoneServiceActivity("慈善捐助", "",
+                        "由攸米行动发起的特色关爱活动，捐助行为包括，物品捐赠、书画义卖、图书推广、志愿者援助、钱款捐赠登，捐助过程完全透明、公开，捐助对象均可考察。",
+                        R.drawable.charitable);
+                break;
             case R.id.zams_fw_9:
-                Toast.makeText(getActivity(), "功能开放中，尽请期待", Toast.LENGTH_SHORT).show();
+                showPhoneServiceActivity("养老服务", "",
+                        "中安民生平台，致力于推动养老产业的持续、健康发展，着眼与经济发展新常态，站在供给侧结构改革历史前沿，以“为老年人服务”为宗旨，肩负“养好老人，管好小孩，家庭幸福，社会和谐”的社会责任。平台向会员提供八大创新养老：医疗养老，价值养老，文化养老，智能养老，云游养老，寺院养老，候鸟养老，公益养老。",
+                        R.drawable.pension);
                 break;
             case R.id.zams_fw_5:
-                showPhoneServiceActivity("法律援助", "010-57436263", "中安民生为弱势群体提供的专业法律维权渠道，合作专业法律相关从业人员或团队，提供一对一法律咨询与求助。为经济困难的会员给予法律保障。", R.drawable.legal_aid);
+                showPhoneServiceActivity("法律援助", "010-57436263",
+                        "中安民生为弱势群体提供的专业法律维权渠道，合作专业法律相关从业人员或团队，提供一对一法律咨询与求助。为经济困难的会员给予法律保障。",
+                        R.drawable.legal_aid);
                 break;
-            case R.id.zams_fw_3:
+            case R.id.zams_fw_3: //健康医疗
                 if (!nickname.equals("")) {
                     if (!user_name_phone.equals("")) {
                         Intent healthIntent = new Intent(getActivity(),
@@ -591,5 +617,7 @@ public class YunshangServiceActivity extends Fragment implements OnClickListener
         intent.putExtra(PhoneServiceActivity.PHONE_NUM, phoneNumber);
         startActivity(intent);
     }
+
+
 
 }

@@ -5,12 +5,15 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.hengyushop.demo.at.BaseActivity;
+import com.hengyushop.demo.service.PlatformhotlineActivity;
 import com.yanzhenjie.permission.Action;
 import com.yanzhenjie.permission.AndPermission;
 import com.yanzhenjie.permission.Permission;
@@ -82,23 +85,13 @@ public class PhoneServiceActivity extends BaseActivity implements View.OnClickLi
                 finish();
                 break;
             case R.id.start_call_btn:
-                AndPermission.with(this)
-                        .permission(Permission.CALL_PHONE)
-                        .onGranted(new Action() {
-                            @Override
-                            public void onAction(List<String> permissions) {
-                                Intent intent1 = new Intent(Intent.ACTION_CALL);// 调用系统的CALL
-                                intent1.setData(Uri.parse("tel:" + mPhoneNumber));
-                                startActivity(intent1);
-                                finish();
-                            }
-                        })
-                        .onDenied(new Action() {
-                            @Override
-                            public void onAction(List<String> permissions) {
-                                new PermissionSetting(PhoneServiceActivity.this).showSetting(permissions);
-                            }
-                        }).start();
+                if (TextUtils.isEmpty(mPhoneNumber)) {
+                    Toast.makeText(this, "此功能暂未开放", Toast.LENGTH_SHORT).show();
+                } else {
+                    Intent intent = new Intent(this, PlatformhotlineActivity.class);
+                    intent.putExtra(PlatformhotlineActivity.PHONE_ONE, mPhoneNumber);
+                    startActivity(intent);
+                }
                 break;
         }
     }

@@ -18,7 +18,6 @@
             android:layout_width="25dp"
             android:layout_height="25dp"
             android:layout_marginRight="15dp" />
-        <!-- market_information_sep_closed -->
     </RelativeLayout>
 
     <LinearLayout
@@ -40,7 +39,8 @@
             android:gravity="center"
             android:text="400-606-1201"
             android:textColor="@color/black"
-            android:textSize="16sp" />
+            android:textSize="16sp"
+            android:visibility="gone" />
 
         <TextView
             android:id="@+id/tv_dianhua2"
@@ -53,6 +53,7 @@
             android:gravity="center"
             android:text="010-62575060"
             android:textColor="@color/black"
-            android:textSize="16sp" />
+            android:textSize="16sp"
+            android:visibility="gone" />
     </LinearLayout>
 </LinearLayout>
