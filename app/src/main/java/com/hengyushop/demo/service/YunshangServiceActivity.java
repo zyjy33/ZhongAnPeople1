@@ -48,6 +48,7 @@ import com.zams.www.R;
 import com.zams.www.UserLoginActivity;
 import com.zams.www.UserLoginWayActivity;
 import com.zams.www.health.HealthActivity;
+import com.zams.www.phone.PhoneServiceActivity;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -56,29 +57,10 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 
 public class YunshangServiceActivity extends Fragment implements OnClickListener {
-    private ListView list_shop_cart;
-    private TextView tv_endnumber, tv_endmarketprice, tv_preferential,
-            tv_endmoney, jf, tv_shanchu;
-    private LinearLayout list_shops, list_none;
-    private WareDao wareDao;
-    private ShopCartData dm;
-    private ShopCartData data;
     private DialogProgress progress;
-    private String strUrl;
-    private String yth;
-    private MyPopupWindowMenu popupWindowMenu;
-    private EditText tv_amount_jf;
-    private UserRegisterData registerData;
-    private CheckBox in_jf, shopcart_item_check;
-    ArrayList<ShopCartData> list_ll;
-    static StringBuffer sb;
-    int shopping_id;
-    private int ID;
     String user_id;
-    private CheckBox ck_xuanzhe;
-    private Button btn_register;
     private SharedPreferences spPreferences;
-    private ImageView iv_biaoti, iv_biaoti1, iv_biaoti2, iv_biaoti3, iv_biaoti4;
+    private ImageView iv_biaoti;
     private ImageView zams_fw_1, zams_fw_2, zams_fw_3, zams_fw_4, zams_fw_5, zams_fw_6, zams_fw_7,
             zams_fw_8, zams_fw_9;
     ArrayList<WareInformationData> datas;
@@ -100,14 +82,11 @@ public class YunshangServiceActivity extends Fragment implements OnClickListener
         return layout;
     }
 
-    String user_name_weixin = "";
-    String user_name_qq = "";
     String weixin = "";
     String qq = "";
     String nickname = "";
     String user_name = "";
     String user_name_phone = "";
-    String user_name_key = "";
     String oauth_name;
     String datall;
 
@@ -266,14 +245,7 @@ public class YunshangServiceActivity extends Fragment implements OnClickListener
     private void ininate(View layout) {
         try {
             iv_biaoti = (ImageView) layout.findViewById(R.id.iv_biaoti);
-            //		iv_biaoti1 = (ImageView) layout.findViewById(R.id.iv_biaoti1);
-            //		iv_biaoti2 = (ImageView) layout.findViewById(R.id.iv_biaoti2);
-            //		iv_biaoti3 = (ImageView) layout.findViewById(R.id.iv_biaoti3);
-            //		iv_biaoti4 = (ImageView) layout.findViewById(R.id.iv_biaoti4);
-            //		iv_biaoti.setBackgroundResource(R.drawable.zams_fuwu);
-            Bitmap bm = BitmapFactory.decodeResource(this.getResources(), R.drawable.zams_fuwu);
-            BitmapDrawable bd = new BitmapDrawable(this.getResources(), bm);
-            iv_biaoti.setBackgroundDrawable(bd);
+            iv_biaoti.setImageResource(R.drawable.zams_fuwu);
             zams_fw_1 = (ImageView) layout.findViewById(R.id.zams_fw_1);
             zams_fw_2 = (ImageView) layout.findViewById(R.id.zams_fw_2);
             zams_fw_3 = (ImageView) layout.findViewById(R.id.zams_fw_3);
@@ -283,43 +255,15 @@ public class YunshangServiceActivity extends Fragment implements OnClickListener
             zams_fw_7 = (ImageView) layout.findViewById(R.id.zams_fw_7);
             zams_fw_8 = (ImageView) layout.findViewById(R.id.zams_fw_8);
             zams_fw_9 = (ImageView) layout.findViewById(R.id.zams_fw_9);
-            //		zams_fw_1.setBackgroundResource(R.drawable.fw_tp1);
-            //		zams_fw_2.setBackgroundResource(R.drawable.fw_tp2);
-            //		zams_fw_3.setBackgroundResource(R.drawable.fw_tp3);
-            //		zams_fw_4.setBackgroundResource(R.drawable.fw_tp4);
-            //		zams_fw_5.setBackgroundResource(R.drawable.fw_tp5);
-            //		zams_fw_6.setBackgroundResource(R.drawable.fw_tp6);
-            //		zams_fw_7.setBackgroundResource(R.drawable.fw_tp7);
-            //		zams_fw_8.setBackgroundResource(R.drawable.fw_tp8);
-            //		zams_fw_9.setBackgroundResource(R.drawable.fw_tp9);
-
-            Bitmap bm1 = BitmapFactory.decodeResource(this.getResources(), R.drawable.fw_tp1);
-            BitmapDrawable bd1 = new BitmapDrawable(this.getResources(), bm1);
-            zams_fw_1.setBackgroundDrawable(bd1);
-            Bitmap bm2 = BitmapFactory.decodeResource(this.getResources(), R.drawable.fw_tp2);
-            BitmapDrawable bd2 = new BitmapDrawable(this.getResources(), bm2);
-            zams_fw_2.setBackgroundDrawable(bd2);
-            Bitmap bm3 = BitmapFactory.decodeResource(this.getResources(), R.drawable.fw_tp3);
-            BitmapDrawable bd3 = new BitmapDrawable(this.getResources(), bm3);
-            zams_fw_3.setBackgroundDrawable(bd3);
-            Bitmap bm4 = BitmapFactory.decodeResource(this.getResources(), R.drawable.fw_tp4);
-            BitmapDrawable bd4 = new BitmapDrawable(this.getResources(), bm4);
-            zams_fw_4.setBackgroundDrawable(bd4);
-            Bitmap bm5 = BitmapFactory.decodeResource(this.getResources(), R.drawable.fw_tp5);
-            BitmapDrawable bd5 = new BitmapDrawable(this.getResources(), bm5);
-            zams_fw_5.setBackgroundDrawable(bd5);
-            Bitmap bm6 = BitmapFactory.decodeResource(this.getResources(), R.drawable.fw_tp6);
-            BitmapDrawable bd6 = new BitmapDrawable(this.getResources(), bm6);
-            zams_fw_6.setBackgroundDrawable(bd6);
-            Bitmap bm7 = BitmapFactory.decodeResource(this.getResources(), R.drawable.fw_tp7);
-            BitmapDrawable bd7 = new BitmapDrawable(this.getResources(), bm7);
-            zams_fw_7.setBackgroundDrawable(bd7);
-            Bitmap bm8 = BitmapFactory.decodeResource(this.getResources(), R.drawable.fw_tp8);
-            BitmapDrawable bd8 = new BitmapDrawable(this.getResources(), bm8);
-            zams_fw_8.setBackgroundDrawable(bd8);
-            Bitmap bm9 = BitmapFactory.decodeResource(this.getResources(), R.drawable.fw_tp9);
-            BitmapDrawable bd9 = new BitmapDrawable(this.getResources(), bm9);
-            zams_fw_9.setBackgroundDrawable(bd9);
+            zams_fw_1.setImageResource(R.drawable.fw_tp1);
+            zams_fw_2.setImageResource(R.drawable.fw_tp2);
+            zams_fw_3.setImageResource(R.drawable.fw_tp3);
+            zams_fw_4.setImageResource(R.drawable.fw_tp4);
+            zams_fw_5.setImageResource(R.drawable.fw_tp5);
+            zams_fw_6.setImageResource(R.drawable.fw_tp6);
+            zams_fw_7.setImageResource(R.drawable.fw_tp7);
+            zams_fw_8.setImageResource(R.drawable.fw_tp8);
+            zams_fw_9.setImageResource(R.drawable.fw_tp9);
 
 
             zams_fw_5.setOnClickListener(this);
@@ -582,84 +526,16 @@ public class YunshangServiceActivity extends Fragment implements OnClickListener
 
     public void onDestroy() {
         super.onDestroy();
-        try {
-            BitmapDrawable bd = (BitmapDrawable) iv_biaoti.getBackground();
-            iv_biaoti.setBackgroundResource(0);//别忘了把背景设为null，避免onDraw刷新背景时候出现used a recycled bitmap错误
-            bd.setCallback(null);
-            bd.getBitmap().recycle();
-            BitmapDrawable bd1 = (BitmapDrawable) zams_fw_1.getBackground();
-            zams_fw_1.setBackgroundResource(0);//别忘了把背景设为null，避免onDraw刷新背景时候出现used a recycled bitmap错误
-            bd1.setCallback(null);
-            bd1.getBitmap().recycle();
-            BitmapDrawable bd2 = (BitmapDrawable) zams_fw_2.getBackground();
-            zams_fw_2.setBackgroundResource(0);//别忘了把背景设为null，避免onDraw刷新背景时候出现used a recycled bitmap错误
-            bd2.setCallback(null);
-            bd2.getBitmap().recycle();
-            BitmapDrawable bd3 = (BitmapDrawable) zams_fw_3.getBackground();
-            zams_fw_3.setBackgroundResource(0);//别忘了把背景设为null，避免onDraw刷新背景时候出现used a recycled bitmap错误
-            bd3.setCallback(null);
-            bd3.getBitmap().recycle();
-            BitmapDrawable bd4 = (BitmapDrawable) zams_fw_4.getBackground();
-            zams_fw_4.setBackgroundResource(0);//别忘了把背景设为null，避免onDraw刷新背景时候出现used a recycled bitmap错误
-            bd4.setCallback(null);
-            bd4.getBitmap().recycle();
-            BitmapDrawable bd5 = (BitmapDrawable) zams_fw_5.getBackground();
-            zams_fw_5.setBackgroundResource(0);//别忘了把背景设为null，避免onDraw刷新背景时候出现used a recycled bitmap错误
-            bd5.setCallback(null);
-            bd5.getBitmap().recycle();
-            BitmapDrawable bd6 = (BitmapDrawable) zams_fw_6.getBackground();
-            zams_fw_6.setBackgroundResource(0);//别忘了把背景设为null，避免onDraw刷新背景时候出现used a recycled bitmap错误
-            bd6.setCallback(null);
-            bd6.getBitmap().recycle();
-            BitmapDrawable bd7 = (BitmapDrawable) zams_fw_7.getBackground();
-            zams_fw_7.setBackgroundResource(0);//别忘了把背景设为null，避免onDraw刷新背景时候出现used a recycled bitmap错误
-            bd7.setCallback(null);
-            bd7.getBitmap().recycle();
-            BitmapDrawable bd8 = (BitmapDrawable) zams_fw_8.getBackground();
-            zams_fw_8.setBackgroundResource(0);//别忘了把背景设为null，避免onDraw刷新背景时候出现used a recycled bitmap错误
-            bd8.setCallback(null);
-            bd8.getBitmap().recycle();
-            BitmapDrawable bd9 = (BitmapDrawable) zams_fw_9.getBackground();
-            zams_fw_9.setBackgroundResource(0);//别忘了把背景设为null，避免onDraw刷新背景时候出现used a recycled bitmap错误
-            bd9.setCallback(null);
-            bd9.getBitmap().recycle();
-        } catch (Exception e) {
-
-            e.printStackTrace();
-        }
-        //			System.out.println("MyPosterView.type=======1=========="+MyPosterView.type);
-        //			System.out.println("HomeActivity.type=======1==============="+HomeActivity.type);
-        //			System.out.println("GouWuCheAGoodsAdaper.type=======1==============="+ GouWuCheAGoodsAdaper.type);
-        //			if (MyPosterView.type == true) {
-        //				MyPosterView.mQuery.clear();
-        //				MyPosterView.type = false;
-        //			}
-        //			if (HomeActivity.type == true) {
-        //				HomeActivity.mAq.clear();
-        //				HomeActivity.type = false;
-        //			}
-        //
-        //			if (GouWuCheAGoodsAdaper.type == true) {
-        //				GouWuCheAGoodsAdaper.mAq.clear();
-        //				GouWuCheAGoodsAdaper.type = false;
-        //			}
-        //			if (MyShopPingCarActivity.type == true) {
-        //				MyShopPingCarActivity.query.clear();
-        //				MyShopPingCarActivity.type = false;
-        //			}
-        //			System.out.println("HomeActivity.type=======2=========="+ HomeActivity.type);
-        //			System.out.println("MyPosterView.type=======2==============="+ MyPosterView.type);
-        //			System.out.println("GouWuCheAGoodsAdaper.type=======2==============="+ GouWuCheAGoodsAdaper.type);
     }
-
-    ;
 
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.zams_fw_1:
+                Intent intent = new Intent(getActivity(), PlatformhotlineActivity.class);
+                startActivity(intent);
+                break;
             case R.id.zams_fw_2:
-
             case R.id.zams_fw_4:
             case R.id.zams_fw_6:
             case R.id.zams_fw_7:
@@ -668,8 +544,7 @@ public class YunshangServiceActivity extends Fragment implements OnClickListener
                 Toast.makeText(getActivity(), "功能开放中，尽请期待", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.zams_fw_5:
-                Intent intent = new Intent(getActivity(), PlatformhotlineActivity.class);
-                startActivity(intent);
+                showPhoneServiceActivity("法律援助", "010-57436263", "中安民生为弱势群体提供的专业法律维权渠道，合作专业法律相关从业人员或团队，提供一对一法律咨询与求助。为经济困难的会员给予法律保障。", R.drawable.legal_aid);
                 break;
             case R.id.zams_fw_3:
                 if (!nickname.equals("")) {
@@ -696,4 +571,22 @@ public class YunshangServiceActivity extends Fragment implements OnClickListener
                 break;
         }
     }
+
+    /**
+     * 去咨询页面
+     *
+     * @param title
+     * @param phoneNumber
+     * @param content
+     * @param resId
+     */
+    public void showPhoneServiceActivity(String title, String phoneNumber, String content, int resId) {
+        Intent intent = new Intent(getActivity(), PhoneServiceActivity.class);
+        intent.putExtra(PhoneServiceActivity.TITLE, title);
+        intent.putExtra(PhoneServiceActivity.CONTENT, content);
+        intent.putExtra(PhoneServiceActivity.INM_RES_ID, resId);
+        intent.putExtra(PhoneServiceActivity.PHONE_NUM, phoneNumber);
+        startActivity(intent);
+    }
+
 }

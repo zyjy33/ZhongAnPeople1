@@ -984,6 +984,9 @@
         <activity
             android:name=".notice.SysNoticeManagerActivity"
             android:screenOrientation="portrait" />
+        <activity
+            android:name=".phone.PhoneServiceActivity"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

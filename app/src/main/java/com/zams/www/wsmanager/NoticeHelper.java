@@ -37,9 +37,7 @@ public class NoticeHelper {
          *  设置Builder
          */
         //设置标题
-        mBuilder.setContentTitle(title)
-                //设置内容
-                .setContentText(content)
+        mBuilder.setContentText(content)
                 //设置小图标
                 .setSmallIcon(R.drawable.zams)
                 //设置通知时间
