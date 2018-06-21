@@ -3,14 +3,10 @@ package com.lglottery.www.domain;
 import java.util.ArrayList;
 
 import com.android.hengyu.web.RealmName;
-import com.hengyushop.json.LingjiaDo;
-import com.lglottery.www.common.U;
-import com.lglottery.www.domain.Lglottery_Log;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.zams.www.R;
 
 import android.content.Context;
-import android.graphics.Paint;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;

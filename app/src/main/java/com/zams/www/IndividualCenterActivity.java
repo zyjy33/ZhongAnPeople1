@@ -185,7 +185,6 @@ public class IndividualCenterActivity extends Fragment implements
 
             lau0.setBackgroundDrawable(getResources().getDrawable(R.drawable.denglu_beijing));
             lau1.setBackgroundDrawable(getResources().getDrawable(R.drawable.denglu_beijing));
-
             spPreferences_login = getActivity().getSharedPreferences("longuserset_login", Context.MODE_PRIVATE);
             nickname = spPreferences_login.getString("nickname", "");
             mMobile = spPreferences_login.getString("mobile", "");
@@ -350,7 +349,6 @@ public class IndividualCenterActivity extends Fragment implements
             user_name_phone = spPreferences.getString("user", "");
             System.out.println("user_name_phone================="
                     + user_name_phone);
-
 
             if (!user_name_phone.equals("")) {
                 user_id = spPreferences.getString("user_id", "");
@@ -2347,9 +2345,12 @@ public class IndividualCenterActivity extends Fragment implements
                                 list_3 = null;
                                 list_4 = null;
                             } else {
-                                // progress.CloseProgress();
+                                tv_quanbu.setText("0");
+                                tv_unpay.setText("0");
+                                tv_delivered.setText("0");
+                                tv_received.setText("0");
+                                tv_payed.setText("0");
                             }
-                            //							load_list1();
                         } catch (Exception e) {
 
                             e.printStackTrace();
