@@ -73,6 +73,7 @@ import com.yanzhenjie.permission.Action;
 import com.yanzhenjie.permission.AndPermission;
 import com.yanzhenjie.permission.Permission;
 import com.zams.www.notice.SystemNoticeActivity;
+import com.zams.www.utils.UiUtils;
 import com.zams.www.weiget.PermissionSetting;
 import com.zxing.android.CaptureActivity;
 
@@ -213,6 +214,7 @@ public class HomeActivity extends Fragment implements OnClickListener {
         img_shared.setBackgroundResource(R.drawable.message_icon_2);
         gridview = (GridView) layout.findViewById(R.id.gridView);
         redPackageImg = ((ImageView) layout.findViewById(R.id.red_package_img));
+        redPackageImg.getLayoutParams().height = (int) (UiUtils.getScreenWidth()*0.16);
         redPackageImg.setOnClickListener(this);
         spPreferences = getActivity().getSharedPreferences("longuserset", Context.MODE_PRIVATE);
         mNoticeSp = getActivity().getSharedPreferences(Constant.SP_NOTICE, Context.MODE_PRIVATE);

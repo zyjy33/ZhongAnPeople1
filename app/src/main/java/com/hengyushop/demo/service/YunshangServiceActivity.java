@@ -1,5 +1,6 @@
 package com.hengyushop.demo.service;
 
+import android.app.Activity;
 import android.app.Fragment;
 import android.content.Context;
 import android.content.Intent;
@@ -155,9 +156,13 @@ public class YunshangServiceActivity extends Fragment implements OnClickListener
                     //								area = obj.getString("area");
 
                     System.out.println("datall==============" + datall);
+                    Activity activity = getActivity();
+                    if(activity==null){
+                        return;
+                    }
                     if (datall.equals("null")) {
 
-                        SharedPreferences spPreferences_tishi = getActivity().getSharedPreferences("longuserset_tishi", Context.MODE_PRIVATE);
+                        SharedPreferences spPreferences_tishi = activity.getSharedPreferences("longuserset_tishi", Context.MODE_PRIVATE);
                         weixin = spPreferences_tishi.getString("weixin", "");
                         qq = spPreferences_tishi.getString("qq", "");
                         System.out.println("=================weixin==" + weixin);
@@ -170,7 +175,7 @@ public class YunshangServiceActivity extends Fragment implements OnClickListener
                             if (UserLoginActivity.panduan_tishi == true) {
                                 if (weixin.equals("weixin")) {
                                 } else {
-                                    Intent intent1 = new Intent(getActivity(), TishiWxBangDingActivity.class);
+                                    Intent intent1 = new Intent(activity, TishiWxBangDingActivity.class);
                                     startActivity(intent1);
                                     UserLoginActivity.panduan_tishi = false;
                                 }
@@ -178,7 +183,7 @@ public class YunshangServiceActivity extends Fragment implements OnClickListener
                             } else if (UserLoginWayActivity.panduan_tishi == true) {
                                 if (qq.equals("qq")) {
                                 } else {
-                                    Intent intent2 = new Intent(getActivity(), TishiWxBangDingActivity.class);
+                                    Intent intent2 = new Intent(activity, TishiWxBangDingActivity.class);
                                     startActivity(intent2);
                                     UserLoginWayActivity.panduan_tishi = false;
                                 }
@@ -196,10 +201,10 @@ public class YunshangServiceActivity extends Fragment implements OnClickListener
                         if (data.user_name.equals("匿名")) {
                             //										if (data.id.equals("0")) {
                             System.out.println("---微信还未绑定-------------------");
-                            Intent intent1 = new Intent(getActivity(), TishiWxBangDingActivity.class);
+                            Intent intent1 = new Intent(activity, TishiWxBangDingActivity.class);
                             startActivity(intent1);
                         } else {
-                            SharedPreferences spPreferences = getActivity().getSharedPreferences("longuserset", Context.MODE_PRIVATE);
+                            SharedPreferences spPreferences = activity.getSharedPreferences("longuserset", Context.MODE_PRIVATE);
                             String user = spPreferences.getString("user", "");
                             System.out.println("---1-------------------" + user);
                             data.login_sign = obj.getString("login_sign");
@@ -214,9 +219,7 @@ public class YunshangServiceActivity extends Fragment implements OnClickListener
                             System.out.println("---2-------------------" + user_name);
                         }
                     }
-
                     getuserxinxi();
-
                 } catch (JSONException e) {
 
                     e.printStackTrace();
