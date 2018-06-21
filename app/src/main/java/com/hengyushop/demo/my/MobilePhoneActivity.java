@@ -219,14 +219,6 @@ public class MobilePhoneActivity extends BaseActivity implements
                     }
 
                     break;
-                case R.id.img_title_login:
-                    int index = 0;
-                    Intent intent = new Intent(MobilePhoneActivity.this,
-                            UserLoginActivity.class);
-                    intent.putExtra("login", index);
-                    startActivity(intent);
-                    finish();
-                    break;
                 case R.id.btn_register:
                     yz = et_user_yz.getText().toString().trim();
                     phone = userphone.getText().toString().trim();

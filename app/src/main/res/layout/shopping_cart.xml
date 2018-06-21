@@ -85,7 +85,6 @@
                 android:textSize="20sp" />
 
             <Button
-                android:id="@+id/shopcart_un"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="6dp"
@@ -120,14 +119,12 @@
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/b"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:gravity="center_vertical"
                 android:orientation="vertical" >
 
                 <LinearLayout
-                    android:id="@+id/rl_settle_accounts"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="#dadada"
@@ -163,7 +160,6 @@
                         android:visibility="gone" >
 
                         <TextView
-                            android:id="@+id/tv_3"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="20dip"
@@ -186,7 +182,6 @@
                         android:visibility="gone" >
 
                         <TextView
-                            android:id="@+id/tv_4"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginRight="15dp"

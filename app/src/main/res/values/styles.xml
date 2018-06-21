@@ -33,15 +33,6 @@
         <!-- All customizations that are NOT specific to a particular API-level can go here. -->
     </style>
 
-    <style name="NavPage">
-        <item name="android:layout_width">fill_parent</item>
-        <item name="android:layout_height">fill_parent</item>
-        <item name="android:orientation">vertical</item>
-        <item name="android:gravity">center_horizontal</item>
-        <!-- <item name="android:background">@drawable/nav_page</item> -->
-        <item name="android:background">@color/navpage</item>
-    </style>
-
     <style name="CalendarTitle">
         <item name="android:textSize">@dimen/calendar_text_medium</item>
         <item name="android:textColor">@color/calendar_text_active</item>

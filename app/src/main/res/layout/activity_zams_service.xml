@@ -35,7 +35,6 @@
     </RelativeLayout>
 
     <ScrollView
-        android:id="@+id/ScrollView01"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:background="@color/white">
@@ -162,14 +161,12 @@
                 android:visibility="gone">
 
                 <RelativeLayout
-                    android:id="@+id/ll_zams_fw_1"
                     android:layout_width="0dp"
                     android:layout_height="120dp"
                     android:layout_weight="1"
                     android:padding="0dp">
 
                     <ImageView
-                        android:id="@+id/iv_zams_fw_1"
                         android:layout_width="30dp"
                         android:layout_height="30dp"
                         android:layout_alignParentRight="true"
@@ -187,7 +184,6 @@
                         android:scaleType="fitXY" />
 
                     <TextView
-                        android:id="@+id/zams_yh2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerHorizontal="true"
@@ -198,7 +194,6 @@
                         android:textSize="13sp" />
 
                     <TextView
-                        android:id="@+id/zams_yh1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerHorizontal="true"
@@ -215,14 +210,12 @@
                     android:background="@color/gray" />
 
                 <RelativeLayout
-                    android:id="@+id/ll_zams_fw_2"
                     android:layout_width="0dp"
                     android:layout_height="120dp"
                     android:layout_weight="1"
                     android:padding="0dp">
 
                     <ImageView
-                        android:id="@+id/iv_zams_fw_2"
                         android:layout_width="30dp"
                         android:layout_height="30dp"
                         android:layout_alignParentRight="true"
@@ -265,14 +258,12 @@
                     android:background="@color/gray" />
 
                 <RelativeLayout
-                    android:id="@+id/ll_zams_fw_3"
                     android:layout_width="0dp"
                     android:layout_height="120dp"
                     android:layout_weight="1"
                     android:padding="0dp">
 
                     <ImageView
-                        android:id="@+id/iv_zams_fw_3"
                         android:layout_width="30dp"
                         android:layout_height="30dp"
                         android:layout_alignParentRight="true"

@@ -7,7 +7,6 @@
     android:orientation="vertical" >
 
     <LinearLayout
-        android:id="@+id/top_bar"
         android:layout_width="match_parent"
         android:layout_height="48dp"
         android:background="@color/ybs"
@@ -151,7 +150,6 @@
         </Button>
         <!--  android:background="#ff9404" -->
         <Button
-            android:id="@+id/btn_add_order"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="3"

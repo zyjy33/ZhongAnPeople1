@@ -13,7 +13,6 @@
 
 
                     <ImageView
-                        android:id="@+id/iv_img1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
@@ -21,7 +20,6 @@
                         android:src="@drawable/huangguan" />
 
                     <TextView
-                         android:id="@+id/tv_wzhuti_name1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
@@ -36,7 +34,6 @@
                         android:layout_height="wrap_content"
                         android:background="@color/gray" />
                 <TextView
-                    android:id="@+id/tv_ware_name1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"

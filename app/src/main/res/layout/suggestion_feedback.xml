@@ -23,7 +23,6 @@
     </RelativeLayout>
 
     <EditText
-        android:id="@+id/et_suggestion"
         android:layout_width="match_parent"
         android:layout_height="200dp"
         android:layout_marginLeft="15dp"
@@ -33,7 +32,6 @@
         android:textSize="18dp" />
 
     <Button
-        android:id="@+id/btn_send"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="15dp"

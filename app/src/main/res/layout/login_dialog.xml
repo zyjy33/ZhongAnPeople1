@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/logindialog_space"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent" >
 
@@ -15,7 +14,6 @@
         android:scrollbars="none" >
 
         <FrameLayout
-            android:id="@+id/logindialog_view_switcher"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content" >
 
@@ -44,7 +42,6 @@
                         android:textStyle="bold" />
 
                     <TextView
-                        android:id="@+id/load_name"
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="8.0dip"
@@ -66,7 +63,6 @@
                     android:scaleType="fitXY" />
 
                 <LinearLayout
-                    android:id="@+id/login_uly"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1" >
@@ -83,7 +79,6 @@
                         android:textStyle="bold" />
 
                     <TextView
-                        android:id="@+id/load_account"
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="8.0dip"
@@ -121,7 +116,6 @@
                         android:textStyle="bold" />
 
                     <TextView
-                        android:id="@+id/load_shop_pay"
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="8.0dip"
@@ -159,7 +153,6 @@
                         android:textStyle="bold" />
 
                     <TextView
-                        android:id="@+id/load_pay"
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="8.0dip"
@@ -197,7 +190,6 @@
                         android:textStyle="bold" />
 
                     <EditText
-                        android:id="@+id/pay_password"
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="8.0dip"
@@ -217,7 +209,6 @@
                     android:layout_marginTop="15.0dip" >
 
                     <Button
-                        android:id="@+id/shop_pay"
                         android:layout_width="fill_parent"
                         android:layout_height="45dip"
                         android:gravity="center"

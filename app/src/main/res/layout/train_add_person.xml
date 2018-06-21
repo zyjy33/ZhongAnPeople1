@@ -90,19 +90,16 @@
                     android:paddingLeft="10dp" >
 
                     <RadioButton
-                        android:id="@+id/v31"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="成人票" />
 
                     <RadioButton
-                        android:id="@+id/v32"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="儿童票" />
 
                     <RadioButton
-                        android:id="@+id/v33"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="军残票" />
@@ -128,25 +125,21 @@
                     android:paddingLeft="10dp" >
 
                     <RadioButton
-                        android:id="@+id/v41"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="身份证" />
 
                     <RadioButton
-                        android:id="@+id/v42"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="港澳通行证" />
 
                     <RadioButton
-                        android:id="@+id/v43"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="台湾通行证" />
 
                     <RadioButton
-                        android:id="@+id/v44"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="护照" />

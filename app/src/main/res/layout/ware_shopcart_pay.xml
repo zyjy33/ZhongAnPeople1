@@ -80,7 +80,6 @@
         android:paddingTop="10dp" >
 
         <TextView
-            android:id="@+id/tv_3"
             android:layout_width="120dp"
             android:layout_height="wrap_content"
             android:text="聚汇宝:"
@@ -102,7 +101,6 @@
         android:src="@drawable/jiangexianlong" />
 
     <TextView
-        android:id="@+id/tv_4"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"

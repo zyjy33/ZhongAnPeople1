@@ -48,7 +48,6 @@
         android:layout_height="1dp"
         android:background="@color/gray" />
     <TextView
-        android:id="@+id/tag_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingLeft="@dimen/common_margin"
@@ -105,7 +104,6 @@
         f:verticalSpacing="@dimen/tag_vertical_spacing" />
 
     <Button
-        android:id="@+id/button1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:visibility="gone"

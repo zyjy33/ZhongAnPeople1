@@ -56,7 +56,6 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/tv_01"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="20dp"
@@ -193,7 +192,6 @@
                             android:src="@drawable/img_btn_add_select" />
 
                         <TextView
-                            android:id="@+id/tv_02"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_centerVertical="true"
@@ -611,7 +609,6 @@
                 </RelativeLayout>
 
                 <LinearLayout
-                    android:id="@+id/ll_hb_ye"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
@@ -747,7 +744,6 @@
                     android:orientation="horizontal">
 
                     <TextView
-                        android:id="@+id/yunfei"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
 
@@ -787,7 +783,6 @@
             android:visibility="gone">
 
             <LinearLayout
-                android:id="@+id/ll_duihuan"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="3"

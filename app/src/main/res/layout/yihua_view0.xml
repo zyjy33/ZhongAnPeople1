@@ -24,7 +24,6 @@
             android:layout_below="@+id/lay_t" >
 
             <ListView
-                android:id="@+id/yihua_list"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@color/no_color"
@@ -46,7 +45,6 @@
                 android:background="@android:color/background_dark" >
 
                 <EditText
-                    android:id="@+id/yihua_phone"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_alignParentLeft="true"
@@ -79,21 +77,18 @@
                 android:layout_weight="1" >
 
                 <Button
-                    android:id="@+id/k1"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:background="@drawable/keyboard_1_select" />
 
                 <Button
-                    android:id="@+id/k2"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:background="@drawable/keyboard_2_select" />
 
                 <Button
-                    android:id="@+id/k3"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -106,21 +101,18 @@
                 android:layout_weight="1" >
 
                 <Button
-                    android:id="@+id/k4"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:background="@drawable/keyboard_4_select" />
 
                 <Button
-                    android:id="@+id/k5"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:background="@drawable/keyboard_5_select" />
 
                 <Button
-                    android:id="@+id/k6"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -133,21 +125,18 @@
                 android:layout_weight="1" >
 
                 <Button
-                    android:id="@+id/k7"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:background="@drawable/keyboard_7_select" />
 
                 <Button
-                    android:id="@+id/k8"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:background="@drawable/keyboard_8_select" />
 
                 <Button
-                    android:id="@+id/k9"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -160,21 +149,18 @@
                 android:layout_weight="1" >
 
                 <Button
-                    android:id="@+id/kx"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:background="@drawable/keyboard_x_select" />
 
                 <Button
-                    android:id="@+id/k0"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:background="@drawable/keyboard_0_select" />
 
                 <Button
-                    android:id="@+id/kh"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"

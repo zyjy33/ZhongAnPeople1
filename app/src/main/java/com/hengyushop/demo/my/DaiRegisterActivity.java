@@ -235,14 +235,6 @@ public class DaiRegisterActivity extends BaseActivity implements
 					}
 
 					break;
-				case R.id.img_title_login:
-					// int index = 0;
-					// Intent intent = new
-					// Intent(DaiRegisterActivity.this,UserLoginActivity.class);
-					// intent.putExtra("login", index);
-					// startActivity(intent);
-					// finish();
-					break;
 				case R.id.btn_register:
 					dai_user_name = et_user_name.getText().toString().trim();
 					user_sfzh = et_user_sfzh.getText().toString().trim();

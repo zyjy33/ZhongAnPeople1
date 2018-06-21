@@ -56,7 +56,6 @@ import com.loopj.android.http.AsyncHttpResponseHandler;
 public class UserForgotPasswordActivity extends BaseActivity implements
 		OnClickListener {
 
-	private Button img_title_login;
 	private EditText userpwd, userphone, et_user_yz;
 	private Button btn_register, get_yz;
 	private String name, phone, postbox, pwd, pwdagain, insertdata, yz,
@@ -182,14 +181,12 @@ public class UserForgotPasswordActivity extends BaseActivity implements
 			//			ll_buju.setBackgroundResource(R.drawable.denglu_beijing);
 			et_user_yz = (EditText) findViewById(R.id.et_user_yz);
 			get_yz = (Button) findViewById(R.id.get_yz);
-			// img_title_login = (Button) findViewById(R.id.img_title_login);
 			// username = (EditText) findViewById(R.id.et_user_name);
 			userphone = (EditText) findViewById(R.id.et_user_phone);
 			// userpostbox = (EditText) findViewById(R.id.et_user_postbox);
 			userpwd = (EditText) findViewById(R.id.et_user_pwd);
 			// userpwdagain = (EditText) findViewById(R.id.et_user_pwd_again);
 			btn_register = (Button) findViewById(R.id.btn_register);
-			// img_title_login.setOnClickListener(this);
 			btn_register.setOnClickListener(this);
 			get_yz.setOnClickListener(this);
 		} catch (Exception e) {
@@ -255,14 +252,6 @@ public class UserForgotPasswordActivity extends BaseActivity implements
 						}
 					}
 
-					break;
-				case R.id.img_title_login:
-					int index = 0;
-					Intent intent = new Intent(UserForgotPasswordActivity.this,
-							UserLoginActivity.class);
-					intent.putExtra("login", index);
-					startActivity(intent);
-					finish();
 					break;
 				case R.id.btn_register:
 					yz = et_user_yz.getText().toString().trim();

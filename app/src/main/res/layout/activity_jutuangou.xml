@@ -1,7 +1,6 @@
  <ScrollView
             xmlns:android="http://schemas.android.com/apk/res/android"
-            android:id="@+id/ScrollView01"
-            android:layout_width="fill_parent"
+     android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:background="@color/dihuise"
     
@@ -45,8 +44,7 @@
         android:layout_margin="10dp"
         android:background="@drawable/gdxx" />
         <TextView
-        android:id="@+id/tv_zhongjiang"
-        android:layout_width="wrap_content"
+            android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_marginTop="0dp"
         android:textSize="13sp"
@@ -901,8 +899,7 @@
                     android:layout_weight="1"
                      >
 <ProgressBar
-                                        android:id="@+id/market_information_tip1"
-                                        style="?android:attr/progressBarStyleHorizontal"
+    style="?android:attr/progressBarStyleHorizontal"
                                         android:layout_width="match_parent"
                                         android:layout_height="8dp"
                                         android:layout_marginLeft="5dp"

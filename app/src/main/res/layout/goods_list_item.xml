@@ -60,7 +60,6 @@
                             android:background="@drawable/xingji" />
 
                         <RatingBar
-                            android:id="@+id/ratingBar1"
                             android:background="@drawable/huangguan"
                             android:visibility="gone"
                             android:layout_width="wrap_content"

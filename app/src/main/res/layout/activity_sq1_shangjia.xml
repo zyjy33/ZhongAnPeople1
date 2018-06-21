@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/test_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
@@ -137,8 +136,7 @@
 
                 
                  <EditText
-                     android:id="@+id/edt_sj_biaoqian"
-                    android:layout_width="match_parent"
+                     android:layout_width="match_parent"
                     android:layout_height="fill_parent"
                     android:layout_weight="1"
                     android:background="@null"

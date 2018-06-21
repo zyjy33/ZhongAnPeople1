@@ -6,7 +6,6 @@
     android:background="@drawable/shape_bg_round_combo" >
 
     <LinearLayout
-        android:id="@+id/tuan_test"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical" >
@@ -14,7 +13,6 @@
         <!-- 团购信息的图片android:textColor="#ff1e1e1e" -->
 
         <RelativeLayout
-            android:id="@+id/combo_title_area"
             android:layout_width="match_parent"
             android:layout_height="40dp" >
 

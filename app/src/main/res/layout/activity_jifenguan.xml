@@ -222,7 +222,6 @@
             android:background="@color/gray" />
 
         <ScrollView
-            android:id="@+id/ScrollView01"
             android:layout_width="fill_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="0dp" >
@@ -275,7 +274,6 @@
             android:layout_marginLeft="10dp" />
 
         <LinearLayout
-            android:id="@+id/ll_wenzi"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center_vertical"

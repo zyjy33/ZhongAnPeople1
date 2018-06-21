@@ -24,7 +24,6 @@
                 android:layout_height="180dp" />
 
             <LinearLayout
-                android:id="@+id/main_fragment_viewpager"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"></LinearLayout>
@@ -67,7 +66,6 @@
                         android:visibility="gone" />
 
                     <TextView
-                        android:id="@+id/tv_jutoutiao"
                         android:layout_width="wrap_content"
                         android:layout_height="fill_parent"
                         android:layout_marginLeft="0dp"
@@ -402,7 +400,6 @@
                 android:visibility="gone">
 
                 <LinearLayout
-                    android:id="@+id/zams_yh_0"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -411,14 +408,12 @@
                     android:padding="5dp">
 
                     <ImageView
-                        android:id="@+id/zams_yh0"
                         android:layout_width="80dp"
                         android:layout_height="80dp"
                         android:background="@drawable/ic_await_award"
                         android:scaleType="fitXY" />
 
                     <TextView
-                        android:id="@+id/zams_yh1"
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="2dp"
@@ -428,7 +423,6 @@
                         android:textSize="12sp" />
 
                     <TextView
-                        android:id="@+id/zams_yh2"
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="2dp"
@@ -443,7 +437,6 @@
                     android:background="@color/gray" />
 
                 <LinearLayout
-                    android:id="@+id/zams_yh_1"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -453,14 +446,12 @@
                     android:padding="5dp">
 
                     <ImageView
-                        android:id="@+id/zams_yh3"
                         android:layout_width="80dp"
                         android:layout_height="80dp"
                         android:background="@drawable/ic_await_award"
                         android:scaleType="fitXY" />
 
                     <TextView
-                        android:id="@+id/zams_yh4"
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="2dp"
@@ -470,7 +461,6 @@
                         android:textSize="12sp" />
 
                     <TextView
-                        android:id="@+id/zams_yh5"
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="2dp"
@@ -485,7 +475,6 @@
                     android:background="@color/gray" />
 
                 <LinearLayout
-                    android:id="@+id/zams_yh_2"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -495,14 +484,12 @@
                     android:padding="5dp">
 
                     <ImageView
-                        android:id="@+id/zams_yh6"
                         android:layout_width="80dp"
                         android:layout_height="80dp"
                         android:background="@drawable/ic_await_award"
                         android:scaleType="fitXY" />
 
                     <TextView
-                        android:id="@+id/zams_yh7"
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="2dp"
@@ -512,7 +499,6 @@
                         android:textSize="12sp" />
 
                     <TextView
-                        android:id="@+id/zams_yh8"
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="2dp"

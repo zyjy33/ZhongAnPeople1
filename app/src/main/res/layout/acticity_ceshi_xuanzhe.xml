@@ -53,7 +53,6 @@
             android:scaleType="fitXY" />
 
         <LinearLayout
-            android:id="@+id/ll_wenzi"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginLeft="0dip"
@@ -147,7 +146,6 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/ll_xiayiti"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"

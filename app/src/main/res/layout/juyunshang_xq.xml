@@ -40,8 +40,7 @@
         android:layout_height="1dp"
         android:background="@color/list_item_line" />
  <ScrollView
-            android:id="@+id/ScrollView01"
-            android:layout_width="match_parent"
+     android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@color/dihuise"
              >
@@ -797,8 +796,7 @@
 
                 
  <LinearLayout
-                    android:id="@+id/ll_"
-                    android:layout_width="0dp"
+     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:background="@android:color/white"

@@ -35,8 +35,7 @@
         android:layout_height="1dp"
         android:background="@color/gray" />
  <ScrollView
-            android:id="@+id/ScrollView01"
-            android:layout_width="fill_parent"
+     android:layout_width="fill_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="10dp"
              >

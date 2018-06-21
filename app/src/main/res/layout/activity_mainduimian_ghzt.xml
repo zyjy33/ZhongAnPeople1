@@ -85,7 +85,6 @@
                 android:orientation="horizontal"
                 >
          <ImageView
-             android:id="@+id/iv_qr_image3"
              android:layout_width="0dp"
              android:layout_height="wrap_content"
                android:layout_weight="1"
@@ -93,8 +92,7 @@
              android:scaleType="fitXY"
               />
           <ImageView
-             android:id="@+id/iv_qr_image4"
-             android:layout_width="0dp"
+              android:layout_width="0dp"
              android:layout_height="wrap_content"
              android:layout_weight="1"
               android:layout_marginLeft="10dp"

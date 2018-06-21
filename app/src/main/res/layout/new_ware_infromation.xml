@@ -5,14 +5,12 @@
     android:orientation="vertical" >
 
     <LinearLayout
-        android:id="@+id/market_content"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
         android:orientation="vertical" >
 
         <LinearLayout
-            android:id="@+id/sep_content"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
@@ -128,7 +126,6 @@
                                     android:visibility="gone" >
 
                                     <TextView
-                                        android:id="@+id/tv_subtitle"
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
                                         android:layout_weight="1"
@@ -157,7 +154,6 @@
                                     android:orientation="horizontal" >
 
                                     <LinearLayout
-                                        android:id="@+id/ll_money"
                                         android:layout_width="0dp"
                                         android:layout_height="wrap_content"
                                         android:layout_marginLeft="8dp"
@@ -376,7 +372,6 @@
                                 android:background="@color/list_diver" />
 
                             <LinearLayout
-                                android:id="@+id/market_information_appraise"
                                 android:layout_width="match_parent"
                                 android:layout_height="50dp" >
 
@@ -392,7 +387,6 @@
                                         android:layout_marginLeft="10dp" />
 
                                     <TextView
-                                        android:id="@+id/market_information_count"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:layout_marginLeft="10dp"
@@ -450,7 +444,6 @@
                                             android:textSize="14sp" />
 
                                         <ProgressBar
-                                            android:id="@+id/market_information_tip0"
                                             style="?android:attr/progressBarStyleHorizontal"
                                             android:layout_width="match_parent"
                                             android:layout_height="8dp"
@@ -479,7 +472,6 @@
                                             android:textSize="14sp" />
 
                                         <ProgressBar
-                                            android:id="@+id/market_information_tip1"
                                             style="?android:attr/progressBarStyleHorizontal"
                                             android:layout_width="match_parent"
                                             android:layout_height="8dp"
@@ -502,7 +494,6 @@
                                             android:textSize="14sp" />
 
                                         <ProgressBar
-                                            android:id="@+id/market_information_tip2"
                                             style="?android:attr/progressBarStyleHorizontal"
                                             android:layout_width="match_parent"
                                             android:layout_height="8dp"
@@ -515,7 +506,6 @@
                             </LinearLayout>
 
                             <LinearLayout
-                                android:id="@+id/market_information_appriase"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:orientation="vertical" >
