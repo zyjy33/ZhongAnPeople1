@@ -183,100 +183,83 @@ public class PhoneLoginActivity extends BaseActivity implements OnClickListener 
                     break;
                 case 6:
                     // Userdata();
-                    try {
-                        strUrlone = RealmName.REALM_NAME_LL
-                                + "/get_user_model?username=" + name + "";
-                        System.out.println("======11=============" + strUrlone);
-                        AsyncHttp.get(strUrlone, new AsyncHttpResponseHandler() {
-                            public void onSuccess(int arg0, String arg1) {
-                                try {
-                                    System.out
-                                            .println("======66输出用户资料============="
-                                                    + arg1);
-                                    JSONObject object = new JSONObject(arg1);
-                                    status = object.getString("status");
-                                    String datetime = object.getString("datetime");
-                                    JSONObject obj = object.getJSONObject("data");
-                                    if (status.equals("y")) {
-                                        data = new UserRegisterllData();
-                                        data.user_name = obj.getString("user_name");
-                                        data.id = obj.getString("id");
-                                        data.user_code = obj.getString("user_code");
-                                        data.agency_id = obj.getInt("agency_id");
-                                        data.amount = obj.getString("amount");
-                                        data.pension = obj.getString("pension");
-                                        data.packet = obj.getString("packet");
-                                        data.point = obj.getString("point");
-                                        data.group_id = obj.getString("group_id");
-                                        data.mobile = obj.getString("mobile");
-                                        data.login_sign = obj.getString("login_sign");
-                                        data.avatar = obj.getString("avatar");
-                                        data.real_name = obj.getString("real_name");
-                                        data.company_id = obj.getString("company_id");
-                                        data.birthday = obj.getString("birthday");
-                                        data.group_name = obj.getString("group_name");
-                                        data.sex = obj.getString("sex");
-                                        String country = obj.getString(Constant.COUNTRY);
-                                        String nickname = obj.getString(Constant.NICK_NAME);
-                                        String province = obj.getString(Constant.PROVINCE);
-                                        String city = obj.getString(Constant.CITY);
-                                        String area = obj.getString(Constant.AREA);
-                                        login_sign = data.login_sign;
-                                        spPreferences = getSharedPreferences("longuserset", MODE_PRIVATE);
-                                        editor = spPreferences.edit();
-                                        editor.putString("login_sign", data.login_sign);
-                                        editor.putString("avatar", data.avatar);
-                                        editor.putString("mobile", data.mobile);
-                                        editor.putString("group_id", data.group_id);
-                                        editor.putString("user", data.user_name);
-                                        editor.putString("user_id", data.id);
-                                        editor.putString("point", data.point);
-                                        editor.putString("real_name", data.real_name);
-                                        editor.putString("company_id", data.company_id);
-                                        editor.putString("birthday", data.birthday);
-                                        editor.putString("sex", data.sex);
-                                        editor.putString("datetime", datetime);
-                                        editor.putString("group_name", data.group_name);
-                                        editor.putString(Constant.NICK_NAME, nickname);
-                                        editor.putString(Constant.COUNTRY, country);
-                                        editor.putString(Constant.PROVINCE, province);
-                                        editor.putString(Constant.CITY, city);
-                                        editor.putString(Constant.AREA, area);
-                                        editor.commit();
-
-                                        finish();
-                                        data = null;
-                                    } else {
-
-                                    }
-                                } catch (JSONException e) {
-
-                                    e.printStackTrace();
+                    strUrlone = RealmName.REALM_NAME_LL + "/get_user_model?username=" + name + "";
+                    AsyncHttp.get(strUrlone, new AsyncHttpResponseHandler() {
+                        public void onSuccess(int arg0, String arg1) {
+                            try {
+                                JSONObject object = new JSONObject(arg1);
+                                status = object.getString("status");
+                                String datetime = object.getString("datetime");
+                                JSONObject obj = object.getJSONObject("data");
+                                if (status.equals("y")) {
+                                    data = new UserRegisterllData();
+                                    data.user_name = obj.getString("user_name");
+                                    data.id = obj.getString("id");
+                                    data.user_code = obj.getString("user_code");
+                                    data.agency_id = obj.getInt("agency_id");
+                                    data.amount = obj.getString("amount");
+                                    data.pension = obj.getString("pension");
+                                    data.packet = obj.getString("packet");
+                                    data.point = obj.getString("point");
+                                    data.group_id = obj.getString("group_id");
+                                    data.mobile = obj.getString("mobile");
+                                    data.login_sign = obj.getString("login_sign");
+                                    data.avatar = obj.getString("avatar");
+                                    data.real_name = obj.getString("real_name");
+                                    data.company_id = obj.getString("company_id");
+                                    data.birthday = obj.getString("birthday");
+                                    data.group_name = obj.getString("group_name");
+                                    data.sex = obj.getString("sex");
+                                    String nickname = obj.getString(Constant.NICK_NAME);
+                                    String province = obj.getString(Constant.PROVINCE);
+                                    String city = obj.getString(Constant.CITY);
+                                    String area = obj.getString(Constant.AREA);
+                                    login_sign = data.login_sign;
+                                    spPreferences = getSharedPreferences("longuserset", MODE_PRIVATE);
+                                    editor = spPreferences.edit();
+                                    editor.putString("login_sign", data.login_sign);
+                                    editor.putString("avatar", data.avatar);
+                                    editor.putString("mobile", data.mobile);
+                                    editor.putString("group_id", data.group_id);
+                                    editor.putString("user", data.user_name);
+                                    editor.putString("user_id", data.id);
+                                    editor.putString("point", data.point);
+                                    editor.putString("real_name", data.real_name);
+                                    editor.putString("company_id", data.company_id);
+                                    editor.putString("birthday", data.birthday);
+                                    editor.putString("sex", data.sex);
+                                    editor.putString("datetime", datetime);
+                                    editor.putString("group_name", data.group_name);
+                                    editor.putString(Constant.NICK_NAME, nickname);
+                                    editor.putString(Constant.PROVINCE, province);
+                                    editor.putString(Constant.CITY, city);
+                                    editor.putString(Constant.AREA, area);
+                                    editor.commit();
                                 }
+                            } catch (JSONException e) {
+                                e.printStackTrace();
                             }
+                            finish();
+                        }
 
-                            ;
+                        @Override
+                        public void onFailure(Throwable arg0, String arg1) {
 
-                            @Override
-                            public void onFailure(Throwable arg0, String arg1) {
+                            super.onFailure(arg0, arg1);
+                            finish();
+                            NewDataToast.makeText(PhoneLoginActivity.this,
+                                    "连接超时", false, 0).show();
+                        }
+                    }, PhoneLoginActivity.this);
 
-                                super.onFailure(arg0, arg1);
-                                NewDataToast.makeText(PhoneLoginActivity.this,
-                                        "连接超时", false, 0).show();
-                            }
-                        }, PhoneLoginActivity.this);
 
-                    } catch (Exception e) {
-
-                        e.printStackTrace();
-                    }
                     break;
                 case 10:
 
                     break;
                 case 1:
                     String str = (String) msg.obj;
-                    Toast.makeText(PhoneLoginActivity.this, str, 200).show();
+                    Toast.makeText(PhoneLoginActivity.this, str, Toast.LENGTH_SHORT).show();
                     break;
                 case 2:
                     NewDataToast.makeText(PhoneLoginActivity.this, "用户名错误", false,
@@ -609,16 +592,8 @@ public class PhoneLoginActivity extends BaseActivity implements OnClickListener 
                     } else {
                         progress.CreateProgress();
                         try {
-                            //					RequestParams params = new RequestParams();
-                            //					params.put("site", "mobile");
-                            //					params.put("username", name);
-                            //					params.put("password", password);
-                            //					params.put("terminal", "true");
-
-                            strUrlone = RealmName.REALM_NAME_LL
-                                    + "/user_login?site=mobile&username=" + name
+                            strUrlone = RealmName.REALM_NAME_LL + "/user_login?site=mobile&username=" + name
                                     + "&password=" + password + "&terminal=true";
-                            // System.out.println("=================001=="+strUrlone);
                             AsyncHttp.get(strUrlone, new AsyncHttpResponseHandler() {
                                 // AsyncHttp.post(RealmName.REALM_NAME_LL+"/user_login",
                                 // params, new AsyncHttpResponseHandler(){
@@ -628,8 +603,6 @@ public class PhoneLoginActivity extends BaseActivity implements OnClickListener 
                                     super.onSuccess(arg0, arg1);
                                     try {
                                         JSONObject jsonObject = new JSONObject(arg1);
-                                        System.out.println("=================1=="
-                                                + arg1);
                                         status = jsonObject.getString("status");
                                         System.out.println("status: " + status);
                                         String info = jsonObject.getString("info");
@@ -639,87 +612,31 @@ public class PhoneLoginActivity extends BaseActivity implements OnClickListener 
                                             id = bjot.getString("id");
                                             user_id = bjot.getString("id");
                                             user_name = bjot.getString("user_name");
-                                            // rnd = bjot.getString("password");
-                                            // System.out.println(status + "\n" + rnd);
+//                                            login_sign = bjot.getString("login_sign");
                                             md5.setInStr(password);
                                             md5.init();
                                             mm = md5.compute();
                                             mm = mm.toUpperCase();
-                                            // System.out.println("=================2=="
-                                            // +mm);
                                             String myrnd = rnd;
                                             md5.setInStr(mm + myrnd);
                                             md5.init();
                                             mi = md5.compute();
-                                            System.out.println("=================3=="
-                                                    + mi);
-                                            // handler.sendEmptyMessage(5);
-
-                                            // handler.sendEmptyMessage(6);
-                                            // Intent intent = new
-                                            // Intent(PhoneLoginActivity.this,MainFragment.class);
-                                            // startActivity(intent);
-                                            System.out
-                                                    .println("===========user_id========"
-                                                            + user_id);
-                                            Context context = null;
-                                            context = getApplicationContext();
                                             editor = spPreferences.edit();
                                             editor.putBoolean("save", true);
                                             editor.putString("user", userphone.getText().toString());
                                             editor.putString("pwd", et_pwd.getText().toString());
                                             editor.putString("user_id", user_id);
+//                                            editor.putString(Constant.LOGIN_SIGN, login_sign);
                                             editor.commit();
                                             panduan = true;
-
-                                            NewDataToast.makeText(
-                                                    getApplicationContext(), info,
-                                                    false, 0).show();
+                                            NewDataToast.makeText(getApplicationContext(), info, false, 0).show();
                                             progress.CloseProgress();
                                             handler.sendEmptyMessage(6);
-                                            UserLoginActivity.handler1
-                                                    .sendEmptyMessage(1);
-                                            finish();
-                                            // AppManager.getAppManager().finishActivity();
-
+                                            UserLoginActivity.handler1.sendEmptyMessage(1);
                                         } else if (status.equals("n")) {
-                                            NewDataToast.makeText(
-                                                    getApplicationContext(), info,
-                                                    false, 0).show();
+                                            NewDataToast.makeText(getApplicationContext(), info, false, 0).show();
                                             progress.CloseProgress();
-                                            // Message message3 = new Message();
-                                            // message3.what = 2;
-                                            // handler.sendMessage(message3);
                                         }
-
-                                        // status = jsonObject.getString("status");
-                                        // System.out.println("status: " + status);
-                                        // System.out.println("strUrlone: " +
-                                        // strUrlone);
-                                        //
-                                        // if (status.equals("1")) {
-                                        // rnd = jsonObject.getString("rnd");
-                                        // System.out.println(status + "\n" + rnd);
-                                        // md5.setInStr(password);
-                                        // md5.init();
-                                        // mm = md5.compute();
-                                        // mm = mm.toUpperCase();
-                                        // System.out.println("=================2=="
-                                        // +mm);
-                                        // String myrnd = rnd;
-                                        // md5.setInStr(mm + myrnd);
-                                        // md5.init();
-                                        // mi = md5.compute();
-                                        // System.out.println("=================3=="
-                                        // +mi);
-                                        // // handler.sendEmptyMessage(5);
-                                        // finish();
-                                        // } else {
-                                        // Message message3 = new Message();
-                                        // message3.what = 2;
-                                        // handler.sendMessage(message3);
-                                        // }
-
                                     } catch (Exception e) {
 
                                         e.printStackTrace();

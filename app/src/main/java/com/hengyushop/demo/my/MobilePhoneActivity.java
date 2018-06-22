@@ -187,8 +187,7 @@ public class MobilePhoneActivity extends BaseActivity implements
                     } else {
                         // phone = userphone.getText().toString().trim();
                         if (Validator.isMobile(phone)) {
-                            strUrl = RealmName.REALM_NAME_LL
-                                    + "/user_oauth_smscode?mobile=" + phone + "";
+                            strUrl = RealmName.REALM_NAME_LL + "/user_oauth_smscode?mobile=" + phone + "";
                             AsyncHttp.get(strUrl, new AsyncHttpResponseHandler() {
                                 @Override
                                 public void onSuccess(int arg0, String arg1) {
@@ -488,7 +487,6 @@ public class MobilePhoneActivity extends BaseActivity implements
                                                                     data.birthday = obj.getString("birthday");
                                                                     data.group_name = obj.getString("group_name");
                                                                     data.sex = obj.getString("sex");
-                                                                    String country = obj.getString(Constant.COUNTRY);
                                                                     String nickname = obj.getString(Constant.NICK_NAME);
                                                                     String province = obj.getString(Constant.PROVINCE);
                                                                     String city = obj.getString(Constant.CITY);
@@ -556,7 +554,6 @@ public class MobilePhoneActivity extends BaseActivity implements
                                                                     editor.putString("sex", data.sex);
                                                                     editor.putString("group_name", data.group_name);
                                                                     editor.putString(Constant.NICK_NAME, nickname);
-                                                                    editor.putString(Constant.COUNTRY, country);
                                                                     editor.putString(Constant.PROVINCE, province);
                                                                     editor.putString(Constant.CITY, city);
                                                                     editor.putString(Constant.AREA, area);

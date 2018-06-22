@@ -204,7 +204,7 @@ public class HttpProxy {
         String nickName = sp.getString(Constant.NICK_NAME, "");
         String avatarUrl = sp.getString(Constant.AVATAR, "");
         String sex = sp.getString(Constant.SEX, "");
-        String userCountry = sp.getString(Constant.COUNTRY, "");
+        String userCountry = sp.getString(Constant.COUNTRY, "中国");
         String userProvince = sp.getString(Constant.PROVINCE, "");
         String userCity = sp.getString(Constant.CITY, "");
         String userArea = sp.getString(Constant.AREA, "");

@@ -207,7 +207,6 @@ public class WareInformationActivity extends BaseActivity implements
         System.out.println("我的======11======1=======" + strUrlone);
         AsyncHttp.get(strUrlone, new AsyncHttpResponseHandler() {
             public void onSuccess(int arg0, String arg1) {
-                System.out.println("我的======输出=====1========" + arg1);
                 try {
                     JSONObject object = new JSONObject(arg1);
                     String status = object.getString("status");
