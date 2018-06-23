@@ -3,13 +3,16 @@ package com.zams.www.health;
 import java.util.ArrayList;
 import java.util.List;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.Window;
+import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -20,6 +23,7 @@ import android.widget.Toast;
 import com.alibaba.fastjson.JSON;
 import com.android.hengyu.web.Constant;
 import com.android.hengyu.web.RealmName;
+import com.bumptech.glide.Glide;
 import com.hengyushop.demo.at.AsyncHttp;
 import com.hengyushop.demo.at.BaseActivity;
 import com.lglottery.www.http.HttpUtils;
@@ -32,14 +36,15 @@ import com.zams.www.health.business.HospitalAssessAdapter;
 import com.zams.www.health.business.MedicalItems;
 import com.zams.www.health.business.MedicalListItems;
 import com.zams.www.health.model.HealthEvaluateBean;
-import com.zams.www.health.model.HealthOrder;
 import com.zams.www.health.response.HealthEvaluateResponse;
-import com.zams.www.health.response.HealthOrderResponse;
 import com.zams.www.weiget.NoticeView;
 import com.zams.www.weiget.SelectScrollView;
 
 public class HospitalHallActivity extends BaseActivity implements SelectScrollView.onSelectItemClick, View.OnClickListener, AdapterView.OnItemClickListener, NoticeView.OnNoticeListener, XListView.IXListViewListener {
     public static final String HELL_KEY = "HELL_KEY";
+    public static final String PIC_IMG = "pic_img";
+    public static final String NAME = "name";
+    public static final String CONTENT = "content";
     private TextView projectListTv;
     private TextView projectAssessTv;
     private ListView hallListLv;
@@ -61,6 +66,13 @@ public class HospitalHallActivity extends BaseActivity implements SelectScrollVi
     private ArrayList<Object> mRightDatas;
     private PullToRefreshView rightRefreshView;
     private String mUserId;
+    private LinearLayout rootLayout;
+    private ImageView hospitalImg;
+    private TextView hospitalNameTv;
+    private TextView hospitalContentTv;
+    private String mPicImg;
+    private String mName;
+    private String mContent;
 
 
     @Override
@@ -68,10 +80,7 @@ public class HospitalHallActivity extends BaseActivity implements SelectScrollVi
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hospital_hall);
-        Intent intent = getIntent();
-        if (intent != null) {
-            mCompanyId = intent.getIntExtra(HELL_KEY, 1);
-        }
+
         SharedPreferences sp = getSharedPreferences(Constant.LONGUSERSET, MODE_PRIVATE);
         mUserId = sp.getString(Constant.USER_ID, "");
         initView();
@@ -79,6 +88,26 @@ public class HospitalHallActivity extends BaseActivity implements SelectScrollVi
     }
 
     private void initView() {
+        Intent intent = getIntent();
+
+        if (intent != null) {
+            mCompanyId = intent.getIntExtra(HELL_KEY, 1);
+            mPicImg = intent.getStringExtra(PIC_IMG);
+            mName = intent.getStringExtra(NAME);
+            mContent = intent.getStringExtra(CONTENT);
+            hospitalImg = (ImageView) findViewById(R.id.pic);
+            hospitalNameTv = (TextView) findViewById(R.id.name);
+            hospitalContentTv = (TextView) findViewById(R.id.content);
+            Glide.with(this)
+                    .load(mPicImg)
+                    .placeholder(R.drawable.sj_fw)//图片加载出来前，显示的图片
+                    .error(R.drawable.sj_fw)//图片加载失败后，显示的图片
+                    .into(hospitalImg);
+            hospitalNameTv.setText(mName);
+            hospitalContentTv.setText(mContent);
+        }
+        rootLayout = (LinearLayout) findViewById(R.id.root_layout);
+
         //左边
         left_layout = (LinearLayout) findViewById(R.id.left_layout);
         scrollView = (SelectScrollView) findViewById(R.id.hall_title_sv);
@@ -259,5 +288,24 @@ public class HospitalHallActivity extends BaseActivity implements SelectScrollVi
         mRightPage++;
         Log.e(TAG, "onLoadMore: " + mRightPage);
         rightRequestData();
+    }
+
+    protected void setImmerseLayout(View view) {// view为标题栏
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+            Window window = getWindow();
+            window.addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+            int statusBarHeight = getStatusBarHeight(HospitalHallActivity.this);
+            view.setPadding(0, statusBarHeight, 0, 0);
+        }
+    }
+
+    public int getStatusBarHeight(Context context) {
+        int result = 0;
+        int resourceId = context.getResources().getIdentifier("status_bar_height", "dimen",
+                "android");
+        if (resourceId > 0) {
+            result = context.getResources().getDimensionPixelSize(resourceId);
+        }
+        return result;
     }
 }

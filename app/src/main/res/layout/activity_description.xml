@@ -83,15 +83,12 @@
                 android:textSize="14sp" />
         </LinearLayout>
 
-        <Button
-            android:id="@+id/hall_add_order"
-            android:layout_width="90dp"
-            android:layout_height="30dp"
-            android:layout_marginRight="@dimen/app_margin"
-            android:background="@drawable/orange_btn"
-            android:gravity="center"
-            android:text="加入订单"
-            android:textColor="@color/color_ff9250" />
+
+        <com.lglottery.www.widget.GoodsNumControlView
+            android:layout_width="135dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/app_margin"
+            android:layout_marginRight="@dimen/app_margin" />
 
     </LinearLayout>
 

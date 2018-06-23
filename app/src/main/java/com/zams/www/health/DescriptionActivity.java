@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -43,7 +44,6 @@ public class DescriptionActivity extends BaseActivity implements View.OnClickLis
     private TextView descriptionTitle;
     private TextView number;
     private TextView monoy;
-    private Button addCartBtn;
     private TextView descriptionTv;
     private int mDescriptionId;
     private int mCompanyId;
@@ -52,6 +52,7 @@ public class DescriptionActivity extends BaseActivity implements View.OnClickLis
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_description);
         Intent intent = getIntent();
         if (intent != null) {
@@ -70,12 +71,10 @@ public class DescriptionActivity extends BaseActivity implements View.OnClickLis
         descriptionTitle = (TextView) findViewById(R.id.hall_describe_title);
         number = (TextView) findViewById(R.id.hall_describe_number);
         monoy = (TextView) findViewById(R.id.hall_describe_money);
-        addCartBtn = (Button) findViewById(R.id.hall_add_order);
         descriptionTv = (TextView) findViewById(R.id.hall_description_tv);
 
         SharedPreferences sp = getSharedPreferences(Constant.LONGUSERSET, MODE_PRIVATE);
         mUserId = sp.getString(Constant.USER_ID, "");
-        addCartBtn.setOnClickListener(this);
         backImg.setOnClickListener(this);
     }
 
@@ -117,9 +116,7 @@ public class DescriptionActivity extends BaseActivity implements View.OnClickLis
             case R.id.iv_back:
                 finish();
                 break;
-            case R.id.hall_add_order:
-                addCar();
-                break;
+
         }
     }
 

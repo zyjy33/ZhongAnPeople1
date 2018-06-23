@@ -11,5 +11,6 @@
     <color name="theme_color">#de6838</color>
     <color name="sign_frame">#52ffffff</color>
     <color name="btn_frame">#595959</color>
+    <color name="color_33ccff">#33ccff</color>
 
 </resources>

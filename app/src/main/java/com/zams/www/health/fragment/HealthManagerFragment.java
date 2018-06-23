@@ -83,6 +83,9 @@ public class HealthManagerFragment extends BaseFragment implements AdapterView.O
         int id = data.getCompany_id();
         Intent intent = new Intent(getActivity(), HospitalHallActivity.class);
         intent.putExtra(HospitalHallActivity.HELL_KEY, id);
+        intent.putExtra(HospitalHallActivity.PIC_IMG, data.getImg_url());
+        intent.putExtra(HospitalHallActivity.NAME, data.getCompany_name());
+        intent.putExtra(HospitalHallActivity.CONTENT, "已有" + data.getCount() + "位客户购买了体检项项目");
         startActivity(intent);
     }
 }
