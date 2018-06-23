@@ -447,7 +447,6 @@ public class IndividualCenterActivity extends Fragment implements
 
                 setinten();
                 //				handler.sendEmptyMessage(-11);
-                iv_buju.setVisibility(View.GONE);
                 ll_saoyisao_qd.setVisibility(View.GONE);
 
                 // 清空SharedPreferences保存数据
@@ -683,10 +682,8 @@ public class IndividualCenterActivity extends Fragment implements
                                             }
                                             System.out.println("group_name=======企业职员========" + data.group_name);
                                             if (data.group_name.contains("企业职员")) {
-                                                iv_buju.setVisibility(View.VISIBLE);
                                                 ll_saoyisao_qd.setVisibility(View.VISIBLE);
                                             } else {
-                                                iv_buju_dzc.setVisibility(View.VISIBLE);
                                                 img_btn_daizhuce.setVisibility(View.VISIBLE);
                                             }
 

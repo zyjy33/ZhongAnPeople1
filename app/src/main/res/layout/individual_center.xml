@@ -815,9 +815,9 @@
             <View
                 android:id="@+id/iv_buju"
                 android:layout_width="match_parent"
-                android:layout_height="1dp"
+                android:layout_height="0.5dp"
                 android:background="@color/list_item_line"
-                android:visibility="gone" />
+            />
             <!--取货验证-->
             <LinearLayout
                 android:id="@+id/ll_quhuo"
@@ -980,9 +980,9 @@
             <View
                 android:id="@+id/iv_buju_dzc"
                 android:layout_width="match_parent"
-                android:layout_height="1dp"
+                android:layout_height="0.5dp"
                 android:background="@color/list_item_line"
-                android:visibility="gone" />
+              />
             <!--账户管理-->
             <LinearLayout
                 android:id="@+id/img_btn_address"
