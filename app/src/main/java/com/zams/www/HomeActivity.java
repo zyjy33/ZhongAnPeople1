@@ -72,6 +72,7 @@ import com.tencent.mm.sdk.openapi.IWXAPI;
 import com.yanzhenjie.permission.Action;
 import com.yanzhenjie.permission.AndPermission;
 import com.yanzhenjie.permission.Permission;
+import com.zams.www.home.SignInActivity;
 import com.zams.www.notice.SystemNoticeActivity;
 import com.zams.www.utils.UiUtils;
 import com.zams.www.weiget.PermissionSetting;
@@ -1397,12 +1398,12 @@ public class HomeActivity extends Fragment implements OnClickListener {
                     intent6.putExtra("channel_name", "feedback");
                     startActivity(intent6);
                     break;
-                case 7:
+                case 7: // TODO: 2018/6/22 zyjy
                     System.out.println("8=============");
                     if (!nickname.equals("")) {
                         if (!user_name.equals("")) {
                             Intent intent48 = new Intent(getActivity(),
-                                    JuDuiHuanActivity.class);
+                                    SignInActivity.class);
                             startActivity(intent48);
                         } else {
                             Intent intent2 = new Intent(getActivity(),
@@ -1416,7 +1417,7 @@ public class HomeActivity extends Fragment implements OnClickListener {
                             startActivity(intentll);
                         } else {
                             Intent intent48 = new Intent(getActivity(),
-                                    JuDuiHuanActivity.class);
+                                    SignInActivity.class);
                             startActivity(intent48);
 
                         }

@@ -3,12 +3,14 @@ package com.zams.www.health.request;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.alibaba.fastjson.JSON;
 import com.android.hengyu.web.Constant;
 import com.android.hengyu.web.Location;
 import com.android.hengyu.web.RealmName;
 import com.hengyushop.demo.at.AsyncHttp;
+import com.hengyushop.demo.home.JuDuiHuanActivity;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
 import com.zams.www.health.model.AddHealthOrderBean;
@@ -20,6 +22,9 @@ import com.zams.www.health.response.NoticeTokenResponse;
 import com.zams.www.health.response.OneNticeListResponse;
 import com.zams.www.health.response.SysNoticeTypeResponse;
 import com.zams.www.http.BaseResponse;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.HashMap;
 import java.util.List;
@@ -251,5 +256,150 @@ public class HttpProxy {
         }, Location.getInstance());
 
     }
+
+    /**
+     * 检测用户是否已经签到
+     */
+    public static void checkIsSignIn(final HttpCallBack<Boolean> callBack) {
+        SharedPreferences spPreferences = Location.getInstance().getSharedPreferences("longuserset", Context.MODE_PRIVATE);
+        String user_id = spPreferences.getString("user_id", "");
+        String user_name = spPreferences.getString("user", "");
+        String login_sign = spPreferences.getString("login_sign", "");
+        String strUrlone = RealmName.REALM_NAME_LL + "/comment_sign_exist?user_id=" + user_id + "&user_name=" + user_name + "&login_sign=" + login_sign + "";
+        AsyncHttp.get(strUrlone, new AsyncHttpResponseHandler() {
+            public void onSuccess(int arg0, String arg1) {
+                try {
+                    JSONObject object = new JSONObject(arg1);
+                    String status = object.getString("status");
+                    if (status.equals("y")) {
+                        callBack.onSuccess(false);
+                    } else {
+                        callBack.onSuccess(true);
+                    }
+                } catch (JSONException e) {
+                    callBack.onSuccess(false);
+                    e.printStackTrace();
+                }
+            }
+
+            @Override
+            public void onFailure(Throwable arg0, String arg1) {
+                super.onFailure(arg0, arg1);
+                callBack.onSuccess(false);
+            }
+        }, Location.getInstance());
+    }
+
+    /**
+     * 签到
+     *
+     * @param callBack
+     */
+    public static void userSignIn(final HttpCallBack<Integer> callBack) {
+        SharedPreferences spPreferences = Location.getInstance().getSharedPreferences("longuserset", Context.MODE_PRIVATE);
+        String user_id = spPreferences.getString("user_id", "");
+        String user_name = spPreferences.getString("user", "");
+        String login_sign = spPreferences.getString("login_sign", "");
+        String strUrlone = RealmName.REALM_NAME_LL + "/comment_sign_in?user_id=" + user_id + "&user_name=" + user_name + "&login_sign=" + login_sign + "";
+        AsyncHttp.get(strUrlone, new AsyncHttpResponseHandler() {
+            public void onSuccess(int arg0, String arg1) {
+                try {
+                    JSONObject object = new JSONObject(arg1);
+                    String status = object.getString("status");
+                    if ("y".equals(status)) {
+                        JSONObject obj = object.getJSONObject("data");
+                        Integer scoreCount = obj.getInt("score_count");
+                        callBack.onSuccess(scoreCount);
+                    } else {
+                        callBack.onSuccess(-1);
+                    }
+                } catch (JSONException e) {
+                    callBack.onSuccess(-1);
+                    e.printStackTrace();
+                }
+            }
+
+            @Override
+            public void onFailure(Throwable arg0, String arg1) {
+                callBack.onSuccess(-1);
+                super.onFailure(arg0, arg1);
+            }
+        }, Location.getInstance());
+    }
+
+    /**
+     * 获取连续签到天数
+     *
+     * @param callBack
+     */
+    public static void userCommentSignIn(final HttpCallBack<Integer> callBack) {
+        SharedPreferences spPreferences = Location.getInstance().getSharedPreferences("longuserset", Context.MODE_PRIVATE);
+        String user_id = spPreferences.getString("user_id", "");
+        String user_name = spPreferences.getString("user", "");
+        String login_sign = spPreferences.getString("login_sign", "");
+        String strUrlone = RealmName.REALM_NAME_LL + "/comment_sign_in_list?user_id=" + user_id + "&user_name=" + user_name + "&login_sign=" + login_sign + "";
+        AsyncHttp.get(strUrlone, new AsyncHttpResponseHandler() {
+            public void onSuccess(int arg0, String arg1) {
+                try {
+                    JSONObject object = new JSONObject(arg1);
+                    String status = object.getString("status");
+                    if ("y".equals(status)) {
+                        JSONObject obj = object.getJSONObject("data");
+                        Integer scoreCount = obj.getInt("signin_prov");
+                        callBack.onSuccess(scoreCount);
+                    } else {
+                        callBack.onSuccess(0);
+                    }
+                } catch (JSONException e) {
+                    callBack.onSuccess(0);
+                    e.printStackTrace();
+                }
+            }
+
+            @Override
+            public void onFailure(Throwable arg0, String arg1) {
+                callBack.onSuccess(0);
+                super.onFailure(arg0, arg1);
+            }
+        }, Location.getInstance());
+    }
+
+    /**
+     * 获取福利值
+     *
+     * @param callBack
+     */
+    public static void userWelfareValue(final HttpCallBack<Integer> callBack) {
+        SharedPreferences spPreferences = Location.getInstance().getSharedPreferences("longuserset", Context.MODE_PRIVATE);
+        String user_name = spPreferences.getString("user", "");
+        String strUrlone = RealmName.REALM_NAME_LL + "/get_user_model?username=" + user_name;
+        AsyncHttp.get(strUrlone, new AsyncHttpResponseHandler() {
+            @Override
+            public void onSuccess(int i, String s) {
+                super.onSuccess(i, s);
+                try {
+                    JSONObject object = new JSONObject(s);
+                    String status = object.getString("status");
+                    if ("y".equals(status)) {
+                        JSONObject obj = object.getJSONObject("data");
+                        Integer point = obj.getInt("point");
+                        callBack.onSuccess(point);
+                    } else {
+                        callBack.onSuccess(0);
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                    callBack.onSuccess(0);
+                }
+            }
+
+            @Override
+            public void onFailure(Throwable throwable, String s) {
+                super.onFailure(throwable, s);
+                callBack.onSuccess(0);
+            }
+        }, Location.getInstance());
+    }
+
 
 }

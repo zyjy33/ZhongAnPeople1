@@ -9,5 +9,7 @@
     <color name="content_color">#888888</color>
     <color name="color_888888">#888888</color>
     <color name="theme_color">#de6838</color>
+    <color name="sign_frame">#52ffffff</color>
+    <color name="btn_frame">#595959</color>
 
 </resources>

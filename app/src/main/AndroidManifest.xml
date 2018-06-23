@@ -987,6 +987,9 @@
         <activity
             android:name=".phone.PhoneServiceActivity"
             android:screenOrientation="portrait" />
+        <activity
+            android:name=".home.SignInActivity"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

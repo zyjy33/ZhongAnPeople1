@@ -7,6 +7,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -32,6 +33,8 @@ public class PhoneServiceActivity extends BaseActivity implements View.OnClickLi
     public static final String CONTENT = "content";
     public static final String INM_RES_ID = "img_res_id";
     public static final String PHONE_NUM = "phone_number";
+    public static final String PHONE_NUM_2 = "phone_number_2";
+
     private View backImg;
     private TextView centerTitle;
     private TextView phoneServiceTitle;
@@ -42,10 +45,12 @@ public class PhoneServiceActivity extends BaseActivity implements View.OnClickLi
     private String mContent;
     private int mImgResId;
     private String mPhoneNumber;
+    private String mPhoneNumber2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_phone_service);
         initView();
         initData();
@@ -68,6 +73,7 @@ public class PhoneServiceActivity extends BaseActivity implements View.OnClickLi
         mContent = intent.getStringExtra(CONTENT);
         mImgResId = intent.getIntExtra(INM_RES_ID, 1);
         mPhoneNumber = intent.getStringExtra(PHONE_NUM);
+        mPhoneNumber2 = intent.getStringExtra(PHONE_NUM_2);
         if (mImgResId != 1) {
             phoneServiceImg.setImageResource(mImgResId);
         }
@@ -90,6 +96,10 @@ public class PhoneServiceActivity extends BaseActivity implements View.OnClickLi
                 } else {
                     Intent intent = new Intent(this, PlatformhotlineActivity.class);
                     intent.putExtra(PlatformhotlineActivity.PHONE_ONE, mPhoneNumber);
+                    if (mPhoneNumber2 == null) {
+                        mPhoneNumber2 = "";
+                    }
+                    intent.putExtra(PlatformhotlineActivity.PHONE_TWO, mPhoneNumber2);
                     startActivity(intent);
                 }
                 break;

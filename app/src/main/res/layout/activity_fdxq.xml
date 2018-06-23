@@ -100,7 +100,7 @@
                             <com.lglottery.www.widget.MyPosterView
                                 android:id="@+id/market_information_images"
                                 android:layout_width="match_parent"
-                                android:layout_height="match_parent"></com.lglottery.www.widget.MyPosterView>
+                                android:layout_height="match_parent"/>
 
                             <ImageView
                                 android:id="@+id/ling_tip"

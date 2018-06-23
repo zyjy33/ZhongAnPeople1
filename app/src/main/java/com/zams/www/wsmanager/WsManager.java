@@ -247,8 +247,10 @@ public class WsManager {
     }
 
     public void disconnect() {
-        if (ws != null)
+        if (ws != null) {
             ws.disconnect();
+        }
+        ws = null;
     }
 
     private Handler mHandler = new Handler();
