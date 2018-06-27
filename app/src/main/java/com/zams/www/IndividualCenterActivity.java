@@ -194,7 +194,20 @@ public class IndividualCenterActivity extends Fragment implements
             System.out.println("nickname=================" + nickname);
             if (!TextUtils.isEmpty(nickname)) {
                 getjianche();// 后台检测是否绑定手机
-                WsManager.getInstance().init();
+                AndPermission.with(getActivity())
+                        .permission(Permission.READ_PHONE_STATE)
+                        .onGranted(new Action() {
+                            @Override
+                            public void onAction(List<String> permissions) {
+                                WsManager.getInstance().init();
+                            }
+                        })
+                        .onDenied(new Action() {
+                            @Override
+                            public void onAction(List<String> permissions) {
+                                new PermissionSetting(getActivity()).showSetting(permissions);
+                            }
+                        }).start();
             } else {
                 getuserxinxi();
             }

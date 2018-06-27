@@ -22,6 +22,7 @@ import com.zams.www.health.response.NoticeTokenResponse;
 import com.zams.www.health.response.OneNticeListResponse;
 import com.zams.www.health.response.SysNoticeTypeResponse;
 import com.zams.www.http.BaseResponse;
+import com.zams.www.utils.UiUtils;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -170,10 +171,9 @@ public class HttpProxy {
         RequestParams params = new RequestParams();
         params.put("app_id", appId);
         params.put("app_secret", appSecret);
-        params.put("code_id", "111152699");
-        params.put("union_id", unionId);
-        params.put("open_id", "");
+        params.put("user_code", userCode);
         params.put("device_type", "3");
+        params.put("device_code", UiUtils.getDeviceId(Location.getInstance()));
         String url = "https://ju918.com/tools/client_ajax.asmx/get_token";
         AsyncHttp.post(url, params, new AsyncHttpResponseHandler() {
             @Override

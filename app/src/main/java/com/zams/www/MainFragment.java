@@ -128,18 +128,20 @@ public class MainFragment extends BaseActivity {
                 }
             }
         };
-        WsManager.getInstance().init();
-
-        //来电监听，获取系统服务“TELEPHONY_SERVICE
-        /*TelephonyManager telM = (TelephonyManager)getSystemService(Context.TELEPHONY_SERVICE);
-        telM.listen(new TelListener(this), PhoneStateListener.LISTEN_CALL_STATE);*/
-        {
-            //启动广告
-            //			Intent intent = new Intent(this,S.class);
-            //			intent.putExtra("start", 0);
-            //			startService(intent);
-
-        }
+        AndPermission.with(this)
+                .permission(Permission.READ_PHONE_STATE)
+                .onGranted(new Action() {
+                    @Override
+                    public void onAction(List<String> permissions) {
+                        WsManager.getInstance().init();
+                    }
+                })
+                .onDenied(new Action() {
+                    @Override
+                    public void onAction(List<String> permissions) {
+                        new PermissionSetting(MainFragment.this).showSetting(permissions);
+                    }
+                }).start();
 
 
         popupWindowMenu = new MyPopupWindowMenu(MainFragment.this);

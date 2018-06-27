@@ -88,7 +88,7 @@ public class WsManager {
     }
 
     public void init() {
-        if (ws == null && AccountUtils.hasBoundPhone()) {
+        if (ws == null) {
             try {
                 /**
                  * configUrl其实是缓存在本地的连接地址
@@ -135,7 +135,6 @@ public class WsManager {
                         @Override
                         public void onSuccess(NoticeTokeBean responseData) {
                             sNoticeToken = responseData.getDevice_token();
-                            Log.e(TAG, "onSuccess: sNoticeToken=" + sNoticeToken);
                             HttpProxy.postUpUserInfo(sSessionId, sNoticeToken, new HttpCallBack<Boolean>() {
                                 @Override
                                 public void onSuccess(Boolean responseData) {
