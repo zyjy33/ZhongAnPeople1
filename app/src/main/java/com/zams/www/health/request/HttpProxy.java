@@ -88,7 +88,7 @@ public class HttpProxy {
         AsyncHttp.post(url, params, new AsyncHttpResponseHandler() {
             @Override
             public void onSuccess(int i, String s) {
-                Log.e("zyjy", "onSuccess: " + s);
+                Log.e(TAG, "onSuccess: " + s);
                 AddHealthOrderResponse healthOrderResponse = JSON.parseObject(s, AddHealthOrderResponse.class);
                 if (healthOrderResponse != null && Constant.YES.equals(healthOrderResponse.getStatus())) {
                     AddHealthOrderBean data = healthOrderResponse.getData();
@@ -97,6 +97,8 @@ public class HttpProxy {
                     } else {
                         httpCallBack.onError(null, "数据为空");
                     }
+                } else {
+                    httpCallBack.onError(null, "体检项目为空");
                 }
             }
 

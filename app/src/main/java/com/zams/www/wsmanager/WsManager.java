@@ -104,7 +104,7 @@ public class WsManager {
 //                        .setAutoFlush(true)//自动刷新
                         .connectAsynchronously();//异步连接
                 setStatus(WsStatus.CONNECTING);
-                Log.e(TAG, "init: 第一次连接");
+//                Log.e(TAG, "init: 第一次连接");
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -163,7 +163,6 @@ public class WsManager {
                     if (sNoticeId < 0) {
                         sNoticeId = 0;
                     }
-                    Log.e(TAG, "onTextMessage: " + content);
 
                     SharedPreferences.Editor edit = mSp.edit();
                     edit.putBoolean(Constant.SHOW_RED_POINT, true);

@@ -24,7 +24,7 @@ public class GoodsNumControlView extends RelativeLayout implements View.OnClickL
     private EditText goodsCountEdt;
     private View leftView;
     private View rightView;
-
+    private NumberChangeCallBack mCallBack;
 
     public GoodsNumControlView(Context context) {
         super(context);
@@ -52,6 +52,14 @@ public class GoodsNumControlView extends RelativeLayout implements View.OnClickL
         rightView.setOnClickListener(this);
 
 
+    }
+
+    public NumberChangeCallBack getCallBack() {
+        return mCallBack;
+    }
+
+    public void setCallBack(NumberChangeCallBack mCallBack) {
+        this.mCallBack = mCallBack;
     }
 
     private static final String TAG = "GoodsNumControlView";
@@ -84,6 +92,18 @@ public class GoodsNumControlView extends RelativeLayout implements View.OnClickL
                     }
                 }
                 break;
+        }
+        if (mCallBack != null) {
+            mCallBack.callback(goodsCountEdt.getText().toString());
+        }
+    }
+
+    public int getGoodsNumber() {
+        String num = goodsCountEdt.getText().toString();
+        if (!TextUtils.isEmpty(num)) {
+            return Integer.parseInt(num);
+        } else {
+            return 0;
         }
     }
 
@@ -124,4 +144,16 @@ public class GoodsNumControlView extends RelativeLayout implements View.OnClickL
         valueAnimator.start();
     }
 
+    public void setNumber(int goodsCount) {
+        if (goodsCountEdt != null) {
+            if (goodsCount == 0) {
+                startReduceAnimator();
+            }
+            goodsCountEdt.setText(String.valueOf(goodsCount));
+        }
+    }
+
+    public interface NumberChangeCallBack {
+        public void callback(String StrNum);
+    }
 }

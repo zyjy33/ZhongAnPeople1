@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.android.hengyu.web.RealmName;
 import com.bumptech.glide.Glide;
+import com.lglottery.www.widget.GoodsNumControlView;
 import com.loopj.android.http.RequestParams;
 import com.zams.www.R;
 import com.zams.www.health.DescriptionActivity;
@@ -13,6 +14,7 @@ import com.zams.www.health.request.HttpProxy;
 import com.zams.www.weiget.YSBaseAdapter;
 
 import android.content.Context;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
@@ -42,7 +44,8 @@ public class HallListAdapter extends YSBaseAdapter<MedicalItems> {
         hallImg = holder.findViewById(R.id.hall_item_img);
         hallTitleTv = holder.findViewById(R.id.hall_title_tv);
         hallMoneyTv = holder.findViewById(R.id.hall_money_tv);
-        shopIv = holder.findViewById(R.id.shop_iv);
+//        shopIv = holder.findViewById(R.id.shop_iv);
+        GoodsNumControlView goodsNumControlView = (GoodsNumControlView) holder.findViewById(R.id.hall_goods_num_control);
         hallTitleTv.setText(data.getMedical_name());
         hallMoneyTv.setText(data.getMedical_price() + "元或" + data.getPoints()
                 + "积分");
@@ -51,12 +54,16 @@ public class HallListAdapter extends YSBaseAdapter<MedicalItems> {
                 .placeholder(R.drawable.sj_fw)//图片加载出来前，显示的图片
                 .error(R.drawable.sj_fw)//图片加载失败后，显示的图片
                 .into(hallImg);
-        shopIv.setOnClickListener(new View.OnClickListener() {
+        goodsNumControlView.setNumber(data.getGoodsCount());
+        goodsNumControlView.setCallBack(new GoodsNumControlView.NumberChangeCallBack() {
             @Override
-            public void onClick(View v) {
-                addCar(data.getId());
+            public void callback(String StrNum) {
+                if (!TextUtils.isEmpty(StrNum)) {
+                    data.setGoodsCount(Integer.parseInt(StrNum));
+                }
             }
         });
+
 
     }
 

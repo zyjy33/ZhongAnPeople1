@@ -14,6 +14,7 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
@@ -30,15 +31,21 @@ import com.lglottery.www.http.HttpUtils;
 import com.lglottery.www.widget.PullToRefreshView;
 import com.lglottery.www.widget.XListView;
 import com.loopj.android.http.AsyncHttpResponseHandler;
+import com.loopj.android.http.RequestParams;
 import com.zams.www.R;
 import com.zams.www.health.business.HallListAdapter;
 import com.zams.www.health.business.HospitalAssessAdapter;
 import com.zams.www.health.business.MedicalItems;
 import com.zams.www.health.business.MedicalListItems;
+import com.zams.www.health.model.AddHealthOrderBean;
 import com.zams.www.health.model.HealthEvaluateBean;
+import com.zams.www.health.request.HttpCallBack;
+import com.zams.www.health.request.HttpProxy;
 import com.zams.www.health.response.HealthEvaluateResponse;
 import com.zams.www.weiget.NoticeView;
 import com.zams.www.weiget.SelectScrollView;
+
+import org.jsoup.Connection;
 
 public class HospitalHallActivity extends BaseActivity implements SelectScrollView.onSelectItemClick, View.OnClickListener, AdapterView.OnItemClickListener, NoticeView.OnNoticeListener, XListView.IXListViewListener {
     public static final String HELL_KEY = "HELL_KEY";
@@ -73,6 +80,8 @@ public class HospitalHallActivity extends BaseActivity implements SelectScrollVi
     private String mPicImg;
     private String mName;
     private String mContent;
+    private Button addShopBtn;
+    private int mCurrentTypeId;
 
 
     @Override
@@ -84,7 +93,8 @@ public class HospitalHallActivity extends BaseActivity implements SelectScrollVi
         SharedPreferences sp = getSharedPreferences(Constant.LONGUSERSET, MODE_PRIVATE);
         mUserId = sp.getString(Constant.USER_ID, "");
         initView();
-        requestData(1);
+        mCurrentTypeId = 1;
+        requestData(mCurrentTypeId);
     }
 
     private void initView() {
@@ -108,6 +118,8 @@ public class HospitalHallActivity extends BaseActivity implements SelectScrollVi
         }
         rootLayout = (LinearLayout) findViewById(R.id.root_layout);
 
+        addShopBtn = (Button) findViewById(R.id.add_shop_btn);
+
         //左边
         left_layout = (LinearLayout) findViewById(R.id.left_layout);
         scrollView = (SelectScrollView) findViewById(R.id.hall_title_sv);
@@ -130,6 +142,7 @@ public class HospitalHallActivity extends BaseActivity implements SelectScrollVi
                 HttpUtils.dip2px(this, 50f), HttpUtils.dip2px(this, 1f));
         projectListTv.setCompoundDrawables(null, null, null, mSelectDrawable);
 
+
         mMedicalItems = new ArrayList<MedicalItems>();
         mHallListAdapter = new HallListAdapter(this, mUserId, String.valueOf(mCompanyId), mMedicalItems,
                 R.layout.hall_list_item);
@@ -147,6 +160,7 @@ public class HospitalHallActivity extends BaseActivity implements SelectScrollVi
         hallListLv.setOnItemClickListener(this);
         noticeView.setOnNoticeListener(this);
         rightListView.setOnItemClickListener(this);
+        addShopBtn.setOnClickListener(this);
         SharedPreferences sp = this.getSharedPreferences("longuserset", MODE_PRIVATE);
         String id = sp.getString("user_id", "");
 
@@ -213,6 +227,7 @@ public class HospitalHallActivity extends BaseActivity implements SelectScrollVi
 
     @Override
     public void onItemClick(int typeId) {
+        mCurrentTypeId = typeId;
         requestData(typeId);
     }
 
@@ -246,6 +261,9 @@ public class HospitalHallActivity extends BaseActivity implements SelectScrollVi
                 break;
             case R.id.iv_back:
                 finish();
+                break;
+            case R.id.add_shop_btn:
+                addCar();
                 break;
         }
     }
@@ -289,6 +307,41 @@ public class HospitalHallActivity extends BaseActivity implements SelectScrollVi
         Log.e(TAG, "onLoadMore: " + mRightPage);
         rightRequestData();
     }
+
+    private void addCar() {
+        int size = mMedicalItems.size();
+        String tjitemStr = "";
+        int jineCount = 0;
+        for (int i = 0; i < size; i++) {
+            MedicalItems items = mMedicalItems.get(i);
+            if (items.getGoodsCount() > 0) {
+                tjitemStr += (items.getId() + "_" + items.getGoodsCount()) + ",";
+                jineCount++;
+            }
+        }
+        String url = RealmName.REALM_NAME + "/tools/mobile_ajax.asmx/submit_medical_orderdetails";
+        RequestParams params = new RequestParams();
+//        params.put("tjitem", id + "_1");
+//        params.put("jine", "1");
+        params.put("tjitem", tjitemStr);
+        params.put("jine", String.valueOf(jineCount));
+        params.put("payment_id", "5");
+        params.put("user_id", mUserId);
+        params.put("company_id", "" + mCompanyId);
+        HttpProxy.addCarRequest(this, url, params, new HttpCallBack<AddHealthOrderBean>() {
+            @Override
+            public void onSuccess(AddHealthOrderBean responseData) {
+                Toast.makeText(HospitalHallActivity.this, "已成功添加到订单中", Toast.LENGTH_SHORT).show();
+                requestData(mCurrentTypeId);
+            }
+
+            @Override
+            public void onError(Connection.Request request, String e) {
+                Toast.makeText(HospitalHallActivity.this, "添加失败", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
 
     protected void setImmerseLayout(View view) {// view为标题栏
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {

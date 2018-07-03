@@ -20,6 +20,7 @@ import com.guanggao.G;
 import com.hengyushop.demo.at.AsyncHttp;
 import com.hengyushop.demo.at.BaseActivity;
 import com.hengyushop.entity.OrderBean;
+import com.lglottery.www.widget.GoodsNumControlView;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
 import com.zams.www.BaseFragment;
@@ -48,6 +49,8 @@ public class DescriptionActivity extends BaseActivity implements View.OnClickLis
     private int mDescriptionId;
     private int mCompanyId;
     private String mUserId;
+    private Button addShopBtn;
+    private GoodsNumControlView goodsNumControl;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,10 +75,13 @@ public class DescriptionActivity extends BaseActivity implements View.OnClickLis
         number = (TextView) findViewById(R.id.hall_describe_number);
         monoy = (TextView) findViewById(R.id.hall_describe_money);
         descriptionTv = (TextView) findViewById(R.id.hall_description_tv);
+        addShopBtn = (Button) findViewById(R.id.add_shop_btn);
+        goodsNumControl = (GoodsNumControlView) findViewById(R.id.goods_num_control);
 
         SharedPreferences sp = getSharedPreferences(Constant.LONGUSERSET, MODE_PRIVATE);
         mUserId = sp.getString(Constant.USER_ID, "");
         backImg.setOnClickListener(this);
+        addShopBtn.setOnClickListener(this);
     }
 
     private void requestNet() {
@@ -116,14 +122,16 @@ public class DescriptionActivity extends BaseActivity implements View.OnClickLis
             case R.id.iv_back:
                 finish();
                 break;
-
+            case R.id.add_shop_btn:
+                addCar();
+                break;
         }
     }
 
     private void addCar() {
         String url = RealmName.REALM_NAME + "/tools/mobile_ajax.asmx/submit_medical_orderdetails";
         RequestParams params = new RequestParams();
-        params.put("tjitem", mDescriptionId + "_1");
+        params.put("tjitem", mDescriptionId + "_" + goodsNumControl.getGoodsNumber());
         params.put("jine", "1");
         params.put("payment_id", "5");
         params.put("user_id", mUserId);
